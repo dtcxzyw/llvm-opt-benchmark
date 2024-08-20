@@ -622,7 +622,7 @@ $_ZN3fmt2v96detail10basic_dataIvE14power_of_10_64E = comdat any
 @_ZN3fmt2v96detail13utf8_to_utf16C1ENS0_17basic_string_viewIcEE = dso_local unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN3fmt2v96detail13utf8_to_utf16C2ENS0_17basic_string_viewIcEE
 @_ZN3fmt2v96detail10locale_refC1ISt6localeEERKT_ = weak_odr dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3fmt2v96detail10locale_refC2ISt6localeEERKT_
 
-; Function Attrs: mustprogress nofree noreturn nounwind uwtable
+; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
 define dso_local void @_ZN3fmt2v96detail11assert_failEPKciS3_(ptr noundef %file, i32 noundef %line, ptr noundef %message) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
@@ -37351,7 +37351,7 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i128 @llvm.ctlz.i128(i128, i1 immarg) #21
 
-attributes #0 = { mustprogress nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold mustprogress nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

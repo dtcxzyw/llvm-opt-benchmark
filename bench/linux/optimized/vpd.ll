@@ -158,10 +158,10 @@ define dso_local void @pci_vpd_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 1968
-  %7 = tail call zeroext i8 @pci_find_capability(ptr noundef %0, i32 noundef 3) #11
+  %7 = tail call zeroext i8 @pci_find_capability(ptr noundef %0, i32 noundef 3) #12
   %8 = getelementptr inbounds i8, ptr %0, i64 2004
   store i8 %7, ptr %8, align 4
-  tail call void @__mutex_init(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @pci_vpd_init.__key) #11
+  tail call void @__mutex_init(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @pci_vpd_init.__key) #12
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -200,7 +200,7 @@ define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0
   %5 = getelementptr inbounds i8, ptr %0, i64 2000
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3264) #12
+  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3264) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %35, label %10
 
@@ -217,13 +217,13 @@ define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 248
-  %21 = tail call ptr @pci_get_slot(ptr noundef %17, i32 noundef %20) #11
+  %21 = tail call ptr @pci_get_slot(ptr noundef %17, i32 noundef %20) #12
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %15
   %24 = tail call fastcc i64 @pci_vpd_read(ptr noundef nonnull %21, i64 noundef 0, i64 noundef %7, ptr noundef nonnull %8, i1 noundef zeroext true)
-  tail call void @pci_dev_put(ptr noundef nonnull %21) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %21) #12
   br label %27
 
 25:                                               ; preds = %10
@@ -237,7 +237,7 @@ define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %27
-  tail call void @kfree(ptr noundef nonnull %8) #11
+  tail call void @kfree(ptr noundef nonnull %8) #12
   br label %35
 
 32:                                               ; preds = %27
@@ -272,7 +272,7 @@ define internal fastcc noundef zeroext i1 @pci_vpd_available(ptr noundef %0, i1 
   br i1 %11, label %12, label %98
 
 12:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
   %13 = getelementptr inbounds i8, ptr %0, i64 1694
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -291,13 +291,13 @@ define internal fastcc noundef zeroext i1 @pci_vpd_available(ptr noundef %0, i1 
   %23 = load ptr, ptr %14, align 8
   %24 = load i32, ptr %15, align 8
   %25 = and i32 %24, 248
-  %26 = tail call ptr @pci_get_slot(ptr noundef %23, i32 noundef %25) #11
+  %26 = tail call ptr @pci_get_slot(ptr noundef %23, i32 noundef %25) #12
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %22
   %29 = call fastcc i64 @pci_vpd_read(ptr noundef nonnull %26, i64 noundef %18, i64 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false)
-  tail call void @pci_dev_put(ptr noundef nonnull %26) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %26) #12
   br label %32
 
 30:                                               ; preds = %17
@@ -337,13 +337,13 @@ thread-pre-split:                                 ; preds = %35
   %49 = load ptr, ptr %14, align 8
   %50 = load i32, ptr %15, align 8
   %51 = and i32 %50, 248
-  %52 = tail call ptr @pci_get_slot(ptr noundef %49, i32 noundef %51) #11
+  %52 = tail call ptr @pci_get_slot(ptr noundef %49, i32 noundef %51) #12
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread3, label %54
 
 54:                                               ; preds = %48
   %55 = call fastcc i64 @pci_vpd_read(ptr noundef nonnull %52, i64 noundef %44, i64 noundef 2, ptr noundef %16, i1 noundef zeroext false)
-  tail call void @pci_dev_put(ptr noundef nonnull %52) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %52) #12
   br label %58
 
 56:                                               ; preds = %43
@@ -357,7 +357,7 @@ thread-pre-split:                                 ; preds = %35
 
 .thread3:                                         ; preds = %48, %58
   %61 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %61, ptr noundef nonnull @.str.3, i64 noundef %44) #13
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %61, ptr noundef nonnull @.str.3, i64 noundef %44) #14
   %62 = select i1 %36, i64 4294967295, i64 %18
   br label %.thread
 
@@ -416,12 +416,12 @@ split:                                            ; preds = %73
   %.lcssa919 = phi i64 [ 4294967295, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
   %.lcssa1217 = phi i64 [ %.lcssa1218, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
   %93 = phi ptr [ @.str.5, %85 ], [ @.str.6, %split ], [ @.str.6, %._crit_edge ]
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %91, ptr noundef nonnull @.str.4, i32 noundef %90, i64 noundef %92, i64 noundef %.lcssa1217, ptr noundef nonnull %93) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %91, ptr noundef nonnull @.str.4, i32 noundef %90, i64 noundef %92, i64 noundef %.lcssa1217, ptr noundef nonnull %93) #14
   br label %.thread
 
 .thread:                                          ; preds = %22, %78, %32, %89, %.thread3
   %94 = phi i64 [ %.lcssa919, %89 ], [ %62, %.thread3 ], [ %18, %22 ], [ %18, %32 ], [ %80, %78 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #12
   %95 = trunc i64 %94 to i32
   store i32 %95, ptr %8, align 8
   %96 = icmp eq i32 %95, -1
@@ -450,13 +450,13 @@ define dso_local i64 @pci_read_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
-  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #11
+  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %9
   %18 = tail call fastcc i64 @pci_vpd_read(ptr noundef nonnull %15, i64 noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext true)
-  tail call void @pci_dev_put(ptr noundef nonnull %15) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %15) #12
   br label %21
 
 19:                                               ; preds = %4
@@ -532,13 +532,13 @@ define dso_local i64 @pci_read_vpd_any(ptr noundef %0, i64 noundef %1, i64 nound
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
-  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #11
+  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %9
   %18 = tail call fastcc i64 @pci_vpd_read(ptr noundef nonnull %15, i64 noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext false)
-  tail call void @pci_dev_put(ptr noundef nonnull %15) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %15) #12
   br label %21
 
 19:                                               ; preds = %4
@@ -564,13 +564,13 @@ define dso_local i64 @pci_write_vpd(ptr noundef %0, i64 noundef %1, i64 noundef 
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
-  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #11
+  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %9
   %18 = tail call fastcc i64 @pci_vpd_write(ptr noundef nonnull %15, i64 noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext true)
-  tail call void @pci_dev_put(ptr noundef nonnull %15) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %15) #12
   br label %21
 
 19:                                               ; preds = %4
@@ -596,13 +596,13 @@ define dso_local i64 @pci_write_vpd_any(ptr noundef %0, i64 noundef %1, i64 noun
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
-  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #11
+  %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %9
   %18 = tail call fastcc i64 @pci_vpd_write(ptr noundef nonnull %15, i64 noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext false)
-  tail call void @pci_dev_put(ptr noundef nonnull %15) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %15) #12
   br label %21
 
 19:                                               ; preds = %4
@@ -842,7 +842,7 @@ define internal void @quirk_f0_vpd_link(ptr nocapture noundef %0) #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = and i32 %3, 248
-  %10 = tail call ptr @pci_get_slot(ptr noundef %8, i32 noundef %9) #11
+  %10 = tail call ptr @pci_get_slot(ptr noundef %8, i32 noundef %9) #12
   %11 = icmp eq ptr %10, null
   br i1 %11, label %39, label %12
 
@@ -884,24 +884,24 @@ define internal void @quirk_f0_vpd_link(ptr nocapture noundef %0) #0 align 16 {
   br label %38
 
 38:                                               ; preds = %34, %28, %22, %16, %12
-  tail call void @pci_dev_put(ptr noundef nonnull %10) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %10) #12
   br label %39
 
 39:                                               ; preds = %38, %6, %1
   ret void
 }
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @quirk_blacklist_vpd(ptr noundef %0) #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal void @quirk_blacklist_vpd(ptr noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2000
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.9) #13
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.9) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @quirk_chelsio_extend_vpd(ptr nocapture noundef %0) #6 align 16 {
+define internal void @quirk_chelsio_extend_vpd(ptr nocapture noundef %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 62
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -943,13 +943,13 @@ define internal i64 @vpd_read(ptr nocapture readnone %0, ptr noundef %1, ptr noc
   %15 = getelementptr i8, ptr %1, i64 -128
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 248
-  %18 = tail call ptr @pci_get_slot(ptr noundef %14, i32 noundef %17) #11
+  %18 = tail call ptr @pci_get_slot(ptr noundef %14, i32 noundef %17) #12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %44, label %20
 
 20:                                               ; preds = %12, %6
   %21 = phi ptr [ %18, %12 ], [ %7, %6 ]
-  tail call void @pci_config_pm_runtime_get(ptr noundef %21) #11
+  tail call void @pci_config_pm_runtime_get(ptr noundef %21) #12
   %22 = getelementptr inbounds i8, ptr %21, i64 1694
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 256
@@ -962,13 +962,13 @@ define internal i64 @vpd_read(ptr nocapture readnone %0, ptr noundef %1, ptr noc
   %29 = getelementptr inbounds i8, ptr %21, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 248
-  %32 = tail call ptr @pci_get_slot(ptr noundef %28, i32 noundef %31) #11
+  %32 = tail call ptr @pci_get_slot(ptr noundef %28, i32 noundef %31) #12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %26
   %35 = tail call fastcc i64 @pci_vpd_read(ptr noundef nonnull %32, i64 noundef %4, i64 noundef %5, ptr noundef %3, i1 noundef zeroext true)
-  tail call void @pci_dev_put(ptr noundef nonnull %32) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %32) #12
   br label %38
 
 36:                                               ; preds = %20
@@ -977,14 +977,14 @@ define internal i64 @vpd_read(ptr nocapture readnone %0, ptr noundef %1, ptr noc
 
 38:                                               ; preds = %36, %34, %26
   %39 = phi i64 [ %35, %34 ], [ %37, %36 ], [ -19, %26 ]
-  tail call void @pci_config_pm_runtime_put(ptr noundef %21) #11
+  tail call void @pci_config_pm_runtime_put(ptr noundef %21) #12
   %40 = load i16, ptr %8, align 2
   %41 = and i16 %40, 256
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %38
-  tail call void @pci_dev_put(ptr noundef %21) #11
+  tail call void @pci_dev_put(ptr noundef %21) #12
   br label %44
 
 44:                                               ; preds = %43, %38, %12
@@ -1007,13 +1007,13 @@ define internal i64 @vpd_write(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %15 = getelementptr i8, ptr %1, i64 -128
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 248
-  %18 = tail call ptr @pci_get_slot(ptr noundef %14, i32 noundef %17) #11
+  %18 = tail call ptr @pci_get_slot(ptr noundef %14, i32 noundef %17) #12
   %19 = icmp eq ptr %18, null
   br i1 %19, label %44, label %20
 
 20:                                               ; preds = %12, %6
   %21 = phi ptr [ %18, %12 ], [ %7, %6 ]
-  tail call void @pci_config_pm_runtime_get(ptr noundef %21) #11
+  tail call void @pci_config_pm_runtime_get(ptr noundef %21) #12
   %22 = getelementptr inbounds i8, ptr %21, i64 1694
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 256
@@ -1026,13 +1026,13 @@ define internal i64 @vpd_write(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %29 = getelementptr inbounds i8, ptr %21, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 248
-  %32 = tail call ptr @pci_get_slot(ptr noundef %28, i32 noundef %31) #11
+  %32 = tail call ptr @pci_get_slot(ptr noundef %28, i32 noundef %31) #12
   %33 = icmp eq ptr %32, null
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %26
   %35 = tail call fastcc i64 @pci_vpd_write(ptr noundef nonnull %32, i64 noundef %4, i64 noundef %5, ptr noundef %3, i1 noundef zeroext true)
-  tail call void @pci_dev_put(ptr noundef nonnull %32) #11
+  tail call void @pci_dev_put(ptr noundef nonnull %32) #12
   br label %38
 
 36:                                               ; preds = %20
@@ -1041,14 +1041,14 @@ define internal i64 @vpd_write(ptr nocapture readnone %0, ptr noundef %1, ptr no
 
 38:                                               ; preds = %36, %34, %26
   %39 = phi i64 [ %35, %34 ], [ %37, %36 ], [ -19, %26 ]
-  tail call void @pci_config_pm_runtime_put(ptr noundef %21) #11
+  tail call void @pci_config_pm_runtime_put(ptr noundef %21) #12
   %40 = load i16, ptr %8, align 2
   %41 = and i16 %40, 256
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %38
-  tail call void @pci_dev_put(ptr noundef %21) #11
+  tail call void @pci_dev_put(ptr noundef %21) #12
   br label %44
 
 44:                                               ; preds = %43, %38, %12
@@ -1069,16 +1069,16 @@ declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @pci_get_slot(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #9
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
@@ -1111,7 +1111,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %22 = sub nuw nsw i64 %18, %1
   %23 = select i1 %21, i64 %22, i64 %2
   %24 = tail call i64 @llvm.smin.i64(i64 %8, i64 %18)
-  %25 = tail call i32 @mutex_lock_killable(ptr noundef %7) #11
+  %25 = tail call i32 @mutex_lock_killable(ptr noundef %7) #12
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %86
 
@@ -1120,11 +1120,11 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %28, label %29, label %.thread11
 
 .thread11:                                        ; preds = %27
-  tail call void @mutex_unlock(ptr noundef %7) #11
+  tail call void @mutex_unlock(ptr noundef %7) #12
   br label %85
 
 29:                                               ; preds = %27
-  %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !12
+  %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !12
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds i8, ptr %31, i64 1936
   %33 = getelementptr inbounds i8, ptr %0, i64 2004
@@ -1133,7 +1133,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 34:                                               ; preds = %81, %29
   %35 = phi ptr [ %3, %29 ], [ %76, %81 ]
   %36 = phi i64 [ %1, %29 ], [ %75, %81 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %6, align 4, !annotation !5
   %37 = load volatile i64, ptr %31, align 8
   %38 = and i64 %37, 4
@@ -1152,7 +1152,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %46 = add nuw nsw i32 %45, 2
   %47 = trunc i64 %36 to i16
   %48 = and i16 %47, -4
-  %49 = call i32 @pci_user_write_config_word(ptr noundef %0, i32 noundef %46, i16 noundef zeroext %48) #11
+  %49 = call i32 @pci_user_write_config_word(ptr noundef %0, i32 noundef %46, i16 noundef zeroext %48) #12
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %.thread13, label %51
 
@@ -1165,7 +1165,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %55 = load i8, ptr %33, align 4
   %56 = zext i8 %55 to i32
   %57 = add nuw nsw i32 %56, 4
-  %58 = call i32 @pci_user_read_config_dword(ptr noundef %0, i32 noundef %57, ptr noundef nonnull %6) #11
+  %58 = call i32 @pci_user_read_config_dword(ptr noundef %0, i32 noundef %57, ptr noundef nonnull %6) #12
   %.fr = freeze i32 %58
   %59 = icmp slt i32 %.fr, 0
   br i1 %59, label %.thread13, label %60
@@ -1192,7 +1192,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %71, label %.thread17, label %._crit_edge
 
 .thread17:                                        ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %68
@@ -1212,18 +1212,18 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 
 .thread13:                                        ; preds = %54, %51, %.thread, %40
   %.ph = phi i32 [ %.fr, %54 ], [ %52, %51 ], [ %49, %.thread ], [ -4, %40 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @mutex_unlock(ptr noundef %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @mutex_unlock(ptr noundef %7) #12
   %80 = sext i32 %.ph to i64
   br label %86
 
 81:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   %82 = icmp slt i64 %75, %24
   br i1 %82, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.thread17
-  call void @mutex_unlock(ptr noundef %7) #11
+  call void @mutex_unlock(ptr noundef %7) #12
   %83 = icmp eq i32 %.fr, 0
   %84 = zext nneg i32 %.fr to i64
   br i1 %83, label %85, label %86
@@ -1247,13 +1247,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_vpd_wait(ptr noundef %
   %3 = alloca i16, align 2
   %4 = load volatile i64, ptr @jiffies, align 64
   %5 = add i64 %4, 125
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #12
   store i16 0, ptr %3, align 2, !annotation !5
   %6 = getelementptr inbounds i8, ptr %0, i64 2004
   %7 = load i8, ptr %6, align 4
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %8, 2
-  %10 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %3) #11
+  %10 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %3) #12
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.loopexit, label %.preheader
 
@@ -1271,25 +1271,25 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_vpd_wait(ptr noundef %
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %16
-  call void @usleep_range_state(i64 noundef 10, i64 noundef %12, i32 noundef 2) #11
+  call void @usleep_range_state(i64 noundef 10, i64 noundef %12, i32 noundef 2) #12
   %21 = icmp ult i64 %12, 1024
   %22 = zext i1 %21 to i64
   %23 = shl nuw nsw i64 %12, %22
   %24 = load i8, ptr %6, align 4
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %25, 2
-  %27 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %3) #11
+  %27 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %3) #12
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !15
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %30, ptr noundef nonnull @.str.8) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %30, ptr noundef nonnull @.str.8) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.preheader, %29, %2
   %31 = phi i32 [ -110, %29 ], [ %10, %2 ], [ %27, %20 ], [ 0, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #12
   ret i32 %31
 }
 
@@ -1335,7 +1335,7 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   br i1 %22, label %75, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @mutex_lock_killable(ptr noundef %7) #11
+  %24 = tail call i32 @mutex_lock_killable(ptr noundef %7) #12
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %75
 
@@ -1351,7 +1351,7 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %32, 4
   %34 = load i32, ptr %29, align 1
-  %35 = tail call i32 @pci_user_write_config_dword(ptr noundef %0, i32 noundef %33, i32 noundef %34) #11
+  %35 = tail call i32 @pci_user_write_config_dword(ptr noundef %0, i32 noundef %33, i32 noundef %34) #12
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.thread, label %37
 
@@ -1361,19 +1361,19 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   %40 = add nuw nsw i32 %39, 2
   %41 = trunc i64 %30 to i16
   %42 = or i16 %41, -32768
-  %43 = tail call i32 @pci_user_write_config_word(ptr noundef %0, i32 noundef %40, i16 noundef zeroext %42) #11
+  %43 = tail call i32 @pci_user_write_config_word(ptr noundef %0, i32 noundef %40, i16 noundef zeroext %42) #12
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %37
   %46 = load volatile i64, ptr @jiffies, align 64
   %47 = add i64 %46, 125
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #12
   store i16 0, ptr %6, align 2, !annotation !5
   %48 = load i8, ptr %27, align 4
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %49, 2
-  %51 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %50, ptr noundef nonnull %6) #11
+  %51 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %50, ptr noundef nonnull %6) #12
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %pci_vpd_wait.exit.thread, label %.preheader.i
 
@@ -1390,29 +1390,29 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   br i1 %59, label %69, label %60
 
 60:                                               ; preds = %56
-  call void @usleep_range_state(i64 noundef 10, i64 noundef %53, i32 noundef 2) #11
+  call void @usleep_range_state(i64 noundef 10, i64 noundef %53, i32 noundef 2) #12
   %61 = icmp ult i64 %53, 1024
   %62 = zext i1 %61 to i64
   %63 = shl nuw nsw i64 %53, %62
   %64 = load i8, ptr %27, align 4
   %65 = zext i8 %64 to i32
   %66 = add nuw nsw i32 %65, 2
-  %67 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %6) #11
+  %67 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %6) #12
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %pci_vpd_wait.exit.thread, label %.preheader.i, !llvm.loop !15
 
 69:                                               ; preds = %56
   %70 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %70, ptr noundef nonnull @.str.8) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %70, ptr noundef nonnull @.str.8) #14
   br label %pci_vpd_wait.exit.thread
 
 pci_vpd_wait.exit.thread:                         ; preds = %45, %60, %69
   %.ph = phi i32 [ -110, %69 ], [ %67, %60 ], [ %51, %45 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #12
   br label %.thread
 
 pci_vpd_wait.exit:                                ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #12
   %71 = getelementptr i8, ptr %29, i64 4
   %72 = add nuw nsw i64 %30, 4
   %73 = icmp slt i64 %72, %8
@@ -1420,12 +1420,12 @@ pci_vpd_wait.exit:                                ; preds = %.preheader.i
 
 .thread:                                          ; preds = %.preheader, %37, %pci_vpd_wait.exit.thread
   %.ph5 = phi i32 [ %.ph, %pci_vpd_wait.exit.thread ], [ %35, %.preheader ], [ %43, %37 ]
-  tail call void @mutex_unlock(ptr noundef %7) #11
+  tail call void @mutex_unlock(ptr noundef %7) #12
   %74 = sext i32 %.ph5 to i64
   br label %75
 
 .loopexit:                                        ; preds = %pci_vpd_wait.exit, %26
-  tail call void @mutex_unlock(ptr noundef %7) #11
+  tail call void @mutex_unlock(ptr noundef %7) #12
   br label %75
 
 75:                                               ; preds = %.loopexit, %.thread, %23, %20, %10, %5
@@ -1437,7 +1437,7 @@ pci_vpd_wait.exit:                                ; preds = %.preheader.i
 declare dso_local i32 @pci_user_write_config_dword(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #10
+declare i64 @llvm.smin.i64(i64, i64) #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -1445,15 +1445,16 @@ attributes #2 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounw
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #5 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind memory(none) }
+attributes #6 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -65,7 +65,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [71 x i8] c"Physical storage mismatch on dropped attribute at ordinal position %d.\00", align 1
 @.str.25 = private unnamed_addr constant [36 x i8] c"failed to fetch attribute from slot\00", align 1
 @__func__.ExecEvalSysVar = private unnamed_addr constant [15 x i8] c"ExecEvalSysVar\00", align 1
-@ExecInterpExpr.dispatch_table = internal constant [96 x ptr] [ptr blockaddress(@ExecInterpExpr, %1723), ptr blockaddress(@ExecInterpExpr, %55), ptr blockaddress(@ExecInterpExpr, %63), ptr blockaddress(@ExecInterpExpr, %71), ptr blockaddress(@ExecInterpExpr, %79), ptr blockaddress(@ExecInterpExpr, %95), ptr blockaddress(@ExecInterpExpr, %111), ptr blockaddress(@ExecInterpExpr, %127), ptr blockaddress(@ExecInterpExpr, %150), ptr blockaddress(@ExecInterpExpr, %173), ptr blockaddress(@ExecInterpExpr, %196), ptr blockaddress(@ExecInterpExpr, %198), ptr blockaddress(@ExecInterpExpr, %217), ptr blockaddress(@ExecInterpExpr, %236), ptr blockaddress(@ExecInterpExpr, %255), ptr blockaddress(@ExecInterpExpr, %267), ptr blockaddress(@ExecInterpExpr, %286), ptr blockaddress(@ExecInterpExpr, %297), ptr blockaddress(@ExecInterpExpr, %311), ptr blockaddress(@ExecInterpExpr, %337), ptr blockaddress(@ExecInterpExpr, %351), ptr blockaddress(@ExecInterpExpr, %376), ptr blockaddress(@ExecInterpExpr, %379), ptr blockaddress(@ExecInterpExpr, %399), ptr blockaddress(@ExecInterpExpr, %417), ptr blockaddress(@ExecInterpExpr, %420), ptr blockaddress(@ExecInterpExpr, %440), ptr blockaddress(@ExecInterpExpr, %458), ptr blockaddress(@ExecInterpExpr, %464), ptr blockaddress(@ExecInterpExpr, %483), ptr blockaddress(@ExecInterpExpr, %489), ptr blockaddress(@ExecInterpExpr, %502), ptr blockaddress(@ExecInterpExpr, %515), ptr blockaddress(@ExecInterpExpr, %532), ptr blockaddress(@ExecInterpExpr, %542), ptr blockaddress(@ExecInterpExpr, %553), ptr blockaddress(@ExecInterpExpr, %587), ptr blockaddress(@ExecInterpExpr, %621), ptr blockaddress(@ExecInterpExpr, %632), ptr blockaddress(@ExecInterpExpr, %646), ptr blockaddress(@ExecInterpExpr, %660), ptr blockaddress(@ExecInterpExpr, %671), ptr blockaddress(@ExecInterpExpr, %689), ptr blockaddress(@ExecInterpExpr, %691), ptr blockaddress(@ExecInterpExpr, %695), ptr blockaddress(@ExecInterpExpr, %727), ptr blockaddress(@ExecInterpExpr, %745), ptr blockaddress(@ExecInterpExpr, %787), ptr blockaddress(@ExecInterpExpr, %840), ptr blockaddress(@ExecInterpExpr, %874), ptr blockaddress(@ExecInterpExpr, %907), ptr blockaddress(@ExecInterpExpr, %941), ptr blockaddress(@ExecInterpExpr, %943), ptr blockaddress(@ExecInterpExpr, %947), ptr blockaddress(@ExecInterpExpr, %967), ptr blockaddress(@ExecInterpExpr, %969), ptr blockaddress(@ExecInterpExpr, %996), ptr blockaddress(@ExecInterpExpr, %1011), ptr blockaddress(@ExecInterpExpr, %1064), ptr blockaddress(@ExecInterpExpr, %1087), ptr blockaddress(@ExecInterpExpr, %1089), ptr blockaddress(@ExecInterpExpr, %1091), ptr blockaddress(@ExecInterpExpr, %1093), ptr blockaddress(@ExecInterpExpr, %1113), ptr blockaddress(@ExecInterpExpr, %1125), ptr blockaddress(@ExecInterpExpr, %1125), ptr blockaddress(@ExecInterpExpr, %1125), ptr blockaddress(@ExecInterpExpr, %711), ptr blockaddress(@ExecInterpExpr, %1135), ptr blockaddress(@ExecInterpExpr, %1153), ptr blockaddress(@ExecInterpExpr, %1129), ptr blockaddress(@ExecInterpExpr, %1131), ptr blockaddress(@ExecInterpExpr, %1133), ptr blockaddress(@ExecInterpExpr, %1155), ptr blockaddress(@ExecInterpExpr, %1157), ptr blockaddress(@ExecInterpExpr, %1159), ptr blockaddress(@ExecInterpExpr, %1161), ptr blockaddress(@ExecInterpExpr, %1177), ptr blockaddress(@ExecInterpExpr, %1202), ptr blockaddress(@ExecInterpExpr, %1222), ptr blockaddress(@ExecInterpExpr, %1231), ptr blockaddress(@ExecInterpExpr, %1243), ptr blockaddress(@ExecInterpExpr, %1263), ptr blockaddress(@ExecInterpExpr, %1280), ptr blockaddress(@ExecInterpExpr, %1297), ptr blockaddress(@ExecInterpExpr, %1315), ptr blockaddress(@ExecInterpExpr, %1383), ptr blockaddress(@ExecInterpExpr, %1429), ptr blockaddress(@ExecInterpExpr, %1471), ptr blockaddress(@ExecInterpExpr, %1548), ptr blockaddress(@ExecInterpExpr, %1603), ptr blockaddress(@ExecInterpExpr, %1654), ptr blockaddress(@ExecInterpExpr, %1667), ptr blockaddress(@ExecInterpExpr, %1680), ptr blockaddress(@ExecInterpExpr, %1698), ptr blockaddress(@ExecInterpExpr, %1723)], align 16
+@ExecInterpExpr.dispatch_table = internal constant [96 x ptr] [ptr blockaddress(@ExecInterpExpr, %1720), ptr blockaddress(@ExecInterpExpr, %55), ptr blockaddress(@ExecInterpExpr, %63), ptr blockaddress(@ExecInterpExpr, %71), ptr blockaddress(@ExecInterpExpr, %79), ptr blockaddress(@ExecInterpExpr, %95), ptr blockaddress(@ExecInterpExpr, %111), ptr blockaddress(@ExecInterpExpr, %127), ptr blockaddress(@ExecInterpExpr, %150), ptr blockaddress(@ExecInterpExpr, %173), ptr blockaddress(@ExecInterpExpr, %196), ptr blockaddress(@ExecInterpExpr, %198), ptr blockaddress(@ExecInterpExpr, %217), ptr blockaddress(@ExecInterpExpr, %236), ptr blockaddress(@ExecInterpExpr, %255), ptr blockaddress(@ExecInterpExpr, %267), ptr blockaddress(@ExecInterpExpr, %286), ptr blockaddress(@ExecInterpExpr, %297), ptr blockaddress(@ExecInterpExpr, %311), ptr blockaddress(@ExecInterpExpr, %337), ptr blockaddress(@ExecInterpExpr, %351), ptr blockaddress(@ExecInterpExpr, %376), ptr blockaddress(@ExecInterpExpr, %379), ptr blockaddress(@ExecInterpExpr, %399), ptr blockaddress(@ExecInterpExpr, %417), ptr blockaddress(@ExecInterpExpr, %420), ptr blockaddress(@ExecInterpExpr, %440), ptr blockaddress(@ExecInterpExpr, %458), ptr blockaddress(@ExecInterpExpr, %464), ptr blockaddress(@ExecInterpExpr, %483), ptr blockaddress(@ExecInterpExpr, %489), ptr blockaddress(@ExecInterpExpr, %502), ptr blockaddress(@ExecInterpExpr, %515), ptr blockaddress(@ExecInterpExpr, %532), ptr blockaddress(@ExecInterpExpr, %542), ptr blockaddress(@ExecInterpExpr, %553), ptr blockaddress(@ExecInterpExpr, %587), ptr blockaddress(@ExecInterpExpr, %621), ptr blockaddress(@ExecInterpExpr, %632), ptr blockaddress(@ExecInterpExpr, %646), ptr blockaddress(@ExecInterpExpr, %660), ptr blockaddress(@ExecInterpExpr, %671), ptr blockaddress(@ExecInterpExpr, %689), ptr blockaddress(@ExecInterpExpr, %691), ptr blockaddress(@ExecInterpExpr, %695), ptr blockaddress(@ExecInterpExpr, %727), ptr blockaddress(@ExecInterpExpr, %745), ptr blockaddress(@ExecInterpExpr, %787), ptr blockaddress(@ExecInterpExpr, %840), ptr blockaddress(@ExecInterpExpr, %874), ptr blockaddress(@ExecInterpExpr, %907), ptr blockaddress(@ExecInterpExpr, %941), ptr blockaddress(@ExecInterpExpr, %943), ptr blockaddress(@ExecInterpExpr, %944), ptr blockaddress(@ExecInterpExpr, %964), ptr blockaddress(@ExecInterpExpr, %966), ptr blockaddress(@ExecInterpExpr, %993), ptr blockaddress(@ExecInterpExpr, %1008), ptr blockaddress(@ExecInterpExpr, %1061), ptr blockaddress(@ExecInterpExpr, %1084), ptr blockaddress(@ExecInterpExpr, %1086), ptr blockaddress(@ExecInterpExpr, %1088), ptr blockaddress(@ExecInterpExpr, %1090), ptr blockaddress(@ExecInterpExpr, %1110), ptr blockaddress(@ExecInterpExpr, %1122), ptr blockaddress(@ExecInterpExpr, %1122), ptr blockaddress(@ExecInterpExpr, %1122), ptr blockaddress(@ExecInterpExpr, %711), ptr blockaddress(@ExecInterpExpr, %1132), ptr blockaddress(@ExecInterpExpr, %1150), ptr blockaddress(@ExecInterpExpr, %1126), ptr blockaddress(@ExecInterpExpr, %1128), ptr blockaddress(@ExecInterpExpr, %1130), ptr blockaddress(@ExecInterpExpr, %1152), ptr blockaddress(@ExecInterpExpr, %1154), ptr blockaddress(@ExecInterpExpr, %1156), ptr blockaddress(@ExecInterpExpr, %1158), ptr blockaddress(@ExecInterpExpr, %1174), ptr blockaddress(@ExecInterpExpr, %1199), ptr blockaddress(@ExecInterpExpr, %1219), ptr blockaddress(@ExecInterpExpr, %1228), ptr blockaddress(@ExecInterpExpr, %1240), ptr blockaddress(@ExecInterpExpr, %1260), ptr blockaddress(@ExecInterpExpr, %1277), ptr blockaddress(@ExecInterpExpr, %1294), ptr blockaddress(@ExecInterpExpr, %1312), ptr blockaddress(@ExecInterpExpr, %1380), ptr blockaddress(@ExecInterpExpr, %1426), ptr blockaddress(@ExecInterpExpr, %1468), ptr blockaddress(@ExecInterpExpr, %1545), ptr blockaddress(@ExecInterpExpr, %1600), ptr blockaddress(@ExecInterpExpr, %1651), ptr blockaddress(@ExecInterpExpr, %1664), ptr blockaddress(@ExecInterpExpr, %1677), ptr blockaddress(@ExecInterpExpr, %1695), ptr blockaddress(@ExecInterpExpr, %1720)], align 16
 @__func__.CheckVarSlotCompatibility = private unnamed_addr constant [26 x i8] c"CheckVarSlotCompatibility\00", align 1
 @.str.26 = private unnamed_addr constant [41 x i8] c"attribute %d of type %s has been dropped\00", align 1
 @.str.27 = private unnamed_addr constant [39 x i8] c"attribute %d of type %s has wrong type\00", align 1
@@ -813,7 +813,7 @@ define internal i64 @ExecInterpExpr(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %6 = alloca %struct.PgStat_FunctionCallUsage, align 8
   %7 = alloca %struct.PgStat_FunctionCallUsage, align 8
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %1727, label %9
+  br i1 %8, label %1724, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 24
@@ -879,8 +879,8 @@ slot_getsomeattrs.exit:                           ; preds = %55, %61
   %62 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %slot_getsomeattrs.exit, %slot_getsomeattrs.exit752, %slot_getsomeattrs.exit753, %79, %95, %111, %ExecEvalSysVar.exit, %ExecEvalSysVar.exit756, %ExecEvalSysVar.exit759, %196, %198, %217, %236, %255, %282, %286, %297, %335, %337, %ExecEvalFuncExprStrictFusage.exit, %391, %397, %415, %432, %438, %456, %458, %473, %481, %483, %494, %500, %507, %513, %524, %530, %532, %542, %ExecEvalRowNull.exit, %ExecEvalRowNotNull.exit, %630, %644, %658, %669, %ExecEvalParamExec.exit, %689, %691, %706, %722, %739, %785, %ExecEvalCoerceViaIOSafe.exit, %872, %905, %926, %932, %941, %ExecEvalNextValueExpr.exit, %967, %ExecEvalArrayCoerce.exit, %996, %1027, %1046, %1056, %1062, %1085, %1087, %1089, %1091, %1093, %1117, %1119, %1125, %1129, %1131, %1133, %ExecEvalConstraintNotNull.exit, %1153, %1155, %1157, %1159, %1161, %ExecEvalGroupingFunc.exit, %1202, %1222, %1237, %1243, %1273, %._crit_edge797, %1290, %._crit_edge, %1307, %1313, %1381, %1427, %1429, %1546, %1601, %ExecAggPlainTransByRef.exit778, %1659, %1661, %1672, %1674, %1680, %1698
-  %.0741.be = phi ptr [ %1673, %1672 ], [ %1679, %1674 ], [ %1660, %1659 ], [ %1666, %1661 ], [ %1653, %ExecAggPlainTransByRef.exit778 ], [ %1602, %1601 ], [ %1547, %1546 ], [ %1470, %1429 ], [ %1428, %1427 ], [ %1382, %1381 ], [ %1312, %1307 ], [ %1314, %1313 ], [ %1295, %1290 ], [ %1296, %._crit_edge ], [ %1278, %1273 ], [ %1279, %._crit_edge797 ], [ %1262, %1243 ], [ %1242, %1237 ], [ %1230, %1222 ], [ %1221, %1202 ], [ %1201, %ExecEvalGroupingFunc.exit ], [ %1176, %1161 ], [ %1160, %1159 ], [ %1158, %1157 ], [ %1156, %1155 ], [ %1134, %1133 ], [ %1132, %1131 ], [ %1130, %1129 ], [ %1154, %1153 ], [ %1152, %ExecEvalConstraintNotNull.exit ], [ %726, %722 ], [ %1697, %1680 ], [ %1722, %1698 ], [ %1128, %1125 ], [ %1118, %1117 ], [ %1124, %1119 ], [ %1112, %1093 ], [ %1092, %1091 ], [ %1090, %1089 ], [ %1088, %1087 ], [ %1086, %1085 ], [ %1034, %1027 ], [ %1051, %1046 ], [ %1061, %1056 ], [ %1063, %1062 ], [ %1010, %996 ], [ %995, %ExecEvalArrayCoerce.exit ], [ %968, %967 ], [ %966, %ExecEvalNextValueExpr.exit ], [ %942, %941 ], [ %940, %932 ], [ %931, %926 ], [ %906, %905 ], [ %873, %872 ], [ %839, %ExecEvalCoerceViaIOSafe.exit ], [ %786, %785 ], [ %744, %739 ], [ %710, %706 ], [ %694, %691 ], [ %690, %689 ], [ %688, %ExecEvalParamExec.exit ], [ %670, %669 ], [ %659, %658 ], [ %645, %644 ], [ %631, %630 ], [ %620, %ExecEvalRowNotNull.exit ], [ %586, %ExecEvalRowNull.exit ], [ %552, %542 ], [ %541, %532 ], [ %529, %524 ], [ %531, %530 ], [ %514, %513 ], [ %512, %507 ], [ %499, %494 ], [ %501, %500 ], [ %488, %483 ], [ %480, %473 ], [ %482, %481 ], [ %463, %458 ], [ %457, %456 ], [ %439, %438 ], [ %437, %432 ], [ %416, %415 ], [ %398, %397 ], [ %396, %391 ], [ %375, %ExecEvalFuncExprStrictFusage.exit ], [ %350, %337 ], [ %336, %335 ], [ %310, %297 ], [ %296, %286 ], [ %285, %282 ], [ %266, %255 ], [ %254, %236 ], [ %235, %217 ], [ %216, %198 ], [ %197, %196 ], [ %195, %ExecEvalSysVar.exit759 ], [ %172, %ExecEvalSysVar.exit756 ], [ %149, %ExecEvalSysVar.exit ], [ %126, %111 ], [ %110, %95 ], [ %94, %79 ], [ %78, %slot_getsomeattrs.exit753 ], [ %70, %slot_getsomeattrs.exit752 ], [ %62, %slot_getsomeattrs.exit ]
+.backedge.backedge:                               ; preds = %slot_getsomeattrs.exit, %slot_getsomeattrs.exit752, %slot_getsomeattrs.exit753, %79, %95, %111, %ExecEvalSysVar.exit, %ExecEvalSysVar.exit756, %ExecEvalSysVar.exit759, %196, %198, %217, %236, %255, %282, %286, %297, %335, %337, %ExecEvalFuncExprStrictFusage.exit, %391, %397, %415, %432, %438, %456, %458, %473, %481, %483, %494, %500, %507, %513, %524, %530, %532, %542, %ExecEvalRowNull.exit, %ExecEvalRowNotNull.exit, %630, %644, %658, %669, %ExecEvalParamExec.exit, %689, %691, %706, %722, %739, %785, %ExecEvalCoerceViaIOSafe.exit, %872, %905, %926, %932, %941, %ExecEvalNextValueExpr.exit, %964, %ExecEvalArrayCoerce.exit, %993, %1024, %1043, %1053, %1059, %1082, %1084, %1086, %1088, %1090, %1114, %1116, %1122, %1126, %1128, %1130, %ExecEvalConstraintNotNull.exit, %1150, %1152, %1154, %1156, %1158, %ExecEvalGroupingFunc.exit, %1199, %1219, %1234, %1240, %1270, %._crit_edge802, %1287, %._crit_edge, %1304, %1310, %1378, %1424, %1426, %1543, %1598, %ExecAggPlainTransByRef.exit778, %1656, %1658, %1669, %1671, %1677, %1695
+  %.0741.be = phi ptr [ %1670, %1669 ], [ %1676, %1671 ], [ %1657, %1656 ], [ %1663, %1658 ], [ %1650, %ExecAggPlainTransByRef.exit778 ], [ %1599, %1598 ], [ %1544, %1543 ], [ %1467, %1426 ], [ %1425, %1424 ], [ %1379, %1378 ], [ %1309, %1304 ], [ %1311, %1310 ], [ %1292, %1287 ], [ %1293, %._crit_edge ], [ %1275, %1270 ], [ %1276, %._crit_edge802 ], [ %1259, %1240 ], [ %1239, %1234 ], [ %1227, %1219 ], [ %1218, %1199 ], [ %1198, %ExecEvalGroupingFunc.exit ], [ %1173, %1158 ], [ %1157, %1156 ], [ %1155, %1154 ], [ %1153, %1152 ], [ %1131, %1130 ], [ %1129, %1128 ], [ %1127, %1126 ], [ %1151, %1150 ], [ %1149, %ExecEvalConstraintNotNull.exit ], [ %726, %722 ], [ %1694, %1677 ], [ %1719, %1695 ], [ %1125, %1122 ], [ %1115, %1114 ], [ %1121, %1116 ], [ %1109, %1090 ], [ %1089, %1088 ], [ %1087, %1086 ], [ %1085, %1084 ], [ %1083, %1082 ], [ %1031, %1024 ], [ %1048, %1043 ], [ %1058, %1053 ], [ %1060, %1059 ], [ %1007, %993 ], [ %992, %ExecEvalArrayCoerce.exit ], [ %965, %964 ], [ %963, %ExecEvalNextValueExpr.exit ], [ %942, %941 ], [ %940, %932 ], [ %931, %926 ], [ %906, %905 ], [ %873, %872 ], [ %839, %ExecEvalCoerceViaIOSafe.exit ], [ %786, %785 ], [ %744, %739 ], [ %710, %706 ], [ %694, %691 ], [ %690, %689 ], [ %688, %ExecEvalParamExec.exit ], [ %670, %669 ], [ %659, %658 ], [ %645, %644 ], [ %631, %630 ], [ %620, %ExecEvalRowNotNull.exit ], [ %586, %ExecEvalRowNull.exit ], [ %552, %542 ], [ %541, %532 ], [ %529, %524 ], [ %531, %530 ], [ %514, %513 ], [ %512, %507 ], [ %499, %494 ], [ %501, %500 ], [ %488, %483 ], [ %480, %473 ], [ %482, %481 ], [ %463, %458 ], [ %457, %456 ], [ %439, %438 ], [ %437, %432 ], [ %416, %415 ], [ %398, %397 ], [ %396, %391 ], [ %375, %ExecEvalFuncExprStrictFusage.exit ], [ %350, %337 ], [ %336, %335 ], [ %310, %297 ], [ %296, %286 ], [ %285, %282 ], [ %266, %255 ], [ %254, %236 ], [ %235, %217 ], [ %216, %198 ], [ %197, %196 ], [ %195, %ExecEvalSysVar.exit759 ], [ %172, %ExecEvalSysVar.exit756 ], [ %149, %ExecEvalSysVar.exit ], [ %126, %111 ], [ %110, %95 ], [ %94, %79 ], [ %78, %slot_getsomeattrs.exit753 ], [ %70, %slot_getsomeattrs.exit752 ], [ %62, %slot_getsomeattrs.exit ]
   br label %.backedge
 
 63:                                               ; preds = %.backedge
@@ -1278,31 +1278,31 @@ ExecEvalSysVar.exit759:                           ; preds = %slot_getsysattr.exi
   %315 = getelementptr inbounds i8, ptr %.0741, i64 48
   %316 = load i32, ptr %315, align 8
   %317 = icmp sgt i32 %316, 0
-  br i1 %317, label %.lr.ph800.preheader, label %._crit_edge801
+  br i1 %317, label %.lr.ph805.preheader, label %._crit_edge806
 
-.lr.ph800.preheader:                              ; preds = %311
-  %wide.trip.count816 = zext nneg i32 %316 to i64
-  br label %.lr.ph800
+.lr.ph805.preheader:                              ; preds = %311
+  %wide.trip.count821 = zext nneg i32 %316 to i64
+  br label %.lr.ph805
 
-318:                                              ; preds = %.lr.ph800
-  %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
-  %exitcond817.not = icmp eq i64 %indvars.iv.next814, %wide.trip.count816
-  br i1 %exitcond817.not, label %._crit_edge801, label %.lr.ph800, !llvm.loop !10
+318:                                              ; preds = %.lr.ph805
+  %indvars.iv.next819 = add nuw nsw i64 %indvars.iv818, 1
+  %exitcond822.not = icmp eq i64 %indvars.iv.next819, %wide.trip.count821
+  br i1 %exitcond822.not, label %._crit_edge806, label %.lr.ph805, !llvm.loop !10
 
-.lr.ph800:                                        ; preds = %.lr.ph800.preheader, %318
-  %indvars.iv813 = phi i64 [ 0, %.lr.ph800.preheader ], [ %indvars.iv.next814, %318 ]
-  %319 = getelementptr %struct.NullableDatum, ptr %314, i64 %indvars.iv813, i32 1
+.lr.ph805:                                        ; preds = %.lr.ph805.preheader, %318
+  %indvars.iv818 = phi i64 [ 0, %.lr.ph805.preheader ], [ %indvars.iv.next819, %318 ]
+  %319 = getelementptr %struct.NullableDatum, ptr %314, i64 %indvars.iv818, i32 1
   %320 = load i8, ptr %319, align 8
   %321 = trunc i8 %320 to i1
   br i1 %321, label %322, label %318
 
-322:                                              ; preds = %.lr.ph800
+322:                                              ; preds = %.lr.ph805
   %323 = getelementptr inbounds i8, ptr %.0741, i64 16
   %324 = load ptr, ptr %323, align 8
   store i8 1, ptr %324, align 1
   br label %335
 
-._crit_edge801:                                   ; preds = %318, %311
+._crit_edge806:                                   ; preds = %318, %311
   %325 = getelementptr inbounds i8, ptr %313, i64 28
   store i8 0, ptr %325, align 4
   %326 = getelementptr inbounds i8, ptr %.0741, i64 40
@@ -1318,7 +1318,7 @@ ExecEvalSysVar.exit759:                           ; preds = %slot_getsysattr.exi
   store i8 %334, ptr %333, align 1
   br label %335
 
-335:                                              ; preds = %322, %._crit_edge801
+335:                                              ; preds = %322, %._crit_edge806
   %336 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
@@ -1961,11 +1961,11 @@ ExecEvalParamExec.exit:                           ; preds = %671, %678
   br label %706
 
 706:                                              ; preds = %700, %704
-  %.sink823.in = phi ptr [ %703, %700 ], [ %26, %704 ]
-  %.sink823 = load i8, ptr %.sink823.in, align 1
+  %.sink833.in = phi ptr [ %703, %700 ], [ %26, %704 ]
+  %.sink833 = load i8, ptr %.sink833.in, align 1
   %707 = getelementptr inbounds i8, ptr %.0741, i64 16
   %708 = load ptr, ptr %707, align 8
-  %709 = and i8 %.sink823, 1
+  %709 = and i8 %.sink833, 1
   store i8 %709, ptr %708, align 1
   %710 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
@@ -1991,11 +1991,11 @@ ExecEvalParamExec.exit:                           ; preds = %671, %678
   br label %722
 
 722:                                              ; preds = %716, %720
-  %.sink827.in = phi ptr [ %719, %716 ], [ %24, %720 ]
-  %.sink827 = load i8, ptr %.sink827.in, align 1
+  %.sink837.in = phi ptr [ %719, %716 ], [ %24, %720 ]
+  %.sink837 = load i8, ptr %.sink837.in, align 1
   %723 = getelementptr inbounds i8, ptr %.0741, i64 16
   %724 = load ptr, ptr %723, align 8
-  %725 = and i8 %.sink827, 1
+  %725 = and i8 %.sink837, 1
   store i8 %725, ptr %724, align 1
   %726 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
@@ -2016,11 +2016,11 @@ ExecEvalParamExec.exit:                           ; preds = %671, %678
   %738 = load ptr, ptr %737, align 8
   store i64 %736, ptr %738, align 8
   %.pre = load ptr, ptr %728, align 8
-  %.pre818 = load i8, ptr %.pre, align 1
+  %.pre823 = load i8, ptr %.pre, align 1
   br label %739
 
 739:                                              ; preds = %732, %727
-  %740 = phi i8 [ %.pre818, %732 ], [ %730, %727 ]
+  %740 = phi i8 [ %.pre823, %732 ], [ %730, %727 ]
   %741 = getelementptr inbounds i8, ptr %.0741, i64 16
   %742 = load ptr, ptr %741, align 8
   %743 = and i8 %740, 1
@@ -2339,1197 +2339,1193 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %805, %812, %829, %8
   br label %.backedge.backedge
 
 943:                                              ; preds = %.backedge
-  %944 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %944)
-  %945 = call i32 @errcode(i32 noundef 1088) #15
-  %946 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2664, ptr noundef nonnull @__func__.ExecEvalCurrentOfExpr) #15
+  call void @ExecEvalCurrentOfExpr(ptr poison, ptr nonnull poison)
   unreachable
 
-947:                                              ; preds = %.backedge
-  %948 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %949 = load i32, ptr %948, align 8
-  %950 = call i64 @nextval_internal(i32 noundef %949, i1 noundef zeroext false) #15
-  %951 = getelementptr inbounds i8, ptr %.0741, i64 28
-  %952 = load i32, ptr %951, align 4
-  switch i32 %952, label %957 [
-    i32 21, label %953
-    i32 23, label %955
+944:                                              ; preds = %.backedge
+  %945 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %946 = load i32, ptr %945, align 8
+  %947 = call i64 @nextval_internal(i32 noundef %946, i1 noundef zeroext false) #15
+  %948 = getelementptr inbounds i8, ptr %.0741, i64 28
+  %949 = load i32, ptr %948, align 4
+  switch i32 %949, label %954 [
+    i32 21, label %950
+    i32 23, label %952
     i32 20, label %ExecEvalNextValueExpr.exit
   ]
 
-953:                                              ; preds = %947
-  %sext9.i = shl i64 %950, 48
-  %954 = ashr exact i64 %sext9.i, 48
+950:                                              ; preds = %944
+  %sext9.i = shl i64 %947, 48
+  %951 = ashr exact i64 %sext9.i, 48
   br label %ExecEvalNextValueExpr.exit
 
-955:                                              ; preds = %947
-  %sext.i = shl i64 %950, 32
-  %956 = ashr exact i64 %sext.i, 32
+952:                                              ; preds = %944
+  %sext.i = shl i64 %947, 32
+  %953 = ashr exact i64 %sext.i, 32
   br label %ExecEvalNextValueExpr.exit
 
-957:                                              ; preds = %947
-  %958 = getelementptr inbounds i8, ptr %.0741, i64 28
-  %959 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %959)
-  %960 = load i32, ptr %958, align 4
-  %961 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %960) #15
+954:                                              ; preds = %944
+  %955 = getelementptr inbounds i8, ptr %.0741, i64 28
+  %956 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %956)
+  %957 = load i32, ptr %955, align 4
+  %958 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %957) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2688, ptr noundef nonnull @__func__.ExecEvalNextValueExpr) #15
   unreachable
 
-ExecEvalNextValueExpr.exit:                       ; preds = %947, %953, %955
-  %.sink.i = phi i64 [ %956, %955 ], [ %954, %953 ], [ %950, %947 ]
-  %962 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %963 = load ptr, ptr %962, align 8
-  store i64 %.sink.i, ptr %963, align 8
-  %964 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %965 = load ptr, ptr %964, align 8
-  store i8 0, ptr %965, align 1
-  %966 = getelementptr i8, ptr %.0741, i64 64
+ExecEvalNextValueExpr.exit:                       ; preds = %944, %950, %952
+  %.sink.i = phi i64 [ %953, %952 ], [ %951, %950 ], [ %947, %944 ]
+  %959 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %960 = load ptr, ptr %959, align 8
+  store i64 %.sink.i, ptr %960, align 8
+  %961 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %962 = load ptr, ptr %961, align 8
+  store i8 0, ptr %962, align 1
+  %963 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-967:                                              ; preds = %.backedge
+964:                                              ; preds = %.backedge
   call void @ExecEvalArrayExpr(ptr poison, ptr noundef nonnull %.0741)
-  %968 = getelementptr i8, ptr %.0741, i64 64
+  %965 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-969:                                              ; preds = %.backedge
-  %970 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %971 = load ptr, ptr %970, align 8
-  %972 = load i8, ptr %971, align 1
-  %973 = trunc i8 %972 to i1
-  br i1 %973, label %ExecEvalArrayCoerce.exit, label %974
+966:                                              ; preds = %.backedge
+  %967 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %968 = load ptr, ptr %967, align 8
+  %969 = load i8, ptr %968, align 1
+  %970 = trunc i8 %969 to i1
+  br i1 %970, label %ExecEvalArrayCoerce.exit, label %971
 
-974:                                              ; preds = %969
-  %975 = getelementptr inbounds i8, ptr %.0741, i64 8
+971:                                              ; preds = %966
+  %972 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %973 = load ptr, ptr %972, align 8
+  %974 = load i64, ptr %973, align 8
+  %975 = getelementptr inbounds i8, ptr %.0741, i64 24
   %976 = load ptr, ptr %975, align 8
-  %977 = load i64, ptr %976, align 8
-  %978 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %979 = load ptr, ptr %978, align 8
-  %980 = icmp eq ptr %979, null
-  br i1 %980, label %981, label %988
+  %977 = icmp eq ptr %976, null
+  br i1 %977, label %978, label %985
 
-981:                                              ; preds = %974
-  %982 = inttoptr i64 %977 to ptr
-  %983 = call ptr @pg_detoast_datum_copy(ptr noundef %982) #15
-  %984 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %985 = load i32, ptr %984, align 8
-  %986 = getelementptr inbounds i8, ptr %983, i64 12
-  store i32 %985, ptr %986, align 4
-  %987 = ptrtoint ptr %983 to i64
+978:                                              ; preds = %971
+  %979 = inttoptr i64 %974 to ptr
+  %980 = call ptr @pg_detoast_datum_copy(ptr noundef %979) #15
+  %981 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %982 = load i32, ptr %981, align 8
+  %983 = getelementptr inbounds i8, ptr %980, i64 12
+  store i32 %982, ptr %983, align 4
+  %984 = ptrtoint ptr %980 to i64
   br label %.sink.split.i
 
-988:                                              ; preds = %974
-  %989 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %990 = load i32, ptr %989, align 8
-  %991 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %992 = load ptr, ptr %991, align 8
-  %993 = call i64 @array_map(i64 noundef %977, ptr noundef nonnull %979, ptr noundef %1, i32 noundef %990, ptr noundef %992) #15
+985:                                              ; preds = %971
+  %986 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %987 = load i32, ptr %986, align 8
+  %988 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %989 = load ptr, ptr %988, align 8
+  %990 = call i64 @array_map(i64 noundef %974, ptr noundef nonnull %976, ptr noundef %1, i32 noundef %987, ptr noundef %989) #15
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %988, %981
-  %.sink.i764 = phi i64 [ %993, %988 ], [ %987, %981 ]
-  %994 = load ptr, ptr %975, align 8
-  store i64 %.sink.i764, ptr %994, align 8
+.sink.split.i:                                    ; preds = %985, %978
+  %.sink.i764 = phi i64 [ %990, %985 ], [ %984, %978 ]
+  %991 = load ptr, ptr %972, align 8
+  store i64 %.sink.i764, ptr %991, align 8
   br label %ExecEvalArrayCoerce.exit
 
-ExecEvalArrayCoerce.exit:                         ; preds = %969, %.sink.split.i
-  %995 = getelementptr i8, ptr %.0741, i64 64
+ExecEvalArrayCoerce.exit:                         ; preds = %966, %.sink.split.i
+  %992 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-996:                                              ; preds = %.backedge
-  %997 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %998 = load ptr, ptr %997, align 8
-  %999 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1000 = load ptr, ptr %999, align 8
-  %1001 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1002 = load ptr, ptr %1001, align 8
-  %1003 = call ptr @heap_form_tuple(ptr noundef %998, ptr noundef %1000, ptr noundef %1002) #15
-  %1004 = getelementptr i8, ptr %1003, i64 16
-  %.val.i = load ptr, ptr %1004, align 8
-  %1005 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val.i) #15
-  %1006 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1007 = load ptr, ptr %1006, align 8
-  store i64 %1005, ptr %1007, align 8
-  %1008 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1009 = load ptr, ptr %1008, align 8
-  store i8 0, ptr %1009, align 1
-  %1010 = getelementptr i8, ptr %.0741, i64 64
+993:                                              ; preds = %.backedge
+  %994 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %995 = load ptr, ptr %994, align 8
+  %996 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %997 = load ptr, ptr %996, align 8
+  %998 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %999 = load ptr, ptr %998, align 8
+  %1000 = call ptr @heap_form_tuple(ptr noundef %995, ptr noundef %997, ptr noundef %999) #15
+  %1001 = getelementptr i8, ptr %1000, i64 16
+  %.val.i = load ptr, ptr %1001, align 8
+  %1002 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val.i) #15
+  %1003 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1004 = load ptr, ptr %1003, align 8
+  store i64 %1002, ptr %1004, align 8
+  %1005 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1006 = load ptr, ptr %1005, align 8
+  store i8 0, ptr %1006, align 1
+  %1007 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1011:                                             ; preds = %.backedge
-  %1012 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1013 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1014 = load ptr, ptr %1013, align 8
-  %1015 = load ptr, ptr %1012, align 8
-  %1016 = getelementptr inbounds i8, ptr %1015, i64 14
-  %1017 = load i8, ptr %1016, align 2
-  %1018 = trunc i8 %1017 to i1
-  br i1 %1018, label %1019, label %1035
+1008:                                             ; preds = %.backedge
+  %1009 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1010 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1011 = load ptr, ptr %1010, align 8
+  %1012 = load ptr, ptr %1009, align 8
+  %1013 = getelementptr inbounds i8, ptr %1012, i64 14
+  %1014 = load i8, ptr %1013, align 2
+  %1015 = trunc i8 %1014 to i1
+  br i1 %1015, label %1016, label %1032
 
-1019:                                             ; preds = %1011
-  %1020 = getelementptr inbounds i8, ptr %1014, i64 40
-  %1021 = load i8, ptr %1020, align 8
-  %1022 = trunc i8 %1021 to i1
-  br i1 %1022, label %1027, label %1023
+1016:                                             ; preds = %1008
+  %1017 = getelementptr inbounds i8, ptr %1011, i64 40
+  %1018 = load i8, ptr %1017, align 8
+  %1019 = trunc i8 %1018 to i1
+  br i1 %1019, label %1024, label %1020
 
-1023:                                             ; preds = %1019
-  %1024 = getelementptr i8, ptr %1014, i64 56
-  %1025 = load i8, ptr %1024, align 8
-  %1026 = trunc i8 %1025 to i1
-  br i1 %1026, label %1027, label %1035
+1020:                                             ; preds = %1016
+  %1021 = getelementptr i8, ptr %1011, i64 56
+  %1022 = load i8, ptr %1021, align 8
+  %1023 = trunc i8 %1022 to i1
+  br i1 %1023, label %1024, label %1032
 
-1027:                                             ; preds = %1023, %1019
-  %1028 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1029 = load ptr, ptr %1028, align 8
-  store i8 1, ptr %1029, align 1
-  %1030 = load ptr, ptr %10, align 8
-  %1031 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1032 = load i32, ptr %1031, align 8
-  %1033 = sext i32 %1032 to i64
-  %1034 = getelementptr %struct.ExprEvalStep, ptr %1030, i64 %1033
+1024:                                             ; preds = %1020, %1016
+  %1025 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1026 = load ptr, ptr %1025, align 8
+  store i8 1, ptr %1026, align 1
+  %1027 = load ptr, ptr %10, align 8
+  %1028 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1029 = load i32, ptr %1028, align 8
+  %1030 = sext i32 %1029 to i64
+  %1031 = getelementptr %struct.ExprEvalStep, ptr %1027, i64 %1030
   br label %.backedge.backedge
 
-1035:                                             ; preds = %1023, %1011
-  %1036 = getelementptr inbounds i8, ptr %1014, i64 28
-  store i8 0, ptr %1036, align 4
-  %1037 = getelementptr inbounds i8, ptr %.0741, i64 40
+1032:                                             ; preds = %1020, %1008
+  %1033 = getelementptr inbounds i8, ptr %1011, i64 28
+  store i8 0, ptr %1033, align 4
+  %1034 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1035 = load ptr, ptr %1034, align 8
+  %1036 = call i64 %1035(ptr noundef %1011) #15
+  %1037 = getelementptr inbounds i8, ptr %.0741, i64 8
   %1038 = load ptr, ptr %1037, align 8
-  %1039 = call i64 %1038(ptr noundef %1014) #15
-  %1040 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1041 = load ptr, ptr %1040, align 8
-  store i64 %1039, ptr %1041, align 8
-  %1042 = load i8, ptr %1036, align 4
-  %1043 = trunc i8 %1042 to i1
-  %1044 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1045 = load ptr, ptr %1044, align 8
-  br i1 %1043, label %1046, label %1052
+  store i64 %1036, ptr %1038, align 8
+  %1039 = load i8, ptr %1033, align 4
+  %1040 = trunc i8 %1039 to i1
+  %1041 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1042 = load ptr, ptr %1041, align 8
+  br i1 %1040, label %1043, label %1049
 
-1046:                                             ; preds = %1035
-  store i8 1, ptr %1045, align 1
-  %1047 = load ptr, ptr %10, align 8
-  %1048 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1049 = load i32, ptr %1048, align 8
-  %1050 = sext i32 %1049 to i64
-  %1051 = getelementptr %struct.ExprEvalStep, ptr %1047, i64 %1050
+1043:                                             ; preds = %1032
+  store i8 1, ptr %1042, align 1
+  %1044 = load ptr, ptr %10, align 8
+  %1045 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1046 = load i32, ptr %1045, align 8
+  %1047 = sext i32 %1046 to i64
+  %1048 = getelementptr %struct.ExprEvalStep, ptr %1044, i64 %1047
   br label %.backedge.backedge
 
-1052:                                             ; preds = %1035
-  store i8 0, ptr %1045, align 1
-  %1053 = load ptr, ptr %1040, align 8
-  %1054 = load i64, ptr %1053, align 8
-  %1055 = and i64 %1054, 4294967295
-  %.not750 = icmp eq i64 %1055, 0
-  br i1 %.not750, label %1062, label %1056
+1049:                                             ; preds = %1032
+  store i8 0, ptr %1042, align 1
+  %1050 = load ptr, ptr %1037, align 8
+  %1051 = load i64, ptr %1050, align 8
+  %1052 = and i64 %1051, 4294967295
+  %.not750 = icmp eq i64 %1052, 0
+  br i1 %.not750, label %1059, label %1053
 
-1056:                                             ; preds = %1052
-  %1057 = load ptr, ptr %10, align 8
-  %1058 = getelementptr inbounds i8, ptr %.0741, i64 52
-  %1059 = load i32, ptr %1058, align 4
-  %1060 = sext i32 %1059 to i64
-  %1061 = getelementptr %struct.ExprEvalStep, ptr %1057, i64 %1060
+1053:                                             ; preds = %1049
+  %1054 = load ptr, ptr %10, align 8
+  %1055 = getelementptr inbounds i8, ptr %.0741, i64 52
+  %1056 = load i32, ptr %1055, align 4
+  %1057 = sext i32 %1056 to i64
+  %1058 = getelementptr %struct.ExprEvalStep, ptr %1054, i64 %1057
   br label %.backedge.backedge
 
-1062:                                             ; preds = %1052
-  %1063 = getelementptr i8, ptr %.0741, i64 64
+1059:                                             ; preds = %1049
+  %1060 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1064:                                             ; preds = %.backedge
-  %1065 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1066 = load ptr, ptr %1065, align 8
-  %1067 = load i64, ptr %1066, align 8
-  %1068 = trunc i64 %1067 to i32
-  %1069 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1070 = load i32, ptr %1069, align 8
-  %1071 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1072 = load ptr, ptr %1071, align 8
-  store i8 0, ptr %1072, align 1
-  switch i32 %1070, label %1085 [
-    i32 1, label %1073
-    i32 2, label %1075
-    i32 4, label %1078
-    i32 5, label %1081
+1061:                                             ; preds = %.backedge
+  %1062 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1063 = load ptr, ptr %1062, align 8
+  %1064 = load i64, ptr %1063, align 8
+  %1065 = trunc i64 %1064 to i32
+  %1066 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1067 = load i32, ptr %1066, align 8
+  %1068 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1069 = load ptr, ptr %1068, align 8
+  store i8 0, ptr %1069, align 1
+  switch i32 %1067, label %1082 [
+    i32 1, label %1070
+    i32 2, label %1072
+    i32 4, label %1075
+    i32 5, label %1078
   ]
 
-1073:                                             ; preds = %1064
-  %.lobit = lshr i64 %1067, 31
-  %1074 = and i64 %.lobit, 1
+1070:                                             ; preds = %1061
+  %.lobit = lshr i64 %1064, 31
+  %1071 = and i64 %.lobit, 1
   br label %.sink.split
 
-1075:                                             ; preds = %1064
-  %1076 = icmp slt i32 %1068, 1
+1072:                                             ; preds = %1061
+  %1073 = icmp slt i32 %1065, 1
+  %1074 = zext i1 %1073 to i64
+  br label %.sink.split
+
+1075:                                             ; preds = %1061
+  %1076 = icmp sgt i32 %1065, -1
   %1077 = zext i1 %1076 to i64
   br label %.sink.split
 
-1078:                                             ; preds = %1064
-  %1079 = icmp sgt i32 %1068, -1
+1078:                                             ; preds = %1061
+  %1079 = icmp sgt i32 %1065, 0
   %1080 = zext i1 %1079 to i64
   br label %.sink.split
 
-1081:                                             ; preds = %1064
-  %1082 = icmp sgt i32 %1068, 0
-  %1083 = zext i1 %1082 to i64
-  br label %.sink.split
+.sink.split:                                      ; preds = %1078, %1075, %1072, %1070
+  %.sink839 = phi i64 [ %1071, %1070 ], [ %1074, %1072 ], [ %1077, %1075 ], [ %1080, %1078 ]
+  %1081 = load ptr, ptr %1062, align 8
+  store i64 %.sink839, ptr %1081, align 8
+  br label %1082
 
-.sink.split:                                      ; preds = %1081, %1078, %1075, %1073
-  %.sink829 = phi i64 [ %1074, %1073 ], [ %1077, %1075 ], [ %1080, %1078 ], [ %1083, %1081 ]
-  %1084 = load ptr, ptr %1065, align 8
-  store i64 %.sink829, ptr %1084, align 8
-  br label %1085
-
-1085:                                             ; preds = %.sink.split, %1064
-  %1086 = getelementptr i8, ptr %.0741, i64 64
+1082:                                             ; preds = %.sink.split, %1061
+  %1083 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1087:                                             ; preds = %.backedge
+1084:                                             ; preds = %.backedge
   call void @ExecEvalMinMax(ptr poison, ptr noundef nonnull %.0741)
-  %1088 = getelementptr i8, ptr %.0741, i64 64
+  %1085 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1089:                                             ; preds = %.backedge
+1086:                                             ; preds = %.backedge
   call void @ExecEvalFieldSelect(ptr poison, ptr noundef nonnull %.0741, ptr poison)
-  %1090 = getelementptr i8, ptr %.0741, i64 64
+  %1087 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1091:                                             ; preds = %.backedge
+1088:                                             ; preds = %.backedge
   call void @ExecEvalFieldStoreDeForm(ptr poison, ptr noundef nonnull %.0741, ptr poison)
-  %1092 = getelementptr i8, ptr %.0741, i64 64
+  %1089 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1093:                                             ; preds = %.backedge
-  %1094 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1095 = load ptr, ptr %1094, align 8
-  %1096 = getelementptr inbounds i8, ptr %1095, i64 32
-  %1097 = load i32, ptr %1096, align 8
-  %1098 = getelementptr inbounds i8, ptr %.0741, i64 32
+1090:                                             ; preds = %.backedge
+  %1091 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1092 = load ptr, ptr %1091, align 8
+  %1093 = getelementptr inbounds i8, ptr %1092, i64 32
+  %1094 = load i32, ptr %1093, align 8
+  %1095 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1096 = load ptr, ptr %1095, align 8
+  %1097 = call fastcc ptr @get_cached_rowtype(i32 noundef %1094, i32 noundef -1, ptr noundef %1096, ptr noundef null)
+  %1098 = getelementptr inbounds i8, ptr %.0741, i64 40
   %1099 = load ptr, ptr %1098, align 8
-  %1100 = call fastcc ptr @get_cached_rowtype(i32 noundef %1097, i32 noundef -1, ptr noundef %1099, ptr noundef null)
-  %1101 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1102 = load ptr, ptr %1101, align 8
-  %1103 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1104 = load ptr, ptr %1103, align 8
-  %1105 = call ptr @heap_form_tuple(ptr noundef %1100, ptr noundef %1102, ptr noundef %1104) #15
-  %1106 = getelementptr i8, ptr %1105, i64 16
-  %.val.i765 = load ptr, ptr %1106, align 8
-  %1107 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val.i765) #15
-  %1108 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1109 = load ptr, ptr %1108, align 8
-  store i64 %1107, ptr %1109, align 8
-  %1110 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1111 = load ptr, ptr %1110, align 8
-  store i8 0, ptr %1111, align 1
-  %1112 = getelementptr i8, ptr %.0741, i64 64
+  %1100 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1101 = load ptr, ptr %1100, align 8
+  %1102 = call ptr @heap_form_tuple(ptr noundef %1097, ptr noundef %1099, ptr noundef %1101) #15
+  %1103 = getelementptr i8, ptr %1102, i64 16
+  %.val.i765 = load ptr, ptr %1103, align 8
+  %1104 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val.i765) #15
+  %1105 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1106 = load ptr, ptr %1105, align 8
+  store i64 %1104, ptr %1106, align 8
+  %1107 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1108 = load ptr, ptr %1107, align 8
+  store i8 0, ptr %1108, align 1
+  %1109 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1113:                                             ; preds = %.backedge
-  %1114 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1115 = load ptr, ptr %1114, align 8
-  %1116 = call zeroext i1 %1115(ptr noundef nonnull %0, ptr noundef nonnull %.0741, ptr noundef %1) #15
-  br i1 %1116, label %1117, label %1119
+1110:                                             ; preds = %.backedge
+  %1111 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1112 = load ptr, ptr %1111, align 8
+  %1113 = call zeroext i1 %1112(ptr noundef nonnull %0, ptr noundef nonnull %.0741, ptr noundef %1) #15
+  br i1 %1113, label %1114, label %1116
 
-1117:                                             ; preds = %1113
-  %1118 = getelementptr i8, ptr %.0741, i64 64
+1114:                                             ; preds = %1110
+  %1115 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1119:                                             ; preds = %1113
-  %1120 = load ptr, ptr %10, align 8
-  %1121 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1122 = load i32, ptr %1121, align 8
-  %1123 = sext i32 %1122 to i64
-  %1124 = getelementptr %struct.ExprEvalStep, ptr %1120, i64 %1123
+1116:                                             ; preds = %1110
+  %1117 = load ptr, ptr %10, align 8
+  %1118 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1119 = load i32, ptr %1118, align 8
+  %1120 = sext i32 %1119 to i64
+  %1121 = getelementptr %struct.ExprEvalStep, ptr %1117, i64 %1120
   br label %.backedge.backedge
 
-1125:                                             ; preds = %.backedge
-  %1126 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1127 = load ptr, ptr %1126, align 8
-  call void %1127(ptr noundef nonnull %0, ptr noundef nonnull %.0741, ptr noundef %1) #15
-  %1128 = getelementptr i8, ptr %.0741, i64 64
+1122:                                             ; preds = %.backedge
+  %1123 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1124 = load ptr, ptr %1123, align 8
+  call void %1124(ptr noundef nonnull %0, ptr noundef nonnull %.0741, ptr noundef %1) #15
+  %1125 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1129:                                             ; preds = %.backedge
+1126:                                             ; preds = %.backedge
   call void @ExecEvalConvertRowtype(ptr poison, ptr noundef nonnull %.0741, ptr noundef %1)
-  %1130 = getelementptr i8, ptr %.0741, i64 64
+  %1127 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1131:                                             ; preds = %.backedge
+1128:                                             ; preds = %.backedge
   call void @ExecEvalScalarArrayOp(ptr poison, ptr noundef nonnull %.0741)
-  %1132 = getelementptr i8, ptr %.0741, i64 64
+  %1129 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1133:                                             ; preds = %.backedge
+1130:                                             ; preds = %.backedge
   call void @ExecEvalHashedScalarArrayOp(ptr poison, ptr noundef nonnull %.0741, ptr noundef %1)
-  %1134 = getelementptr i8, ptr %.0741, i64 64
+  %1131 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1135:                                             ; preds = %.backedge
-  %1136 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1137 = load ptr, ptr %1136, align 8
-  %1138 = load i8, ptr %1137, align 1
-  %1139 = trunc i8 %1138 to i1
-  br i1 %1139, label %1140, label %ExecEvalConstraintNotNull.exit
+1132:                                             ; preds = %.backedge
+  %1133 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1134 = load ptr, ptr %1133, align 8
+  %1135 = load i8, ptr %1134, align 1
+  %1136 = trunc i8 %1135 to i1
+  br i1 %1136, label %1137, label %ExecEvalConstraintNotNull.exit
 
-1140:                                             ; preds = %1135
-  %1141 = getelementptr inbounds i8, ptr %.0741, i64 56
-  %1142 = load ptr, ptr %1141, align 8
-  %1143 = call zeroext i1 @errsave_start(ptr noundef %1142, ptr noundef null) #15
-  br i1 %1143, label %1144, label %ExecEvalConstraintNotNull.exit
+1137:                                             ; preds = %1132
+  %1138 = getelementptr inbounds i8, ptr %.0741, i64 56
+  %1139 = load ptr, ptr %1138, align 8
+  %1140 = call zeroext i1 @errsave_start(ptr noundef %1139, ptr noundef null) #15
+  br i1 %1140, label %1141, label %ExecEvalConstraintNotNull.exit
 
-1144:                                             ; preds = %1140
-  %1145 = call i32 @errcode(i32 noundef 33575106) #15
-  %1146 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1147 = load i32, ptr %1146, align 8
-  %1148 = call ptr @format_type_be(i32 noundef %1147) #15
-  %1149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %1148) #15
-  %1150 = load i32, ptr %1146, align 8
-  %1151 = call i32 @errdatatype(i32 noundef %1150) #15
-  call void @errsave_finish(ptr noundef %1142, ptr noundef nonnull @.str.1, i32 noundef 3813, ptr noundef nonnull @__func__.ExecEvalConstraintNotNull) #15
+1141:                                             ; preds = %1137
+  %1142 = call i32 @errcode(i32 noundef 33575106) #15
+  %1143 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1144 = load i32, ptr %1143, align 8
+  %1145 = call ptr @format_type_be(i32 noundef %1144) #15
+  %1146 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %1145) #15
+  %1147 = load i32, ptr %1143, align 8
+  %1148 = call i32 @errdatatype(i32 noundef %1147) #15
+  call void @errsave_finish(ptr noundef %1139, ptr noundef nonnull @.str.1, i32 noundef 3813, ptr noundef nonnull @__func__.ExecEvalConstraintNotNull) #15
   br label %ExecEvalConstraintNotNull.exit
 
-ExecEvalConstraintNotNull.exit:                   ; preds = %1135, %1140, %1144
-  %1152 = getelementptr i8, ptr %.0741, i64 64
+ExecEvalConstraintNotNull.exit:                   ; preds = %1132, %1137, %1141
+  %1149 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1153:                                             ; preds = %.backedge
+1150:                                             ; preds = %.backedge
   call void @ExecEvalConstraintCheck(ptr poison, ptr noundef nonnull %.0741)
-  %1154 = getelementptr i8, ptr %.0741, i64 64
+  %1151 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1155:                                             ; preds = %.backedge
+1152:                                             ; preds = %.backedge
   call void @ExecEvalXmlExpr(ptr poison, ptr noundef nonnull %.0741)
-  %1156 = getelementptr i8, ptr %.0741, i64 64
+  %1153 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1157:                                             ; preds = %.backedge
+1154:                                             ; preds = %.backedge
   call void @ExecEvalJsonConstructor(ptr poison, ptr noundef nonnull %.0741, ptr poison)
-  %1158 = getelementptr i8, ptr %.0741, i64 64
+  %1155 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1159:                                             ; preds = %.backedge
+1156:                                             ; preds = %.backedge
   call void @ExecEvalJsonIsPredicate(ptr poison, ptr noundef nonnull %.0741)
-  %1160 = getelementptr i8, ptr %.0741, i64 64
+  %1157 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1161:                                             ; preds = %.backedge
-  %1162 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1163 = load i32, ptr %1162, align 8
-  %1164 = load ptr, ptr %21, align 8
-  %1165 = sext i32 %1163 to i64
-  %1166 = getelementptr i64, ptr %1164, i64 %1165
-  %1167 = load i64, ptr %1166, align 8
-  %1168 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1169 = load ptr, ptr %1168, align 8
-  store i64 %1167, ptr %1169, align 8
-  %1170 = load ptr, ptr %22, align 8
-  %1171 = getelementptr i8, ptr %1170, i64 %1165
-  %1172 = load i8, ptr %1171, align 1
-  %1173 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1174 = load ptr, ptr %1173, align 8
-  %1175 = and i8 %1172, 1
-  store i8 %1175, ptr %1174, align 1
-  %1176 = getelementptr i8, ptr %.0741, i64 64
+1158:                                             ; preds = %.backedge
+  %1159 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1160 = load i32, ptr %1159, align 8
+  %1161 = load ptr, ptr %21, align 8
+  %1162 = sext i32 %1160 to i64
+  %1163 = getelementptr i64, ptr %1161, i64 %1162
+  %1164 = load i64, ptr %1163, align 8
+  %1165 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1166 = load ptr, ptr %1165, align 8
+  store i64 %1164, ptr %1166, align 8
+  %1167 = load ptr, ptr %22, align 8
+  %1168 = getelementptr i8, ptr %1167, i64 %1162
+  %1169 = load i8, ptr %1168, align 1
+  %1170 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1171 = load ptr, ptr %1170, align 8
+  %1172 = and i8 %1169, 1
+  store i8 %1172, ptr %1171, align 1
+  %1173 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1177:                                             ; preds = %.backedge
-  %1178 = load ptr, ptr %20, align 8
-  %1179 = getelementptr inbounds i8, ptr %1178, i64 344
-  %1180 = load ptr, ptr %1179, align 8
-  %1181 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1182 = load ptr, ptr %1181, align 8
-  %1183 = getelementptr inbounds i8, ptr %1182, i64 4
-  %.not.i766 = icmp eq ptr %1182, null
+1174:                                             ; preds = %.backedge
+  %1175 = load ptr, ptr %20, align 8
+  %1176 = getelementptr inbounds i8, ptr %1175, i64 344
+  %1177 = load ptr, ptr %1176, align 8
+  %1178 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1179 = load ptr, ptr %1178, align 8
+  %1180 = getelementptr inbounds i8, ptr %1179, i64 4
+  %.not.i766 = icmp eq ptr %1179, null
   br i1 %.not.i766, label %ExecEvalGroupingFunc.exit, label %.lr.ph.i767
 
-.lr.ph.i767:                                      ; preds = %1177
-  %1184 = getelementptr inbounds i8, ptr %1182, i64 16
-  %1185 = load i32, ptr %1183, align 4
-  %1186 = icmp sgt i32 %1185, 0
-  br i1 %1186, label %.lr.ph26.i, label %ExecEvalGroupingFunc.exit
+.lr.ph.i767:                                      ; preds = %1174
+  %1181 = getelementptr inbounds i8, ptr %1179, i64 16
+  %1182 = load i32, ptr %1180, align 4
+  %1183 = icmp sgt i32 %1182, 0
+  br i1 %1183, label %.lr.ph26.i, label %ExecEvalGroupingFunc.exit
 
 .lr.ph26.i:                                       ; preds = %.lr.ph.i767, %.lr.ph26.i
   %indvars.iv.i769 = phi i64 [ %indvars.iv.next.i770, %.lr.ph26.i ], [ 0, %.lr.ph.i767 ]
   %.02024.i = phi i32 [ %spec.select.i, %.lr.ph26.i ], [ 0, %.lr.ph.i767 ]
-  %1187 = load ptr, ptr %1184, align 8
-  %1188 = getelementptr %union.ListCell, ptr %1187, i64 %indvars.iv.i769
-  %1189 = load i32, ptr %1188, align 8
-  %1190 = shl i32 %.02024.i, 1
-  %1191 = call zeroext i1 @bms_is_member(i32 noundef %1189, ptr noundef %1180) #15
-  %not..i = xor i1 %1191, true
-  %1192 = zext i1 %not..i to i32
-  %spec.select.i = or disjoint i32 %1190, %1192
+  %1184 = load ptr, ptr %1181, align 8
+  %1185 = getelementptr %union.ListCell, ptr %1184, i64 %indvars.iv.i769
+  %1186 = load i32, ptr %1185, align 8
+  %1187 = shl i32 %.02024.i, 1
+  %1188 = call zeroext i1 @bms_is_member(i32 noundef %1186, ptr noundef %1177) #15
+  %not..i = xor i1 %1188, true
+  %1189 = zext i1 %not..i to i32
+  %spec.select.i = or disjoint i32 %1187, %1189
   %indvars.iv.next.i770 = add nuw nsw i64 %indvars.iv.i769, 1
-  %1193 = load i32, ptr %1183, align 4
-  %1194 = sext i32 %1193 to i64
-  %1195 = icmp slt i64 %indvars.iv.next.i770, %1194
-  br i1 %1195, label %.lr.ph26.i, label %._crit_edge.loopexit.i
+  %1190 = load i32, ptr %1180, align 4
+  %1191 = sext i32 %1190 to i64
+  %1192 = icmp slt i64 %indvars.iv.next.i770, %1191
+  br i1 %1192, label %.lr.ph26.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph26.i
-  %1196 = sext i32 %spec.select.i to i64
+  %1193 = sext i32 %spec.select.i to i64
   br label %ExecEvalGroupingFunc.exit
 
-ExecEvalGroupingFunc.exit:                        ; preds = %1177, %.lr.ph.i767, %._crit_edge.loopexit.i
-  %.0.lcssa.i = phi i64 [ 0, %1177 ], [ 0, %.lr.ph.i767 ], [ %1196, %._crit_edge.loopexit.i ]
-  %1197 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1198 = load ptr, ptr %1197, align 8
-  store i64 %.0.lcssa.i, ptr %1198, align 8
-  %1199 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1200 = load ptr, ptr %1199, align 8
-  store i8 0, ptr %1200, align 1
-  %1201 = getelementptr i8, ptr %.0741, i64 64
+ExecEvalGroupingFunc.exit:                        ; preds = %1174, %.lr.ph.i767, %._crit_edge.loopexit.i
+  %.0.lcssa.i = phi i64 [ 0, %1174 ], [ 0, %.lr.ph.i767 ], [ %1193, %._crit_edge.loopexit.i ]
+  %1194 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1195 = load ptr, ptr %1194, align 8
+  store i64 %.0.lcssa.i, ptr %1195, align 8
+  %1196 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1197 = load ptr, ptr %1196, align 8
+  store i8 0, ptr %1197, align 1
+  %1198 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1202:                                             ; preds = %.backedge
-  %1203 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1204 = load ptr, ptr %1203, align 8
-  %1205 = load ptr, ptr %21, align 8
-  %1206 = getelementptr inbounds i8, ptr %1204, i64 32
-  %1207 = load i32, ptr %1206, align 8
-  %1208 = sext i32 %1207 to i64
-  %1209 = getelementptr i64, ptr %1205, i64 %1208
-  %1210 = load i64, ptr %1209, align 8
-  %1211 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1212 = load ptr, ptr %1211, align 8
-  store i64 %1210, ptr %1212, align 8
-  %1213 = load ptr, ptr %22, align 8
-  %1214 = load i32, ptr %1206, align 8
-  %1215 = sext i32 %1214 to i64
-  %1216 = getelementptr i8, ptr %1213, i64 %1215
-  %1217 = load i8, ptr %1216, align 1
-  %1218 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1219 = load ptr, ptr %1218, align 8
-  %1220 = and i8 %1217, 1
-  store i8 %1220, ptr %1219, align 1
-  %1221 = getelementptr i8, ptr %.0741, i64 64
+1199:                                             ; preds = %.backedge
+  %1200 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1201 = load ptr, ptr %1200, align 8
+  %1202 = load ptr, ptr %21, align 8
+  %1203 = getelementptr inbounds i8, ptr %1201, i64 32
+  %1204 = load i32, ptr %1203, align 8
+  %1205 = sext i32 %1204 to i64
+  %1206 = getelementptr i64, ptr %1202, i64 %1205
+  %1207 = load i64, ptr %1206, align 8
+  %1208 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1209 = load ptr, ptr %1208, align 8
+  store i64 %1207, ptr %1209, align 8
+  %1210 = load ptr, ptr %22, align 8
+  %1211 = load i32, ptr %1203, align 8
+  %1212 = sext i32 %1211 to i64
+  %1213 = getelementptr i8, ptr %1210, i64 %1212
+  %1214 = load i8, ptr %1213, align 1
+  %1215 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1216 = load ptr, ptr %1215, align 8
+  %1217 = and i8 %1214, 1
+  store i8 %1217, ptr %1216, align 1
+  %1218 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1222:                                             ; preds = %.backedge
-  %1223 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1224 = load ptr, ptr %1223, align 8
+1219:                                             ; preds = %.backedge
+  %1220 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1221 = load ptr, ptr %1220, align 8
   call void @check_stack_depth() #15
-  %1225 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1222 = getelementptr inbounds i8, ptr %.0741, i64 16
+  %1223 = load ptr, ptr %1222, align 8
+  %1224 = call i64 @ExecSubPlan(ptr noundef %1221, ptr noundef %1, ptr noundef %1223) #15
+  %1225 = getelementptr inbounds i8, ptr %.0741, i64 8
   %1226 = load ptr, ptr %1225, align 8
-  %1227 = call i64 @ExecSubPlan(ptr noundef %1224, ptr noundef %1, ptr noundef %1226) #15
-  %1228 = getelementptr inbounds i8, ptr %.0741, i64 8
-  %1229 = load ptr, ptr %1228, align 8
-  store i64 %1227, ptr %1229, align 8
-  %1230 = getelementptr i8, ptr %.0741, i64 64
+  store i64 %1224, ptr %1226, align 8
+  %1227 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1231:                                             ; preds = %.backedge
-  %1232 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1233 = load ptr, ptr %1232, align 8
-  %1234 = getelementptr inbounds i8, ptr %1233, i64 40
-  %1235 = load i8, ptr %1234, align 8
-  %1236 = trunc i8 %1235 to i1
-  br i1 %1236, label %1237, label %1243
+1228:                                             ; preds = %.backedge
+  %1229 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1230 = load ptr, ptr %1229, align 8
+  %1231 = getelementptr inbounds i8, ptr %1230, i64 40
+  %1232 = load i8, ptr %1231, align 8
+  %1233 = trunc i8 %1232 to i1
+  br i1 %1233, label %1234, label %1240
 
-1237:                                             ; preds = %1231
-  %1238 = load ptr, ptr %10, align 8
-  %1239 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1240 = load i32, ptr %1239, align 8
-  %1241 = sext i32 %1240 to i64
-  %1242 = getelementptr %struct.ExprEvalStep, ptr %1238, i64 %1241
+1234:                                             ; preds = %1228
+  %1235 = load ptr, ptr %10, align 8
+  %1236 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1237 = load i32, ptr %1236, align 8
+  %1238 = sext i32 %1237 to i64
+  %1239 = getelementptr %struct.ExprEvalStep, ptr %1235, i64 %1238
   br label %.backedge.backedge
 
-1243:                                             ; preds = %1231, %.backedge
-  %1244 = getelementptr inbounds i8, ptr %.0741, i64 24
+1240:                                             ; preds = %1228, %.backedge
+  %1241 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1242 = load ptr, ptr %1241, align 8
+  %1243 = load ptr, ptr %20, align 8
+  %1244 = getelementptr inbounds i8, ptr %1243, i64 296
   %1245 = load ptr, ptr %1244, align 8
-  %1246 = load ptr, ptr %20, align 8
-  %1247 = getelementptr inbounds i8, ptr %1246, i64 296
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = getelementptr inbounds i8, ptr %1248, i64 40
-  %1250 = load ptr, ptr %1249, align 8
-  %1251 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1250, ptr @CurrentMemoryContext, align 8
-  %1252 = getelementptr inbounds i8, ptr %1245, i64 28
-  store i8 0, ptr %1252, align 4
-  %1253 = load ptr, ptr %1245, align 8
+  %1246 = getelementptr inbounds i8, ptr %1245, i64 40
+  %1247 = load ptr, ptr %1246, align 8
+  %1248 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1247, ptr @CurrentMemoryContext, align 8
+  %1249 = getelementptr inbounds i8, ptr %1242, i64 28
+  store i8 0, ptr %1249, align 4
+  %1250 = load ptr, ptr %1242, align 8
+  %1251 = load ptr, ptr %1250, align 8
+  %1252 = call i64 %1251(ptr noundef nonnull %1242) #15
+  %1253 = getelementptr inbounds i8, ptr %.0741, i64 8
   %1254 = load ptr, ptr %1253, align 8
-  %1255 = call i64 %1254(ptr noundef nonnull %1245) #15
-  %1256 = getelementptr inbounds i8, ptr %.0741, i64 8
+  store i64 %1252, ptr %1254, align 8
+  %1255 = load i8, ptr %1249, align 4
+  %1256 = getelementptr inbounds i8, ptr %.0741, i64 16
   %1257 = load ptr, ptr %1256, align 8
-  store i64 %1255, ptr %1257, align 8
-  %1258 = load i8, ptr %1252, align 4
-  %1259 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1260 = load ptr, ptr %1259, align 8
-  %1261 = and i8 %1258, 1
-  store i8 %1261, ptr %1260, align 1
-  store ptr %1251, ptr @CurrentMemoryContext, align 8
-  %1262 = getelementptr i8, ptr %.0741, i64 64
+  %1258 = and i8 %1255, 1
+  store i8 %1258, ptr %1257, align 1
+  store ptr %1248, ptr @CurrentMemoryContext, align 8
+  %1259 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1263:                                             ; preds = %.backedge
-  %1264 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1265 = load ptr, ptr %1264, align 8
-  %1266 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1267 = load i32, ptr %1266, align 8
-  %1268 = icmp sgt i32 %1267, 0
-  br i1 %1268, label %.lr.ph796.preheader, label %._crit_edge797
+1260:                                             ; preds = %.backedge
+  %1261 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1262 = load ptr, ptr %1261, align 8
+  %1263 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1264 = load i32, ptr %1263, align 8
+  %1265 = icmp sgt i32 %1264, 0
+  br i1 %1265, label %.lr.ph801.preheader, label %._crit_edge802
 
-.lr.ph796.preheader:                              ; preds = %1263
-  %wide.trip.count811 = zext nneg i32 %1267 to i64
-  br label %.lr.ph796
+.lr.ph801.preheader:                              ; preds = %1260
+  %wide.trip.count816 = zext nneg i32 %1264 to i64
+  br label %.lr.ph801
 
-1269:                                             ; preds = %.lr.ph796
-  %indvars.iv.next809 = add nuw nsw i64 %indvars.iv808, 1
-  %exitcond812.not = icmp eq i64 %indvars.iv.next809, %wide.trip.count811
-  br i1 %exitcond812.not, label %._crit_edge797, label %.lr.ph796, !llvm.loop !13
+1266:                                             ; preds = %.lr.ph801
+  %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
+  %exitcond817.not = icmp eq i64 %indvars.iv.next814, %wide.trip.count816
+  br i1 %exitcond817.not, label %._crit_edge802, label %.lr.ph801, !llvm.loop !13
 
-.lr.ph796:                                        ; preds = %.lr.ph796.preheader, %1269
-  %indvars.iv808 = phi i64 [ 0, %.lr.ph796.preheader ], [ %indvars.iv.next809, %1269 ]
-  %1270 = getelementptr %struct.NullableDatum, ptr %1265, i64 %indvars.iv808, i32 1
-  %1271 = load i8, ptr %1270, align 8
-  %1272 = trunc i8 %1271 to i1
-  br i1 %1272, label %1273, label %1269
+.lr.ph801:                                        ; preds = %.lr.ph801.preheader, %1266
+  %indvars.iv813 = phi i64 [ 0, %.lr.ph801.preheader ], [ %indvars.iv.next814, %1266 ]
+  %1267 = getelementptr %struct.NullableDatum, ptr %1262, i64 %indvars.iv813, i32 1
+  %1268 = load i8, ptr %1267, align 8
+  %1269 = trunc i8 %1268 to i1
+  br i1 %1269, label %1270, label %1266
 
-1273:                                             ; preds = %.lr.ph796
-  %1274 = load ptr, ptr %10, align 8
-  %1275 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1276 = load i32, ptr %1275, align 4
-  %1277 = sext i32 %1276 to i64
-  %1278 = getelementptr %struct.ExprEvalStep, ptr %1274, i64 %1277
+1270:                                             ; preds = %.lr.ph801
+  %1271 = load ptr, ptr %10, align 8
+  %1272 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1273 = load i32, ptr %1272, align 4
+  %1274 = sext i32 %1273 to i64
+  %1275 = getelementptr %struct.ExprEvalStep, ptr %1271, i64 %1274
   br label %.backedge.backedge
 
-._crit_edge797:                                   ; preds = %1269, %1263
-  %1279 = getelementptr i8, ptr %.0741, i64 64
+._crit_edge802:                                   ; preds = %1266, %1260
+  %1276 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1280:                                             ; preds = %.backedge
-  %1281 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1282 = load ptr, ptr %1281, align 8
-  %1283 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1284 = load i32, ptr %1283, align 8
-  %1285 = icmp sgt i32 %1284, 0
-  br i1 %1285, label %.lr.ph.preheader, label %._crit_edge
+1277:                                             ; preds = %.backedge
+  %1278 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1279 = load ptr, ptr %1278, align 8
+  %1280 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1281 = load i32, ptr %1280, align 8
+  %1282 = icmp sgt i32 %1281, 0
+  br i1 %1282, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %1280
-  %wide.trip.count = zext nneg i32 %1284 to i64
+.lr.ph.preheader:                                 ; preds = %1277
+  %wide.trip.count = zext nneg i32 %1281 to i64
   br label %.lr.ph
 
-1286:                                             ; preds = %.lr.ph
+1283:                                             ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %1286
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %1286 ]
-  %1287 = getelementptr i8, ptr %1282, i64 %indvars.iv
-  %1288 = load i8, ptr %1287, align 1
-  %1289 = trunc i8 %1288 to i1
-  br i1 %1289, label %1290, label %1286
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %1283
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %1283 ]
+  %1284 = getelementptr i8, ptr %1279, i64 %indvars.iv
+  %1285 = load i8, ptr %1284, align 1
+  %1286 = trunc i8 %1285 to i1
+  br i1 %1286, label %1287, label %1283
 
-1290:                                             ; preds = %.lr.ph
-  %1291 = load ptr, ptr %10, align 8
-  %1292 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1293 = load i32, ptr %1292, align 4
-  %1294 = sext i32 %1293 to i64
-  %1295 = getelementptr %struct.ExprEvalStep, ptr %1291, i64 %1294
+1287:                                             ; preds = %.lr.ph
+  %1288 = load ptr, ptr %10, align 8
+  %1289 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1290 = load i32, ptr %1289, align 4
+  %1291 = sext i32 %1290 to i64
+  %1292 = getelementptr %struct.ExprEvalStep, ptr %1288, i64 %1291
   br label %.backedge.backedge
 
-._crit_edge:                                      ; preds = %1286, %1280
-  %1296 = getelementptr i8, ptr %.0741, i64 64
+._crit_edge:                                      ; preds = %1283, %1277
+  %1293 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1297:                                             ; preds = %.backedge
-  %1298 = load ptr, ptr %20, align 8
-  %1299 = getelementptr inbounds i8, ptr %1298, i64 576
-  %1300 = load ptr, ptr %1299, align 8
-  %1301 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1302 = load i32, ptr %1301, align 8
-  %1303 = sext i32 %1302 to i64
-  %1304 = getelementptr ptr, ptr %1300, i64 %1303
-  %1305 = load ptr, ptr %1304, align 8
-  %1306 = icmp eq ptr %1305, null
-  br i1 %1306, label %1307, label %1313
+1294:                                             ; preds = %.backedge
+  %1295 = load ptr, ptr %20, align 8
+  %1296 = getelementptr inbounds i8, ptr %1295, i64 576
+  %1297 = load ptr, ptr %1296, align 8
+  %1298 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1299 = load i32, ptr %1298, align 8
+  %1300 = sext i32 %1299 to i64
+  %1301 = getelementptr ptr, ptr %1297, i64 %1300
+  %1302 = load ptr, ptr %1301, align 8
+  %1303 = icmp eq ptr %1302, null
+  br i1 %1303, label %1304, label %1310
 
-1307:                                             ; preds = %1297
-  %1308 = load ptr, ptr %10, align 8
-  %1309 = getelementptr inbounds i8, ptr %.0741, i64 28
-  %1310 = load i32, ptr %1309, align 4
-  %1311 = sext i32 %1310 to i64
-  %1312 = getelementptr %struct.ExprEvalStep, ptr %1308, i64 %1311
+1304:                                             ; preds = %1294
+  %1305 = load ptr, ptr %10, align 8
+  %1306 = getelementptr inbounds i8, ptr %.0741, i64 28
+  %1307 = load i32, ptr %1306, align 4
+  %1308 = sext i32 %1307 to i64
+  %1309 = getelementptr %struct.ExprEvalStep, ptr %1305, i64 %1308
   br label %.backedge.backedge
 
-1313:                                             ; preds = %1297
-  %1314 = getelementptr i8, ptr %.0741, i64 64
+1310:                                             ; preds = %1294
+  %1311 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1315:                                             ; preds = %.backedge
-  %1316 = load ptr, ptr %20, align 8
-  %1317 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1318 = load ptr, ptr %1317, align 8
-  %1319 = getelementptr inbounds i8, ptr %1316, i64 576
-  %1320 = load ptr, ptr %1319, align 8
-  %1321 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1322 = load i32, ptr %1321, align 8
-  %1323 = sext i32 %1322 to i64
-  %1324 = getelementptr ptr, ptr %1320, i64 %1323
-  %1325 = load ptr, ptr %1324, align 8
-  %1326 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1327 = load i32, ptr %1326, align 4
-  %1328 = sext i32 %1327 to i64
-  %1329 = getelementptr %struct.AggStatePerGroupData, ptr %1325, i64 %1328
-  %1330 = getelementptr inbounds i8, ptr %1329, i64 9
-  %1331 = load i8, ptr %1330, align 1
-  %1332 = trunc i8 %1331 to i1
-  br i1 %1332, label %1333, label %1351
+1312:                                             ; preds = %.backedge
+  %1313 = load ptr, ptr %20, align 8
+  %1314 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1315 = load ptr, ptr %1314, align 8
+  %1316 = getelementptr inbounds i8, ptr %1313, i64 576
+  %1317 = load ptr, ptr %1316, align 8
+  %1318 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1319 = load i32, ptr %1318, align 8
+  %1320 = sext i32 %1319 to i64
+  %1321 = getelementptr ptr, ptr %1317, i64 %1320
+  %1322 = load ptr, ptr %1321, align 8
+  %1323 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1324 = load i32, ptr %1323, align 4
+  %1325 = sext i32 %1324 to i64
+  %1326 = getelementptr %struct.AggStatePerGroupData, ptr %1322, i64 %1325
+  %1327 = getelementptr inbounds i8, ptr %1326, i64 9
+  %1328 = load i8, ptr %1327, align 1
+  %1329 = trunc i8 %1328 to i1
+  br i1 %1329, label %1330, label %1348
 
-1333:                                             ; preds = %1315
-  %1334 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1335 = load ptr, ptr %1334, align 8
-  %1336 = getelementptr inbounds i8, ptr %1318, i64 352
-  %1337 = load ptr, ptr %1336, align 8
-  %1338 = getelementptr inbounds i8, ptr %1335, i64 40
-  %1339 = load ptr, ptr %1338, align 8
-  %1340 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1339, ptr @CurrentMemoryContext, align 8
-  %1341 = getelementptr i8, ptr %1337, i64 48
-  %1342 = load i64, ptr %1341, align 8
-  %1343 = getelementptr inbounds i8, ptr %1318, i64 303
-  %1344 = load i8, ptr %1343, align 1
-  %1345 = trunc i8 %1344 to i1
-  %1346 = getelementptr inbounds i8, ptr %1318, i64 300
-  %1347 = load i16, ptr %1346, align 4
-  %1348 = sext i16 %1347 to i32
-  %1349 = call i64 @datumCopy(i64 noundef %1342, i1 noundef zeroext %1345, i32 noundef %1348) #15
-  store i64 %1349, ptr %1329, align 8
-  %1350 = getelementptr inbounds i8, ptr %1329, i64 8
-  store i8 0, ptr %1350, align 8
-  store i8 0, ptr %1330, align 1
-  br label %.sink.split831
+1330:                                             ; preds = %1312
+  %1331 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1332 = load ptr, ptr %1331, align 8
+  %1333 = getelementptr inbounds i8, ptr %1315, i64 352
+  %1334 = load ptr, ptr %1333, align 8
+  %1335 = getelementptr inbounds i8, ptr %1332, i64 40
+  %1336 = load ptr, ptr %1335, align 8
+  %1337 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1336, ptr @CurrentMemoryContext, align 8
+  %1338 = getelementptr i8, ptr %1334, i64 48
+  %1339 = load i64, ptr %1338, align 8
+  %1340 = getelementptr inbounds i8, ptr %1315, i64 303
+  %1341 = load i8, ptr %1340, align 1
+  %1342 = trunc i8 %1341 to i1
+  %1343 = getelementptr inbounds i8, ptr %1315, i64 300
+  %1344 = load i16, ptr %1343, align 4
+  %1345 = sext i16 %1344 to i32
+  %1346 = call i64 @datumCopy(i64 noundef %1339, i1 noundef zeroext %1342, i32 noundef %1345) #15
+  store i64 %1346, ptr %1326, align 8
+  %1347 = getelementptr inbounds i8, ptr %1326, i64 8
+  store i8 0, ptr %1347, align 8
+  store i8 0, ptr %1327, align 1
+  br label %.sink.split841
 
-1351:                                             ; preds = %1315
-  %1352 = getelementptr inbounds i8, ptr %1329, i64 8
-  %1353 = load i8, ptr %1352, align 8
-  %1354 = trunc i8 %1353 to i1
-  br i1 %1354, label %1381, label %1355
+1348:                                             ; preds = %1312
+  %1349 = getelementptr inbounds i8, ptr %1326, i64 8
+  %1350 = load i8, ptr %1349, align 8
+  %1351 = trunc i8 %1350 to i1
+  br i1 %1351, label %1378, label %1352
 
-1355:                                             ; preds = %1351
-  %1356 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1357 = load ptr, ptr %1356, align 8
-  %1358 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1359 = load i32, ptr %1358, align 8
-  %1360 = getelementptr inbounds i8, ptr %1318, i64 352
-  %1361 = load ptr, ptr %1360, align 8
-  %1362 = getelementptr inbounds i8, ptr %1316, i64 304
-  store ptr %1357, ptr %1362, align 8
-  %1363 = getelementptr inbounds i8, ptr %1316, i64 336
-  store i32 %1359, ptr %1363, align 8
-  %1364 = getelementptr inbounds i8, ptr %1316, i64 320
-  store ptr %1318, ptr %1364, align 8
-  %1365 = getelementptr inbounds i8, ptr %1316, i64 296
-  %1366 = load ptr, ptr %1365, align 8
-  %1367 = getelementptr inbounds i8, ptr %1366, i64 40
-  %1368 = load ptr, ptr %1367, align 8
-  %1369 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1368, ptr @CurrentMemoryContext, align 8
-  %1370 = load i64, ptr %1329, align 8
-  %1371 = getelementptr inbounds i8, ptr %1361, i64 32
-  store i64 %1370, ptr %1371, align 8
-  %1372 = load i8, ptr %1352, align 8
-  %1373 = getelementptr inbounds i8, ptr %1361, i64 40
-  %1374 = and i8 %1372, 1
-  store i8 %1374, ptr %1373, align 8
-  %1375 = getelementptr inbounds i8, ptr %1361, i64 28
-  store i8 0, ptr %1375, align 4
-  %1376 = load ptr, ptr %1361, align 8
-  %1377 = load ptr, ptr %1376, align 8
-  %1378 = call i64 %1377(ptr noundef nonnull %1361) #15
-  store i64 %1378, ptr %1329, align 8
-  %1379 = load i8, ptr %1375, align 4
-  %1380 = and i8 %1379, 1
-  store i8 %1380, ptr %1352, align 8
-  br label %.sink.split831
+1352:                                             ; preds = %1348
+  %1353 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1354 = load ptr, ptr %1353, align 8
+  %1355 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1356 = load i32, ptr %1355, align 8
+  %1357 = getelementptr inbounds i8, ptr %1315, i64 352
+  %1358 = load ptr, ptr %1357, align 8
+  %1359 = getelementptr inbounds i8, ptr %1313, i64 304
+  store ptr %1354, ptr %1359, align 8
+  %1360 = getelementptr inbounds i8, ptr %1313, i64 336
+  store i32 %1356, ptr %1360, align 8
+  %1361 = getelementptr inbounds i8, ptr %1313, i64 320
+  store ptr %1315, ptr %1361, align 8
+  %1362 = getelementptr inbounds i8, ptr %1313, i64 296
+  %1363 = load ptr, ptr %1362, align 8
+  %1364 = getelementptr inbounds i8, ptr %1363, i64 40
+  %1365 = load ptr, ptr %1364, align 8
+  %1366 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1365, ptr @CurrentMemoryContext, align 8
+  %1367 = load i64, ptr %1326, align 8
+  %1368 = getelementptr inbounds i8, ptr %1358, i64 32
+  store i64 %1367, ptr %1368, align 8
+  %1369 = load i8, ptr %1349, align 8
+  %1370 = getelementptr inbounds i8, ptr %1358, i64 40
+  %1371 = and i8 %1369, 1
+  store i8 %1371, ptr %1370, align 8
+  %1372 = getelementptr inbounds i8, ptr %1358, i64 28
+  store i8 0, ptr %1372, align 4
+  %1373 = load ptr, ptr %1358, align 8
+  %1374 = load ptr, ptr %1373, align 8
+  %1375 = call i64 %1374(ptr noundef nonnull %1358) #15
+  store i64 %1375, ptr %1326, align 8
+  %1376 = load i8, ptr %1372, align 4
+  %1377 = and i8 %1376, 1
+  store i8 %1377, ptr %1349, align 8
+  br label %.sink.split841
 
-.sink.split831:                                   ; preds = %1355, %1333
-  %.sink832 = phi ptr [ %1340, %1333 ], [ %1369, %1355 ]
-  store ptr %.sink832, ptr @CurrentMemoryContext, align 8
-  br label %1381
+.sink.split841:                                   ; preds = %1352, %1330
+  %.sink842 = phi ptr [ %1337, %1330 ], [ %1366, %1352 ]
+  store ptr %.sink842, ptr @CurrentMemoryContext, align 8
+  br label %1378
 
-1381:                                             ; preds = %.sink.split831, %1351
-  %1382 = getelementptr i8, ptr %.0741, i64 64
+1378:                                             ; preds = %.sink.split841, %1348
+  %1379 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1383:                                             ; preds = %.backedge
-  %1384 = load ptr, ptr %20, align 8
-  %1385 = getelementptr inbounds i8, ptr %1384, i64 576
-  %1386 = load ptr, ptr %1385, align 8
-  %1387 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1388 = load i32, ptr %1387, align 8
-  %1389 = sext i32 %1388 to i64
-  %1390 = getelementptr ptr, ptr %1386, i64 %1389
-  %1391 = load ptr, ptr %1390, align 8
-  %1392 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1393 = load i32, ptr %1392, align 4
-  %1394 = sext i32 %1393 to i64
-  %1395 = getelementptr %struct.AggStatePerGroupData, ptr %1391, i64 %1394
-  %1396 = getelementptr inbounds i8, ptr %1395, i64 8
-  %1397 = load i8, ptr %1396, align 8
-  %1398 = trunc i8 %1397 to i1
-  br i1 %1398, label %1427, label %1399
+1380:                                             ; preds = %.backedge
+  %1381 = load ptr, ptr %20, align 8
+  %1382 = getelementptr inbounds i8, ptr %1381, i64 576
+  %1383 = load ptr, ptr %1382, align 8
+  %1384 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1385 = load i32, ptr %1384, align 8
+  %1386 = sext i32 %1385 to i64
+  %1387 = getelementptr ptr, ptr %1383, i64 %1386
+  %1388 = load ptr, ptr %1387, align 8
+  %1389 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1390 = load i32, ptr %1389, align 4
+  %1391 = sext i32 %1390 to i64
+  %1392 = getelementptr %struct.AggStatePerGroupData, ptr %1388, i64 %1391
+  %1393 = getelementptr inbounds i8, ptr %1392, i64 8
+  %1394 = load i8, ptr %1393, align 8
+  %1395 = trunc i8 %1394 to i1
+  br i1 %1395, label %1424, label %1396
 
-1399:                                             ; preds = %1383
-  %1400 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1401 = load ptr, ptr %1400, align 8
-  %1402 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1403 = load ptr, ptr %1402, align 8
-  %1404 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1405 = load i32, ptr %1404, align 8
-  %1406 = getelementptr inbounds i8, ptr %1401, i64 352
-  %1407 = load ptr, ptr %1406, align 8
-  %1408 = getelementptr inbounds i8, ptr %1384, i64 304
-  store ptr %1403, ptr %1408, align 8
-  %1409 = getelementptr inbounds i8, ptr %1384, i64 336
-  store i32 %1405, ptr %1409, align 8
-  %1410 = getelementptr inbounds i8, ptr %1384, i64 320
-  store ptr %1401, ptr %1410, align 8
-  %1411 = getelementptr inbounds i8, ptr %1384, i64 296
-  %1412 = load ptr, ptr %1411, align 8
-  %1413 = getelementptr inbounds i8, ptr %1412, i64 40
-  %1414 = load ptr, ptr %1413, align 8
-  %1415 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1414, ptr @CurrentMemoryContext, align 8
-  %1416 = load i64, ptr %1395, align 8
-  %1417 = getelementptr inbounds i8, ptr %1407, i64 32
-  store i64 %1416, ptr %1417, align 8
-  %1418 = load i8, ptr %1396, align 8
-  %1419 = getelementptr inbounds i8, ptr %1407, i64 40
-  %1420 = and i8 %1418, 1
-  store i8 %1420, ptr %1419, align 8
-  %1421 = getelementptr inbounds i8, ptr %1407, i64 28
-  store i8 0, ptr %1421, align 4
-  %1422 = load ptr, ptr %1407, align 8
-  %1423 = load ptr, ptr %1422, align 8
-  %1424 = call i64 %1423(ptr noundef nonnull %1407) #15
-  store i64 %1424, ptr %1395, align 8
-  %1425 = load i8, ptr %1421, align 4
-  %1426 = and i8 %1425, 1
-  store i8 %1426, ptr %1396, align 8
-  store ptr %1415, ptr @CurrentMemoryContext, align 8
-  br label %1427
+1396:                                             ; preds = %1380
+  %1397 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1398 = load ptr, ptr %1397, align 8
+  %1399 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1400 = load ptr, ptr %1399, align 8
+  %1401 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1402 = load i32, ptr %1401, align 8
+  %1403 = getelementptr inbounds i8, ptr %1398, i64 352
+  %1404 = load ptr, ptr %1403, align 8
+  %1405 = getelementptr inbounds i8, ptr %1381, i64 304
+  store ptr %1400, ptr %1405, align 8
+  %1406 = getelementptr inbounds i8, ptr %1381, i64 336
+  store i32 %1402, ptr %1406, align 8
+  %1407 = getelementptr inbounds i8, ptr %1381, i64 320
+  store ptr %1398, ptr %1407, align 8
+  %1408 = getelementptr inbounds i8, ptr %1381, i64 296
+  %1409 = load ptr, ptr %1408, align 8
+  %1410 = getelementptr inbounds i8, ptr %1409, i64 40
+  %1411 = load ptr, ptr %1410, align 8
+  %1412 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1411, ptr @CurrentMemoryContext, align 8
+  %1413 = load i64, ptr %1392, align 8
+  %1414 = getelementptr inbounds i8, ptr %1404, i64 32
+  store i64 %1413, ptr %1414, align 8
+  %1415 = load i8, ptr %1393, align 8
+  %1416 = getelementptr inbounds i8, ptr %1404, i64 40
+  %1417 = and i8 %1415, 1
+  store i8 %1417, ptr %1416, align 8
+  %1418 = getelementptr inbounds i8, ptr %1404, i64 28
+  store i8 0, ptr %1418, align 4
+  %1419 = load ptr, ptr %1404, align 8
+  %1420 = load ptr, ptr %1419, align 8
+  %1421 = call i64 %1420(ptr noundef nonnull %1404) #15
+  store i64 %1421, ptr %1392, align 8
+  %1422 = load i8, ptr %1418, align 4
+  %1423 = and i8 %1422, 1
+  store i8 %1423, ptr %1393, align 8
+  store ptr %1412, ptr @CurrentMemoryContext, align 8
+  br label %1424
 
-1427:                                             ; preds = %1383, %1399
-  %1428 = getelementptr i8, ptr %.0741, i64 64
+1424:                                             ; preds = %1380, %1396
+  %1425 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1429:                                             ; preds = %.backedge
-  %1430 = load ptr, ptr %20, align 8
-  %1431 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1432 = load ptr, ptr %1431, align 8
-  %1433 = getelementptr inbounds i8, ptr %1430, i64 576
-  %1434 = load ptr, ptr %1433, align 8
-  %1435 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1436 = load i32, ptr %1435, align 8
-  %1437 = sext i32 %1436 to i64
-  %1438 = getelementptr ptr, ptr %1434, i64 %1437
-  %1439 = load ptr, ptr %1438, align 8
-  %1440 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1441 = load i32, ptr %1440, align 4
-  %1442 = sext i32 %1441 to i64
-  %1443 = getelementptr %struct.AggStatePerGroupData, ptr %1439, i64 %1442
-  %1444 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1445 = load ptr, ptr %1444, align 8
-  %1446 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1447 = load i32, ptr %1446, align 8
-  %1448 = getelementptr inbounds i8, ptr %1432, i64 352
-  %1449 = load ptr, ptr %1448, align 8
-  %1450 = getelementptr inbounds i8, ptr %1430, i64 304
-  store ptr %1445, ptr %1450, align 8
-  %1451 = getelementptr inbounds i8, ptr %1430, i64 336
-  store i32 %1447, ptr %1451, align 8
-  %1452 = getelementptr inbounds i8, ptr %1430, i64 320
-  store ptr %1432, ptr %1452, align 8
-  %1453 = getelementptr inbounds i8, ptr %1430, i64 296
-  %1454 = load ptr, ptr %1453, align 8
-  %1455 = getelementptr inbounds i8, ptr %1454, i64 40
-  %1456 = load ptr, ptr %1455, align 8
-  %1457 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1456, ptr @CurrentMemoryContext, align 8
-  %1458 = load i64, ptr %1443, align 8
-  %1459 = getelementptr inbounds i8, ptr %1449, i64 32
-  store i64 %1458, ptr %1459, align 8
-  %1460 = getelementptr inbounds i8, ptr %1443, i64 8
-  %1461 = load i8, ptr %1460, align 8
-  %1462 = getelementptr inbounds i8, ptr %1449, i64 40
-  %1463 = and i8 %1461, 1
-  store i8 %1463, ptr %1462, align 8
-  %1464 = getelementptr inbounds i8, ptr %1449, i64 28
-  store i8 0, ptr %1464, align 4
-  %1465 = load ptr, ptr %1449, align 8
-  %1466 = load ptr, ptr %1465, align 8
-  %1467 = call i64 %1466(ptr noundef nonnull %1449) #15
-  store i64 %1467, ptr %1443, align 8
-  %1468 = load i8, ptr %1464, align 4
-  %1469 = and i8 %1468, 1
-  store i8 %1469, ptr %1460, align 8
-  store ptr %1457, ptr @CurrentMemoryContext, align 8
-  %1470 = getelementptr i8, ptr %.0741, i64 64
+1426:                                             ; preds = %.backedge
+  %1427 = load ptr, ptr %20, align 8
+  %1428 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1429 = load ptr, ptr %1428, align 8
+  %1430 = getelementptr inbounds i8, ptr %1427, i64 576
+  %1431 = load ptr, ptr %1430, align 8
+  %1432 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1433 = load i32, ptr %1432, align 8
+  %1434 = sext i32 %1433 to i64
+  %1435 = getelementptr ptr, ptr %1431, i64 %1434
+  %1436 = load ptr, ptr %1435, align 8
+  %1437 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1438 = load i32, ptr %1437, align 4
+  %1439 = sext i32 %1438 to i64
+  %1440 = getelementptr %struct.AggStatePerGroupData, ptr %1436, i64 %1439
+  %1441 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1442 = load ptr, ptr %1441, align 8
+  %1443 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1444 = load i32, ptr %1443, align 8
+  %1445 = getelementptr inbounds i8, ptr %1429, i64 352
+  %1446 = load ptr, ptr %1445, align 8
+  %1447 = getelementptr inbounds i8, ptr %1427, i64 304
+  store ptr %1442, ptr %1447, align 8
+  %1448 = getelementptr inbounds i8, ptr %1427, i64 336
+  store i32 %1444, ptr %1448, align 8
+  %1449 = getelementptr inbounds i8, ptr %1427, i64 320
+  store ptr %1429, ptr %1449, align 8
+  %1450 = getelementptr inbounds i8, ptr %1427, i64 296
+  %1451 = load ptr, ptr %1450, align 8
+  %1452 = getelementptr inbounds i8, ptr %1451, i64 40
+  %1453 = load ptr, ptr %1452, align 8
+  %1454 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1453, ptr @CurrentMemoryContext, align 8
+  %1455 = load i64, ptr %1440, align 8
+  %1456 = getelementptr inbounds i8, ptr %1446, i64 32
+  store i64 %1455, ptr %1456, align 8
+  %1457 = getelementptr inbounds i8, ptr %1440, i64 8
+  %1458 = load i8, ptr %1457, align 8
+  %1459 = getelementptr inbounds i8, ptr %1446, i64 40
+  %1460 = and i8 %1458, 1
+  store i8 %1460, ptr %1459, align 8
+  %1461 = getelementptr inbounds i8, ptr %1446, i64 28
+  store i8 0, ptr %1461, align 4
+  %1462 = load ptr, ptr %1446, align 8
+  %1463 = load ptr, ptr %1462, align 8
+  %1464 = call i64 %1463(ptr noundef nonnull %1446) #15
+  store i64 %1464, ptr %1440, align 8
+  %1465 = load i8, ptr %1461, align 4
+  %1466 = and i8 %1465, 1
+  store i8 %1466, ptr %1457, align 8
+  store ptr %1454, ptr @CurrentMemoryContext, align 8
+  %1467 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1471:                                             ; preds = %.backedge
-  %1472 = load ptr, ptr %20, align 8
-  %1473 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1474 = load ptr, ptr %1473, align 8
-  %1475 = getelementptr inbounds i8, ptr %1472, i64 576
-  %1476 = load ptr, ptr %1475, align 8
-  %1477 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1478 = load i32, ptr %1477, align 8
-  %1479 = sext i32 %1478 to i64
-  %1480 = getelementptr ptr, ptr %1476, i64 %1479
-  %1481 = load ptr, ptr %1480, align 8
-  %1482 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1483 = load i32, ptr %1482, align 4
-  %1484 = sext i32 %1483 to i64
-  %1485 = getelementptr %struct.AggStatePerGroupData, ptr %1481, i64 %1484
-  %1486 = getelementptr inbounds i8, ptr %1485, i64 9
-  %1487 = load i8, ptr %1486, align 1
-  %1488 = trunc i8 %1487 to i1
-  br i1 %1488, label %1489, label %1507
+1468:                                             ; preds = %.backedge
+  %1469 = load ptr, ptr %20, align 8
+  %1470 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1471 = load ptr, ptr %1470, align 8
+  %1472 = getelementptr inbounds i8, ptr %1469, i64 576
+  %1473 = load ptr, ptr %1472, align 8
+  %1474 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1475 = load i32, ptr %1474, align 8
+  %1476 = sext i32 %1475 to i64
+  %1477 = getelementptr ptr, ptr %1473, i64 %1476
+  %1478 = load ptr, ptr %1477, align 8
+  %1479 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1480 = load i32, ptr %1479, align 4
+  %1481 = sext i32 %1480 to i64
+  %1482 = getelementptr %struct.AggStatePerGroupData, ptr %1478, i64 %1481
+  %1483 = getelementptr inbounds i8, ptr %1482, i64 9
+  %1484 = load i8, ptr %1483, align 1
+  %1485 = trunc i8 %1484 to i1
+  br i1 %1485, label %1486, label %1504
 
-1489:                                             ; preds = %1471
-  %1490 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1491 = load ptr, ptr %1490, align 8
-  %1492 = getelementptr inbounds i8, ptr %1474, i64 352
-  %1493 = load ptr, ptr %1492, align 8
-  %1494 = getelementptr inbounds i8, ptr %1491, i64 40
-  %1495 = load ptr, ptr %1494, align 8
-  %1496 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1495, ptr @CurrentMemoryContext, align 8
-  %1497 = getelementptr i8, ptr %1493, i64 48
-  %1498 = load i64, ptr %1497, align 8
-  %1499 = getelementptr inbounds i8, ptr %1474, i64 303
-  %1500 = load i8, ptr %1499, align 1
-  %1501 = trunc i8 %1500 to i1
-  %1502 = getelementptr inbounds i8, ptr %1474, i64 300
-  %1503 = load i16, ptr %1502, align 4
-  %1504 = sext i16 %1503 to i32
-  %1505 = call i64 @datumCopy(i64 noundef %1498, i1 noundef zeroext %1501, i32 noundef %1504) #15
-  store i64 %1505, ptr %1485, align 8
-  %1506 = getelementptr inbounds i8, ptr %1485, i64 8
-  store i8 0, ptr %1506, align 8
-  store i8 0, ptr %1486, align 1
-  br label %.sink.split833
+1486:                                             ; preds = %1468
+  %1487 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1488 = load ptr, ptr %1487, align 8
+  %1489 = getelementptr inbounds i8, ptr %1471, i64 352
+  %1490 = load ptr, ptr %1489, align 8
+  %1491 = getelementptr inbounds i8, ptr %1488, i64 40
+  %1492 = load ptr, ptr %1491, align 8
+  %1493 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1492, ptr @CurrentMemoryContext, align 8
+  %1494 = getelementptr i8, ptr %1490, i64 48
+  %1495 = load i64, ptr %1494, align 8
+  %1496 = getelementptr inbounds i8, ptr %1471, i64 303
+  %1497 = load i8, ptr %1496, align 1
+  %1498 = trunc i8 %1497 to i1
+  %1499 = getelementptr inbounds i8, ptr %1471, i64 300
+  %1500 = load i16, ptr %1499, align 4
+  %1501 = sext i16 %1500 to i32
+  %1502 = call i64 @datumCopy(i64 noundef %1495, i1 noundef zeroext %1498, i32 noundef %1501) #15
+  store i64 %1502, ptr %1482, align 8
+  %1503 = getelementptr inbounds i8, ptr %1482, i64 8
+  store i8 0, ptr %1503, align 8
+  store i8 0, ptr %1483, align 1
+  br label %.sink.split843
 
-1507:                                             ; preds = %1471
-  %1508 = getelementptr inbounds i8, ptr %1485, i64 8
-  %1509 = load i8, ptr %1508, align 8
-  %1510 = trunc i8 %1509 to i1
-  br i1 %1510, label %1546, label %1511
+1504:                                             ; preds = %1468
+  %1505 = getelementptr inbounds i8, ptr %1482, i64 8
+  %1506 = load i8, ptr %1505, align 8
+  %1507 = trunc i8 %1506 to i1
+  br i1 %1507, label %1543, label %1508
 
-1511:                                             ; preds = %1507
-  %1512 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1513 = load ptr, ptr %1512, align 8
-  %1514 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1515 = load i32, ptr %1514, align 8
-  %1516 = getelementptr inbounds i8, ptr %1474, i64 352
-  %1517 = load ptr, ptr %1516, align 8
-  %1518 = getelementptr inbounds i8, ptr %1472, i64 304
-  store ptr %1513, ptr %1518, align 8
-  %1519 = getelementptr inbounds i8, ptr %1472, i64 336
-  store i32 %1515, ptr %1519, align 8
-  %1520 = getelementptr inbounds i8, ptr %1472, i64 320
-  store ptr %1474, ptr %1520, align 8
-  %1521 = getelementptr inbounds i8, ptr %1472, i64 296
-  %1522 = load ptr, ptr %1521, align 8
-  %1523 = getelementptr inbounds i8, ptr %1522, i64 40
-  %1524 = load ptr, ptr %1523, align 8
-  %1525 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1524, ptr @CurrentMemoryContext, align 8
-  %1526 = load i64, ptr %1485, align 8
-  %1527 = getelementptr inbounds i8, ptr %1517, i64 32
-  store i64 %1526, ptr %1527, align 8
-  %1528 = load i8, ptr %1508, align 8
-  %1529 = getelementptr inbounds i8, ptr %1517, i64 40
-  %1530 = and i8 %1528, 1
-  store i8 %1530, ptr %1529, align 8
-  %1531 = getelementptr inbounds i8, ptr %1517, i64 28
-  store i8 0, ptr %1531, align 4
-  %1532 = load ptr, ptr %1517, align 8
-  %1533 = load ptr, ptr %1532, align 8
-  %1534 = call i64 %1533(ptr noundef nonnull %1517) #15
-  %1535 = inttoptr i64 %1534 to ptr
-  %1536 = load i64, ptr %1485, align 8
-  %1537 = inttoptr i64 %1536 to ptr
-  %.not.i771 = icmp eq ptr %1535, %1537
-  br i1 %.not.i771, label %ExecAggPlainTransByRef.exit, label %1538
+1508:                                             ; preds = %1504
+  %1509 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1510 = load ptr, ptr %1509, align 8
+  %1511 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1512 = load i32, ptr %1511, align 8
+  %1513 = getelementptr inbounds i8, ptr %1471, i64 352
+  %1514 = load ptr, ptr %1513, align 8
+  %1515 = getelementptr inbounds i8, ptr %1469, i64 304
+  store ptr %1510, ptr %1515, align 8
+  %1516 = getelementptr inbounds i8, ptr %1469, i64 336
+  store i32 %1512, ptr %1516, align 8
+  %1517 = getelementptr inbounds i8, ptr %1469, i64 320
+  store ptr %1471, ptr %1517, align 8
+  %1518 = getelementptr inbounds i8, ptr %1469, i64 296
+  %1519 = load ptr, ptr %1518, align 8
+  %1520 = getelementptr inbounds i8, ptr %1519, i64 40
+  %1521 = load ptr, ptr %1520, align 8
+  %1522 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1521, ptr @CurrentMemoryContext, align 8
+  %1523 = load i64, ptr %1482, align 8
+  %1524 = getelementptr inbounds i8, ptr %1514, i64 32
+  store i64 %1523, ptr %1524, align 8
+  %1525 = load i8, ptr %1505, align 8
+  %1526 = getelementptr inbounds i8, ptr %1514, i64 40
+  %1527 = and i8 %1525, 1
+  store i8 %1527, ptr %1526, align 8
+  %1528 = getelementptr inbounds i8, ptr %1514, i64 28
+  store i8 0, ptr %1528, align 4
+  %1529 = load ptr, ptr %1514, align 8
+  %1530 = load ptr, ptr %1529, align 8
+  %1531 = call i64 %1530(ptr noundef nonnull %1514) #15
+  %1532 = inttoptr i64 %1531 to ptr
+  %1533 = load i64, ptr %1482, align 8
+  %1534 = inttoptr i64 %1533 to ptr
+  %.not.i771 = icmp eq ptr %1532, %1534
+  br i1 %.not.i771, label %ExecAggPlainTransByRef.exit, label %1535
 
-1538:                                             ; preds = %1511
-  %1539 = load i8, ptr %1531, align 4
-  %1540 = trunc i8 %1539 to i1
-  %1541 = load i8, ptr %1508, align 8
-  %1542 = trunc i8 %1541 to i1
-  %1543 = call i64 @ExecAggCopyTransValue(ptr noundef nonnull %1472, ptr noundef nonnull %1474, i64 noundef %1534, i1 noundef zeroext %1540, i64 noundef %1536, i1 noundef zeroext %1542)
+1535:                                             ; preds = %1508
+  %1536 = load i8, ptr %1528, align 4
+  %1537 = trunc i8 %1536 to i1
+  %1538 = load i8, ptr %1505, align 8
+  %1539 = trunc i8 %1538 to i1
+  %1540 = call i64 @ExecAggCopyTransValue(ptr noundef nonnull %1469, ptr noundef nonnull %1471, i64 noundef %1531, i1 noundef zeroext %1537, i64 noundef %1533, i1 noundef zeroext %1539)
   br label %ExecAggPlainTransByRef.exit
 
-ExecAggPlainTransByRef.exit:                      ; preds = %1511, %1538
-  %.0.i772 = phi i64 [ %1543, %1538 ], [ %1534, %1511 ]
-  store i64 %.0.i772, ptr %1485, align 8
-  %1544 = load i8, ptr %1531, align 4
-  %1545 = and i8 %1544, 1
-  store i8 %1545, ptr %1508, align 8
-  br label %.sink.split833
+ExecAggPlainTransByRef.exit:                      ; preds = %1508, %1535
+  %.0.i772 = phi i64 [ %1540, %1535 ], [ %1531, %1508 ]
+  store i64 %.0.i772, ptr %1482, align 8
+  %1541 = load i8, ptr %1528, align 4
+  %1542 = and i8 %1541, 1
+  store i8 %1542, ptr %1505, align 8
+  br label %.sink.split843
 
-.sink.split833:                                   ; preds = %ExecAggPlainTransByRef.exit, %1489
-  %.sink834 = phi ptr [ %1496, %1489 ], [ %1525, %ExecAggPlainTransByRef.exit ]
-  store ptr %.sink834, ptr @CurrentMemoryContext, align 8
-  br label %1546
+.sink.split843:                                   ; preds = %ExecAggPlainTransByRef.exit, %1486
+  %.sink844 = phi ptr [ %1493, %1486 ], [ %1522, %ExecAggPlainTransByRef.exit ]
+  store ptr %.sink844, ptr @CurrentMemoryContext, align 8
+  br label %1543
 
-1546:                                             ; preds = %.sink.split833, %1507
-  %1547 = getelementptr i8, ptr %.0741, i64 64
+1543:                                             ; preds = %.sink.split843, %1504
+  %1544 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1548:                                             ; preds = %.backedge
-  %1549 = load ptr, ptr %20, align 8
-  %1550 = getelementptr inbounds i8, ptr %1549, i64 576
-  %1551 = load ptr, ptr %1550, align 8
-  %1552 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1553 = load i32, ptr %1552, align 8
-  %1554 = sext i32 %1553 to i64
-  %1555 = getelementptr ptr, ptr %1551, i64 %1554
-  %1556 = load ptr, ptr %1555, align 8
-  %1557 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1558 = load i32, ptr %1557, align 4
-  %1559 = sext i32 %1558 to i64
-  %1560 = getelementptr %struct.AggStatePerGroupData, ptr %1556, i64 %1559
-  %1561 = getelementptr inbounds i8, ptr %1560, i64 8
-  %1562 = load i8, ptr %1561, align 8
-  %1563 = trunc i8 %1562 to i1
-  br i1 %1563, label %1601, label %1564
+1545:                                             ; preds = %.backedge
+  %1546 = load ptr, ptr %20, align 8
+  %1547 = getelementptr inbounds i8, ptr %1546, i64 576
+  %1548 = load ptr, ptr %1547, align 8
+  %1549 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1550 = load i32, ptr %1549, align 8
+  %1551 = sext i32 %1550 to i64
+  %1552 = getelementptr ptr, ptr %1548, i64 %1551
+  %1553 = load ptr, ptr %1552, align 8
+  %1554 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1555 = load i32, ptr %1554, align 4
+  %1556 = sext i32 %1555 to i64
+  %1557 = getelementptr %struct.AggStatePerGroupData, ptr %1553, i64 %1556
+  %1558 = getelementptr inbounds i8, ptr %1557, i64 8
+  %1559 = load i8, ptr %1558, align 8
+  %1560 = trunc i8 %1559 to i1
+  br i1 %1560, label %1598, label %1561
 
-1564:                                             ; preds = %1548
-  %1565 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1566 = load ptr, ptr %1565, align 8
-  %1567 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1568 = load ptr, ptr %1567, align 8
-  %1569 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1570 = load i32, ptr %1569, align 8
-  %1571 = getelementptr inbounds i8, ptr %1566, i64 352
-  %1572 = load ptr, ptr %1571, align 8
-  %1573 = getelementptr inbounds i8, ptr %1549, i64 304
-  store ptr %1568, ptr %1573, align 8
-  %1574 = getelementptr inbounds i8, ptr %1549, i64 336
-  store i32 %1570, ptr %1574, align 8
-  %1575 = getelementptr inbounds i8, ptr %1549, i64 320
-  store ptr %1566, ptr %1575, align 8
-  %1576 = getelementptr inbounds i8, ptr %1549, i64 296
-  %1577 = load ptr, ptr %1576, align 8
-  %1578 = getelementptr inbounds i8, ptr %1577, i64 40
-  %1579 = load ptr, ptr %1578, align 8
-  %1580 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1579, ptr @CurrentMemoryContext, align 8
-  %1581 = load i64, ptr %1560, align 8
-  %1582 = getelementptr inbounds i8, ptr %1572, i64 32
-  store i64 %1581, ptr %1582, align 8
-  %1583 = load i8, ptr %1561, align 8
-  %1584 = getelementptr inbounds i8, ptr %1572, i64 40
-  %1585 = and i8 %1583, 1
-  store i8 %1585, ptr %1584, align 8
-  %1586 = getelementptr inbounds i8, ptr %1572, i64 28
-  store i8 0, ptr %1586, align 4
-  %1587 = load ptr, ptr %1572, align 8
-  %1588 = load ptr, ptr %1587, align 8
-  %1589 = call i64 %1588(ptr noundef nonnull %1572) #15
-  %1590 = inttoptr i64 %1589 to ptr
-  %1591 = load i64, ptr %1560, align 8
-  %1592 = inttoptr i64 %1591 to ptr
-  %.not.i773 = icmp eq ptr %1590, %1592
-  br i1 %.not.i773, label %ExecAggPlainTransByRef.exit775, label %1593
+1561:                                             ; preds = %1545
+  %1562 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1563 = load ptr, ptr %1562, align 8
+  %1564 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1565 = load ptr, ptr %1564, align 8
+  %1566 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1567 = load i32, ptr %1566, align 8
+  %1568 = getelementptr inbounds i8, ptr %1563, i64 352
+  %1569 = load ptr, ptr %1568, align 8
+  %1570 = getelementptr inbounds i8, ptr %1546, i64 304
+  store ptr %1565, ptr %1570, align 8
+  %1571 = getelementptr inbounds i8, ptr %1546, i64 336
+  store i32 %1567, ptr %1571, align 8
+  %1572 = getelementptr inbounds i8, ptr %1546, i64 320
+  store ptr %1563, ptr %1572, align 8
+  %1573 = getelementptr inbounds i8, ptr %1546, i64 296
+  %1574 = load ptr, ptr %1573, align 8
+  %1575 = getelementptr inbounds i8, ptr %1574, i64 40
+  %1576 = load ptr, ptr %1575, align 8
+  %1577 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1576, ptr @CurrentMemoryContext, align 8
+  %1578 = load i64, ptr %1557, align 8
+  %1579 = getelementptr inbounds i8, ptr %1569, i64 32
+  store i64 %1578, ptr %1579, align 8
+  %1580 = load i8, ptr %1558, align 8
+  %1581 = getelementptr inbounds i8, ptr %1569, i64 40
+  %1582 = and i8 %1580, 1
+  store i8 %1582, ptr %1581, align 8
+  %1583 = getelementptr inbounds i8, ptr %1569, i64 28
+  store i8 0, ptr %1583, align 4
+  %1584 = load ptr, ptr %1569, align 8
+  %1585 = load ptr, ptr %1584, align 8
+  %1586 = call i64 %1585(ptr noundef nonnull %1569) #15
+  %1587 = inttoptr i64 %1586 to ptr
+  %1588 = load i64, ptr %1557, align 8
+  %1589 = inttoptr i64 %1588 to ptr
+  %.not.i773 = icmp eq ptr %1587, %1589
+  br i1 %.not.i773, label %ExecAggPlainTransByRef.exit775, label %1590
 
-1593:                                             ; preds = %1564
-  %1594 = load i8, ptr %1586, align 4
-  %1595 = trunc i8 %1594 to i1
-  %1596 = load i8, ptr %1561, align 8
-  %1597 = trunc i8 %1596 to i1
-  %1598 = call i64 @ExecAggCopyTransValue(ptr noundef nonnull %1549, ptr noundef nonnull %1566, i64 noundef %1589, i1 noundef zeroext %1595, i64 noundef %1591, i1 noundef zeroext %1597)
+1590:                                             ; preds = %1561
+  %1591 = load i8, ptr %1583, align 4
+  %1592 = trunc i8 %1591 to i1
+  %1593 = load i8, ptr %1558, align 8
+  %1594 = trunc i8 %1593 to i1
+  %1595 = call i64 @ExecAggCopyTransValue(ptr noundef nonnull %1546, ptr noundef nonnull %1563, i64 noundef %1586, i1 noundef zeroext %1592, i64 noundef %1588, i1 noundef zeroext %1594)
   br label %ExecAggPlainTransByRef.exit775
 
-ExecAggPlainTransByRef.exit775:                   ; preds = %1564, %1593
-  %.0.i774 = phi i64 [ %1598, %1593 ], [ %1589, %1564 ]
-  store i64 %.0.i774, ptr %1560, align 8
-  %1599 = load i8, ptr %1586, align 4
-  %1600 = and i8 %1599, 1
-  store i8 %1600, ptr %1561, align 8
-  store ptr %1580, ptr @CurrentMemoryContext, align 8
-  br label %1601
+ExecAggPlainTransByRef.exit775:                   ; preds = %1561, %1590
+  %.0.i774 = phi i64 [ %1595, %1590 ], [ %1586, %1561 ]
+  store i64 %.0.i774, ptr %1557, align 8
+  %1596 = load i8, ptr %1583, align 4
+  %1597 = and i8 %1596, 1
+  store i8 %1597, ptr %1558, align 8
+  store ptr %1577, ptr @CurrentMemoryContext, align 8
+  br label %1598
 
-1601:                                             ; preds = %1548, %ExecAggPlainTransByRef.exit775
-  %1602 = getelementptr i8, ptr %.0741, i64 64
+1598:                                             ; preds = %1545, %ExecAggPlainTransByRef.exit775
+  %1599 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1603:                                             ; preds = %.backedge
-  %1604 = load ptr, ptr %20, align 8
-  %1605 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1606 = load ptr, ptr %1605, align 8
-  %1607 = getelementptr inbounds i8, ptr %1604, i64 576
-  %1608 = load ptr, ptr %1607, align 8
-  %1609 = getelementptr inbounds i8, ptr %.0741, i64 48
-  %1610 = load i32, ptr %1609, align 8
-  %1611 = sext i32 %1610 to i64
-  %1612 = getelementptr ptr, ptr %1608, i64 %1611
-  %1613 = load ptr, ptr %1612, align 8
-  %1614 = getelementptr inbounds i8, ptr %.0741, i64 44
-  %1615 = load i32, ptr %1614, align 4
-  %1616 = sext i32 %1615 to i64
-  %1617 = getelementptr %struct.AggStatePerGroupData, ptr %1613, i64 %1616
-  %1618 = getelementptr inbounds i8, ptr %.0741, i64 32
-  %1619 = load ptr, ptr %1618, align 8
-  %1620 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1621 = load i32, ptr %1620, align 8
-  %1622 = getelementptr inbounds i8, ptr %1606, i64 352
-  %1623 = load ptr, ptr %1622, align 8
-  %1624 = getelementptr inbounds i8, ptr %1604, i64 304
-  store ptr %1619, ptr %1624, align 8
-  %1625 = getelementptr inbounds i8, ptr %1604, i64 336
-  store i32 %1621, ptr %1625, align 8
-  %1626 = getelementptr inbounds i8, ptr %1604, i64 320
-  store ptr %1606, ptr %1626, align 8
-  %1627 = getelementptr inbounds i8, ptr %1604, i64 296
-  %1628 = load ptr, ptr %1627, align 8
-  %1629 = getelementptr inbounds i8, ptr %1628, i64 40
-  %1630 = load ptr, ptr %1629, align 8
-  %1631 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %1630, ptr @CurrentMemoryContext, align 8
-  %1632 = load i64, ptr %1617, align 8
-  %1633 = getelementptr inbounds i8, ptr %1623, i64 32
-  store i64 %1632, ptr %1633, align 8
-  %1634 = getelementptr inbounds i8, ptr %1617, i64 8
-  %1635 = load i8, ptr %1634, align 8
-  %1636 = getelementptr inbounds i8, ptr %1623, i64 40
-  %1637 = and i8 %1635, 1
-  store i8 %1637, ptr %1636, align 8
-  %1638 = getelementptr inbounds i8, ptr %1623, i64 28
-  store i8 0, ptr %1638, align 4
-  %1639 = load ptr, ptr %1623, align 8
-  %1640 = load ptr, ptr %1639, align 8
-  %1641 = call i64 %1640(ptr noundef nonnull %1623) #15
-  %1642 = inttoptr i64 %1641 to ptr
-  %1643 = load i64, ptr %1617, align 8
-  %1644 = inttoptr i64 %1643 to ptr
-  %.not.i776 = icmp eq ptr %1642, %1644
-  br i1 %.not.i776, label %ExecAggPlainTransByRef.exit778, label %1645
+1600:                                             ; preds = %.backedge
+  %1601 = load ptr, ptr %20, align 8
+  %1602 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1603 = load ptr, ptr %1602, align 8
+  %1604 = getelementptr inbounds i8, ptr %1601, i64 576
+  %1605 = load ptr, ptr %1604, align 8
+  %1606 = getelementptr inbounds i8, ptr %.0741, i64 48
+  %1607 = load i32, ptr %1606, align 8
+  %1608 = sext i32 %1607 to i64
+  %1609 = getelementptr ptr, ptr %1605, i64 %1608
+  %1610 = load ptr, ptr %1609, align 8
+  %1611 = getelementptr inbounds i8, ptr %.0741, i64 44
+  %1612 = load i32, ptr %1611, align 4
+  %1613 = sext i32 %1612 to i64
+  %1614 = getelementptr %struct.AggStatePerGroupData, ptr %1610, i64 %1613
+  %1615 = getelementptr inbounds i8, ptr %.0741, i64 32
+  %1616 = load ptr, ptr %1615, align 8
+  %1617 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1618 = load i32, ptr %1617, align 8
+  %1619 = getelementptr inbounds i8, ptr %1603, i64 352
+  %1620 = load ptr, ptr %1619, align 8
+  %1621 = getelementptr inbounds i8, ptr %1601, i64 304
+  store ptr %1616, ptr %1621, align 8
+  %1622 = getelementptr inbounds i8, ptr %1601, i64 336
+  store i32 %1618, ptr %1622, align 8
+  %1623 = getelementptr inbounds i8, ptr %1601, i64 320
+  store ptr %1603, ptr %1623, align 8
+  %1624 = getelementptr inbounds i8, ptr %1601, i64 296
+  %1625 = load ptr, ptr %1624, align 8
+  %1626 = getelementptr inbounds i8, ptr %1625, i64 40
+  %1627 = load ptr, ptr %1626, align 8
+  %1628 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %1627, ptr @CurrentMemoryContext, align 8
+  %1629 = load i64, ptr %1614, align 8
+  %1630 = getelementptr inbounds i8, ptr %1620, i64 32
+  store i64 %1629, ptr %1630, align 8
+  %1631 = getelementptr inbounds i8, ptr %1614, i64 8
+  %1632 = load i8, ptr %1631, align 8
+  %1633 = getelementptr inbounds i8, ptr %1620, i64 40
+  %1634 = and i8 %1632, 1
+  store i8 %1634, ptr %1633, align 8
+  %1635 = getelementptr inbounds i8, ptr %1620, i64 28
+  store i8 0, ptr %1635, align 4
+  %1636 = load ptr, ptr %1620, align 8
+  %1637 = load ptr, ptr %1636, align 8
+  %1638 = call i64 %1637(ptr noundef nonnull %1620) #15
+  %1639 = inttoptr i64 %1638 to ptr
+  %1640 = load i64, ptr %1614, align 8
+  %1641 = inttoptr i64 %1640 to ptr
+  %.not.i776 = icmp eq ptr %1639, %1641
+  br i1 %.not.i776, label %ExecAggPlainTransByRef.exit778, label %1642
 
-1645:                                             ; preds = %1603
-  %1646 = load i8, ptr %1638, align 4
-  %1647 = trunc i8 %1646 to i1
-  %1648 = load i8, ptr %1634, align 8
-  %1649 = trunc i8 %1648 to i1
-  %1650 = call i64 @ExecAggCopyTransValue(ptr noundef nonnull %1604, ptr noundef nonnull %1606, i64 noundef %1641, i1 noundef zeroext %1647, i64 noundef %1643, i1 noundef zeroext %1649)
+1642:                                             ; preds = %1600
+  %1643 = load i8, ptr %1635, align 4
+  %1644 = trunc i8 %1643 to i1
+  %1645 = load i8, ptr %1631, align 8
+  %1646 = trunc i8 %1645 to i1
+  %1647 = call i64 @ExecAggCopyTransValue(ptr noundef nonnull %1601, ptr noundef nonnull %1603, i64 noundef %1638, i1 noundef zeroext %1644, i64 noundef %1640, i1 noundef zeroext %1646)
   br label %ExecAggPlainTransByRef.exit778
 
-ExecAggPlainTransByRef.exit778:                   ; preds = %1603, %1645
-  %.0.i777 = phi i64 [ %1650, %1645 ], [ %1641, %1603 ]
-  store i64 %.0.i777, ptr %1617, align 8
-  %1651 = load i8, ptr %1638, align 4
-  %1652 = and i8 %1651, 1
-  store i8 %1652, ptr %1634, align 8
-  store ptr %1631, ptr @CurrentMemoryContext, align 8
-  %1653 = getelementptr i8, ptr %.0741, i64 64
+ExecAggPlainTransByRef.exit778:                   ; preds = %1600, %1642
+  %.0.i777 = phi i64 [ %1647, %1642 ], [ %1638, %1600 ]
+  store i64 %.0.i777, ptr %1614, align 8
+  %1648 = load i8, ptr %1635, align 4
+  %1649 = and i8 %1648, 1
+  store i8 %1649, ptr %1631, align 8
+  store ptr %1628, ptr @CurrentMemoryContext, align 8
+  %1650 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1654:                                             ; preds = %.backedge
-  %1655 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1656 = load ptr, ptr %1655, align 8
-  %1657 = load ptr, ptr %20, align 8
-  %1658 = call zeroext i1 @ExecEvalPreOrderedDistinctSingle(ptr noundef %1657, ptr noundef %1656)
-  br i1 %1658, label %1659, label %1661
+1651:                                             ; preds = %.backedge
+  %1652 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1653 = load ptr, ptr %1652, align 8
+  %1654 = load ptr, ptr %20, align 8
+  %1655 = call zeroext i1 @ExecEvalPreOrderedDistinctSingle(ptr noundef %1654, ptr noundef %1653)
+  br i1 %1655, label %1656, label %1658
 
-1659:                                             ; preds = %1654
-  %1660 = getelementptr i8, ptr %.0741, i64 64
+1656:                                             ; preds = %1651
+  %1657 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1661:                                             ; preds = %1654
-  %1662 = load ptr, ptr %10, align 8
-  %1663 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1664 = load i32, ptr %1663, align 8
-  %1665 = sext i32 %1664 to i64
-  %1666 = getelementptr %struct.ExprEvalStep, ptr %1662, i64 %1665
+1658:                                             ; preds = %1651
+  %1659 = load ptr, ptr %10, align 8
+  %1660 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1661 = load i32, ptr %1660, align 8
+  %1662 = sext i32 %1661 to i64
+  %1663 = getelementptr %struct.ExprEvalStep, ptr %1659, i64 %1662
   br label %.backedge.backedge
 
-1667:                                             ; preds = %.backedge
-  %1668 = load ptr, ptr %20, align 8
-  %1669 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1670 = load ptr, ptr %1669, align 8
-  %1671 = call zeroext i1 @ExecEvalPreOrderedDistinctMulti(ptr noundef %1668, ptr noundef %1670)
-  br i1 %1671, label %1672, label %1674
+1664:                                             ; preds = %.backedge
+  %1665 = load ptr, ptr %20, align 8
+  %1666 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1667 = load ptr, ptr %1666, align 8
+  %1668 = call zeroext i1 @ExecEvalPreOrderedDistinctMulti(ptr noundef %1665, ptr noundef %1667)
+  br i1 %1668, label %1669, label %1671
 
-1672:                                             ; preds = %1667
-  %1673 = getelementptr i8, ptr %.0741, i64 64
+1669:                                             ; preds = %1664
+  %1670 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1674:                                             ; preds = %1667
-  %1675 = load ptr, ptr %10, align 8
-  %1676 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1677 = load i32, ptr %1676, align 8
-  %1678 = sext i32 %1677 to i64
-  %1679 = getelementptr %struct.ExprEvalStep, ptr %1675, i64 %1678
+1671:                                             ; preds = %1664
+  %1672 = load ptr, ptr %10, align 8
+  %1673 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1674 = load i32, ptr %1673, align 8
+  %1675 = sext i32 %1674 to i64
+  %1676 = getelementptr %struct.ExprEvalStep, ptr %1672, i64 %1675
   br label %.backedge.backedge
 
-1680:                                             ; preds = %.backedge
-  %1681 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1682 = load ptr, ptr %1681, align 8
-  %1683 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1684 = load i32, ptr %1683, align 8
-  %1685 = getelementptr inbounds i8, ptr %1682, i64 344
+1677:                                             ; preds = %.backedge
+  %1678 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1679 = load ptr, ptr %1678, align 8
+  %1680 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1681 = load i32, ptr %1680, align 8
+  %1682 = getelementptr inbounds i8, ptr %1679, i64 344
+  %1683 = load ptr, ptr %1682, align 8
+  %1684 = sext i32 %1681 to i64
+  %1685 = getelementptr ptr, ptr %1683, i64 %1684
   %1686 = load ptr, ptr %1685, align 8
-  %1687 = sext i32 %1684 to i64
-  %1688 = getelementptr ptr, ptr %1686, i64 %1687
-  %1689 = load ptr, ptr %1688, align 8
-  %1690 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1687 = getelementptr inbounds i8, ptr %.0741, i64 8
+  %1688 = load ptr, ptr %1687, align 8
+  %1689 = load i64, ptr %1688, align 8
+  %1690 = getelementptr inbounds i8, ptr %.0741, i64 16
   %1691 = load ptr, ptr %1690, align 8
-  %1692 = load i64, ptr %1691, align 8
-  %1693 = getelementptr inbounds i8, ptr %.0741, i64 16
-  %1694 = load ptr, ptr %1693, align 8
-  %1695 = load i8, ptr %1694, align 1
-  %1696 = trunc i8 %1695 to i1
-  call void @tuplesort_putdatum(ptr noundef %1689, i64 noundef %1692, i1 noundef zeroext %1696) #15
-  %1697 = getelementptr i8, ptr %.0741, i64 64
+  %1692 = load i8, ptr %1691, align 1
+  %1693 = trunc i8 %1692 to i1
+  call void @tuplesort_putdatum(ptr noundef %1686, i64 noundef %1689, i1 noundef zeroext %1693) #15
+  %1694 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1698:                                             ; preds = %.backedge
-  %1699 = getelementptr inbounds i8, ptr %.0741, i64 24
-  %1700 = load ptr, ptr %1699, align 8
-  %1701 = getelementptr inbounds i8, ptr %.0741, i64 40
-  %1702 = load i32, ptr %1701, align 8
-  %1703 = getelementptr inbounds i8, ptr %1700, i64 304
-  %1704 = load ptr, ptr %1703, align 8
-  %1705 = getelementptr inbounds i8, ptr %1704, i64 8
-  %1706 = load ptr, ptr %1705, align 8
-  %1707 = getelementptr inbounds i8, ptr %1706, i64 24
-  %1708 = load ptr, ptr %1707, align 8
-  call void %1708(ptr noundef %1704) #15
-  %1709 = getelementptr inbounds i8, ptr %1700, i64 12
-  %1710 = load i32, ptr %1709, align 4
-  %1711 = trunc i32 %1710 to i16
-  %1712 = load ptr, ptr %1703, align 8
-  %1713 = getelementptr inbounds i8, ptr %1712, i64 6
-  store i16 %1711, ptr %1713, align 2
-  %1714 = load ptr, ptr %1703, align 8
-  %1715 = call ptr @ExecStoreVirtualTuple(ptr noundef %1714) #15
-  %1716 = getelementptr inbounds i8, ptr %1700, i64 344
+1695:                                             ; preds = %.backedge
+  %1696 = getelementptr inbounds i8, ptr %.0741, i64 24
+  %1697 = load ptr, ptr %1696, align 8
+  %1698 = getelementptr inbounds i8, ptr %.0741, i64 40
+  %1699 = load i32, ptr %1698, align 8
+  %1700 = getelementptr inbounds i8, ptr %1697, i64 304
+  %1701 = load ptr, ptr %1700, align 8
+  %1702 = getelementptr inbounds i8, ptr %1701, i64 8
+  %1703 = load ptr, ptr %1702, align 8
+  %1704 = getelementptr inbounds i8, ptr %1703, i64 24
+  %1705 = load ptr, ptr %1704, align 8
+  call void %1705(ptr noundef %1701) #15
+  %1706 = getelementptr inbounds i8, ptr %1697, i64 12
+  %1707 = load i32, ptr %1706, align 4
+  %1708 = trunc i32 %1707 to i16
+  %1709 = load ptr, ptr %1700, align 8
+  %1710 = getelementptr inbounds i8, ptr %1709, i64 6
+  store i16 %1708, ptr %1710, align 2
+  %1711 = load ptr, ptr %1700, align 8
+  %1712 = call ptr @ExecStoreVirtualTuple(ptr noundef %1711) #15
+  %1713 = getelementptr inbounds i8, ptr %1697, i64 344
+  %1714 = load ptr, ptr %1713, align 8
+  %1715 = sext i32 %1699 to i64
+  %1716 = getelementptr ptr, ptr %1714, i64 %1715
   %1717 = load ptr, ptr %1716, align 8
-  %1718 = sext i32 %1702 to i64
-  %1719 = getelementptr ptr, ptr %1717, i64 %1718
-  %1720 = load ptr, ptr %1719, align 8
-  %1721 = load ptr, ptr %1703, align 8
-  call void @tuplesort_puttupleslot(ptr noundef %1720, ptr noundef %1721) #15
-  %1722 = getelementptr i8, ptr %.0741, i64 64
+  %1718 = load ptr, ptr %1700, align 8
+  call void @tuplesort_puttupleslot(ptr noundef %1717, ptr noundef %1718) #15
+  %1719 = getelementptr i8, ptr %.0741, i64 64
   br label %.backedge.backedge
 
-1723:                                             ; preds = %.backedge
-  %1724 = load i8, ptr %30, align 1
-  %1725 = and i8 %1724, 1
-  store i8 %1725, ptr %2, align 1
-  %1726 = load i64, ptr %32, align 8
-  br label %1727
+1720:                                             ; preds = %.backedge
+  %1721 = load i8, ptr %30, align 1
+  %1722 = and i8 %1721, 1
+  store i8 %1722, ptr %2, align 1
+  %1723 = load i64, ptr %32, align 8
+  br label %1724
 
-1727:                                             ; preds = %3, %1723
-  %.0 = phi i64 [ %1726, %1723 ], [ ptrtoint (ptr @ExecInterpExpr.dispatch_table to i64), %3 ]
+1724:                                             ; preds = %3, %1720
+  %.0 = phi i64 [ %1723, %1720 ], [ ptrtoint (ptr @ExecInterpExpr.dispatch_table to i64), %3 ]
   ret i64 %.0
 
 .backedge:                                        ; preds = %.backedge.backedge, %9
   %.0741 = phi ptr [ %11, %9 ], [ %.0741.be, %.backedge.backedge ]
   %.in = load i64, ptr %.0741, align 8
-  %1728 = inttoptr i64 %.in to ptr
-  indirectbr ptr %1728, [label %1723, label %55, label %63, label %71, label %79, label %95, label %111, label %127, label %150, label %173, label %196, label %198, label %217, label %236, label %255, label %267, label %286, label %297, label %311, label %337, label %351, label %376, label %379, label %399, label %417, label %420, label %440, label %458, label %464, label %483, label %489, label %502, label %515, label %532, label %542, label %553, label %587, label %621, label %632, label %646, label %660, label %671, label %689, label %691, label %695, label %727, label %745, label %787, label %840, label %874, label %907, label %941, label %943, label %947, label %967, label %969, label %996, label %1011, label %1064, label %1087, label %1089, label %1091, label %1093, label %1113, label %1125, label %1698, label %1680, label %711, label %1135, label %1153, label %1129, label %1131, label %1133, label %1155, label %1157, label %1159, label %1161, label %1177, label %1202, label %1222, label %1231, label %1243, label %1263, label %1280, label %1297, label %1315, label %1383, label %1429, label %1471, label %1548, label %1603, label %1654, label %1667]
+  %1725 = inttoptr i64 %.in to ptr
+  indirectbr ptr %1725, [label %1720, label %55, label %63, label %71, label %79, label %95, label %111, label %127, label %150, label %173, label %196, label %198, label %217, label %236, label %255, label %267, label %286, label %297, label %311, label %337, label %351, label %376, label %379, label %399, label %417, label %420, label %440, label %458, label %464, label %483, label %489, label %502, label %515, label %532, label %542, label %553, label %587, label %621, label %632, label %646, label %660, label %671, label %689, label %691, label %695, label %727, label %745, label %787, label %840, label %874, label %907, label %941, label %943, label %944, label %964, label %966, label %993, label %1008, label %1061, label %1084, label %1086, label %1088, label %1090, label %1110, label %1122, label %1695, label %1677, label %711, label %1132, label %1150, label %1126, label %1128, label %1130, label %1152, label %1154, label %1156, label %1158, label %1174, label %1199, label %1219, label %1228, label %1240, label %1260, label %1277, label %1294, label %1312, label %1380, label %1426, label %1468, label %1545, label %1600, label %1651, label %1664]
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4161,8 +4157,8 @@ declare i64 @current_database(ptr noundef) local_unnamed_addr #3
 
 declare i64 @current_schema(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind uwtable
-define dso_local void @ExecEvalCurrentOfExpr(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 {
+; Function Attrs: cold noreturn nounwind uwtable
+define dso_local void @ExecEvalCurrentOfExpr(ptr nocapture readnone %0, ptr nocapture readnone %1) local_unnamed_addr #6 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 1088) #15
@@ -8435,7 +8431,7 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

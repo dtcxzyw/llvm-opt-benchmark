@@ -21416,7 +21416,7 @@ if.end:                                           ; preds = %lor.lhs.false
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define hidden void @_ZN3nla4core23constrain_nl_in_tableauEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4720) %this) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.26, i32 noundef 1457, ptr noundef nonnull @.str.50)
@@ -21424,7 +21424,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define hidden noundef zeroext i1 @_ZN3nla4core13solve_tableauEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4720) %this) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.26, i32 noundef 1461, ptr noundef nonnull @.str.50)
@@ -21432,7 +21432,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define hidden void @_ZN3nla4core15restore_tableauEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4720) %this) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.26, i32 noundef 1466, ptr noundef nonnull @.str.50)
@@ -21440,7 +21440,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define hidden void @_ZN3nla4core12save_tableauEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4720) %this) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.26, i32 noundef 1470, ptr noundef nonnull @.str.50)
@@ -21448,7 +21448,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define hidden noundef zeroext i1 @_ZN3nla4core17integrality_holdsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(4720) %this) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.26, i32 noundef 1474, ptr noundef nonnull @.str.50)
@@ -38592,7 +38592,7 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold nofree noreturn }
-attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { cold noreturn }
 attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

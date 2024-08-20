@@ -147,102 +147,102 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.XmlTableGetValue = private unnamed_addr constant [17 x i8] c"XmlTableGetValue\00", align 1
 @__func__.XmlTableDestroyOpaque = private unnamed_addr constant [22 x i8] c"XmlTableDestroyOpaque\00", align 1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @XmlTableInitOpaque(ptr nocapture readnone %0, i32 %1) #0 {
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 @errcode(i32 noundef 1088) #11
-  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4655, ptr noundef nonnull @__func__.XmlTableInitOpaque) #11
+  %4 = tail call i32 @errcode(i32 noundef 1088) #12
+  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4655, ptr noundef nonnull @__func__.XmlTableInitOpaque) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @XmlTableSetDocument(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 @errcode(i32 noundef 1088) #11
-  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4712, ptr noundef nonnull @__func__.XmlTableSetDocument) #11
+  %4 = tail call i32 @errcode(i32 noundef 1088) #12
+  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4712, ptr noundef nonnull @__func__.XmlTableSetDocument) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @XmlTableSetNamespace(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 @errcode(i32 noundef 1088) #11
-  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4738, ptr noundef nonnull @__func__.XmlTableSetNamespace) #11
+  %5 = tail call i32 @errcode(i32 noundef 1088) #12
+  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4738, ptr noundef nonnull @__func__.XmlTableSetNamespace) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @XmlTableSetRowFilter(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 @errcode(i32 noundef 1088) #11
-  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4767, ptr noundef nonnull @__func__.XmlTableSetRowFilter) #11
+  %4 = tail call i32 @errcode(i32 noundef 1088) #12
+  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4767, ptr noundef nonnull @__func__.XmlTableSetRowFilter) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @XmlTableSetColumnFilter(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #0 {
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 @errcode(i32 noundef 1088) #11
-  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4798, ptr noundef nonnull @__func__.XmlTableSetColumnFilter) #11
+  %5 = tail call i32 @errcode(i32 noundef 1088) #12
+  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4798, ptr noundef nonnull @__func__.XmlTableSetColumnFilter) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal noundef zeroext i1 @XmlTableFetchRow(ptr nocapture readnone %0) #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4839, ptr noundef nonnull @__func__.XmlTableFetchRow) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4839, ptr noundef nonnull @__func__.XmlTableFetchRow) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal noundef i64 @XmlTableGetValue(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 1088) #11
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4995, ptr noundef nonnull @__func__.XmlTableGetValue) #11
+  %7 = tail call i32 @errcode(i32 noundef 1088) #12
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4995, ptr noundef nonnull @__func__.XmlTableGetValue) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define internal void @XmlTableDestroyOpaque(ptr nocapture readnone %0) #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5042, ptr noundef nonnull @__func__.XmlTableDestroyOpaque) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5042, ptr noundef nonnull @__func__.XmlTableDestroyOpaque) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xml_in(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.xml_in) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.xml_in) #12
   unreachable
 }
 
@@ -262,20 +262,20 @@ define dso_local i64 @xml_out(ptr nocapture noundef readonly %0) local_unnamed_a
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xml_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 432, ptr noundef nonnull @__func__.xml_recv) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 432, ptr noundef nonnull @__func__.xml_recv) #12
   unreachable
 }
 
@@ -285,15 +285,15 @@ define dso_local i64 @xml_send(ptr nocapture noundef readonly %0) local_unnamed_
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #11
-  %7 = tail call i32 @pg_get_client_encoding() #11
-  %8 = tail call ptr @text_to_cstring(ptr noundef %6) #11
-  call void @pq_begintypsend(ptr noundef nonnull %2) #11
-  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #12
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #12
+  %7 = tail call i32 @pg_get_client_encoding() #12
+  %8 = tail call ptr @text_to_cstring(ptr noundef %6) #12
+  call void @pq_begintypsend(ptr noundef nonnull %2) #12
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #13
   %10 = trunc i64 %9 to i32
-  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef %8, i32 noundef %10) #11
-  call void @pfree(ptr noundef %8) #11
-  %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #11
+  call void @pq_sendtext(ptr noundef nonnull %2, ptr noundef %8, i32 noundef %10) #12
+  call void @pfree(ptr noundef %8) #12
+  %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
   %12 = ptrtoint ptr %11 to i64
   ret i64 %12
 }
@@ -311,36 +311,36 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xmlcomment(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 521, ptr noundef nonnull @__func__.xmlcomment) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 521, ptr noundef nonnull @__func__.xmlcomment) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xmltext(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 543, ptr noundef nonnull @__func__.xmltext) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 543, ptr noundef nonnull @__func__.xmltext) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @xmlconcat(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+; Function Attrs: cold noreturn nounwind uwtable
+define dso_local noalias noundef nonnull ptr @xmlconcat(ptr nocapture readnone %0) local_unnamed_addr #0 {
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 610, ptr noundef nonnull @__func__.xmlconcat) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 610, ptr noundef nonnull @__func__.xmlconcat) #12
   unreachable
 }
 
@@ -361,15 +361,15 @@ define dso_local i64 @xmlconcat2(ptr nocapture noundef %0) local_unnamed_addr #3
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
-  br label %37
+  br label %34
 
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call ptr @pg_detoast_datum(ptr noundef %15) #11
+  %16 = tail call ptr @pg_detoast_datum(ptr noundef %15) #12
   %17 = ptrtoint ptr %16 to i64
-  br label %37
+  br label %34
 
 18:                                               ; preds = %1
   br i1 %8, label %19, label %24
@@ -377,59 +377,49 @@ define dso_local i64 @xmlconcat2(ptr nocapture noundef %0) local_unnamed_addr #3
 19:                                               ; preds = %18
   %20 = load i64, ptr %2, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = tail call ptr @pg_detoast_datum(ptr noundef %21) #11
+  %22 = tail call ptr @pg_detoast_datum(ptr noundef %21) #12
   %23 = ptrtoint ptr %22 to i64
-  br label %37
+  br label %34
 
 24:                                               ; preds = %18
   %25 = getelementptr i8, ptr %0, i64 48
   %26 = load i64, ptr %2, align 8
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call ptr @pg_detoast_datum(ptr noundef %27) #11
+  %28 = tail call ptr @pg_detoast_datum(ptr noundef %27) #12
   %29 = load i64, ptr %25, align 8
   %30 = inttoptr i64 %29 to ptr
-  %31 = tail call ptr @pg_detoast_datum(ptr noundef %30) #11
-  %32 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %28, ptr %31) #11
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 1088) #11
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %36 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 610, ptr noundef nonnull @__func__.xmlconcat) #11
+  %31 = tail call ptr @pg_detoast_datum(ptr noundef %30) #12
+  %32 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %28, ptr %31) #12
+  %33 = tail call ptr @xmlconcat(ptr poison)
   unreachable
 
-37:                                               ; preds = %19, %12, %10
+34:                                               ; preds = %19, %12, %10
   %.0 = phi i64 [ 0, %10 ], [ %17, %12 ], [ %23, %19 ]
   ret i64 %.0
 }
 
 declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @texttoxml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 1088) #11
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 972, ptr noundef nonnull @__func__.xmlparse) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @xmlparse(ptr poison, i32 poison, i1 zeroext poison)
   unreachable
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @xmlparse(ptr nocapture noundef readnone %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+; Function Attrs: cold noreturn nounwind uwtable
+define dso_local noalias noundef nonnull ptr @xmlparse(ptr nocapture readnone %0, i32 %1, i1 zeroext %2) local_unnamed_addr #0 {
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 @errcode(i32 noundef 1088) #11
-  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 972, ptr noundef nonnull @__func__.xmlparse) #11
+  %5 = tail call i32 @errcode(i32 noundef 1088) #12
+  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 972, ptr noundef nonnull @__func__.xmlparse) #12
   unreachable
 }
 
@@ -438,7 +428,7 @@ define dso_local i64 @xmltotext(ptr nocapture noundef readonly %0) local_unnamed
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
   %6 = ptrtoint ptr %5 to i64
   ret i64 %6
 }
@@ -453,77 +443,77 @@ define dso_local noundef ptr @xmltotext_with_options(ptr noundef readnone return
   ret ptr %0
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 1088) #11
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 830, ptr noundef nonnull @__func__.xmltotext_with_options) #11
+  %7 = tail call i32 @errcode(i32 noundef 1088) #12
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 830, ptr noundef nonnull @__func__.xmltotext_with_options) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noalias noundef nonnull ptr @xmlelement(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 1088) #11
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 954, ptr noundef nonnull @__func__.xmlelement) #11
+  %7 = tail call i32 @errcode(i32 noundef 1088) #12
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 954, ptr noundef nonnull @__func__.xmlelement) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noalias noundef nonnull ptr @xmlpi(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 1088) #11
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %8 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1024, ptr noundef nonnull @__func__.xmlpi) #11
+  %6 = tail call i32 @errcode(i32 noundef 1088) #12
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %8 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1024, ptr noundef nonnull @__func__.xmlpi) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noalias noundef nonnull ptr @xmlroot(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 @errcode(i32 noundef 1088) #11
-  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1072, ptr noundef nonnull @__func__.xmlroot) #11
+  %5 = tail call i32 @errcode(i32 noundef 1088) #12
+  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1072, ptr noundef nonnull @__func__.xmlroot) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xmlvalidate(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1091, ptr noundef nonnull @__func__.xmlvalidate) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1091, ptr noundef nonnull @__func__.xmlvalidate) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef zeroext i1 @xml_is_document(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1113, ptr noundef nonnull @__func__.xml_is_document) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1113, ptr noundef nonnull @__func__.xml_is_document) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @map_sql_identifier_to_xml_name(ptr nocapture noundef readnone %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+; Function Attrs: cold noreturn nounwind uwtable
+define dso_local noalias noundef nonnull ptr @map_sql_identifier_to_xml_name(ptr nocapture readnone %0, i1 zeroext %1, i1 zeroext %2) local_unnamed_addr #0 {
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 @errcode(i32 noundef 1088) #11
-  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %5 = tail call i32 @errcode(i32 noundef 1088) #12
+  %6 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %7 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #12
   unreachable
 }
 
@@ -532,7 +522,7 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca [17 x i8], align 16
   %4 = alloca i32, align 4
-  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @initStringInfo(ptr noundef nonnull %2) #12
   br label %5
 
 5:                                                ; preds = %50, %1
@@ -550,7 +540,7 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   br i1 %10, label %11, label %48
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @__ctype_b_loc() #13
+  %12 = tail call ptr @__ctype_b_loc() #14
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %.0, i64 2
   %15 = load i8, ptr %14, align 1
@@ -598,20 +588,20 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #11
+  %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #12
   %47 = load i32, ptr %4, align 4
-  call void @pg_unicode_to_server(i32 noundef %47, ptr noundef nonnull %3) #11
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %3) #11
+  call void @pg_unicode_to_server(i32 noundef %47, ptr noundef nonnull %3) #12
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   br label %50
 
 48:                                               ; preds = %5, %41, %34, %27, %20, %11, %7
-  %49 = call i32 @pg_mblen(ptr noundef nonnull %.0) #11
-  call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef nonnull %.0, i32 noundef %49) #11
+  %49 = call i32 @pg_mblen(ptr noundef nonnull %.0) #12
+  call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef nonnull %.0, i32 noundef %49) #12
   br label %50
 
 50:                                               ; preds = %45, %48
   %.1 = phi ptr [ %42, %45 ], [ %.0, %48 ]
-  %51 = call i32 @pg_mblen(ptr noundef nonnull %.1) #11
+  %51 = call i32 @pg_mblen(ptr noundef nonnull %.1) #12
   %52 = sext i32 %51 to i64
   %53 = getelementptr i8, ptr %.1, i64 %52
   br label %5, !llvm.loop !5
@@ -658,23 +648,23 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %20 = alloca i32, align 4
   %21 = alloca ptr, align 8
   %22 = alloca [129 x i8], align 16
-  %23 = tail call i32 @get_base_element_type(i32 noundef %1) #11
+  %23 = tail call i32 @get_base_element_type(i32 noundef %1) #12
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %53, label %24
 
 24:                                               ; preds = %3
   %25 = inttoptr i64 %0 to ptr
-  %26 = tail call ptr @pg_detoast_datum(ptr noundef %25) #11
+  %26 = tail call ptr @pg_detoast_datum(ptr noundef %25) #12
   %27 = getelementptr inbounds i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4
-  call void @get_typlenbyvalalign(i32 noundef %28, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  call void @get_typlenbyvalalign(i32 noundef %28, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %29 = load i16, ptr %4, align 2
   %30 = sext i16 %29 to i32
   %31 = load i8, ptr %5, align 1
   %32 = trunc i8 %31 to i1
   %33 = load i8, ptr %6, align 1
-  call void @deconstruct_array(ptr noundef %26, i32 noundef %28, i32 noundef %30, i1 noundef zeroext %32, i8 noundef signext %33, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #11
-  call void @initStringInfo(ptr noundef nonnull %10) #11
+  call void @deconstruct_array(ptr noundef %26, i32 noundef %28, i32 noundef %30, i1 noundef zeroext %32, i8 noundef signext %33, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #12
+  call void @initStringInfo(ptr noundef nonnull %10) #12
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph, label %._crit_edge
@@ -689,13 +679,13 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %.lr.ph
-  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.5) #11
+  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.5) #12
   %42 = load ptr, ptr %8, align 8
   %43 = getelementptr i64, ptr %42, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = call ptr @map_sql_value_to_xml_value(i64 noundef %44, i32 noundef %28, i1 noundef zeroext true)
-  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef %45) #11
-  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.6) #11
+  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef %45) #12
+  call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.6) #12
   %.pre = load i32, ptr %7, align 4
   br label %46
 
@@ -708,14 +698,14 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
 
 ._crit_edge:                                      ; preds = %46, %24
   %50 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %50) #11
+  call void @pfree(ptr noundef %50) #12
   %51 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %51) #11
+  call void @pfree(ptr noundef %51) #12
   %52 = load ptr, ptr %10, align 8
   br label %112
 
 53:                                               ; preds = %3
-  %54 = tail call i32 @getBaseType(i32 noundef %1) #11
+  %54 = tail call i32 @getBaseType(i32 noundef %1) #12
   switch i32 %54, label %106 [
     i32 16, label %55
     i32 1082, label %56
@@ -735,12 +725,12 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br i1 %or.cond, label %59, label %64
 
 59:                                               ; preds = %56
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 @errcode(i32 noundef 134217858) #11
-  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #11
-  %63 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2493, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #11
+  %61 = tail call i32 @errcode(i32 noundef 134217858) #12
+  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #12
+  %63 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2493, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #12
   unreachable
 
 64:                                               ; preds = %56
@@ -748,9 +738,9 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %66 = getelementptr inbounds i8, ptr %13, i64 20
   %67 = getelementptr inbounds i8, ptr %13, i64 16
   %68 = getelementptr inbounds i8, ptr %13, i64 12
-  call void @j2date(i32 noundef %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68) #11
-  call void @EncodeDateOnly(ptr noundef nonnull %13, i32 noundef 4, ptr noundef nonnull %14) #11
-  %69 = call ptr @pstrdup(ptr noundef nonnull %14) #11
+  call void @j2date(i32 noundef %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68) #12
+  call void @EncodeDateOnly(ptr noundef nonnull %13, i32 noundef 4, ptr noundef nonnull %14) #12
+  %69 = call ptr @pstrdup(ptr noundef nonnull %14) #12
   br label %112
 
 70:                                               ; preds = %53
@@ -759,31 +749,31 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br i1 %or.cond3, label %72, label %77
 
 72:                                               ; preds = %70
-  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %73)
-  %74 = tail call i32 @errcode(i32 noundef 134217858) #11
-  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
-  %76 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2515, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #11
+  %74 = tail call i32 @errcode(i32 noundef 134217858) #12
+  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
+  %76 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2515, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #12
   unreachable
 
 77:                                               ; preds = %70
-  %78 = call i32 @timestamp2tm(i64 noundef %0, ptr noundef null, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef null, ptr noundef null) #11
+  %78 = call i32 @timestamp2tm(i64 noundef %0, ptr noundef null, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef null, ptr noundef null) #12
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %77
   %81 = load i32, ptr %16, align 4
-  call void @EncodeDateTime(ptr noundef nonnull %15, i32 noundef %81, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 4, ptr noundef nonnull %17) #11
-  %82 = call ptr @pstrdup(ptr noundef nonnull %17) #11
+  call void @EncodeDateTime(ptr noundef nonnull %15, i32 noundef %81, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 4, ptr noundef nonnull %17) #12
+  %82 = call ptr @pstrdup(ptr noundef nonnull %17) #12
   br label %112
 
 83:                                               ; preds = %77
-  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %84)
-  %85 = call i32 @errcode(i32 noundef 134217858) #11
-  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2521, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #11
+  %85 = call i32 @errcode(i32 noundef 134217858) #12
+  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2521, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #12
   unreachable
 
 87:                                               ; preds = %53
@@ -793,16 +783,16 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br i1 %or.cond5, label %89, label %94
 
 89:                                               ; preds = %87
-  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %90)
-  %91 = tail call i32 @errcode(i32 noundef 134217858) #11
-  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
-  %93 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2542, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #11
+  %91 = tail call i32 @errcode(i32 noundef 134217858) #12
+  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
+  %93 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2542, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #12
   unreachable
 
 94:                                               ; preds = %87
-  %95 = call i32 @timestamp2tm(i64 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef null) #11
+  %95 = call i32 @timestamp2tm(i64 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef null) #12
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %102
 
@@ -810,22 +800,22 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %98 = load i32, ptr %20, align 4
   %99 = load i32, ptr %19, align 4
   %100 = load ptr, ptr %21, align 8
-  call void @EncodeDateTime(ptr noundef nonnull %18, i32 noundef %98, i1 noundef zeroext true, i32 noundef %99, ptr noundef %100, i32 noundef 4, ptr noundef nonnull %22) #11
-  %101 = call ptr @pstrdup(ptr noundef nonnull %22) #11
+  call void @EncodeDateTime(ptr noundef nonnull %18, i32 noundef %98, i1 noundef zeroext true, i32 noundef %99, ptr noundef %100, i32 noundef 4, ptr noundef nonnull %22) #12
+  %101 = call ptr @pstrdup(ptr noundef nonnull %22) #12
   br label %112
 
 102:                                              ; preds = %94
-  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %103)
-  %104 = call i32 @errcode(i32 noundef 134217858) #11
-  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2548, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #11
+  %104 = call i32 @errcode(i32 noundef 134217858) #12
+  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2548, ptr noundef nonnull @__func__.map_sql_value_to_xml_value) #12
   unreachable
 
 106:                                              ; preds = %53
-  call void @getTypeOutputInfo(i32 noundef %54, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
+  call void @getTypeOutputInfo(i32 noundef %54, ptr noundef nonnull %11, ptr noundef nonnull %12) #12
   %107 = load i32, ptr %11, align 4
-  %108 = call ptr @OidOutputFunctionCall(i32 noundef %107, i64 noundef %0) #11
+  %108 = call ptr @OidOutputFunctionCall(i32 noundef %107, i64 noundef %0) #12
   %109 = icmp ne i32 %54, 142
   %brmerge.not = and i1 %109, %2
   br i1 %brmerge.not, label %110, label %112
@@ -866,7 +856,7 @@ declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @escape_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @initStringInfo(ptr noundef nonnull %2) #12
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 12
   br label %5
@@ -883,19 +873,19 @@ define dso_local ptr @escape_xml(ptr nocapture noundef readonly %0) local_unname
   ]
 
 7:                                                ; preds = %5
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #12
   br label %25
 
 8:                                                ; preds = %5
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.14) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.14) #12
   br label %25
 
 9:                                                ; preds = %5
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.15) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.15) #12
   br label %25
 
 10:                                               ; preds = %5
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.16) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.16) #12
   br label %25
 
 11:                                               ; preds = %5
@@ -906,7 +896,7 @@ define dso_local ptr @escape_xml(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not7, label %16, label %15
 
 15:                                               ; preds = %11
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext %6) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext %6) #12
   br label %25
 
 16:                                               ; preds = %11
@@ -946,22 +936,22 @@ define dso_local i64 @table_to_xml(ptr nocapture noundef readonly %0) local_unna
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #11
-  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #11
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #12
+  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @initStringInfo(ptr noundef nonnull %2) #12
   %14 = and i64 %4, 4294967295
-  %15 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regclassout, i32 noundef 0, i64 noundef %14) #11
+  %15 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regclassout, i32 noundef 0, i64 noundef %14) #12
   %16 = inttoptr i64 %15 to ptr
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef %16) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef %16) #12
   %17 = load ptr, ptr %2, align 8
-  %18 = call ptr @get_rel_name(i32 noundef %5) #11
+  %18 = call ptr @get_rel_name(i32 noundef %5) #12
   %19 = call fastcc ptr @query_to_xml_internal(ptr noundef %17, ptr noundef %18, ptr noundef null, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %19, i64 8
   %.val7 = load i32, ptr %20, align 8
-  %21 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val7) #11
+  %21 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val7) #12
   %22 = ptrtoint ptr %21 to i64
   ret i64 %22
 }
@@ -973,21 +963,21 @@ define dso_local i64 @query_to_xml(ptr nocapture noundef readonly %0) local_unna
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   %7 = getelementptr i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = icmp ne i64 %8, 0
   %10 = getelementptr i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @pg_detoast_datum_packed(ptr noundef %12) #11
-  %14 = tail call ptr @text_to_cstring(ptr noundef %13) #11
+  %13 = tail call ptr @pg_detoast_datum_packed(ptr noundef %12) #12
+  %14 = tail call ptr @text_to_cstring(ptr noundef %13) #12
   %15 = tail call fastcc ptr @query_to_xml_internal(ptr noundef %6, ptr noundef null, ptr noundef null, i1 noundef zeroext %9, ptr noundef %14, i1 noundef zeroext true)
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %15, i64 8
   %.val7 = load i32, ptr %16, align 8
-  %17 = tail call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val7) #11
+  %17 = tail call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val7) #12
   %18 = ptrtoint ptr %17 to i64
   ret i64 %18
 }
@@ -995,102 +985,97 @@ define dso_local i64 @query_to_xml(ptr nocapture noundef readonly %0) local_unna
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @query_to_xml_internal(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %12, label %7
+  br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 1088) #11
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %11 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %8 = tail call ptr @map_sql_identifier_to_xml_name(ptr nonnull poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
-12:                                               ; preds = %6
-  %13 = tail call ptr @makeStringInfo() #11
-  %14 = tail call i32 @SPI_connect() #11
-  %15 = tail call i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext true, i64 noundef 0) #11
-  %.not28 = icmp eq i32 %15, 5
-  br i1 %.not28, label %20, label %16
+9:                                                ; preds = %6
+  %10 = tail call ptr @makeStringInfo() #12
+  %11 = tail call i32 @SPI_connect() #12
+  %12 = tail call i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext true, i64 noundef 0) #12
+  %.not28 = icmp eq i32 %12, 5
+  br i1 %.not28, label %17, label %13
 
-16:                                               ; preds = %12
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 130) #11
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2958, ptr noundef nonnull @__func__.query_to_xml_internal) #11
+13:                                               ; preds = %9
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %14)
+  %15 = tail call i32 @errcode(i32 noundef 130) #12
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2958, ptr noundef nonnull @__func__.query_to_xml_internal) #12
   unreachable
 
-20:                                               ; preds = %12
-  br i1 %3, label %28, label %21
+17:                                               ; preds = %9
+  br i1 %3, label %25, label %18
 
-21:                                               ; preds = %20
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %13, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.17) #11
-  br i1 %5, label %22, label %24
+18:                                               ; preds = %17
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %10, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.17) #12
+  br i1 %5, label %19, label %21
 
-22:                                               ; preds = %21
-  tail call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull @.str.24) #11
+19:                                               ; preds = %18
+  tail call void @appendStringInfoString(ptr noundef %10, ptr noundef nonnull @.str.24) #12
   %char0.i = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %char0.i, 0
-  br i1 %.not.i, label %24, label %23
+  br i1 %.not.i, label %21, label %20
 
-23:                                               ; preds = %22
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %13, ptr noundef nonnull @.str.25, ptr noundef nonnull %4) #11
-  br label %24
+20:                                               ; preds = %19
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %10, ptr noundef nonnull @.str.25, ptr noundef nonnull %4) #12
+  br label %21
 
-24:                                               ; preds = %23, %22, %21
+21:                                               ; preds = %20, %19, %18
   %.not12.i = icmp eq ptr %2, null
-  br i1 %.not12.i, label %xmldata_root_element_start.exit, label %25
+  br i1 %.not12.i, label %xmldata_root_element_start.exit, label %22
 
-25:                                               ; preds = %24
+22:                                               ; preds = %21
   %char013.i = load i8, ptr %4, align 1
   %.not14.i = icmp eq i8 %char013.i, 0
-  br i1 %.not14.i, label %27, label %26
+  br i1 %.not14.i, label %24, label %23
+
+23:                                               ; preds = %22
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %10, ptr noundef nonnull @.str.26, ptr noundef nonnull %4) #12
+  br label %xmldata_root_element_start.exit
+
+24:                                               ; preds = %22
+  tail call void @appendStringInfoString(ptr noundef %10, ptr noundef nonnull @.str.27) #12
+  br label %xmldata_root_element_start.exit
+
+xmldata_root_element_start.exit:                  ; preds = %21, %23, %24
+  tail call void @appendStringInfoString(ptr noundef %10, ptr noundef nonnull @.str.28) #12
+  tail call void @appendStringInfoChar(ptr noundef %10, i8 noundef signext 10) #12
+  br label %25
+
+25:                                               ; preds = %xmldata_root_element_start.exit, %17
+  %.not29 = icmp eq ptr %2, null
+  br i1 %.not29, label %27, label %26
 
 26:                                               ; preds = %25
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %13, ptr noundef nonnull @.str.26, ptr noundef nonnull %4) #11
-  br label %xmldata_root_element_start.exit
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %10, ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #12
+  br label %27
 
-27:                                               ; preds = %25
-  tail call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull @.str.27) #11
-  br label %xmldata_root_element_start.exit
-
-xmldata_root_element_start.exit:                  ; preds = %24, %26, %27
-  tail call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull @.str.28) #11
-  tail call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 10) #11
-  br label %28
-
-28:                                               ; preds = %xmldata_root_element_start.exit, %20
-  %.not29 = icmp eq ptr %2, null
-  br i1 %.not29, label %30, label %29
-
-29:                                               ; preds = %28
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %13, ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #11
-  br label %30
-
-30:                                               ; preds = %29, %28
-  %31 = load i64, ptr @SPI_processed, align 8
-  %.not31 = icmp eq i64 %31, 0
+27:                                               ; preds = %26, %25
+  %28 = load i64, ptr @SPI_processed, align 8
+  %.not31 = icmp eq i64 %28, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %30, %.lr.ph
-  %.030 = phi i64 [ %32, %.lr.ph ], [ 0, %30 ]
-  tail call fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %13, ptr noundef null, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5)
-  %32 = add nuw i64 %.030, 1
-  %33 = load i64, ptr @SPI_processed, align 8
-  %34 = icmp ult i64 %32, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+.lr.ph:                                           ; preds = %27, %.lr.ph
+  %.030 = phi i64 [ %29, %.lr.ph ], [ 0, %27 ]
+  tail call fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %10, ptr noundef null, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5)
+  %29 = add nuw i64 %.030, 1
+  %30 = load i64, ptr @SPI_processed, align 8
+  %31 = icmp ult i64 %29, %30
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %30
-  br i1 %3, label %36, label %35
+._crit_edge:                                      ; preds = %.lr.ph, %27
+  br i1 %3, label %33, label %32
 
-35:                                               ; preds = %._crit_edge
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %13, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.17) #11
-  br label %36
+32:                                               ; preds = %._crit_edge
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %10, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.17) #12
+  br label %33
 
-36:                                               ; preds = %35, %._crit_edge
-  %37 = tail call i32 @SPI_finish() #11
-  ret ptr %13
+33:                                               ; preds = %32, %._crit_edge
+  %34 = tail call i32 @SPI_finish() #12
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1099,8 +1084,8 @@ define dso_local i64 @cursor_to_xml(ptr nocapture noundef readonly %0) local_unn
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #11
-  %7 = tail call ptr @text_to_cstring(ptr noundef %6) #11
+  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #12
+  %7 = tail call ptr @text_to_cstring(ptr noundef %6) #12
   %8 = getelementptr i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 80
@@ -1109,45 +1094,45 @@ define dso_local i64 @cursor_to_xml(ptr nocapture noundef readonly %0) local_unn
   %13 = getelementptr i8, ptr %0, i64 96
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call ptr @pg_detoast_datum_packed(ptr noundef %15) #11
-  %17 = tail call ptr @text_to_cstring(ptr noundef %16) #11
-  call void @initStringInfo(ptr noundef nonnull %2) #11
+  %16 = tail call ptr @pg_detoast_datum_packed(ptr noundef %15) #12
+  %17 = tail call ptr @text_to_cstring(ptr noundef %16) #12
+  call void @initStringInfo(ptr noundef nonnull %2) #12
   br i1 %12, label %20, label %18
 
 18:                                               ; preds = %1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.17) #11
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.24) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.17) #12
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.24) #12
   %char0.i = load i8, ptr %17, align 1
   %.not.i = icmp eq i8 %char0.i, 0
   br i1 %.not.i, label %xmldata_root_element_start.exit, label %19
 
 19:                                               ; preds = %18
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef nonnull %17) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef nonnull %17) #12
   br label %xmldata_root_element_start.exit
 
 xmldata_root_element_start.exit:                  ; preds = %18, %19
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.28) #11
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.28) #12
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #12
   br label %20
 
 20:                                               ; preds = %xmldata_root_element_start.exit, %1
-  %21 = call i32 @SPI_connect() #11
-  %22 = call ptr @SPI_cursor_find(ptr noundef %7) #11
+  %21 = call i32 @SPI_connect() #12
+  %22 = call ptr @SPI_cursor_find(ptr noundef %7) #12
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %25)
-  %26 = call i32 @errcode(i32 noundef 259) #11
-  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %7) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2876, ptr noundef nonnull @__func__.cursor_to_xml) #11
+  %26 = call i32 @errcode(i32 noundef 259) #12
+  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %7) #12
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2876, ptr noundef nonnull @__func__.cursor_to_xml) #12
   unreachable
 
 28:                                               ; preds = %20
   %sext = shl i64 %9, 32
   %29 = ashr exact i64 %sext, 32
-  call void @SPI_cursor_fetch(ptr noundef nonnull %22, i1 noundef zeroext true, i64 noundef %29) #11
+  call void @SPI_cursor_fetch(ptr noundef nonnull %22, i1 noundef zeroext true, i64 noundef %29) #12
   %30 = load i64, ptr @SPI_processed, align 8
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1161,18 +1146,18 @@ xmldata_root_element_start.exit:                  ; preds = %18, %19
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
-  %34 = call i32 @SPI_finish() #11
+  %34 = call i32 @SPI_finish() #12
   br i1 %12, label %36, label %35
 
 35:                                               ; preds = %._crit_edge
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.17) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.17) #12
   br label %36
 
 36:                                               ; preds = %35, %._crit_edge
   %.val = load ptr, ptr %2, align 8
   %37 = getelementptr inbounds i8, ptr %2, i64 8
   %.val19 = load i32, ptr %37, align 8
-  %38 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val19) #11
+  %38 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val19) #12
   %39 = ptrtoint ptr %38 to i64
   ret i64 %39
 }
@@ -1186,71 +1171,61 @@ declare void @SPI_cursor_fetch(ptr noundef, i1 noundef zeroext, i64 noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %11, label %6
+  br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 1088) #11
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %10 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %7 = tail call ptr @map_sql_identifier_to_xml_name(ptr nonnull poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
-11:                                               ; preds = %5
-  br i1 %2, label %12, label %.thread
+8:                                                ; preds = %5
+  br i1 %2, label %9, label %.thread
 
-12:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.107) #11
-  br i1 %4, label %13, label %.thread34
+9:                                                ; preds = %8
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.107) #12
+  br i1 %4, label %10, label %12
 
-13:                                               ; preds = %12
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.24) #11
+10:                                               ; preds = %9
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.24) #12
   %char0.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %char0.i, 0
-  br i1 %.not.i, label %.thread34, label %14
+  br i1 %.not.i, label %12, label %11
 
-14:                                               ; preds = %13
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #11
-  br label %.thread34
+11:                                               ; preds = %10
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #12
+  br label %12
 
-.thread34:                                        ; preds = %14, %13, %12
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.28) #11
-  %15 = load ptr, ptr @SPI_tuptable, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %16, align 8
-  %.not2836 = icmp slt i32 %17, 1
-  br i1 %.not2836, label %.thread37, label %21
+12:                                               ; preds = %11, %10, %9
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.28) #12
+  %13 = load ptr, ptr @SPI_tuptable, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %14, align 8
+  %.not28 = icmp slt i32 %15, 1
+  br i1 %.not28, label %23, label %19
 
-.thread:                                          ; preds = %11
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.114) #11
-  %18 = load ptr, ptr @SPI_tuptable, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %19, align 8
-  %.not2831 = icmp slt i32 %20, 1
-  br i1 %.not2831, label %.thread33, label %21
+.thread:                                          ; preds = %8
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.114) #12
+  %16 = load ptr, ptr @SPI_tuptable, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i32, ptr %17, align 8
+  %.not2829 = icmp slt i32 %18, 1
+  br i1 %.not2829, label %.thread30, label %19
 
-21:                                               ; preds = %.thread34, %.thread
-  %22 = phi ptr [ %19, %.thread ], [ %16, %.thread34 ]
-  %23 = tail call ptr @SPI_fname(ptr noundef nonnull %22, i32 noundef 1) #11
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 @errcode(i32 noundef 1088) #11
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %27 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+19:                                               ; preds = %.thread, %12
+  %20 = phi ptr [ %17, %.thread ], [ %14, %12 ]
+  %21 = tail call ptr @SPI_fname(ptr noundef nonnull %20, i32 noundef 1) #12
+  %22 = tail call ptr @map_sql_identifier_to_xml_name(ptr poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
-.thread37:                                        ; preds = %.thread34
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.107) #11
-  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 10) #11
-  br label %28
+23:                                               ; preds = %12
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.107) #12
+  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 10) #12
+  br label %24
 
-.thread33:                                        ; preds = %.thread
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #11
-  br label %28
+.thread30:                                        ; preds = %.thread
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.117) #12
+  br label %24
 
-28:                                               ; preds = %.thread33, %.thread37
+24:                                               ; preds = %.thread30, %23
   ret void
 }
 
@@ -1267,14 +1242,14 @@ define dso_local i64 @table_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %8 = getelementptr i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #11
-  %12 = tail call ptr @text_to_cstring(ptr noundef %11) #11
-  %13 = tail call ptr @table_open(i32 noundef %4, i32 noundef 1) #11
+  %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #12
+  %12 = tail call ptr @text_to_cstring(ptr noundef %11) #12
+  %13 = tail call ptr @table_open(i32 noundef %4, i32 noundef 1) #12
   %14 = getelementptr inbounds i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %15, i32 noundef %4, i1 noundef zeroext %7, ptr noundef %12)
-  tail call void @table_close(ptr noundef %13, i32 noundef 0) #11
-  %17 = tail call ptr @cstring_to_text(ptr noundef %16) #11
+  tail call void @table_close(ptr noundef %13, i32 noundef 0) #12
+  %17 = tail call ptr @cstring_to_text(ptr noundef %16) #12
   %18 = ptrtoint ptr %17 to i64
   ret i64 %18
 }
@@ -1284,93 +1259,85 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 {
   %5 = alloca %struct.StringInfoData, align 8
-  call void @initStringInfo(ptr noundef nonnull %5) #11
+  call void @initStringInfo(ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %16, label %6
+  br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %4
   %7 = zext i32 %1 to i64
-  %8 = call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %7) #11
+  %8 = call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %7) #12
   %.not36 = icmp eq ptr %8, null
-  %9 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %9)
-  br i1 %.not36, label %10, label %12
+  br i1 %.not36, label %9, label %12
 
-10:                                               ; preds = %6
-  %11 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.106, i32 noundef %1) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3472, ptr noundef nonnull @__func__.map_sql_table_to_xmlschema) #11
+9:                                                ; preds = %6
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %10)
+  %11 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.106, i32 noundef %1) #12
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3472, ptr noundef nonnull @__func__.map_sql_table_to_xmlschema) #12
   unreachable
 
 12:                                               ; preds = %6
-  %13 = call i32 @errcode(i32 noundef 1088) #11
-  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %15 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %13 = call ptr @map_sql_identifier_to_xml_name(ptr nonnull poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
-16:                                               ; preds = %4
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.34) #11
+14:                                               ; preds = %4
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.34) #12
   %char0.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %char0.i, 0
-  br i1 %.not.i, label %xsd_schema_element_start.exit, label %17
+  br i1 %.not.i, label %xsd_schema_element_start.exit, label %15
 
-17:                                               ; preds = %16
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.35, ptr noundef nonnull %3) #11
+15:                                               ; preds = %14
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.35, ptr noundef nonnull %3) #12
   br label %xsd_schema_element_start.exit
 
-xsd_schema_element_start.exit:                    ; preds = %16, %17
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.36) #11
-  %18 = call ptr @list_make1_impl(i32 noundef 1, ptr %0) #11
-  %19 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %18)
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef %19) #11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.94) #11
-  %20 = load i32, ptr %0, align 8
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph, label %._crit_edge
+xsd_schema_element_start.exit:                    ; preds = %14, %15
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.36) #12
+  %16 = call ptr @list_make1_impl(i32 noundef 1, ptr %0) #12
+  %17 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %16)
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef %17) #12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.94) #12
+  %18 = load i32, ptr %0, align 8
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %wide.trip.count = zext nneg i32 %20 to i64
-  br label %24
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %wide.trip.count = zext nneg i32 %18 to i64
+  br label %22
 
-23:                                               ; preds = %24
+21:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !11
 
-24:                                               ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %indvars.iv, i32 17
-  %26 = load i8, ptr %25, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %23, label %28
+22:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %23 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %20, i64 0, i64 %indvars.iv, i32 17
+  %24 = load i8, ptr %23, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %21, label %26
 
-28:                                               ; preds = %24
-  %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %29)
-  %30 = call i32 @errcode(i32 noundef 1088) #11
-  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %32 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+26:                                               ; preds = %22
+  %27 = call ptr @map_sql_identifier_to_xml_name(ptr nonnull poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
-._crit_edge:                                      ; preds = %23, %xsd_schema_element_start.exit
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.112) #11
-  br i1 %2, label %34, label %33
+._crit_edge:                                      ; preds = %21, %xsd_schema_element_start.exit
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.112) #12
+  br i1 %2, label %29, label %28
 
-33:                                               ; preds = %._crit_edge
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.94) #11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.95) #11
-  br label %35
+28:                                               ; preds = %._crit_edge
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.94) #12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.95) #12
+  br label %30
 
-34:                                               ; preds = %._crit_edge
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.94) #11
-  br label %35
+29:                                               ; preds = %._crit_edge
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.94) #12
+  br label %30
 
-35:                                               ; preds = %34, %33
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.102) #11
-  %36 = load ptr, ptr %5, align 8
-  ret ptr %36
+30:                                               ; preds = %29, %28
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.102) #12
+  %31 = load ptr, ptr %5, align 8
+  ret ptr %31
 }
 
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1380,37 +1347,37 @@ define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   %7 = getelementptr i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #11
-  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #11
-  %14 = tail call i32 @SPI_connect() #11
-  %15 = tail call ptr @SPI_prepare(ptr noundef %6, i32 noundef 0, ptr noundef null) #11
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #12
+  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #12
+  %14 = tail call i32 @SPI_connect() #12
+  %15 = tail call ptr @SPI_prepare(ptr noundef %6, i32 noundef 0, ptr noundef null) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %1
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, ptr noundef %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3016, ptr noundef nonnull @__func__.query_to_xmlschema) #11
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, ptr noundef %6) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3016, ptr noundef nonnull @__func__.query_to_xmlschema) #12
   unreachable
 
 20:                                               ; preds = %1
-  %21 = tail call ptr @SPI_cursor_open(ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #11
+  %21 = tail call ptr @SPI_cursor_open(ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #12
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3019, ptr noundef nonnull @__func__.query_to_xmlschema) #11
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %6) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3019, ptr noundef nonnull @__func__.query_to_xmlschema) #12
   unreachable
 
 26:                                               ; preds = %20
@@ -1418,13 +1385,13 @@ define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %28 = getelementptr inbounds i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
-  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #12
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
   %32 = add i64 %31, 1
-  %33 = tail call ptr @SPI_palloc(i64 noundef %32) #11
+  %33 = tail call ptr @SPI_palloc(i64 noundef %32) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %30, i64 %32, i1 false)
-  tail call void @SPI_cursor_close(ptr noundef nonnull %21) #11
-  %34 = tail call i32 @SPI_finish() #11
-  %35 = tail call ptr @cstring_to_text(ptr noundef %33) #11
+  tail call void @SPI_cursor_close(ptr noundef nonnull %21) #12
+  %34 = tail call i32 @SPI_finish() #12
+  %35 = tail call ptr @cstring_to_text(ptr noundef %33) #12
   %36 = ptrtoint ptr %35 to i64
   ret i64 %36
 }
@@ -1442,26 +1409,26 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   %7 = getelementptr i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #11
-  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #11
-  %14 = tail call i32 @SPI_connect() #11
-  %15 = tail call ptr @SPI_cursor_find(ptr noundef %6) #11
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #12
+  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #12
+  %14 = tail call i32 @SPI_connect() #12
+  %15 = tail call ptr @SPI_cursor_find(ptr noundef %6) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %1
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 259) #11
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3046, ptr noundef nonnull @__func__.cursor_to_xmlschema) #11
+  %19 = tail call i32 @errcode(i32 noundef 259) #12
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %6) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3046, ptr noundef nonnull @__func__.cursor_to_xmlschema) #12
   unreachable
 
 21:                                               ; preds = %1
@@ -1471,22 +1438,22 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 258) #11
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3050, ptr noundef nonnull @__func__.cursor_to_xmlschema) #11
+  %27 = tail call i32 @errcode(i32 noundef 258) #12
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %6) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3050, ptr noundef nonnull @__func__.cursor_to_xmlschema) #12
   unreachable
 
 29:                                               ; preds = %21
   %30 = icmp ne i64 %8, 0
   %31 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef nonnull %23, i32 noundef 0, i1 noundef zeroext %30, ptr noundef %13)
-  %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #12
+  %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #13
   %33 = add i64 %32, 1
-  %34 = tail call ptr @SPI_palloc(i64 noundef %33) #11
+  %34 = tail call ptr @SPI_palloc(i64 noundef %33) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %31, i64 %33, i1 false)
-  %35 = tail call i32 @SPI_finish() #11
-  %36 = tail call ptr @cstring_to_text(ptr noundef %34) #11
+  %35 = tail call i32 @SPI_finish() #12
+  %36 = tail call ptr @cstring_to_text(ptr noundef %34) #12
   %37 = ptrtoint ptr %36 to i64
   ret i64 %37
 }
@@ -1503,27 +1470,27 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #11
-  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #11
-  %14 = tail call ptr @table_open(i32 noundef %5, i32 noundef 1) #11
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #12
+  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #12
+  %14 = tail call ptr @table_open(i32 noundef %5, i32 noundef 1) #12
   %15 = getelementptr inbounds i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %16, i32 noundef %5, i1 noundef zeroext %8, ptr noundef %13)
-  tail call void @table_close(ptr noundef %14, i32 noundef 0) #11
+  tail call void @table_close(ptr noundef %14, i32 noundef 0) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @initStringInfo(ptr noundef nonnull %2) #12
   %18 = and i64 %4, 4294967295
-  %19 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regclassout, i32 noundef 0, i64 noundef %18) #11
+  %19 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regclassout, i32 noundef 0, i64 noundef %18) #12
   %20 = inttoptr i64 %19 to ptr
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef %20) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef %20) #12
   %21 = load ptr, ptr %2, align 8
-  %22 = call ptr @get_rel_name(i32 noundef %5) #11
+  %22 = call ptr @get_rel_name(i32 noundef %5) #12
   %23 = call fastcc ptr @query_to_xml_internal(ptr noundef %21, ptr noundef %22, ptr noundef %17, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.val = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %23, i64 8
   %.val15 = load i32, ptr %24, align 8
-  %25 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val15) #11
+  %25 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val15) #12
   %26 = ptrtoint ptr %25 to i64
   ret i64 %26
 }
@@ -1533,37 +1500,37 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   %7 = getelementptr i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #11
-  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #11
-  %14 = tail call i32 @SPI_connect() #11
-  %15 = tail call ptr @SPI_prepare(ptr noundef %6, i32 noundef 0, ptr noundef null) #11
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #12
+  %13 = tail call ptr @text_to_cstring(ptr noundef %12) #12
+  %14 = tail call i32 @SPI_connect() #12
+  %15 = tail call ptr @SPI_prepare(ptr noundef %6, i32 noundef 0, ptr noundef null) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %1
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, ptr noundef %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3097, ptr noundef nonnull @__func__.query_to_xml_and_xmlschema) #11
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, ptr noundef %6) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3097, ptr noundef nonnull @__func__.query_to_xml_and_xmlschema) #12
   unreachable
 
 20:                                               ; preds = %1
-  %21 = tail call ptr @SPI_cursor_open(ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #11
+  %21 = tail call ptr @SPI_cursor_open(ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #12
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3100, ptr noundef nonnull @__func__.query_to_xml_and_xmlschema) #11
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %6) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3100, ptr noundef nonnull @__func__.query_to_xml_and_xmlschema) #12
   unreachable
 
 26:                                               ; preds = %20
@@ -1571,22 +1538,22 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %28 = getelementptr inbounds i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
-  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #12
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
   %32 = add i64 %31, 1
-  %33 = tail call ptr @SPI_palloc(i64 noundef %32) #11
+  %33 = tail call ptr @SPI_palloc(i64 noundef %32) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %30, i64 %32, i1 false)
-  tail call void @SPI_cursor_close(ptr noundef nonnull %21) #11
-  %34 = tail call i32 @SPI_finish() #11
+  tail call void @SPI_cursor_close(ptr noundef nonnull %21) #12
+  %34 = tail call i32 @SPI_finish() #12
   %35 = tail call fastcc ptr @query_to_xml_internal(ptr noundef %6, ptr noundef null, ptr noundef %33, i1 noundef zeroext %27, ptr noundef %13, i1 noundef zeroext true)
   %.val = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %35, i64 8
   %.val18 = load i32, ptr %36, align 8
-  %37 = tail call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val18) #11
+  %37 = tail call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val18) #12
   %38 = ptrtoint ptr %37 to i64
   ret i64 %38
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @schema_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
@@ -1594,286 +1561,255 @@ define dso_local noundef i64 @schema_to_xml(ptr nocapture noundef readonly %0) l
   %5 = getelementptr i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #11
-  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #11
-  %10 = tail call i32 @LookupExplicitNamespace(ptr noundef %4, i1 noundef zeroext false) #11
-  %11 = tail call ptr @get_namespace_name(i32 noundef %10) #11
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 1088) #11
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %15 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #12
+  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #12
+  %10 = tail call i32 @LookupExplicitNamespace(ptr noundef %4, i1 noundef zeroext false) #12
+  %11 = tail call ptr @get_namespace_name(i32 noundef %10) #12
+  %12 = tail call ptr @map_sql_identifier_to_xml_name(ptr poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 }
 
 declare i32 @LookupExplicitNamespace(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @schema_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @schema_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #11
-  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #11
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #12
+  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #12
   tail call fastcc void @schema_to_xmlschema_internal(ptr noundef %4, ptr noundef %9)
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @schema_to_xmlschema_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @schema_to_xmlschema_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
   %3 = alloca %struct.StringInfoData, align 8
-  %4 = alloca %struct.StringInfoData, align 8
-  %5 = tail call ptr @makeStringInfo() #11
-  %6 = tail call i32 @LookupExplicitNamespace(ptr noundef %0, i1 noundef zeroext false) #11
-  tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull @.str.34) #11
+  %4 = tail call ptr @makeStringInfo() #12
+  %5 = tail call i32 @LookupExplicitNamespace(ptr noundef %0, i1 noundef zeroext false) #12
+  tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.34) #12
   %char0.i = load i8, ptr %1, align 1
   %.not.i = icmp eq i8 %char0.i, 0
-  br i1 %.not.i, label %xsd_schema_element_start.exit, label %7
+  br i1 %.not.i, label %xsd_schema_element_start.exit, label %6
 
-7:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %5, ptr noundef nonnull @.str.35, ptr noundef nonnull %1) #11
+6:                                                ; preds = %2
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull %1) #12
   br label %xsd_schema_element_start.exit
 
-xsd_schema_element_start.exit:                    ; preds = %2, %7
-  tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull @.str.36) #11
-  %8 = tail call i32 @SPI_connect() #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @initStringInfo(ptr noundef nonnull %4) #11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %6) #11
-  %9 = load ptr, ptr %4, align 8
-  %10 = call fastcc ptr @query_to_oid_list(ptr noundef %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
-  %.not = icmp eq ptr %10, null
+xsd_schema_element_start.exit:                    ; preds = %2, %6
+  tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.36) #12
+  %7 = tail call i32 @SPI_connect() #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @initStringInfo(ptr noundef nonnull %3) #12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, i32 noundef %5) #12
+  %8 = load ptr, ptr %3, align 8
+  %9 = call fastcc ptr @query_to_oid_list(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
-  %13 = load i32, ptr %11, align 4
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph34, label %._crit_edge
+  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = load i32, ptr %10, align 4
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph34, label %._crit_edge
 
 .lr.ph34:                                         ; preds = %.lr.ph, %.lr.ph34
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34 ], [ 0, %.lr.ph ]
-  %.02832 = phi ptr [ %22, %.lr.ph34 ], [ null, %.lr.ph ]
-  %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr %union.ListCell, ptr %15, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 8
-  %18 = call ptr @table_open(i32 noundef %17, i32 noundef 1) #11
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @CreateTupleDescCopy(ptr noundef %20) #11
-  %22 = call ptr @lappend(ptr noundef %.02832, ptr noundef %21) #11
-  call void @table_close(ptr noundef %18, i32 noundef 0) #11
+  %.02832 = phi ptr [ %21, %.lr.ph34 ], [ null, %.lr.ph ]
+  %14 = load ptr, ptr %11, align 8
+  %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 8
+  %17 = call ptr @table_open(i32 noundef %16, i32 noundef 1) #12
+  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @CreateTupleDescCopy(ptr noundef %19) #12
+  %21 = call ptr @lappend(ptr noundef %.02832, ptr noundef %20) #12
+  call void @table_close(ptr noundef %17, i32 noundef 0) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %11, align 4
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph34, label %._crit_edge
+  %22 = load i32, ptr %10, align 4
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph34, %.lr.ph, %xsd_schema_element_start.exit
-  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %22, %.lr.ph34 ]
-  %26 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
-  call void @appendStringInfoString(ptr noundef %5, ptr noundef %26) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %27 = load i32, ptr @MyDatabaseId, align 4
-  %28 = call ptr @get_database_name(i32 noundef %27) #11
-  %29 = call ptr @get_namespace_name(i32 noundef %6) #11
-  call void @initStringInfo(ptr noundef nonnull %3) #11
-  %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %30)
-  %31 = call i32 @errcode(i32 noundef 1088) #11
-  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %33 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %21, %.lr.ph34 ]
+  %25 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
+  call void @appendStringInfoString(ptr noundef %4, ptr noundef %25) #12
+  call fastcc void @map_sql_schema_to_xmlschema_types(i32 noundef %5)
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #11
-  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #11
-  %10 = tail call i32 @LookupExplicitNamespace(ptr noundef %4, i1 noundef zeroext false) #11
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #12
+  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #12
+  %10 = tail call i32 @LookupExplicitNamespace(ptr noundef %4, i1 noundef zeroext false) #12
   tail call fastcc void @schema_to_xmlschema_internal(ptr noundef %4, ptr noundef %9)
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @database_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   %7 = load i32, ptr @MyDatabaseId, align 4
-  %8 = tail call ptr @get_database_name(i32 noundef %7) #11
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 1088) #11
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %12 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %8 = tail call ptr @get_database_name(i32 noundef %7) #12
+  %9 = tail call ptr @map_sql_identifier_to_xml_name(ptr poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @database_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @database_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   tail call fastcc void @database_to_xmlschema_internal(ptr noundef %6)
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @database_to_xmlschema_internal(ptr noundef %0) unnamed_addr #0 {
-  %2 = alloca %struct.StringInfoData, align 8
-  %3 = tail call ptr @makeStringInfo() #11
-  tail call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull @.str.34) #11
+define internal fastcc void @database_to_xmlschema_internal(ptr noundef %0) unnamed_addr #7 {
+  %2 = tail call ptr @makeStringInfo() #12
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull @.str.34) #12
   %char0.i = load i8, ptr %0, align 1
   %.not.i = icmp eq i8 %char0.i, 0
-  br i1 %.not.i, label %xsd_schema_element_start.exit, label %4
+  br i1 %.not.i, label %xsd_schema_element_start.exit, label %3
 
-4:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull %0) #11
+3:                                                ; preds = %1
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2, ptr noundef nonnull @.str.35, ptr noundef nonnull %0) #12
   br label %xsd_schema_element_start.exit
 
-xsd_schema_element_start.exit:                    ; preds = %1, %4
-  tail call void @appendStringInfoString(ptr noundef %3, ptr noundef nonnull @.str.36) #11
-  %5 = tail call i32 @SPI_connect() #11
-  %6 = tail call fastcc ptr @query_to_oid_list(ptr noundef nonnull @.str.104)
-  %7 = tail call fastcc ptr @query_to_oid_list(ptr noundef nonnull @.str.103)
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
-  %.not = icmp eq ptr %6, null
+xsd_schema_element_start.exit:                    ; preds = %1, %3
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull @.str.36) #12
+  %4 = tail call i32 @SPI_connect() #12
+  %5 = tail call fastcc ptr @query_to_oid_list(ptr noundef nonnull @.str.104)
+  %6 = tail call fastcc ptr @query_to_oid_list(ptr noundef nonnull @.str.103)
+  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = load i32, ptr %8, align 4
-  %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph31, label %._crit_edge
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = load i32, ptr %7, align 4
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %.lr.ph31, label %._crit_edge
 
 .lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %.lr.ph ]
-  %.02529 = phi ptr [ %19, %.lr.ph31 ], [ null, %.lr.ph ]
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 8
-  %15 = tail call ptr @table_open(i32 noundef %14, i32 noundef 1) #11
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @CreateTupleDescCopy(ptr noundef %17) #11
-  %19 = tail call ptr @lappend(ptr noundef %.02529, ptr noundef %18) #11
-  tail call void @table_close(ptr noundef %15, i32 noundef 0) #11
+  %.02529 = phi ptr [ %18, %.lr.ph31 ], [ null, %.lr.ph ]
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 8
+  %14 = tail call ptr @table_open(i32 noundef %13, i32 noundef 1) #12
+  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call ptr @CreateTupleDescCopy(ptr noundef %16) #12
+  %18 = tail call ptr @lappend(ptr noundef %.02529, ptr noundef %17) #12
+  tail call void @table_close(ptr noundef %14, i32 noundef 0) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load i32, ptr %8, align 4
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph31, label %._crit_edge
+  %19 = load i32, ptr %7, align 4
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %.lr.ph, %xsd_schema_element_start.exit
-  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %19, %.lr.ph31 ]
-  %23 = tail call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
-  tail call void @appendStringInfoString(ptr noundef %3, ptr noundef %23) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %24 = load i32, ptr @MyDatabaseId, align 4
-  %25 = tail call ptr @get_database_name(i32 noundef %24) #11
-  call void @initStringInfo(ptr noundef nonnull %2) #11
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %26)
-  %27 = call i32 @errcode(i32 noundef 1088) #11
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %29 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %18, %.lr.ph31 ]
+  %22 = tail call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
+  tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %22) #12
+  tail call fastcc void @map_sql_catalog_to_xmlschema_types()
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #11
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #11
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
   tail call fastcc void @database_to_xmlschema_internal(ptr noundef %6)
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xpath(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4466, ptr noundef nonnull @__func__.xpath) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4466, ptr noundef nonnull @__func__.xpath) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xmlexists(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4488, ptr noundef nonnull @__func__.xmlexists) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4488, ptr noundef nonnull @__func__.xmlexists) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xpath_exists(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4512, ptr noundef nonnull @__func__.xpath_exists) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4512, ptr noundef nonnull @__func__.xpath_exists) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xml_is_well_formed(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4548, ptr noundef nonnull @__func__.xml_is_well_formed) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4548, ptr noundef nonnull @__func__.xml_is_well_formed) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xml_is_well_formed_document(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4561, ptr noundef nonnull @__func__.xml_is_well_formed_document) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4561, ptr noundef nonnull @__func__.xml_is_well_formed_document) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @xml_is_well_formed_content(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #11
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4574, ptr noundef nonnull @__func__.xml_is_well_formed_content) #11
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4574, ptr noundef nonnull @__func__.xml_is_well_formed_content) #12
   unreachable
 }
 
@@ -1896,14 +1832,14 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 declare ptr @SPI_palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
   %2 = alloca i8, align 1
-  %3 = tail call i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext true, i64 noundef 0) #11
+  %3 = tail call i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext true, i64 noundef 0) #12
   %.not = icmp eq i32 %3, 5
   br i1 %.not, label %.preheader, label %5
 
@@ -1913,11 +1849,11 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call ptr @SPI_result_code_string(i32 noundef %3) #11
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef %7, ptr noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2733, ptr noundef nonnull @__func__.query_to_oid_list) #11
+  %7 = tail call ptr @SPI_result_code_string(i32 noundef %3) #12
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef %7, ptr noundef %0) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2733, ptr noundef nonnull @__func__.query_to_oid_list) #12
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %21
@@ -1929,14 +1865,14 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
   %12 = getelementptr ptr, ptr %11, i64 %.012
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
-  %15 = call i64 @SPI_getbinval(ptr noundef %13, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %2) #11
+  %15 = call i64 @SPI_getbinval(ptr noundef %13, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %2) #12
   %16 = load i8, ptr %2, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = trunc i64 %15 to i32
-  %20 = call ptr @lappend_oid(ptr noundef %.0911, i32 noundef %19) #11
+  %20 = call ptr @lappend_oid(ptr noundef %.0911, i32 noundef %19) #12
   br label %21
 
 21:                                               ; preds = %.lr.ph, %18
@@ -1988,7 +1924,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   br i1 %12, label %.lr.ph83, label %._crit_edge75.thread105
 
 ._crit_edge75.thread105:                          ; preds = %.lr.ph74
-  call void @initStringInfo(ptr noundef nonnull %4) #11
+  call void @initStringInfo(ptr noundef nonnull %4) #12
   br label %.lr.ph87
 
 .lr.ph69:                                         ; preds = %.lr.ph61, %._crit_edge
@@ -2019,7 +1955,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
 26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %22, i64 68
   %28 = load i32, ptr %27, align 4
-  %29 = tail call ptr @list_append_unique_oid(ptr noundef %.157, i32 noundef %28) #11
+  %29 = tail call ptr @list_append_unique_oid(ptr noundef %.157, i32 noundef %28) #12
   %.pre = load i32, ptr %16, align 8
   br label %30
 
@@ -2049,12 +1985,12 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %37 = load ptr, ptr %10, align 8
   %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv94
   %39 = load i32, ptr %38, align 8
-  %40 = tail call i32 @getBaseType(i32 noundef %39) #11
+  %40 = tail call i32 @getBaseType(i32 noundef %39) #12
   %.not45 = icmp eq i32 %40, %39
   br i1 %.not45, label %43, label %41
 
 41:                                               ; preds = %.lr.ph83
-  %42 = tail call ptr @list_append_unique_oid(ptr noundef %.37281, i32 noundef %40) #11
+  %42 = tail call ptr @list_append_unique_oid(ptr noundef %.37281, i32 noundef %40) #12
   br label %43
 
 43:                                               ; preds = %.lr.ph83, %41
@@ -2066,11 +2002,11 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   br i1 %46, label %.lr.ph83, label %._crit_edge75
 
 ._crit_edge75.thread:                             ; preds = %._crit_edge64, %1, %.lr.ph61
-  call void @initStringInfo(ptr noundef nonnull %4) #11
+  call void @initStringInfo(ptr noundef nonnull %4) #12
   br label %._crit_edge88
 
 ._crit_edge75:                                    ; preds = %43
-  call void @initStringInfo(ptr noundef nonnull %4) #11
+  call void @initStringInfo(ptr noundef nonnull %4) #12
   %.not43 = icmp eq ptr %.4, null
   br i1 %.not43, label %._crit_edge88, label %.lr.ph87
 
@@ -2090,12 +2026,12 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %54 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %53, i32 noundef -1)
-  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @initStringInfo(ptr noundef nonnull %2) #12
   %55 = icmp eq i32 %53, 142
   br i1 %55, label %map_sql_type_to_xmlschema_type.exit, label %56
 
 56:                                               ; preds = %.lr.ph110
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.39, ptr noundef %54) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.39, ptr noundef %54) #12
   switch i32 %53, label %75 [
     i32 1042, label %57
     i32 1043, label %57
@@ -2116,77 +2052,77 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   ]
 
 57:                                               ; preds = %56, %56, %56
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.40) #11
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.42) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.40) #12
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.42) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 58:                                               ; preds = %56
   %59 = load i32, ptr @xmlbinary, align 4
   %60 = icmp eq i32 %59, 0
   %61 = select i1 %60, ptr @.str.44, ptr @.str.45
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %61) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %61) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 62:                                               ; preds = %56
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.47, i32 noundef 32767, i32 noundef -32768) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.47, i32 noundef 32767, i32 noundef -32768) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 63:                                               ; preds = %56
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.48, i32 noundef 2147483647, i32 noundef -2147483648) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.48, i32 noundef 2147483647, i32 noundef -2147483648) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 64:                                               ; preds = %56
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.49, i64 noundef 9223372036854775807, i64 noundef -9223372036854775808) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.49, i64 noundef 9223372036854775807, i64 noundef -9223372036854775808) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 65:                                               ; preds = %56
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.50) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.50) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 66:                                               ; preds = %56
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.51) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.51) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 67:                                               ; preds = %56
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.52) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.52) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 68:                                               ; preds = %56, %56
   %69 = icmp eq i32 %53, 1266
   %70 = select i1 %69, ptr @.str.53, ptr @.str.54
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.55, ptr noundef nonnull %70) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.55, ptr noundef nonnull %70) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 71:                                               ; preds = %56, %56
   %72 = icmp eq i32 %53, 1184
   %73 = select i1 %72, ptr @.str.53, ptr @.str.54
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.58, ptr noundef nonnull %73) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.58, ptr noundef nonnull %73) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 74:                                               ; preds = %56
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.61) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.61) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 75:                                               ; preds = %56
-  %76 = call signext i8 @get_typtype(i32 noundef %53) #11
+  %76 = call signext i8 @get_typtype(i32 noundef %53) #12
   %77 = icmp eq i8 %76, 100
   br i1 %77, label %78, label %map_sql_type_to_xmlschema_type.exit
 
 78:                                               ; preds = %75
   store i32 -1, ptr %3, align 4
-  %79 = call i32 @getBaseTypeAndTypmod(i32 noundef %53, ptr noundef nonnull %3) #11
+  %79 = call i32 @getBaseTypeAndTypmod(i32 noundef %53, ptr noundef nonnull %3) #12
   %80 = load i32, ptr %3, align 4
   %81 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %79, i32 noundef %80)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, ptr noundef %81) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, ptr noundef %81) #12
   br label %map_sql_type_to_xmlschema_type.exit
 
 map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph110, %56, %57, %58, %62, %63, %64, %65, %66, %67, %68, %71, %74, %75, %78
   %.str.63.sink.i = phi ptr [ @.str.38, %.lr.ph110 ], [ @.str.63, %56 ], [ @.str.63, %75 ], [ @.str.63, %78 ], [ @.str.63, %71 ], [ @.str.63, %68 ], [ @.str.63, %74 ], [ @.str.63, %67 ], [ @.str.63, %66 ], [ @.str.63, %65 ], [ @.str.63, %64 ], [ @.str.63, %63 ], [ @.str.63, %62 ], [ @.str.63, %58 ], [ @.str.63, %57 ]
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %.str.63.sink.i) #11
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %.str.63.sink.i) #12
   %82 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, ptr noundef %82) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, ptr noundef %82) #12
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97109, 1
   %83 = load i32, ptr %47, align 4
   %84 = sext i32 %83 to i64
@@ -2198,13 +2134,24 @@ map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph110, %56, %57
   ret ptr %86
 }
 
+; Function Attrs: cold noreturn nounwind uwtable
+define internal fastcc void @map_sql_schema_to_xmlschema_types(i32 noundef %0) unnamed_addr #0 {
+  %2 = alloca %struct.StringInfoData, align 8
+  %3 = load i32, ptr @MyDatabaseId, align 4
+  %4 = tail call ptr @get_database_name(i32 noundef %3) #12
+  %5 = tail call ptr @get_namespace_name(i32 noundef %0) #12
+  call void @initStringInfo(ptr noundef nonnull %2) #12
+  %6 = call ptr @map_sql_identifier_to_xml_name(ptr poison, i1 zeroext poison, i1 zeroext poison)
+  unreachable
+}
+
 declare ptr @list_append_unique_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @map_sql_type_to_xml_name(i32 noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca %struct.StringInfoData, align 8
-  call void @initStringInfo(ptr noundef nonnull %4) #11
+  call void @initStringInfo(ptr noundef nonnull %4) #12
   switch i32 %0, label %46 [
     i32 1042, label %5
     i32 1043, label %10
@@ -2228,133 +2175,133 @@ define internal fastcc ptr @map_sql_type_to_xml_name(i32 noundef %0, i32 noundef
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.64) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.64) #12
+  br label %65
 
 8:                                                ; preds = %5
   %9 = add i32 %1, -4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.65, i32 noundef %9) #11
-  br label %68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.65, i32 noundef %9) #12
+  br label %65
 
 10:                                               ; preds = %2
   %11 = icmp eq i32 %1, -1
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.66) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.66) #12
+  br label %65
 
 13:                                               ; preds = %10
   %14 = add i32 %1, -4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.67, i32 noundef %14) #11
-  br label %68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.67, i32 noundef %14) #12
+  br label %65
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %1, -1
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.68) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.68) #12
+  br label %65
 
 18:                                               ; preds = %15
   %19 = add i32 %1, -4
   %20 = lshr i32 %19, 16
   %21 = and i32 %19, 65535
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.69, i32 noundef %20, i32 noundef %21) #11
-  br label %68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.69, i32 noundef %20, i32 noundef %21) #12
+  br label %65
 
 22:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.70) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.70) #12
+  br label %65
 
 23:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.71) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.71) #12
+  br label %65
 
 24:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.72) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.72) #12
+  br label %65
 
 25:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.73) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.73) #12
+  br label %65
 
 26:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.74) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.74) #12
+  br label %65
 
 27:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.75) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.75) #12
+  br label %65
 
 28:                                               ; preds = %2
   %29 = icmp eq i32 %1, -1
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %28
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.76) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.76) #12
+  br label %65
 
 31:                                               ; preds = %28
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.77, i32 noundef %1) #11
-  br label %68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.77, i32 noundef %1) #12
+  br label %65
 
 32:                                               ; preds = %2
   %33 = icmp eq i32 %1, -1
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %32
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.78) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.78) #12
+  br label %65
 
 35:                                               ; preds = %32
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.79, i32 noundef %1) #11
-  br label %68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.79, i32 noundef %1) #12
+  br label %65
 
 36:                                               ; preds = %2
   %37 = icmp eq i32 %1, -1
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %36
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.80) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.80) #12
+  br label %65
 
 39:                                               ; preds = %36
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.81, i32 noundef %1) #11
-  br label %68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.81, i32 noundef %1) #12
+  br label %65
 
 40:                                               ; preds = %2
   %41 = icmp eq i32 %1, -1
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.82) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.82) #12
+  br label %65
 
 43:                                               ; preds = %40
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.83, i32 noundef %1) #11
-  br label %68
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.83, i32 noundef %1) #12
+  br label %65
 
 44:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.84) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.84) #12
+  br label %65
 
 45:                                               ; preds = %2
-  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.85) #11
-  br label %68
+  call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.85) #12
+  br label %65
 
 46:                                               ; preds = %2
   %47 = zext i32 %0 to i64
-  %48 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %47) #11
+  %48 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %47) #12
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %49, label %52
 
 49:                                               ; preds = %46
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %50)
-  %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.86, i32 noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3772, ptr noundef nonnull @__func__.map_sql_type_to_xml_name) #11
+  %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.86, i32 noundef %0) #12
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3772, ptr noundef nonnull @__func__.map_sql_type_to_xml_name) #12
   unreachable
 
 52:                                               ; preds = %46
@@ -2365,23 +2312,18 @@ define internal fastcc ptr @map_sql_type_to_xml_name(i32 noundef %0, i32 noundef
   %57 = zext i8 %56 to i64
   %58 = getelementptr i8, ptr %54, i64 %57
   %59 = load i32, ptr @MyDatabaseId, align 4
-  %60 = call ptr @get_database_name(i32 noundef %59) #11
+  %60 = call ptr @get_database_name(i32 noundef %59) #12
   %61 = getelementptr inbounds i8, ptr %58, i64 68
   %62 = load i32, ptr %61, align 4
-  %63 = call ptr @get_namespace_name(i32 noundef %62) #11
+  %63 = call ptr @get_namespace_name(i32 noundef %62) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @initStringInfo(ptr noundef nonnull %3) #11
-  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %64)
-  %65 = call i32 @errcode(i32 noundef 1088) #11
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  %67 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #11
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2364, ptr noundef nonnull @__func__.map_sql_identifier_to_xml_name) #11
+  call void @initStringInfo(ptr noundef nonnull %3) #12
+  %64 = call ptr @map_sql_identifier_to_xml_name(ptr nonnull readnone poison, i1 zeroext poison, i1 zeroext poison)
   unreachable
 
-68:                                               ; preds = %42, %43, %38, %39, %34, %35, %30, %31, %17, %18, %12, %13, %7, %8, %45, %44, %27, %26, %25, %24, %23, %22
-  %69 = load ptr, ptr %4, align 8
-  ret ptr %69
+65:                                               ; preds = %42, %43, %38, %39, %34, %35, %30, %31, %17, %18, %12, %13, %7, %8, %45, %44, %27, %26, %25, %24, %23, %22
+  %66 = load ptr, ptr %4, align 8
+  ret ptr %66
 }
 
 declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #2
@@ -2392,33 +2334,44 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: cold noreturn nounwind uwtable
+define internal fastcc void @map_sql_catalog_to_xmlschema_types() unnamed_addr #0 {
+  %1 = alloca %struct.StringInfoData, align 8
+  %2 = load i32, ptr @MyDatabaseId, align 4
+  %3 = tail call ptr @get_database_name(i32 noundef %2) #12
+  call void @initStringInfo(ptr noundef nonnull %1) #12
+  %4 = call ptr @map_sql_identifier_to_xml_name(ptr poison, i1 zeroext poison, i1 zeroext poison)
+  unreachable
+}
+
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
 declare ptr @SPI_fname(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
-attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

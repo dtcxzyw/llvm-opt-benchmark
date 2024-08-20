@@ -121,7 +121,7 @@ define dso_local void @ptdump_walk_pgd_level(ptr noundef %0, ptr noundef %1) loc
   %4 = alloca %struct.pg_state, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 64
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 16, i1 false)
   %8 = load i32, ptr @ptrs_per_p4d, align 4
@@ -138,7 +138,7 @@ define dso_local void @ptdump_walk_pgd_level(ptr noundef %0, ptr noundef %1) loc
   store i64 -1, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #8
   %18 = getelementptr inbounds i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %4, align 8
@@ -156,9 +156,9 @@ define dso_local void @ptdump_walk_pgd_level(ptr noundef %0, ptr noundef %1) loc
   store i64 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 128
   store ptr %0, ptr %25, align 8
-  call void @ptdump_walk_pgd(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %6) #7
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #7
+  call void @ptdump_walk_pgd(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %6) #8
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #8
   ret void
 }
 
@@ -184,7 +184,7 @@ define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef
 
 16:                                               ; preds = %12, %8, %3
   %17 = phi ptr [ %15, %12 ], [ %7, %8 ], [ %7, %3 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 16, i1 false)
   %19 = load i32, ptr @ptrs_per_p4d, align 4
@@ -201,7 +201,7 @@ define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef
   store i64 -1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #8
   %29 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %29, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %5, align 8
@@ -217,9 +217,9 @@ define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef
   %35 = getelementptr inbounds i8, ptr %5, i64 128
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(82) %33, i8 0, i64 82, i1 false)
   store ptr %0, ptr %35, align 8
-  call void @ptdump_walk_pgd(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %17) #7
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #7
+  call void @ptdump_walk_pgd(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %17) #8
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
   ret void
 }
 
@@ -244,10 +244,10 @@ define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #
   br i1 %8, label %38, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #8
+  %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #9
   %11 = or i64 ptrtoint (ptr @init_top_pgt to i64), 4096
   %12 = inttoptr i64 %11 to ptr
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1, i8 0, i64 16, i1 false)
   %14 = load i32, ptr @ptrs_per_p4d, align 4
@@ -264,7 +264,7 @@ define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #
   store i64 -1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
   %24 = getelementptr inbounds i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %24, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %2, align 8
@@ -280,22 +280,22 @@ define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #
   store i8 1, ptr %29, align 1
   %30 = getelementptr inbounds i8, ptr %2, i64 120
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  call void @ptdump_walk_pgd(ptr noundef nonnull %2, ptr noundef nonnull @init_mm, ptr noundef nonnull %12) #7
+  call void @ptdump_walk_pgd(ptr noundef nonnull %2, ptr noundef nonnull @init_mm, ptr noundef nonnull %12) #8
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %9
-  %34 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i64 noundef %31) #8
+  %34 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i64 noundef %31) #9
   br label %37
 
 35:                                               ; preds = %9
-  %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #8
+  %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #9
   br label %37
 
 37:                                               ; preds = %35, %33
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #8
   br label %38
 
 38:                                               ; preds = %37, %5, %0
@@ -305,11 +305,11 @@ define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ptdump_walk_pgd_level_checkwx() local_unnamed_addr #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local void @ptdump_walk_pgd_level_checkwx() local_unnamed_addr #3 align 16 {
   %1 = alloca [3 x %struct.ptdump_range], align 16
   %2 = alloca %struct.pg_state, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1, i8 0, i64 16, i1 false)
   %4 = load i32, ptr @ptrs_per_p4d, align 4
@@ -326,7 +326,7 @@ define dso_local void @ptdump_walk_pgd_level_checkwx() local_unnamed_addr #0 ali
   store i64 -1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
   %14 = getelementptr inbounds i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %2, align 8
@@ -342,27 +342,27 @@ define dso_local void @ptdump_walk_pgd_level_checkwx() local_unnamed_addr #0 ali
   store i8 1, ptr %19, align 1
   %20 = getelementptr inbounds i8, ptr %2, i64 120
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  call void @ptdump_walk_pgd(ptr noundef nonnull %2, ptr noundef nonnull @init_mm, ptr noundef nonnull @init_top_pgt) #7
+  call void @ptdump_walk_pgd(ptr noundef nonnull %2, ptr noundef nonnull @init_mm, ptr noundef nonnull @init_top_pgt) #8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %0
-  %24 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i64 noundef %21) #8
+  %24 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i64 noundef %21) #9
   br label %27
 
 25:                                               ; preds = %0
-  %26 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #8
+  %26 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #9
   br label %27
 
 27:                                               ; preds = %25, %23
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #8
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @pt_dump_init() #3 section ".init.text" align 16 {
+define internal noundef i32 @pt_dump_init() #4 section ".init.text" align 16 {
   %1 = load i64, ptr @page_offset_base, align 8
   store i64 %1, ptr getelementptr inbounds (i8, ptr @address_markers, i64 72), align 8
   %2 = load i64, ptr @vmalloc_base, align 8
@@ -377,7 +377,7 @@ define internal noundef i32 @pt_dump_init() #3 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
@@ -419,7 +419,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @address_markers, i64 8), align 8
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %29) #8
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %29) #9
   br label %305
 
 31:                                               ; preds = %22
@@ -428,7 +428,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @address_markers, i64 8), align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %34) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %34) #8
   br label %305
 
 35:                                               ; preds = %14
@@ -474,14 +474,14 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 
 67:                                               ; preds = %55
   store i1 true, ptr @note_wx.__already_done, align 1
-  tail call void asm sideeffect "385: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 385b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 385) #7, !srcloc !9
+  tail call void asm sideeffect "385: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 385b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 385) #8, !srcloc !9
   %68 = load i64, ptr %56, align 8
   %69 = inttoptr i64 %68 to ptr
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.26, ptr noundef %69) #7
-  tail call void asm sideeffect "386: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 386b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 386) #7, !srcloc !10
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.27, i32 248, i32 2313, i64 12) #7, !srcloc !11
-  tail call void asm sideeffect "387: nop\0A\09.pushsection .discard.instr_end\0A\09.long 387b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 387) #7, !srcloc !12
-  tail call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_end\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #7, !srcloc !13
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.26, ptr noundef %69) #8
+  tail call void asm sideeffect "386: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 386b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 386) #8, !srcloc !10
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.27, i32 248, i32 2313, i64 12) #8, !srcloc !11
+  tail call void asm sideeffect "387: nop\0A\09.pushsection .discard.instr_end\0A\09.long 387b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 387) #8, !srcloc !12
+  tail call void asm sideeffect "388: nop\0A\09.pushsection .discard.instr_end\0A\09.long 388b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 388) #8, !srcloc !13
   br label %70
 
 70:                                               ; preds = %67, %55, %48
@@ -507,7 +507,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %0, i64 88
   %86 = load i64, ptr %85, align 8
-  %87 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef 16, i64 noundef %86, i32 noundef 16, i64 noundef %1) #8
+  %87 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef 16, i64 noundef %86, i32 noundef 16, i64 noundef %1) #9
   br label %93
 
 88:                                               ; preds = %80
@@ -517,7 +517,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 90:                                               ; preds = %88
   %91 = getelementptr inbounds i8, ptr %0, i64 88
   %92 = load i64, ptr %91, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 16, i64 noundef %92, i32 noundef 16, i64 noundef %1) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 16, i64 noundef %92, i32 noundef 16, i64 noundef %1) #8
   br label %93
 
 93:                                               ; preds = %90, %88, %84
@@ -551,7 +551,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 111:                                              ; preds = %.loopexit
   %112 = load i8, ptr %107, align 1
   %113 = zext i8 %112 to i32
-  %114 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i64 noundef %108, i32 noundef %113) #8
+  %114 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i64 noundef %108, i32 noundef %113) #9
   br label %thread-pre-split
 
 115:                                              ; preds = %.loopexit
@@ -561,7 +561,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 117:                                              ; preds = %115
   %118 = load i8, ptr %107, align 1
   %119 = zext i8 %118 to i32
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, i64 noundef %108, i32 noundef %119) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, i64 noundef %108, i32 noundef %119) #8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %111, %117
@@ -593,7 +593,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %124, label %136, label %134
 
 134:                                              ; preds = %133
-  %135 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35) #8
+  %135 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35) #9
   br label %145
 
 136:                                              ; preds = %133
@@ -601,14 +601,14 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %137, label %145, label %138
 
 138:                                              ; preds = %136
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.36) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.36) #8
   br label %145
 
 139:                                              ; preds = %130
   br i1 %124, label %142, label %140
 
 140:                                              ; preds = %139
-  %141 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #8
+  %141 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #9
   br label %145
 
 142:                                              ; preds = %139
@@ -616,7 +616,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %143, label %145, label %144
 
 144:                                              ; preds = %142
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #8
   br label %145
 
 145:                                              ; preds = %144, %142, %140, %138, %136, %134
@@ -628,7 +628,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %124, label %151, label %149
 
 149:                                              ; preds = %148
-  %150 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.39) #8
+  %150 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.39) #9
   br label %160
 
 151:                                              ; preds = %148
@@ -636,14 +636,14 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %152, label %160, label %153
 
 153:                                              ; preds = %151
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.40) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.40) #8
   br label %160
 
 154:                                              ; preds = %145
   br i1 %124, label %157, label %155
 
 155:                                              ; preds = %154
-  %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41) #8
+  %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41) #9
   br label %160
 
 157:                                              ; preds = %154
@@ -651,7 +651,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %158, label %160, label %159
 
 159:                                              ; preds = %157
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.42) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.42) #8
   br label %160
 
 160:                                              ; preds = %159, %157, %155, %153, %151, %149
@@ -663,7 +663,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %124, label %166, label %164
 
 164:                                              ; preds = %163
-  %165 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43) #8
+  %165 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43) #9
   br label %175
 
 166:                                              ; preds = %163
@@ -671,14 +671,14 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %167, label %175, label %168
 
 168:                                              ; preds = %166
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.44) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.44) #8
   br label %175
 
 169:                                              ; preds = %160
   br i1 %124, label %172, label %170
 
 170:                                              ; preds = %169
-  %171 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #8
+  %171 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #9
   br label %175
 
 172:                                              ; preds = %169
@@ -686,7 +686,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %173, label %175, label %174
 
 174:                                              ; preds = %172
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #8
   br label %175
 
 175:                                              ; preds = %174, %172, %170, %168, %166, %164
@@ -698,7 +698,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %124, label %181, label %179
 
 179:                                              ; preds = %178
-  %180 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.45) #8
+  %180 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.45) #9
   br label %190
 
 181:                                              ; preds = %178
@@ -706,14 +706,14 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %182, label %190, label %183
 
 183:                                              ; preds = %181
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.46) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.46) #8
   br label %190
 
 184:                                              ; preds = %175
   br i1 %124, label %187, label %185
 
 185:                                              ; preds = %184
-  %186 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #8
+  %186 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #9
   br label %190
 
 187:                                              ; preds = %184
@@ -721,7 +721,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %188, label %190, label %189
 
 189:                                              ; preds = %187
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #8
   br label %190
 
 190:                                              ; preds = %189, %187, %185, %183, %181, %179
@@ -739,14 +739,14 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %197, label %.thread, label %198
 
 198:                                              ; preds = %196
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.48) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.48) #8
   br label %.thread
 
 199:                                              ; preds = %190
   br i1 %124, label %202, label %200
 
 200:                                              ; preds = %199
-  %201 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #8
+  %201 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #9
   br label %205
 
 202:                                              ; preds = %199
@@ -754,7 +754,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %203, label %205, label %204
 
 204:                                              ; preds = %202
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #8
   br label %205
 
 205:                                              ; preds = %204, %202, %200
@@ -771,7 +771,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %212, label %224, label %219
 
 .thread.thread:                                   ; preds = %195
-  %213 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47) #8
+  %213 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47) #9
   %214 = and i32 %123, -2
   %215 = icmp ne i32 %214, 2
   %216 = and i64 %122, 4096
@@ -783,7 +783,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %124, label %221, label %.thread13
 
 .thread13:                                        ; preds = %.thread.thread, %219
-  %220 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49) #8
+  %220 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49) #9
   br label %229
 
 221:                                              ; preds = %219
@@ -791,14 +791,14 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %222, label %229, label %223
 
 223:                                              ; preds = %221
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.50) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.50) #8
   br label %229
 
 224:                                              ; preds = %.thread
   br i1 %124, label %226, label %.thread12
 
 .thread12:                                        ; preds = %.thread.thread, %224
-  %225 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #8
+  %225 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #9
   br label %229
 
 226:                                              ; preds = %224
@@ -806,7 +806,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %227, label %229, label %228
 
 228:                                              ; preds = %226
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #8
   br label %229
 
 229:                                              ; preds = %228, %226, %.thread12, %223, %221, %.thread13
@@ -818,7 +818,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %124, label %235, label %233
 
 233:                                              ; preds = %232
-  %234 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51) #8
+  %234 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51) #9
   br label %244
 
 235:                                              ; preds = %232
@@ -826,14 +826,14 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %236, label %244, label %237
 
 237:                                              ; preds = %235
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #8
   br label %244
 
 238:                                              ; preds = %229
   br i1 %124, label %241, label %239
 
 239:                                              ; preds = %238
-  %240 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #8
+  %240 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37) #9
   br label %244
 
 241:                                              ; preds = %238
@@ -841,7 +841,7 @@ thread-pre-split:                                 ; preds = %111, %117
   br i1 %242, label %244, label %243
 
 243:                                              ; preds = %241
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #8
   br label %244
 
 244:                                              ; preds = %243, %241, %239, %237, %235, %233
@@ -864,20 +864,20 @@ thread-pre-split:                                 ; preds = %111, %117
 
 252:                                              ; preds = %249, %246, %127
   %.str.33.sink = phi ptr [ @.str.33, %127 ], [ @.str.53, %246 ], [ @.str.55, %249 ]
-  %253 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.33.sink) #8
+  %253 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.33.sink) #9
   %254 = sext i32 %123 to i64
   %255 = getelementptr [5 x ptr], ptr @printk_prot.level_name, i64 0, i64 %254
   %256 = load ptr, ptr %255, align 8
-  %257 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %256) #8
+  %257 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %256) #9
   br label %.thread9
 
 258:                                              ; preds = %250, %247, %128
   %.str.34.sink = phi ptr [ @.str.34, %128 ], [ @.str.54, %247 ], [ @.str.56, %250 ]
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull %.str.34.sink) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull %.str.34.sink) #8
   %259 = sext i32 %123 to i64
   %260 = getelementptr [5 x ptr], ptr @printk_prot.level_name, i64 0, i64 %259
   %261 = load ptr, ptr %260, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.58, ptr noundef %261) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.58, ptr noundef %261) #8
   br label %.thread9
 
 .thread9:                                         ; preds = %128, %247, %250, %258, %252, %76
@@ -909,7 +909,7 @@ thread-pre-split:                                 ; preds = %111, %117
 280:                                              ; preds = %275
   %281 = icmp eq i64 %276, 1
   %282 = select i1 %281, ptr @.str.10, ptr @.str.11
-  %283 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i64 noundef %276, ptr noundef nonnull %282) #8
+  %283 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i64 noundef %276, ptr noundef nonnull %282) #9
   br label %289
 
 284:                                              ; preds = %275
@@ -919,7 +919,7 @@ thread-pre-split:                                 ; preds = %111, %117
 286:                                              ; preds = %284
   %287 = icmp eq i64 %276, 1
   %288 = select i1 %287, ptr @.str.10, ptr @.str.11
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, i64 noundef %276, ptr noundef nonnull %288) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, i64 noundef %276, ptr noundef nonnull %288) #8
   br label %289
 
 289:                                              ; preds = %286, %280, %269
@@ -940,7 +940,7 @@ thread-pre-split:                                 ; preds = %111, %117
 295:                                              ; preds = %289
   %296 = getelementptr i8, ptr %290, i64 32
   %297 = load ptr, ptr %296, align 8
-  %298 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %297) #8
+  %298 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %297) #9
   br label %.thread11
 
 299:                                              ; preds = %289
@@ -950,7 +950,7 @@ thread-pre-split:                                 ; preds = %111, %117
 301:                                              ; preds = %299
   %302 = getelementptr i8, ptr %290, i64 32
   %303 = load ptr, ptr %302, align 8
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %303) #7
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %303) #8
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread10, %301, %299, %295, %.thread9
@@ -966,7 +966,7 @@ thread-pre-split:                                 ; preds = %111, %117
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @effective_prot(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) #5 align 16 {
+define internal void @effective_prot(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) #6 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %16
 
@@ -997,23 +997,24 @@ define internal void @effective_prot(ptr nocapture noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ptdump_walk_pgd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare dso_local void @ptdump_walk_pgd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #6
+declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #7
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #3 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

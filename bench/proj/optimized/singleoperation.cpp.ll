@@ -1229,7 +1229,7 @@ define void @_ZThn56_N5osgeo4proj9operation19CoordinateOperationD1Ev(ptr noundef
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj9operation19CoordinateOperationD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #41
   unreachable
@@ -1238,25 +1238,25 @@ define void @_ZN5osgeo4proj9operation19CoordinateOperationD0Ev(ptr nocapture non
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #8
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn16_N5osgeo4proj9operation19CoordinateOperationD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn24_N5osgeo4proj9operation19CoordinateOperationD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn48_N5osgeo4proj9operation19CoordinateOperationD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn56_N5osgeo4proj9operation19CoordinateOperationD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
@@ -7509,25 +7509,25 @@ define void @_ZThn32_N5osgeo4proj9operation21GeneralParameterValueD1Ev(ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj9operation21GeneralParameterValueD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn16_N5osgeo4proj9operation21GeneralParameterValueD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn24_N5osgeo4proj9operation21GeneralParameterValueD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn32_N5osgeo4proj9operation21GeneralParameterValueD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
@@ -9042,19 +9042,19 @@ define void @_ZThn24_N5osgeo4proj9operation25GeneralOperationParameterD1Ev(ptr n
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj9operation25GeneralOperationParameterD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn16_N5osgeo4proj9operation25GeneralOperationParameterD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn24_N5osgeo4proj9operation25GeneralOperationParameterD0Ev(ptr nocapture readnone %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
@@ -9653,73 +9653,73 @@ _ZNSt10unique_ptrIN5osgeo4proj9operation15SingleOperation7PrivateESt14default_de
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj9operation15SingleOperationD1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTv0_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn16_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn24_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn48_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn56_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj9operation15SingleOperationD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTv0_n24_N5osgeo4proj9operation15SingleOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn16_n24_N5osgeo4proj9operation15SingleOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn24_n24_N5osgeo4proj9operation15SingleOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn48_n24_N5osgeo4proj9operation15SingleOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTvn56_n24_N5osgeo4proj9operation15SingleOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
@@ -38728,73 +38728,73 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTv0_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn16_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn24_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn48_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn56_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTv0_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn16_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn24_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn48_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
 }
 
-; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZTvn56_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr nocapture readonly %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #41
   unreachable
@@ -48080,9 +48080,9 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #9 = { noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

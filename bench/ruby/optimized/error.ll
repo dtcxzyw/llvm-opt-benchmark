@@ -1434,7 +1434,7 @@ define dso_local void @rb_bug(ptr noundef nonnull %0, ...) local_unnamed_addr #7
   unreachable
 }
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define internal fastcc void @die() unnamed_addr #8 {
   tail call void @abort() #33
   unreachable
@@ -1531,8 +1531,8 @@ bug_report_end.exit:                              ; preds = %40, %38, %13
 
 declare void @ruby_default_signal(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local void @rb_bug_errno(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #2 {
+; Function Attrs: cold noreturn nounwind sspstrong uwtable
+define dso_local void @rb_bug_errno(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -2093,7 +2093,7 @@ define internal fastcc noundef ptr @rb_strerrno(i32 noundef %0) unnamed_addr #9 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define hidden void @rb_async_bug_errno(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = tail call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.5, i64 noundef 12) #28
   %4 = icmp slt i64 %3, 0
@@ -10644,7 +10644,7 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #5 = { cold nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [5 x i8] c"%llu\00", align 1
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: cold nounwind uwtable
 define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca %struct.tm, align 8
@@ -68,7 +68,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %21 = zext nneg i16 %narrow to i32
   %22 = getelementptr inbounds i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef %18, i32 noundef %21, ptr noundef nonnull @.str.1, i32 noundef %23) #12
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef %18, i32 noundef %21, ptr noundef nonnull @.str.1, i32 noundef %23) #13
   %25 = getelementptr inbounds i8, ptr %0, i64 2
   %26 = load i8, ptr %25, align 2
   %27 = and i8 %26, 1
@@ -91,7 +91,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 37:                                               ; preds = %28, %34
   %38 = phi ptr [ %36, %34 ], [ @.str.3, %28 ]
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.2, ptr noundef %38) #12
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.2, ptr noundef %38) #13
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, 64
@@ -114,7 +114,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %53 = sext i8 %52 to i32
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load i32, ptr %54, align 8
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.4, i32 noundef %53, i32 noundef %55) #12
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.4, i32 noundef %53, i32 noundef %55) #13
   %.pre101 = load i8, ptr %25, align 2
   br label %57
 
@@ -137,7 +137,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 69:                                               ; preds = %57, %66
   %70 = phi ptr [ %68, %66 ], [ @.str.8, %57 ]
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.5, ptr noundef nonnull %61, ptr noundef %70) #12
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.5, ptr noundef nonnull %61, ptr noundef %70) #13
   %72 = getelementptr inbounds i8, ptr %0, i64 9
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 64
@@ -335,7 +335,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 166:                                              ; preds = %164
   %167 = load ptr, ptr @stderr, align 8
-  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.9, i32 noundef %165) #12
+  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.9, i32 noundef %165) #13
   br label %183
 
 169:                                              ; preds = %78
@@ -354,7 +354,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 180:                                              ; preds = %169
   %181 = load ptr, ptr @stderr, align 8
-  %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.10, i64 noundef %179) #12
+  %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.10, i64 noundef %179) #13
   br label %183
 
 183:                                              ; preds = %169, %180, %164, %166
@@ -362,7 +362,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %185 = getelementptr inbounds i8, ptr %0, i64 4
   %186 = load i8, ptr %185, align 4
   %187 = zext i8 %186 to i32
-  %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.11, i32 noundef %187) #12
+  %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.11, i32 noundef %187) #13
   %189 = load i8, ptr %185, align 4
   %.not90 = icmp eq i8 %189, 120
   br i1 %.not90, label %361, label %190
@@ -432,14 +432,14 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %193 = load ptr, ptr @stderr, align 8
   %194 = getelementptr inbounds i8, ptr %0, i64 32
   %195 = load i32, ptr %194, align 8
-  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.12, i32 noundef %195) #12
+  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.12, i32 noundef %195) #13
   br label %361
 
 197:                                              ; preds = %190, %190, %190, %190
   %198 = load ptr, ptr @stderr, align 8
   %199 = getelementptr inbounds i8, ptr %0, i64 32
   %200 = load i64, ptr %199, align 8
-  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.13, i64 noundef %200) #12
+  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.13, i64 noundef %200) #13
   br label %361
 
 202:                                              ; preds = %190, %190, %190, %190, %190, %190
@@ -448,7 +448,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %205 = getelementptr inbounds i8, ptr %0, i64 5
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i64
-  tail call void @file_showstr(ptr noundef %203, ptr noundef nonnull %204, i64 noundef %207) #13
+  tail call void @file_showstr(ptr noundef %203, ptr noundef nonnull %204, i64 noundef %207) #14
   br label %361
 
 208:                                              ; preds = %190, %190, %190, %190
@@ -459,30 +459,30 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   store i64 %212, ptr %13, align 8
-  %213 = call ptr @gmtime_r(ptr noundef nonnull %13, ptr noundef nonnull %14) #13
+  %213 = call ptr @gmtime_r(ptr noundef nonnull %13, ptr noundef nonnull %14) #14
   %214 = icmp eq ptr %213, null
   br i1 %214, label %221, label %215
 
 215:                                              ; preds = %208
-  %216 = call ptr @asctime_r(ptr noundef nonnull %213, ptr noundef nonnull %15) #13
+  %216 = call ptr @asctime_r(ptr noundef nonnull %213, ptr noundef nonnull %15) #14
   %217 = icmp eq ptr %216, null
   br i1 %217, label %221, label %218
 
 218:                                              ; preds = %215
-  %219 = call i64 @strcspn(ptr noundef nonnull %216, ptr noundef nonnull @.str.21) #14
+  %219 = call i64 @strcspn(ptr noundef nonnull %216, ptr noundef nonnull @.str.21) #15
   %220 = getelementptr inbounds i8, ptr %216, i64 %219
   store i8 0, ptr %220, align 1
   br label %file_fmtdatetime.exit
 
 221:                                              ; preds = %215, %208
-  %222 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #13
+  %222 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #14
   br label %file_fmtdatetime.exit
 
 file_fmtdatetime.exit:                            ; preds = %218, %221
   %.014.i = phi ptr [ %15, %221 ], [ %216, %218 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i) #12
+  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i) #13
   br label %361
 
 224:                                              ; preds = %190, %190, %190, %190
@@ -493,30 +493,30 @@ file_fmtdatetime.exit:                            ; preds = %218, %221
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
   store i64 %228, ptr %11, align 8
-  %229 = call ptr @localtime_r(ptr noundef nonnull %11, ptr noundef nonnull %12) #13
+  %229 = call ptr @localtime_r(ptr noundef nonnull %11, ptr noundef nonnull %12) #14
   %230 = icmp eq ptr %229, null
   br i1 %230, label %237, label %231
 
 231:                                              ; preds = %224
-  %232 = call ptr @asctime_r(ptr noundef nonnull %229, ptr noundef nonnull %15) #13
+  %232 = call ptr @asctime_r(ptr noundef nonnull %229, ptr noundef nonnull %15) #14
   %233 = icmp eq ptr %232, null
   br i1 %233, label %237, label %234
 
 234:                                              ; preds = %231
-  %235 = call i64 @strcspn(ptr noundef nonnull %232, ptr noundef nonnull @.str.21) #14
+  %235 = call i64 @strcspn(ptr noundef nonnull %232, ptr noundef nonnull @.str.21) #15
   %236 = getelementptr inbounds i8, ptr %232, i64 %235
   store i8 0, ptr %236, align 1
   br label %file_fmtdatetime.exit94
 
 237:                                              ; preds = %231, %224
-  %238 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #13
+  %238 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #14
   br label %file_fmtdatetime.exit94
 
 file_fmtdatetime.exit94:                          ; preds = %234, %237
   %.014.i93 = phi ptr [ %15, %237 ], [ %232, %234 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
-  %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i93) #12
+  %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i93) #13
   br label %361
 
 240:                                              ; preds = %190, %190, %190
@@ -530,30 +530,30 @@ file_fmtdatetime.exit94:                          ; preds = %234, %237
   br i1 %244, label %254, label %245
 
 245:                                              ; preds = %240
-  %246 = call ptr @gmtime_r(ptr noundef nonnull %9, ptr noundef nonnull %10) #13
+  %246 = call ptr @gmtime_r(ptr noundef nonnull %9, ptr noundef nonnull %10) #14
   %247 = icmp eq ptr %246, null
   br i1 %247, label %254, label %248
 
 248:                                              ; preds = %245
-  %249 = call ptr @asctime_r(ptr noundef nonnull %246, ptr noundef nonnull %15) #13
+  %249 = call ptr @asctime_r(ptr noundef nonnull %246, ptr noundef nonnull %15) #14
   %250 = icmp eq ptr %249, null
   br i1 %250, label %254, label %251
 
 251:                                              ; preds = %248
-  %252 = call i64 @strcspn(ptr noundef nonnull %249, ptr noundef nonnull @.str.21) #14
+  %252 = call i64 @strcspn(ptr noundef nonnull %249, ptr noundef nonnull @.str.21) #15
   %253 = getelementptr inbounds i8, ptr %249, i64 %252
   store i8 0, ptr %253, align 1
   br label %file_fmtdatetime.exit96
 
 254:                                              ; preds = %248, %245, %240
-  %255 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #13
+  %255 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #14
   br label %file_fmtdatetime.exit96
 
 file_fmtdatetime.exit96:                          ; preds = %251, %254
   %.014.i95 = phi ptr [ %15, %254 ], [ %249, %251 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  %256 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i95) #12
+  %256 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i95) #13
   br label %361
 
 257:                                              ; preds = %190, %190, %190
@@ -567,30 +567,30 @@ file_fmtdatetime.exit96:                          ; preds = %251, %254
   br i1 %261, label %271, label %262
 
 262:                                              ; preds = %257
-  %263 = call ptr @localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #13
+  %263 = call ptr @localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #14
   %264 = icmp eq ptr %263, null
   br i1 %264, label %271, label %265
 
 265:                                              ; preds = %262
-  %266 = call ptr @asctime_r(ptr noundef nonnull %263, ptr noundef nonnull %15) #13
+  %266 = call ptr @asctime_r(ptr noundef nonnull %263, ptr noundef nonnull %15) #14
   %267 = icmp eq ptr %266, null
   br i1 %267, label %271, label %268
 
 268:                                              ; preds = %265
-  %269 = call i64 @strcspn(ptr noundef nonnull %266, ptr noundef nonnull @.str.21) #14
+  %269 = call i64 @strcspn(ptr noundef nonnull %266, ptr noundef nonnull @.str.21) #15
   %270 = getelementptr inbounds i8, ptr %266, i64 %269
   store i8 0, ptr %270, align 1
   br label %file_fmtdatetime.exit98
 
 271:                                              ; preds = %265, %262, %257
-  %272 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #13
+  %272 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #14
   br label %file_fmtdatetime.exit98
 
 file_fmtdatetime.exit98:                          ; preds = %268, %271
   %.014.i97 = phi ptr [ %15, %271 ], [ %266, %268 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i97) #12
+  %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i97) #13
   br label %361
 
 274:                                              ; preds = %190, %190, %190
@@ -600,30 +600,30 @@ file_fmtdatetime.exit98:                          ; preds = %268, %271
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %278 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %6, i64 noundef %277) #13
+  %278 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %6, i64 noundef %277) #14
   %279 = load i64, ptr %6, align 8
   store i64 %279, ptr %4, align 8
   %280 = icmp sgt i64 %279, 253402318799
   br i1 %280, label %290, label %281
 
 281:                                              ; preds = %274
-  %282 = call ptr @gmtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %282 = call ptr @gmtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %283 = icmp eq ptr %282, null
   br i1 %283, label %290, label %284
 
 284:                                              ; preds = %281
-  %285 = call ptr @asctime_r(ptr noundef nonnull %282, ptr noundef nonnull %15) #13
+  %285 = call ptr @asctime_r(ptr noundef nonnull %282, ptr noundef nonnull %15) #14
   %286 = icmp eq ptr %285, null
   br i1 %286, label %290, label %287
 
 287:                                              ; preds = %284
-  %288 = call i64 @strcspn(ptr noundef nonnull %285, ptr noundef nonnull @.str.21) #14
+  %288 = call i64 @strcspn(ptr noundef nonnull %285, ptr noundef nonnull @.str.21) #15
   %289 = getelementptr inbounds i8, ptr %285, i64 %288
   store i8 0, ptr %289, align 1
   br label %file_fmtdatetime.exit100
 
 290:                                              ; preds = %284, %281, %274
-  %291 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #13
+  %291 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, i64 noundef 256) #14
   br label %file_fmtdatetime.exit100
 
 file_fmtdatetime.exit100:                         ; preds = %287, %290
@@ -631,7 +631,7 @@ file_fmtdatetime.exit100:                         ; preds = %287, %290
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i99) #12
+  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.14, ptr noundef nonnull %.014.i99) #13
   br label %361
 
 293:                                              ; preds = %190, %190, %190
@@ -639,14 +639,14 @@ file_fmtdatetime.exit100:                         ; preds = %287, %290
   %295 = getelementptr inbounds i8, ptr %0, i64 32
   %296 = load float, ptr %295, align 8
   %297 = fpext float %296 to double
-  %298 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.15, double noundef %297) #12
+  %298 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.15, double noundef %297) #13
   br label %361
 
 299:                                              ; preds = %190, %190, %190
   %300 = load ptr, ptr @stderr, align 8
   %301 = getelementptr inbounds i8, ptr %0, i64 32
   %302 = load double, ptr %301, align 8
-  %303 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef nonnull @.str.15, double noundef %302) #12
+  %303 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef nonnull @.str.15, double noundef %302) #13
   br label %361
 
 304:                                              ; preds = %190, %190
@@ -654,7 +654,7 @@ file_fmtdatetime.exit100:                         ; preds = %287, %290
   %306 = getelementptr inbounds i8, ptr %0, i64 32
   %307 = zext nneg i8 %191 to i32
   %308 = call ptr @file_fmtvarint(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull %306, i32 noundef %307)
-  %fputs92 = call i32 @fputs(ptr nonnull %15, ptr %305) #15
+  %fputs92 = call i32 @fputs(ptr nonnull %15, ptr %305) #16
   br label %361
 
 309:                                              ; preds = %190, %190, %190
@@ -676,17 +676,17 @@ file_fmtdatetime.exit100:                         ; preds = %287, %290
   %321 = add nuw nsw i32 %320, 80
   %322 = getelementptr inbounds i8, ptr %3, i64 20
   store i32 %321, ptr %322, align 4
-  %323 = call i64 @strftime(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull @.str.23, ptr noundef nonnull %3) #13
+  %323 = call i64 @strftime(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull @.str.23, ptr noundef nonnull %3) #14
   %324 = icmp eq i64 %323, 0
   br i1 %324, label %325, label %file_fmtdate.exit
 
 325:                                              ; preds = %309
-  %326 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.24, i64 noundef 256) #13
+  %326 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.24, i64 noundef 256) #14
   br label %file_fmtdate.exit
 
 file_fmtdate.exit:                                ; preds = %309, %325
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.14, ptr noundef nonnull %15) #12
+  %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.14, ptr noundef nonnull %15) #13
   br label %361
 
 328:                                              ; preds = %190, %190, %190
@@ -706,49 +706,49 @@ file_fmtdate.exit:                                ; preds = %309, %325
   store i32 %337, ptr %338, align 4
   %339 = lshr i32 %333, 11
   store i32 %339, ptr %332, align 8
-  %340 = call i64 @strftime(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull @.str.25, ptr noundef nonnull %2) #13
+  %340 = call i64 @strftime(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull @.str.25, ptr noundef nonnull %2) #14
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %342, label %file_fmttime.exit
 
 342:                                              ; preds = %328
-  %343 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.26, i64 noundef 256) #13
+  %343 = call i64 @php_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.26, i64 noundef 256) #14
   br label %file_fmttime.exit
 
 file_fmttime.exit:                                ; preds = %328, %342
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  %344 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.14, ptr noundef nonnull %15) #12
+  %344 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.14, ptr noundef nonnull %15) #13
   br label %361
 
 345:                                              ; preds = %190
   %346 = load ptr, ptr @stderr, align 8
   %347 = getelementptr inbounds i8, ptr %0, i64 32
   %348 = call ptr @file_fmtnum(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull %347, i32 noundef 8)
-  %fputs91 = call i32 @fputs(ptr nonnull %15, ptr %346) #15
+  %fputs91 = call i32 @fputs(ptr nonnull %15, ptr %346) #16
   br label %361
 
 349:                                              ; preds = %190, %190, %190
   %350 = load ptr, ptr @stderr, align 8
   %351 = getelementptr inbounds i8, ptr %0, i64 32
-  %352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %350, ptr noundef nonnull @.str.17, ptr noundef nonnull %351) #12
+  %352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %350, ptr noundef nonnull @.str.17, ptr noundef nonnull %351) #13
   br label %361
 
 353:                                              ; preds = %190
   %354 = getelementptr inbounds i8, ptr %0, i64 32
-  %355 = call i32 @file_print_guid(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull %354) #13
+  %355 = call i32 @file_print_guid(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull %354) #14
   %356 = load ptr, ptr @stderr, align 8
-  %fputs = call i32 @fputs(ptr nonnull %15, ptr %356) #15
+  %fputs = call i32 @fputs(ptr nonnull %15, ptr %356) #16
   br label %361
 
 357:                                              ; preds = %190
   %358 = zext i8 %191 to i32
   %359 = load ptr, ptr @stderr, align 8
-  %360 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %359, ptr noundef nonnull @.str.18, i32 noundef %358) #12
+  %360 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %359, ptr noundef nonnull @.str.18, i32 noundef %358) #13
   br label %361
 
 361:                                              ; preds = %192, %197, %202, %file_fmtdatetime.exit, %file_fmtdatetime.exit94, %file_fmtdatetime.exit96, %file_fmtdatetime.exit98, %file_fmtdatetime.exit100, %293, %299, %304, %file_fmtdate.exit, %file_fmttime.exit, %345, %349, %353, %357, %190, %183
   %362 = load ptr, ptr @stderr, align 8
   %363 = getelementptr inbounds i8, ptr %0, i64 160
-  %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull @.str.19, ptr noundef nonnull %363) #12
+  %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull @.str.19, ptr noundef nonnull %363) #13
   ret void
 }
 
@@ -761,7 +761,7 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare void @file_showstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @file_fmtdatetime(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @file_fmtdatetime(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
   %7 = alloca %struct.timespec, align 8
@@ -770,7 +770,7 @@ define hidden ptr @file_fmtdatetime(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %7, i64 noundef %2) #13
+  %10 = call i32 @cdf_timestamp_to_timespec(ptr noundef nonnull %7, i64 noundef %2) #14
   %11 = load i64, ptr %7, align 8
   br label %12
 
@@ -786,11 +786,11 @@ define hidden ptr @file_fmtdatetime(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %.not16, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #13
+  %17 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #14
   br label %20
 
 18:                                               ; preds = %14
-  %19 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #13
+  %19 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #14
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -799,18 +799,18 @@ define hidden ptr @file_fmtdatetime(ptr noundef %0, i64 noundef %1, i64 noundef 
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %20
-  %23 = call ptr @asctime_r(ptr noundef nonnull %.0, ptr noundef %0) #13
+  %23 = call ptr @asctime_r(ptr noundef nonnull %.0, ptr noundef %0) #14
   %24 = icmp eq ptr %23, null
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = call i64 @strcspn(ptr noundef nonnull %23, ptr noundef nonnull @.str.21) #14
+  %26 = call i64 @strcspn(ptr noundef nonnull %23, ptr noundef nonnull @.str.21) #15
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
   store i8 0, ptr %27, align 1
   br label %30
 
 28:                                               ; preds = %22, %20, %12
-  %29 = call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef %1) #13
+  %29 = call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef %1) #14
   br label %30
 
 30:                                               ; preds = %28, %25
@@ -819,14 +819,14 @@ define hidden ptr @file_fmtdatetime(ptr noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @file_fmtvarint(ptr noundef returned %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i64 @file_varint2uintmax_t(ptr noundef %2, i32 noundef %3, ptr noundef null) #13
-  %6 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.20, i64 noundef %5) #13
+define hidden noundef ptr @file_fmtvarint(ptr noundef returned %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+  %5 = tail call i64 @file_varint2uintmax_t(ptr noundef %2, i32 noundef %3, ptr noundef null) #14
+  %6 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.20, i64 noundef %5) #14
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @file_fmtdate(ptr noundef returned %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden noundef ptr @file_fmtdate(ptr noundef returned %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = alloca %struct.tm, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %5 = zext i16 %2 to i32
@@ -842,12 +842,12 @@ define hidden noundef ptr @file_fmtdate(ptr noundef returned %0, i64 noundef %1,
   %13 = add nuw nsw i32 %12, 80
   %14 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %13, ptr %14, align 4
-  %15 = call i64 @strftime(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %4) #13
+  %15 = call i64 @strftime(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %4) #14
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %3
-  %18 = call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef %1) #13
+  %18 = call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef %1) #14
   br label %19
 
 19:                                               ; preds = %3, %17
@@ -855,7 +855,7 @@ define hidden noundef ptr @file_fmtdate(ptr noundef returned %0, i64 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @file_fmttime(ptr noundef returned %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden noundef ptr @file_fmttime(ptr noundef returned %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = alloca %struct.tm, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 48, i1 false)
@@ -870,12 +870,12 @@ define hidden noundef ptr @file_fmttime(ptr noundef returned %0, i64 noundef %1,
   %12 = lshr i32 %6, 11
   %13 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %12, ptr %13, align 8
-  %14 = call i64 @strftime(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %4) #13
+  %14 = call i64 @strftime(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %4) #14
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %3
-  %17 = call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %1) #13
+  %17 = call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %1) #14
   br label %18
 
 18:                                               ; preds = %3, %16
@@ -883,11 +883,11 @@ define hidden noundef ptr @file_fmttime(ptr noundef returned %0, i64 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @file_fmtnum(ptr noundef returned %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @file_fmtnum(ptr noundef returned %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca ptr, align 8
-  %6 = tail call ptr @__errno_location() #16
+  %6 = tail call ptr @__errno_location() #17
   store i32 0, ptr %6, align 4
-  %7 = call i64 @strtoull(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %3) #13
+  %7 = call i64 @strtoull(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %3) #14
   %8 = load ptr, ptr %5, align 8
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
@@ -899,11 +899,11 @@ define hidden noundef ptr @file_fmtnum(ptr noundef returned %0, i64 noundef %1, 
   br i1 %.not9, label %14, label %12
 
 12:                                               ; preds = %14, %4, %10
-  %13 = tail call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef %1) #13
+  %13 = tail call i64 @php_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef %1) #14
   br label %17
 
 14:                                               ; preds = %10
-  %15 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.28, i64 noundef %7) #13
+  %15 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.28, i64 noundef %7) #14
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %12, label %17
 
@@ -914,12 +914,12 @@ define hidden noundef ptr @file_fmtnum(ptr noundef returned %0, i64 noundef %1, 
 declare i32 @file_print_guid(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @file_magwarn(ptr nocapture noundef readnone %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define hidden void @file_magwarn(ptr nocapture noundef readnone %0, ptr noundef %1, ...) local_unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %5 = call i32 @vasprintf(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %3) #13
+  %5 = call i32 @vasprintf(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp sgt i32 %5, -1
   %7 = load ptr, ptr %4, align 8
@@ -928,9 +928,9 @@ define hidden void @file_magwarn(ptr nocapture noundef readnone %0, ptr noundef 
   br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull %7) #13
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull %7) #14
   %10 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %10) #13
+  call void @free(ptr noundef %10) #14
   br label %11
 
 11:                                               ; preds = %9, %2
@@ -938,12 +938,12 @@ define hidden void @file_magwarn(ptr nocapture noundef readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind
-declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -952,63 +952,64 @@ declare i64 @file_varint2uintmax_t(ptr noundef, i32 noundef, ptr noundef) local_
 declare i32 @cdf_timestamp_to_timespec(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @asctime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @asctime_r(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #9
+declare void @llvm.va_start.p0(ptr) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { cold }
-attributes #16 = { nounwind willreturn memory(none) }
+attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { cold }
+attributes #17 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

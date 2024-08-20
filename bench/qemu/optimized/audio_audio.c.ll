@@ -168,9 +168,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.93 = private unnamed_addr constant [68 x i8] c"You can't use frequency, channels or format with fixed-settings=off\00", align 1
 @.str.94 = private unnamed_addr constant [44 x i8] c"You can't use fixed-settings without mixeng\00", align 1
 @str = private unnamed_addr constant [25 x i8] c"Available audio drivers:\00", align 1
-@switch.table.AUD_add_capture.19 = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 1], align 4
-@switch.table.AUD_add_capture.20 = private unnamed_addr constant [7 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1], align 4
-@switch.table.AUD_add_capture.21 = private unnamed_addr constant [7 x i32] [i32 8, i32 8, i32 16, i32 16, i32 32, i32 32, i32 32], align 4
+@switch.table.AUD_add_capture.21 = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 1], align 4
+@switch.table.AUD_add_capture.22 = private unnamed_addr constant [7 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1], align 4
+@switch.table.AUD_add_capture.23 = private unnamed_addr constant [7 x i32] [i32 8, i32 8, i32 16, i32 16, i32 32, i32 32, i32 32], align 4
 @switch.table.audio_buffer_bytes = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 4, i32 4, i32 4], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
@@ -219,48 +219,38 @@ if.end3:                                          ; preds = %if.end, %entry
   ret i32 %cond
 }
 
-; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @AUD_log(ptr noundef %cap, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 {
+; Function Attrs: cold nofree nounwind sspstrong uwtable
+define dso_local void @AUD_log(ptr noundef %cap, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %tobool.not.i = icmp eq ptr %cap, null
-  br i1 %tobool.not.i, label %AUD_vlog.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %cap) #22
-  br label %AUD_vlog.exit
-
-AUD_vlog.exit:                                    ; preds = %entry, %if.then.i
-  %1 = load ptr, ptr @stderr, align 8
-  %call1.i = call i32 @vfprintf(ptr noundef %1, ptr noundef readonly %fmt, ptr noundef nonnull %ap) #22
+  call void @AUD_vlog(ptr noundef %cap, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @AUD_vlog(ptr noundef %cap, ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #1 {
+; Function Attrs: cold nofree nounwind sspstrong uwtable
+define dso_local void @AUD_vlog(ptr noundef %cap, ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %cap, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %cap) #22
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %cap) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 @vfprintf(ptr noundef %1, ptr noundef %fmt, ptr noundef %ap) #22
+  %call1 = tail call i32 @vfprintf(ptr noundef %1, ptr noundef %fmt, ptr noundef %ap) #23
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @audio_pcm_init_info(ptr nocapture noundef writeonly %info, ptr nocapture noundef readonly %as) local_unnamed_addr #1 {
@@ -271,12 +261,12 @@ entry:
   br i1 %1, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = zext nneg i32 %0 to i64
   %switch.gep14 = getelementptr inbounds [7 x i32], ptr @switch.table.audio_buffer_bytes, i64 0, i64 %3
@@ -317,7 +307,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @audio_pcm_info_clear_buf(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
@@ -414,7 +404,7 @@ if.end33:                                         ; preds = %for.body26, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local ptr @audio_get_pdo_out(ptr nocapture noundef readonly %dev) local_unnamed_addr #1 {
@@ -425,7 +415,7 @@ entry:
   br i1 %switch, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 return:                                           ; preds = %entry
@@ -435,7 +425,7 @@ return:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_close_out(ptr noundef readnone %card, ptr noundef %sw) local_unnamed_addr #5 {
+define dso_local void @AUD_close_out(ptr noundef readnone %card, ptr noundef %sw) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %if.end4, label %if.then
@@ -463,7 +453,7 @@ if.then3:                                         ; preds = %if.then2.i, %if.the
 if.end:                                           ; preds = %if.then
   %buffer.i.i.i = getelementptr inbounds i8, ptr %sw, i64 72
   %0 = load ptr, ptr %buffer.i.i.i, align 8
-  tail call void @g_free(ptr noundef %0) #24
+  tail call void @g_free(ptr noundef %0) #25
   %size.i.i.i = getelementptr inbounds i8, ptr %sw, i64 64
   %rate.i.i.i = getelementptr inbounds i8, ptr %sw, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i.i, i8 0, i64 16, i1 false)
@@ -472,14 +462,14 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %audio_pcm_sw_fini_out.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  tail call void @st_rate_stop(ptr noundef nonnull %1) #24
+  tail call void @st_rate_stop(ptr noundef nonnull %1) #25
   br label %audio_pcm_sw_fini_out.exit.i
 
 audio_pcm_sw_fini_out.exit.i:                     ; preds = %if.then.i.i.i, %if.end
   store ptr null, ptr %rate.i.i.i, align 8
   %name.i.i = getelementptr inbounds i8, ptr %sw, i64 112
   %2 = load ptr, ptr %name.i.i, align 8
-  tail call void @g_free(ptr noundef %2) #24
+  tail call void @g_free(ptr noundef %2) #25
   store ptr null, ptr %name.i.i, align 8
   %entries.i.i = getelementptr inbounds i8, ptr %sw, i64 160
   %3 = load ptr, ptr %entries.i.i, align 8
@@ -531,25 +521,25 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %if.t
   %11 = load ptr, ptr %pcm_ops.i.i, align 8
   %fini_out.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %fini_out.i.i, align 8
-  tail call void %12(ptr noundef nonnull %5) #24
+  tail call void %12(ptr noundef nonnull %5) #25
   %nb_hw_voices_out.i.i = getelementptr inbounds i8, ptr %6, i64 64
   %13 = load i32, ptr %nb_hw_voices_out.i.i, align 8
   %add.i.i = add i32 %13, 1
   store i32 %add.i.i, ptr %nb_hw_voices_out.i.i, align 8
   %buf_emul.i.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %14 = load ptr, ptr %buf_emul.i.i.i, align 8
-  tail call void @g_free(ptr noundef %14) #24
+  tail call void @g_free(ptr noundef %14) #25
   %buffer.i.i8.i = getelementptr inbounds i8, ptr %5, i64 80
   %15 = load ptr, ptr %buffer.i.i8.i, align 8
-  tail call void @g_free(ptr noundef %15) #24
+  tail call void @g_free(ptr noundef %15) #25
   %size.i.i9.i = getelementptr inbounds i8, ptr %5, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i9.i, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %5) #24
+  tail call void @g_free(ptr noundef nonnull %5) #25
   store ptr null, ptr %hw.i, align 8
   br label %audio_close_out.exit
 
 audio_close_out.exit:                             ; preds = %audio_pcm_hw_del_sw_out.exit.i, %if.end.i.i
-  tail call void @g_free(ptr noundef nonnull %sw) #24
+  tail call void @g_free(ptr noundef nonnull %sw) #25
   br label %if.end4
 
 if.end4:                                          ; preds = %audio_close_out.exit, %if.then3, %entry
@@ -557,15 +547,16 @@ if.end4:                                          ; preds = %audio_close_out.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @AUD_open_out(ptr noundef %card, ptr noundef %sw, ptr noundef %name, ptr noundef %callback_opaque, ptr noundef %callback_fn, ptr noundef %as) local_unnamed_addr #5 {
+define dso_local noundef ptr @AUD_open_out(ptr noundef %card, ptr noundef %sw, ptr noundef %name, ptr noundef %callback_opaque, ptr noundef %callback_fn, ptr noundef %as) local_unnamed_addr #6 {
 entry:
+  %hw_as.i = alloca %struct.audsettings, align 8
   %tobool = icmp ne ptr %card, null
   %tobool1 = icmp ne ptr %name, null
-  %or.cond.not41.not68 = and i1 %tobool, %tobool1
+  %or.cond.not41.not75 = and i1 %tobool, %tobool1
   %tobool3 = icmp ne ptr %callback_fn, null
-  %or.cond1.not.not67 = and i1 %or.cond.not41.not68, %tobool3
+  %or.cond1.not.not74 = and i1 %or.cond.not41.not75, %tobool3
   %tobool4.not = icmp ne ptr %as, null
-  %.not = and i1 %or.cond1.not.not67, %tobool4.not
+  %.not = and i1 %or.cond1.not.not74, %tobool4.not
   br i1 %.not, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -595,7 +586,7 @@ if.end:                                           ; preds = %entry
   br i1 %switch.i, label %audio_get_pdo_out.exit, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit:                           ; preds = %if.end
@@ -607,14 +598,14 @@ audio_get_pdo_out.exit:                           ; preds = %if.end
   %endianness.i = getelementptr inbounds i8, ptr %as, i64 12
   %4 = load i32, ptr %endianness.i, align 4
   %narrow.i = icmp ult i32 %4, 2
-  %or7.i.not70 = and i1 %cmp.i, %narrow.i
+  %or7.i.not77 = and i1 %cmp.i, %narrow.i
   %fmt.i = getelementptr inbounds i8, ptr %as, i64 8
   %5 = load i32, ptr %fmt.i, align 4
   %switch.i42 = icmp ult i32 %5, 7
-  %narrow8.i.not69 = select i1 %switch.i42, i1 %or7.i.not70, i1 false
+  %narrow8.i.not76 = select i1 %switch.i42, i1 %or7.i.not77, i1 false
   %6 = load i32, ptr %as, align 4
   %cmp6.i = icmp sgt i32 %6, 0
-  %or89.i.not = and i1 %narrow8.i.not69, %cmp6.i
+  %or89.i.not = and i1 %narrow8.i.not76, %cmp6.i
   br i1 %or89.i.not, label %if.end11, label %if.then.i44
 
 if.then.i44:                                      ; preds = %audio_get_pdo_out.exit
@@ -656,19 +647,23 @@ if.then16:                                        ; preds = %if.then2.i52, %if.t
 
 if.end17:                                         ; preds = %if.end11
   %tobool18 = icmp eq ptr %sw, null
-  br i1 %tobool18, label %if.else, label %land.lhs.true
+  br i1 %tobool18, label %if.else.thread, label %land.lhs.true
+
+if.else.thread:                                   ; preds = %if.end17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hw_as.i)
+  br label %audio_get_pdo_out.exit.i
 
 land.lhs.true:                                    ; preds = %if.end17
   %info = getelementptr inbounds i8, ptr %sw, i64 16
   %8 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %5 to i64
-  %switch.gep71 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.19, i64 0, i64 %9
-  %switch.load72 = load i32, ptr %switch.gep71, align 4
+  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %9
+  %switch.load89 = load i32, ptr %switch.gep88, align 4
   %10 = zext nneg i32 %5 to i64
-  %switch.gep73 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.20, i64 0, i64 %10
-  %switch.load74 = load i32, ptr %switch.gep73, align 4
+  %switch.gep90 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %10
+  %switch.load91 = load i32, ptr %switch.gep90, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 24
   %11 = load i32, ptr %freq.i, align 4
   %cmp.i57 = icmp eq i32 %11, %6
@@ -685,7 +680,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i
   %13 = load i8, ptr %is_signed11.i, align 4
   %14 = and i8 %13, 1
   %conv.i = zext nneg i8 %14 to i32
-  %cmp14.i = icmp eq i32 %switch.load72, %conv.i
+  %cmp14.i = icmp eq i32 %switch.load89, %conv.i
   br i1 %cmp14.i, label %land.lhs.true16.i, label %if.end22
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
@@ -693,7 +688,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
   %15 = load i8, ptr %is_float17.i, align 1
   %16 = and i8 %15, 1
   %conv19.i = zext nneg i8 %16 to i32
-  %cmp22.i = icmp eq i32 %switch.load74, %conv19.i
+  %cmp22.i = icmp eq i32 %switch.load91, %conv19.i
   br i1 %cmp22.i, label %land.lhs.true24.i, label %if.end22
 
 land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
@@ -711,11 +706,7 @@ if.end22:                                         ; preds = %land.lhs.true, %lan
   %fixed_settings = getelementptr inbounds i8, ptr %retval.0.i, i64 3
   %19 = load i8, ptr %fixed_settings, align 1
   %tobool23 = trunc i8 %19 to i1
-  br i1 %tobool23, label %if.then29, label %if.then26
-
-if.then26:                                        ; preds = %if.end22
-  tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef nonnull %sw)
-  br label %if.else
+  br i1 %tobool23, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %if.end22
   %hw30 = getelementptr inbounds i8, ptr %sw, i64 104
@@ -732,38 +723,327 @@ if.then32:                                        ; preds = %if.then29
   br label %fail
 
 if.end36:                                         ; preds = %if.then29
-  tail call fastcc void @audio_pcm_sw_fini_out(ptr noundef nonnull %sw)
+  %buffer.i.i = getelementptr inbounds i8, ptr %sw, i64 72
+  %22 = load ptr, ptr %buffer.i.i, align 8
+  tail call void @g_free(ptr noundef %22) #25
+  %size.i.i = getelementptr inbounds i8, ptr %sw, i64 64
+  %rate.i.i = getelementptr inbounds i8, ptr %sw, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
+  %23 = load ptr, ptr %rate.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %23, null
+  br i1 %tobool.not.i.i, label %audio_pcm_sw_fini_out.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.end36
+  tail call void @st_rate_stop(ptr noundef nonnull %23) #25
+  br label %audio_pcm_sw_fini_out.exit
+
+audio_pcm_sw_fini_out.exit:                       ; preds = %if.end36, %if.then.i.i
+  store ptr null, ptr %rate.i.i, align 8
+  %name.i = getelementptr inbounds i8, ptr %sw, i64 112
+  %24 = load ptr, ptr %name.i, align 8
+  tail call void @g_free(ptr noundef %24) #25
+  store ptr null, ptr %name.i, align 8
   %call37 = tail call fastcc i32 @audio_pcm_sw_init_out(ptr noundef nonnull %sw, ptr noundef nonnull %20, ptr noundef nonnull %name, ptr noundef nonnull %as)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end45, label %fail
 
-if.else:                                          ; preds = %if.end17, %if.then26
-  %call41 = tail call fastcc ptr @audio_pcm_create_voice_pair_out(ptr noundef nonnull %0, ptr noundef nonnull %name, ptr noundef nonnull %as)
-  %tobool42.not = icmp eq ptr %call41, null
-  br i1 %tobool42.not, label %return, label %if.end45
+if.else:                                          ; preds = %if.end22
+  tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef nonnull %sw)
+  %.pre = load ptr, ptr %dev, align 8
+  %driver.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.pre82 = load i32, ptr %driver.i.i.phi.trans.insert, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hw_as.i)
+  %switch.i.i = icmp ult i32 %.pre82, 4
+  br i1 %switch.i.i, label %audio_get_pdo_out.exit.i, label %sw.epilog.i.i
 
-if.end45:                                         ; preds = %if.else, %if.end36
-  %sw.addr.2 = phi ptr [ %sw, %if.end36 ], [ %call41, %if.else ]
+sw.epilog.i.i:                                    ; preds = %if.else
+  tail call void @abort() #24
+  unreachable
+
+audio_get_pdo_out.exit.i:                         ; preds = %if.else.thread, %if.else
+  %25 = phi ptr [ %1, %if.else.thread ], [ %.pre, %if.else ]
+  %retval.0.in.i.i = getelementptr inbounds i8, ptr %25, i64 32
+  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
+  %fixed_settings.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 3
+  %26 = load i8, ptr %fixed_settings.i, align 1
+  %tobool.i = trunc i8 %26 to i1
+  br i1 %tobool.i, label %if.then.i64, label %if.else.i
+
+if.then.i64:                                      ; preds = %audio_get_pdo_out.exit.i
+  %frequency.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %27 = load i32, ptr %frequency.i.i, align 4
+  %channels.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
+  %28 = load i32, ptr %channels.i.i, align 4
+  %format.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
+  %29 = load i32, ptr %format.i.i, align 4
+  %retval.sroa.2.0.insert.ext.i.i = zext i32 %28 to i64
+  %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
+  %retval.sroa.0.0.insert.ext.i.i = zext i32 %27 to i64
+  %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
+  %retval.sroa.3.8.insert.ext.i.i = zext i32 %29 to i64
+  store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %hw_as.i, align 8
+  %tmp.sroa.2.0.hw_as.sroa_idx.i = getelementptr inbounds i8, ptr %hw_as.i, i64 8
+  store i64 %retval.sroa.3.8.insert.ext.i.i, ptr %tmp.sroa.2.0.hw_as.sroa_idx.i, align 8
+  br label %if.end.i60
+
+if.else.i:                                        ; preds = %audio_get_pdo_out.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hw_as.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %as, i64 16, i1 false)
+  br label %if.end.i60
+
+if.end.i60:                                       ; preds = %if.else.i, %if.then.i64
+  %call2.i = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #26
+  %s3.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  store ptr %0, ptr %s3.i, align 8
+  %30 = load ptr, ptr %dev, align 8
+  %driver.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load i32, ptr %driver.i.i.i, align 8
+  %switch.i.i.i = icmp ult i32 %31, 4
+  br i1 %switch.i.i.i, label %audio_get_pdo_out.exit.i.i, label %sw.epilog.i.i.i
+
+sw.epilog.i.i.i:                                  ; preds = %if.end.i60
+  tail call void @abort() #24
+  unreachable
+
+audio_get_pdo_out.exit.i.i:                       ; preds = %if.end.i60
+  %retval.0.in.i.i.i = getelementptr inbounds i8, ptr %30, i64 32
+  %retval.0.i.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
+  %mixing_engine.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 1
+  %32 = load i8, ptr %mixing_engine.i.i, align 1
+  %tobool.i.i = trunc i8 %32 to i1
+  br i1 %tobool.i.i, label %lor.lhs.false.i.i, label %if.then.i.i61
+
+lor.lhs.false.i.i:                                ; preds = %audio_get_pdo_out.exit.i.i
+  %fixed_settings.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 3
+  %33 = load i8, ptr %fixed_settings.i.i, align 1
+  %tobool1.i.i = trunc i8 %33 to i1
+  br i1 %tobool1.i.i, label %if.then.i.i61, label %if.end8.i.i
+
+if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, %audio_get_pdo_out.exit.i.i
+  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %34 = load i8, ptr %mixing_engine.i.i, align 1
+  %tobool4.i.i = trunc i8 %34 to i1
+  %tobool6.i.i = icmp eq ptr %call2.i.i, null
+  %or.cond.not.i.i = and i1 %tobool6.i.i, %tobool4.i.i
+  br i1 %or.cond.not.i.i, label %if.end8.i.i, label %audio_pcm_hw_add_out.exit.i
+
+if.end8.i.i:                                      ; preds = %if.then.i.i61, %lor.lhs.false.i.i
+  %hw_head_out.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %fmt.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 8
+  %nchannels8.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 4
+  %endianness.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 12
+  %35 = load i32, ptr %fmt.i.i.i.i, align 8
+  %36 = load i32, ptr %hw_as.i, align 8
+  %37 = load i32, ptr %nchannels8.i.i.i.i, align 4
+  %38 = load i32, ptr %endianness.i.i.i.i, align 4
+  %cmp28.i.i.i.i = icmp ne i32 %38, 0
+  %conv29.i.i.i.i = zext i1 %cmp28.i.i.i.i to i32
+  %39 = icmp ult i32 %35, 7
+  %40 = zext nneg i32 %35 to i64
+  %switch.gep92 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %40
+  %41 = zext nneg i32 %35 to i64
+  %switch.gep94 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %41
+  %42 = zext nneg i32 %35 to i64
+  %switch.gep96 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %42
+  br label %while.cond.i.i.i
+
+while.cond.i.i.i:                                 ; preds = %audio_pcm_info_eq.exit.i.i.i, %if.end8.i.i
+  %hw.addr.0.i.i.i = phi ptr [ null, %if.end8.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
+  %tobool.not.i.i.i.i = icmp eq ptr %hw.addr.0.i.i.i, null
+  %entries.i.i.i.i = getelementptr inbounds i8, ptr %hw.addr.0.i.i.i, i64 152
+  %cond.in.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %hw_head_out.i.i.i.i, ptr %entries.i.i.i.i
+  %cond.i.i.i.i = load ptr, ptr %cond.in.i.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
+  br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
+  %info.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 20
+  br i1 %39, label %switch.lookup, label %sw.default.i.i.i.i
+
+sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i
+  call void @abort() #24
+  unreachable
+
+switch.lookup:                                    ; preds = %while.body.i.i.i
+  %switch.load93 = load i32, ptr %switch.gep92, align 4
+  %switch.load95 = load i32, ptr %switch.gep94, align 4
+  %switch.load97 = load i32, ptr %switch.gep96, align 4
+  %freq.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 28
+  %43 = load i32, ptr %freq.i.i.i.i, align 4
+  %cmp.i.i.i.i = icmp eq i32 %43, %36
+  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true.i.i.i.i:                            ; preds = %switch.lookup
+  %nchannels.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 32
+  %44 = load i32, ptr %nchannels.i.i.i.i, align 4
+  %cmp9.i.i.i.i = icmp eq i32 %44, %37
+  br i1 %cmp9.i.i.i.i, label %land.lhs.true10.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true10.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
+  %is_signed11.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 24
+  %45 = load i8, ptr %is_signed11.i.i.i.i, align 4
+  %46 = and i8 %45, 1
+  %conv.i.i.i.i = zext nneg i8 %46 to i32
+  %cmp14.i.i.i.i = icmp eq i32 %switch.load95, %conv.i.i.i.i
+  br i1 %cmp14.i.i.i.i, label %land.lhs.true16.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true16.i.i.i.i:                          ; preds = %land.lhs.true10.i.i.i.i
+  %is_float17.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 25
+  %47 = load i8, ptr %is_float17.i.i.i.i, align 1
+  %48 = and i8 %47, 1
+  %conv19.i.i.i.i = zext nneg i8 %48 to i32
+  %cmp22.i.i.i.i = icmp eq i32 %switch.load97, %conv19.i.i.i.i
+  br i1 %cmp22.i.i.i.i, label %land.lhs.true24.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true24.i.i.i.i:                          ; preds = %land.lhs.true16.i.i.i.i
+  %49 = load i32, ptr %info.i.i.i, align 4
+  %cmp26.i.i.i.i = icmp eq i32 %49, %switch.load93
+  br i1 %cmp26.i.i.i.i, label %land.rhs.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true24.i.i.i.i
+  %swap_endianness.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 44
+  %50 = load i32, ptr %swap_endianness.i.i.i.i, align 4
+  %cmp30.i.i.i.i = icmp eq i32 %50, %conv29.i.i.i.i
+  %51 = zext i1 %cmp30.i.i.i.i to i32
+  br label %audio_pcm_info_eq.exit.i.i.i
+
+audio_pcm_info_eq.exit.i.i.i:                     ; preds = %land.rhs.i.i.i.i, %land.lhs.true24.i.i.i.i, %land.lhs.true16.i.i.i.i, %land.lhs.true10.i.i.i.i, %land.lhs.true.i.i.i.i, %switch.lookup
+  %land.ext.i.i.i.i = phi i32 [ 0, %land.lhs.true24.i.i.i.i ], [ 0, %land.lhs.true16.i.i.i.i ], [ 0, %land.lhs.true10.i.i.i.i ], [ 0, %land.lhs.true.i.i.i.i ], [ 0, %switch.lookup ], [ %51, %land.rhs.i.i.i.i ]
+  %tobool2.not.i.i.i = icmp eq i32 %land.ext.i.i.i.i, 0
+  br i1 %tobool2.not.i.i.i, label %while.cond.i.i.i, label %if.end7.i, !llvm.loop !8
+
+if.end12.i.i:                                     ; preds = %while.cond.i.i.i
+  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
+  br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
+
+if.end16.i.i:                                     ; preds = %if.end12.i.i
+  %cond.i.i.i = load ptr, ptr %hw_head_out.i.i.i.i, align 8
+  br label %audio_pcm_hw_add_out.exit.i
+
+audio_pcm_hw_add_out.exit.i:                      ; preds = %if.end16.i.i, %if.then.i.i61
+  %retval.0.i11.i = phi ptr [ %cond.i.i.i, %if.end16.i.i ], [ %call2.i.i, %if.then.i.i61 ]
+  %tobool5.not.i = icmp eq ptr %retval.0.i11.i, null
+  br i1 %tobool5.not.i, label %if.then6.i, label %if.end7.i
+
+if.then6.i:                                       ; preds = %audio_pcm_hw_add_out.exit.i
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.51, ptr noundef nonnull %name)
+  br label %audio_pcm_create_voice_pair_out.exit.thread
+
+if.end7.i:                                        ; preds = %audio_pcm_info_eq.exit.i.i.i, %audio_pcm_hw_add_out.exit.i, %if.end12.i.i
+  %retval.0.i1125.i = phi ptr [ %retval.0.i11.i, %audio_pcm_hw_add_out.exit.i ], [ %call13.i.i, %if.end12.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
+  %sw_head.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 128
+  %52 = load ptr, ptr %sw_head.i.i, align 8
+  %entries.i.i = getelementptr inbounds i8, ptr %call2.i, i64 160
+  store ptr %52, ptr %entries.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %52, null
+  br i1 %cmp.not.i.i, label %audio_pcm_hw_add_sw_out.exit.i, label %if.then.i12.i
+
+if.then.i12.i:                                    ; preds = %if.end7.i
+  %le_prev.i.i = getelementptr inbounds i8, ptr %52, i64 168
+  store ptr %entries.i.i, ptr %le_prev.i.i, align 8
+  br label %audio_pcm_hw_add_sw_out.exit.i
+
+audio_pcm_hw_add_sw_out.exit.i:                   ; preds = %if.then.i12.i, %if.end7.i
+  store ptr %call2.i, ptr %sw_head.i.i, align 8
+  %le_prev11.i.i = getelementptr inbounds i8, ptr %call2.i, i64 168
+  store ptr %sw_head.i.i, ptr %le_prev11.i.i, align 8
+  %call8.i = call fastcc i32 @audio_pcm_sw_init_out(ptr noundef nonnull %call2.i, ptr noundef nonnull %retval.0.i1125.i, ptr noundef nonnull %name, ptr noundef nonnull readonly %as)
+  %tobool9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %tobool9.not.i, label %audio_pcm_create_voice_pair_out.exit, label %err2.i
+
+err2.i:                                           ; preds = %audio_pcm_hw_add_sw_out.exit.i
+  %53 = load ptr, ptr %entries.i.i, align 8
+  %cmp.not.i14.i = icmp eq ptr %53, null
+  %.pre7.i.i = load ptr, ptr %le_prev11.i.i, align 8
+  br i1 %cmp.not.i14.i, label %audio_pcm_hw_del_sw_out.exit.i, label %if.then.i15.i
+
+if.then.i15.i:                                    ; preds = %err2.i
+  %le_prev5.i.i = getelementptr inbounds i8, ptr %53, i64 168
+  store ptr %.pre7.i.i, ptr %le_prev5.i.i, align 8
+  %.pre.i.i = load ptr, ptr %entries.i.i, align 8
+  br label %audio_pcm_hw_del_sw_out.exit.i
+
+audio_pcm_hw_del_sw_out.exit.i:                   ; preds = %if.then.i15.i, %err2.i
+  %54 = phi ptr [ %.pre.i.i, %if.then.i15.i ], [ null, %err2.i ]
+  store ptr %54, ptr %.pre7.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i.i, i8 0, i64 16, i1 false)
+  %55 = load ptr, ptr %retval.0.i1125.i, align 8
+  %56 = load ptr, ptr %sw_head.i.i, align 8
+  %tobool.not.i.i62 = icmp eq ptr %56, null
+  br i1 %tobool.not.i.i62, label %if.then.i18.i, label %audio_pcm_create_voice_pair_out.exit.thread
+
+if.then.i18.i:                                    ; preds = %audio_pcm_hw_del_sw_out.exit.i
+  %57 = getelementptr i8, ptr %retval.0.i1125.i, i64 136
+  %.val.i.i = load ptr, ptr %57, align 8
+  call fastcc void @audio_detach_capture(ptr %.val.i.i)
+  %entries.i19.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 152
+  %58 = load ptr, ptr %entries.i19.i, align 8
+  %cmp.not.i20.i = icmp eq ptr %58, null
+  %le_prev11.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 160
+  %.pre15.i.i = load ptr, ptr %le_prev11.phi.trans.insert.i.i, align 8
+  br i1 %cmp.not.i20.i, label %if.end.i.i, label %if.then2.i.i
+
+if.then2.i.i:                                     ; preds = %if.then.i18.i
+  %le_prev7.i.i = getelementptr inbounds i8, ptr %58, i64 160
+  store ptr %.pre15.i.i, ptr %le_prev7.i.i, align 8
+  %.pre.i21.i = load ptr, ptr %entries.i19.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.then2.i.i, %if.then.i18.i
+  %59 = phi ptr [ %.pre.i21.i, %if.then2.i.i ], [ null, %if.then.i18.i ]
+  store ptr %59, ptr %.pre15.i.i, align 8
+  %pcm_ops.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i19.i, i8 0, i64 16, i1 false)
+  %60 = load ptr, ptr %pcm_ops.i.i, align 8
+  %fini_out.i.i = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = load ptr, ptr %fini_out.i.i, align 8
+  call void %61(ptr noundef nonnull %retval.0.i1125.i) #25
+  %nb_hw_voices_out.i.i = getelementptr inbounds i8, ptr %55, i64 64
+  %62 = load i32, ptr %nb_hw_voices_out.i.i, align 8
+  %add.i.i = add i32 %62, 1
+  store i32 %add.i.i, ptr %nb_hw_voices_out.i.i, align 8
+  %buf_emul.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 88
+  %63 = load ptr, ptr %buf_emul.i.i.i, align 8
+  call void @g_free(ptr noundef %63) #25
+  %buffer.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 80
+  %64 = load ptr, ptr %buffer.i.i.i, align 8
+  call void @g_free(ptr noundef %64) #25
+  %size.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i.i, i8 0, i64 16, i1 false)
+  call void @g_free(ptr noundef nonnull %retval.0.i1125.i) #25
+  br label %audio_pcm_create_voice_pair_out.exit.thread
+
+audio_pcm_create_voice_pair_out.exit.thread:      ; preds = %if.then6.i, %audio_pcm_hw_del_sw_out.exit.i, %if.end.i.i
+  call void @g_free(ptr noundef %call2.i) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hw_as.i)
+  br label %return
+
+audio_pcm_create_voice_pair_out.exit:             ; preds = %audio_pcm_hw_add_sw_out.exit.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hw_as.i)
+  br label %if.end45
+
+if.end45:                                         ; preds = %audio_pcm_create_voice_pair_out.exit, %audio_pcm_sw_fini_out.exit
+  %sw.addr.2 = phi ptr [ %sw, %audio_pcm_sw_fini_out.exit ], [ %call2.i, %audio_pcm_create_voice_pair_out.exit ]
   store ptr %card, ptr %sw.addr.2, align 8
   %vol = getelementptr inbounds i8, ptr %sw.addr.2, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vol, ptr noundef nonnull align 8 dereferenceable(24) @nominal_volume, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vol, ptr noundef nonnull align 8 dereferenceable(24) @nominal_volume, i64 24, i1 false)
   %callback = getelementptr inbounds i8, ptr %sw.addr.2, i64 144
   %fn = getelementptr inbounds i8, ptr %sw.addr.2, i64 152
   store ptr %callback_fn, ptr %fn, align 8
   store ptr %callback_opaque, ptr %callback, align 8
   br label %return
 
-fail:                                             ; preds = %if.end36, %if.then32, %if.then16, %if.then10, %if.then
+fail:                                             ; preds = %audio_pcm_sw_fini_out.exit, %if.then32, %if.then16, %if.then10, %if.then
   tail call void @AUD_close_out(ptr noundef %card, ptr noundef %sw)
   br label %return
 
-return:                                           ; preds = %if.else, %audio_pcm_info_eq.exit, %fail, %if.end45
-  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.2, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %if.else ]
+return:                                           ; preds = %audio_pcm_create_voice_pair_out.exit.thread, %audio_pcm_info_eq.exit, %fail, %if.end45
+  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.2, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %audio_pcm_create_voice_pair_out.exit.thread ]
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @audio_print_settings(ptr nocapture noundef readonly %as) unnamed_addr #1 {
+; Function Attrs: cold nofree nounwind sspstrong uwtable
+define internal fastcc void @audio_print_settings(ptr nocapture noundef readonly %as) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %as, align 4
   %nchannels = getelementptr inbounds i8, ptr %as, i64 4
@@ -827,33 +1107,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_pcm_sw_fini_out(ptr nocapture noundef %sw) unnamed_addr #5 {
-entry:
-  %buffer.i = getelementptr inbounds i8, ptr %sw, i64 72
-  %0 = load ptr, ptr %buffer.i, align 8
-  tail call void @g_free(ptr noundef %0) #24
-  %size.i = getelementptr inbounds i8, ptr %sw, i64 64
-  %rate.i = getelementptr inbounds i8, ptr %sw, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i, i8 0, i64 16, i1 false)
-  %1 = load ptr, ptr %rate.i, align 8
-  %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %audio_pcm_sw_free_resources_out.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  tail call void @st_rate_stop(ptr noundef nonnull %1) #24
-  br label %audio_pcm_sw_free_resources_out.exit
-
-audio_pcm_sw_free_resources_out.exit:             ; preds = %entry, %if.then.i
-  store ptr null, ptr %rate.i, align 8
-  %name = getelementptr inbounds i8, ptr %sw, i64 112
-  %2 = load ptr, ptr %name, align 8
-  tail call void @g_free(ptr noundef %2) #24
-  store ptr null, ptr %name, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_out(ptr nocapture noundef %sw, ptr noundef %hw, ptr noundef %name, ptr nocapture noundef readonly %as) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_out(ptr nocapture noundef %sw, ptr noundef %hw, ptr noundef %name, ptr nocapture noundef readonly %as) unnamed_addr #6 {
 entry:
   %fmt.i = getelementptr inbounds i8, ptr %as, i64 8
   %0 = load i32, ptr %fmt.i, align 4
@@ -861,13 +1115,13 @@ entry:
   br i1 %1, label %switch.lookup, label %sw.default.i
 
 sw.default.i:                                     ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 switch.lookup:                                    ; preds = %entry
   %info = getelementptr inbounds i8, ptr %sw, i64 16
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = zext nneg i32 %0 to i64
   %switch.gep26 = getelementptr inbounds [7 x i32], ptr @switch.table.audio_buffer_bytes, i64 0, i64 %3
@@ -963,7 +1217,7 @@ if.end:                                           ; preds = %audio_bits_to_index
   %9 = load ptr, ptr %arrayidx20.sink, align 8
   %conv21 = getelementptr inbounds i8, ptr %sw, i64 48
   store ptr %9, ptr %conv21, align 8
-  %call22 = tail call noalias ptr @g_strdup(ptr noundef %name) #24
+  %call22 = tail call noalias ptr @g_strdup(ptr noundef %name) #25
   %name23 = getelementptr inbounds i8, ptr %sw, i64 112
   store ptr %call22, ptr %name23, align 8
   %10 = load ptr, ptr %hw1, align 8
@@ -977,7 +1231,7 @@ if.end:                                           ; preds = %audio_bits_to_index
   br i1 %switch.i.i, label %audio_get_pdo_out.exit.i, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.end
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit.i:                         ; preds = %if.end
@@ -1014,13 +1268,13 @@ if.then16.i:                                      ; preds = %if.then5.i
   %add.i = add i64 %15, -1
   %sub.i = add i64 %add.i, %conv.i22
   %div.i = udiv i64 %sub.i, %15
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %16, ptr noundef %call22, i64 noundef %div.i) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %16, ptr noundef %call22, i64 noundef %div.i) #25
   %.pre = load ptr, ptr %name23, align 8
   br label %if.then26
 
 if.end20.i:                                       ; preds = %if.end.i
   %cond.i = tail call i64 @llvm.uadd.sat.i64(i64 %conv3.i.i, i64 1)
-  %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %cond.i, i64 noundef 16) #25
+  %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %cond.i, i64 noundef 16) #26
   %resample_buf.i = getelementptr inbounds i8, ptr %sw, i64 56
   %buffer.i = getelementptr inbounds i8, ptr %sw, i64 72
   store ptr %call24.i, ptr %buffer.i, align 8
@@ -1029,14 +1283,14 @@ if.end20.i:                                       ; preds = %if.end.i
   store i64 0, ptr %resample_buf.i, align 8
   %19 = load i32, ptr %freq7.i, align 8
   %20 = load i32, ptr %freq3.i, align 4
-  %call32.i = tail call ptr @st_rate_start(i32 noundef %19, i32 noundef %20) #24
+  %call32.i = tail call ptr @st_rate_start(i32 noundef %19, i32 noundef %20) #25
   %rate.i = getelementptr inbounds i8, ptr %sw, i64 80
   store ptr %call32.i, ptr %rate.i, align 8
   br label %if.end29
 
 if.then26:                                        ; preds = %if.then16.i, %if.then5.i
   %21 = phi ptr [ %.pre, %if.then16.i ], [ %call22, %if.then5.i ]
-  tail call void @g_free(ptr noundef %21) #24
+  tail call void @g_free(ptr noundef %21) #25
   store ptr null, ptr %name23, align 8
   br label %if.end29
 
@@ -1045,287 +1299,11 @@ if.end29:                                         ; preds = %audio_get_pdo_out.e
   ret i32 %retval.0.i2025
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_pcm_create_voice_pair_out(ptr noundef %s, ptr noundef %sw_name, ptr nocapture noundef readonly %as) unnamed_addr #5 {
-entry:
-  %hw_as = alloca %struct.audsettings, align 8
-  %dev = getelementptr inbounds i8, ptr %s, i64 8
-  %0 = load ptr, ptr %dev, align 8
-  %driver.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load i32, ptr %driver.i, align 8
-  %switch.i = icmp ult i32 %1, 4
-  br i1 %switch.i, label %audio_get_pdo_out.exit, label %sw.epilog.i
-
-sw.epilog.i:                                      ; preds = %entry
-  tail call void @abort() #23
-  unreachable
-
-audio_get_pdo_out.exit:                           ; preds = %entry
-  %retval.0.in.i = getelementptr inbounds i8, ptr %0, i64 32
-  %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %fixed_settings = getelementptr inbounds i8, ptr %retval.0.i, i64 3
-  %2 = load i8, ptr %fixed_settings, align 1
-  %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %audio_get_pdo_out.exit
-  %frequency.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  %3 = load i32, ptr %frequency.i, align 4
-  %channels.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %4 = load i32, ptr %channels.i, align 4
-  %format.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
-  %5 = load i32, ptr %format.i, align 4
-  %retval.sroa.2.0.insert.ext.i = zext i32 %4 to i64
-  %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
-  %retval.sroa.0.0.insert.ext.i = zext i32 %3 to i64
-  %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
-  %retval.sroa.3.8.insert.ext.i = zext i32 %5 to i64
-  store i64 %retval.sroa.0.0.insert.insert.i, ptr %hw_as, align 8
-  %tmp.sroa.2.0.hw_as.sroa_idx = getelementptr inbounds i8, ptr %hw_as, i64 8
-  store i64 %retval.sroa.3.8.insert.ext.i, ptr %tmp.sroa.2.0.hw_as.sroa_idx, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %audio_get_pdo_out.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hw_as, ptr noundef nonnull align 4 dereferenceable(16) %as, i64 16, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %call2 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #25
-  %s3 = getelementptr inbounds i8, ptr %call2, i64 8
-  store ptr %s, ptr %s3, align 8
-  %6 = load ptr, ptr %dev, align 8
-  %driver.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load i32, ptr %driver.i.i, align 8
-  %switch.i.i = icmp ult i32 %7, 4
-  br i1 %switch.i.i, label %audio_get_pdo_out.exit.i, label %sw.epilog.i.i
-
-sw.epilog.i.i:                                    ; preds = %if.end
-  tail call void @abort() #23
-  unreachable
-
-audio_get_pdo_out.exit.i:                         ; preds = %if.end
-  %retval.0.in.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %mixing_engine.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1
-  %8 = load i8, ptr %mixing_engine.i, align 1
-  %tobool.i = trunc i8 %8 to i1
-  br i1 %tobool.i, label %lor.lhs.false.i, label %if.then.i
-
-lor.lhs.false.i:                                  ; preds = %audio_get_pdo_out.exit.i
-  %fixed_settings.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 3
-  %9 = load i8, ptr %fixed_settings.i, align 1
-  %tobool1.i = trunc i8 %9 to i1
-  br i1 %tobool1.i, label %if.then.i, label %if.end8.i
-
-if.then.i:                                        ; preds = %lor.lhs.false.i, %audio_get_pdo_out.exit.i
-  %call2.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %s, ptr noundef nonnull %hw_as)
-  %10 = load i8, ptr %mixing_engine.i, align 1
-  %tobool4.i = trunc i8 %10 to i1
-  %tobool6.i = icmp eq ptr %call2.i, null
-  %or.cond.not.i = and i1 %tobool6.i, %tobool4.i
-  br i1 %or.cond.not.i, label %if.end8.i, label %audio_pcm_hw_add_out.exit
-
-if.end8.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %hw_head_out.i.i.i = getelementptr inbounds i8, ptr %s, i64 48
-  %fmt.i.i.i = getelementptr inbounds i8, ptr %hw_as, i64 8
-  %nchannels8.i.i.i = getelementptr inbounds i8, ptr %hw_as, i64 4
-  %endianness.i.i.i = getelementptr inbounds i8, ptr %hw_as, i64 12
-  %11 = load i32, ptr %fmt.i.i.i, align 8
-  %12 = load i32, ptr %hw_as, align 8
-  %13 = load i32, ptr %nchannels8.i.i.i, align 4
-  %14 = load i32, ptr %endianness.i.i.i, align 4
-  %cmp28.i.i.i = icmp ne i32 %14, 0
-  %conv29.i.i.i = zext i1 %cmp28.i.i.i to i32
-  %15 = icmp ult i32 %11, 7
-  %16 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %16
-  %17 = zext nneg i32 %11 to i64
-  %switch.gep34 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.19, i64 0, i64 %17
-  %18 = zext nneg i32 %11 to i64
-  %switch.gep36 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.20, i64 0, i64 %18
-  br label %while.cond.i.i
-
-while.cond.i.i:                                   ; preds = %audio_pcm_info_eq.exit.i.i, %if.end8.i
-  %hw.addr.0.i.i = phi ptr [ null, %if.end8.i ], [ %cond.i.i.i, %audio_pcm_info_eq.exit.i.i ]
-  %tobool.not.i.i.i = icmp eq ptr %hw.addr.0.i.i, null
-  %entries.i.i.i = getelementptr inbounds i8, ptr %hw.addr.0.i.i, i64 152
-  %cond.in.i.i.i = select i1 %tobool.not.i.i.i, ptr %hw_head_out.i.i.i, ptr %entries.i.i.i
-  %cond.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %cond.i.i.i, null
-  br i1 %tobool.not.i.i, label %if.end12.i, label %while.body.i.i
-
-while.body.i.i:                                   ; preds = %while.cond.i.i
-  %info.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 20
-  br i1 %15, label %switch.lookup, label %sw.default.i.i.i
-
-sw.default.i.i.i:                                 ; preds = %while.body.i.i
-  call void @abort() #23
-  unreachable
-
-switch.lookup:                                    ; preds = %while.body.i.i
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.load35 = load i32, ptr %switch.gep34, align 4
-  %switch.load37 = load i32, ptr %switch.gep36, align 4
-  %freq.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 28
-  %19 = load i32, ptr %freq.i.i.i, align 4
-  %cmp.i.i.i = icmp eq i32 %19, %12
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true.i.i.i:                              ; preds = %switch.lookup
-  %nchannels.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 32
-  %20 = load i32, ptr %nchannels.i.i.i, align 4
-  %cmp9.i.i.i = icmp eq i32 %20, %13
-  br i1 %cmp9.i.i.i, label %land.lhs.true10.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true10.i.i.i:                            ; preds = %land.lhs.true.i.i.i
-  %is_signed11.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 24
-  %21 = load i8, ptr %is_signed11.i.i.i, align 4
-  %22 = and i8 %21, 1
-  %conv.i.i.i = zext nneg i8 %22 to i32
-  %cmp14.i.i.i = icmp eq i32 %switch.load35, %conv.i.i.i
-  br i1 %cmp14.i.i.i, label %land.lhs.true16.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true16.i.i.i:                            ; preds = %land.lhs.true10.i.i.i
-  %is_float17.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 25
-  %23 = load i8, ptr %is_float17.i.i.i, align 1
-  %24 = and i8 %23, 1
-  %conv19.i.i.i = zext nneg i8 %24 to i32
-  %cmp22.i.i.i = icmp eq i32 %switch.load37, %conv19.i.i.i
-  br i1 %cmp22.i.i.i, label %land.lhs.true24.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true24.i.i.i:                            ; preds = %land.lhs.true16.i.i.i
-  %25 = load i32, ptr %info.i.i, align 4
-  %cmp26.i.i.i = icmp eq i32 %25, %switch.load
-  br i1 %cmp26.i.i.i, label %land.rhs.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true24.i.i.i
-  %swap_endianness.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 44
-  %26 = load i32, ptr %swap_endianness.i.i.i, align 4
-  %cmp30.i.i.i = icmp eq i32 %26, %conv29.i.i.i
-  %27 = zext i1 %cmp30.i.i.i to i32
-  br label %audio_pcm_info_eq.exit.i.i
-
-audio_pcm_info_eq.exit.i.i:                       ; preds = %land.rhs.i.i.i, %land.lhs.true24.i.i.i, %land.lhs.true16.i.i.i, %land.lhs.true10.i.i.i, %land.lhs.true.i.i.i, %switch.lookup
-  %land.ext.i.i.i = phi i32 [ 0, %land.lhs.true24.i.i.i ], [ 0, %land.lhs.true16.i.i.i ], [ 0, %land.lhs.true10.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ 0, %switch.lookup ], [ %27, %land.rhs.i.i.i ]
-  %tobool2.not.i.i = icmp eq i32 %land.ext.i.i.i, 0
-  br i1 %tobool2.not.i.i, label %while.cond.i.i, label %if.end7, !llvm.loop !8
-
-if.end12.i:                                       ; preds = %while.cond.i.i
-  %call13.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef %s, ptr noundef nonnull %hw_as)
-  %tobool14.not.i = icmp eq ptr %call13.i, null
-  br i1 %tobool14.not.i, label %if.end16.i, label %if.end7
-
-if.end16.i:                                       ; preds = %if.end12.i
-  %cond.i.i = load ptr, ptr %hw_head_out.i.i.i, align 8
-  br label %audio_pcm_hw_add_out.exit
-
-audio_pcm_hw_add_out.exit:                        ; preds = %if.then.i, %if.end16.i
-  %retval.0.i11 = phi ptr [ %cond.i.i, %if.end16.i ], [ %call2.i, %if.then.i ]
-  %tobool5.not = icmp eq ptr %retval.0.i11, null
-  br i1 %tobool5.not, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %audio_pcm_hw_add_out.exit
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.51, ptr noundef %sw_name)
-  br label %err1
-
-if.end7:                                          ; preds = %audio_pcm_info_eq.exit.i.i, %if.end12.i, %audio_pcm_hw_add_out.exit
-  %retval.0.i1125 = phi ptr [ %retval.0.i11, %audio_pcm_hw_add_out.exit ], [ %call13.i, %if.end12.i ], [ %cond.i.i.i, %audio_pcm_info_eq.exit.i.i ]
-  %sw_head.i = getelementptr inbounds i8, ptr %retval.0.i1125, i64 128
-  %28 = load ptr, ptr %sw_head.i, align 8
-  %entries.i = getelementptr inbounds i8, ptr %call2, i64 160
-  store ptr %28, ptr %entries.i, align 8
-  %cmp.not.i = icmp eq ptr %28, null
-  br i1 %cmp.not.i, label %audio_pcm_hw_add_sw_out.exit, label %if.then.i12
-
-if.then.i12:                                      ; preds = %if.end7
-  %le_prev.i = getelementptr inbounds i8, ptr %28, i64 168
-  store ptr %entries.i, ptr %le_prev.i, align 8
-  br label %audio_pcm_hw_add_sw_out.exit
-
-audio_pcm_hw_add_sw_out.exit:                     ; preds = %if.end7, %if.then.i12
-  store ptr %call2, ptr %sw_head.i, align 8
-  %le_prev11.i = getelementptr inbounds i8, ptr %call2, i64 168
-  store ptr %sw_head.i, ptr %le_prev11.i, align 8
-  %call8 = call fastcc i32 @audio_pcm_sw_init_out(ptr noundef nonnull %call2, ptr noundef nonnull %retval.0.i1125, ptr noundef %sw_name, ptr noundef %as)
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %return, label %err2
-
-err2:                                             ; preds = %audio_pcm_hw_add_sw_out.exit
-  %29 = load ptr, ptr %entries.i, align 8
-  %cmp.not.i14 = icmp eq ptr %29, null
-  %.pre7.i = load ptr, ptr %le_prev11.i, align 8
-  br i1 %cmp.not.i14, label %audio_pcm_hw_del_sw_out.exit, label %if.then.i15
-
-if.then.i15:                                      ; preds = %err2
-  %le_prev5.i = getelementptr inbounds i8, ptr %29, i64 168
-  store ptr %.pre7.i, ptr %le_prev5.i, align 8
-  %.pre.i = load ptr, ptr %entries.i, align 8
-  br label %audio_pcm_hw_del_sw_out.exit
-
-audio_pcm_hw_del_sw_out.exit:                     ; preds = %err2, %if.then.i15
-  %30 = phi ptr [ %.pre.i, %if.then.i15 ], [ null, %err2 ]
-  store ptr %30, ptr %.pre7.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i, i8 0, i64 16, i1 false)
-  %31 = load ptr, ptr %retval.0.i1125, align 8
-  %32 = load ptr, ptr %sw_head.i, align 8
-  %tobool.not.i = icmp eq ptr %32, null
-  br i1 %tobool.not.i, label %if.then.i18, label %err1
-
-if.then.i18:                                      ; preds = %audio_pcm_hw_del_sw_out.exit
-  %33 = getelementptr i8, ptr %retval.0.i1125, i64 136
-  %.val.i = load ptr, ptr %33, align 8
-  call fastcc void @audio_detach_capture(ptr %.val.i)
-  %entries.i19 = getelementptr inbounds i8, ptr %retval.0.i1125, i64 152
-  %34 = load ptr, ptr %entries.i19, align 8
-  %cmp.not.i20 = icmp eq ptr %34, null
-  %le_prev11.phi.trans.insert.i = getelementptr inbounds i8, ptr %retval.0.i1125, i64 160
-  %.pre15.i = load ptr, ptr %le_prev11.phi.trans.insert.i, align 8
-  br i1 %cmp.not.i20, label %if.end.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %if.then.i18
-  %le_prev7.i = getelementptr inbounds i8, ptr %34, i64 160
-  store ptr %.pre15.i, ptr %le_prev7.i, align 8
-  %.pre.i21 = load ptr, ptr %entries.i19, align 8
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then2.i, %if.then.i18
-  %35 = phi ptr [ %.pre.i21, %if.then2.i ], [ null, %if.then.i18 ]
-  store ptr %35, ptr %.pre15.i, align 8
-  %pcm_ops.i = getelementptr inbounds i8, ptr %retval.0.i1125, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i19, i8 0, i64 16, i1 false)
-  %36 = load ptr, ptr %pcm_ops.i, align 8
-  %fini_out.i = getelementptr inbounds i8, ptr %36, i64 8
-  %37 = load ptr, ptr %fini_out.i, align 8
-  call void %37(ptr noundef nonnull %retval.0.i1125) #24
-  %nb_hw_voices_out.i = getelementptr inbounds i8, ptr %31, i64 64
-  %38 = load i32, ptr %nb_hw_voices_out.i, align 8
-  %add.i = add i32 %38, 1
-  store i32 %add.i, ptr %nb_hw_voices_out.i, align 8
-  %buf_emul.i.i = getelementptr inbounds i8, ptr %retval.0.i1125, i64 88
-  %39 = load ptr, ptr %buf_emul.i.i, align 8
-  call void @g_free(ptr noundef %39) #24
-  %buffer.i.i = getelementptr inbounds i8, ptr %retval.0.i1125, i64 80
-  %40 = load ptr, ptr %buffer.i.i, align 8
-  call void @g_free(ptr noundef %40) #24
-  %size.i.i = getelementptr inbounds i8, ptr %retval.0.i1125, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
-  call void @g_free(ptr noundef nonnull %retval.0.i1125) #24
-  br label %err1
-
-err1:                                             ; preds = %if.end.i, %audio_pcm_hw_del_sw_out.exit, %if.then6
-  call void @g_free(ptr noundef %call2) #24
-  br label %return
-
-return:                                           ; preds = %audio_pcm_hw_add_sw_out.exit, %err1
-  %retval.0 = phi ptr [ null, %err1 ], [ %call2, %audio_pcm_hw_add_sw_out.exit ]
-  ret ptr %retval.0
-}
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @AUD_is_active_out(ptr noundef readonly %sw) local_unnamed_addr #7 {
+define dso_local i32 @AUD_is_active_out(ptr noundef readonly %sw) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -1341,7 +1319,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @AUD_init_time_stamp_out(ptr noundef readonly %sw, ptr nocapture noundef writeonly %ts) local_unnamed_addr #8 {
+define dso_local void @AUD_init_time_stamp_out(ptr noundef readonly %sw, ptr nocapture noundef writeonly %ts) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1359,7 +1337,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @AUD_get_elapsed_usec_out(ptr noundef readonly %sw, ptr nocapture noundef readonly %ts) local_unnamed_addr #9 {
+define dso_local i64 @AUD_get_elapsed_usec_out(ptr noundef readonly %sw, ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1402,7 +1380,7 @@ entry:
   br i1 %switch, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 return:                                           ; preds = %entry
@@ -1412,7 +1390,7 @@ return:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_close_in(ptr noundef readnone %card, ptr noundef %sw) local_unnamed_addr #5 {
+define dso_local void @AUD_close_in(ptr noundef readnone %card, ptr noundef %sw) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %if.end4, label %if.then
@@ -1440,7 +1418,7 @@ if.then3:                                         ; preds = %if.then2.i, %if.the
 if.end:                                           ; preds = %if.then
   %buffer.i.i.i = getelementptr inbounds i8, ptr %sw, i64 80
   %0 = load ptr, ptr %buffer.i.i.i, align 8
-  tail call void @g_free(ptr noundef %0) #24
+  tail call void @g_free(ptr noundef %0) #25
   %size.i.i.i = getelementptr inbounds i8, ptr %sw, i64 72
   %rate.i.i.i = getelementptr inbounds i8, ptr %sw, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i.i, i8 0, i64 16, i1 false)
@@ -1449,14 +1427,14 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %audio_pcm_sw_fini_in.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  tail call void @st_rate_stop(ptr noundef nonnull %1) #24
+  tail call void @st_rate_stop(ptr noundef nonnull %1) #25
   br label %audio_pcm_sw_fini_in.exit.i
 
 audio_pcm_sw_fini_in.exit.i:                      ; preds = %if.then.i.i.i, %if.end
   store ptr null, ptr %rate.i.i.i, align 8
   %name.i.i = getelementptr inbounds i8, ptr %sw, i64 104
   %2 = load ptr, ptr %name.i.i, align 8
-  tail call void @g_free(ptr noundef %2) #24
+  tail call void @g_free(ptr noundef %2) #25
   store ptr null, ptr %name.i.i, align 8
   %entries.i.i = getelementptr inbounds i8, ptr %sw, i64 152
   %3 = load ptr, ptr %entries.i.i, align 8
@@ -1505,25 +1483,25 @@ if.end.i.i:                                       ; preds = %if.then2.i.i, %do.b
   %10 = load ptr, ptr %pcm_ops.i.i, align 8
   %fini_in.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %11 = load ptr, ptr %fini_in.i.i, align 8
-  tail call void %11(ptr noundef nonnull %5) #24
+  tail call void %11(ptr noundef nonnull %5) #25
   %nb_hw_voices_in.i.i = getelementptr inbounds i8, ptr %6, i64 68
   %12 = load i32, ptr %nb_hw_voices_in.i.i, align 4
   %add.i.i = add i32 %12, 1
   store i32 %add.i.i, ptr %nb_hw_voices_in.i.i, align 4
   %buf_emul.i.i.i = getelementptr inbounds i8, ptr %5, i64 96
   %13 = load ptr, ptr %buf_emul.i.i.i, align 8
-  tail call void @g_free(ptr noundef %13) #24
+  tail call void @g_free(ptr noundef %13) #25
   %buffer.i.i7.i = getelementptr inbounds i8, ptr %5, i64 88
   %14 = load ptr, ptr %buffer.i.i7.i, align 8
-  tail call void @g_free(ptr noundef %14) #24
+  tail call void @g_free(ptr noundef %14) #25
   %size.i.i8.i = getelementptr inbounds i8, ptr %5, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i8.i, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %5) #24
+  tail call void @g_free(ptr noundef nonnull %5) #25
   store ptr null, ptr %hw.i, align 8
   br label %audio_close_in.exit
 
 audio_close_in.exit:                              ; preds = %audio_pcm_hw_del_sw_in.exit.i, %if.end.i.i
-  tail call void @g_free(ptr noundef nonnull %sw) #24
+  tail call void @g_free(ptr noundef nonnull %sw) #25
   br label %if.end4
 
 if.end4:                                          ; preds = %audio_close_in.exit, %if.then3, %entry
@@ -1531,15 +1509,16 @@ if.end4:                                          ; preds = %audio_close_in.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @AUD_open_in(ptr noundef %card, ptr noundef %sw, ptr noundef %name, ptr noundef %callback_opaque, ptr noundef %callback_fn, ptr noundef %as) local_unnamed_addr #5 {
+define dso_local noundef ptr @AUD_open_in(ptr noundef %card, ptr noundef %sw, ptr noundef %name, ptr noundef %callback_opaque, ptr noundef %callback_fn, ptr noundef %as) local_unnamed_addr #6 {
 entry:
+  %hw_as.i = alloca %struct.audsettings, align 8
   %tobool = icmp ne ptr %card, null
   %tobool1 = icmp ne ptr %name, null
-  %or.cond.not41.not68 = and i1 %tobool, %tobool1
+  %or.cond.not41.not75 = and i1 %tobool, %tobool1
   %tobool3 = icmp ne ptr %callback_fn, null
-  %or.cond1.not.not67 = and i1 %or.cond.not41.not68, %tobool3
+  %or.cond1.not.not74 = and i1 %or.cond.not41.not75, %tobool3
   %tobool4.not = icmp ne ptr %as, null
-  %.not = and i1 %or.cond1.not.not67, %tobool4.not
+  %.not = and i1 %or.cond1.not.not74, %tobool4.not
   br i1 %.not, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -1569,7 +1548,7 @@ if.end:                                           ; preds = %entry
   br i1 %switch.i, label %audio_get_pdo_in.exit, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_in.exit:                            ; preds = %if.end
@@ -1581,14 +1560,14 @@ audio_get_pdo_in.exit:                            ; preds = %if.end
   %endianness.i = getelementptr inbounds i8, ptr %as, i64 12
   %4 = load i32, ptr %endianness.i, align 4
   %narrow.i = icmp ult i32 %4, 2
-  %or7.i.not70 = and i1 %cmp.i, %narrow.i
+  %or7.i.not77 = and i1 %cmp.i, %narrow.i
   %fmt.i = getelementptr inbounds i8, ptr %as, i64 8
   %5 = load i32, ptr %fmt.i, align 4
   %switch.i42 = icmp ult i32 %5, 7
-  %narrow8.i.not69 = select i1 %switch.i42, i1 %or7.i.not70, i1 false
+  %narrow8.i.not76 = select i1 %switch.i42, i1 %or7.i.not77, i1 false
   %6 = load i32, ptr %as, align 4
   %cmp6.i = icmp sgt i32 %6, 0
-  %or89.i.not = and i1 %narrow8.i.not69, %cmp6.i
+  %or89.i.not = and i1 %narrow8.i.not76, %cmp6.i
   br i1 %or89.i.not, label %if.end11, label %if.then.i44
 
 if.then.i44:                                      ; preds = %audio_get_pdo_in.exit
@@ -1630,19 +1609,23 @@ if.then16:                                        ; preds = %if.then2.i52, %if.t
 
 if.end17:                                         ; preds = %if.end11
   %tobool18 = icmp eq ptr %sw, null
-  br i1 %tobool18, label %if.else, label %land.lhs.true
+  br i1 %tobool18, label %if.else.thread, label %land.lhs.true
+
+if.else.thread:                                   ; preds = %if.end17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hw_as.i)
+  br label %audio_get_pdo_in.exit.i
 
 land.lhs.true:                                    ; preds = %if.end17
   %info = getelementptr inbounds i8, ptr %sw, i64 20
   %8 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %5 to i64
-  %switch.gep71 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.19, i64 0, i64 %9
-  %switch.load72 = load i32, ptr %switch.gep71, align 4
+  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %9
+  %switch.load89 = load i32, ptr %switch.gep88, align 4
   %10 = zext nneg i32 %5 to i64
-  %switch.gep73 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.20, i64 0, i64 %10
-  %switch.load74 = load i32, ptr %switch.gep73, align 4
+  %switch.gep90 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %10
+  %switch.load91 = load i32, ptr %switch.gep90, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 28
   %11 = load i32, ptr %freq.i, align 4
   %cmp.i57 = icmp eq i32 %11, %6
@@ -1659,7 +1642,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i
   %13 = load i8, ptr %is_signed11.i, align 4
   %14 = and i8 %13, 1
   %conv.i = zext nneg i8 %14 to i32
-  %cmp14.i = icmp eq i32 %switch.load72, %conv.i
+  %cmp14.i = icmp eq i32 %switch.load89, %conv.i
   br i1 %cmp14.i, label %land.lhs.true16.i, label %if.end22
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
@@ -1667,7 +1650,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
   %15 = load i8, ptr %is_float17.i, align 1
   %16 = and i8 %15, 1
   %conv19.i = zext nneg i8 %16 to i32
-  %cmp22.i = icmp eq i32 %switch.load74, %conv19.i
+  %cmp22.i = icmp eq i32 %switch.load91, %conv19.i
   br i1 %cmp22.i, label %land.lhs.true24.i, label %if.end22
 
 land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
@@ -1685,11 +1668,7 @@ if.end22:                                         ; preds = %land.lhs.true, %lan
   %fixed_settings = getelementptr inbounds i8, ptr %retval.0.i, i64 3
   %19 = load i8, ptr %fixed_settings, align 1
   %tobool23 = trunc i8 %19 to i1
-  br i1 %tobool23, label %if.then29, label %if.then26
-
-if.then26:                                        ; preds = %if.end22
-  tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef nonnull %sw)
-  br label %if.else
+  br i1 %tobool23, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %if.end22
   %hw30 = getelementptr inbounds i8, ptr %sw, i64 96
@@ -1706,64 +1685,324 @@ if.then32:                                        ; preds = %if.then29
   br label %fail
 
 if.end36:                                         ; preds = %if.then29
-  tail call fastcc void @audio_pcm_sw_fini_in(ptr noundef nonnull %sw)
+  %buffer.i.i = getelementptr inbounds i8, ptr %sw, i64 80
+  %22 = load ptr, ptr %buffer.i.i, align 8
+  tail call void @g_free(ptr noundef %22) #25
+  %size.i.i = getelementptr inbounds i8, ptr %sw, i64 72
+  %rate.i.i = getelementptr inbounds i8, ptr %sw, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
+  %23 = load ptr, ptr %rate.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %23, null
+  br i1 %tobool.not.i.i, label %audio_pcm_sw_fini_in.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.end36
+  tail call void @st_rate_stop(ptr noundef nonnull %23) #25
+  br label %audio_pcm_sw_fini_in.exit
+
+audio_pcm_sw_fini_in.exit:                        ; preds = %if.end36, %if.then.i.i
+  store ptr null, ptr %rate.i.i, align 8
+  %name.i = getelementptr inbounds i8, ptr %sw, i64 104
+  %24 = load ptr, ptr %name.i, align 8
+  tail call void @g_free(ptr noundef %24) #25
+  store ptr null, ptr %name.i, align 8
   %call37 = tail call fastcc i32 @audio_pcm_sw_init_in(ptr noundef nonnull %sw, ptr noundef nonnull %20, ptr noundef nonnull %name, ptr noundef nonnull %as)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end45, label %fail
 
-if.else:                                          ; preds = %if.end17, %if.then26
-  %call41 = tail call fastcc ptr @audio_pcm_create_voice_pair_in(ptr noundef nonnull %0, ptr noundef nonnull %name, ptr noundef nonnull %as)
-  %tobool42.not = icmp eq ptr %call41, null
-  br i1 %tobool42.not, label %return, label %if.end45
+if.else:                                          ; preds = %if.end22
+  tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef nonnull %sw)
+  %.pre = load ptr, ptr %dev, align 8
+  %driver.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.pre82 = load i32, ptr %driver.i.i.phi.trans.insert, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hw_as.i)
+  %switch.i.i = icmp ult i32 %.pre82, 4
+  br i1 %switch.i.i, label %audio_get_pdo_in.exit.i, label %sw.epilog.i.i
 
-if.end45:                                         ; preds = %if.else, %if.end36
-  %sw.addr.2 = phi ptr [ %sw, %if.end36 ], [ %call41, %if.else ]
+sw.epilog.i.i:                                    ; preds = %if.else
+  tail call void @abort() #24
+  unreachable
+
+audio_get_pdo_in.exit.i:                          ; preds = %if.else.thread, %if.else
+  %25 = phi ptr [ %1, %if.else.thread ], [ %.pre, %if.else ]
+  %retval.0.in.i.i = getelementptr inbounds i8, ptr %25, i64 24
+  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
+  %fixed_settings.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 3
+  %26 = load i8, ptr %fixed_settings.i, align 1
+  %tobool.i = trunc i8 %26 to i1
+  br i1 %tobool.i, label %if.then.i64, label %if.else.i
+
+if.then.i64:                                      ; preds = %audio_get_pdo_in.exit.i
+  %frequency.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %27 = load i32, ptr %frequency.i.i, align 4
+  %channels.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
+  %28 = load i32, ptr %channels.i.i, align 4
+  %format.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
+  %29 = load i32, ptr %format.i.i, align 4
+  %retval.sroa.2.0.insert.ext.i.i = zext i32 %28 to i64
+  %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
+  %retval.sroa.0.0.insert.ext.i.i = zext i32 %27 to i64
+  %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
+  %retval.sroa.3.8.insert.ext.i.i = zext i32 %29 to i64
+  store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %hw_as.i, align 8
+  %tmp.sroa.2.0.hw_as.sroa_idx.i = getelementptr inbounds i8, ptr %hw_as.i, i64 8
+  store i64 %retval.sroa.3.8.insert.ext.i.i, ptr %tmp.sroa.2.0.hw_as.sroa_idx.i, align 8
+  br label %if.end.i60
+
+if.else.i:                                        ; preds = %audio_get_pdo_in.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hw_as.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %as, i64 16, i1 false)
+  br label %if.end.i60
+
+if.end.i60:                                       ; preds = %if.else.i, %if.then.i64
+  %call2.i = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 168) #26
+  %s3.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  store ptr %0, ptr %s3.i, align 8
+  %30 = load ptr, ptr %dev, align 8
+  %driver.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load i32, ptr %driver.i.i.i, align 8
+  %switch.i.i.i = icmp ult i32 %31, 4
+  br i1 %switch.i.i.i, label %audio_get_pdo_in.exit.i.i, label %sw.epilog.i.i.i
+
+sw.epilog.i.i.i:                                  ; preds = %if.end.i60
+  tail call void @abort() #24
+  unreachable
+
+audio_get_pdo_in.exit.i.i:                        ; preds = %if.end.i60
+  %retval.0.in.i.i.i = getelementptr inbounds i8, ptr %30, i64 24
+  %retval.0.i.i.i = load ptr, ptr %retval.0.in.i.i.i, align 8
+  %mixing_engine.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 1
+  %32 = load i8, ptr %mixing_engine.i.i, align 1
+  %tobool.i.i = trunc i8 %32 to i1
+  br i1 %tobool.i.i, label %lor.lhs.false.i.i, label %if.then.i.i61
+
+lor.lhs.false.i.i:                                ; preds = %audio_get_pdo_in.exit.i.i
+  %fixed_settings.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 3
+  %33 = load i8, ptr %fixed_settings.i.i, align 1
+  %tobool1.i.i = trunc i8 %33 to i1
+  br i1 %tobool1.i.i, label %if.then.i.i61, label %if.end8.i.i
+
+if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, %audio_get_pdo_in.exit.i.i
+  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %34 = load i8, ptr %mixing_engine.i.i, align 1
+  %tobool4.i.i = trunc i8 %34 to i1
+  %tobool6.i.i = icmp eq ptr %call2.i.i, null
+  %or.cond.not.i.i = and i1 %tobool6.i.i, %tobool4.i.i
+  br i1 %or.cond.not.i.i, label %if.end8.i.i, label %audio_pcm_hw_add_in.exit.i
+
+if.end8.i.i:                                      ; preds = %if.then.i.i61, %lor.lhs.false.i.i
+  %hw_head_in.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %fmt.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 8
+  %nchannels8.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 4
+  %endianness.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 12
+  %35 = load i32, ptr %fmt.i.i.i.i, align 8
+  %36 = load i32, ptr %hw_as.i, align 8
+  %37 = load i32, ptr %nchannels8.i.i.i.i, align 4
+  %38 = load i32, ptr %endianness.i.i.i.i, align 4
+  %cmp28.i.i.i.i = icmp ne i32 %38, 0
+  %conv29.i.i.i.i = zext i1 %cmp28.i.i.i.i to i32
+  %39 = icmp ult i32 %35, 7
+  %40 = zext nneg i32 %35 to i64
+  %switch.gep92 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %40
+  %41 = zext nneg i32 %35 to i64
+  %switch.gep94 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %41
+  %42 = zext nneg i32 %35 to i64
+  %switch.gep96 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %42
+  br label %while.cond.i.i.i
+
+while.cond.i.i.i:                                 ; preds = %audio_pcm_info_eq.exit.i.i.i, %if.end8.i.i
+  %hw.addr.0.i.i.i = phi ptr [ null, %if.end8.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
+  %tobool.not.i.i.i.i = icmp eq ptr %hw.addr.0.i.i.i, null
+  %entries.i.i.i.i = getelementptr inbounds i8, ptr %hw.addr.0.i.i.i, i64 152
+  %cond.in.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %hw_head_in.i.i.i.i, ptr %entries.i.i.i.i
+  %cond.i.i.i.i = load ptr, ptr %cond.in.i.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
+  br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
+  %info.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 16
+  br i1 %39, label %switch.lookup, label %sw.default.i.i.i.i
+
+sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i
+  call void @abort() #24
+  unreachable
+
+switch.lookup:                                    ; preds = %while.body.i.i.i
+  %switch.load93 = load i32, ptr %switch.gep92, align 4
+  %switch.load95 = load i32, ptr %switch.gep94, align 4
+  %switch.load97 = load i32, ptr %switch.gep96, align 4
+  %freq.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 24
+  %43 = load i32, ptr %freq.i.i.i.i, align 4
+  %cmp.i.i.i.i = icmp eq i32 %43, %36
+  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true.i.i.i.i:                            ; preds = %switch.lookup
+  %nchannels.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 28
+  %44 = load i32, ptr %nchannels.i.i.i.i, align 4
+  %cmp9.i.i.i.i = icmp eq i32 %44, %37
+  br i1 %cmp9.i.i.i.i, label %land.lhs.true10.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true10.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
+  %is_signed11.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 20
+  %45 = load i8, ptr %is_signed11.i.i.i.i, align 4
+  %46 = and i8 %45, 1
+  %conv.i.i.i.i = zext nneg i8 %46 to i32
+  %cmp14.i.i.i.i = icmp eq i32 %switch.load95, %conv.i.i.i.i
+  br i1 %cmp14.i.i.i.i, label %land.lhs.true16.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true16.i.i.i.i:                          ; preds = %land.lhs.true10.i.i.i.i
+  %is_float17.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 21
+  %47 = load i8, ptr %is_float17.i.i.i.i, align 1
+  %48 = and i8 %47, 1
+  %conv19.i.i.i.i = zext nneg i8 %48 to i32
+  %cmp22.i.i.i.i = icmp eq i32 %switch.load97, %conv19.i.i.i.i
+  br i1 %cmp22.i.i.i.i, label %land.lhs.true24.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.lhs.true24.i.i.i.i:                          ; preds = %land.lhs.true16.i.i.i.i
+  %49 = load i32, ptr %info.i.i.i, align 4
+  %cmp26.i.i.i.i = icmp eq i32 %49, %switch.load93
+  br i1 %cmp26.i.i.i.i, label %land.rhs.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+
+land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true24.i.i.i.i
+  %swap_endianness.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 40
+  %50 = load i32, ptr %swap_endianness.i.i.i.i, align 4
+  %cmp30.i.i.i.i = icmp eq i32 %50, %conv29.i.i.i.i
+  %51 = zext i1 %cmp30.i.i.i.i to i32
+  br label %audio_pcm_info_eq.exit.i.i.i
+
+audio_pcm_info_eq.exit.i.i.i:                     ; preds = %land.rhs.i.i.i.i, %land.lhs.true24.i.i.i.i, %land.lhs.true16.i.i.i.i, %land.lhs.true10.i.i.i.i, %land.lhs.true.i.i.i.i, %switch.lookup
+  %land.ext.i.i.i.i = phi i32 [ 0, %land.lhs.true24.i.i.i.i ], [ 0, %land.lhs.true16.i.i.i.i ], [ 0, %land.lhs.true10.i.i.i.i ], [ 0, %land.lhs.true.i.i.i.i ], [ 0, %switch.lookup ], [ %51, %land.rhs.i.i.i.i ]
+  %tobool2.not.i.i.i = icmp eq i32 %land.ext.i.i.i.i, 0
+  br i1 %tobool2.not.i.i.i, label %while.cond.i.i.i, label %if.end7.i, !llvm.loop !9
+
+if.end12.i.i:                                     ; preds = %while.cond.i.i.i
+  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
+  %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
+  br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
+
+if.end16.i.i:                                     ; preds = %if.end12.i.i
+  %cond.i.i.i = load ptr, ptr %hw_head_in.i.i.i.i, align 8
+  br label %audio_pcm_hw_add_in.exit.i
+
+audio_pcm_hw_add_in.exit.i:                       ; preds = %if.end16.i.i, %if.then.i.i61
+  %retval.0.i11.i = phi ptr [ %cond.i.i.i, %if.end16.i.i ], [ %call2.i.i, %if.then.i.i61 ]
+  %tobool5.not.i = icmp eq ptr %retval.0.i11.i, null
+  br i1 %tobool5.not.i, label %if.then6.i, label %if.end7.i
+
+if.then6.i:                                       ; preds = %audio_pcm_hw_add_in.exit.i
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.51, ptr noundef nonnull %name)
+  br label %audio_pcm_create_voice_pair_in.exit.thread
+
+if.end7.i:                                        ; preds = %audio_pcm_info_eq.exit.i.i.i, %audio_pcm_hw_add_in.exit.i, %if.end12.i.i
+  %retval.0.i1124.i = phi ptr [ %retval.0.i11.i, %audio_pcm_hw_add_in.exit.i ], [ %call13.i.i, %if.end12.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
+  %sw_head.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 136
+  %52 = load ptr, ptr %sw_head.i.i, align 8
+  %entries.i.i = getelementptr inbounds i8, ptr %call2.i, i64 152
+  store ptr %52, ptr %entries.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %52, null
+  br i1 %cmp.not.i.i, label %audio_pcm_hw_add_sw_in.exit.i, label %if.then.i12.i
+
+if.then.i12.i:                                    ; preds = %if.end7.i
+  %le_prev.i.i = getelementptr inbounds i8, ptr %52, i64 160
+  store ptr %entries.i.i, ptr %le_prev.i.i, align 8
+  br label %audio_pcm_hw_add_sw_in.exit.i
+
+audio_pcm_hw_add_sw_in.exit.i:                    ; preds = %if.then.i12.i, %if.end7.i
+  store ptr %call2.i, ptr %sw_head.i.i, align 8
+  %le_prev11.i.i = getelementptr inbounds i8, ptr %call2.i, i64 160
+  store ptr %sw_head.i.i, ptr %le_prev11.i.i, align 8
+  %call8.i = call fastcc i32 @audio_pcm_sw_init_in(ptr noundef nonnull %call2.i, ptr noundef nonnull %retval.0.i1124.i, ptr noundef nonnull %name, ptr noundef nonnull readonly %as)
+  %tobool9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %tobool9.not.i, label %audio_pcm_create_voice_pair_in.exit, label %err2.i
+
+err2.i:                                           ; preds = %audio_pcm_hw_add_sw_in.exit.i
+  %53 = load ptr, ptr %entries.i.i, align 8
+  %cmp.not.i14.i = icmp eq ptr %53, null
+  %.pre7.i.i = load ptr, ptr %le_prev11.i.i, align 8
+  br i1 %cmp.not.i14.i, label %audio_pcm_hw_del_sw_in.exit.i, label %if.then.i15.i
+
+if.then.i15.i:                                    ; preds = %err2.i
+  %le_prev5.i.i = getelementptr inbounds i8, ptr %53, i64 160
+  store ptr %.pre7.i.i, ptr %le_prev5.i.i, align 8
+  %.pre.i.i = load ptr, ptr %entries.i.i, align 8
+  br label %audio_pcm_hw_del_sw_in.exit.i
+
+audio_pcm_hw_del_sw_in.exit.i:                    ; preds = %if.then.i15.i, %err2.i
+  %54 = phi ptr [ %.pre.i.i, %if.then.i15.i ], [ null, %err2.i ]
+  store ptr %54, ptr %.pre7.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i.i, i8 0, i64 16, i1 false)
+  %55 = load ptr, ptr %retval.0.i1124.i, align 8
+  %56 = load ptr, ptr %sw_head.i.i, align 8
+  %tobool.not.i.i62 = icmp eq ptr %56, null
+  br i1 %tobool.not.i.i62, label %do.body.i.i, label %audio_pcm_create_voice_pair_in.exit.thread
+
+do.body.i.i:                                      ; preds = %audio_pcm_hw_del_sw_in.exit.i
+  %entries.i18.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 152
+  %57 = load ptr, ptr %entries.i18.i, align 8
+  %cmp.not.i19.i = icmp eq ptr %57, null
+  %le_prev11.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 160
+  %.pre14.i.i = load ptr, ptr %le_prev11.phi.trans.insert.i.i, align 8
+  br i1 %cmp.not.i19.i, label %if.end.i.i, label %if.then2.i.i
+
+if.then2.i.i:                                     ; preds = %do.body.i.i
+  %le_prev7.i.i = getelementptr inbounds i8, ptr %57, i64 160
+  store ptr %.pre14.i.i, ptr %le_prev7.i.i, align 8
+  %.pre.i20.i = load ptr, ptr %entries.i18.i, align 8
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.then2.i.i, %do.body.i.i
+  %58 = phi ptr [ %.pre.i20.i, %if.then2.i.i ], [ null, %do.body.i.i ]
+  store ptr %58, ptr %.pre14.i.i, align 8
+  %pcm_ops.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i18.i, i8 0, i64 16, i1 false)
+  %59 = load ptr, ptr %pcm_ops.i.i, align 8
+  %fini_in.i.i = getelementptr inbounds i8, ptr %59, i64 80
+  %60 = load ptr, ptr %fini_in.i.i, align 8
+  call void %60(ptr noundef nonnull %retval.0.i1124.i) #25
+  %nb_hw_voices_in.i.i = getelementptr inbounds i8, ptr %55, i64 68
+  %61 = load i32, ptr %nb_hw_voices_in.i.i, align 4
+  %add.i.i = add i32 %61, 1
+  store i32 %add.i.i, ptr %nb_hw_voices_in.i.i, align 4
+  %buf_emul.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 96
+  %62 = load ptr, ptr %buf_emul.i.i.i, align 8
+  call void @g_free(ptr noundef %62) #25
+  %buffer.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 88
+  %63 = load ptr, ptr %buffer.i.i.i, align 8
+  call void @g_free(ptr noundef %63) #25
+  %size.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i.i, i8 0, i64 16, i1 false)
+  call void @g_free(ptr noundef nonnull %retval.0.i1124.i) #25
+  br label %audio_pcm_create_voice_pair_in.exit.thread
+
+audio_pcm_create_voice_pair_in.exit.thread:       ; preds = %if.then6.i, %audio_pcm_hw_del_sw_in.exit.i, %if.end.i.i
+  call void @g_free(ptr noundef %call2.i) #25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hw_as.i)
+  br label %return
+
+audio_pcm_create_voice_pair_in.exit:              ; preds = %audio_pcm_hw_add_sw_in.exit.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hw_as.i)
+  br label %if.end45
+
+if.end45:                                         ; preds = %audio_pcm_create_voice_pair_in.exit, %audio_pcm_sw_fini_in.exit
+  %sw.addr.2 = phi ptr [ %sw, %audio_pcm_sw_fini_in.exit ], [ %call2.i, %audio_pcm_create_voice_pair_in.exit ]
   store ptr %card, ptr %sw.addr.2, align 8
   %vol = getelementptr inbounds i8, ptr %sw.addr.2, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vol, ptr noundef nonnull align 8 dereferenceable(24) @nominal_volume, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vol, ptr noundef nonnull align 8 dereferenceable(24) @nominal_volume, i64 24, i1 false)
   %callback = getelementptr inbounds i8, ptr %sw.addr.2, i64 136
   %fn = getelementptr inbounds i8, ptr %sw.addr.2, i64 144
   store ptr %callback_fn, ptr %fn, align 8
   store ptr %callback_opaque, ptr %callback, align 8
   br label %return
 
-fail:                                             ; preds = %if.end36, %if.then32, %if.then16, %if.then10, %if.then
+fail:                                             ; preds = %audio_pcm_sw_fini_in.exit, %if.then32, %if.then16, %if.then10, %if.then
   tail call void @AUD_close_in(ptr noundef %card, ptr noundef %sw)
   br label %return
 
-return:                                           ; preds = %if.else, %audio_pcm_info_eq.exit, %fail, %if.end45
-  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.2, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %if.else ]
+return:                                           ; preds = %audio_pcm_create_voice_pair_in.exit.thread, %audio_pcm_info_eq.exit, %fail, %if.end45
+  %retval.0 = phi ptr [ null, %fail ], [ %sw.addr.2, %if.end45 ], [ %sw, %audio_pcm_info_eq.exit ], [ null, %audio_pcm_create_voice_pair_in.exit.thread ]
   ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_pcm_sw_fini_in(ptr nocapture noundef %sw) unnamed_addr #5 {
-entry:
-  %buffer.i = getelementptr inbounds i8, ptr %sw, i64 80
-  %0 = load ptr, ptr %buffer.i, align 8
-  tail call void @g_free(ptr noundef %0) #24
-  %size.i = getelementptr inbounds i8, ptr %sw, i64 72
-  %rate.i = getelementptr inbounds i8, ptr %sw, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i, i8 0, i64 16, i1 false)
-  %1 = load ptr, ptr %rate.i, align 8
-  %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %audio_pcm_sw_free_resources_in.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  tail call void @st_rate_stop(ptr noundef nonnull %1) #24
-  br label %audio_pcm_sw_free_resources_in.exit
-
-audio_pcm_sw_free_resources_in.exit:              ; preds = %entry, %if.then.i
-  store ptr null, ptr %rate.i, align 8
-  %name = getelementptr inbounds i8, ptr %sw, i64 104
-  %2 = load ptr, ptr %name, align 8
-  tail call void @g_free(ptr noundef %2) #24
-  store ptr null, ptr %name, align 8
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_in(ptr nocapture noundef %sw, ptr noundef %hw, ptr noundef %name, ptr nocapture noundef readonly %as) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_in(ptr nocapture noundef %sw, ptr noundef %hw, ptr noundef %name, ptr nocapture noundef readonly %as) unnamed_addr #6 {
 entry:
   %fmt.i = getelementptr inbounds i8, ptr %as, i64 8
   %0 = load i32, ptr %fmt.i, align 4
@@ -1771,13 +2010,13 @@ entry:
   br i1 %1, label %switch.lookup, label %sw.default.i
 
 sw.default.i:                                     ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 switch.lookup:                                    ; preds = %entry
   %info = getelementptr inbounds i8, ptr %sw, i64 20
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = zext nneg i32 %0 to i64
   %switch.gep24 = getelementptr inbounds [7 x i32], ptr @switch.table.audio_buffer_bytes, i64 0, i64 %3
@@ -1869,7 +2108,7 @@ if.end:                                           ; preds = %audio_bits_to_index
   %9 = load ptr, ptr %arrayidx19.sink, align 8
   %clip20 = getelementptr inbounds i8, ptr %sw, i64 88
   store ptr %9, ptr %clip20, align 8
-  %call21 = tail call noalias ptr @g_strdup(ptr noundef %name) #24
+  %call21 = tail call noalias ptr @g_strdup(ptr noundef %name) #25
   %name22 = getelementptr inbounds i8, ptr %sw, i64 104
   store ptr %call21, ptr %name22, align 8
   %10 = load ptr, ptr %hw1, align 8
@@ -1883,7 +2122,7 @@ if.end:                                           ; preds = %audio_bits_to_index
   br i1 %switch.i.i, label %audio_get_pdo_in.exit.i, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.end
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_in.exit.i:                          ; preds = %if.end
@@ -1920,13 +2159,13 @@ if.then16.i:                                      ; preds = %if.then5.i
   %add.i = add i64 %15, -1
   %sub.i = add i64 %add.i, %conv.i20
   %div.i = udiv i64 %sub.i, %15
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %16, ptr noundef %call21, i64 noundef %div.i) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %16, ptr noundef %call21, i64 noundef %div.i) #25
   %.pre = load ptr, ptr %name22, align 8
   br label %if.then25
 
 if.end20.i:                                       ; preds = %if.end.i
   %cond.i = tail call i64 @llvm.uadd.sat.i64(i64 %conv3.i.i, i64 1)
-  %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %cond.i, i64 noundef 16) #25
+  %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %cond.i, i64 noundef 16) #26
   %resample_buf.i = getelementptr inbounds i8, ptr %sw, i64 64
   %buffer.i = getelementptr inbounds i8, ptr %sw, i64 80
   store ptr %call24.i, ptr %buffer.i, align 8
@@ -1935,14 +2174,14 @@ if.end20.i:                                       ; preds = %if.end.i
   store i64 0, ptr %resample_buf.i, align 8
   %19 = load i32, ptr %freq3.i, align 8
   %20 = load i32, ptr %freq7.i, align 4
-  %call32.i = tail call ptr @st_rate_start(i32 noundef %19, i32 noundef %20) #24
+  %call32.i = tail call ptr @st_rate_start(i32 noundef %19, i32 noundef %20) #25
   %rate.i = getelementptr inbounds i8, ptr %sw, i64 48
   store ptr %call32.i, ptr %rate.i, align 8
   br label %if.end28
 
 if.then25:                                        ; preds = %if.then16.i, %if.then5.i
   %21 = phi ptr [ %.pre, %if.then16.i ], [ %call21, %if.then5.i ]
-  tail call void @g_free(ptr noundef %21) #24
+  tail call void @g_free(ptr noundef %21) #25
   store ptr null, ptr %name22, align 8
   br label %if.end28
 
@@ -1951,281 +2190,8 @@ if.end28:                                         ; preds = %audio_get_pdo_in.ex
   ret i32 %retval.0.i1823
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_pcm_create_voice_pair_in(ptr noundef %s, ptr noundef %sw_name, ptr nocapture noundef readonly %as) unnamed_addr #5 {
-entry:
-  %hw_as = alloca %struct.audsettings, align 8
-  %dev = getelementptr inbounds i8, ptr %s, i64 8
-  %0 = load ptr, ptr %dev, align 8
-  %driver.i = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load i32, ptr %driver.i, align 8
-  %switch.i = icmp ult i32 %1, 4
-  br i1 %switch.i, label %audio_get_pdo_in.exit, label %sw.epilog.i
-
-sw.epilog.i:                                      ; preds = %entry
-  tail call void @abort() #23
-  unreachable
-
-audio_get_pdo_in.exit:                            ; preds = %entry
-  %retval.0.in.i = getelementptr inbounds i8, ptr %0, i64 24
-  %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %fixed_settings = getelementptr inbounds i8, ptr %retval.0.i, i64 3
-  %2 = load i8, ptr %fixed_settings, align 1
-  %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %audio_get_pdo_in.exit
-  %frequency.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  %3 = load i32, ptr %frequency.i, align 4
-  %channels.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
-  %4 = load i32, ptr %channels.i, align 4
-  %format.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
-  %5 = load i32, ptr %format.i, align 4
-  %retval.sroa.2.0.insert.ext.i = zext i32 %4 to i64
-  %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
-  %retval.sroa.0.0.insert.ext.i = zext i32 %3 to i64
-  %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
-  %retval.sroa.3.8.insert.ext.i = zext i32 %5 to i64
-  store i64 %retval.sroa.0.0.insert.insert.i, ptr %hw_as, align 8
-  %tmp.sroa.2.0.hw_as.sroa_idx = getelementptr inbounds i8, ptr %hw_as, i64 8
-  store i64 %retval.sroa.3.8.insert.ext.i, ptr %tmp.sroa.2.0.hw_as.sroa_idx, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %audio_get_pdo_in.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hw_as, ptr noundef nonnull align 4 dereferenceable(16) %as, i64 16, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %call2 = tail call noalias dereferenceable_or_null(168) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 168) #25
-  %s3 = getelementptr inbounds i8, ptr %call2, i64 8
-  store ptr %s, ptr %s3, align 8
-  %6 = load ptr, ptr %dev, align 8
-  %driver.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load i32, ptr %driver.i.i, align 8
-  %switch.i.i = icmp ult i32 %7, 4
-  br i1 %switch.i.i, label %audio_get_pdo_in.exit.i, label %sw.epilog.i.i
-
-sw.epilog.i.i:                                    ; preds = %if.end
-  tail call void @abort() #23
-  unreachable
-
-audio_get_pdo_in.exit.i:                          ; preds = %if.end
-  %retval.0.in.i.i = getelementptr inbounds i8, ptr %6, i64 24
-  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %mixing_engine.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1
-  %8 = load i8, ptr %mixing_engine.i, align 1
-  %tobool.i = trunc i8 %8 to i1
-  br i1 %tobool.i, label %lor.lhs.false.i, label %if.then.i
-
-lor.lhs.false.i:                                  ; preds = %audio_get_pdo_in.exit.i
-  %fixed_settings.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 3
-  %9 = load i8, ptr %fixed_settings.i, align 1
-  %tobool1.i = trunc i8 %9 to i1
-  br i1 %tobool1.i, label %if.then.i, label %if.end8.i
-
-if.then.i:                                        ; preds = %lor.lhs.false.i, %audio_get_pdo_in.exit.i
-  %call2.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %s, ptr noundef nonnull %hw_as)
-  %10 = load i8, ptr %mixing_engine.i, align 1
-  %tobool4.i = trunc i8 %10 to i1
-  %tobool6.i = icmp eq ptr %call2.i, null
-  %or.cond.not.i = and i1 %tobool6.i, %tobool4.i
-  br i1 %or.cond.not.i, label %if.end8.i, label %audio_pcm_hw_add_in.exit
-
-if.end8.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %hw_head_in.i.i.i = getelementptr inbounds i8, ptr %s, i64 40
-  %fmt.i.i.i = getelementptr inbounds i8, ptr %hw_as, i64 8
-  %nchannels8.i.i.i = getelementptr inbounds i8, ptr %hw_as, i64 4
-  %endianness.i.i.i = getelementptr inbounds i8, ptr %hw_as, i64 12
-  %11 = load i32, ptr %fmt.i.i.i, align 8
-  %12 = load i32, ptr %hw_as, align 8
-  %13 = load i32, ptr %nchannels8.i.i.i, align 4
-  %14 = load i32, ptr %endianness.i.i.i, align 4
-  %cmp28.i.i.i = icmp ne i32 %14, 0
-  %conv29.i.i.i = zext i1 %cmp28.i.i.i to i32
-  %15 = icmp ult i32 %11, 7
-  %16 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %16
-  %17 = zext nneg i32 %11 to i64
-  %switch.gep33 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.19, i64 0, i64 %17
-  %18 = zext nneg i32 %11 to i64
-  %switch.gep35 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.20, i64 0, i64 %18
-  br label %while.cond.i.i
-
-while.cond.i.i:                                   ; preds = %audio_pcm_info_eq.exit.i.i, %if.end8.i
-  %hw.addr.0.i.i = phi ptr [ null, %if.end8.i ], [ %cond.i.i.i, %audio_pcm_info_eq.exit.i.i ]
-  %tobool.not.i.i.i = icmp eq ptr %hw.addr.0.i.i, null
-  %entries.i.i.i = getelementptr inbounds i8, ptr %hw.addr.0.i.i, i64 152
-  %cond.in.i.i.i = select i1 %tobool.not.i.i.i, ptr %hw_head_in.i.i.i, ptr %entries.i.i.i
-  %cond.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %cond.i.i.i, null
-  br i1 %tobool.not.i.i, label %if.end12.i, label %while.body.i.i
-
-while.body.i.i:                                   ; preds = %while.cond.i.i
-  %info.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 16
-  br i1 %15, label %switch.lookup, label %sw.default.i.i.i
-
-sw.default.i.i.i:                                 ; preds = %while.body.i.i
-  call void @abort() #23
-  unreachable
-
-switch.lookup:                                    ; preds = %while.body.i.i
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.load34 = load i32, ptr %switch.gep33, align 4
-  %switch.load36 = load i32, ptr %switch.gep35, align 4
-  %freq.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 24
-  %19 = load i32, ptr %freq.i.i.i, align 4
-  %cmp.i.i.i = icmp eq i32 %19, %12
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true.i.i.i:                              ; preds = %switch.lookup
-  %nchannels.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 28
-  %20 = load i32, ptr %nchannels.i.i.i, align 4
-  %cmp9.i.i.i = icmp eq i32 %20, %13
-  br i1 %cmp9.i.i.i, label %land.lhs.true10.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true10.i.i.i:                            ; preds = %land.lhs.true.i.i.i
-  %is_signed11.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 20
-  %21 = load i8, ptr %is_signed11.i.i.i, align 4
-  %22 = and i8 %21, 1
-  %conv.i.i.i = zext nneg i8 %22 to i32
-  %cmp14.i.i.i = icmp eq i32 %switch.load34, %conv.i.i.i
-  br i1 %cmp14.i.i.i, label %land.lhs.true16.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true16.i.i.i:                            ; preds = %land.lhs.true10.i.i.i
-  %is_float17.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 21
-  %23 = load i8, ptr %is_float17.i.i.i, align 1
-  %24 = and i8 %23, 1
-  %conv19.i.i.i = zext nneg i8 %24 to i32
-  %cmp22.i.i.i = icmp eq i32 %switch.load36, %conv19.i.i.i
-  br i1 %cmp22.i.i.i, label %land.lhs.true24.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.lhs.true24.i.i.i:                            ; preds = %land.lhs.true16.i.i.i
-  %25 = load i32, ptr %info.i.i, align 4
-  %cmp26.i.i.i = icmp eq i32 %25, %switch.load
-  br i1 %cmp26.i.i.i, label %land.rhs.i.i.i, label %audio_pcm_info_eq.exit.i.i
-
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true24.i.i.i
-  %swap_endianness.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 40
-  %26 = load i32, ptr %swap_endianness.i.i.i, align 4
-  %cmp30.i.i.i = icmp eq i32 %26, %conv29.i.i.i
-  %27 = zext i1 %cmp30.i.i.i to i32
-  br label %audio_pcm_info_eq.exit.i.i
-
-audio_pcm_info_eq.exit.i.i:                       ; preds = %land.rhs.i.i.i, %land.lhs.true24.i.i.i, %land.lhs.true16.i.i.i, %land.lhs.true10.i.i.i, %land.lhs.true.i.i.i, %switch.lookup
-  %land.ext.i.i.i = phi i32 [ 0, %land.lhs.true24.i.i.i ], [ 0, %land.lhs.true16.i.i.i ], [ 0, %land.lhs.true10.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ 0, %switch.lookup ], [ %27, %land.rhs.i.i.i ]
-  %tobool2.not.i.i = icmp eq i32 %land.ext.i.i.i, 0
-  br i1 %tobool2.not.i.i, label %while.cond.i.i, label %if.end7, !llvm.loop !9
-
-if.end12.i:                                       ; preds = %while.cond.i.i
-  %call13.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef %s, ptr noundef nonnull %hw_as)
-  %tobool14.not.i = icmp eq ptr %call13.i, null
-  br i1 %tobool14.not.i, label %if.end16.i, label %if.end7
-
-if.end16.i:                                       ; preds = %if.end12.i
-  %cond.i.i = load ptr, ptr %hw_head_in.i.i.i, align 8
-  br label %audio_pcm_hw_add_in.exit
-
-audio_pcm_hw_add_in.exit:                         ; preds = %if.then.i, %if.end16.i
-  %retval.0.i11 = phi ptr [ %cond.i.i, %if.end16.i ], [ %call2.i, %if.then.i ]
-  %tobool5.not = icmp eq ptr %retval.0.i11, null
-  br i1 %tobool5.not, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %audio_pcm_hw_add_in.exit
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.51, ptr noundef %sw_name)
-  br label %err1
-
-if.end7:                                          ; preds = %audio_pcm_info_eq.exit.i.i, %if.end12.i, %audio_pcm_hw_add_in.exit
-  %retval.0.i1124 = phi ptr [ %retval.0.i11, %audio_pcm_hw_add_in.exit ], [ %call13.i, %if.end12.i ], [ %cond.i.i.i, %audio_pcm_info_eq.exit.i.i ]
-  %sw_head.i = getelementptr inbounds i8, ptr %retval.0.i1124, i64 136
-  %28 = load ptr, ptr %sw_head.i, align 8
-  %entries.i = getelementptr inbounds i8, ptr %call2, i64 152
-  store ptr %28, ptr %entries.i, align 8
-  %cmp.not.i = icmp eq ptr %28, null
-  br i1 %cmp.not.i, label %audio_pcm_hw_add_sw_in.exit, label %if.then.i12
-
-if.then.i12:                                      ; preds = %if.end7
-  %le_prev.i = getelementptr inbounds i8, ptr %28, i64 160
-  store ptr %entries.i, ptr %le_prev.i, align 8
-  br label %audio_pcm_hw_add_sw_in.exit
-
-audio_pcm_hw_add_sw_in.exit:                      ; preds = %if.end7, %if.then.i12
-  store ptr %call2, ptr %sw_head.i, align 8
-  %le_prev11.i = getelementptr inbounds i8, ptr %call2, i64 160
-  store ptr %sw_head.i, ptr %le_prev11.i, align 8
-  %call8 = call fastcc i32 @audio_pcm_sw_init_in(ptr noundef nonnull %call2, ptr noundef nonnull %retval.0.i1124, ptr noundef %sw_name, ptr noundef %as)
-  %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %return, label %err2
-
-err2:                                             ; preds = %audio_pcm_hw_add_sw_in.exit
-  %29 = load ptr, ptr %entries.i, align 8
-  %cmp.not.i14 = icmp eq ptr %29, null
-  %.pre7.i = load ptr, ptr %le_prev11.i, align 8
-  br i1 %cmp.not.i14, label %audio_pcm_hw_del_sw_in.exit, label %if.then.i15
-
-if.then.i15:                                      ; preds = %err2
-  %le_prev5.i = getelementptr inbounds i8, ptr %29, i64 160
-  store ptr %.pre7.i, ptr %le_prev5.i, align 8
-  %.pre.i = load ptr, ptr %entries.i, align 8
-  br label %audio_pcm_hw_del_sw_in.exit
-
-audio_pcm_hw_del_sw_in.exit:                      ; preds = %err2, %if.then.i15
-  %30 = phi ptr [ %.pre.i, %if.then.i15 ], [ null, %err2 ]
-  store ptr %30, ptr %.pre7.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i, i8 0, i64 16, i1 false)
-  %31 = load ptr, ptr %retval.0.i1124, align 8
-  %32 = load ptr, ptr %sw_head.i, align 8
-  %tobool.not.i = icmp eq ptr %32, null
-  br i1 %tobool.not.i, label %do.body.i, label %err1
-
-do.body.i:                                        ; preds = %audio_pcm_hw_del_sw_in.exit
-  %entries.i18 = getelementptr inbounds i8, ptr %retval.0.i1124, i64 152
-  %33 = load ptr, ptr %entries.i18, align 8
-  %cmp.not.i19 = icmp eq ptr %33, null
-  %le_prev11.phi.trans.insert.i = getelementptr inbounds i8, ptr %retval.0.i1124, i64 160
-  %.pre14.i = load ptr, ptr %le_prev11.phi.trans.insert.i, align 8
-  br i1 %cmp.not.i19, label %if.end.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %do.body.i
-  %le_prev7.i = getelementptr inbounds i8, ptr %33, i64 160
-  store ptr %.pre14.i, ptr %le_prev7.i, align 8
-  %.pre.i20 = load ptr, ptr %entries.i18, align 8
-  br label %if.end.i
-
-if.end.i:                                         ; preds = %if.then2.i, %do.body.i
-  %34 = phi ptr [ %.pre.i20, %if.then2.i ], [ null, %do.body.i ]
-  store ptr %34, ptr %.pre14.i, align 8
-  %pcm_ops.i = getelementptr inbounds i8, ptr %retval.0.i1124, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i18, i8 0, i64 16, i1 false)
-  %35 = load ptr, ptr %pcm_ops.i, align 8
-  %fini_in.i = getelementptr inbounds i8, ptr %35, i64 80
-  %36 = load ptr, ptr %fini_in.i, align 8
-  call void %36(ptr noundef nonnull %retval.0.i1124) #24
-  %nb_hw_voices_in.i = getelementptr inbounds i8, ptr %31, i64 68
-  %37 = load i32, ptr %nb_hw_voices_in.i, align 4
-  %add.i = add i32 %37, 1
-  store i32 %add.i, ptr %nb_hw_voices_in.i, align 4
-  %buf_emul.i.i = getelementptr inbounds i8, ptr %retval.0.i1124, i64 96
-  %38 = load ptr, ptr %buf_emul.i.i, align 8
-  call void @g_free(ptr noundef %38) #24
-  %buffer.i.i = getelementptr inbounds i8, ptr %retval.0.i1124, i64 88
-  %39 = load ptr, ptr %buffer.i.i, align 8
-  call void @g_free(ptr noundef %39) #24
-  %size.i.i = getelementptr inbounds i8, ptr %retval.0.i1124, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
-  call void @g_free(ptr noundef nonnull %retval.0.i1124) #24
-  br label %err1
-
-err1:                                             ; preds = %if.end.i, %audio_pcm_hw_del_sw_in.exit, %if.then6
-  call void @g_free(ptr noundef %call2) #24
-  br label %return
-
-return:                                           ; preds = %audio_pcm_hw_add_sw_in.exit, %err1
-  %retval.0 = phi ptr [ null, %err1 ], [ %call2, %audio_pcm_hw_add_sw_in.exit ]
-  ret ptr %retval.0
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @AUD_is_active_in(ptr noundef readonly %sw) local_unnamed_addr #7 {
+define dso_local i32 @AUD_is_active_in(ptr noundef readonly %sw) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -2241,7 +2207,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @AUD_init_time_stamp_in(ptr noundef readonly %sw, ptr nocapture noundef writeonly %ts) local_unnamed_addr #8 {
+define dso_local void @AUD_init_time_stamp_in(ptr noundef readonly %sw, ptr nocapture noundef writeonly %ts) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2259,7 +2225,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @AUD_get_elapsed_usec_in(ptr noundef readonly %sw, ptr nocapture noundef readonly %ts) local_unnamed_addr #9 {
+define dso_local i64 @AUD_get_elapsed_usec_in(ptr noundef readonly %sw, ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2294,7 +2260,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @AUD_write(ptr noundef %sw, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #5 {
+define dso_local i64 @AUD_write(ptr noundef %sw, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %frames_in.i.i = alloca i64, align 8
   %frames_out.i.i = alloca i64, align 8
@@ -2327,7 +2293,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %switch.i, label %audio_get_pdo_out.exit, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end6
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit:                           ; preds = %if.end6
@@ -2377,7 +2343,7 @@ if.end9.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i55.i, label %audio_pcm_hw_get_free.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end9.i
-  %call.i.i = tail call i64 %11(ptr noundef nonnull %0) #24
+  %call.i.i = tail call i64 %11(ptr noundef nonnull %0) #25
   br label %audio_pcm_hw_get_free.exit.i
 
 audio_pcm_hw_get_free.exit.i:                     ; preds = %cond.true.i.i, %if.end9.i
@@ -2391,7 +2357,7 @@ audio_pcm_hw_get_free.exit.i:                     ; preds = %cond.true.i.i, %if.
   %rate.i = getelementptr inbounds i8, ptr %sw, i64 80
   %13 = load ptr, ptr %rate.i, align 8
   %conv22.i = trunc i64 %cond21.i to i32
-  %call23.i = tail call i32 @st_rate_frames_in(ptr noundef %13, i32 noundef %conv22.i) #24
+  %call23.i = tail call i32 @st_rate_frames_in(ptr noundef %13, i32 noundef %conv22.i) #25
   %conv24.i = zext i32 %call23.i to i64
   %bytes_per_frame.i = getelementptr inbounds i8, ptr %sw, i64 32
   %14 = load i32, ptr %bytes_per_frame.i, align 8
@@ -2419,7 +2385,7 @@ if.then49.i:                                      ; preds = %if.end44.i
   %add.ptr.i = getelementptr %struct.st_sample, ptr %18, i64 %15
   %sub56.i = sub nuw nsw i64 %cond41.i, %15
   %conv57.i = trunc nuw i64 %sub56.i to i32
-  tail call void %17(ptr noundef %add.ptr.i, ptr noundef %buf, i32 noundef %conv57.i) #24
+  tail call void %17(ptr noundef %add.ptr.i, ptr noundef %buf, i32 noundef %conv57.i) #25
   %19 = load ptr, ptr %hw1, align 8
   %pcm_ops.i = getelementptr inbounds i8, ptr %19, i64 144
   %20 = load ptr, ptr %pcm_ops.i, align 8
@@ -2435,7 +2401,7 @@ if.then60.i:                                      ; preds = %if.then49.i
   %sub68.i = sub i64 %cond41.i, %23
   %conv69.i = trunc i64 %sub68.i to i32
   %vol.i = getelementptr inbounds i8, ptr %sw, i64 120
-  tail call void @mixeng_volume(ptr noundef %add.ptr65.i, i32 noundef %conv69.i, ptr noundef nonnull %vol.i) #24
+  tail call void @mixeng_volume(ptr noundef %add.ptr65.i, i32 noundef %conv69.i, ptr noundef nonnull %vol.i) #25
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then60.i, %if.then49.i, %if.end44.i
@@ -2459,7 +2425,7 @@ if.end71.i:                                       ; preds = %if.then60.i, %if.th
   %cond.i56.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %cond21.i)
   store i64 %cond.i56.i, ptr %frames_out.i.i, align 8
   %30 = load ptr, ptr %rate.i, align 8
-  call void @st_rate_flow_mix(ptr noundef %30, ptr noundef %28, ptr noundef %add.ptr.i.i, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #24
+  call void @st_rate_flow_mix(ptr noundef %30, ptr noundef %28, ptr noundef %add.ptr.i.i, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #25
   %31 = load i64, ptr %frames_out.i.i, align 8
   %32 = load i64, ptr %frames_in.i.i, align 8
   %sub8.i.i = sub i64 %cond41.i, %32
@@ -2479,7 +2445,7 @@ if.then.i58.i:                                    ; preds = %land.lhs.true.i.i
   %sub17.i.i = sub i64 %cond21.i, %31
   store i64 %sub17.i.i, ptr %frames_out.i.i, align 8
   %35 = load ptr, ptr %rate.i, align 8
-  call void @st_rate_flow_mix(ptr noundef %35, ptr noundef %add.ptr13.i.i, ptr noundef %34, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #24
+  call void @st_rate_flow_mix(ptr noundef %35, ptr noundef %add.ptr13.i.i, ptr noundef %34, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #25
   %36 = load i64, ptr %frames_in.i.i, align 8
   %add19.i.i = add i64 %36, %32
   %37 = load i64, ptr %frames_out.i.i, align 8
@@ -2538,7 +2504,7 @@ if.else:                                          ; preds = %audio_get_pdo_out.e
   %43 = load ptr, ptr %pcm_ops, align 8
   %write = getelementptr inbounds i8, ptr %43, i64 16
   %44 = load ptr, ptr %write, align 8
-  %call10 = tail call i64 %44(ptr noundef nonnull %0, ptr noundef %buf, i64 noundef %size) #24
+  %call10 = tail call i64 %44(ptr noundef nonnull %0, ptr noundef %buf, i64 noundef %size) #25
   br label %return
 
 return:                                           ; preds = %if.end103.i, %audio_pcm_hw_get_free.exit.i, %if.end.i, %if.then.i, %entry, %if.else, %if.then3
@@ -2547,7 +2513,7 @@ return:                                           ; preds = %if.end103.i, %audio
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @AUD_read(ptr noundef %sw, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #5 {
+define dso_local i64 @AUD_read(ptr noundef %sw, ptr noundef %buf, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %frames_in.i.i = alloca i64, align 8
   %frames_out.i.i = alloca i64, align 8
@@ -2580,7 +2546,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %switch.i, label %audio_get_pdo_in.exit, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end6
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_in.exit:                            ; preds = %if.end6
@@ -2650,7 +2616,7 @@ if.end6.i:                                        ; preds = %if.end.i
   store i64 %cond.i, ptr %frames_out.i.i, align 8
   %rate.i.i = getelementptr inbounds i8, ptr %sw, i64 48
   %16 = load ptr, ptr %rate.i.i, align 8
-  call void @st_rate_flow(ptr noundef %16, ptr noundef %add.ptr.i.i, ptr noundef %15, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #24
+  call void @st_rate_flow(ptr noundef %16, ptr noundef %add.ptr.i.i, ptr noundef %15, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #25
   %17 = load i64, ptr %frames_in.i.i, align 8
   %18 = load i64, ptr %frames_out.i.i, align 8
   %sub8.i.i = sub i64 %sub.i, %17
@@ -2670,7 +2636,7 @@ if.then.i21.i:                                    ; preds = %land.lhs.true.i.i
   %sub16.i.i = sub i64 %cond.i, %18
   store i64 %sub16.i.i, ptr %frames_out.i.i, align 8
   %21 = load ptr, ptr %rate.i.i, align 8
-  call void @st_rate_flow(ptr noundef %21, ptr noundef %20, ptr noundef %add.ptr15.i.i, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #24
+  call void @st_rate_flow(ptr noundef %21, ptr noundef %20, ptr noundef %add.ptr15.i.i, ptr noundef nonnull %frames_in.i.i, ptr noundef nonnull %frames_out.i.i) #25
   %22 = load i64, ptr %frames_in.i.i, align 8
   %add18.i.i = add i64 %22, %17
   %23 = load i64, ptr %frames_out.i.i, align 8
@@ -2697,7 +2663,7 @@ if.then12.i:                                      ; preds = %audio_pcm_sw_resamp
   %26 = load ptr, ptr %buffer7.i.i, align 8
   %conv14.i = trunc i64 %total_out.0.i to i32
   %vol.i = getelementptr inbounds i8, ptr %sw, i64 112
-  call void @mixeng_volume(ptr noundef %26, i32 noundef %conv14.i, ptr noundef nonnull %vol.i) #24
+  call void @mixeng_volume(ptr noundef %26, i32 noundef %conv14.i, ptr noundef nonnull %vol.i) #25
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i, %audio_pcm_sw_resample_in.exit.if.end15_crit_edge.i
@@ -2705,7 +2671,7 @@ if.end15.i:                                       ; preds = %if.then12.i, %audio
   %clip.i = getelementptr inbounds i8, ptr %sw, i64 88
   %27 = load ptr, ptr %clip.i, align 8
   %28 = load ptr, ptr %buffer7.i.i, align 8
-  call void %27(ptr noundef %buf, ptr noundef %28, i32 noundef %conv18.pre-phi.i) #24
+  call void %27(ptr noundef %buf, ptr noundef %28, i32 noundef %conv18.pre-phi.i) #25
   %29 = load i64, ptr %total_hw_samples_acquired.i, align 8
   %add.i = add i64 %29, %total_in.0.i
   store i64 %add.i, ptr %total_hw_samples_acquired.i, align 8
@@ -2719,7 +2685,7 @@ if.else:                                          ; preds = %audio_get_pdo_in.ex
   %31 = load ptr, ptr %pcm_ops, align 8
   %read = getelementptr inbounds i8, ptr %31, i64 88
   %32 = load ptr, ptr %read, align 8
-  %call10 = tail call i64 %32(ptr noundef nonnull %0, ptr noundef %buf, i64 noundef %size) #24
+  %call10 = tail call i64 %32(ptr noundef nonnull %0, ptr noundef %buf, i64 noundef %size) #25
   br label %return
 
 return:                                           ; preds = %if.end15.i, %if.then3.i, %if.then8, %entry, %if.else, %if.then3
@@ -2728,7 +2694,7 @@ return:                                           ; preds = %if.end15.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @AUD_get_buffer_size_out(ptr nocapture noundef readonly %sw) local_unnamed_addr #9 {
+define dso_local i32 @AUD_get_buffer_size_out(ptr nocapture noundef readonly %sw) local_unnamed_addr #10 {
 entry:
   %hw = getelementptr inbounds i8, ptr %sw, i64 104
   %0 = load ptr, ptr %hw, align 8
@@ -2742,7 +2708,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_set_active_out(ptr noundef %sw, i32 noundef %on) local_unnamed_addr #5 {
+define dso_local void @AUD_set_active_out(ptr noundef %sw, i32 noundef %on) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %if.end45, label %if.end
@@ -2785,7 +2751,7 @@ if.then10:                                        ; preds = %if.then7
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
-  tail call void %6(ptr noundef nonnull %0, i1 noundef zeroext true) #24
+  tail call void %6(ptr noundef nonnull %0, i1 noundef zeroext true) #25
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %if.then10
@@ -2866,7 +2832,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %14 = load ptr, ptr %cb.06.i.i, align 8
   %opaque.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 24
   %15 = load ptr, ptr %opaque.i.i, align 8
-  tail call void %14(ptr noundef %15, i32 noundef 0) #24
+  tail call void %14(ptr noundef %15, i32 noundef 0) #25
   %entries.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 32
   %cb.0.i.i = load ptr, ptr %entries.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %cb.0.i.i, null
@@ -2887,7 +2853,7 @@ if.end45:                                         ; preds = %entry, %for.end43, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_reset_timer(ptr nocapture noundef %s) unnamed_addr #5 {
+define internal fastcc void @audio_reset_timer(ptr nocapture noundef %s) unnamed_addr #6 {
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2949,11 +2915,11 @@ while.body5.i:                                    ; preds = %while.body.i11.i
 if.then:                                          ; preds = %while.body.i, %while.body5.i
   %ts = getelementptr inbounds i8, ptr %s, i64 24
   %4 = load ptr, ptr %ts, align 8
-  %call1 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call1 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %period_ticks = getelementptr inbounds i8, ptr %s, i64 80
   %5 = load i64, ptr %period_ticks, align 8
   %add = add i64 %5, %call1
-  tail call void @timer_mod_anticipate_ns(ptr noundef %4, i64 noundef %add) #24
+  tail call void @timer_mod_anticipate_ns(ptr noundef %4, i64 noundef %add) #25
   %timer_running = getelementptr inbounds i8, ptr %s, i64 88
   %6 = load i8, ptr %timer_running, align 8
   %tobool2 = trunc i8 %6 to i1
@@ -2961,7 +2927,7 @@ if.then:                                          ; preds = %while.body.i, %whil
 
 if.then3:                                         ; preds = %if.then
   store i8 1, ptr %timer_running, align 8
-  %call5 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call5 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %timer_last = getelementptr inbounds i8, ptr %s, i64 96
   store i64 %call5, ptr %timer_last, align 8
   %7 = load i64, ptr %period_ticks, align 8
@@ -2987,16 +2953,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #24
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #25
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #25
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv) #25
   br label %trace_audio_timer_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %conv) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %conv) #25
   br label %trace_audio_timer_start.exit
 
 trace_audio_timer_start.exit:                     ; preds = %if.then3, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3006,7 +2972,7 @@ trace_audio_timer_start.exit:                     ; preds = %if.then3, %land.lhs
 if.else:                                          ; preds = %while.cond.i4.i
   %ts7 = getelementptr inbounds i8, ptr %s, i64 24
   %14 = load ptr, ptr %ts7, align 8
-  tail call void @timer_del(ptr noundef %14) #24
+  tail call void @timer_del(ptr noundef %14) #25
   %timer_running8 = getelementptr inbounds i8, ptr %s, i64 88
   %15 = load i8, ptr %timer_running8, align 8
   %tobool9 = trunc i8 %15 to i1
@@ -3034,16 +3000,16 @@ if.then.i.i17:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i18, label %if.then8.i.i20, label %if.else.i.i19
 
 if.then8.i.i20:                                   ; preds = %if.then.i.i17
-  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #24
-  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #24
+  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #25
+  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #25
   %20 = load i64, ptr %_now.i.i10, align 8
   %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %21 = load i64, ptr %tv_usec.i.i23, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i22, i64 noundef %20, i64 noundef %21) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i22, i64 noundef %20, i64 noundef %21) #25
   br label %trace_audio_timer_stop.exit
 
 if.else.i.i19:                                    ; preds = %if.then.i.i17
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62) #25
   br label %trace_audio_timer_stop.exit
 
 trace_audio_timer_stop.exit:                      ; preds = %if.then10, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
@@ -3055,7 +3021,7 @@ if.end13:                                         ; preds = %if.else, %trace_aud
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_set_active_in(ptr noundef %sw, i32 noundef %on) local_unnamed_addr #5 {
+define dso_local void @AUD_set_active_in(ptr noundef %sw, i32 noundef %on) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %if.end39, label %if.end
@@ -3096,7 +3062,7 @@ if.then10:                                        ; preds = %if.then7
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
-  tail call void %6(ptr noundef nonnull %0, i1 noundef zeroext true) #24
+  tail call void %6(ptr noundef nonnull %0, i1 noundef zeroext true) #25
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %if.then10
@@ -3146,7 +3112,7 @@ if.then26:                                        ; preds = %for.end
   br i1 %tobool30.not, label %if.end37, label %if.then31
 
 if.then31:                                        ; preds = %if.then26
-  tail call void %11(ptr noundef nonnull %0, i1 noundef zeroext false) #24
+  tail call void %11(ptr noundef nonnull %0, i1 noundef zeroext false) #25
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then20, %if.else, %if.then26, %if.then31, %for.end, %if.end17
@@ -3158,7 +3124,7 @@ if.end39:                                         ; preds = %entry, %if.end37, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_run(ptr nocapture noundef readonly %s, ptr nocapture readnone %msg) local_unnamed_addr #5 {
+define dso_local void @audio_run(ptr nocapture noundef readonly %s, ptr nocapture readnone %msg) local_unnamed_addr #6 {
 entry:
   %size.i47.i = alloca i64, align 8
   %captured.i = alloca i64, align 8
@@ -3201,7 +3167,7 @@ while.body.i:                                     ; preds = %while.body.i.i
   br i1 %tobool.not.i83.i, label %audio_pcm_hw_get_free.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %while.body.i
-  %call.i.i = call i64 %2(ptr noundef nonnull %cond.i.i.i) #24
+  %call.i.i = call i64 %2(ptr noundef nonnull %cond.i.i.i) #25
   br label %audio_pcm_hw_get_free.exit.i
 
 audio_pcm_hw_get_free.exit.i:                     ; preds = %cond.true.i.i, %while.body.i
@@ -3217,7 +3183,7 @@ audio_pcm_hw_get_free.exit.i:                     ; preds = %cond.true.i.i, %whi
   br i1 %switch.i.i, label %audio_get_pdo_out.exit.i, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %audio_pcm_hw_get_free.exit.i
-  call void @abort() #23
+  call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit.i:                         ; preds = %audio_pcm_hw_get_free.exit.i
@@ -3246,7 +3212,7 @@ if.then5.i:                                       ; preds = %if.then.i
   br i1 %tobool7.not.i, label %if.end11.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then5.i
-  call void %9(ptr noundef nonnull %cond.i.i.i, i1 noundef zeroext false) #24
+  call void %9(ptr noundef nonnull %cond.i.i.i, i1 noundef zeroext false) #25
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %if.then5.i, %if.then.i
@@ -3264,7 +3230,7 @@ if.then13.i:                                      ; preds = %if.end11.i
   %13 = load i32, ptr %bytes_per_frame.i, align 8
   %14 = trunc i64 %div.i.i to i32
   %conv15.i = mul i32 %13, %14
-  call void %11(ptr noundef %12, i32 noundef %conv15.i) #24
+  call void %11(ptr noundef %12, i32 noundef %conv15.i) #25
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then13.i, %if.end11.i
@@ -3275,7 +3241,7 @@ if.end16.i:                                       ; preds = %if.then13.i, %if.en
   br i1 %tobool18.not.i, label %while.cond.i.i.backedge, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end16.i
-  call void %16(ptr noundef nonnull %cond.i.i.i) #24
+  call void %16(ptr noundef nonnull %cond.i.i.i) #25
   br label %while.cond.i.i.backedge
 
 if.end23.i:                                       ; preds = %audio_get_pdo_out.exit.i
@@ -3335,7 +3301,7 @@ if.end39.i:                                       ; preds = %audio_get_free.exit
   %sub.i = sub nuw i64 %div.i.i, %23
   %cond.i = call i64 @llvm.umin.i64(i64 %retval.0.i84.i, i64 %sub.i)
   %conv36.i = trunc i64 %cond.i to i32
-  %call37.i = call i32 @st_rate_frames_in(ptr noundef %24, i32 noundef %conv36.i) #24
+  %call37.i = call i32 @st_rate_frames_in(ptr noundef %24, i32 noundef %conv36.i) #25
   %conv38.i = zext i32 %call37.i to i64
   %resample_buf.i = getelementptr inbounds i8, ptr %sw.0145.i, i64 56
   %25 = load i64, ptr %resample_buf.i, align 8
@@ -3355,7 +3321,7 @@ if.then42.i:                                      ; preds = %if.end39.i
   %29 = load i32, ptr %bytes_per_frame59.i, align 8
   %30 = trunc i64 %sub53.i to i32
   %conv62.i = mul i32 %29, %30
-  call void %27(ptr noundef %28, i32 noundef %conv62.i) #24
+  call void %27(ptr noundef %28, i32 noundef %conv62.i) #25
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then42.i, %if.end39.i, %audio_get_free.exit.i, %for.body.i
@@ -3410,7 +3376,7 @@ if.then81.i:                                      ; preds = %if.end77.i
   br i1 %tobool86.not.i, label %if.end90.i, label %if.then87.i
 
 if.then87.i:                                      ; preds = %if.then81.i
-  call void %36(ptr noundef nonnull %cond.i.i.i, i1 noundef zeroext false) #24
+  call void %36(ptr noundef nonnull %cond.i.i.i, i1 noundef zeroext false) #25
   br label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.then87.i, %if.then81.i
@@ -3454,7 +3420,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i88.i, %f
   %39 = load ptr, ptr %cb.06.i.i.i.i, align 8
   %opaque.i.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i.i, i64 24
   %40 = load ptr, ptr %opaque.i.i.i.i, align 8
-  call void %39(ptr noundef %40, i32 noundef 1) #24
+  call void %39(ptr noundef %40, i32 noundef 1) #25
   %entries.i.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i.i, i64 32
   %cb.0.i.i.i.i = load ptr, ptr %entries.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %cb.0.i.i.i.i, null
@@ -3485,7 +3451,7 @@ for.body.i.i10.i.i:                               ; preds = %if.then.i6.i.i, %fo
   %43 = load ptr, ptr %cb.06.i.i11.i.i, align 8
   %opaque.i.i12.i.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i.i, i64 24
   %44 = load ptr, ptr %opaque.i.i12.i.i, align 8
-  call void %43(ptr noundef %44, i32 noundef 0) #24
+  call void %43(ptr noundef %44, i32 noundef 0) #25
   %entries.i.i13.i.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i.i, i64 32
   %cb.0.i.i14.i.i = load ptr, ptr %entries.i.i13.i.i, align 8
   %tobool.not.i.i15.i.i = icmp eq ptr %cb.0.i.i14.i.i, null
@@ -3509,7 +3475,7 @@ if.then103.i:                                     ; preds = %if.end101.i
   br i1 %tobool106.not.i, label %while.cond.i.i.backedge, label %if.then107.i
 
 if.then107.i:                                     ; preds = %if.then103.i
-  call void %46(ptr noundef nonnull %cond.i.i.i) #24
+  call void %46(ptr noundef nonnull %cond.i.i.i) #25
   br label %while.cond.i.i.backedge
 
 if.end111.i:                                      ; preds = %if.end101.i
@@ -3530,7 +3496,7 @@ while.body.i92.i:                                 ; preds = %lor.lhs.false.i.i, 
   %49 = load ptr, ptr %pcm_ops.i.i, align 8
   %get_buffer_out.i.i = getelementptr inbounds i8, ptr %49, i64 40
   %50 = load ptr, ptr %get_buffer_out.i.i, align 8
-  %call.i94.i = call ptr %50(ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull %size.i89.i) #24
+  %call.i94.i = call ptr %50(ptr noundef nonnull %cond.i.i.i, ptr noundef nonnull %size.i89.i) #25
   %51 = load i64, ptr %size.i89.i, align 8
   %cmp.i.i = icmp eq i64 %51, 0
   br i1 %cmp.i.i, label %while.end.i.i, label %if.end.i95.i
@@ -3566,7 +3532,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %cond.i.i98.i = call i64 @llvm.umin.i64(i64 %len.addr.019.i.i.i, i64 %sub.i.i.i)
   %58 = load ptr, ptr %clip.i.i.i, align 8
   %conv6.i.i.i = trunc i64 %cond.i.i98.i to i32
-  call void %58(ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i, i32 noundef %conv6.i.i.i) #24
+  call void %58(ptr noundef %add.ptr.i.i.i.i, ptr noundef %add.ptr.i.i.i, i32 noundef %conv6.i.i.i) #25
   %add.i.i.i = add i64 %cond.i.i98.i, %pos.017.i.i.i
   %59 = load i64, ptr %size69.i, align 8
   %rem.i.i.i = urem i64 %add.i.i.i, %59
@@ -3586,7 +3552,7 @@ if.end9.i.i:                                      ; preds = %if.end9.loopexit.i.
   %put_buffer_out.i.i = getelementptr inbounds i8, ptr %60, i64 48
   %61 = load ptr, ptr %put_buffer_out.i.i, align 8
   %mul14.i.i = mul i64 %conv13.pre-phi.i.i, %cond.i97.i
-  %call15.i.i = call i64 %61(ptr noundef nonnull %cond.i.i.i, ptr noundef %call.i94.i, i64 noundef %mul14.i.i) #24
+  %call15.i.i = call i64 %61(ptr noundef nonnull %cond.i.i.i, ptr noundef %call.i94.i, i64 noundef %mul14.i.i) #25
   %62 = load i32, ptr %bytes_per_frame.i.i, align 4
   %conv18.i.i = sext i32 %62 to i64
   %div19.i.i = udiv i64 %call15.i.i, %conv18.i.i
@@ -3615,13 +3581,13 @@ while.end.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   br i1 %tobool32.not.i.i, label %audio_pcm_hw_run_out.exit.i, label %if.then33.i.i
 
 if.then33.i.i:                                    ; preds = %while.end.i.i
-  call void %66(ptr noundef nonnull %cond.i.i.i) #24
+  call void %66(ptr noundef nonnull %cond.i.i.i) #25
   br label %audio_pcm_hw_run_out.exit.i
 
 audio_pcm_hw_run_out.exit.i:                      ; preds = %if.then33.i.i, %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i89.i)
   store i64 %clipped.1.i.i, ptr %played.i, align 8
-  call void @replay_audio_out(ptr noundef nonnull %played.i) #24
+  call void @replay_audio_out(ptr noundef nonnull %played.i) #25
   %67 = load i64, ptr %mix_buf.i, align 8
   %68 = load i64, ptr %size69.i, align 8
   %cmp119.not.i = icmp ult i64 %67, %68
@@ -3708,7 +3674,7 @@ while.body.i113.i:                                ; preds = %if.end.i126.i, %whi
   %cond.i.i121.i = call i64 @llvm.umin.i64(i64 %sub.i.i120.i, i64 %sub11.i.i)
   store i64 %cond.i.i121.i, ptr %frames_out.i.i.i, align 8
   %82 = load ptr, ptr %rate.i.i.i, align 8
-  call void @st_rate_flow_mix(ptr noundef %82, ptr noundef %add.ptr.i.i, ptr noundef %add.ptr.i.i119.i, ptr noundef nonnull %frames_in.i.i.i, ptr noundef nonnull %frames_out.i.i.i) #24
+  call void @st_rate_flow_mix(ptr noundef %82, ptr noundef %add.ptr.i.i, ptr noundef %add.ptr.i.i119.i, ptr noundef nonnull %frames_in.i.i.i, ptr noundef nonnull %frames_out.i.i.i) #25
   %83 = load i64, ptr %frames_out.i.i.i, align 8
   %84 = load i64, ptr %frames_in.i.i.i, align 8
   %sub8.i.i.i = sub i64 %cond.i115.i, %84
@@ -3728,7 +3694,7 @@ if.then.i.i128.i:                                 ; preds = %land.lhs.true.i.i.i
   %sub17.i.i.i = sub i64 %sub11.i.i, %83
   store i64 %sub17.i.i.i, ptr %frames_out.i.i.i, align 8
   %87 = load ptr, ptr %rate.i.i.i, align 8
-  call void @st_rate_flow_mix(ptr noundef %87, ptr noundef %add.ptr13.i.i.i, ptr noundef %86, ptr noundef nonnull %frames_in.i.i.i, ptr noundef nonnull %frames_out.i.i.i) #24
+  call void @st_rate_flow_mix(ptr noundef %87, ptr noundef %add.ptr13.i.i.i, ptr noundef %86, ptr noundef nonnull %frames_in.i.i.i, ptr noundef nonnull %frames_out.i.i.i) #25
   %88 = load i64, ptr %frames_in.i.i.i, align 8
   %add19.i.i.i = add i64 %88, %84
   %89 = load i64, ptr %frames_out.i.i.i, align 8
@@ -3774,11 +3740,11 @@ audio_capture_mix_and_clear.exit.i:               ; preds = %for.inc.i.i, %if.th
   %93 = load ptr, ptr %buffer.i.i.i, align 8
   %add.ptr35.i.i = getelementptr %struct.st_sample, ptr %93, i64 %47
   %conv36.i.i = trunc i64 %cond32.i.i to i32
-  call void @mixeng_clear(ptr noundef %add.ptr35.i.i, i32 noundef %conv36.i.i) #24
+  call void @mixeng_clear(ptr noundef %add.ptr35.i.i, i32 noundef %conv36.i.i) #25
   %94 = load ptr, ptr %buffer.i.i.i, align 8
   %sub39.i.i = sub i64 %72, %cond32.i.i
   %conv40.i.i = trunc i64 %sub39.i.i to i32
-  call void @mixeng_clear(ptr noundef %94, i32 noundef %conv40.i.i) #24
+  call void @mixeng_clear(ptr noundef %94, i32 noundef %conv40.i.i) #25
   br label %if.end133.i
 
 if.end133.i:                                      ; preds = %audio_capture_mix_and_clear.exit.i, %if.end130.i
@@ -3855,7 +3821,7 @@ audio_run_out.exit:                               ; preds = %while.cond.i.i
   br i1 %switch.i.i5, label %audio_get_pdo_in.exit.i, label %sw.epilog.i.i6
 
 sw.epilog.i.i6:                                   ; preds = %audio_run_out.exit
-  call void @abort() #23
+  call void @abort() #24
   unreachable
 
 audio_get_pdo_in.exit.i:                          ; preds = %audio_run_out.exit
@@ -3898,7 +3864,7 @@ if.then4.i:                                       ; preds = %while.body.i22
   %fn.i25 = getelementptr inbounds i8, ptr %106, i64 144
   %108 = load ptr, ptr %fn.i25, align 8
   %109 = load ptr, ptr %callback.i24, align 8
-  call void %108(ptr noundef %109, i32 noundef 2147483647) #24
+  call void %108(ptr noundef %109, i32 noundef 2147483647) #25
   br label %while.cond.i.i12.backedge
 
 while.cond.i32.i:                                 ; preds = %audio_get_pdo_in.exit.i, %while.cond.i32.i.backedge
@@ -3991,7 +3957,7 @@ audio_pcm_hw_get_live_in.exit.i:                  ; preds = %if.then.i.i74, %aud
   br i1 %tobool.not.i48.i, label %if.end.i.i, label %if.then.i49.i
 
 if.then.i49.i:                                    ; preds = %audio_pcm_hw_get_live_in.exit.i
-  call void %118(ptr noundef nonnull %cond.i.i37.i) #24
+  call void %118(ptr noundef nonnull %cond.i.i37.i) #25
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i49.i, %audio_pcm_hw_get_live_in.exit.i
@@ -4015,7 +3981,7 @@ while.body.i50.i:                                 ; preds = %audio_pcm_hw_conv_i
   %120 = load ptr, ptr %pcm_ops.i.i31, align 8
   %get_buffer_in.i.i = getelementptr inbounds i8, ptr %120, i64 104
   %121 = load ptr, ptr %get_buffer_in.i.i, align 8
-  %call.i.i36 = call ptr %121(ptr noundef nonnull %cond.i.i37.i, ptr noundef nonnull %size.i47.i) #24
+  %call.i.i36 = call ptr %121(ptr noundef nonnull %cond.i.i37.i, ptr noundef nonnull %size.i47.i) #25
   %122 = load i64, ptr %size.i47.i, align 8
   %123 = load i32, ptr %bytes_per_frame.i.i32, align 8
   %conv8.i.i = sext i32 %123 to i64
@@ -4025,7 +3991,7 @@ while.body.i50.i:                                 ; preds = %audio_pcm_hw_conv_i
   br i1 %cmp.i.i38, label %if.end11.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i50.i
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.18, i32 noundef 1276, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_pcm_hw_run_in) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.18, i32 noundef 1276, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_pcm_hw_run_in) #24
   unreachable
 
 if.end11.i.i:                                     ; preds = %while.body.i50.i
@@ -4057,7 +4023,7 @@ while.body.i.i.i42:                               ; preds = %while.body.i.i.i42,
   %129 = load ptr, ptr %buffer.i.i.i33, align 8
   %add.ptr.i.i.i47 = getelementptr %struct.st_sample, ptr %129, i64 %124
   %conv7.i.i.i = trunc i64 %cond.i.i51.i to i32
-  call void %128(ptr noundef %add.ptr.i.i.i47, ptr noundef %add.ptr.i.i.i.i45, i32 noundef %conv7.i.i.i) #24
+  call void %128(ptr noundef %add.ptr.i.i.i47, ptr noundef %add.ptr.i.i.i.i45, i32 noundef %conv7.i.i.i) #25
   %130 = load i64, ptr %conv_buf1.i.i.i, align 8
   %add.i.i.i48 = add i64 %130, %cond.i.i51.i
   %131 = load i64, ptr %size.i26, align 8
@@ -4082,7 +4048,7 @@ audio_pcm_hw_conv_in.exit.i.i:                    ; preds = %audio_pcm_hw_conv_i
   %put_buffer_in.i.i = getelementptr inbounds i8, ptr %132, i64 112
   %133 = load ptr, ptr %put_buffer_in.i.i, align 8
   %mul24.i.i = mul i64 %conv.0.lcssa.i.i.i, %conv23.pre-phi.i.i
-  call void %133(ptr noundef nonnull %cond.i.i37.i, ptr noundef %call.i.i36, i64 noundef %mul24.i.i) #24
+  call void %133(ptr noundef nonnull %cond.i.i37.i, ptr noundef %call.i.i36, i64 noundef %mul24.i.i) #25
   %tobool3.not.i.i52 = icmp eq i64 %sub.i53.i, 0
   br i1 %tobool3.not.i.i52, label %audio_pcm_hw_run_in.exit.i, label %while.body.i50.i, !llvm.loop !29
 
@@ -4098,7 +4064,7 @@ if.end15.i:                                       ; preds = %audio_pcm_hw_run_in
   %134 = load ptr, ptr %buffer.i, align 8
   %size19.i = getelementptr inbounds i8, ptr %cond.i.i37.i, i64 80
   %135 = load i64, ptr %size19.i, align 8
-  call void @replay_audio_in(ptr noundef nonnull %captured.i, ptr noundef %134, ptr noundef nonnull %conv_buf16.i, i64 noundef %135) #24
+  call void @replay_audio_in(ptr noundef nonnull %captured.i, ptr noundef %134, ptr noundef nonnull %conv_buf16.i, i64 noundef %135) #25
   %total_samples_captured.i54.i = getelementptr inbounds i8, ptr %cond.i.i37.i, i64 56
   %136 = load i64, ptr %total_samples_captured.i54.i, align 8
   %sw_head.i.i53 = getelementptr inbounds i8, ptr %cond.i.i37.i, i64 136
@@ -4185,7 +4151,7 @@ audio_get_avail.exit.i:                           ; preds = %if.then3.i.i, %if.t
   %rate.i67 = getelementptr inbounds i8, ptr %sw11.072.i, i64 48
   %148 = load ptr, ptr %rate.i67, align 8
   %conv.i = trunc i64 %retval.0.i63.i to i32
-  %call31.i = call i32 @st_rate_frames_out(ptr noundef %148, i32 noundef %conv.i) #24
+  %call31.i = call i32 @st_rate_frames_out(ptr noundef %148, i32 noundef %conv.i) #25
   %cmp33.not.i = icmp eq i32 %call31.i, 0
   br i1 %cmp33.not.i, label %for.inc.i70, label %if.then35.i
 
@@ -4202,7 +4168,7 @@ if.then35.i:                                      ; preds = %audio_get_avail.exi
   %152 = load i32, ptr %bytes_per_frame.i69, align 4
   %153 = trunc nuw i64 %cond.i68 to i32
   %conv44.i = mul i32 %152, %153
-  call void %150(ptr noundef %151, i32 noundef %conv44.i) #24
+  call void %150(ptr noundef %151, i32 noundef %conv44.i) #25
   br label %for.inc.i70
 
 for.inc.i70:                                      ; preds = %if.then35.i, %audio_get_avail.exit.i, %for.body.i62
@@ -4247,8 +4213,8 @@ while.body.i82:                                   ; preds = %for.end.i87, %while
   %157 = load ptr, ptr %clip.i, align 8
   %158 = load ptr, ptr %buf.i, align 8
   %conv.i85 = trunc i64 %cond.i84 to i32
-  call void %157(ptr noundef %158, ptr noundef %add.ptr.i, i32 noundef %conv.i85) #24
-  call void @mixeng_clear(ptr noundef %add.ptr.i, i32 noundef %conv.i85) #24
+  call void %157(ptr noundef %158, ptr noundef %add.ptr.i, i32 noundef %conv.i85) #25
+  call void @mixeng_clear(ptr noundef %add.ptr.i, i32 noundef %conv.i85) #25
   %cb.040.i = load ptr, ptr %cb_head.i, align 8
   %tobool8.not41.i = icmp eq ptr %cb.040.i, null
   br i1 %tobool8.not41.i, label %for.end.i87, label %for.body9.i
@@ -4262,7 +4228,7 @@ for.body9.i:                                      ; preds = %while.body.i82, %fo
   %161 = load ptr, ptr %buf.i, align 8
   %162 = load i32, ptr %bytes_per_frame.i80, align 4
   %conv12.i = mul i32 %162, %conv.i85
-  call void %159(ptr noundef %160, ptr noundef %161, i32 noundef %conv12.i) #24
+  call void %159(ptr noundef %160, ptr noundef %161, i32 noundef %conv12.i) #25
   %entries.i86 = getelementptr inbounds i8, ptr %cb.042.i, i64 32
   %cb.0.i = load ptr, ptr %entries.i86, align 8
   %tobool8.not.i = icmp eq ptr %cb.0.i, null
@@ -4351,7 +4317,7 @@ audio_run_capture.exit:                           ; preds = %for.inc42.i, %audio
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_generic_run_buffer_in(ptr noundef %hw) local_unnamed_addr #5 {
+define dso_local void @audio_generic_run_buffer_in(ptr noundef %hw) local_unnamed_addr #6 {
 entry:
   %buf_emul = getelementptr inbounds i8, ptr %hw, i64 96
   %0 = load ptr, ptr %buf_emul, align 8
@@ -4372,7 +4338,7 @@ if.then:                                          ; preds = %entry
   %mul = mul i64 %1, %conv4
   %size_emul = getelementptr inbounds i8, ptr %hw, i64 120
   store i64 %mul, ptr %size_emul, align 8
-  %call = tail call noalias ptr @g_malloc(i64 noundef %mul) #26
+  %call = tail call noalias ptr @g_malloc(i64 noundef %mul) #27
   store ptr %call, ptr %buf_emul, align 8
   %pos_emul = getelementptr inbounds i8, ptr %hw, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pos_emul, i8 0, i64 16, i1 false)
@@ -4403,7 +4369,7 @@ while.body:                                       ; preds = %while.cond
   %7 = load ptr, ptr %read17, align 8
   %8 = load ptr, ptr %buf_emul, align 8
   %add.ptr = getelementptr i8, ptr %8, i64 %5
-  %call20 = tail call i64 %7(ptr noundef nonnull %hw, ptr noundef %add.ptr, i64 noundef %cond) #24
+  %call20 = tail call i64 %7(ptr noundef nonnull %hw, ptr noundef %add.ptr, i64 noundef %cond) #25
   %9 = load i64, ptr %pending_emul7, align 8
   %add = add i64 %9, %call20
   store i64 %add, ptr %pending_emul7, align 8
@@ -4420,10 +4386,10 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_generic_get_buffer_in(ptr nocapture noundef readonly %hw, ptr nocapture noundef %size) #5 {
+define dso_local ptr @audio_generic_get_buffer_in(ptr nocapture noundef readonly %hw, ptr nocapture noundef %size) #6 {
 entry:
   %pos_emul = getelementptr inbounds i8, ptr %hw, i64 104
   %0 = load i64, ptr %pos_emul, align 8
@@ -4439,7 +4405,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 1436, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_get_buffer_in) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 1436, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_get_buffer_in) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4457,10 +4423,10 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_generic_put_buffer_in(ptr nocapture noundef %hw, ptr nocapture readnone %buf, i64 noundef %size) #5 {
+define dso_local void @audio_generic_put_buffer_in(ptr nocapture noundef %hw, ptr nocapture readnone %buf, i64 noundef %size) #6 {
 entry:
   %pending_emul = getelementptr inbounds i8, ptr %hw, i64 112
   %0 = load i64, ptr %pending_emul, align 8
@@ -4468,7 +4434,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, i32 noundef 1445, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_put_buffer_in) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, i32 noundef 1445, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_put_buffer_in) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4478,7 +4444,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @audio_generic_buffer_get_free(ptr nocapture noundef readonly %hw) local_unnamed_addr #7 {
+define dso_local i64 @audio_generic_buffer_get_free(ptr nocapture noundef readonly %hw) local_unnamed_addr #8 {
 entry:
   %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %0 = load ptr, ptr %buf_emul, align 8
@@ -4508,7 +4474,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_generic_run_buffer_out(ptr noundef %hw) local_unnamed_addr #5 {
+define dso_local void @audio_generic_run_buffer_out(ptr noundef %hw) local_unnamed_addr #6 {
 entry:
   %pending_emul = getelementptr inbounds i8, ptr %hw, i64 104
   %pos_emul = getelementptr inbounds i8, ptr %hw, i64 96
@@ -4534,7 +4500,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %while.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 1464, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_run_buffer_out) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 1464, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_run_buffer_out) #24
   unreachable
 
 if.end:                                           ; preds = %while.body
@@ -4545,7 +4511,7 @@ if.end:                                           ; preds = %while.body
   %4 = load ptr, ptr %write, align 8
   %5 = load ptr, ptr %buf_emul, align 8
   %add.ptr = getelementptr i8, ptr %5, i64 %cond.i
-  %call6 = tail call i64 %4(ptr noundef nonnull %hw, ptr noundef %add.ptr, i64 noundef %cond) #24
+  %call6 = tail call i64 %4(ptr noundef nonnull %hw, ptr noundef %add.ptr, i64 noundef %cond) #25
   %6 = load i64, ptr %pending_emul, align 8
   %sub8 = sub i64 %6, %call6
   store i64 %sub8, ptr %pending_emul, align 8
@@ -4557,7 +4523,7 @@ while.end:                                        ; preds = %if.end, %while.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_generic_get_buffer_out(ptr nocapture noundef %hw, ptr nocapture noundef writeonly %size) #5 {
+define dso_local ptr @audio_generic_get_buffer_out(ptr nocapture noundef %hw, ptr nocapture noundef writeonly %size) #6 {
 entry:
   %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %0 = load ptr, ptr %buf_emul, align 8
@@ -4580,7 +4546,7 @@ if.then:                                          ; preds = %entry
   %mul = mul i64 %1, %conv4
   %size_emul = getelementptr inbounds i8, ptr %hw, i64 112
   store i64 %mul, ptr %size_emul, align 8
-  %call = tail call noalias ptr @g_malloc(i64 noundef %mul) #26
+  %call = tail call noalias ptr @g_malloc(i64 noundef %mul) #27
   store ptr %call, ptr %buf_emul, align 8
   %pos_emul = getelementptr inbounds i8, ptr %hw, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pos_emul, i8 0, i64 16, i1 false)
@@ -4603,7 +4569,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @audio_generic_put_buffer_out(ptr nocapture noundef %hw, ptr noundef readnone %buf, i64 noundef returned %size) #5 {
+define dso_local noundef i64 @audio_generic_put_buffer_out(ptr nocapture noundef %hw, ptr noundef readnone %buf, i64 noundef returned %size) #6 {
 entry:
   %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %0 = load ptr, ptr %buf_emul, align 8
@@ -4623,7 +4589,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.18, i32 noundef 1493, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_put_buffer_out) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.18, i32 noundef 1493, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_generic_put_buffer_out) #24
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
@@ -4635,7 +4601,7 @@ if.end:                                           ; preds = %land.lhs.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_generic_write(ptr noundef %hw, ptr nocapture noundef readonly %buf, i64 noundef %size) local_unnamed_addr #5 {
+define dso_local i64 @audio_generic_write(ptr noundef %hw, ptr nocapture noundef readonly %buf, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %dst_size = alloca i64, align 8
   %pcm_ops = getelementptr inbounds i8, ptr %hw, i64 144
@@ -4646,7 +4612,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 %1(ptr noundef nonnull %hw) #24
+  %call = tail call i64 %1(ptr noundef nonnull %hw) #25
   %cond = tail call i64 @llvm.umin.i64(i64 %call, i64 %size)
   br label %if.end
 
@@ -4665,7 +4631,7 @@ while.body:                                       ; preds = %while.cond
   %2 = load ptr, ptr %pcm_ops, align 8
   %get_buffer_out = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %get_buffer_out, align 8
-  %call5 = call ptr %3(ptr noundef nonnull %hw, ptr noundef nonnull %dst_size) #24
+  %call5 = call ptr %3(ptr noundef nonnull %hw, ptr noundef nonnull %dst_size) #25
   %4 = load i64, ptr %dst_size, align 8
   %cmp6 = icmp eq i64 %4, 0
   br i1 %cmp6, label %while.end, label %if.end8
@@ -4684,7 +4650,7 @@ if.end18:                                         ; preds = %if.then17, %if.end8
   %5 = load ptr, ptr %pcm_ops, align 8
   %put_buffer_out = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load ptr, ptr %put_buffer_out, align 8
-  %call20 = call i64 %6(ptr noundef nonnull %hw, ptr noundef %call5, i64 noundef %cond15) #24
+  %call20 = call i64 %6(ptr noundef nonnull %hw, ptr noundef %call5, i64 noundef %cond15) #25
   %add = add i64 %call20, %total.0
   %cmp21 = icmp eq i64 %call20, 0
   %cmp22 = icmp ult i64 %call20, %cond15
@@ -4697,7 +4663,7 @@ while.end:                                        ; preds = %if.end18, %while.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_generic_read(ptr noundef %hw, ptr nocapture noundef writeonly %buf, i64 noundef %size) local_unnamed_addr #5 {
+define dso_local i64 @audio_generic_read(ptr noundef %hw, ptr nocapture noundef writeonly %buf, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %src_size = alloca i64, align 8
   %pcm_ops = getelementptr inbounds i8, ptr %hw, i64 144
@@ -4708,7 +4674,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %1(ptr noundef nonnull %hw) #24
+  tail call void %1(ptr noundef nonnull %hw) #25
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4722,7 +4688,7 @@ while.body:                                       ; preds = %if.end, %if.end6
   %2 = load ptr, ptr %pcm_ops, align 8
   %get_buffer_in = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load ptr, ptr %get_buffer_in, align 8
-  %call = call ptr %3(ptr noundef nonnull %hw, ptr noundef nonnull %src_size) #24
+  %call = call ptr %3(ptr noundef nonnull %hw, ptr noundef nonnull %src_size) #25
   %4 = load i64, ptr %src_size, align 8
   %cmp4 = icmp eq i64 %4, 0
   br i1 %cmp4, label %while.end, label %if.end6
@@ -4733,7 +4699,7 @@ if.end6:                                          ; preds = %while.body
   %5 = load ptr, ptr %pcm_ops, align 8
   %put_buffer_in = getelementptr inbounds i8, ptr %5, i64 112
   %6 = load ptr, ptr %put_buffer_in, align 8
-  call void %6(ptr noundef nonnull %hw, ptr noundef %call, i64 noundef %4) #24
+  call void %6(ptr noundef nonnull %hw, ptr noundef %call, i64 noundef %4) #25
   %7 = load i64, ptr %src_size, align 8
   %add = add i64 %7, %total.015
   %cmp = icmp ult i64 %add, %size
@@ -4745,7 +4711,7 @@ while.end:                                        ; preds = %if.end6, %while.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_cleanup() #5 {
+define dso_local void @audio_cleanup() #6 {
 entry:
   store ptr null, ptr @default_audio_state, align 8
   %0 = load ptr, ptr @audio_states, align 8
@@ -4785,7 +4751,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @free_audio_state(ptr noundef %s) unnamed_addr #5 {
+define internal fastcc void @free_audio_state(ptr noundef %s) unnamed_addr #6 {
 entry:
   %hw_head_out = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %hw_head_out, align 8
@@ -4810,7 +4776,7 @@ land.lhs.true:                                    ; preds = %land.rhs
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void %4(ptr noundef nonnull %hwo.060, i1 noundef zeroext false) #24
+  tail call void %4(ptr noundef nonnull %hwo.060, i1 noundef zeroext false) #25
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %land.rhs
@@ -4818,7 +4784,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %5 = load ptr, ptr %pcm_ops5, align 8
   %fini_out = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %fini_out, align 8
-  tail call void %6(ptr noundef nonnull %hwo.060) #24
+  tail call void %6(ptr noundef nonnull %hwo.060) #25
   %cap_head = getelementptr inbounds i8, ptr %hwo.060, i64 136
   %sc.056 = load ptr, ptr %cap_head, align 8
   %tobool8.not57 = icmp eq ptr %sc.056, null
@@ -4839,7 +4805,7 @@ for.body14:                                       ; preds = %for.body9, %for.bod
   %8 = load ptr, ptr %destroy, align 8
   %opaque = getelementptr inbounds i8, ptr %cb.055, i64 24
   %9 = load ptr, ptr %opaque, align 8
-  tail call void %8(ptr noundef %9) #24
+  tail call void %8(ptr noundef %9) #25
   %entries15 = getelementptr inbounds i8, ptr %cb.055, i64 32
   %cb.0 = load ptr, ptr %entries15, align 8
   %tobool13.not = icmp eq ptr %cb.0, null
@@ -4895,7 +4861,7 @@ land.lhs.true50:                                  ; preds = %land.rhs43
   br i1 %tobool52.not, label %if.end56, label %if.then53
 
 if.then53:                                        ; preds = %land.lhs.true50
-  tail call void %16(ptr noundef nonnull %hwi.062, i1 noundef zeroext false) #24
+  tail call void %16(ptr noundef nonnull %hwi.062, i1 noundef zeroext false) #25
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then53, %land.lhs.true50, %land.rhs43
@@ -4903,7 +4869,7 @@ if.end56:                                         ; preds = %if.then53, %land.lh
   %17 = load ptr, ptr %pcm_ops57, align 8
   %fini_in = getelementptr inbounds i8, ptr %17, i64 80
   %18 = load ptr, ptr %fini_in, align 8
-  tail call void %18(ptr noundef nonnull %hwi.062) #24
+  tail call void %18(ptr noundef nonnull %hwi.062) #25
   %19 = load ptr, ptr %entries44, align 8
   %cmp61.not = icmp eq ptr %19, null
   %le_prev73.phi.trans.insert = getelementptr inbounds i8, ptr %hwi.062, i64 160
@@ -4933,7 +4899,7 @@ if.then82:                                        ; preds = %for.end80
   %22 = load ptr, ptr %fini, align 8
   %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   %23 = load ptr, ptr %drv_opaque, align 8
-  tail call void %22(ptr noundef %23) #24
+  tail call void %22(ptr noundef %23) #25
   store ptr null, ptr %s, align 8
   br label %if.end85
 
@@ -4944,7 +4910,7 @@ if.end85:                                         ; preds = %if.then82, %for.end
   br i1 %tobool86.not, label %if.end90, label %if.then87
 
 if.then87:                                        ; preds = %if.end85
-  tail call void @qapi_free_Audiodev(ptr noundef nonnull %24) #24
+  tail call void @qapi_free_Audiodev(ptr noundef nonnull %24) #25
   store ptr null, ptr %dev, align 8
   br label %if.end90
 
@@ -4955,18 +4921,18 @@ if.end90:                                         ; preds = %if.then87, %if.end8
   br i1 %tobool91.not, label %if.end95, label %if.then92
 
 if.then92:                                        ; preds = %if.end90
-  tail call void @timer_del(ptr noundef nonnull %25) #24
-  tail call void @g_free(ptr noundef nonnull %25) #24
+  tail call void @timer_del(ptr noundef nonnull %25) #25
+  tail call void @g_free(ptr noundef nonnull %25) #25
   store ptr null, ptr %ts, align 8
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then92, %if.end90
-  tail call void @g_free(ptr noundef nonnull %s) #24
+  tail call void @g_free(ptr noundef nonnull %s) #25
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_create_default_audiodevs() local_unnamed_addr #5 {
+define dso_local void @audio_create_default_audiodevs() local_unnamed_addr #6 {
 entry:
   %dev = alloca ptr, align 8
   %0 = load ptr, ptr @audio_prio_list, align 16
@@ -4982,13 +4948,13 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %call4 = call ptr @qdict_new() #24
+  %call4 = call ptr @qdict_new() #25
   store ptr null, ptr %dev, align 8
   %2 = load ptr, ptr %arrayidx12, align 8
-  call void @qdict_put_str(ptr noundef %call4, ptr noundef nonnull @.str.21, ptr noundef %2) #24
-  call void @qdict_put_str(ptr noundef %call4, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #24
+  call void @qdict_put_str(ptr noundef %call4, ptr noundef nonnull @.str.21, ptr noundef %2) #25
+  call void @qdict_put_str(ptr noundef %call4, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #25
   %tobool7.not = icmp eq ptr %call4, null
-  %call9 = call ptr @qobject_input_visitor_new_keyval(ptr noundef %call4) #24
+  %call9 = call ptr @qobject_input_visitor_new_keyval(ptr noundef %call4) #25
   br i1 %tobool7.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
@@ -4998,7 +4964,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #24
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -5008,15 +4974,15 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %call4) #24
+  call void @qobject_destroy(ptr noundef nonnull %call4) #25
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.then, %land.lhs.true.i, %if.then5.i
-  %call20 = call zeroext i1 @visit_type_Audiodev(ptr noundef %call9, ptr noundef null, ptr noundef nonnull %dev, ptr noundef nonnull @error_fatal) #24
-  call void @visit_free(ptr noundef %call9) #24
+  %call20 = call zeroext i1 @visit_type_Audiodev(ptr noundef %call9, ptr noundef null, ptr noundef nonnull %dev, ptr noundef nonnull @error_fatal) #25
+  call void @visit_free(ptr noundef %call9) #25
   %4 = load ptr, ptr %dev, align 8
   call fastcc void @audio_validate_opts(ptr noundef %4, ptr noundef nonnull @error_abort)
-  %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #25
+  %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #26
   store ptr %4, ptr %call.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
@@ -5038,7 +5004,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_driver_lookup(ptr noundef %name) unnamed_addr #5 {
+define internal fastcc noundef ptr @audio_driver_lookup(ptr noundef %name) unnamed_addr #6 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -5049,7 +5015,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %d.015 = phi ptr [ %d.0, %for.inc ], [ %d.013, %entry ]
   %0 = load ptr, ptr %d.015, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #27
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #28
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %for.inc
 
@@ -5060,7 +5026,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !45
 
 for.end:                                          ; preds = %for.inc, %entry
-  %call2 = call i32 @module_load(ptr noundef nonnull @.str.71, ptr noundef %name, ptr noundef nonnull %local_err) #24
+  %call2 = call i32 @module_load(ptr noundef nonnull @.str.71, ptr noundef %name, ptr noundef nonnull %local_err) #25
   %cmp3 = icmp sgt i32 %call2, 0
   br i1 %cmp3, label %for.cond5.preheader, label %if.else
 
@@ -5072,7 +5038,7 @@ for.cond5.preheader:                              ; preds = %for.end
 for.body7:                                        ; preds = %for.cond5.preheader, %for.inc13
   %d.118 = phi ptr [ %d.1, %for.inc13 ], [ %d.116, %for.cond5.preheader ]
   %1 = load ptr, ptr %d.118, align 8
-  %call9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %1) #27
+  %call9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %1) #28
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %return, label %for.inc13
 
@@ -5088,7 +5054,7 @@ if.else:                                          ; preds = %for.end
 
 if.then18:                                        ; preds = %if.else
   %2 = load ptr, ptr %local_err, align 8
-  call void @error_report_err(ptr noundef %2) #24
+  call void @error_report_err(ptr noundef %2) #25
   br label %return
 
 return:                                           ; preds = %for.body, %for.body7, %for.inc13, %for.cond5.preheader, %if.then18, %if.else
@@ -5096,21 +5062,21 @@ return:                                           ; preds = %for.body, %for.body
   ret ptr %retval.0
 }
 
-declare ptr @qdict_new() local_unnamed_addr #12
+declare ptr @qdict_new() local_unnamed_addr #13
 
-declare void @qdict_put_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare void @qdict_put_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
-declare ptr @qobject_input_visitor_new_keyval(ptr noundef) local_unnamed_addr #12
+declare ptr @qobject_input_visitor_new_keyval(ptr noundef) local_unnamed_addr #13
 
-declare zeroext i1 @visit_type_Audiodev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #12
+declare zeroext i1 @visit_type_Audiodev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #13
 
-declare void @visit_free(ptr noundef) local_unnamed_addr #12
+declare void @visit_free(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_define_default(ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #5 {
+define dso_local void @audio_define_default(ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #6 {
 entry:
   tail call fastcc void @audio_validate_opts(ptr noundef %dev, ptr noundef %errp)
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #25
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #26
   store ptr %dev, ptr %call, align 8
   %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %next, align 8
@@ -5121,7 +5087,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_get_default_audio_state(ptr noundef %errp) local_unnamed_addr #5 {
+define dso_local ptr @audio_get_default_audio_state(ptr noundef %errp) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @default_audio_state, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -5139,7 +5105,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.24, ptr noundef %3) #24
+  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.24, ptr noundef %3) #25
   %.pre = load ptr, ptr @default_audio_state, align 8
   br label %if.end5
 
@@ -5149,22 +5115,22 @@ if.end5:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_init(ptr noundef %dev, ptr noundef %errp) unnamed_addr #5 {
+define internal fastcc noundef ptr @audio_init(ptr noundef %dev, ptr noundef %errp) unnamed_addr #6 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #25
+  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #26
   %hw_head_in = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hw_head_in, i8 0, i64 24, i1 false)
   %.b39 = load i1, ptr @audio_init.atexit_registered, align 1
   br i1 %.b39, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call7 = tail call i32 @atexit(ptr noundef nonnull @audio_cleanup) #24
+  %call7 = tail call i32 @atexit(ptr noundef nonnull @audio_cleanup) #25
   store i1 true, ptr @audio_init.atexit_registered, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #25
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @audio_timer, ptr noundef nonnull %call) #24
+  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #26
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @audio_timer, ptr noundef nonnull %call) #25
   %ts = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call.i.i.i, ptr %ts, align 8
   %tobool9.not = icmp eq ptr %dev, null
@@ -5175,7 +5141,7 @@ if.then10:                                        ; preds = %if.end
   store ptr %dev, ptr %dev11, align 8
   %driver12 = getelementptr inbounds i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver12, align 8
-  %call13 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @AudiodevDriver_lookup, i32 noundef %0) #24
+  %call13 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @AudiodevDriver_lookup, i32 noundef %0) #25
   %call14 = tail call fastcc ptr @audio_driver_lookup(ptr noundef %call13)
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.else, label %if.then16
@@ -5186,7 +5152,7 @@ if.then16:                                        ; preds = %if.then10
   br i1 %tobool18.not.not, label %if.end47, label %out
 
 if.else:                                          ; preds = %if.then10
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 1747, ptr noundef nonnull @__func__.audio_init, ptr noundef nonnull @.str.74, ptr noundef %call13) #24
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 1747, ptr noundef nonnull @__func__.audio_init, ptr noundef nonnull @.str.74, ptr noundef %call13) #25
   br label %out
 
 if.else23:                                        ; preds = %if.end
@@ -5204,11 +5170,11 @@ if.end30.lr.ph:                                   ; preds = %for.cond.preheader
   br label %if.end30
 
 if.else26:                                        ; preds = %if.else23
-  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.18, i32 noundef 1753, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_init) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.18, i32 noundef 1753, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_init) #24
   unreachable
 
 if.then29:                                        ; preds = %if.end45, %for.cond.preheader
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 1757, ptr noundef nonnull @__func__.audio_init, ptr noundef nonnull @.str.76) #24
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 1757, ptr noundef nonnull @__func__.audio_init, ptr noundef nonnull @.str.76) #25
   br label %out
 
 if.end30:                                         ; preds = %if.end30.lr.ph, %if.end45
@@ -5227,17 +5193,17 @@ if.then34:                                        ; preds = %if.end30
 
 if.end35:                                         ; preds = %if.then34, %if.end30
   store ptr null, ptr %next, align 8
-  tail call void @g_free(ptr noundef nonnull %3) #24
+  tail call void @g_free(ptr noundef nonnull %3) #25
   %driver39 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %driver39, align 8
-  %call40 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @AudiodevDriver_lookup, i32 noundef %6) #24
+  %call40 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @AudiodevDriver_lookup, i32 noundef %6) #25
   %call41 = tail call fastcc ptr @audio_driver_lookup(ptr noundef %call40)
   %call42 = tail call fastcc i32 @audio_driver_init(ptr noundef nonnull %call, ptr noundef %call41, ptr noundef %4, ptr noundef null)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.end47, label %if.end45
 
 if.end45:                                         ; preds = %if.end35
-  tail call void @qapi_free_Audiodev(ptr noundef nonnull %4) #24
+  tail call void @qapi_free_Audiodev(ptr noundef nonnull %4) #25
   store ptr null, ptr %dev32, align 8
   %7 = load ptr, ptr @default_audiodevs, align 8
   %tobool28.not = icmp eq ptr %7, null
@@ -5253,7 +5219,7 @@ if.end47:                                         ; preds = %if.end35, %if.then1
   %mul.sink = select i1 %cmp48, i64 1, i64 %mul
   %9 = getelementptr inbounds i8, ptr %call, i64 80
   store i64 %mul.sink, ptr %9, align 8
-  %call54 = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @audio_vm_change_state_handler, ptr noundef nonnull %call) #24
+  %call54 = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @audio_vm_change_state_handler, ptr noundef nonnull %call) #25
   %tobool55.not = icmp eq ptr %call54, null
   br i1 %tobool55.not, label %if.then56, label %do.body58
 
@@ -5271,7 +5237,7 @@ do.body58:                                        ; preds = %if.end47, %if.then5
   store ptr %list, ptr getelementptr inbounds (i8, ptr @audio_states, i64 8), align 8
   %card_head = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %card_head, align 8
-  %call.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_audio, ptr noundef nonnull %call, i32 noundef -1, i32 noundef 0, ptr noundef null) #24
+  %call.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_audio, ptr noundef nonnull %call, i32 noundef -1, i32 noundef 0, ptr noundef null) #25
   br label %return
 
 out:                                              ; preds = %if.else, %if.then16, %if.then29
@@ -5283,10 +5249,10 @@ return:                                           ; preds = %out, %do.body58
   ret ptr %retval.0
 }
 
-declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #12
+declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @AUD_register_card(ptr noundef %name, ptr noundef %card, ptr noundef %errp) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @AUD_register_card(ptr noundef %name, ptr noundef %card, ptr noundef %errp) local_unnamed_addr #6 {
 entry:
   %state = getelementptr inbounds i8, ptr %card, i64 8
   %0 = load ptr, ptr %state, align 8
@@ -5314,7 +5280,7 @@ if.then.i:                                        ; preds = %if.then
 if.then3.i:                                       ; preds = %if.then.i
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.24, ptr noundef %4) #24
+  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.24, ptr noundef %4) #25
   %.pre.i = load ptr, ptr @default_audio_state, align 8
   br label %audio_get_default_audio_state.exit
 
@@ -5325,7 +5291,7 @@ audio_get_default_audio_state.exit:               ; preds = %if.then.i, %if.then
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %audio_get_default_audio_state.exit.thread, %audio_get_default_audio_state.exit, %entry
-  %call6 = tail call noalias ptr @g_strdup(ptr noundef %name) #24
+  %call6 = tail call noalias ptr @g_strdup(ptr noundef %name) #25
   store ptr %call6, ptr %card, align 8
   %entries = getelementptr inbounds i8, ptr %card, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries, i8 0, i64 16, i1 false)
@@ -5357,10 +5323,10 @@ return:                                           ; preds = %audio_get_default_a
   ret i1 %retval.0
 }
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #12
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_remove_card(ptr nocapture noundef %card) local_unnamed_addr #5 {
+define dso_local void @AUD_remove_card(ptr nocapture noundef %card) local_unnamed_addr #6 {
 entry:
   %entries = getelementptr inbounds i8, ptr %card, i64 16
   %0 = load ptr, ptr %entries, align 8
@@ -5380,21 +5346,21 @@ if.end:                                           ; preds = %entry, %if.then
   store ptr %1, ptr %.pre8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %card, align 8
-  tail call void @g_free(ptr noundef %2) #24
+  tail call void @g_free(ptr noundef %2) #25
   ret void
 }
 
-declare void @g_free(ptr noundef) local_unnamed_addr #12
+declare void @g_free(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @AUD_add_capture(ptr noundef %s, ptr nocapture noundef readonly %as, ptr nocapture noundef readonly %ops, ptr noundef %cb_opaque) local_unnamed_addr #5 {
+define dso_local ptr @AUD_add_capture(ptr noundef %s, ptr nocapture noundef readonly %as, ptr nocapture noundef readonly %ops, ptr noundef %cb_opaque) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25) #24
-  tail call void @abort() #23
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25) #25
+  tail call void @abort() #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -5406,7 +5372,7 @@ if.end:                                           ; preds = %entry
   br i1 %switch.i, label %audio_get_pdo_out.exit, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit:                           ; preds = %if.end
@@ -5444,7 +5410,7 @@ if.then6:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #26
+  %call8 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call8, ptr noundef nonnull align 8 dereferenceable(24) %ops, i64 24, i1 false)
   %opaque = getelementptr inbounds i8, ptr %call8, i64 24
   store ptr %cb_opaque, ptr %opaque, align 8
@@ -5461,11 +5427,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end7
 for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i
   %8 = load i32, ptr %as, align 4
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %9
   %10 = zext nneg i32 %7 to i64
-  %switch.gep76 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.19, i64 0, i64 %10
+  %switch.gep76 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %10
   %11 = zext nneg i32 %7 to i64
-  %switch.gep78 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.20, i64 0, i64 %11
+  %switch.gep78 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %11
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.split.i
@@ -5480,7 +5446,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %for.inc.i
 
 sw.default.i.i:                                   ; preds = %for.body.lr.ph.i
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %for.body.i
@@ -5546,7 +5512,7 @@ if.end19:                                         ; preds = %if.then13, %do.body
   br label %return
 
 if.else:                                          ; preds = %for.inc.i, %if.end7
-  %call26 = tail call noalias dereferenceable_or_null(200) ptr @g_malloc0(i64 noundef 200) #26
+  %call26 = tail call noalias dereferenceable_or_null(200) ptr @g_malloc0(i64 noundef 200) #27
   store ptr %s, ptr %call26, align 8
   %pcm_ops = getelementptr inbounds i8, ptr %call26, i64 144
   store ptr @capture_pcm_ops, ptr %pcm_ops, align 8
@@ -5562,13 +5528,13 @@ if.else:                                          ; preds = %for.inc.i, %if.end7
   br i1 %24, label %switch.lookup80, label %sw.default.i
 
 sw.default.i:                                     ; preds = %if.else
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 switch.lookup80:                                  ; preds = %if.else
   %info = getelementptr inbounds i8, ptr %call26, i64 20
   %25 = zext nneg i32 %23 to i64
-  %switch.gep81 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %25
+  %switch.gep81 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %25
   %switch.load82 = load i32, ptr %switch.gep81, align 4
   %26 = zext nneg i32 %23 to i64
   %switch.gep83 = getelementptr inbounds [7 x i32], ptr @switch.table.audio_buffer_bytes, i64 0, i64 %26
@@ -5606,7 +5572,7 @@ switch.lookup80:                                  ; preds = %if.else
   %size = getelementptr inbounds i8, ptr %call26, i64 72
   %32 = load i64, ptr %size, align 8
   %conv = sext i32 %mul15.i to i64
-  %call37 = tail call noalias ptr @g_malloc0_n(i64 noundef %32, i64 noundef %conv) #25
+  %call37 = tail call noalias ptr @g_malloc0_n(i64 noundef %32, i64 noundef %conv) #26
   %buf = getelementptr inbounds i8, ptr %call26, i64 168
   store ptr %call37, ptr %buf, align 8
   %tobool39 = trunc i56 %switch.downshift87 to i1
@@ -5708,13 +5674,13 @@ return:                                           ; preds = %for.body, %if.end99
   ret ptr %retval.0
 }
 
-declare void @error_report(ptr noundef, ...) local_unnamed_addr #12
+declare void @error_report(ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_pcm_hw_alloc_resources_out(ptr nocapture noundef %hw) unnamed_addr #5 {
+define internal fastcc void @audio_pcm_hw_alloc_resources_out(ptr nocapture noundef %hw) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %hw, align 8
   %dev = getelementptr inbounds i8, ptr %0, i64 8
@@ -5725,7 +5691,7 @@ entry:
   br i1 %switch.i, label %audio_get_pdo_out.exit, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit:                           ; preds = %entry
@@ -5759,7 +5725,7 @@ if.then4:                                         ; preds = %if.then2.i, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then4
-  %call5 = tail call noalias ptr @g_malloc0_n(i64 noundef %4, i64 noundef 16) #25
+  %call5 = tail call noalias ptr @g_malloc0_n(i64 noundef %4, i64 noundef 16) #26
   %mix_buf = getelementptr inbounds i8, ptr %hw, i64 64
   %buffer = getelementptr inbounds i8, ptr %hw, i64 80
   store ptr %call5, ptr %buffer, align 8
@@ -5778,46 +5744,10 @@ if.end12:                                         ; preds = %if.else, %if.end
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #13
-
-; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 3) i32 @audio_bits_to_index(i32 noundef %bits) unnamed_addr #1 {
-entry:
-  switch i32 %bits, label %sw.default [
-    i32 8, label %return
-    i32 16, label %sw.bb1
-    i32 32, label %sw.bb2
-  ]
-
-sw.bb1:                                           ; preds = %entry
-  br label %return
-
-sw.bb2:                                           ; preds = %entry
-  br label %return
-
-sw.default:                                       ; preds = %entry
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.89)
-  %.b.i = load i1, ptr @audio_bug.shown, align 4
-  br i1 %.b.i, label %audio_bug.exit, label %if.then2.i
-
-if.then2.i:                                       ; preds = %sw.default
-  store i1 true, ptr @audio_bug.shown, align 4
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.4)
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.5)
-  br label %audio_bug.exit
-
-audio_bug.exit:                                   ; preds = %sw.default, %if.then2.i
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.90, i32 noundef %bits)
-  br label %return
-
-return:                                           ; preds = %entry, %audio_bug.exit, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 0, %audio_bug.exit ], [ 2, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %entry ]
-  ret i32 %retval.0
-}
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_attach_capture(ptr noundef %hw) unnamed_addr #5 {
+define internal fastcc void @audio_attach_capture(ptr noundef %hw) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %hw, align 8
   %1 = getelementptr i8, ptr %hw, i64 136
@@ -5835,7 +5765,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %cap.035 = phi ptr [ %cap.033, %for.body.lr.ph ], [ %cap.0, %for.inc ]
-  %call = tail call noalias dereferenceable_or_null(200) ptr @g_malloc0(i64 noundef 200) #26
+  %call = tail call noalias dereferenceable_or_null(200) ptr @g_malloc0(i64 noundef 200) #27
   %cap3 = getelementptr inbounds i8, ptr %call, i64 176
   store ptr %cap.035, ptr %cap3, align 8
   %hw5 = getelementptr inbounds i8, ptr %call, i64 104
@@ -5853,7 +5783,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i32, ptr %freq, align 8
   %freq9 = getelementptr inbounds i8, ptr %cap.035, i64 28
   %4 = load i32, ptr %freq9, align 4
-  %call10 = tail call ptr @st_rate_start(i32 noundef %3, i32 noundef %4) #24
+  %call10 = tail call ptr @st_rate_start(i32 noundef %3, i32 noundef %4) #25
   %rate = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %call10, ptr %rate, align 8
   %sw_head = getelementptr inbounds i8, ptr %cap.035, i64 128
@@ -5909,7 +5839,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %9 = load ptr, ptr %cb.06.i.i, align 8
   %opaque.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 24
   %10 = load ptr, ptr %opaque.i.i, align 8
-  tail call void %9(ptr noundef %10, i32 noundef 0) #24
+  tail call void %9(ptr noundef %10, i32 noundef 0) #25
   %entries.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 32
   %cb.0.i.i = load ptr, ptr %entries.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %cb.0.i.i, null
@@ -5926,7 +5856,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_del_capture(ptr noundef %cap, ptr noundef %cb_opaque) local_unnamed_addr #5 {
+define dso_local void @AUD_del_capture(ptr noundef %cap, ptr noundef %cb_opaque) local_unnamed_addr #6 {
 entry:
   %cb_head = getelementptr inbounds i8, ptr %cap, i64 176
   %cb.049 = load ptr, ptr %cb_head, align 8
@@ -5943,7 +5873,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then:                                          ; preds = %for.body
   %destroy = getelementptr inbounds i8, ptr %cb.051, i64 16
   %1 = load ptr, ptr %destroy, align 8
-  tail call void %1(ptr noundef %cb_opaque) #24
+  tail call void %1(ptr noundef %cb_opaque) #25
   %entries = getelementptr inbounds i8, ptr %cb.051, i64 32
   %2 = load ptr, ptr %entries, align 8
   %cmp1.not = icmp eq ptr %2, null
@@ -5961,7 +5891,7 @@ if.end:                                           ; preds = %if.then, %if.then2
   %3 = phi ptr [ %.pre, %if.then2 ], [ null, %if.then ]
   store ptr %3, ptr %.pre55, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %cb.051) #24
+  tail call void @g_free(ptr noundef nonnull %cb.051) #25
   %4 = load ptr, ptr %cb_head, align 8
   %tobool18.not = icmp eq ptr %4, null
   br i1 %tobool18.not, label %if.then19, label %for.end
@@ -5982,7 +5912,7 @@ while.body:                                       ; preds = %if.then19, %if.end6
   br i1 %tobool24.not, label %do.body29, label %if.then25
 
 if.then25:                                        ; preds = %while.body
-  tail call void @st_rate_stop(ptr noundef nonnull %7) #24
+  tail call void @st_rate_stop(ptr noundef nonnull %7) #25
   store ptr null, ptr %rate, align 8
   %.pr = load ptr, ptr %entries22, align 8
   br label %do.body29
@@ -6021,7 +5951,7 @@ if.end61:                                         ; preds = %if.end40, %if.then5
   %11 = phi ptr [ %.pre58, %if.then54 ], [ null, %if.end40 ]
   store ptr %11, ptr %.pre59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries51, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %sw.053) #24
+  tail call void @g_free(ptr noundef nonnull %sw.053) #25
   %tobool21.not = icmp eq ptr %6, null
   br i1 %tobool21.not, label %do.body71, label %while.body, !llvm.loop !50
 
@@ -6045,11 +5975,11 @@ if.end82:                                         ; preds = %do.body71, %if.then
   %buffer = getelementptr inbounds i8, ptr %cap, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries72, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %buffer, align 8
-  tail call void @g_free(ptr noundef %14) #24
+  tail call void @g_free(ptr noundef %14) #25
   %buf = getelementptr inbounds i8, ptr %cap, i64 168
   %15 = load ptr, ptr %buf, align 8
-  tail call void @g_free(ptr noundef %15) #24
-  tail call void @g_free(ptr noundef nonnull %cap) #24
+  tail call void @g_free(ptr noundef %15) #25
+  tail call void @g_free(ptr noundef nonnull %cap) #25
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
@@ -6062,10 +5992,10 @@ for.end:                                          ; preds = %for.inc, %entry, %i
   ret void
 }
 
-declare void @st_rate_stop(ptr noundef) local_unnamed_addr #12
+declare void @st_rate_stop(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_set_volume_out(ptr noundef %sw, i32 noundef %mute, i8 noundef zeroext %lvol, i8 noundef zeroext %rvol) local_unnamed_addr #5 {
+define dso_local void @AUD_set_volume_out(ptr noundef %sw, i32 noundef %mute, i8 noundef zeroext %lvol, i8 noundef zeroext %rvol) local_unnamed_addr #6 {
 entry:
   %vol = alloca %struct.Volume, align 4
   %tobool = icmp ne i32 %mute, 0
@@ -6106,7 +6036,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool15.not.i, label %audio_set_volume_out.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then.i
-  call void %2(ptr noundef nonnull %0, ptr noundef nonnull %vol) #24
+  call void %2(ptr noundef nonnull %0, ptr noundef nonnull %vol) #25
   br label %audio_set_volume_out.exit
 
 audio_set_volume_out.exit:                        ; preds = %entry, %if.then.i, %if.then16.i
@@ -6114,7 +6044,7 @@ audio_set_volume_out.exit:                        ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_set_volume_out(ptr noundef %sw, ptr noundef %vol) local_unnamed_addr #5 {
+define dso_local void @audio_set_volume_out(ptr noundef %sw, ptr noundef %vol) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %if.end19, label %if.then
@@ -6153,7 +6083,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.then
-  tail call void %7(ptr noundef nonnull %0, ptr noundef nonnull %vol) #24
+  tail call void %7(ptr noundef nonnull %0, ptr noundef nonnull %vol) #25
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %if.then16, %entry
@@ -6161,7 +6091,7 @@ if.end19:                                         ; preds = %if.then, %if.then16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_set_volume_in(ptr noundef %sw, i32 noundef %mute, i8 noundef zeroext %lvol, i8 noundef zeroext %rvol) local_unnamed_addr #5 {
+define dso_local void @AUD_set_volume_in(ptr noundef %sw, i32 noundef %mute, i8 noundef zeroext %lvol, i8 noundef zeroext %rvol) local_unnamed_addr #6 {
 entry:
   %vol = alloca %struct.Volume, align 4
   %tobool = icmp ne i32 %mute, 0
@@ -6202,7 +6132,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool15.not.i, label %audio_set_volume_in.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then.i
-  call void %2(ptr noundef nonnull %0, ptr noundef nonnull %vol) #24
+  call void %2(ptr noundef nonnull %0, ptr noundef nonnull %vol) #25
   br label %audio_set_volume_in.exit
 
 audio_set_volume_in.exit:                         ; preds = %entry, %if.then.i, %if.then16.i
@@ -6210,7 +6140,7 @@ audio_set_volume_in.exit:                         ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_set_volume_in(ptr noundef %sw, ptr noundef %vol) local_unnamed_addr #5 {
+define dso_local void @audio_set_volume_in(ptr noundef %sw, ptr noundef %vol) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %if.end19, label %if.then
@@ -6249,7 +6179,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.then
-  tail call void %7(ptr noundef nonnull %0, ptr noundef nonnull %vol) #24
+  tail call void %7(ptr noundef nonnull %0, ptr noundef nonnull %vol) #25
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %if.then16, %entry
@@ -6257,7 +6187,7 @@ if.end19:                                         ; preds = %if.then, %if.then16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_create_pdos(ptr nocapture noundef %dev) local_unnamed_addr #5 {
+define dso_local void @audio_create_pdos(ptr nocapture noundef %dev) local_unnamed_addr #6 {
 entry:
   %driver = getelementptr inbounds i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8
@@ -6276,7 +6206,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb
-  %call = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #26
+  %call = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #27
   store ptr %call, ptr %u, align 8
   br label %if.end
 
@@ -6287,7 +6217,7 @@ if.end:                                           ; preds = %if.then, %sw.bb
   br i1 %tobool4.not, label %if.then5, label %sw.epilog
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #26
+  %call6 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #27
   store ptr %call6, ptr %out, align 8
   br label %sw.epilog
 
@@ -6298,7 +6228,7 @@ sw.bb10:                                          ; preds = %entry
   br i1 %tobool13.not, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %sw.bb10
-  %call15 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #26
+  %call15 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #27
   store ptr %call15, ptr %u11, align 8
   br label %if.end18
 
@@ -6309,7 +6239,7 @@ if.end18:                                         ; preds = %if.then14, %sw.bb10
   br i1 %tobool21.not, label %if.then22, label %sw.epilog
 
 if.then22:                                        ; preds = %if.end18
-  %call23 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #26
+  %call23 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #27
   store ptr %call23, ptr %out20, align 8
   br label %sw.epilog
 
@@ -6320,7 +6250,7 @@ sw.bb27:                                          ; preds = %entry
   br i1 %tobool30.not, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %sw.bb27
-  %call32 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #26
+  %call32 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #27
   store ptr %call32, ptr %u28, align 8
   br label %if.end35
 
@@ -6331,7 +6261,7 @@ if.end35:                                         ; preds = %if.then31, %sw.bb27
   br i1 %tobool38.not, label %if.then39, label %sw.epilog
 
 if.then39:                                        ; preds = %if.end35
-  %call40 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #26
+  %call40 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #27
   store ptr %call40, ptr %out37, align 8
   br label %sw.epilog
 
@@ -6342,7 +6272,7 @@ sw.bb44:                                          ; preds = %entry
   br i1 %tobool47.not, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %sw.bb44
-  %call49 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #26
+  %call49 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #27
   store ptr %call49, ptr %u45, align 8
   br label %if.end52
 
@@ -6353,12 +6283,12 @@ if.end52:                                         ; preds = %if.then48, %sw.bb44
   br i1 %tobool55.not, label %if.then56, label %sw.epilog
 
 if.then56:                                        ; preds = %if.end52
-  %call57 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #26
+  %call57 = tail call noalias dereferenceable_or_null(44) ptr @g_malloc0(i64 noundef 44) #27
   store ptr %call57, ptr %out54, align 8
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 sw.epilog:                                        ; preds = %if.end52, %if.then56, %if.end35, %if.then39, %if.end18, %if.then22, %if.end, %if.then5, %entry
@@ -6366,14 +6296,14 @@ sw.epilog:                                        ; preds = %if.end52, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_help() local_unnamed_addr #5 {
+define dso_local void @audio_help() local_unnamed_addr #6 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.05 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
-  %call1 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @AudiodevDriver_lookup, i32 noundef %i.05) #24
+  %call1 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @AudiodevDriver_lookup, i32 noundef %i.05) #25
   %call2 = tail call fastcc ptr @audio_driver_lookup(ptr noundef %call1)
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -6392,10 +6322,10 @@ for.end:                                          ; preds = %for.inc
   ret void
 }
 
-declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_parse_option(ptr noundef %opt) local_unnamed_addr #5 {
+define dso_local void @audio_parse_option(ptr noundef %opt) local_unnamed_addr #6 {
 entry:
   %dev = alloca ptr, align 8
   store ptr null, ptr %dev, align 8
@@ -6410,22 +6340,22 @@ entry.tail.i:                                     ; preds = %entry
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %entry, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %opt, ptr noundef nonnull dereferenceable(5) @.str.92) #27
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %opt, ptr noundef nonnull dereferenceable(5) @.str.92) #28
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit
   tail call void @audio_help()
-  tail call void @exit(i32 noundef 0) #23
+  tail call void @exit(i32 noundef 0) #24
   unreachable
 
 if.end:                                           ; preds = %is_help_option.exit
-  %call1 = tail call ptr @qobject_input_visitor_new_str(ptr noundef nonnull %opt, ptr noundef nonnull @.str.21, ptr noundef nonnull @error_fatal) #24
-  %call2 = call zeroext i1 @visit_type_Audiodev(ptr noundef %call1, ptr noundef null, ptr noundef nonnull %dev, ptr noundef nonnull @error_fatal) #24
-  call void @visit_free(ptr noundef %call1) #24
+  %call1 = tail call ptr @qobject_input_visitor_new_str(ptr noundef nonnull %opt, ptr noundef nonnull @.str.21, ptr noundef nonnull @error_fatal) #25
+  %call2 = call zeroext i1 @visit_type_Audiodev(ptr noundef %call1, ptr noundef null, ptr noundef nonnull %dev, ptr noundef nonnull @error_fatal) #25
+  call void @visit_free(ptr noundef %call1) #25
   %4 = load ptr, ptr %dev, align 8
   call fastcc void @audio_validate_opts(ptr noundef %4, ptr noundef nonnull @error_fatal)
-  %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #25
+  %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #26
   store ptr %4, ptr %call.i, align 8
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
@@ -6436,15 +6366,15 @@ if.end:                                           ; preds = %is_help_option.exit
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #14
+declare void @exit(i32 noundef) local_unnamed_addr #15
 
-declare ptr @qobject_input_visitor_new_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare ptr @qobject_input_visitor_new_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_define(ptr noundef %dev) local_unnamed_addr #5 {
+define dso_local void @audio_define(ptr noundef %dev) local_unnamed_addr #6 {
 entry:
   tail call fastcc void @audio_validate_opts(ptr noundef %dev, ptr noundef nonnull @error_fatal)
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #25
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #26
   store ptr %dev, ptr %call, align 8
   %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %next, align 8
@@ -6455,7 +6385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_validate_opts(ptr nocapture noundef %dev, ptr noundef %errp) unnamed_addr #5 {
+define internal fastcc void @audio_validate_opts(ptr nocapture noundef %dev, ptr noundef %errp) unnamed_addr #6 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -6466,7 +6396,7 @@ entry:
   br i1 %switch.i, label %audio_get_pdo_in.exit, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 audio_get_pdo_in.exit:                            ; preds = %entry
@@ -6478,7 +6408,7 @@ audio_get_pdo_in.exit:                            ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %audio_get_pdo_in.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #24
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #25
   br label %if.end8
 
 if.end:                                           ; preds = %audio_get_pdo_in.exit
@@ -6487,7 +6417,7 @@ if.end:                                           ; preds = %audio_get_pdo_in.ex
   br i1 %switch.i9, label %audio_get_pdo_out.exit, label %sw.epilog.i10
 
 sw.epilog.i10:                                    ; preds = %if.end
-  call void @abort() #23
+  call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit:                           ; preds = %if.end
@@ -6499,7 +6429,7 @@ audio_get_pdo_out.exit:                           ; preds = %if.end
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %audio_get_pdo_out.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #24
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #25
   br label %if.end8
 
 if.end4:                                          ; preds = %audio_get_pdo_out.exit
@@ -6519,7 +6449,7 @@ if.end8:                                          ; preds = %if.then6, %if.end4,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_init_audiodevs() local_unnamed_addr #5 {
+define dso_local void @audio_init_audiodevs() local_unnamed_addr #6 {
 entry:
   %e.03 = load ptr, ptr @audiodevs, align 8
   %tobool.not4 = icmp eq ptr %e.03, null
@@ -6539,7 +6469,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local { i64, i64 } @audiodev_to_audsettings(ptr nocapture noundef readonly %pdo) local_unnamed_addr #7 {
+define dso_local { i64, i64 } @audiodev_to_audsettings(ptr nocapture noundef readonly %pdo) local_unnamed_addr #8 {
 entry:
   %frequency = getelementptr inbounds i8, ptr %pdo, i64 8
   %0 = load i32, ptr %frequency, align 4
@@ -6564,7 +6494,7 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 switch.lookup:                                    ; preds = %entry
@@ -6575,7 +6505,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @audio_buffer_frames(ptr nocapture noundef readonly %pdo, ptr nocapture noundef readonly %as, i32 noundef %def_usecs) local_unnamed_addr #7 {
+define dso_local i32 @audio_buffer_frames(ptr nocapture noundef readonly %pdo, ptr nocapture noundef readonly %as, i32 noundef %def_usecs) local_unnamed_addr #8 {
 entry:
   %has_buffer_length = getelementptr inbounds i8, ptr %pdo, i64 36
   %0 = load i8, ptr %has_buffer_length, align 4
@@ -6600,7 +6530,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @audio_buffer_samples(ptr nocapture noundef readonly %pdo, ptr nocapture noundef readonly %as, i32 noundef %def_usecs) local_unnamed_addr #7 {
+define dso_local i32 @audio_buffer_samples(ptr nocapture noundef readonly %pdo, ptr nocapture noundef readonly %as, i32 noundef %def_usecs) local_unnamed_addr #8 {
 entry:
   %nchannels = getelementptr inbounds i8, ptr %as, i64 4
   %0 = load i32, ptr %nchannels, align 4
@@ -6650,7 +6580,7 @@ audio_buffer_samples.exit:                        ; preds = %entry, %cond.true.i
   br i1 %4, label %switch.lookup, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %audio_buffer_samples.exit
-  tail call void @abort() #23
+  tail call void @abort() #24
   unreachable
 
 switch.lookup:                                    ; preds = %audio_buffer_samples.exit
@@ -6670,7 +6600,7 @@ switch.lookup:                                    ; preds = %audio_buffer_sample
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_state_by_name(ptr noundef %name, ptr noundef %errp) local_unnamed_addr #5 {
+define dso_local ptr @audio_state_by_name(ptr noundef %name, ptr noundef %errp) local_unnamed_addr #6 {
 entry:
   %s.09 = load ptr, ptr @audio_states, align 8
   %tobool.not10 = icmp eq ptr %s.09, null
@@ -6684,12 +6614,12 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %for.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.18, i32 noundef 2233, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_state_by_name) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.18, i32 noundef 2233, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_state_by_name) #24
   unreachable
 
 if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %0, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %1) #27
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %1) #28
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %for.inc
 
@@ -6700,7 +6630,7 @@ for.inc:                                          ; preds = %if.end
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !54
 
 for.end:                                          ; preds = %for.inc, %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2238, ptr noundef nonnull @__func__.audio_state_by_name, ptr noundef nonnull @.str.31, ptr noundef %name) #24
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2238, ptr noundef nonnull @__func__.audio_state_by_name, ptr noundef nonnull @.str.31, ptr noundef %name) #25
   br label %return
 
 return:                                           ; preds = %if.end, %for.end
@@ -6709,12 +6639,12 @@ return:                                           ; preds = %if.end, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
 
-declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #12
+declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_get_id(ptr nocapture noundef readonly %card) local_unnamed_addr #5 {
+define dso_local ptr @audio_get_id(ptr nocapture noundef readonly %card) local_unnamed_addr #6 {
 entry:
   %state = getelementptr inbounds i8, ptr %card, i64 8
   %0 = load ptr, ptr %state, align 8
@@ -6728,7 +6658,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.18, i32 noundef 2245, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_get_id) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.18, i32 noundef 2245, ptr noundef nonnull @__PRETTY_FUNCTION__.audio_get_id) #24
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -6741,31 +6671,31 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @audio_application_name() local_unnamed_addr #5 {
+define dso_local nonnull ptr @audio_application_name() local_unnamed_addr #6 {
 entry:
-  %call = tail call ptr @qemu_get_vm_name() #24
+  %call = tail call ptr @qemu_get_vm_name() #25
   %tobool.not = icmp eq ptr %call, null
   %cond = select i1 %tobool.not, ptr @.str.34, ptr %call
   ret ptr %cond
 }
 
-declare ptr @qemu_get_vm_name() local_unnamed_addr #12
+declare ptr @qemu_get_vm_name() local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_rate_start(ptr nocapture noundef writeonly %rate) local_unnamed_addr #5 {
+define dso_local void @audio_rate_start(ptr nocapture noundef writeonly %rate) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   store i64 %call, ptr %rate, align 8
   ret void
 }
 
-declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #12
+declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_rate_peek_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info) local_unnamed_addr #5 {
+define dso_local i64 @audio_rate_peek_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info) local_unnamed_addr #6 {
 entry:
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %0 = load i64, ptr %rate, align 8
   %sub = sub i64 %call, %0
   %bytes_per_second = getelementptr inbounds i8, ptr %info, i64 20
@@ -6788,7 +6718,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.35, i64 noundef %div)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   store i64 %call.i, ptr %rate, align 8
   %.pre = load i32, ptr %bytes_per_frame, align 4
   %.pre8 = sext i32 %.pre to i64
@@ -6802,7 +6732,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @audio_rate_add_bytes(ptr nocapture noundef %rate, i64 noundef %bytes_used) local_unnamed_addr #16 {
+define dso_local void @audio_rate_add_bytes(ptr nocapture noundef %rate, i64 noundef %bytes_used) local_unnamed_addr #17 {
 entry:
   %bytes_sent = getelementptr inbounds i8, ptr %rate, i64 8
   %0 = load i64, ptr %bytes_sent, align 8
@@ -6812,9 +6742,9 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_rate_get_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info, i64 noundef %bytes_avail) local_unnamed_addr #5 {
+define dso_local i64 @audio_rate_get_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info, i64 noundef %bytes_avail) local_unnamed_addr #6 {
 entry:
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %0 = load i64, ptr %rate, align 8
   %sub.i = sub i64 %call.i, %0
   %bytes_per_second.i = getelementptr inbounds i8, ptr %info, i64 20
@@ -6837,7 +6767,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.35, i64 noundef %div.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
-  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   store i64 %call.i.i, ptr %rate, align 8
   %.pre.i = load i32, ptr %bytes_per_frame.i, align 4
   %.pre8.i = sext i32 %.pre.i to i64
@@ -6856,7 +6786,7 @@ audio_rate_peek_bytes.exit:                       ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qmp_query_audiodevs(ptr nocapture noundef readnone %errp) local_unnamed_addr #5 {
+define dso_local noundef ptr @qmp_query_audiodevs(ptr nocapture noundef readnone %errp) local_unnamed_addr #6 {
 entry:
   %e.06 = load ptr, ptr @audiodevs, align 8
   %tobool.not7 = icmp eq ptr %e.06, null
@@ -6865,9 +6795,9 @@ entry:
 do.body:                                          ; preds = %entry, %do.body
   %e.09 = phi ptr [ %e.0, %do.body ], [ %e.06, %entry ]
   %ret.08 = phi ptr [ %call, %do.body ], [ null, %entry ]
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #26
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
   %0 = load ptr, ptr %e.09, align 8
-  %call1 = tail call ptr @qapi_clone(ptr noundef %0, ptr noundef nonnull @visit_type_Audiodev) #24
+  %call1 = tail call ptr @qapi_clone(ptr noundef %0, ptr noundef nonnull @visit_type_Audiodev) #25
   %value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %value, align 8
   store ptr %ret.08, ptr %call, align 8
@@ -6881,10 +6811,10 @@ for.end:                                          ; preds = %do.body, %entry
   ret ptr %ret.0.lcssa
 }
 
-declare ptr @qapi_clone(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare ptr @qapi_clone(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_detach_capture(ptr %hw.136.val) unnamed_addr #5 {
+define internal fastcc void @audio_detach_capture(ptr %hw.136.val) unnamed_addr #6 {
 entry:
   %tobool.not2 = icmp eq ptr %hw.136.val, null
   br i1 %tobool.not2, label %while.end, label %while.body
@@ -6903,7 +6833,7 @@ while.body:                                       ; preds = %entry, %if.end46
   br i1 %tobool3.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %while.body
-  tail call void @st_rate_stop(ptr noundef nonnull %3) #24
+  tail call void @st_rate_stop(ptr noundef nonnull %3) #25
   store ptr null, ptr %rate, align 8
   br label %do.body
 
@@ -6941,7 +6871,7 @@ if.end34:                                         ; preds = %if.end14, %if.then2
   %7 = phi ptr [ %.pre6, %if.then27 ], [ null, %if.end14 ]
   store ptr %7, ptr %.pre7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %sc.03) #24
+  tail call void @g_free(ptr noundef nonnull %sc.03) #25
   %tobool44.not = icmp eq i32 %2, 0
   br i1 %tobool44.not, label %if.end46, label %if.then45
 
@@ -6975,7 +6905,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %9 = load ptr, ptr %cb.06.i.i.i, align 8
   %opaque.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i, i64 24
   %10 = load ptr, ptr %opaque.i.i.i, align 8
-  tail call void %9(ptr noundef %10, i32 noundef 1) #24
+  tail call void %9(ptr noundef %10, i32 noundef 1) #25
   %entries.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i, i64 32
   %cb.0.i.i.i = load ptr, ptr %entries.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %cb.0.i.i.i, null
@@ -7006,7 +6936,7 @@ for.body.i.i10.i:                                 ; preds = %if.then.i6.i, %for.
   %13 = load ptr, ptr %cb.06.i.i11.i, align 8
   %opaque.i.i12.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i, i64 24
   %14 = load ptr, ptr %opaque.i.i12.i, align 8
-  tail call void %13(ptr noundef %14, i32 noundef 0) #24
+  tail call void %13(ptr noundef %14, i32 noundef 0) #25
   %entries.i.i13.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i, i64 32
   %cb.0.i.i14.i = load ptr, ptr %entries.i.i13.i, align 8
   %tobool.not.i.i15.i = icmp eq ptr %cb.0.i.i14.i, null
@@ -7020,12 +6950,12 @@ while.end:                                        ; preds = %if.end46, %entry
   ret void
 }
 
-declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #12
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #13
 
-declare ptr @st_rate_start(i32 noundef, i32 noundef) local_unnamed_addr #12
+declare ptr @st_rate_start(i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_pcm_hw_add_new_out(ptr noundef %s, ptr noundef %as) unnamed_addr #5 {
+define internal fastcc noundef ptr @audio_pcm_hw_add_new_out(ptr noundef %s, ptr noundef %as) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %nb_hw_voices_out = getelementptr inbounds i8, ptr %s, i64 64
@@ -7078,7 +7008,7 @@ if.then11:                                        ; preds = %if.then2.i40, %if.t
 if.end12:                                         ; preds = %if.end5
   %voice_size_out = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %voice_size_out, align 8
-  %call13 = tail call noalias ptr @g_malloc0(i64 noundef %3) #26
+  %call13 = tail call noalias ptr @g_malloc0(i64 noundef %3) #27
   store ptr %s, ptr %call13, align 8
   %4 = load ptr, ptr %pcm_ops, align 8
   %pcm_ops16 = getelementptr inbounds i8, ptr %call13, i64 144
@@ -7088,7 +7018,7 @@ if.end12:                                         ; preds = %if.end5
   %5 = load ptr, ptr %4, align 8
   %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   %6 = load ptr, ptr %drv_opaque, align 8
-  %call21 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef %as, ptr noundef %6) #24
+  %call21 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef %as, ptr noundef %6) #25
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %err0
 
@@ -7116,7 +7046,7 @@ if.then27:                                        ; preds = %if.then2.i46, %if.t
   %9 = load ptr, ptr %pcm_ops16, align 8
   %fini_out = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %fini_out, align 8
-  tail call void %10(ptr noundef nonnull %call13) #24
+  tail call void %10(ptr noundef nonnull %call13) #25
   br label %err0
 
 if.end29:                                         ; preds = %if.end24
@@ -7147,16 +7077,44 @@ if.else:                                          ; preds = %if.end29
   %16 = load i32, ptr %swap_endianness, align 4
   %idxprom46 = sext i32 %16 to i64
   %17 = load i32, ptr %info, align 4
-  %call49 = tail call fastcc i32 @audio_bits_to_index(i32 noundef %17)
-  %idxprom50 = zext nneg i32 %call49 to i64
-  %arrayidx51 = getelementptr [2 x [2 x [2 x [3 x ptr]]]], ptr @mixeng_clip, i64 0, i64 %idxprom39, i64 %idxprom43, i64 %idxprom46, i64 %idxprom50
+  switch i32 %17, label %sw.default.i [
+    i32 8, label %audio_bits_to_index.exit
+    i32 16, label %sw.bb1.i
+    i32 32, label %sw.bb2.i
+  ]
+
+sw.bb1.i:                                         ; preds = %if.else
+  br label %audio_bits_to_index.exit
+
+sw.bb2.i:                                         ; preds = %if.else
+  br label %audio_bits_to_index.exit
+
+sw.default.i:                                     ; preds = %if.else
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.89)
+  %.b.i.i = load i1, ptr @audio_bug.shown, align 4
+  br i1 %.b.i.i, label %audio_bug.exit.i, label %if.then2.i.i
+
+if.then2.i.i:                                     ; preds = %sw.default.i
+  store i1 true, ptr @audio_bug.shown, align 4
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.5)
+  br label %audio_bug.exit.i
+
+audio_bug.exit.i:                                 ; preds = %if.then2.i.i, %sw.default.i
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.90, i32 noundef %17)
+  br label %audio_bits_to_index.exit
+
+audio_bits_to_index.exit:                         ; preds = %if.else, %sw.bb1.i, %sw.bb2.i, %audio_bug.exit.i
+  %retval.0.i = phi i64 [ 0, %audio_bug.exit.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 0, %if.else ]
+  %arrayidx51 = getelementptr [2 x [2 x [2 x [3 x ptr]]]], ptr @mixeng_clip, i64 0, i64 %idxprom39, i64 %idxprom43, i64 %idxprom46, i64 %retval.0.i
   br label %if.end53
 
-if.end53:                                         ; preds = %if.else, %if.then31
-  %.sink.in = phi ptr [ %arrayidx, %if.then31 ], [ %arrayidx51, %if.else ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %18 = getelementptr inbounds i8, ptr %call13, i64 48
-  store ptr %.sink, ptr %18, align 8
+if.end53:                                         ; preds = %audio_bits_to_index.exit, %if.then31
+  %arrayidx51.sink = phi ptr [ %arrayidx51, %audio_bits_to_index.exit ], [ %arrayidx, %if.then31 ]
+  %18 = load ptr, ptr %arrayidx51.sink, align 8
+  %clip52 = getelementptr inbounds i8, ptr %call13, i64 48
+  store ptr %18, ptr %clip52, align 8
   tail call fastcc void @audio_pcm_hw_alloc_resources_out(ptr noundef nonnull %call13)
   %hw_head_out = getelementptr inbounds i8, ptr %s, i64 48
   %19 = load ptr, ptr %hw_head_out, align 8
@@ -7181,7 +7139,7 @@ if.end64:                                         ; preds = %if.then58, %if.end5
   br label %return
 
 err0:                                             ; preds = %if.end12, %if.then27
-  tail call void @g_free(ptr noundef nonnull %call13) #24
+  tail call void @g_free(ptr noundef nonnull %call13) #25
   br label %return
 
 return:                                           ; preds = %entry, %err0, %if.end64, %if.then11, %if.then4
@@ -7190,7 +7148,7 @@ return:                                           ; preds = %entry, %err0, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @audio_pcm_hw_add_new_in(ptr noundef %s, ptr noundef %as) unnamed_addr #5 {
+define internal fastcc noundef ptr @audio_pcm_hw_add_new_in(ptr noundef %s, ptr noundef %as) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %nb_hw_voices_in = getelementptr inbounds i8, ptr %s, i64 68
@@ -7243,7 +7201,7 @@ if.then11:                                        ; preds = %if.then2.i38, %if.t
 if.end12:                                         ; preds = %if.end5
   %voice_size_in = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %voice_size_in, align 8
-  %call13 = tail call noalias ptr @g_malloc0(i64 noundef %3) #26
+  %call13 = tail call noalias ptr @g_malloc0(i64 noundef %3) #27
   store ptr %s, ptr %call13, align 8
   %4 = load ptr, ptr %pcm_ops, align 8
   %pcm_ops16 = getelementptr inbounds i8, ptr %call13, i64 144
@@ -7254,7 +7212,7 @@ if.end12:                                         ; preds = %if.end5
   %5 = load ptr, ptr %init_in, align 8
   %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   %6 = load ptr, ptr %drv_opaque, align 8
-  %call18 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef %as, ptr noundef %6) #24
+  %call18 = tail call i32 %5(ptr noundef nonnull %call13, ptr noundef %as, ptr noundef %6) #25
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %err0
 
@@ -7282,7 +7240,7 @@ if.then24:                                        ; preds = %if.then2.i44, %if.t
   %9 = load ptr, ptr %pcm_ops16, align 8
   %fini_in = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load ptr, ptr %fini_in, align 8
-  tail call void %10(ptr noundef nonnull %call13) #24
+  tail call void %10(ptr noundef nonnull %call13) #25
   br label %err0
 
 if.end26:                                         ; preds = %if.end21
@@ -7313,40 +7271,124 @@ if.else:                                          ; preds = %if.end26
   %16 = load i32, ptr %swap_endianness, align 8
   %idxprom44 = sext i32 %16 to i64
   %17 = load i32, ptr %info, align 8
-  %call47 = tail call fastcc i32 @audio_bits_to_index(i32 noundef %17)
-  %idxprom48 = zext nneg i32 %call47 to i64
-  %arrayidx49 = getelementptr [2 x [2 x [2 x [3 x ptr]]]], ptr @mixeng_conv, i64 0, i64 %idxprom37, i64 %idxprom41, i64 %idxprom44, i64 %idxprom48
+  switch i32 %17, label %sw.default.i [
+    i32 8, label %audio_bits_to_index.exit
+    i32 16, label %sw.bb1.i
+    i32 32, label %sw.bb2.i
+  ]
+
+sw.bb1.i:                                         ; preds = %if.else
+  br label %audio_bits_to_index.exit
+
+sw.bb2.i:                                         ; preds = %if.else
+  br label %audio_bits_to_index.exit
+
+sw.default.i:                                     ; preds = %if.else
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.89)
+  %.b.i.i = load i1, ptr @audio_bug.shown, align 4
+  br i1 %.b.i.i, label %audio_bug.exit.i, label %if.then2.i.i
+
+if.then2.i.i:                                     ; preds = %sw.default.i
+  store i1 true, ptr @audio_bug.shown, align 4
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.5)
+  br label %audio_bug.exit.i
+
+audio_bug.exit.i:                                 ; preds = %if.then2.i.i, %sw.default.i
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.90, i32 noundef %17)
+  br label %audio_bits_to_index.exit
+
+audio_bits_to_index.exit:                         ; preds = %if.else, %sw.bb1.i, %sw.bb2.i, %audio_bug.exit.i
+  %retval.0.i = phi i64 [ 0, %audio_bug.exit.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 0, %if.else ]
+  %arrayidx49 = getelementptr [2 x [2 x [2 x [3 x ptr]]]], ptr @mixeng_conv, i64 0, i64 %idxprom37, i64 %idxprom41, i64 %idxprom44, i64 %retval.0.i
   br label %if.end51
 
-if.end51:                                         ; preds = %if.else, %if.then28
-  %.sink.in = phi ptr [ %arrayidx, %if.then28 ], [ %arrayidx49, %if.else ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %18 = getelementptr inbounds i8, ptr %call13, i64 48
-  store ptr %.sink, ptr %18, align 8
-  tail call fastcc void @audio_pcm_hw_alloc_resources_in(ptr noundef nonnull %call13)
+if.end51:                                         ; preds = %audio_bits_to_index.exit, %if.then28
+  %arrayidx49.sink = phi ptr [ %arrayidx49, %audio_bits_to_index.exit ], [ %arrayidx, %if.then28 ]
+  %18 = load ptr, ptr %arrayidx49.sink, align 8
+  %conv50 = getelementptr inbounds i8, ptr %call13, i64 48
+  store ptr %18, ptr %conv50, align 8
+  %19 = load ptr, ptr %call13, align 8
+  %dev.i = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %dev.i, align 8
+  %driver.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load i32, ptr %driver.i.i, align 8
+  %switch.i.i = icmp ult i32 %21, 4
+  br i1 %switch.i.i, label %audio_get_pdo_in.exit.i, label %sw.epilog.i.i
+
+sw.epilog.i.i:                                    ; preds = %if.end51
+  tail call void @abort() #24
+  unreachable
+
+audio_get_pdo_in.exit.i:                          ; preds = %if.end51
+  %retval.0.in.i.i = getelementptr inbounds i8, ptr %20, i64 24
+  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
+  %mixing_engine.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1
+  %22 = load i8, ptr %mixing_engine.i, align 1
+  %tobool.i = trunc i8 %22 to i1
+  br i1 %tobool.i, label %if.then.i47, label %if.else.i
+
+if.then.i47:                                      ; preds = %audio_get_pdo_in.exit.i
+  %23 = load i64, ptr %samples, align 8
+  %cmp.not.i = icmp eq i64 %23, 0
+  br i1 %cmp.not.i, label %if.then.i.i, label %if.end.i48
+
+if.then.i.i:                                      ; preds = %if.then.i47
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.audio_pcm_hw_alloc_resources_in)
+  %.b.i.i49 = load i1, ptr @audio_bug.shown, align 4
+  br i1 %.b.i.i49, label %if.then4.i, label %if.then2.i.i50
+
+if.then2.i.i50:                                   ; preds = %if.then.i.i
+  store i1 true, ptr @audio_bug.shown, align 4
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.5)
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then2.i.i50, %if.then.i.i
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.56)
+  br label %if.end.i48
+
+if.end.i48:                                       ; preds = %if.then4.i, %if.then.i47
+  %call5.i = tail call noalias ptr @g_malloc0_n(i64 noundef %23, i64 noundef 16) #26
+  %conv_buf.i = getelementptr inbounds i8, ptr %call13, i64 72
+  %buffer.i = getelementptr inbounds i8, ptr %call13, i64 88
+  store ptr %call5.i, ptr %buffer.i, align 8
+  %size.i = getelementptr inbounds i8, ptr %call13, i64 80
+  store i64 %23, ptr %size.i, align 8
+  store i64 0, ptr %conv_buf.i, align 8
+  br label %audio_pcm_hw_alloc_resources_in.exit
+
+if.else.i:                                        ; preds = %audio_get_pdo_in.exit.i
+  %size11.i = getelementptr inbounds i8, ptr %call13, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size11.i, i8 0, i64 16, i1 false)
+  br label %audio_pcm_hw_alloc_resources_in.exit
+
+audio_pcm_hw_alloc_resources_in.exit:             ; preds = %if.end.i48, %if.else.i
   %hw_head_in = getelementptr inbounds i8, ptr %s, i64 40
-  %19 = load ptr, ptr %hw_head_in, align 8
+  %24 = load ptr, ptr %hw_head_in, align 8
   %entries = getelementptr inbounds i8, ptr %call13, i64 152
-  store ptr %19, ptr %entries, align 8
-  %cmp54.not = icmp eq ptr %19, null
+  store ptr %24, ptr %entries, align 8
+  %cmp54.not = icmp eq ptr %24, null
   br i1 %cmp54.not, label %if.end62, label %if.then56
 
-if.then56:                                        ; preds = %if.end51
-  %le_prev = getelementptr inbounds i8, ptr %19, i64 160
+if.then56:                                        ; preds = %audio_pcm_hw_alloc_resources_in.exit
+  %le_prev = getelementptr inbounds i8, ptr %24, i64 160
   store ptr %entries, ptr %le_prev, align 8
   br label %if.end62
 
-if.end62:                                         ; preds = %if.then56, %if.end51
+if.end62:                                         ; preds = %if.then56, %audio_pcm_hw_alloc_resources_in.exit
   store ptr %call13, ptr %hw_head_in, align 8
   %le_prev68 = getelementptr inbounds i8, ptr %call13, i64 160
   store ptr %hw_head_in, ptr %le_prev68, align 8
-  %20 = load i32, ptr %nb_hw_voices_in, align 4
-  %sub = add i32 %20, -1
+  %25 = load i32, ptr %nb_hw_voices_in, align 4
+  %sub = add i32 %25, -1
   store i32 %sub, ptr %nb_hw_voices_in, align 4
   br label %return
 
 err0:                                             ; preds = %if.end12, %if.then24
-  tail call void @g_free(ptr noundef nonnull %call13) #24
+  tail call void @g_free(ptr noundef nonnull %call13) #25
   br label %return
 
 return:                                           ; preds = %entry, %err0, %if.end62, %if.then11, %if.then4
@@ -7354,86 +7396,22 @@ return:                                           ; preds = %entry, %err0, %if.e
   ret ptr %retval.0
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_pcm_hw_alloc_resources_in(ptr nocapture noundef %hw) unnamed_addr #5 {
-entry:
-  %0 = load ptr, ptr %hw, align 8
-  %dev = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load ptr, ptr %dev, align 8
-  %driver.i = getelementptr inbounds i8, ptr %1, i64 8
-  %2 = load i32, ptr %driver.i, align 8
-  %switch.i = icmp ult i32 %2, 4
-  br i1 %switch.i, label %audio_get_pdo_in.exit, label %sw.epilog.i
+declare i32 @st_rate_frames_in(ptr noundef, i32 noundef) local_unnamed_addr #13
 
-sw.epilog.i:                                      ; preds = %entry
-  tail call void @abort() #23
-  unreachable
+declare void @mixeng_volume(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
-audio_get_pdo_in.exit:                            ; preds = %entry
-  %retval.0.in.i = getelementptr inbounds i8, ptr %1, i64 24
-  %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %mixing_engine = getelementptr inbounds i8, ptr %retval.0.i, i64 1
-  %3 = load i8, ptr %mixing_engine, align 1
-  %tobool = trunc i8 %3 to i1
-  br i1 %tobool, label %if.then, label %if.else
+declare void @st_rate_flow_mix(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
-if.then:                                          ; preds = %audio_get_pdo_in.exit
-  %samples1 = getelementptr inbounds i8, ptr %hw, i64 128
-  %4 = load i64, ptr %samples1, align 8
-  %cmp.not = icmp eq i64 %4, 0
-  br i1 %cmp.not, label %if.then.i, label %if.end
+declare void @st_rate_flow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
-if.then.i:                                        ; preds = %if.then
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.audio_pcm_hw_alloc_resources_in)
-  %.b.i = load i1, ptr @audio_bug.shown, align 4
-  br i1 %.b.i, label %if.then4, label %if.then2.i
+declare void @timer_mod_anticipate_ns(ptr noundef, i64 noundef) local_unnamed_addr #13
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i1 true, ptr @audio_bug.shown, align 4
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.4)
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.5)
-  br label %if.then4
-
-if.then4:                                         ; preds = %if.then2.i, %if.then.i
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef null, ptr noundef nonnull @.str.6)
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.56)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %if.then4
-  %call5 = tail call noalias ptr @g_malloc0_n(i64 noundef %4, i64 noundef 16) #25
-  %conv_buf = getelementptr inbounds i8, ptr %hw, i64 72
-  %buffer = getelementptr inbounds i8, ptr %hw, i64 88
-  store ptr %call5, ptr %buffer, align 8
-  %size = getelementptr inbounds i8, ptr %hw, i64 80
-  store i64 %4, ptr %size, align 8
-  store i64 0, ptr %conv_buf, align 8
-  br label %if.end12
-
-if.else:                                          ; preds = %audio_get_pdo_in.exit
-  %size11 = getelementptr inbounds i8, ptr %hw, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size11, i8 0, i64 16, i1 false)
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.else, %if.end
-  ret void
-}
-
-declare i32 @st_rate_frames_in(ptr noundef, i32 noundef) local_unnamed_addr #12
-
-declare void @mixeng_volume(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
-
-declare void @st_rate_flow_mix(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
-
-declare void @st_rate_flow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
-
-declare void @timer_mod_anticipate_ns(ptr noundef, i64 noundef) local_unnamed_addr #12
-
-declare void @timer_del(ptr noundef) local_unnamed_addr #12
+declare void @timer_del(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-declare i32 @qemu_get_thread_id() local_unnamed_addr #12
+declare i32 @qemu_get_thread_id() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal fastcc i64 @audio_pcm_hw_get_live_out(ptr nocapture noundef readonly %hw, ptr noundef writeonly %nb_live) unnamed_addr #1 {
@@ -7515,30 +7493,30 @@ return:                                           ; preds = %if.then2, %if.end, 
   ret i64 %retval.0
 }
 
-declare void @replay_audio_out(ptr noundef) local_unnamed_addr #12
+declare void @replay_audio_out(ptr noundef) local_unnamed_addr #13
 
-declare void @mixeng_clear(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare void @mixeng_clear(ptr noundef, i32 noundef) local_unnamed_addr #13
 
-declare void @replay_audio_in(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @replay_audio_in(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
 
-declare i32 @st_rate_frames_out(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare i32 @st_rate_frames_out(ptr noundef, i32 noundef) local_unnamed_addr #13
 
-declare void @qapi_free_Audiodev(ptr noundef) local_unnamed_addr #12
+declare void @qapi_free_Audiodev(ptr noundef) local_unnamed_addr #13
 
-declare i32 @module_load(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @module_load(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
-declare void @error_report_err(ptr noundef) local_unnamed_addr #12
+declare void @error_report_err(ptr noundef) local_unnamed_addr #13
 
-declare void @qobject_destroy(ptr noundef) local_unnamed_addr #12
+declare void @qobject_destroy(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #2
+declare i32 @atexit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @audio_timer(ptr nocapture noundef %opaque) #5 {
+define internal void @audio_timer(ptr nocapture noundef %opaque) #6 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #24
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %timer_last = getelementptr inbounds i8, ptr %opaque, i64 96
   %0 = load i64, ptr %timer_last, align 8
   %sub = sub i64 %call, %0
@@ -7572,16 +7550,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #24
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #25
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #25
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv) #25
   br label %trace_audio_timer_delayed.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %conv) #24
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %conv) #25
   br label %trace_audio_timer_delayed.exit
 
 trace_audio_timer_delayed.exit:                   ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7596,13 +7574,13 @@ if.end:                                           ; preds = %trace_audio_timer_d
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @audio_driver_init(ptr nocapture noundef %s, ptr noundef %drv, ptr noundef %dev, ptr noundef %errp) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @audio_driver_init(ptr nocapture noundef %s, ptr noundef %drv, ptr noundef %dev, ptr noundef %errp) unnamed_addr #6 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %init = getelementptr inbounds i8, ptr %drv, i64 16
   %0 = load ptr, ptr %init, align 8
-  %call = call ptr %0(ptr noundef %dev, ptr noundef nonnull %local_err) #24
+  %call = call ptr %0(ptr noundef %dev, ptr noundef nonnull %local_err) #25
   %drv_opaque = getelementptr inbounds i8, ptr %s, i64 16
   store ptr %call, ptr %drv_opaque, align 8
   %tobool.not = icmp eq ptr %call, null
@@ -7651,7 +7629,7 @@ if.end13:                                         ; preds = %if.then9, %if.end
   br i1 %switch.i.i, label %audio_get_pdo_out.exit.i, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.end13
-  call void @abort() #23
+  call void @abort() #24
   unreachable
 
 audio_get_pdo_out.exit.i:                         ; preds = %if.end13
@@ -7747,7 +7725,7 @@ audio_init_nb_voices_out.exit:                    ; preds = %if.end19.thread.i, 
   br i1 %switch.i.i18, label %audio_get_pdo_in.exit.i, label %sw.epilog.i.i19
 
 sw.epilog.i.i19:                                  ; preds = %audio_init_nb_voices_out.exit
-  call void @abort() #23
+  call void @abort() #24
   unreachable
 
 audio_get_pdo_in.exit.i:                          ; preds = %audio_init_nb_voices_out.exit
@@ -7837,12 +7815,12 @@ if.else:                                          ; preds = %entry
   br i1 %tobool15.not, label %if.else17, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %27) #24
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %27) #25
   br label %return
 
 if.else17:                                        ; preds = %if.else
   %28 = load ptr, ptr %drv, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 1584, ptr noundef nonnull @__func__.audio_driver_init, ptr noundef nonnull @.str.81, ptr noundef %28) #24
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 1584, ptr noundef nonnull @__func__.audio_driver_init, ptr noundef nonnull @.str.81, ptr noundef %28) #25
   br label %return
 
 return:                                           ; preds = %if.then16, %if.else17, %audio_init_nb_voices_in.exit
@@ -7850,10 +7828,10 @@ return:                                           ; preds = %if.then16, %if.else
   ret i32 %retval.0
 }
 
-declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @audio_vm_change_state_handler(ptr nocapture noundef %opaque, i1 noundef zeroext %running, i32 %state) #5 {
+define internal void @audio_vm_change_state_handler(ptr nocapture noundef %opaque, i1 noundef zeroext %running, i32 %state) #6 {
 entry:
   %conv = zext i1 %running to i32
   %vm_running = getelementptr inbounds i8, ptr %opaque, i64 72
@@ -7892,7 +7870,7 @@ while.body:                                       ; preds = %while.body.i
   br i1 %tobool2.not, label %while.cond.i.backedge, label %if.then
 
 if.then:                                          ; preds = %while.body
-  tail call void %2(ptr noundef nonnull %cond.i.i, i1 noundef zeroext %running) #24
+  tail call void %2(ptr noundef nonnull %cond.i.i, i1 noundef zeroext %running) #25
   br label %while.cond.i.backedge
 
 while.cond.i13:                                   ; preds = %while.cond.i13.backedge, %while.cond6.preheader
@@ -7922,7 +7900,7 @@ while.body9:                                      ; preds = %while.body.i20
   br i1 %tobool11.not, label %while.cond.i13.backedge, label %if.then12
 
 if.then12:                                        ; preds = %while.body9
-  tail call void %5(ptr noundef nonnull %cond.i.i18, i1 noundef zeroext %running) #24
+  tail call void %5(ptr noundef nonnull %cond.i.i18, i1 noundef zeroext %running) #25
   br label %while.cond.i13.backedge
 
 while.end17:                                      ; preds = %while.cond.i13
@@ -7930,20 +7908,20 @@ while.end17:                                      ; preds = %while.cond.i13
   ret void
 }
 
-declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
-declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #12
+declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #13
 
-declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @vmstate_audio_needed(ptr nocapture readnone %opaque) #17 {
+define internal noundef zeroext i1 @vmstate_audio_needed(ptr nocapture readnone %opaque) #18 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_validate_per_direction_opts(ptr nocapture noundef %pdo, ptr noundef %errp) unnamed_addr #5 {
+define internal fastcc void @audio_validate_per_direction_opts(ptr nocapture noundef %pdo, ptr noundef %errp) unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %pdo, align 4
   %tobool = trunc i8 %0 to i1
@@ -7999,7 +7977,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false
   br i1 %tobool13, label %if.then14, label %if.end15.thread
 
 if.then14:                                        ; preds = %lor.lhs.false12, %lor.lhs.false, %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2060, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.93) #24
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2060, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.93) #25
   br label %if.end43
 
 if.end15:                                         ; preds = %if.end7
@@ -8021,7 +7999,7 @@ if.end15.thread:                                  ; preds = %lor.lhs.false12
   br label %if.end22
 
 if.then21:                                        ; preds = %if.end15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2064, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.94) #24
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.18, i32 noundef 2064, ptr noundef nonnull @__func__.audio_validate_per_direction_opts, ptr noundef nonnull @.str.94) #25
   br label %if.end43
 
 if.end22:                                         ; preds = %if.end15.if.end22_crit_edge, %if.end15.thread
@@ -8078,57 +8056,58 @@ if.end43:                                         ; preds = %if.then41, %if.end3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #18
+declare void @llvm.va_start.p0(ptr) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #18
+declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #19
+declare i64 @llvm.usub.sat.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #20
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #19
+declare i64 @llvm.uadd.sat.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { cold }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind allocsize(0,1) }
-attributes #26 = { nounwind allocsize(0) }
-attributes #27 = { nounwind willreturn memory(read) }
+attributes #2 = { cold nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nofree nounwind }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { cold }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind allocsize(0,1) }
+attributes #27 = { nounwind allocsize(0) }
+attributes #28 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

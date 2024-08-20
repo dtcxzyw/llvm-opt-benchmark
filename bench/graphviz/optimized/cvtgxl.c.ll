@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ingraph_state, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef 47) #9
+  %5 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef 47) #10
   %.not.i.i = icmp eq ptr %5, null
   %6 = getelementptr inbounds i8, ptr %5, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %4, ptr %6
@@ -46,9 +46,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %7
 
 7:                                                ; preds = %.backedge, %2
-  %8 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str) #10
-  switch i32 %8, label %37 [
-    i32 -1, label %40
+  %8 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str) #11
+  switch i32 %8, label %36 [
+    i32 -1, label %39
     i32 100, label %9
     i32 103, label %10
     i32 111, label %11
@@ -82,9 +82,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.8, ptr noundef %16, ptr noundef %17, ptr noundef nonnull @.str.7) #11
-  tail call void @perror(ptr noundef %17) #12
-  tail call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.8, ptr noundef %16, ptr noundef %17, ptr noundef nonnull @.str.7) #12
+  tail call void @perror(ptr noundef %17) #13
+  tail call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 openFile.exit.i:                                  ; preds = %15
@@ -95,7 +95,7 @@ openFile.exit.i:                                  ; preds = %15
   %24 = load ptr, ptr @stderr, align 8
   %25 = load ptr, ptr @CmdName, align 8
   %26 = load i32, ptr @optopt, align 4
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.2, ptr noundef %25, i32 noundef %26) #11
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.2, ptr noundef %25, i32 noundef %26) #12
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %openFile.exit.i, %10, %9
@@ -104,257 +104,253 @@ openFile.exit.i:                                  ; preds = %15
 28:                                               ; preds = %7
   %29 = load i32, ptr @optopt, align 4
   %30 = icmp eq i32 %29, 63
-  %31 = load ptr, ptr @stderr, align 8
-  %32 = load ptr, ptr @CmdName, align 8
-  br i1 %30, label %33, label %35
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %28
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.9, ptr noundef %32) #11
-  tail call fastcc void @graphviz_exit(i32 noundef 0) #13
+31:                                               ; preds = %28
+  tail call fastcc void @usage(i32 noundef 0)
   unreachable
 
-35:                                               ; preds = %28
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.3, ptr noundef %32, i32 noundef %29) #11
-  tail call fastcc void @graphviz_exit(i32 noundef 1) #13
+32:                                               ; preds = %28
+  %33 = load ptr, ptr @stderr, align 8
+  %34 = load ptr, ptr @CmdName, align 8
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.3, ptr noundef %34, i32 noundef %29) #12
+  tail call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
-37:                                               ; preds = %7
-  %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 25, i64 1, ptr %38) #12
-  tail call fastcc void @graphviz_exit(i32 noundef 1) #13
+36:                                               ; preds = %7
+  %37 = load ptr, ptr @stderr, align 8
+  %38 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 25, i64 1, ptr %37) #13
+  tail call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
-40:                                               ; preds = %7
-  %41 = load i32, ptr @optind, align 4
-  %42 = icmp slt i32 %41, %0
-  br i1 %42, label %43, label %46
+39:                                               ; preds = %7
+  %40 = load i32, ptr @optind, align 4
+  %41 = icmp slt i32 %40, %0
+  br i1 %41, label %42, label %45
 
-43:                                               ; preds = %40
-  %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds ptr, ptr %1, i64 %44
-  store ptr %45, ptr @Files, align 8
-  br label %46
+42:                                               ; preds = %39
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr inbounds ptr, ptr %1, i64 %43
+  store ptr %44, ptr @Files, align 8
+  br label %45
 
-46:                                               ; preds = %43, %40
-  %47 = load ptr, ptr @outFile, align 8
-  %.not9.i = icmp eq ptr %47, null
-  br i1 %.not9.i, label %48, label %50
+45:                                               ; preds = %42, %39
+  %46 = load ptr, ptr @outFile, align 8
+  %.not9.i = icmp eq ptr %46, null
+  br i1 %.not9.i, label %47, label %49
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr @stdout, align 8
-  store ptr %49, ptr @outFile, align 8
-  br label %50
+47:                                               ; preds = %45
+  %48 = load ptr, ptr @stdout, align 8
+  store ptr %48, ptr @outFile, align 8
+  br label %49
 
-50:                                               ; preds = %48, %46
-  %51 = load i32, ptr @act, align 4
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %initargs.exit
+49:                                               ; preds = %47, %45
+  %50 = load i32, ptr @act, align 4
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %initargs.exit
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr @CmdName, align 8
-  %55 = load i8, ptr %54, align 1
-  %56 = sext i8 %55 to i32
-  %57 = tail call i32 @tolower(i32 noundef %56) #9
-  switch i32 %57, label %64 [
+52:                                               ; preds = %49
+  %53 = load ptr, ptr @CmdName, align 8
+  %54 = load i8, ptr %53, align 1
+  %55 = sext i8 %54 to i32
+  %56 = tail call i32 @tolower(i32 noundef %55) #10
+  switch i32 %56, label %63 [
     i32 100, label %setAction.exit.i
-    i32 103, label %58
+    i32 103, label %57
   ]
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %54, i64 1
-  %60 = load i8, ptr %59, align 1
-  %61 = sext i8 %60 to i32
-  %62 = tail call i32 @tolower(i32 noundef %61) #9
-  %63 = icmp eq i32 %62, 118
-  %..i.i = select i1 %63, i32 2, i32 1
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds i8, ptr %53, i64 1
+  %59 = load i8, ptr %58, align 1
+  %60 = sext i8 %59 to i32
+  %61 = tail call i32 @tolower(i32 noundef %60) #10
+  %62 = icmp eq i32 %61, 118
+  %..i.i = select i1 %62, i32 2, i32 1
   br label %setAction.exit.i
 
-64:                                               ; preds = %53
-  %65 = load ptr, ptr @Files, align 8
-  %.not.i11.i = icmp eq ptr %65, null
-  br i1 %.not.i11.i, label %checkInput.exit.i.i, label %66
+63:                                               ; preds = %52
+  %64 = load ptr, ptr @Files, align 8
+  %.not.i11.i = icmp eq ptr %64, null
+  br i1 %.not.i11.i, label %checkInput.exit.i.i, label %65
 
-66:                                               ; preds = %64
-  %67 = load ptr, ptr %65, align 8
-  %68 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %67, i32 noundef 46) #9
-  %.not.i.i.i = icmp eq ptr %68, null
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %64, align 8
+  %67 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %66, i32 noundef 46) #10
+  %.not.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i, label %checkInput.exit.i.i, label %sub_0.i.i.i
 
-sub_0.i.i.i:                                      ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
-  %70 = load i8, ptr %69, align 1
-  %.not5.i.i.i = icmp eq i8 %70, 103
+sub_0.i.i.i:                                      ; preds = %65
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  %69 = load i8, ptr %68, align 1
+  %.not5.i.i.i = icmp eq i8 %69, 103
   br i1 %.not5.i.i.i, label %sub_1.i.i.i, label %.tail.thread.i.i.i
 
 sub_1.i.i.i:                                      ; preds = %sub_0.i.i.i
-  %71 = getelementptr inbounds i8, ptr %68, i64 2
-  %72 = load i8, ptr %71, align 1
-  %.not6.i.i.i = icmp eq i8 %72, 118
+  %70 = getelementptr inbounds i8, ptr %67, i64 2
+  %71 = load i8, ptr %70, align 1
+  %.not6.i.i.i = icmp eq i8 %71, 118
   br i1 %.not6.i.i.i, label %.tail.i.i.i, label %.tail.thread.i.i.i
 
 .tail.i.i.i:                                      ; preds = %sub_1.i.i.i
-  %73 = getelementptr inbounds i8, ptr %68, i64 3
-  %74 = load i8, ptr %73, align 1
-  %75 = icmp eq i8 %74, 0
-  br i1 %75, label %setAction.exit.i, label %.tail.thread.i.i.i
+  %72 = getelementptr inbounds i8, ptr %67, i64 3
+  %73 = load i8, ptr %72, align 1
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %setAction.exit.i, label %.tail.thread.i.i.i
 
 .tail.thread.i.i.i:                               ; preds = %.tail.i.i.i, %sub_1.i.i.i, %sub_0.i.i.i
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(4) @.str.12) #9
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %setAction.exit.i, label %78
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(4) @.str.12) #10
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %setAction.exit.i, label %77
 
-78:                                               ; preds = %.tail.thread.i.i.i
-  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(4) @.str.13) #9
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %setAction.exit.i, label %checkInput.exit.i.i
+77:                                               ; preds = %.tail.thread.i.i.i
+  %78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(4) @.str.13) #10
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %setAction.exit.i, label %checkInput.exit.i.i
 
-checkInput.exit.i.i:                              ; preds = %78, %66, %64
-  %81 = load ptr, ptr @stderr, align 8
-  %82 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr %81) #12
-  %83 = load ptr, ptr @stderr, align 8
-  %84 = load ptr, ptr @CmdName, align 8
-  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.9, ptr noundef %84) #11
-  tail call fastcc void @graphviz_exit(i32 noundef 1) #13
+checkInput.exit.i.i:                              ; preds = %77, %65, %63
+  %80 = load ptr, ptr @stderr, align 8
+  %81 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr %80) #13
+  tail call fastcc void @usage(i32 noundef 1)
   unreachable
 
-setAction.exit.i:                                 ; preds = %78, %.tail.thread.i.i.i, %.tail.i.i.i, %58, %53
-  %.sink.i.i = phi i32 [ 2, %53 ], [ %..i.i, %58 ], [ 2, %.tail.i.i.i ], [ 2, %.tail.thread.i.i.i ], [ 1, %78 ]
+setAction.exit.i:                                 ; preds = %77, %.tail.thread.i.i.i, %.tail.i.i.i, %57, %52
+  %.sink.i.i = phi i32 [ 2, %52 ], [ %..i.i, %57 ], [ 2, %.tail.i.i.i ], [ 2, %.tail.thread.i.i.i ], [ 1, %77 ]
   store i32 %.sink.i.i, ptr @act, align 4
   br label %initargs.exit
 
-initargs.exit:                                    ; preds = %50, %setAction.exit.i
-  %86 = phi i32 [ %51, %50 ], [ %.sink.i.i, %setAction.exit.i ]
-  %87 = icmp eq i32 %86, 2
-  br i1 %87, label %88, label %.preheader19.outer
+initargs.exit:                                    ; preds = %49, %setAction.exit.i
+  %82 = phi i32 [ %50, %49 ], [ %.sink.i.i, %setAction.exit.i ]
+  %83 = icmp eq i32 %82, 2
+  br i1 %83, label %84, label %.preheader19.outer
 
-88:                                               ; preds = %initargs.exit
-  %89 = load ptr, ptr @Files, align 8
-  %90 = call ptr @newIngraph(ptr noundef nonnull %3, ptr noundef %89) #10
-  %91 = call ptr @nextGraph(ptr noundef nonnull %3) #10
-  %.not1427 = icmp eq ptr %91, null
+84:                                               ; preds = %initargs.exit
+  %85 = load ptr, ptr @Files, align 8
+  %86 = call ptr @newIngraph(ptr noundef nonnull %3, ptr noundef %85) #11
+  %87 = call ptr @nextGraph(ptr noundef nonnull %3) #11
+  %.not1427 = icmp eq ptr %87, null
   br i1 %.not1427, label %.loopexit, label %.lr.ph29
 
-.lr.ph29:                                         ; preds = %88, %95
-  %92 = phi ptr [ %99, %95 ], [ %91, %88 ]
-  %.028 = phi ptr [ %92, %95 ], [ null, %88 ]
+.lr.ph29:                                         ; preds = %84, %91
+  %88 = phi ptr [ %95, %91 ], [ %87, %84 ]
+  %.028 = phi ptr [ %88, %91 ], [ null, %84 ]
   %.not15 = icmp eq ptr %.028, null
-  br i1 %.not15, label %95, label %93
+  br i1 %.not15, label %91, label %89
 
-93:                                               ; preds = %.lr.ph29
-  %94 = call i32 @agclose(ptr noundef nonnull %.028) #10
-  br label %95
+89:                                               ; preds = %.lr.ph29
+  %90 = call i32 @agclose(ptr noundef nonnull %.028) #11
+  br label %91
 
-95:                                               ; preds = %93, %.lr.ph29
-  %96 = load ptr, ptr @outFile, align 8
-  call void @gv_to_gxl(ptr noundef nonnull %92, ptr noundef %96) #10
-  %97 = load ptr, ptr @outFile, align 8
-  %98 = call i32 @fflush(ptr noundef %97)
-  %99 = call ptr @nextGraph(ptr noundef nonnull %3) #10
-  %.not14 = icmp eq ptr %99, null
+91:                                               ; preds = %89, %.lr.ph29
+  %92 = load ptr, ptr @outFile, align 8
+  call void @gv_to_gxl(ptr noundef nonnull %88, ptr noundef %92) #11
+  %93 = load ptr, ptr @outFile, align 8
+  %94 = call i32 @fflush(ptr noundef %93)
+  %95 = call ptr @nextGraph(ptr noundef nonnull %3) #11
+  %.not14 = icmp eq ptr %95, null
   br i1 %.not14, label %.loopexit, label %.lr.ph29
 
-.preheader19.outer:                               ; preds = %139, %initargs.exit
-  %.1.ph = phi ptr [ null, %initargs.exit ], [ %136, %139 ]
+.preheader19.outer:                               ; preds = %135, %initargs.exit
+  %.1.ph = phi ptr [ null, %initargs.exit ], [ %132, %135 ]
   br label %.preheader19
 
 .preheader19:                                     ; preds = %.preheader19.outer, %.preheader
-  %100 = load ptr, ptr @Files, align 8
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %102, label %106
+  %96 = load ptr, ptr @Files, align 8
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %98, label %102
+
+98:                                               ; preds = %.preheader19
+  %99 = load i32, ptr @getFile.cnt, align 4
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr @getFile.cnt, align 4
+  %101 = icmp eq i32 %99, 0
+  br i1 %101, label %getFile.exit, label %getFile.exit.thread
 
 102:                                              ; preds = %.preheader19
-  %103 = load i32, ptr @getFile.cnt, align 4
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr @getFile.cnt, align 4
-  %105 = icmp eq i32 %103, 0
-  br i1 %105, label %getFile.exit, label %getFile.exit.thread
+  %103 = load ptr, ptr @getFile.savef, align 8
+  %.not.i = icmp eq ptr %103, null
+  br i1 %.not.i, label %106, label %104
 
-106:                                              ; preds = %.preheader19
-  %107 = load ptr, ptr @getFile.savef, align 8
-  %.not.i = icmp eq ptr %107, null
-  br i1 %.not.i, label %110, label %108
-
-108:                                              ; preds = %106
-  %109 = tail call i32 @fclose(ptr noundef nonnull %107)
+104:                                              ; preds = %102
+  %105 = tail call i32 @fclose(ptr noundef nonnull %103)
   %.pre.i = load ptr, ptr @Files, align 8
-  br label %110
+  br label %106
 
-110:                                              ; preds = %108, %106
-  %111 = phi ptr [ %.pre.i, %108 ], [ %100, %106 ]
-  %112 = load i32, ptr @getFile.cnt, align 4
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds ptr, ptr %111, i64 %113
-  %115 = load ptr, ptr %114, align 8
-  %.not57.i = icmp eq ptr %115, null
+106:                                              ; preds = %104, %102
+  %107 = phi ptr [ %.pre.i, %104 ], [ %96, %102 ]
+  %108 = load i32, ptr @getFile.cnt, align 4
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %111 = load ptr, ptr %110, align 8
+  %.not57.i = icmp eq ptr %111, null
   br i1 %.not57.i, label %getFile.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %110, %120
-  %116 = phi ptr [ %133, %120 ], [ %115, %110 ]
-  %117 = phi i32 [ %130, %120 ], [ %112, %110 ]
-  %118 = add nsw i32 %117, 1
-  store i32 %118, ptr @getFile.cnt, align 4
-  %119 = tail call noalias ptr @fopen(ptr noundef nonnull %116, ptr noundef nonnull @.str.5)
-  %.not6.i = icmp eq ptr %119, null
-  br i1 %.not6.i, label %120, label %getFile.exit.thread36
+.lr.ph.i:                                         ; preds = %106, %116
+  %112 = phi ptr [ %129, %116 ], [ %111, %106 ]
+  %113 = phi i32 [ %126, %116 ], [ %108, %106 ]
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr @getFile.cnt, align 4
+  %115 = tail call noalias ptr @fopen(ptr noundef nonnull %112, ptr noundef nonnull @.str.5)
+  %.not6.i = icmp eq ptr %115, null
+  br i1 %.not6.i, label %116, label %getFile.exit.thread36
 
 getFile.exit.thread36:                            ; preds = %.lr.ph.i
-  store ptr %119, ptr @getFile.savef, align 8
+  store ptr %115, ptr @getFile.savef, align 8
   br label %.preheader
 
-120:                                              ; preds = %.lr.ph.i
-  %121 = load ptr, ptr @stderr, align 8
-  %122 = load ptr, ptr @Files, align 8
-  %123 = load i32, ptr @getFile.cnt, align 4
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr ptr, ptr %122, i64 %124
-  %126 = getelementptr i8, ptr %125, i64 -8
-  %127 = load ptr, ptr %126, align 8
-  %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.14, ptr noundef %127) #11
-  %129 = load ptr, ptr @Files, align 8
-  %130 = load i32, ptr @getFile.cnt, align 4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds ptr, ptr %129, i64 %131
-  %133 = load ptr, ptr %132, align 8
-  %.not5.i = icmp eq ptr %133, null
+116:                                              ; preds = %.lr.ph.i
+  %117 = load ptr, ptr @stderr, align 8
+  %118 = load ptr, ptr @Files, align 8
+  %119 = load i32, ptr @getFile.cnt, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr ptr, ptr %118, i64 %120
+  %122 = getelementptr i8, ptr %121, i64 -8
+  %123 = load ptr, ptr %122, align 8
+  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.14, ptr noundef %123) #12
+  %125 = load ptr, ptr @Files, align 8
+  %126 = load i32, ptr @getFile.cnt, align 4
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds ptr, ptr %125, i64 %127
+  %129 = load ptr, ptr %128, align 8
+  %.not5.i = icmp eq ptr %129, null
   br i1 %.not5.i, label %getFile.exit.thread, label %.lr.ph.i
 
-getFile.exit.thread:                              ; preds = %102, %110, %120
+getFile.exit.thread:                              ; preds = %98, %106, %116
   store ptr null, ptr @getFile.savef, align 8
   br label %.loopexit
 
-getFile.exit:                                     ; preds = %102
-  %134 = load ptr, ptr @stdin, align 8
-  store ptr %134, ptr @getFile.savef, align 8
-  %.not = icmp eq ptr %134, null
+getFile.exit:                                     ; preds = %98
+  %130 = load ptr, ptr @stdin, align 8
+  store ptr %130, ptr @getFile.savef, align 8
+  %.not = icmp eq ptr %130, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %getFile.exit.thread36, %getFile.exit
-  %.0.i39 = phi ptr [ %119, %getFile.exit.thread36 ], [ %134, %getFile.exit ]
-  %135 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.0.i39) #10
-  %.not1225 = icmp eq ptr %135, null
+  %.0.i39 = phi ptr [ %115, %getFile.exit.thread36 ], [ %130, %getFile.exit ]
+  %131 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.0.i39) #11
+  %.not1225 = icmp eq ptr %131, null
   br i1 %.not1225, label %.preheader19, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %139
-  %136 = phi ptr [ %144, %139 ], [ %135, %.preheader ]
-  %.226 = phi ptr [ %136, %139 ], [ %.1.ph, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %135
+  %132 = phi ptr [ %140, %135 ], [ %131, %.preheader ]
+  %.226 = phi ptr [ %132, %135 ], [ %.1.ph, %.preheader ]
   %.not13 = icmp eq ptr %.226, null
-  br i1 %.not13, label %139, label %137
+  br i1 %.not13, label %135, label %133
 
-137:                                              ; preds = %.lr.ph
-  %138 = tail call i32 @agclose(ptr noundef nonnull %.226) #10
-  br label %139
+133:                                              ; preds = %.lr.ph
+  %134 = tail call i32 @agclose(ptr noundef nonnull %.226) #11
+  br label %135
 
-139:                                              ; preds = %137, %.lr.ph
-  %140 = load ptr, ptr @outFile, align 8
-  %141 = tail call i32 @agwrite(ptr noundef nonnull %136, ptr noundef %140) #10
-  %142 = load ptr, ptr @outFile, align 8
-  %143 = tail call i32 @fflush(ptr noundef %142)
-  %144 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.0.i39) #10
-  %.not12 = icmp eq ptr %144, null
+135:                                              ; preds = %133, %.lr.ph
+  %136 = load ptr, ptr @outFile, align 8
+  %137 = tail call i32 @agwrite(ptr noundef nonnull %132, ptr noundef %136) #11
+  %138 = load ptr, ptr @outFile, align 8
+  %139 = tail call i32 @fflush(ptr noundef %138)
+  %140 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.0.i39) #11
+  %.not12 = icmp eq ptr %140, null
   br i1 %.not12, label %.preheader19.outer, label %.lr.ph
 
-.loopexit:                                        ; preds = %getFile.exit, %95, %88, %getFile.exit.thread
-  call fastcc void @graphviz_exit(i32 noundef 0) #13
+.loopexit:                                        ; preds = %getFile.exit, %91, %84, %getFile.exit.thread
+  call fastcc void @graphviz_exit(i32 noundef 0) #14
   unreachable
 }
 
@@ -375,7 +371,7 @@ declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #3 {
-  tail call void @exit(i32 noundef %0) #14
+  tail call void @exit(i32 noundef %0) #15
   unreachable
 }
 
@@ -388,42 +384,52 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
+; Function Attrs: cold nofree noreturn nounwind uwtable
+define internal fastcc void @usage(i32 noundef %0) unnamed_addr #5 {
+  %2 = load ptr, ptr @stderr, align 8
+  %3 = load ptr, ptr @CmdName, align 8
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, ptr noundef %3) #12
+  tail call fastcc void @graphviz_exit(i32 noundef %0) #14
+  unreachable
+}
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) local_unnamed_addr #6
+declare i32 @tolower(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { cold }
-attributes #13 = { noreturn }
-attributes #14 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { cold }
+attributes #14 = { noreturn }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

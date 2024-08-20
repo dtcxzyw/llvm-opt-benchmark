@@ -40,7 +40,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str) #12
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str) #13
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.then2, label %if.end10
 
@@ -50,13 +50,13 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool3.not, label %if.end6, label %if.end10
 
 if.end6:                                          ; preds = %if.then2
-  tail call void @read_early_config(ptr noundef nonnull @core_pager_config, ptr noundef null) #12
+  tail call void @read_early_config(ptr noundef nonnull @core_pager_config, ptr noundef null) #13
   %.pr = load ptr, ptr @pager_program, align 8
   %tobool7.not = icmp eq ptr %.pr, null
   br i1 %tobool7.not, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end6
-  %call9 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #12
+  %call9 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #13
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then2, %if.end, %if.then8, %if.end6
@@ -68,7 +68,7 @@ if.end10:                                         ; preds = %if.then2, %if.end, 
   br i1 %tobool14.not, label %if.then17, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %call15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(4) @.str.3) #13
+  %call15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(4) @.str.3) #14
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then17, label %return
 
@@ -88,12 +88,12 @@ declare void @read_early_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @core_pager_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture readnone %data) #0 {
 entry:
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(11) @.str.12) #13
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(11) @.str.12) #14
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @git_config_string(ptr noundef nonnull @pager_program, ptr noundef %var, ptr noundef %value) #12
+  %call1 = tail call i32 @git_config_string(ptr noundef nonnull @pager_program, ptr noundef %var, ptr noundef %value) #13
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -108,15 +108,15 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define dso_local void @prepare_pager_args(ptr noundef %pager_process, ptr noundef %pager) local_unnamed_addr #0 {
 entry:
   %argv.i = alloca ptr, align 8
-  %call = tail call ptr @strvec_push(ptr noundef %pager_process, ptr noundef %pager) #12
+  %call = tail call ptr @strvec_push(ptr noundef %pager_process, ptr noundef %pager) #13
   %use_shell = getelementptr inbounds i8, ptr %pager_process, i64 104
   %bf.load = load i16, ptr %use_shell, align 8
   %bf.set = or i16 %bf.load, 32
   store i16 %bf.set, ptr %use_shell, align 8
   %env = getelementptr inbounds i8, ptr %pager_process, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %argv.i)
-  %call.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.13) #12
-  %call1.i = call i32 @split_cmdline(ptr noundef %call.i, ptr noundef nonnull %argv.i) #12
+  %call.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.13) #13
+  %call1.i = call i32 @split_cmdline(ptr noundef %call.i, ptr noundef nonnull %argv.i) #13
   %cmp.i = icmp slt i32 %call1.i, 0
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -129,8 +129,8 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br label %for.body.i
 
 if.then.i:                                        ; preds = %entry
-  %call2.i = call ptr @split_cmdline_strerror(i32 noundef %call1.i) #12
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.14, ptr noundef %call2.i) #14
+  %call2.i = call ptr @split_cmdline_strerror(i32 noundef %call1.i) #13
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.14, ptr noundef %call2.i) #15
   unreachable
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -138,12 +138,12 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %0 = load ptr, ptr %argv.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %call4.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 61) #13
+  %call4.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 61) #14
   %tobool.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool.not.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.15) #14
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.15) #15
   unreachable
 
 if.end6.i:                                        ; preds = %for.body.i
@@ -151,7 +151,7 @@ if.end6.i:                                        ; preds = %for.body.i
   %2 = load ptr, ptr %argv.i, align 8
   %arrayidx8.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx8.i, align 8
-  %call9.i = call ptr @getenv(ptr noundef %3) #12
+  %call9.i = call ptr @getenv(ptr noundef %3) #13
   %tobool10.not.i = icmp eq ptr %call9.i, null
   br i1 %tobool10.not.i, label %if.then11.i, label %for.inc.i
 
@@ -160,7 +160,7 @@ if.then11.i:                                      ; preds = %if.end6.i
   %4 = load ptr, ptr %argv.i, align 8
   %arrayidx13.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx13.i, align 8
-  %call14.i = call ptr @strvec_push(ptr noundef nonnull %env, ptr noundef %5) #12
+  %call14.i = call ptr @strvec_push(ptr noundef nonnull %env, ptr noundef %5) #13
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then11.i, %if.end6.i
@@ -169,9 +169,9 @@ for.inc.i:                                        ; preds = %if.then11.i, %if.en
   br i1 %exitcond.not.i, label %setup_pager_env.exit, label %for.body.i, !llvm.loop !5
 
 setup_pager_env.exit:                             ; preds = %for.inc.i, %for.cond.preheader.i
-  call void @free(ptr noundef %call.i) #12
+  call void @free(ptr noundef %call.i) #13
   %6 = load ptr, ptr %argv.i, align 8
-  call void @free(ptr noundef %6) #12
+  call void @free(ptr noundef %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argv.i)
   %trace2_child_class = getelementptr inbounds i8, ptr %pager_process, i64 64
   store ptr @.str.4, ptr %trace2_child_class, align 8
@@ -185,12 +185,12 @@ define dso_local void @setup_pager() local_unnamed_addr #0 {
 entry:
   %ws.i = alloca %struct.winsize, align 2
   %buf = alloca [64 x i8], align 16
-  %call = tail call i32 @isatty(i32 noundef 1) #12
+  %call = tail call i32 @isatty(i32 noundef 1) #13
   %tobool.not.i = icmp eq i32 %call, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str) #12
+  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str) #13
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end10.i
 
@@ -200,13 +200,13 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %tobool3.not.i, label %if.end6.i, label %if.end10.i
 
 if.end6.i:                                        ; preds = %if.then2.i
-  tail call void @read_early_config(ptr noundef nonnull @core_pager_config, ptr noundef null) #12
+  tail call void @read_early_config(ptr noundef nonnull @core_pager_config, ptr noundef null) #13
   %.pr.i = load ptr, ptr @pager_program, align 8
   %tobool7.not.i = icmp eq ptr %.pr.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %call9.i = tail call ptr @getenv(ptr noundef nonnull @.str.1) #12
+  %call9.i = tail call ptr @getenv(ptr noundef nonnull @.str.1) #13
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end6.i, %if.then2.i, %if.end.i
@@ -218,7 +218,7 @@ if.end10.i:                                       ; preds = %if.then8.i, %if.end
   br i1 %tobool14.not.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end10.i
-  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i, ptr noundef nonnull dereferenceable(4) @.str.3) #13
+  %call15.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i, ptr noundef nonnull dereferenceable(4) @.str.3) #14
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %return, label %if.end
 
@@ -231,12 +231,12 @@ if.end:                                           ; preds = %lor.lhs.false.i
 if.end.i4:                                        ; preds = %if.end
   store i32 80, ptr @term_columns.term_columns_at_startup, align 4
   store i1 true, ptr @term_columns_guessed, align 4
-  %call.i5 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #12
+  %call.i5 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #13
   %tobool1.not.i6 = icmp eq ptr %call.i5, null
   br i1 %tobool1.not.i6, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i4
-  %call2.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i5) #13
+  %call2.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i5) #14
   %cmp.i = icmp sgt i32 %call2.i, 0
   br i1 %cmp.i, label %if.then3.i, label %if.else.i
 
@@ -246,7 +246,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
   br label %term_columns.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i4
-  %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #12
+  %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #13
   %tobool5.i = icmp eq i32 %call4.i, 0
   %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
   %3 = load i16, ptr %ws_col.i, align 2
@@ -267,41 +267,41 @@ if.then8.i7:                                      ; preds = %if.else.i
 term_columns.exit:                                ; preds = %if.end, %if.then3.i, %if.else.if.end12_crit_edge.i, %if.then8.i7
   %retval.0.i3 = phi i32 [ %2, %if.end ], [ %.pre.i, %if.else.if.end12_crit_edge.i ], [ %conv.i, %if.then8.i7 ], [ %call2.i, %if.then3.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ws.i)
-  %call3 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %retval.0.i3) #12
+  %call3 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %retval.0.i3) #13
   %.b = load i1, ptr @term_columns_guessed, align 4
   br i1 %.b, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %term_columns.exit
-  %call7 = call i32 @setenv(ptr noundef nonnull @.str.6, ptr noundef nonnull %buf, i32 noundef 0) #12
+  %call7 = call i32 @setenv(ptr noundef nonnull @.str.6, ptr noundef nonnull %buf, i32 noundef 0) #13
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %term_columns.exit
-  %call9 = call i32 @setenv(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 1) #12
-  call void @child_process_init(ptr noundef nonnull @pager_process) #12
+  %call9 = call i32 @setenv(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 1) #13
+  call void @child_process_init(ptr noundef nonnull @pager_process) #13
   call void @prepare_pager_args(ptr noundef nonnull @pager_process, ptr noundef nonnull %spec.store.select.i)
   store i32 -1, ptr getelementptr inbounds (i8, ptr @pager_process, i64 80), align 8
-  %call10 = call ptr @strvec_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @pager_process, i64 24), ptr noundef nonnull @.str.7) #12
-  %call11 = call i32 @start_command(ptr noundef nonnull @pager_process) #12
+  %call10 = call ptr @strvec_push(ptr noundef nonnull getelementptr inbounds (i8, ptr @pager_process, i64 24), ptr noundef nonnull @.str.7) #13
+  %call11 = call i32 @start_command(ptr noundef nonnull @pager_process) #13
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @pager_process, i64 80), align 8
-  %call15 = call i32 @dup2(i32 noundef %4, i32 noundef 1) #12
-  %call16 = call i32 @isatty(i32 noundef 2) #12
+  %call15 = call i32 @dup2(i32 noundef %4, i32 noundef 1) #13
+  %call16 = call i32 @isatty(i32 noundef 2) #13
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end14
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @pager_process, i64 80), align 8
-  %call19 = call i32 @dup2(i32 noundef %5, i32 noundef 2) #12
+  %call19 = call i32 @dup2(i32 noundef %5, i32 noundef 2) #13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end14
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @pager_process, i64 80), align 8
-  %call21 = call i32 @close(i32 noundef %6) #12
-  call void @sigchain_push_common(ptr noundef nonnull @wait_for_pager_signal) #12
-  %call22 = call i32 @atexit(ptr noundef nonnull @wait_for_pager_atexit) #12
+  %call21 = call i32 @close(i32 noundef %6) #13
+  call void @sigchain_push_common(ptr noundef nonnull @wait_for_pager_signal) #13
+  %call22 = call i32 @atexit(ptr noundef nonnull @wait_for_pager_atexit) #13
   br label %return
 
 return:                                           ; preds = %if.end10.i, %lor.lhs.false.i, %entry, %if.end8, %if.end20
@@ -324,12 +324,12 @@ entry:
 if.end:                                           ; preds = %entry
   store i32 80, ptr @term_columns.term_columns_at_startup, align 4
   store i1 true, ptr @term_columns_guessed, align 4
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.6) #12
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.6) #13
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call2 = tail call i32 @atoi(ptr nocapture noundef nonnull %call) #13
+  %call2 = tail call i32 @atoi(ptr nocapture noundef nonnull %call) #14
   %cmp = icmp sgt i32 %call2, 0
   br i1 %cmp, label %if.then3, label %if.else
 
@@ -339,7 +339,7 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %call4 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws) #12
+  %call4 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws) #13
   %tobool5 = icmp eq i32 %call4, 0
   %ws_col = getelementptr inbounds i8, ptr %ws, i64 2
   %1 = load i16, ptr %ws_col, align 2
@@ -379,11 +379,11 @@ declare void @sigchain_push_common(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @wait_for_pager_signal(i32 noundef %signo) #0 {
 entry:
-  %call.i = tail call i32 @close(i32 noundef 1) #12
-  %call1.i = tail call i32 @close(i32 noundef 2) #12
-  %call = tail call i32 @finish_command_in_signal(ptr noundef nonnull @pager_process) #12
-  %call1 = tail call i32 @sigchain_pop(i32 noundef %signo) #12
-  %call2 = tail call i32 @raise(i32 noundef %signo) #12
+  %call.i = tail call i32 @close(i32 noundef 1) #13
+  %call1.i = tail call i32 @close(i32 noundef 2) #13
+  %call = tail call i32 @finish_command_in_signal(ptr noundef nonnull @pager_process) #13
+  %call1 = tail call i32 @sigchain_pop(i32 noundef %signo) #13
+  %call2 = tail call i32 @raise(i32 noundef %signo) #13
   ret void
 }
 
@@ -397,16 +397,16 @@ entry:
   %call = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
   %call1 = tail call i32 @fflush(ptr noundef %1)
-  %call.i = tail call i32 @close(i32 noundef 1) #12
-  %call1.i = tail call i32 @close(i32 noundef 2) #12
-  %call2 = tail call i32 @finish_command(ptr noundef nonnull @pager_process) #12
+  %call.i = tail call i32 @close(i32 noundef 1) #13
+  %call1.i = tail call i32 @close(i32 noundef 2) #13
+  %call2 = tail call i32 @finish_command(ptr noundef nonnull @pager_process) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pager_in_use() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @git_env_bool(ptr noundef nonnull @.str.7, i32 noundef 0) #12
+  %call = tail call i32 @git_env_bool(ptr noundef nonnull @.str.7, i32 noundef 0) #13
   ret i32 %call
 }
 
@@ -418,11 +418,11 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define dso_local void @term_clear_line() local_unnamed_addr #0 {
+; Function Attrs: cold nounwind uwtable
+define dso_local void @term_clear_line() local_unnamed_addr #7 {
 entry:
   %ws.i = alloca %struct.winsize, align 2
-  %call = tail call i32 @is_terminal_dumb() #12
+  %call = tail call i32 @is_terminal_dumb() #13
   %tobool.not = icmp eq i32 %call, 0
   %0 = load ptr, ptr @stderr, align 8
   br i1 %tobool.not, label %if.else, label %if.then
@@ -436,12 +436,12 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   store i32 80, ptr @term_columns.term_columns_at_startup, align 4
   store i1 true, ptr @term_columns_guessed, align 4
-  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.6) #12
+  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.6) #13
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call2.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #13
+  %call2.i = tail call i32 @atoi(ptr nocapture noundef nonnull %call.i) #14
   %cmp.i = icmp sgt i32 %call2.i, 0
   br i1 %cmp.i, label %if.then3.i, label %if.else.i
 
@@ -451,7 +451,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
   br label %term_columns.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #12
+  %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #13
   %tobool5.i = icmp eq i32 %call4.i, 0
   %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
   %2 = load i16, ptr %ws_col.i, align 2
@@ -472,11 +472,11 @@ if.then8.i:                                       ; preds = %if.else.i
 term_columns.exit:                                ; preds = %if.then, %if.then3.i, %if.else.if.end12_crit_edge.i, %if.then8.i
   %retval.0.i = phi i32 [ %1, %if.then ], [ %.pre.i, %if.else.if.end12_crit_edge.i ], [ %conv.i, %if.then8.i ], [ %call2.i, %if.then3.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ws.i)
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %retval.0.i, ptr noundef nonnull @.str.10) #15
+  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %retval.0.i, ptr noundef nonnull @.str.10) #16
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 4, i64 1, ptr %0) #15
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 4, i64 1, ptr %0) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %term_columns.exit
@@ -489,7 +489,7 @@ declare i32 @is_terminal_dumb() local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i32 @decimal_width(i64 noundef %number) local_unnamed_addr #7 {
+define dso_local i32 @decimal_width(i64 noundef %number) local_unnamed_addr #8 {
 entry:
   %cmp3 = icmp ugt i64 %number, 9
   br i1 %cmp3, label %for.body, label %for.end
@@ -516,7 +516,7 @@ entry:
   store i32 -1, ptr %want, align 8
   %value = getelementptr inbounds i8, ptr %data, i64 16
   store ptr null, ptr %value, align 8
-  call void @read_early_config(ptr noundef nonnull @pager_command_config, ptr noundef nonnull %data) #12
+  call void @read_early_config(ptr noundef nonnull @pager_command_config, ptr noundef nonnull %data) #13
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -557,12 +557,12 @@ skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond
 
 land.lhs.true:                                    ; preds = %skip_prefix.exit
   %2 = load ptr, ptr %vdata, align 8
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %2) #13
+  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %2) #14
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call i32 @git_parse_maybe_bool(ptr noundef %value) #12
+  %call3 = tail call i32 @git_parse_maybe_bool(ptr noundef %value) #13
   %cmp = icmp sgt i32 %call3, -1
   %want = getelementptr inbounds i8, ptr %vdata, i64 8
   br i1 %cmp, label %if.then4, label %if.else
@@ -573,7 +573,7 @@ if.then4:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   store i32 1, ptr %want, align 8
-  %call6 = tail call ptr @xstrdup(ptr noundef %value) #12
+  %call6 = tail call ptr @xstrdup(ptr noundef %value) #13
   %value7 = getelementptr inbounds i8, ptr %vdata, i64 16
   store ptr %call6, ptr %value7, align 8
   br label %if.end8
@@ -589,7 +589,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 declare i32 @split_cmdline(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #8
+declare void @die(ptr noundef, ...) local_unnamed_addr #9
 
 declare ptr @split_cmdline_strerror(i32 noundef) local_unnamed_addr #2
 
@@ -597,7 +597,7 @@ declare ptr @split_cmdline_strerror(i32 noundef) local_unnamed_addr #2
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 declare i32 @finish_command_in_signal(ptr noundef) local_unnamed_addr #2
 
@@ -614,13 +614,13 @@ declare i32 @finish_command(ptr noundef) local_unnamed_addr #2
 declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -629,15 +629,16 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { cold }
+attributes #7 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

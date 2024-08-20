@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [51 x i8] c"cannot configure icount, TCG support not available\00", align 1
 @use_icount = dso_local local_unnamed_addr global i32 0, align 4
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define dso_local void @icount_update(ptr nocapture noundef readnone %cpu) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
@@ -27,42 +27,42 @@ entry:
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @icount_get_raw() local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @icount_get() local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @icount_to_ns(i64 noundef %icount) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @icount_round(i64 noundef %count) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define dso_local void @icount_start_warp_timer() local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define dso_local void @icount_account_warp_timer() local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
@@ -75,7 +75,7 @@ entry:
   ret void
 }
 
-attributes #0 = { nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
