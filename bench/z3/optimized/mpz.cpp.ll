@@ -11061,12 +11061,19 @@ _ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit: ; preds = %if.then.i, %if
   %retval.0.i = phi i64 [ %conv.i, %if.then.i ], [ %4, %if.end.i ]
   %5 = load i32, ptr %a, align 8
   %cmp = icmp slt i32 %5, 0
-  %sub = sub i64 0, %retval.0.i
-  %spec.select = select i1 %cmp, i64 %sub, i64 %retval.0.i
+  br i1 %cmp, label %if.then4, label %return
+
+if.then4:                                         ; preds = %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit
+  %cmp5.not = icmp ne i64 %retval.0.i, 0
+  %shl.mask = and i64 %retval.0.i, 9223372036854775807
+  %cmp6 = icmp eq i64 %shl.mask, 0
+  %or.cond = and i1 %cmp5.not, %cmp6
+  %sub = sub nsw i64 0, %retval.0.i
+  %spec.select = select i1 %or.cond, i64 -9223372036854775808, i64 %sub
   br label %return
 
-return:                                           ; preds = %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit, %if.then
-  %retval.0 = phi i64 [ %conv, %if.then ], [ %spec.select, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit ]
+return:                                           ; preds = %if.then4, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit, %if.then
+  %retval.0 = phi i64 [ %conv, %if.then ], [ %retval.0.i, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit ], [ %spec.select, %if.then4 ]
   ret i64 %retval.0
 }
 
@@ -11164,7 +11171,7 @@ entry:
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %cmp.i.i = icmp eq i8 %bf.clear.i.i, 0
-  br i1 %cmp.i.i, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit, label %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i
+  br i1 %cmp.i.i, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread44, label %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i
 
 _ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i: ; preds = %entry
   %m_ptr.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -11206,52 +11213,77 @@ _ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit:     ; preds = %_ZN11mpz_managerILb
   br i1 %cmp7.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %if.else.i, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit
+  br i1 %cmp.i8.i, label %if.then.i.i12, label %if.end.i.i
+
+if.then.i.i12:                                    ; preds = %if.end.i
+  %conv.i.i13 = zext i32 %5 to i64
+  br label %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i9
+
+if.end.i.i:                                       ; preds = %if.end.i
+  %8 = load i64, ptr %m_digits.i.i.i, align 4
+  %9 = trunc i64 %8 to i32
+  br label %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i9
+
+_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i9: ; preds = %if.end.i.i, %if.then.i.i12
+  %10 = phi i32 [ %5, %if.then.i.i12 ], [ %9, %if.end.i.i ]
+  %retval.0.i.i = phi i64 [ %conv.i.i13, %if.then.i.i12 ], [ %8, %if.end.i.i ]
   %cmp.i10 = icmp slt i32 %6, 0
-  br i1 %cmp.i8.i, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread
+  br i1 %cmp.i10, label %if.then4.i, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
 
-_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit:    ; preds = %entry
-  %8 = load i32, ptr %a, align 8
-  %cmp.not = icmp eq i32 %8, -2147483648
-  br i1 %cmp.not, label %land.end, label %if.then.i31
+if.then4.i:                                       ; preds = %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i9
+  %cmp5.not.i = icmp ne i64 %retval.0.i.i, 0
+  %shl.mask.i = and i64 %retval.0.i.i, 9223372036854775807
+  %cmp6.i = icmp eq i64 %shl.mask.i, 0
+  %or.cond.i = and i1 %cmp5.not.i, %cmp6.i
+  %sub.i = sub nsw i64 0, %retval.0.i.i
+  br i1 %or.cond.i, label %land.end, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
 
-_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread: ; preds = %if.end.i
-  %cmp3848 = icmp slt i32 %5, 0
-  %cmp38.not = select i1 %cmp.i10, i1 %cmp3848, i1 false
-  br i1 %cmp38.not, label %land.end, label %if.then.i.i29
+_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit:    ; preds = %if.then4.i, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i9
+  %retval.0.i11 = phi i64 [ %retval.0.i.i, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i9 ], [ %sub.i, %if.then4.i ]
+  %cmp = icmp sgt i64 %retval.0.i11, -2147483648
+  br i1 %cmp, label %if.end.i18, label %land.end
 
-_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread: ; preds = %if.end.i
-  %9 = load i64, ptr %m_digits.i.i.i, align 4
-  %sub.i41 = sub i64 0, %9
-  %spec.select.i42 = select i1 %cmp.i10, i64 %sub.i41, i64 %9
-  %cmp3843 = icmp sgt i64 %spec.select.i42, -2147483648
-  br i1 %cmp3843, label %if.end.i.i22, label %land.end
+_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread44: ; preds = %entry
+  %11 = load i32, ptr %a, align 8
+  %cmp46.not = icmp eq i32 %11, -2147483648
+  br i1 %cmp46.not, label %land.end, label %if.then.i36
 
-if.then.i31:                                      ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
-  %conv.i32 = sext i32 %8 to i64
-  br label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit33
+if.then.i36:                                      ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread44
+  %conv.i37 = sext i32 %11 to i64
+  br label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit38
 
-if.then.i.i29:                                    ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread
-  %conv.i.i30 = zext i32 %5 to i64
+if.end.i18:                                       ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
+  br i1 %cmp.i8.i, label %if.then.i.i34, label %if.end.i.i22
+
+if.then.i.i34:                                    ; preds = %if.end.i18
+  %conv.i.i35 = zext i32 %10 to i64
   br label %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23
 
-if.end.i.i22:                                     ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread
-  %10 = load i64, ptr %m_digits.i.i.i, align 4
+if.end.i.i22:                                     ; preds = %if.end.i18
+  %12 = load i64, ptr %m_digits.i.i.i, align 4
   br label %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23
 
-_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23: ; preds = %if.end.i.i22, %if.then.i.i29
-  %retval.0.i.i24 = phi i64 [ %conv.i.i30, %if.then.i.i29 ], [ %10, %if.end.i.i22 ]
-  %sub.i26 = sub i64 0, %retval.0.i.i24
-  %spec.select.i27 = select i1 %cmp.i10, i64 %sub.i26, i64 %retval.0.i.i24
-  br label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit33
+_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23: ; preds = %if.end.i.i22, %if.then.i.i34
+  %retval.0.i.i24 = phi i64 [ %conv.i.i35, %if.then.i.i34 ], [ %12, %if.end.i.i22 ]
+  br i1 %cmp.i10, label %if.then4.i27, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit38
 
-_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit33:  ; preds = %if.then.i31, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23
-  %retval.0.i28 = phi i64 [ %conv.i32, %if.then.i31 ], [ %spec.select.i27, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23 ]
-  %cmp4 = icmp slt i64 %retval.0.i28, 2147483647
+if.then4.i27:                                     ; preds = %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23
+  %cmp5.not.i28 = icmp ne i64 %retval.0.i.i24, 0
+  %shl.mask.i29 = and i64 %retval.0.i.i24, 9223372036854775807
+  %cmp6.i30 = icmp eq i64 %shl.mask.i29, 0
+  %or.cond.i31 = and i1 %cmp5.not.i28, %cmp6.i30
+  %sub.i32 = sub nsw i64 0, %retval.0.i.i24
+  %spec.select.i33 = select i1 %or.cond.i31, i64 -9223372036854775808, i64 %sub.i32
+  br label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit38
+
+_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit38:  ; preds = %if.then.i36, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23, %if.then4.i27
+  %retval.0.i26 = phi i64 [ %conv.i37, %if.then.i36 ], [ %retval.0.i.i24, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i23 ], [ %spec.select.i33, %if.then4.i27 ]
+  %cmp4 = icmp slt i64 %retval.0.i26, 2147483647
   br label %land.end
 
-land.end:                                         ; preds = %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread, %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread, %if.else.i, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit33, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit
-  %11 = phi i1 [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit ], [ %cmp4, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit33 ], [ false, %if.else.i ], [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread ], [ false, %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread.thread ]
-  ret i1 %11
+land.end:                                         ; preds = %if.then4.i, %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread44, %if.else.i, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit38, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit
+  %13 = phi i1 [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb1EE8is_int64ERK3mpz.exit ], [ %cmp4, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit38 ], [ false, %if.else.i ], [ false, %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit.thread44 ], [ false, %_ZN11mpz_managerILb1EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %if.then4.i ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11265,6 +11297,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i32, ptr %a, align 8
+  %conv.i1 = zext i32 %0 to i64
   br label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
 
 if.end.i:                                         ; preds = %entry
@@ -11288,14 +11321,21 @@ _ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i: ; preds = %if.end.i.i, 
   %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ %4, %if.end.i.i ]
   %5 = load i32, ptr %a, align 8
   %cmp.i = icmp slt i32 %5, 0
-  %sub.i = sub i64 0, %retval.0.i.i
-  %spec.select.i = select i1 %cmp.i, i64 %sub.i, i64 %retval.0.i.i
-  %6 = trunc i64 %spec.select.i to i32
+  br i1 %cmp.i, label %if.then4.i, label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
+
+if.then4.i:                                       ; preds = %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i
+  %cmp5.not.i = icmp ne i64 %retval.0.i.i, 0
+  %shl.mask.i = and i64 %retval.0.i.i, 9223372036854775807
+  %cmp6.i = icmp eq i64 %shl.mask.i, 0
+  %or.cond.i = and i1 %cmp5.not.i, %cmp6.i
+  %sub.i = sub nsw i64 0, %retval.0.i.i
+  %spec.select.i = select i1 %or.cond.i, i64 -9223372036854775808, i64 %sub.i
   br label %_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit
 
-_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit:    ; preds = %if.then.i, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i
-  %retval.0.i = phi i32 [ %0, %if.then.i ], [ %6, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i ]
-  ret i32 %retval.0.i
+_ZNK11mpz_managerILb1EE9get_int64ERK3mpz.exit:    ; preds = %if.then.i, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i, %if.then4.i
+  %retval.0.i = phi i64 [ %conv.i1, %if.then.i ], [ %retval.0.i.i, %_ZN11mpz_managerILb1EE17big_abs_to_uint64ERK3mpz.exit.i ], [ %spec.select.i, %if.then4.i ]
+  %conv = trunc i64 %retval.0.i to i32
+  ret i32 %conv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25797,12 +25837,19 @@ _ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit: ; preds = %if.then.i, %if
   %retval.0.i = phi i64 [ %conv.i, %if.then.i ], [ %4, %if.end.i ]
   %5 = load i32, ptr %a, align 8
   %cmp = icmp slt i32 %5, 0
-  %sub = sub i64 0, %retval.0.i
-  %spec.select = select i1 %cmp, i64 %sub, i64 %retval.0.i
+  br i1 %cmp, label %if.then4, label %return
+
+if.then4:                                         ; preds = %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit
+  %cmp5.not = icmp ne i64 %retval.0.i, 0
+  %shl.mask = and i64 %retval.0.i, 9223372036854775807
+  %cmp6 = icmp eq i64 %shl.mask, 0
+  %or.cond = and i1 %cmp5.not, %cmp6
+  %sub = sub nsw i64 0, %retval.0.i
+  %spec.select = select i1 %or.cond, i64 -9223372036854775808, i64 %sub
   br label %return
 
-return:                                           ; preds = %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit, %if.then
-  %retval.0 = phi i64 [ %conv, %if.then ], [ %spec.select, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit ]
+return:                                           ; preds = %if.then4, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit, %if.then
+  %retval.0 = phi i64 [ %conv, %if.then ], [ %retval.0.i, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit ], [ %spec.select, %if.then4 ]
   ret i64 %retval.0
 }
 
@@ -25900,7 +25947,7 @@ entry:
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %cmp.i.i = icmp eq i8 %bf.clear.i.i, 0
-  br i1 %cmp.i.i, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit, label %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i
+  br i1 %cmp.i.i, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread44, label %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i
 
 _ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i: ; preds = %entry
   %m_ptr.i.i.i = getelementptr inbounds i8, ptr %a, i64 8
@@ -25942,52 +25989,77 @@ _ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit:     ; preds = %_ZN11mpz_managerILb
   br i1 %cmp7.i, label %if.end.i, label %land.end
 
 if.end.i:                                         ; preds = %if.else.i, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit
+  br i1 %cmp.i8.i, label %if.then.i.i12, label %if.end.i.i
+
+if.then.i.i12:                                    ; preds = %if.end.i
+  %conv.i.i13 = zext i32 %5 to i64
+  br label %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i9
+
+if.end.i.i:                                       ; preds = %if.end.i
+  %8 = load i64, ptr %m_digits.i.i.i, align 4
+  %9 = trunc i64 %8 to i32
+  br label %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i9
+
+_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i9: ; preds = %if.end.i.i, %if.then.i.i12
+  %10 = phi i32 [ %5, %if.then.i.i12 ], [ %9, %if.end.i.i ]
+  %retval.0.i.i = phi i64 [ %conv.i.i13, %if.then.i.i12 ], [ %8, %if.end.i.i ]
   %cmp.i10 = icmp slt i32 %6, 0
-  br i1 %cmp.i8.i, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread
+  br i1 %cmp.i10, label %if.then4.i, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
 
-_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit:    ; preds = %entry
-  %8 = load i32, ptr %a, align 8
-  %cmp.not = icmp eq i32 %8, -2147483648
-  br i1 %cmp.not, label %land.end, label %if.then.i31
+if.then4.i:                                       ; preds = %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i9
+  %cmp5.not.i = icmp ne i64 %retval.0.i.i, 0
+  %shl.mask.i = and i64 %retval.0.i.i, 9223372036854775807
+  %cmp6.i = icmp eq i64 %shl.mask.i, 0
+  %or.cond.i = and i1 %cmp5.not.i, %cmp6.i
+  %sub.i = sub nsw i64 0, %retval.0.i.i
+  br i1 %or.cond.i, label %land.end, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
 
-_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread: ; preds = %if.end.i
-  %cmp3848 = icmp slt i32 %5, 0
-  %cmp38.not = select i1 %cmp.i10, i1 %cmp3848, i1 false
-  br i1 %cmp38.not, label %land.end, label %if.then.i.i29
+_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit:    ; preds = %if.then4.i, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i9
+  %retval.0.i11 = phi i64 [ %retval.0.i.i, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i9 ], [ %sub.i, %if.then4.i ]
+  %cmp = icmp sgt i64 %retval.0.i11, -2147483648
+  br i1 %cmp, label %if.end.i18, label %land.end
 
-_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread: ; preds = %if.end.i
-  %9 = load i64, ptr %m_digits.i.i.i, align 4
-  %sub.i41 = sub i64 0, %9
-  %spec.select.i42 = select i1 %cmp.i10, i64 %sub.i41, i64 %9
-  %cmp3843 = icmp sgt i64 %spec.select.i42, -2147483648
-  br i1 %cmp3843, label %if.end.i.i22, label %land.end
+_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread44: ; preds = %entry
+  %11 = load i32, ptr %a, align 8
+  %cmp46.not = icmp eq i32 %11, -2147483648
+  br i1 %cmp46.not, label %land.end, label %if.then.i36
 
-if.then.i31:                                      ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
-  %conv.i32 = sext i32 %8 to i64
-  br label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit33
+if.then.i36:                                      ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread44
+  %conv.i37 = sext i32 %11 to i64
+  br label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit38
 
-if.then.i.i29:                                    ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread
-  %conv.i.i30 = zext i32 %5 to i64
+if.end.i18:                                       ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
+  br i1 %cmp.i8.i, label %if.then.i.i34, label %if.end.i.i22
+
+if.then.i.i34:                                    ; preds = %if.end.i18
+  %conv.i.i35 = zext i32 %10 to i64
   br label %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23
 
-if.end.i.i22:                                     ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread
-  %10 = load i64, ptr %m_digits.i.i.i, align 4
+if.end.i.i22:                                     ; preds = %if.end.i18
+  %12 = load i64, ptr %m_digits.i.i.i, align 4
   br label %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23
 
-_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23: ; preds = %if.end.i.i22, %if.then.i.i29
-  %retval.0.i.i24 = phi i64 [ %conv.i.i30, %if.then.i.i29 ], [ %10, %if.end.i.i22 ]
-  %sub.i26 = sub i64 0, %retval.0.i.i24
-  %spec.select.i27 = select i1 %cmp.i10, i64 %sub.i26, i64 %retval.0.i.i24
-  br label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit33
+_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23: ; preds = %if.end.i.i22, %if.then.i.i34
+  %retval.0.i.i24 = phi i64 [ %conv.i.i35, %if.then.i.i34 ], [ %12, %if.end.i.i22 ]
+  br i1 %cmp.i10, label %if.then4.i27, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit38
 
-_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit33:  ; preds = %if.then.i31, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23
-  %retval.0.i28 = phi i64 [ %conv.i32, %if.then.i31 ], [ %spec.select.i27, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23 ]
-  %cmp4 = icmp slt i64 %retval.0.i28, 2147483647
+if.then4.i27:                                     ; preds = %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23
+  %cmp5.not.i28 = icmp ne i64 %retval.0.i.i24, 0
+  %shl.mask.i29 = and i64 %retval.0.i.i24, 9223372036854775807
+  %cmp6.i30 = icmp eq i64 %shl.mask.i29, 0
+  %or.cond.i31 = and i1 %cmp5.not.i28, %cmp6.i30
+  %sub.i32 = sub nsw i64 0, %retval.0.i.i24
+  %spec.select.i33 = select i1 %or.cond.i31, i64 -9223372036854775808, i64 %sub.i32
+  br label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit38
+
+_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit38:  ; preds = %if.then.i36, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23, %if.then4.i27
+  %retval.0.i26 = phi i64 [ %conv.i37, %if.then.i36 ], [ %retval.0.i.i24, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i23 ], [ %spec.select.i33, %if.then4.i27 ]
+  %cmp4 = icmp slt i64 %retval.0.i26, 2147483647
   br label %land.end
 
-land.end:                                         ; preds = %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread, %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread, %if.else.i, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit33, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit
-  %11 = phi i1 [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit ], [ %cmp4, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit33 ], [ false, %if.else.i ], [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread ], [ false, %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread.thread ]
-  ret i1 %11
+land.end:                                         ; preds = %if.then4.i, %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread44, %if.else.i, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit38, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit
+  %13 = phi i1 [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit ], [ false, %_ZNK11mpz_managerILb0EE8is_int64ERK3mpz.exit ], [ %cmp4, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit38 ], [ false, %if.else.i ], [ false, %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit.thread44 ], [ false, %_ZN11mpz_managerILb0EE13is_abs_uint64ERK3mpz.exit.i ], [ false, %if.then4.i ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26001,6 +26073,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load i32, ptr %a, align 8
+  %conv.i1 = zext i32 %0 to i64
   br label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
 
 if.end.i:                                         ; preds = %entry
@@ -26024,14 +26097,21 @@ _ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i: ; preds = %if.end.i.i, 
   %retval.0.i.i = phi i64 [ %conv.i.i, %if.then.i.i ], [ %4, %if.end.i.i ]
   %5 = load i32, ptr %a, align 8
   %cmp.i = icmp slt i32 %5, 0
-  %sub.i = sub i64 0, %retval.0.i.i
-  %spec.select.i = select i1 %cmp.i, i64 %sub.i, i64 %retval.0.i.i
-  %6 = trunc i64 %spec.select.i to i32
+  br i1 %cmp.i, label %if.then4.i, label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
+
+if.then4.i:                                       ; preds = %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i
+  %cmp5.not.i = icmp ne i64 %retval.0.i.i, 0
+  %shl.mask.i = and i64 %retval.0.i.i, 9223372036854775807
+  %cmp6.i = icmp eq i64 %shl.mask.i, 0
+  %or.cond.i = and i1 %cmp5.not.i, %cmp6.i
+  %sub.i = sub nsw i64 0, %retval.0.i.i
+  %spec.select.i = select i1 %or.cond.i, i64 -9223372036854775808, i64 %sub.i
   br label %_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit
 
-_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit:    ; preds = %if.then.i, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i
-  %retval.0.i = phi i32 [ %0, %if.then.i ], [ %6, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i ]
-  ret i32 %retval.0.i
+_ZNK11mpz_managerILb0EE9get_int64ERK3mpz.exit:    ; preds = %if.then.i, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i, %if.then4.i
+  %retval.0.i = phi i64 [ %conv.i1, %if.then.i ], [ %retval.0.i.i, %_ZN11mpz_managerILb0EE17big_abs_to_uint64ERK3mpz.exit.i ], [ %spec.select.i, %if.then4.i ]
+  %conv = trunc i64 %retval.0.i to i32
+  ret i32 %conv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -443,10 +443,11 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not229.i, label %216, label %.sink.split342.i
 
 205:                                              ; preds = %194
-  %206 = icmp ne i32 %106, 63
-  %207 = or i32 %.fr.i, %104
-  %208 = icmp ne i32 %207, 0
-  %or.cond21.i = select i1 %208, i1 true, i1 %206
+  %206 = icmp ne i32 %104, 0
+  %207 = icmp ne i32 %106, 63
+  %or.cond19.i = select i1 %206, i1 true, i1 %207
+  %208 = icmp ne i32 %.fr.i, 0
+  %or.cond21.i = or i1 %or.cond19.i, %208
   %209 = icmp ne i32 %110, 0
   %or.cond23.i = select i1 %or.cond21.i, i1 true, i1 %209
   br i1 %or.cond23.i, label %.sink.split342.i, label %216
