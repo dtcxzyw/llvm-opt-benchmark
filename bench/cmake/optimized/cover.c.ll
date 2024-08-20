@@ -2407,14 +2407,11 @@ define internal i32 @COVER_strict_cmp8(ptr noundef readonly %0, ptr noundef read
   %18 = getelementptr inbounds i8, ptr %11, i64 %17
   %.val15.i = load i64, ptr %18, align 1
   %19 = and i64 %.val15.i, %10
-  %20 = icmp ult i64 %15, %19
-  %21 = icmp ugt i64 %15, %19
-  %22 = zext i1 %21 to i32
-  %.0.i = select i1 %20, i32 -1, i32 %22
-  %23 = icmp eq i32 %.0.i, 0
-  %24 = icmp ult ptr %0, %1
-  %25 = select i1 %24, i32 -1, i32 1
-  %.0 = select i1 %23, i32 %25, i32 %.0.i
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
+  %20 = icmp eq i64 %15, %19
+  %21 = icmp ult ptr %0, %1
+  %22 = select i1 %21, i32 -1, i32 1
+  %.0 = select i1 %20, i32 %22, i32 %.0.i
   ret i32 %.0
 }
 
@@ -2460,10 +2457,7 @@ define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr nocapture noundef readonly 
   %18 = getelementptr inbounds i8, ptr %11, i64 %17
   %.val15 = load i64, ptr %18, align 1
   %19 = and i64 %.val15, %10
-  %20 = icmp ult i64 %15, %19
-  %21 = icmp ugt i64 %15, %19
-  %22 = zext i1 %21 to i32
-  %.0 = select i1 %20, i32 -1, i32 %22
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
   ret i32 %.0
 }
 
@@ -2503,6 +2497,9 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20

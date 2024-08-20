@@ -44,8 +44,8 @@ $_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE9expand_toEi = comdat an
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ciConstantPoolCacheC2EP5Arenai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  %4 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #9
-  %5 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 8, ptr noundef %1) #9
+  %4 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #10
+  %5 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 8, ptr noundef %1) #10
   store i32 0, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %2, ptr %6, align 4
@@ -68,8 +68,8 @@ _ZN13GrowableArrayIPvEC2EP5ArenaiiRKS0_.exit:     ; preds = %3, %.lr.ph16.prehea
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %15, align 8
-  %16 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #9
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 4, ptr noundef %1) #9
+  %16 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #10
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 4, ptr noundef %1) #10
   store i32 0, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %2, ptr %18, align 4
@@ -98,10 +98,7 @@ declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnam
 define hidden noundef range(i32 -1, 2) i32 @_ZN19ciConstantPoolCache11key_compareERKiS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -109,8 +106,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN19ciConstantPoolCache11key_compar
 define hidden noundef ptr @_ZN19ciConstantPoolCache3getEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
-  %.not21.i = icmp slt i32 %4, 1
-  br i1 %.not21.i, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit.thread, label %.lr.ph.i
+  %.not20.i = icmp slt i32 %4, 1
+  br i1 %.not20.i, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %5 = add nsw i32 %4, -1
@@ -118,10 +115,10 @@ define hidden noundef ptr @_ZN19ciConstantPoolCache3getEi(ptr nocapture noundef 
   %7 = load ptr, ptr %6, align 8
   br label %8
 
-8:                                                ; preds = %20, %.lr.ph.i
-  %.01523.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %20 ]
-  %.01622.i = phi i32 [ %5, %.lr.ph.i ], [ %.117.i, %20 ]
-  %9 = add i32 %.01622.i, %.01523.i
+8:                                                ; preds = %21, %.lr.ph.i
+  %.01522.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %21 ]
+  %.01621.i = phi i32 [ %5, %.lr.ph.i ], [ %.117.i, %21 ]
+  %9 = add i32 %.01621.i, %.01522.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %7, i64 %11
@@ -131,33 +128,33 @@ define hidden noundef ptr @_ZN19ciConstantPoolCache3getEi(ptr nocapture noundef 
 
 15:                                               ; preds = %8
   %16 = add nuw nsw i32 %10, 1
-  br label %20
+  br label %21
 
 17:                                               ; preds = %8
-  %.not19.i = icmp sgt i32 %13, %1
-  br i1 %.not19.i, label %18, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
+  %18 = icmp sgt i32 %13, %1
+  br i1 %18, label %19, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
 
-18:                                               ; preds = %17
-  %19 = add nsw i32 %10, -1
-  br label %20
+19:                                               ; preds = %17
+  %20 = add nsw i32 %10, -1
+  br label %21
 
-20:                                               ; preds = %18, %15
-  %.117.i = phi i32 [ %.01622.i, %15 ], [ %19, %18 ]
-  %.1.i = phi i32 [ %16, %15 ], [ %.01523.i, %18 ]
+21:                                               ; preds = %19, %15
+  %.117.i = phi i32 [ %.01621.i, %15 ], [ %20, %19 ]
+  %.1.i = phi i32 [ %16, %15 ], [ %.01522.i, %19 ]
   %.not.i = icmp slt i32 %.117.i, %.1.i
   br i1 %.not.i, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit.thread, label %8, !llvm.loop !6
 
 _ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit: ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %11
-  %26 = load ptr, ptr %25, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %11
+  %27 = load ptr, ptr %26, align 8
   br label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit.thread
 
-_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit.thread: ; preds = %20, %2, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
-  %.0 = phi ptr [ %26, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit ], [ null, %2 ], [ null, %20 ]
+_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit.thread: ; preds = %21, %2, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
+  %.0 = phi ptr [ %27, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit ], [ null, %2 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -165,8 +162,8 @@ _ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCac
 define hidden void @_ZN19ciConstantPoolCache6insertEiPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
-  %.not21.i = icmp slt i32 %5, 1
-  br i1 %.not21.i, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit, label %.lr.ph.i
+  %.not20.i = icmp slt i32 %5, 1
+  br i1 %.not20.i, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %6 = add nsw i32 %5, -1
@@ -174,10 +171,10 @@ define hidden void @_ZN19ciConstantPoolCache6insertEiPv(ptr nocapture noundef no
   %8 = load ptr, ptr %7, align 8
   br label %9
 
-9:                                                ; preds = %21, %.lr.ph.i
-  %.01523.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %21 ]
-  %.01622.i = phi i32 [ %6, %.lr.ph.i ], [ %.117.i, %21 ]
-  %10 = add i32 %.01622.i, %.01523.i
+9:                                                ; preds = %22, %.lr.ph.i
+  %.01522.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %22 ]
+  %.01621.i = phi i32 [ %6, %.lr.ph.i ], [ %.117.i, %22 ]
+  %10 = add i32 %.01621.i, %.01522.i
   %11 = lshr i32 %10, 1
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %8, i64 %12
@@ -187,145 +184,145 @@ define hidden void @_ZN19ciConstantPoolCache6insertEiPv(ptr nocapture noundef no
 
 16:                                               ; preds = %9
   %17 = add nuw nsw i32 %11, 1
-  br label %21
+  br label %22
 
 18:                                               ; preds = %9
-  %.not19.i = icmp sgt i32 %14, %1
-  br i1 %.not19.i, label %19, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
+  %19 = icmp sgt i32 %14, %1
+  br i1 %19, label %20, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
 
-19:                                               ; preds = %18
-  %20 = add nsw i32 %11, -1
-  br label %21
+20:                                               ; preds = %18
+  %21 = add nsw i32 %11, -1
+  br label %22
 
-21:                                               ; preds = %19, %16
-  %.117.i = phi i32 [ %.01622.i, %16 ], [ %20, %19 ]
-  %.1.i = phi i32 [ %17, %16 ], [ %.01523.i, %19 ]
+22:                                               ; preds = %20, %16
+  %.117.i = phi i32 [ %.01621.i, %16 ], [ %21, %20 ]
+  %.1.i = phi i32 [ %17, %16 ], [ %.01522.i, %20 ]
   %.not.i = icmp slt i32 %.117.i, %.1.i
   br i1 %.not.i, label %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit, label %9, !llvm.loop !6
 
-_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit: ; preds = %18, %21, %3
-  %.0.i = phi i32 [ 0, %3 ], [ %11, %18 ], [ %.1.i, %21 ]
-  %22 = getelementptr inbounds i8, ptr %4, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %5, %23
-  br i1 %24, label %25, label %35
+_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit: ; preds = %18, %22, %3
+  %.0.i = phi i32 [ 0, %3 ], [ %11, %18 ], [ %.1.i, %22 ]
+  %23 = getelementptr inbounds i8, ptr %4, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %5, %24
+  br i1 %25, label %26, label %36
 
-25:                                               ; preds = %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
-  %26 = add nsw i32 %5, 1
-  %27 = icmp sgt i32 %5, -1
-  %28 = xor i32 %5, -2147483648
-  %29 = and i32 %28, %26
-  %30 = icmp eq i32 %29, 0
-  %31 = and i1 %27, %30
-  %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
-  %33 = sub nuw nsw i32 32, %32
-  %34 = shl nuw i32 1, %33
-  %.0.i.i.i.i = select i1 %31, i32 %26, i32 %34
+26:                                               ; preds = %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
+  %27 = add nsw i32 %5, 1
+  %28 = icmp sgt i32 %5, -1
+  %29 = xor i32 %5, -2147483648
+  %30 = and i32 %29, %27
+  %31 = icmp eq i32 %30, 0
+  %32 = and i1 %28, %31
+  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
+  %34 = sub nuw nsw i32 32, %33
+  %35 = shl nuw i32 1, %34
+  %.0.i.i.i.i = select i1 %32, i32 %27, i32 %35
   tail call void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %4, align 8
-  br label %35
+  br label %36
 
-35:                                               ; preds = %25, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
-  %36 = phi i32 [ %.pre.i, %25 ], [ %5, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit ]
-  %.not.not9.i = icmp sgt i32 %36, %.0.i
+36:                                               ; preds = %26, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit
+  %37 = phi i32 [ %.pre.i, %26 ], [ %5, %_ZNK17GrowableArrayViewIiE11find_sortedIiTnPFiRKT_RKiEXadL_ZN19ciConstantPoolCache11key_compareES6_S6_EEEEiS4_Rb.exit ]
+  %.not.not9.i = icmp sgt i32 %37, %.0.i
   br i1 %.not.not9.i, label %.lr.ph.i2, label %.._crit_edge_crit_edge.i
 
-.._crit_edge_crit_edge.i:                         ; preds = %35
+.._crit_edge_crit_edge.i:                         ; preds = %36
   %.pre13.i = zext nneg i32 %.0.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit
 
-.lr.ph.i2:                                        ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  %38 = sext i32 %36 to i64
-  %39 = zext nneg i32 %.0.i to i64
-  br label %40
+.lr.ph.i2:                                        ; preds = %36
+  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = sext i32 %37 to i64
+  %40 = zext nneg i32 %.0.i to i64
+  br label %41
 
-40:                                               ; preds = %40, %.lr.ph.i2
-  %indvars.iv.i = phi i64 [ %38, %.lr.ph.i2 ], [ %indvars.iv.next.i, %40 ]
+41:                                               ; preds = %41, %.lr.ph.i2
+  %indvars.iv.i = phi i64 [ %39, %.lr.ph.i2 ], [ %indvars.iv.next.i, %41 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %41 = load ptr, ptr %37, align 8
-  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.next.i
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.i
-  store i32 %43, ptr %44, align 4
-  %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %39
-  br i1 %.not.not.i, label %40, label %._crit_edge.loopexit.i, !llvm.loop !8
+  %42 = load ptr, ptr %38, align 8
+  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.next.i
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.i
+  store i32 %44, ptr %45, align 4
+  %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %40
+  br i1 %.not.not.i, label %41, label %._crit_edge.loopexit.i, !llvm.loop !8
 
-._crit_edge.loopexit.i:                           ; preds = %40
+._crit_edge.loopexit.i:                           ; preds = %41
   %.pre12.i = load i32, ptr %4, align 8
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit: ; preds = %.._crit_edge_crit_edge.i, %._crit_edge.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre13.i, %.._crit_edge_crit_edge.i ], [ %39, %._crit_edge.loopexit.i ]
-  %45 = phi i32 [ %36, %.._crit_edge_crit_edge.i ], [ %.pre12.i, %._crit_edge.loopexit.i ]
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i32, ptr %48, i64 %.pre-phi.i
-  store i32 %1, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %52, %54
-  br i1 %55, label %56, label %66
+  %.pre-phi.i = phi i64 [ %.pre13.i, %.._crit_edge_crit_edge.i ], [ %40, %._crit_edge.loopexit.i ]
+  %46 = phi i32 [ %37, %.._crit_edge_crit_edge.i ], [ %.pre12.i, %._crit_edge.loopexit.i ]
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %4, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i32, ptr %49, i64 %.pre-phi.i
+  store i32 %1, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %52, i64 4
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %53, %55
+  br i1 %56, label %57, label %67
 
-56:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit
-  %57 = add nsw i32 %52, 1
-  %58 = icmp sgt i32 %52, -1
-  %59 = xor i32 %52, -2147483648
-  %60 = and i32 %59, %57
-  %61 = icmp eq i32 %60, 0
-  %62 = and i1 %58, %61
-  %63 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
-  %64 = sub nuw nsw i32 32, %63
-  %65 = shl nuw i32 1, %64
-  %.0.i.i.i.i13 = select i1 %62, i32 %57, i32 %65
-  tail call void @_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %51, i32 noundef %.0.i.i.i.i13)
-  %.pre.i14 = load i32, ptr %51, align 8
-  br label %66
+57:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit
+  %58 = add nsw i32 %53, 1
+  %59 = icmp sgt i32 %53, -1
+  %60 = xor i32 %53, -2147483648
+  %61 = and i32 %60, %58
+  %62 = icmp eq i32 %61, 0
+  %63 = and i1 %59, %62
+  %64 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
+  %65 = sub nuw nsw i32 32, %64
+  %66 = shl nuw i32 1, %65
+  %.0.i.i.i.i13 = select i1 %63, i32 %58, i32 %66
+  tail call void @_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef %.0.i.i.i.i13)
+  %.pre.i14 = load i32, ptr %52, align 8
+  br label %67
 
-66:                                               ; preds = %56, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit
-  %67 = phi i32 [ %.pre.i14, %56 ], [ %52, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit ]
-  %.not.not9.i3 = icmp sgt i32 %67, %.0.i
+67:                                               ; preds = %57, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit
+  %68 = phi i32 [ %.pre.i14, %57 ], [ %53, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE13insert_beforeEiRKi.exit ]
+  %.not.not9.i3 = icmp sgt i32 %68, %.0.i
   br i1 %.not.not9.i3, label %.lr.ph.i7, label %.._crit_edge_crit_edge.i4
 
-.._crit_edge_crit_edge.i4:                        ; preds = %66
+.._crit_edge_crit_edge.i4:                        ; preds = %67
   %.pre13.i5 = zext nneg i32 %.0.i to i64
   br label %_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE13insert_beforeEiRKS0_.exit
 
-.lr.ph.i7:                                        ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %51, i64 8
-  %69 = sext i32 %67 to i64
-  %70 = zext nneg i32 %.0.i to i64
-  br label %71
+.lr.ph.i7:                                        ; preds = %67
+  %69 = getelementptr inbounds i8, ptr %52, i64 8
+  %70 = sext i32 %68 to i64
+  %71 = zext nneg i32 %.0.i to i64
+  br label %72
 
-71:                                               ; preds = %71, %.lr.ph.i7
-  %indvars.iv.i8 = phi i64 [ %69, %.lr.ph.i7 ], [ %indvars.iv.next.i9, %71 ]
+72:                                               ; preds = %72, %.lr.ph.i7
+  %indvars.iv.i8 = phi i64 [ %70, %.lr.ph.i7 ], [ %indvars.iv.next.i9, %72 ]
   %indvars.iv.next.i9 = add nsw i64 %indvars.iv.i8, -1
-  %72 = load ptr, ptr %68, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv.next.i9
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv.i8
-  store ptr %74, ptr %75, align 8
-  %.not.not.i10 = icmp sgt i64 %indvars.iv.next.i9, %70
-  br i1 %.not.not.i10, label %71, label %._crit_edge.loopexit.i11, !llvm.loop !9
+  %73 = load ptr, ptr %69, align 8
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.next.i9
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i8
+  store ptr %75, ptr %76, align 8
+  %.not.not.i10 = icmp sgt i64 %indvars.iv.next.i9, %71
+  br i1 %.not.not.i10, label %72, label %._crit_edge.loopexit.i11, !llvm.loop !9
 
-._crit_edge.loopexit.i11:                         ; preds = %71
-  %.pre12.i12 = load i32, ptr %51, align 8
+._crit_edge.loopexit.i11:                         ; preds = %72
+  %.pre12.i12 = load i32, ptr %52, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE13insert_beforeEiRKS0_.exit
 
 _ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE13insert_beforeEiRKS0_.exit: ; preds = %.._crit_edge_crit_edge.i4, %._crit_edge.loopexit.i11
-  %.pre-phi.i6 = phi i64 [ %.pre13.i5, %.._crit_edge_crit_edge.i4 ], [ %70, %._crit_edge.loopexit.i11 ]
-  %76 = phi i32 [ %67, %.._crit_edge_crit_edge.i4 ], [ %.pre12.i12, %._crit_edge.loopexit.i11 ]
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %51, align 8
-  %78 = getelementptr inbounds i8, ptr %51, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %.pre-phi.i6
-  store ptr %2, ptr %80, align 8
+  %.pre-phi.i6 = phi i64 [ %.pre13.i5, %.._crit_edge_crit_edge.i4 ], [ %71, %._crit_edge.loopexit.i11 ]
+  %77 = phi i32 [ %68, %.._crit_edge_crit_edge.i4 ], [ %.pre12.i12, %._crit_edge.loopexit.i11 ]
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %52, align 8
+  %79 = getelementptr inbounds i8, ptr %52, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %.pre-phi.i6
+  store ptr %2, ptr %81, align 8
   ret void
 }
 
@@ -333,7 +330,7 @@ _ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE13insert_beforeEiRKS0_.ex
 define hidden void @_ZN19ciConstantPoolCache5printEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
-  tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 82) #10
+  tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 82) #11
   unreachable
 }
 
@@ -348,7 +345,7 @@ define internal void @__cxx_global_var_init.4() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -357,7 +354,7 @@ define internal void @__cxx_global_var_init.4() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -371,7 +368,7 @@ define internal void @__cxx_global_var_init.5() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -380,7 +377,7 @@ define internal void @__cxx_global_var_init.5() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -392,7 +389,7 @@ define internal void @__cxx_global_var_init.6() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -401,7 +398,7 @@ define internal void @__cxx_global_var_init.6() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -413,7 +410,7 @@ define internal void @__cxx_global_var_init.7() #6 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -422,7 +419,7 @@ define internal void @__cxx_global_var_init.7() #6 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #9
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #10
   ret i64 %3
 }
 
@@ -440,7 +437,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 4) #9
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 4) #10
   br label %_ZN13GrowableArrayIiE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -451,12 +448,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 4, i8 noundef zeroext %13) #9
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 4, i8 noundef zeroext %13) #10
   br label %_ZN13GrowableArrayIiE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 4, ptr noundef nonnull %16) #9
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 4, ptr noundef nonnull %16) #10
   br label %_ZN13GrowableArrayIiE8allocateEv.exit
 
 _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
@@ -519,7 +516,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIiE10deallocateEPi.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #9
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #10
   br label %_ZN13GrowableArrayIiE10deallocateEPi.exit
 
 _ZN13GrowableArrayIiE10deallocateEPi.exit:        ; preds = %42, %39, %.preheader
@@ -546,7 +543,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPv13GrowableArr
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #9
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #10
   br label %_ZN13GrowableArrayIPvE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -557,12 +554,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPv13GrowableArr
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #9
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #10
   br label %_ZN13GrowableArrayIPvE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #9
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #10
   br label %_ZN13GrowableArrayIPvE8allocateEv.exit
 
 _ZN13GrowableArrayIPvE8allocateEv.exit:           ; preds = %7, %11, %15
@@ -625,7 +622,7 @@ _ZN13GrowableArrayIPvE8allocateEv.exit:           ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIPvE10deallocateEPS0_.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #9
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #10
   br label %_ZN13GrowableArrayIPvE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayIPvE10deallocateEPS0_.exit:     ; preds = %42, %39, %.preheader
@@ -636,6 +633,9 @@ _ZN13GrowableArrayIPvE10deallocateEPS0_.exit:     ; preds = %42, %39, %.preheade
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #9
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -645,8 +645,9 @@ attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

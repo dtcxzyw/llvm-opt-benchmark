@@ -633,9 +633,9 @@ define hidden noundef ptr @_Z34hb_aat_layout_find_feature_mappingj(i32 noundef %
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.preheader.i.i.i.i
-  %.0194.i.i.i.i = phi i32 [ %.1.i.i.i.i, %13 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
-  %.0203.i.i.i.i = phi i32 [ %.121.i.i.i.i, %13 ], [ 77, %.lr.ph.preheader.i.i.i.i ]
-  %1 = add i32 %.0203.i.i.i.i, %.0194.i.i.i.i
+  %.0193.i.i.i.i = phi i32 [ %.1.i.i.i.i, %13 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.0202.i.i.i.i = phi i32 [ %.121.i.i.i.i, %13 ], [ 77, %.lr.ph.preheader.i.i.i.i ]
+  %1 = add i32 %.0202.i.i.i.i, %.0193.i.i.i.i
   %2 = lshr i32 %1, 1
   %3 = zext nneg i32 %2 to i64
   %4 = shl nuw nsw i64 %3, 4
@@ -649,16 +649,16 @@ define hidden noundef ptr @_Z34hb_aat_layout_find_feature_mappingj(i32 noundef %
   br label %13
 
 10:                                               ; preds = %.lr.ph.i.i.i.i
-  %.not1.i.i.i.i = icmp ult i32 %6, %0
-  br i1 %.not1.i.i.i.i, label %11, label %14
+  %.not23.i.i.i.i = icmp eq i32 %6, %0
+  br i1 %.not23.i.i.i.i, label %14, label %11
 
 11:                                               ; preds = %10
   %12 = add nuw nsw i32 %2, 1
   br label %13
 
 13:                                               ; preds = %11, %8
-  %.121.i.i.i.i = phi i32 [ %9, %8 ], [ %.0203.i.i.i.i, %11 ]
-  %.1.i.i.i.i = phi i32 [ %.0194.i.i.i.i, %8 ], [ %12, %11 ]
+  %.121.i.i.i.i = phi i32 [ %9, %8 ], [ %.0202.i.i.i.i, %11 ]
+  %.1.i.i.i.i = phi i32 [ %.0193.i.i.i.i, %8 ], [ %12, %11 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.1.i.i.i.i, %.121.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK24hb_aat_feature_mapping_tE7bsearchIjEEPS1_RKT_S4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !6
 

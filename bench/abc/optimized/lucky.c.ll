@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @memCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %2) #17
+  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %2) #18
   %5 = zext i32 %4 to i64
   br label %6
 
@@ -44,10 +44,7 @@ declare i32 @Kit_TruthWordNum_64bit(i32 noundef) local_unnamed_addr #1
 define range(i32 -1, 2) i32 @compareWords1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp ugt i64 %3, %4
-  %6 = icmp ult i64 %3, %4
-  %7 = sext i1 %6 to i32
-  %.0 = select i1 %5, i32 1, i32 %7
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0
 }
 
@@ -56,7 +53,7 @@ define void @sortAndUnique1(ptr noundef %0, ptr nocapture noundef %1) local_unna
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords1) #17
+  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords1) #18
   %6 = icmp sgt i32 %4, 1
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -104,10 +101,7 @@ define range(i32 -1, 2) i32 @compareWords2(ptr nocapture noundef readonly %0, pt
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ugt i64 %4, %6
-  %8 = icmp ult i64 %4, %6
-  %. = sext i1 %8 to i32
-  %.0 = select i1 %7, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %6)
   ret i32 %.0
 }
 
@@ -115,7 +109,7 @@ define range(i32 -1, 2) i32 @compareWords2(ptr nocapture noundef readonly %0, pt
 define range(i32 -1, 2) i32 @compareWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) %4, i64 noundef 8) #18
+  %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) %4, i64 noundef 8) #19
   %.not = icmp ne i32 %5, 0
   %6 = sext i1 %.not to i32
   %.inv = icmp slt i32 %5, 1
@@ -130,7 +124,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define range(i32 -1, 2) i32 @compareWords3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef 16) #17
+  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef 16) #18
   %6 = zext i32 %5 to i64
   br label %7
 
@@ -164,7 +158,7 @@ define void @sortAndUnique(ptr noundef %0, ptr nocapture noundef %1) local_unnam
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords3) #17
+  tail call void @qsort(ptr noundef %0, i64 noundef %5, i64 noundef 8, ptr noundef nonnull @compareWords3) #18
   %6 = icmp sgt i32 %4, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -210,7 +204,7 @@ define void @sortAndUnique(ptr noundef %0, ptr nocapture noundef %1) local_unnam
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @setCycleCtrPtr() local_unnamed_addr #8 {
-  %1 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #19
+  %1 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #20
   store i32 0, ptr %1, align 4
   %2 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4
@@ -224,7 +218,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @freeCycleCtr(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  tail call void @free(ptr noundef %0) #17
+  tail call void @free(ptr noundef %0) #18
   ret void
 }
 
@@ -237,7 +231,7 @@ define noalias noundef ptr @makeArray(ptr nocapture noundef readonly %0) local_u
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #19
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #20
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -253,7 +247,7 @@ define noalias noundef ptr @makeArray(ptr nocapture noundef readonly %0) local_u
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = tail call noalias ptr @malloc(i64 noundef %11) #19
+  %15 = tail call noalias ptr @malloc(i64 noundef %11) #20
   %16 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
@@ -281,7 +275,7 @@ define void @freeArray(ptr nocapture noundef %0, ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %7) #17
+  tail call void @free(ptr noundef %7) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %3, align 8
   %9 = sext i32 %8 to i64
@@ -289,7 +283,7 @@ define void @freeArray(ptr nocapture noundef %0, ptr nocapture noundef readonly 
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  tail call void @free(ptr noundef %0) #17
+  tail call void @free(ptr noundef %0) #18
   ret void
 }
 
@@ -297,7 +291,7 @@ define void @freeArray(ptr nocapture noundef %0, ptr nocapture noundef readonly 
 define noalias noundef ptr @makeArrayB(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 3
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #19
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #20
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -322,7 +316,7 @@ define noalias noundef ptr @makeArrayB(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @freeArrayB(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  tail call void @free(ptr noundef %0) #17
+  tail call void @free(ptr noundef %0) #18
   ret void
 }
 
@@ -347,7 +341,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalInitialFlip1(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #17
+  %3 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #18
   %4 = sext i32 %3 to i64
   %5 = getelementptr i64, ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -8
@@ -356,7 +350,7 @@ define range(i32 0, 2) i32 @minimalInitialFlip1(ptr noundef %0, i32 noundef %1) 
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #17
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #18
   br label %9
 
 9:                                                ; preds = %2, %8
@@ -368,18 +362,18 @@ declare void @Kit_TruthNot_64bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalFlip1(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %6 = shl i32 %5, 3
   %7 = sext i32 %6 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %7, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #17
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #18
   %8 = icmp sgt i32 %3, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %23
   %.03648 = phi i32 [ %24, %23 ], [ 1, %4 ]
-  %9 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %9 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %10 = zext i32 %9 to i64
   br label %11
 
@@ -404,12 +398,12 @@ define range(i32 0, 2) i32 @minimalFlip1(ptr noundef %0, ptr nocapture noundef %
 
 memCompare.exit:                                  ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03648) #17
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03648) #18
   br label %23
 
 .loopexit:                                        ; preds = %11, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #17
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #18
   br label %23
 
 23:                                               ; preds = %memCompare.exit, %.loopexit
@@ -418,7 +412,7 @@ memCompare.exit:                                  ; preds = %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %23, %4
-  %25 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %25 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %26 = zext i32 %25 to i64
   br label %27
 
@@ -456,12 +450,12 @@ declare void @Kit_TruthChangePhase_64bit(ptr noundef, i32 noundef, i32 noundef) 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %5 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %6 = shl i32 %5, 3
   %7 = sext i32 %6 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %7, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #17
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #18
   %8 = icmp sgt i32 %3, 2
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -471,7 +465,7 @@ define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr nocapture noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %.03647 = phi i32 [ %25, %24 ], [ 1, %.lr.ph.preheader ]
-  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %11 = zext i32 %10 to i64
   br label %12
 
@@ -496,12 +490,12 @@ define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr nocapture noundef %
 
 memCompare.exit:                                  ; preds = %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03647) #17
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03647) #18
   br label %24
 
 .loopexit:                                        ; preds = %12, %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #17
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #18
   br label %24
 
 24:                                               ; preds = %memCompare.exit, %.loopexit
@@ -510,7 +504,7 @@ memCompare.exit:                                  ; preds = %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %24, %4
-  %26 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %26 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %27 = zext i32 %26 to i64
   br label %28
 
@@ -548,7 +542,7 @@ declare void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef, i32 noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #17
+  %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #18
   %5 = sext i32 %4 to i64
   %6 = getelementptr i64, ptr %0, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
@@ -557,7 +551,7 @@ define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #17
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #18
   %10 = shl nuw i32 1, %1
   %11 = load i32, ptr %2, align 4
   %12 = xor i32 %11, %10
@@ -572,12 +566,12 @@ define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, p
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
-  %7 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %7 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %8 = shl i32 %7, 3
   %9 = sext i32 %8 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %9, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %9, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #17
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #18
   %10 = load i32, ptr %4, align 4
   %11 = xor i32 %10, 1
   store i32 %11, ptr %4, align 4
@@ -587,7 +581,7 @@ define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr nocapture noundef %1
 .lr.ph:                                           ; preds = %5, %28
   %.04257 = phi i32 [ %.1, %28 ], [ %6, %5 ]
   %.04356 = phi i32 [ %32, %28 ], [ 1, %5 ]
-  %13 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %13 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %14 = zext i32 %13 to i64
   br label %15
 
@@ -622,7 +616,7 @@ memCompare.exit:                                  ; preds = %25
 
 28:                                               ; preds = %.loopexit, %memCompare.exit
   %.1 = phi i32 [ %27, %memCompare.exit ], [ %.04257, %.loopexit ]
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.04356) #17
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.04356) #18
   %29 = shl nuw i32 1, %.04356
   %30 = load i32, ptr %4, align 4
   %31 = xor i32 %30, %29
@@ -633,7 +627,7 @@ memCompare.exit:                                  ; preds = %25
 
 ._crit_edge:                                      ; preds = %28, %5
   %.042.lcssa = phi i32 [ %6, %5 ], [ %.1, %28 ]
-  %33 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %33 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %34 = zext i32 %33 to i64
   br label %35
 
@@ -699,7 +693,7 @@ define void @swapInfoAdjacentVars(i32 noundef %0, ptr nocapture noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @minimalSwap(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
-  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %9 = shl i32 %8, 3
   %10 = sext i32 %3 to i64
   %11 = load i32, ptr %6, align 4
@@ -707,7 +701,7 @@ define range(i32 0, 2) i32 @minimalSwap(ptr noundef %0, ptr nocapture noundef %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %0, i64 %12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %4, i64 %10, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #17
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef 0) #18
   %13 = load i8, ptr %4, align 1
   %14 = getelementptr inbounds i8, ptr %4, i64 1
   %15 = load i8, ptr %14, align 1
@@ -737,7 +731,7 @@ swapInfoAdjacentVars.exit:                        ; preds = %7, %20
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %swapInfoAdjacentVars.exit60
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %swapInfoAdjacentVars.exit60 ]
   %.072 = phi i32 [ %11, %.lr.ph.preheader ], [ %.1, %swapInfoAdjacentVars.exit60 ]
-  %24 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %24 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %25 = zext i32 %24 to i64
   br label %26
 
@@ -775,7 +769,7 @@ memCompare.exit:                                  ; preds = %36
 39:                                               ; preds = %.loopexit, %memCompare.exit
   %.1 = phi i32 [ %38, %memCompare.exit ], [ %.072, %.loopexit ]
   %40 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %40) #17
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %40) #18
   %41 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -804,7 +798,7 @@ swapInfoAdjacentVars.exit60:                      ; preds = %39, %51
 
 ._crit_edge:                                      ; preds = %swapInfoAdjacentVars.exit60, %swapInfoAdjacentVars.exit
   %.0.lcssa = phi i32 [ %11, %swapInfoAdjacentVars.exit ], [ %.1, %swapInfoAdjacentVars.exit60 ]
-  %54 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %54 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %55 = zext i32 %54 to i64
   br label %56
 
@@ -847,7 +841,7 @@ define void @luckyCanonicizer(ptr noundef %0, ptr nocapture noundef %1, ptr noca
   br label %9
 
 9:                                                ; preds = %7, %minimalInitialFlip.exit
-  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %11 = sext i32 %10 to i64
   %gep = getelementptr i64, ptr %invariant.gep, i64 %11
   %12 = load i64, ptr %gep, align 8
@@ -855,7 +849,7 @@ define void @luckyCanonicizer(ptr noundef %0, ptr nocapture noundef %1, ptr noca
   br i1 %.not.i, label %minimalInitialFlip.exit, label %13
 
 13:                                               ; preds = %9
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #17
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #18
   %14 = load i32, ptr %6, align 4
   %15 = xor i32 %14, %8
   store i32 %15, ptr %6, align 4
@@ -880,7 +874,7 @@ define noundef i32 @luckyCanonicizer1_simple(ptr noundef %0, ptr nocapture nound
   br label %7
 
 7:                                                ; preds = %6, %minimalInitialFlip1.exit
-  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %9 = sext i32 %8 to i64
   %gep = getelementptr i64, ptr %invariant.gep, i64 %9
   %10 = load i64, ptr %gep, align 8
@@ -888,7 +882,7 @@ define noundef i32 @luckyCanonicizer1_simple(ptr noundef %0, ptr nocapture nound
   br i1 %.not.i, label %minimalInitialFlip1.exit, label %11
 
 11:                                               ; preds = %7
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #17
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #18
   br label %minimalInitialFlip1.exit
 
 minimalInitialFlip1.exit:                         ; preds = %7, %11
@@ -906,12 +900,12 @@ minimalInitialFlip1.exit:                         ; preds = %7, %11
 
 ; Function Attrs: nounwind uwtable
 define void @luckyCanonicizer_final(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  tail call void @Kit_TruthSemiCanonicize_Yasha_simple(ptr noundef %0, i32 noundef %3, ptr noundef null) #17
+  tail call void @Kit_TruthSemiCanonicize_Yasha_simple(ptr noundef %0, i32 noundef %3, ptr noundef null) #18
   %invariant.gep.i = getelementptr i8, ptr %0, i64 -8
   br label %5
 
 5:                                                ; preds = %minimalInitialFlip1.exit.i, %4
-  %6 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
+  %6 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #18
   %7 = sext i32 %6 to i64
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %7
   %8 = load i64, ptr %gep.i, align 8
@@ -919,7 +913,7 @@ define void @luckyCanonicizer_final(ptr noundef %0, ptr nocapture noundef %1, pt
   br i1 %.not.i.i, label %minimalInitialFlip1.exit.i, label %9
 
 9:                                                ; preds = %5
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #17
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %3) #18
   br label %minimalInitialFlip1.exit.i
 
 minimalInitialFlip1.exit.i:                       ; preds = %9, %5
@@ -943,14 +937,14 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
   %5 = alloca [1024 x i64], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca i32, align 4
-  %8 = tail call i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef %0, i32 noundef %1, ptr noundef %2) #17
+  %8 = tail call i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef %0, i32 noundef %1, ptr noundef %2) #18
   store i32 %8, ptr %7, align 4
   %invariant.gep.i = getelementptr i8, ptr %0, i64 -8
   %9 = shl nuw i32 1, %1
   br label %10
 
 10:                                               ; preds = %minimalInitialFlip.exit.i, %3
-  %11 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #17
+  %11 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #18
   %12 = sext i32 %11 to i64
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %12
   %13 = load i64, ptr %gep.i, align 8
@@ -958,7 +952,7 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
   br i1 %.not.i.i, label %minimalInitialFlip.exit.i, label %14
 
 14:                                               ; preds = %10
-  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #17
+  tail call void @Kit_TruthNot_64bit(ptr noundef nonnull %0, i32 noundef %1) #18
   %15 = load i32, ptr %7, align 4
   %16 = xor i32 %15, %9
   store i32 %16, ptr %7, align 4
@@ -1010,6 +1004,9 @@ define i32 @Kit_TruthSemiCanonicize_new(ptr noundef %0, ptr nocapture noundef re
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #17
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1027,9 +1024,10 @@ attributes #13 = { nofree nounwind memory(readwrite, argmem: read) uwtable "fram
 attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

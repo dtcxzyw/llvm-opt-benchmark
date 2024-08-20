@@ -28,7 +28,7 @@ define range(i32 0, 2) i32 @aginternalmaplookup(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %22, label %13
 
 13:                                               ; preds = %4
-  %14 = tail call ptr @agstrbind(ptr noundef nonnull %0, ptr noundef %2) #4
+  %14 = tail call ptr @agstrbind(ptr noundef nonnull %0, ptr noundef %2) #5
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %22, label %15
 
@@ -36,7 +36,7 @@ define range(i32 0, 2) i32 @aginternalmaplookup(ptr noundef %0, i32 noundef %1, 
   %16 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr %12, align 8
-  %18 = call ptr %17(ptr noundef nonnull %12, ptr noundef nonnull %5, i32 noundef 4) #4
+  %18 = call ptr %17(ptr noundef nonnull %12, ptr noundef nonnull %5, i32 noundef 4) #5
   %.not15 = icmp eq ptr %18, null
   br i1 %.not15, label %22, label %19
 
@@ -55,10 +55,10 @@ declare ptr @agstrbind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @aginternalmapinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @agalloc(ptr noundef %0, i64 noundef 48) #4
+  %5 = tail call ptr @agalloc(ptr noundef %0, i64 noundef 48) #5
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   store i64 %3, ptr %6, align 8
-  %7 = tail call ptr @agstrdup(ptr noundef %0, ptr noundef %2) #4
+  %7 = tail call ptr @agstrdup(ptr noundef %0, ptr noundef %2) #5
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %7, ptr %8, align 8
   %9 = icmp eq i32 %1, 3
@@ -74,7 +74,7 @@ define void @aginternalmapinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr @Dttree, align 8
-  %19 = tail call ptr @agdtopen(ptr noundef nonnull %0, ptr noundef nonnull @LookupByName, ptr noundef %18) #4
+  %19 = tail call ptr @agdtopen(ptr noundef nonnull %0, ptr noundef nonnull @LookupByName, ptr noundef %18) #5
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 64
   %22 = getelementptr inbounds [3 x ptr], ptr %21, i64 0, i64 %13
@@ -93,7 +93,7 @@ define void @aginternalmapinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr @Dttree, align 8
-  %31 = tail call ptr @agdtopen(ptr noundef nonnull %0, ptr noundef nonnull @LookupById, ptr noundef %30) #4
+  %31 = tail call ptr @agdtopen(ptr noundef nonnull %0, ptr noundef nonnull @LookupById, ptr noundef %30) #5
   %32 = load ptr, ptr %10, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 88
   %34 = getelementptr inbounds [3 x ptr], ptr %33, i64 0, i64 %13
@@ -103,9 +103,9 @@ define void @aginternalmapinsert(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 35:                                               ; preds = %29, %23
   %.0 = phi ptr [ %31, %29 ], [ %27, %23 ]
   %36 = load ptr, ptr %.022, align 8
-  %37 = tail call ptr %36(ptr noundef nonnull %.022, ptr noundef nonnull %5, i32 noundef 1) #4
+  %37 = tail call ptr %36(ptr noundef nonnull %.022, ptr noundef nonnull %5, i32 noundef 1) #5
   %38 = load ptr, ptr %.0, align 8
-  %39 = tail call ptr %38(ptr noundef nonnull %.0, ptr noundef nonnull %5, i32 noundef 1) #4
+  %39 = tail call ptr %38(ptr noundef nonnull %.0, ptr noundef nonnull %5, i32 noundef 1) #5
   ret void
 }
 
@@ -138,7 +138,7 @@ find_isym.exit:                                   ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %2, ptr %11, align 8
   %12 = load ptr, ptr %10, align 8
-  %13 = call ptr %12(ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 4) #4
+  %13 = call ptr %12(ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 4) #5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
@@ -176,7 +176,7 @@ find_isym.exit:                                   ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %2, ptr %11, align 8
   %12 = load ptr, ptr %10, align 8
-  %13 = call ptr %12(ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 4) #4
+  %13 = call ptr %12(ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 4) #5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %30, label %14
@@ -187,17 +187,17 @@ find_isym.exit:                                   ; preds = %3
   %17 = getelementptr inbounds [3 x ptr], ptr %16, i64 0, i64 %8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = call ptr %19(ptr noundef nonnull %18, ptr noundef nonnull %13, i32 noundef 2) #4
+  %20 = call ptr %19(ptr noundef nonnull %18, ptr noundef nonnull %13, i32 noundef 2) #5
   %21 = load ptr, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 88
   %23 = getelementptr inbounds [3 x ptr], ptr %22, i64 0, i64 %8
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = call ptr %25(ptr noundef nonnull %24, ptr noundef nonnull %13, i32 noundef 2) #4
+  %26 = call ptr %25(ptr noundef nonnull %24, ptr noundef nonnull %13, i32 noundef 2) #5
   %27 = getelementptr inbounds i8, ptr %13, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = call i32 @agstrfree(ptr noundef nonnull %0, ptr noundef %28) #4
-  call void @agfree(ptr noundef nonnull %0, ptr noundef nonnull %13) #4
+  %29 = call i32 @agstrfree(ptr noundef nonnull %0, ptr noundef %28) #5
+  call void @agfree(ptr noundef nonnull %0, ptr noundef nonnull %13) #5
   br label %30
 
 30:                                               ; preds = %find_isym.exit.thread, %find_isym.exit, %14
@@ -228,7 +228,7 @@ define void @aginternalmapclearlocalnames(ptr noundef %0) local_unnamed_addr #0 
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
-  %12 = call ptr %11(ptr noundef nonnull %9, ptr noundef null, i32 noundef 128) #4
+  %12 = call ptr %11(ptr noundef nonnull %9, ptr noundef null, i32 noundef 128) #5
   %.not2223 = icmp eq ptr %12, null
   br i1 %.not2223, label %.loopexit, label %.lr.ph
 
@@ -236,7 +236,7 @@ define void @aginternalmapclearlocalnames(ptr noundef %0) local_unnamed_addr #0 
   %.02024 = phi ptr [ %15, %aginternalmapdelete.exit ], [ %12, %10 ]
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = call ptr %14(ptr noundef nonnull %13, ptr noundef nonnull %.02024, i32 noundef 8) #4
+  %15 = call ptr %14(ptr noundef nonnull %13, ptr noundef nonnull %.02024, i32 noundef 8) #5
   %16 = getelementptr inbounds i8, ptr %.02024, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 1
@@ -261,7 +261,7 @@ find_isym.exit.thread.i:                          ; preds = %20
 find_isym.exit.i:                                 ; preds = %20
   store i64 %22, ptr %6, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = call ptr %26(ptr noundef nonnull %25, ptr noundef nonnull %2, i32 noundef 4) #4
+  %27 = call ptr %26(ptr noundef nonnull %25, ptr noundef nonnull %2, i32 noundef 4) #5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %aginternalmapdelete.exit, label %28
@@ -272,17 +272,17 @@ find_isym.exit.i:                                 ; preds = %20
   %31 = getelementptr inbounds [3 x ptr], ptr %30, i64 0, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull %27, i32 noundef 2) #4
+  %34 = call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull %27, i32 noundef 2) #5
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 88
   %37 = getelementptr inbounds [3 x ptr], ptr %36, i64 0, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = call ptr %39(ptr noundef nonnull %38, ptr noundef nonnull %27, i32 noundef 2) #4
+  %40 = call ptr %39(ptr noundef nonnull %38, ptr noundef nonnull %27, i32 noundef 2) #5
   %41 = getelementptr inbounds i8, ptr %27, i64 40
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 @agstrfree(ptr noundef nonnull %0, ptr noundef %42) #4
-  call void @agfree(ptr noundef nonnull %0, ptr noundef nonnull %27) #4
+  %43 = call i32 @agstrfree(ptr noundef nonnull %0, ptr noundef %42) #5
+  call void @agfree(ptr noundef nonnull %0, ptr noundef nonnull %27) #5
   br label %aginternalmapdelete.exit
 
 aginternalmapdelete.exit:                         ; preds = %28, %find_isym.exit.i, %find_isym.exit.thread.i, %.lr.ph
@@ -314,7 +314,7 @@ define void @aginternalmapclose(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @dtclose(ptr noundef nonnull %7) #4
+  %9 = tail call i32 @dtclose(ptr noundef nonnull %7) #5
   store ptr null, ptr %6, align 8
   br label %10
 
@@ -336,7 +336,7 @@ closeit.exit:                                     ; preds = %10
   br i1 %.not.i4, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @dtclose(ptr noundef nonnull %15) #4
+  %17 = tail call i32 @dtclose(ptr noundef nonnull %15) #5
   store ptr null, ptr %14, align 8
   br label %18
 
@@ -368,26 +368,27 @@ define internal range(i32 -1, 2) i32 @idcmpf(ptr nocapture readnone %0, ptr noca
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %6, %8
-  %10 = icmp ult i64 %6, %8
-  %. = sext i1 %10 to i32
-  %.0 = select i1 %9, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0
 }
 
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

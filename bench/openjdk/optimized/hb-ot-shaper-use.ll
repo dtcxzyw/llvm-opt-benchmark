@@ -117,17 +117,17 @@ define internal noalias noundef ptr @_ZL15data_create_usePK18hb_ot_shape_plan_t(
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
-  %.not2.i.i.i.i.i.i = icmp sgt i32 %7, 0
-  br i1 %.not2.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
+  %.not1.i.i.i.i.i.i = icmp sgt i32 %7, 0
+  br i1 %.not1.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %3
   %8 = add nsw i32 %7, -1
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %21, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0194.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %21 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.0203.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %21 ], [ %8, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %9 = add i32 %.0203.i.i.i.i.i.i, %.0194.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %21 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %21 ], [ %8, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %9 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
   %12 = mul nuw nsw i64 %11, 36
@@ -141,16 +141,16 @@ define internal noalias noundef ptr @_ZL15data_create_usePK18hb_ot_shape_plan_t(
   br label %21
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not1.i.i.i.i.i.i.not = icmp eq i32 %14, 1919969382
-  br i1 %.not1.i.i.i.i.i.i.not, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, label %19
+  %.not23.i.i.i.i.i.i = icmp eq i32 %14, 1919969382
+  br i1 %.not23.i.i.i.i.i.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, label %19
 
 19:                                               ; preds = %18
   %20 = add nuw nsw i32 %10, 1
   br label %21
 
 21:                                               ; preds = %19, %16
-  %.121.i.i.i.i.i.i = phi i32 [ %17, %16 ], [ %.0203.i.i.i.i.i.i, %19 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i.i, %16 ], [ %20, %19 ]
+  %.121.i.i.i.i.i.i = phi i32 [ %17, %16 ], [ %.0202.i.i.i.i.i.i, %19 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %16 ], [ %20, %19 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
@@ -4218,11 +4218,11 @@ _ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL15s
   %1528 = load ptr, ptr %1527, align 8
   %1529 = getelementptr inbounds i8, ptr %0, i64 60
   %1530 = load i32, ptr %1529, align 4
-  %.not2.i.i.i.i.i.i.i = icmp sgt i32 %1530, 0
+  %.not1.i.i.i.i.i.i.i = icmp sgt i32 %1530, 0
   %1531 = getelementptr inbounds i8, ptr %0, i64 52
   %1532 = load i32, ptr %1531, align 4
   %1533 = add nsw i32 %1530, -1
-  br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.us.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit
+  br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.us.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit
 
 .lr.ph.preheader.i.i.i.i.i.i.us.i:                ; preds = %.preheader.i, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i ], [ 0, %.preheader.i ]
@@ -4232,9 +4232,9 @@ _ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL15s
   br label %.lr.ph.i.i.i.i.i.i.us.i
 
 .lr.ph.i.i.i.i.i.i.us.i:                          ; preds = %1550, %.lr.ph.preheader.i.i.i.i.i.i.us.i
-  %.0194.i.i.i.i.i.i.us.i = phi i32 [ %.1.i.i.i.i.i.i.us.i, %1550 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
-  %.0203.i.i.i.i.i.i.us.i = phi i32 [ %.121.i.i.i.i.i.i.us.i, %1550 ], [ %1533, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
-  %1536 = add i32 %.0203.i.i.i.i.i.i.us.i, %.0194.i.i.i.i.i.i.us.i
+  %.0193.i.i.i.i.i.i.us.i = phi i32 [ %.1.i.i.i.i.i.i.us.i, %1550 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
+  %.0202.i.i.i.i.i.i.us.i = phi i32 [ %.121.i.i.i.i.i.i.us.i, %1550 ], [ %1533, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
+  %1536 = add i32 %.0202.i.i.i.i.i.i.us.i, %.0193.i.i.i.i.i.i.us.i
   %1537 = lshr i32 %1536, 1
   %1538 = zext nneg i32 %1537 to i64
   %1539 = mul nuw nsw i64 %1538, 36
@@ -4244,30 +4244,30 @@ _ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL15s
   br i1 %1542, label %1548, label %1543
 
 1543:                                             ; preds = %.lr.ph.i.i.i.i.i.i.us.i
-  %.not1.i.i.i.i.i.i.us.i = icmp ult i32 %1541, %1535
-  br i1 %.not1.i.i.i.i.i.i.us.i, label %1546, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i
+  %.not23.i.i.i.i.i.i.us.i = icmp eq i32 %1541, %1535
+  br i1 %.not23.i.i.i.i.i.i.us.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i, label %1544
+
+1544:                                             ; preds = %1543
+  %1545 = add nuw nsw i32 %1537, 1
+  br label %1550
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i: ; preds = %1543
-  %1544 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %1528, i64 %1538, i32 5
-  %1545 = load i32, ptr %1544, align 4
+  %1546 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %1528, i64 %1538, i32 5
+  %1547 = load i32, ptr %1546, align 4
   br label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i
-
-1546:                                             ; preds = %1543
-  %1547 = add nuw nsw i32 %1537, 1
-  br label %1550
 
 1548:                                             ; preds = %.lr.ph.i.i.i.i.i.i.us.i
   %1549 = add nsw i32 %1537, -1
   br label %1550
 
-1550:                                             ; preds = %1548, %1546
-  %.121.i.i.i.i.i.i.us.i = phi i32 [ %1549, %1548 ], [ %.0203.i.i.i.i.i.i.us.i, %1546 ]
-  %.1.i.i.i.i.i.i.us.i = phi i32 [ %.0194.i.i.i.i.i.i.us.i, %1548 ], [ %1547, %1546 ]
+1550:                                             ; preds = %1548, %1544
+  %.121.i.i.i.i.i.i.us.i = phi i32 [ %1549, %1548 ], [ %.0202.i.i.i.i.i.i.us.i, %1544 ]
+  %.1.i.i.i.i.i.i.us.i = phi i32 [ %.0193.i.i.i.i.i.i.us.i, %1548 ], [ %1545, %1544 ]
   %.not.not.i.i.i.i.i.i.us.i = icmp sgt i32 %.1.i.i.i.i.i.i.us.i, %.121.i.i.i.i.i.i.us.i
   br i1 %.not.not.i.i.i.i.i.i.us.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i, label %.lr.ph.i.i.i.i.i.i.us.i, !llvm.loop !10
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i:        ; preds = %1550, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i
-  %1551 = phi i32 [ %1545, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i ], [ 0, %1550 ]
+  %1551 = phi i32 [ %1547, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i ], [ 0, %1550 ]
   %1552 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %indvars.iv.i34
   %1553 = icmp eq i32 %1551, %1532
   %spec.store.select.us.i = select i1 %1553, i32 0, i32 %1551

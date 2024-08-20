@@ -8420,10 +8420,7 @@ define dso_local range(i32 -1, 2) i32 @zuiCompareByCardinality(ptr nocapture nou
 entry:
   %call = tail call i64 @zuiLength(ptr noundef %s1)
   %call1 = tail call i64 @zuiLength(ptr noundef %s2)
-  %cmp = icmp ugt i64 %call, %call1
-  %cmp2 = icmp ult i64 %call, %call1
-  %. = sext i1 %cmp2 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %call, i64 %call1)
   ret i32 %retval.0
 }
 
@@ -15393,11 +15390,8 @@ define internal range(i32 -1, 2) i32 @zuiCompareByRevCardinality(ptr nocapture n
 entry:
   %call.i = tail call i64 @zuiLength(ptr noundef readonly %s1)
   %call1.i = tail call i64 @zuiLength(ptr noundef readonly %s2)
-  %cmp.i = icmp ugt i64 %call.i, %call1.i
-  %cmp2.i = icmp ult i64 %call.i, %call1.i
-  %..i.neg = zext i1 %cmp2.i to i32
-  %retval.0.i.neg = select i1 %cmp.i, i32 -1, i32 %..i.neg
-  ret i32 %retval.0.i.neg
+  %0 = tail call i32 @llvm.ucmp.i32.i64(i64 %call1.i, i64 %call.i)
+  ret i32 %0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15700,6 +15694,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

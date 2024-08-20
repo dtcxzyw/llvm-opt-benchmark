@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Msat_IntVecAlloc(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %3 = add i32 %0, -1
   %or.cond = icmp ult i32 %3, 15
   %spec.store.select = select i1 %or.cond, i32 16, i32 %0
@@ -19,7 +19,7 @@ define noalias noundef ptr @Msat_IntVecAlloc(i32 noundef %0) local_unnamed_addr 
 6:                                                ; preds = %1
   %7 = sext i32 %spec.store.select to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #18
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #19
   br label %10
 
 10:                                               ; preds = %1, %6
@@ -33,7 +33,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Msat_IntVecAllocArray(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 12
@@ -44,14 +44,14 @@ define noalias noundef ptr @Msat_IntVecAllocArray(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias noundef ptr @Msat_IntVecAllocArrayCopy(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %1, ptr %5, align 4
   %6 = sext i32 %1 to i64
   %7 = shl nsw i64 %6, 2
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #18
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #19
   store ptr %8, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %0, i64 %7, i1 false)
   ret ptr %3
@@ -62,7 +62,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias noundef ptr @Msat_IntVecDup(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
@@ -77,7 +77,7 @@ define noalias noundef ptr @Msat_IntVecDup(ptr nocapture noundef readonly %0) lo
 9:                                                ; preds = %1
   %10 = sext i32 %7 to i64
   %11 = shl nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #18
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #19
   br label %13
 
 13:                                               ; preds = %1, %9
@@ -92,7 +92,7 @@ define noalias noundef ptr @Msat_IntVecDup(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Msat_IntVecDupArray(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
@@ -114,11 +114,11 @@ define void @Msat_IntVecFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %2) #19
+  tail call void @free(ptr noundef nonnull %2) #20
   br label %4
 
 4:                                                ; preds = %3, %1
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef nonnull %0) #20
   ret void
 }
 
@@ -140,11 +140,11 @@ define void @Msat_IntVecFill(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   br i1 %.not9.i, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef %9) #20
+  %11 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef %9) #21
   br label %14
 
 12:                                               ; preds = %6
-  %13 = tail call noalias ptr @malloc(i64 noundef %9) #18
+  %13 = tail call noalias ptr @malloc(i64 noundef %9) #19
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -189,11 +189,11 @@ define void @Msat_IntVecGrow(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br i1 %.not9, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %8) #20
+  %10 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %8) #21
   br label %13
 
 11:                                               ; preds = %5
-  %12 = tail call noalias ptr @malloc(i64 noundef %8) #18
+  %12 = tail call noalias ptr @malloc(i64 noundef %8) #19
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -296,11 +296,11 @@ define void @Msat_IntVecPush(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br i1 %.not9.i, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %11, i64 noundef 64) #20
+  %13 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %11, i64 noundef 64) #21
   br label %Msat_IntVecGrow.exit
 
 14:                                               ; preds = %10
-  %15 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
+  %15 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
   br label %Msat_IntVecGrow.exit
 
 Msat_IntVecGrow.exit:                             ; preds = %12, %14
@@ -318,11 +318,11 @@ Msat_IntVecGrow.exit:                             ; preds = %12, %14
   br i1 %.not9.i9, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #20
+  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #21
   br label %26
 
 24:                                               ; preds = %17
-  %25 = tail call noalias ptr @malloc(i64 noundef %21) #18
+  %25 = tail call noalias ptr @malloc(i64 noundef %21) #19
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -386,11 +386,11 @@ define range(i32 0, 2) i32 @Msat_IntVecPushUnique(ptr nocapture noundef %0, i32 
   br i1 %.not9.i.i, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %18, i64 noundef 64) #20
+  %20 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %18, i64 noundef 64) #21
   br label %Msat_IntVecGrow.exit.i
 
 21:                                               ; preds = %17
-  %22 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
+  %22 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
   br label %Msat_IntVecGrow.exit.i
 
 Msat_IntVecGrow.exit.i:                           ; preds = %21, %19
@@ -408,11 +408,11 @@ Msat_IntVecGrow.exit.i:                           ; preds = %21, %19
   br i1 %.not9.i9.i, label %31, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call ptr @realloc(ptr noundef nonnull %26, i64 noundef %28) #20
+  %30 = tail call ptr @realloc(ptr noundef nonnull %26, i64 noundef %28) #21
   br label %33
 
 31:                                               ; preds = %24
-  %32 = tail call noalias ptr @malloc(i64 noundef %28) #18
+  %32 = tail call noalias ptr @malloc(i64 noundef %28) #19
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -496,7 +496,7 @@ define void @Msat_IntVecSort(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %Msat_IntVecSortCompare1.Msat_IntVecSortCompare2 = select i1 %.not, ptr @Msat_IntVecSortCompare1, ptr @Msat_IntVecSortCompare2
-  tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 4, ptr noundef nonnull %Msat_IntVecSortCompare1.Msat_IntVecSortCompare2) #19
+  tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 4, ptr noundef nonnull %Msat_IntVecSortCompare1.Msat_IntVecSortCompare2) #20
   ret void
 }
 
@@ -507,10 +507,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp sgt i32 %3, %4
-  %6 = icmp slt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %3)
   ret i32 %.0
 }
 
@@ -518,15 +515,15 @@ define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare2(ptr nocapture noun
 define internal range(i32 -1, 2) i32 @Msat_IntVecSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #18
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -546,9 +543,10 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #15 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nounwind allocsize(0) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(1) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

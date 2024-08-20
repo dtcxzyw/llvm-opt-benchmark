@@ -114,7 +114,7 @@ define hidden void @zim_SplHeap_count(ptr nocapture noundef readonly %0, ptr noc
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -150,7 +150,7 @@ define hidden void @zim_SplHeap_isEmpty(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -182,8 +182,8 @@ define hidden void @zim_SplHeap_insert(ptr noundef %0, ptr nocapture noundef wri
   br i1 %cond, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #14
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #14
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #15
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #15
   br label %30
 
 7:                                                ; preds = %2
@@ -199,7 +199,7 @@ define hidden void @zim_SplHeap_insert(ptr noundef %0, ptr nocapture noundef wri
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #15
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
@@ -252,7 +252,7 @@ define internal fastcc void @spl_ptr_heap_insert(ptr nocapture noundef %0, ptr n
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %9
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call ptr @_safe_erealloc(ptr noundef %15, i64 noundef 2, i64 noundef %14, i64 noundef 0) #14
+  %16 = tail call ptr @_safe_erealloc(ptr noundef %15, i64 noundef 2, i64 noundef %14, i64 noundef 0) #15
   store ptr %16, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %14
   tail call void @llvm.memset.p0.i64(ptr align 1 %17, i8 0, i64 %14, i1 false)
@@ -282,7 +282,7 @@ define internal fastcc void @spl_ptr_heap_insert(ptr nocapture noundef %0, ptr n
   %31 = load i64, ptr %24, align 8
   %32 = mul i64 %31, %29
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
-  %34 = tail call i32 %26(ptr noundef %33, ptr noundef %1, ptr noundef %2) #14
+  %34 = tail call i32 %26(ptr noundef %33, ptr noundef %1, ptr noundef %2) #15
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %.critedge.loopexit
 
@@ -365,7 +365,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   br label %.sink.split
 
 .critedge:                                        ; preds = %2
@@ -380,7 +380,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %.critedge
   %14 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %15 = tail call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %15 = tail call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull @.str, i64 noundef 0) #15
   br label %.sink.split
 
 16:                                               ; preds = %.critedge
@@ -390,7 +390,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %21 = tail call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef 0) #14
+  %21 = tail call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef 0) #15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %13, %19
@@ -437,7 +437,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr nocaptu
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
-  tail call void %20(ptr noundef %21) #14
+  tail call void %20(ptr noundef %21) #15
   br label %22
 
 22:                                               ; preds = %15, %16, %18
@@ -476,7 +476,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr nocaptu
   %43 = sext i32 %35 to i64
   %44 = mul i64 %.pre103, %43
   %45 = getelementptr inbounds i8, ptr %.pre101, i64 %44
-  %46 = tail call i32 %38(ptr noundef %42, ptr noundef %45, ptr noundef %2) #14
+  %46 = tail call i32 %38(ptr noundef %42, ptr noundef %45, ptr noundef %2) #15
   %47 = icmp sgt i32 %46, 0
   %spec.select = select i1 %47, i32 %39, i32 %35
   %.pre = load ptr, ptr %0, align 8
@@ -491,7 +491,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr nocaptu
   %52 = sext i32 %.087 to i64
   %53 = mul i64 %49, %52
   %54 = getelementptr inbounds i8, ptr %50, i64 %53
-  %55 = tail call i32 %51(ptr noundef %30, ptr noundef %54, ptr noundef %2) #14
+  %55 = tail call i32 %51(ptr noundef %30, ptr noundef %54, ptr noundef %2) #15
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %._crit_edge.loopexit
 
@@ -575,8 +575,8 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr nocapture no
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #14
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #14
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #15
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #15
   br label %60
 
 8:                                                ; preds = %2
@@ -592,7 +592,7 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr nocapture no
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull @.str, i64 noundef 0) #15
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
@@ -680,11 +680,8 @@ define internal range(i32 -1, 2) i32 @spl_ptr_pqueue_elem_cmp_long(ptr nocapture
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = icmp sgt i64 %5, %7
-  %9 = icmp slt i64 %5, %7
-  %10 = sext i1 %9 to i32
-  %11 = select i1 %8, i32 1, i32 %10
-  ret i32 %11
+  %8 = tail call i32 @llvm.scmp.i32.i64(i64 %5, i64 %7)
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -724,7 +721,7 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %14 = getelementptr inbounds i8, ptr %10, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = call ptr @zend_call_method(ptr noundef nonnull %10, ptr noundef %15, ptr noundef nonnull %11, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
+  %16 = call ptr @zend_call_method(ptr noundef nonnull %10, ptr noundef %15, ptr noundef nonnull %11, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %spl_ptr_heap_cmp_cb_helper.exit.thread
@@ -744,12 +741,12 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %13
   br label %26
 
 24:                                               ; preds = %18
-  %25 = call i64 @zval_get_long_func(ptr noundef nonnull %4, i1 noundef zeroext false) #14
+  %25 = call i64 @zval_get_long_func(ptr noundef nonnull %4, i1 noundef zeroext false) #15
   br label %26
 
 26:                                               ; preds = %24, %22
   %27 = phi i64 [ %23, %22 ], [ %25, %24 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #14
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not16 = icmp eq i64 %27, 0
   %28 = icmp slt i64 %27, 0
@@ -758,7 +755,7 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %13
   br label %33
 
 31:                                               ; preds = %9, %8
-  %32 = tail call i32 @zend_compare(ptr noundef nonnull %5, ptr noundef nonnull %6) #14
+  %32 = tail call i32 @zend_compare(ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   br label %33
 
 33:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %31, %26
@@ -776,7 +773,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
   br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
@@ -794,7 +791,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %18 = tail call ptr @zend_throw_exception(ptr noundef %17, ptr noundef nonnull @.str, i64 noundef 0) #15
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
@@ -807,7 +804,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %26 = call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.1, i64 noundef 0) #14
+  %26 = call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.1, i64 noundef 0) #15
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
@@ -817,9 +814,9 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
   %30 = getelementptr inbounds i8, ptr %10, i64 -24
   %31 = load i32, ptr %30, align 8
   call fastcc void @spl_pqueue_extract_helper(ptr noundef %1, ptr noundef nonnull %3, i32 noundef %31)
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #14
+  call void @zval_ptr_dtor(ptr noundef nonnull %3) #15
   %32 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @zval_ptr_dtor(ptr noundef nonnull %32) #14
+  call void @zval_ptr_dtor(ptr noundef nonnull %32) #15
   br label %33
 
 33:                                               ; preds = %29, %24, %16, %7
@@ -833,7 +830,7 @@ define internal fastcc void @spl_pqueue_extract_helper(ptr noundef %0, ptr nound
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @_zend_new_array_0() #14
+  %7 = tail call ptr @_zend_new_array_0() #15
   store ptr %7, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 775, ptr %8, align 8
@@ -850,7 +847,7 @@ define internal fastcc void @spl_pqueue_extract_helper(ptr noundef %0, ptr nound
   br label %15
 
 15:                                               ; preds = %6, %11
-  tail call void @add_assoc_zval_ex(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef 4, ptr noundef nonnull %1) #14
+  tail call void @add_assoc_zval_ex(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef 4, ptr noundef nonnull %1) #15
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = getelementptr inbounds i8, ptr %1, i64 25
   %18 = load i8, ptr %17, align 1
@@ -865,7 +862,7 @@ define internal fastcc void @spl_pqueue_extract_helper(ptr noundef %0, ptr nound
   br label %23
 
 23:                                               ; preds = %15, %19
-  tail call void @add_assoc_zval_ex(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i64 noundef 8, ptr noundef nonnull %16) #14
+  tail call void @add_assoc_zval_ex(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i64 noundef 8, ptr noundef nonnull %16) #15
   br label %47
 
 24:                                               ; preds = %3
@@ -917,9 +914,9 @@ define internal fastcc void @spl_pqueue_extract_helper(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_ptr_heap_pqueue_elem_dtor(ptr noundef %0) #0 {
-  tail call void @zval_ptr_dtor(ptr noundef %0) #14
+  tail call void @zval_ptr_dtor(ptr noundef %0) #15
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #14
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #15
   ret void
 }
 
@@ -931,7 +928,7 @@ define hidden void @zim_SplPriorityQueue_top(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -950,7 +947,7 @@ define hidden void @zim_SplPriorityQueue_top(ptr nocapture noundef readonly %0, 
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #15
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
@@ -969,7 +966,7 @@ spl_ptr_heap_top.exit:                            ; preds = %20
 
 spl_ptr_heap_top.exit.thread:                     ; preds = %20, %spl_ptr_heap_top.exit
   %25 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %26 = tail call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.2, i64 noundef 0) #14
+  %26 = tail call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.2, i64 noundef 0) #15
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
@@ -991,7 +988,7 @@ define hidden void @zim_SplPriorityQueue_setExtractFlags(ptr nocapture noundef r
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #14
+  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #15
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %12
 
@@ -1010,7 +1007,7 @@ define hidden void @zim_SplPriorityQueue_setExtractFlags(ptr nocapture noundef r
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %17 = call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str.4, i64 noundef 0) #14
+  %17 = call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str.4, i64 noundef 0) #15
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
@@ -1040,7 +1037,7 @@ define hidden void @zim_SplPriorityQueue_getExtractFlags(ptr nocapture noundef r
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1069,7 +1066,7 @@ define hidden void @zim_SplHeap_recoverFromCorruption(ptr nocapture noundef read
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1100,7 +1097,7 @@ define hidden void @zim_SplHeap_isCorrupted(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1129,7 +1126,7 @@ define hidden void @zim_SplPriorityQueue_compare(ptr nocapture noundef readonly 
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
+  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %8 = icmp eq i32 %7, -1
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br i1 %8, label %10, label %12
@@ -1146,7 +1143,7 @@ define hidden void @zim_SplPriorityQueue_compare(ptr nocapture noundef readonly 
 13:                                               ; preds = %12
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #14
+  %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #15
   %17 = sext i32 %16 to i64
   br label %spl_ptr_heap_zval_max_cmp.exit
 
@@ -1183,7 +1180,7 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %12 = getelementptr inbounds i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #14
+  %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #15
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.exit.thread
@@ -1203,12 +1200,12 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   br label %24
 
 22:                                               ; preds = %16
-  %23 = call i64 @zval_get_long_func(ptr noundef nonnull %4, i1 noundef zeroext false) #14
+  %23 = call i64 @zval_get_long_func(ptr noundef nonnull %4, i1 noundef zeroext false) #15
   br label %24
 
 24:                                               ; preds = %22, %20
   %25 = phi i64 [ %21, %20 ], [ %23, %22 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #14
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not14 = icmp eq i64 %25, 0
   %26 = icmp slt i64 %25, 0
@@ -1217,7 +1214,7 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   br label %31
 
 29:                                               ; preds = %7, %6
-  %30 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #14
+  %30 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #15
   br label %31
 
 31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
@@ -1233,7 +1230,7 @@ define hidden void @zim_SplHeap_top(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1252,7 +1249,7 @@ define hidden void @zim_SplHeap_top(ptr nocapture noundef readonly %0, ptr nocap
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %17 = tail call ptr @zend_throw_exception(ptr noundef %16, ptr noundef nonnull @.str, i64 noundef 0) #15
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
@@ -1271,7 +1268,7 @@ spl_ptr_heap_top.exit:                            ; preds = %20
 
 spl_ptr_heap_top.exit.thread:                     ; preds = %20, %spl_ptr_heap_top.exit
   %25 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %26 = tail call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.2, i64 noundef 0) #14
+  %26 = tail call ptr @zend_throw_exception(ptr noundef %25, ptr noundef nonnull @.str.2, i64 noundef 0) #15
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
@@ -1330,7 +1327,7 @@ define hidden void @zim_SplMinHeap_compare(ptr nocapture noundef readonly %0, pt
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
+  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %8 = icmp eq i32 %7, -1
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br i1 %8, label %10, label %12
@@ -1347,7 +1344,7 @@ define hidden void @zim_SplMinHeap_compare(ptr nocapture noundef readonly %0, pt
 13:                                               ; preds = %12
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = call i32 @zend_compare(ptr noundef %14, ptr noundef %15) #14
+  %16 = call i32 @zend_compare(ptr noundef %14, ptr noundef %15) #15
   %17 = sext i32 %16 to i64
   br label %spl_ptr_heap_zval_min_cmp.exit
 
@@ -1384,7 +1381,7 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %12 = getelementptr inbounds i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #14
+  %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #15
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.exit.thread
@@ -1404,12 +1401,12 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   br label %24
 
 22:                                               ; preds = %16
-  %23 = call i64 @zval_get_long_func(ptr noundef nonnull %4, i1 noundef zeroext false) #14
+  %23 = call i64 @zval_get_long_func(ptr noundef nonnull %4, i1 noundef zeroext false) #15
   br label %24
 
 24:                                               ; preds = %22, %20
   %25 = phi i64 [ %21, %20 ], [ %23, %22 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #14
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not14 = icmp eq i64 %25, 0
   %26 = icmp slt i64 %25, 0
@@ -1418,7 +1415,7 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   br label %31
 
 29:                                               ; preds = %7, %6
-  %30 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %0) #14
+  %30 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %0) #15
   br label %31
 
 31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
@@ -1432,7 +1429,7 @@ define hidden void @zim_SplMaxHeap_compare(ptr nocapture noundef readonly %0, pt
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
+  %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %8 = icmp eq i32 %7, -1
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   br i1 %8, label %10, label %12
@@ -1449,7 +1446,7 @@ define hidden void @zim_SplMaxHeap_compare(ptr nocapture noundef readonly %0, pt
 13:                                               ; preds = %12
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #14
+  %16 = call i32 @zend_compare(ptr noundef %15, ptr noundef %14) #15
   %17 = sext i32 %16 to i64
   br label %spl_ptr_heap_zval_max_cmp.exit
 
@@ -1472,7 +1469,7 @@ define hidden void @zim_SplHeap_key(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1504,7 +1501,7 @@ define hidden void @zim_SplHeap_next(ptr noundef %0, ptr nocapture readnone %1) 
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1530,7 +1527,7 @@ define hidden void @zim_SplHeap_valid(ptr nocapture noundef readonly %0, ptr noc
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1561,7 +1558,7 @@ define hidden void @zim_SplHeap_rewind(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1579,7 +1576,7 @@ define hidden void @zim_SplHeap_current(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1658,7 +1655,7 @@ define hidden void @zim_SplPriorityQueue_current(ptr nocapture noundef readonly 
   br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
@@ -1696,7 +1693,7 @@ define hidden void @zim_SplHeap___debugInfo(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1728,7 +1725,7 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void @rebuild_object_properties(ptr noundef nonnull %1) #14
+  tail call void @rebuild_object_properties(ptr noundef nonnull %1) #15
   %.pre = load ptr, ptr %7, align 8
   br label %10
 
@@ -1737,17 +1734,17 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   %12 = getelementptr inbounds i8, ptr %11, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, 1
-  %15 = tail call ptr @_zend_new_array(i32 noundef %14) #14
+  %15 = tail call ptr @_zend_new_array(i32 noundef %14) #15
   %16 = load ptr, ptr %7, align 8
-  tail call void @zend_hash_copy(ptr noundef %15, ptr noundef %16, ptr noundef nonnull @zval_add_ref) #14
-  %17 = tail call ptr @spl_gen_private_prop_name(ptr noundef %0, ptr noundef nonnull @.str.9, i64 noundef 5) #14
+  tail call void @zend_hash_copy(ptr noundef %15, ptr noundef %16, ptr noundef nonnull @zval_add_ref) #15
+  %17 = tail call ptr @spl_gen_private_prop_name(ptr noundef %0, ptr noundef nonnull @.str.9, i64 noundef 5) #15
   %18 = getelementptr inbounds i8, ptr %1, i64 -24
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   store i64 %20, ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 4, ptr %21, align 8
-  %22 = call ptr @zend_hash_update(ptr noundef %15, ptr noundef %17, ptr noundef nonnull %3) #14
+  %22 = call ptr @zend_hash_update(ptr noundef %15, ptr noundef %17, ptr noundef nonnull %3) #15
   %23 = getelementptr inbounds i8, ptr %17, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 64
@@ -1764,18 +1761,18 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %26
-  call void @_efree(ptr noundef nonnull %17) #14
+  call void @_efree(ptr noundef nonnull %17) #15
   br label %32
 
 32:                                               ; preds = %26, %31, %10
-  %33 = call ptr @spl_gen_private_prop_name(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef 11) #14
+  %33 = call ptr @spl_gen_private_prop_name(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef 11) #15
   %34 = load ptr, ptr %6, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 36
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 1
   %38 = or disjoint i32 %37, 2
   store i32 %38, ptr %21, align 8
-  %39 = call ptr @zend_hash_update(ptr noundef %15, ptr noundef %33, ptr noundef nonnull %3) #14
+  %39 = call ptr @zend_hash_update(ptr noundef %15, ptr noundef %33, ptr noundef nonnull %3) #15
   %40 = getelementptr inbounds i8, ptr %33, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 64
@@ -1792,11 +1789,11 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %43
-  call void @_efree(ptr noundef nonnull %33) #14
+  call void @_efree(ptr noundef nonnull %33) #15
   br label %49
 
 49:                                               ; preds = %32, %48, %43
-  %50 = call ptr @_zend_new_array_0() #14
+  %50 = call ptr @_zend_new_array_0() #15
   store ptr %50, ptr %4, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 775, ptr %51, align 8
@@ -1823,7 +1820,7 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   br i1 %60, label %66, label %83
 
 66:                                               ; preds = %57
-  %67 = call ptr @_zend_new_array_0() #14
+  %67 = call ptr @_zend_new_array_0() #15
   store ptr %67, ptr %5, align 8
   store i32 775, ptr %56, align 8
   %68 = getelementptr inbounds i8, ptr %65, i64 9
@@ -1839,7 +1836,7 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   br label %74
 
 74:                                               ; preds = %70, %66
-  call void @add_assoc_zval_ex(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, i64 noundef 4, ptr noundef nonnull %65) #14
+  call void @add_assoc_zval_ex(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, i64 noundef 4, ptr noundef nonnull %65) #15
   %75 = getelementptr inbounds i8, ptr %65, i64 16
   %76 = getelementptr inbounds i8, ptr %65, i64 25
   %77 = load i8, ptr %76, align 1
@@ -1854,12 +1851,12 @@ define internal fastcc noundef ptr @spl_heap_object_get_debug_info(ptr noundef %
   br label %spl_pqueue_extract_helper.exit
 
 spl_pqueue_extract_helper.exit:                   ; preds = %74, %78
-  call void @add_assoc_zval_ex(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, i64 noundef 8, ptr noundef nonnull %75) #14
-  %82 = call ptr @zend_hash_index_update(ptr noundef %50, i64 noundef %indvars.iv, ptr noundef nonnull %5) #14
+  call void @add_assoc_zval_ex(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, i64 noundef 8, ptr noundef nonnull %75) #15
+  %82 = call ptr @zend_hash_index_update(ptr noundef %50, i64 noundef %indvars.iv, ptr noundef nonnull %5) #15
   br label %91
 
 83:                                               ; preds = %57
-  %84 = call ptr @zend_hash_index_update(ptr noundef %50, i64 noundef %indvars.iv, ptr noundef %65) #14
+  %84 = call ptr @zend_hash_index_update(ptr noundef %50, i64 noundef %indvars.iv, ptr noundef %65) #15
   %85 = getelementptr inbounds i8, ptr %65, i64 9
   %86 = load i8, ptr %85, align 1
   %.not83 = icmp eq i8 %86, 0
@@ -1882,8 +1879,8 @@ spl_pqueue_extract_helper.exit:                   ; preds = %74, %78
   br i1 %96, label %57, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %91, %49
-  %97 = call ptr @spl_gen_private_prop_name(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef 4) #14
-  %98 = call ptr @zend_hash_update(ptr noundef %15, ptr noundef %97, ptr noundef nonnull %4) #14
+  %97 = call ptr @spl_gen_private_prop_name(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef 4) #15
+  %98 = call ptr @zend_hash_update(ptr noundef %15, ptr noundef %97, ptr noundef nonnull %4) #15
   %99 = getelementptr inbounds i8, ptr %97, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 64
@@ -1900,7 +1897,7 @@ spl_pqueue_extract_helper.exit:                   ; preds = %74, %78
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %102
-  call void @_efree(ptr noundef nonnull %97) #14
+  call void @_efree(ptr noundef nonnull %97) #15
   br label %108
 
 108:                                              ; preds = %102, %107, %._crit_edge
@@ -1915,7 +1912,7 @@ define hidden void @zim_SplPriorityQueue___debugInfo(ptr nocapture noundef reado
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_none_error() #14
+  tail call void @zend_wrong_parameters_none_error() #15
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
@@ -1952,19 +1949,19 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %12, i8 0, i64 512, i1 false)
   %15 = load ptr, ptr @zend_string_init_interned, align 8
-  %16 = tail call ptr %15(ptr noundef nonnull @.str.12, i64 noundef 7, i1 noundef zeroext true) #14
+  %16 = tail call ptr %15(ptr noundef nonnull @.str.12, i64 noundef 7, i1 noundef zeroext true) #15
   %17 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %16, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 360
   store ptr @std_object_handlers, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %12, i64 496
   store ptr @class_SplHeap_methods, ptr %19, align 8
-  %20 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %12, ptr noundef null) #14
+  %20 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %12, ptr noundef null) #15
   %21 = getelementptr inbounds i8, ptr %20, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, 64
   store i32 %23, ptr %21, align 4
-  call void (ptr, i32, ...) @zend_class_implements(ptr noundef %20, i32 noundef 2, ptr noundef %13, ptr noundef %14) #14
+  call void (ptr, i32, ...) @zend_class_implements(ptr noundef %20, i32 noundef 2, ptr noundef %13, ptr noundef %14) #15
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %12)
   store ptr %20, ptr @spl_ce_SplHeap, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 384
@@ -1982,14 +1979,14 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %11, i8 0, i64 512, i1 false)
   %27 = load ptr, ptr @zend_string_init_interned, align 8
-  %28 = call ptr %27(ptr noundef nonnull @.str.29, i64 noundef 10, i1 noundef zeroext true) #14
+  %28 = call ptr %27(ptr noundef nonnull @.str.29, i64 noundef 10, i1 noundef zeroext true) #15
   %29 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %11, i64 360
   store ptr @std_object_handlers, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %11, i64 496
   store ptr @class_SplMinHeap_methods, ptr %31, align 8
-  %32 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %11, ptr noundef %20) #14
+  %32 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %11, ptr noundef %20) #15
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %11)
   store ptr %32, ptr @spl_ce_SplMinHeap, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 384
@@ -2000,14 +1997,14 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %10, i8 0, i64 512, i1 false)
   %36 = load ptr, ptr @zend_string_init_interned, align 8
-  %37 = call ptr %36(ptr noundef nonnull @.str.30, i64 noundef 10, i1 noundef zeroext true) #14
+  %37 = call ptr %36(ptr noundef nonnull @.str.30, i64 noundef 10, i1 noundef zeroext true) #15
   %38 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %37, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %10, i64 360
   store ptr @std_object_handlers, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %10, i64 496
   store ptr @class_SplMaxHeap_methods, ptr %40, align 8
-  %41 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %10, ptr noundef %35) #14
+  %41 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %10, ptr noundef %35) #15
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10)
   store ptr %41, ptr @spl_ce_SplMaxHeap, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 384
@@ -2025,24 +2022,24 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %46 = load ptr, ptr @zend_string_init_interned, align 8
-  %47 = call ptr %46(ptr noundef nonnull @.str.31, i64 noundef 16, i1 noundef zeroext true) #14
+  %47 = call ptr %46(ptr noundef nonnull @.str.31, i64 noundef 16, i1 noundef zeroext true) #15
   %48 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %3, i64 360
   store ptr @std_object_handlers, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %3, i64 496
   store ptr @class_SplPriorityQueue_methods, ptr %50, align 8
-  %51 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %3, ptr noundef null) #14
-  call void (ptr, i32, ...) @zend_class_implements(ptr noundef %51, i32 noundef 2, ptr noundef %44, ptr noundef %45) #14
+  %51 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %3, ptr noundef null) #15
+  call void (ptr, i32, ...) @zend_class_implements(ptr noundef %51, i32 noundef 2, ptr noundef %44, ptr noundef %45) #15
   store i64 3, ptr %4, align 8
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %52, align 8
   %53 = load ptr, ptr @zend_string_init_interned, align 8
-  %54 = call ptr %53(ptr noundef nonnull @.str.32, i64 noundef 9, i1 noundef zeroext true) #14
+  %54 = call ptr %53(ptr noundef nonnull @.str.32, i64 noundef 9, i1 noundef zeroext true) #15
   store ptr null, ptr %5, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 16, ptr %55, align 8
-  %56 = call ptr @zend_declare_typed_class_constant(ptr noundef %51, ptr noundef %54, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #14
+  %56 = call ptr @zend_declare_typed_class_constant(ptr noundef %51, ptr noundef %54, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #15
   %57 = getelementptr inbounds i8, ptr %54, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 64
@@ -2064,11 +2061,11 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   br i1 %.not45.i, label %68, label %67
 
 67:                                               ; preds = %65
-  call void @free(ptr noundef nonnull %54) #14
+  call void @free(ptr noundef nonnull %54) #15
   br label %69
 
 68:                                               ; preds = %65
-  call void @_efree(ptr noundef nonnull %54) #14
+  call void @_efree(ptr noundef nonnull %54) #15
   br label %69
 
 69:                                               ; preds = %68, %67, %60, %2
@@ -2076,11 +2073,11 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   %70 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 4, ptr %70, align 8
   %71 = load ptr, ptr @zend_string_init_interned, align 8
-  %72 = call ptr %71(ptr noundef nonnull @.str.33, i64 noundef 13, i1 noundef zeroext true) #14
+  %72 = call ptr %71(ptr noundef nonnull @.str.33, i64 noundef 13, i1 noundef zeroext true) #15
   store ptr null, ptr %7, align 8
   %73 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 16, ptr %73, align 8
-  %74 = call ptr @zend_declare_typed_class_constant(ptr noundef %51, ptr noundef %72, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #14
+  %74 = call ptr @zend_declare_typed_class_constant(ptr noundef %51, ptr noundef %72, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #15
   %75 = getelementptr inbounds i8, ptr %72, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %76, 64
@@ -2102,11 +2099,11 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   br i1 %.not47.i, label %86, label %85
 
 85:                                               ; preds = %83
-  call void @free(ptr noundef nonnull %72) #14
+  call void @free(ptr noundef nonnull %72) #15
   br label %87
 
 86:                                               ; preds = %83
-  call void @_efree(ptr noundef nonnull %72) #14
+  call void @_efree(ptr noundef nonnull %72) #15
   br label %87
 
 87:                                               ; preds = %86, %85, %78, %69
@@ -2114,11 +2111,11 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   %88 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 4, ptr %88, align 8
   %89 = load ptr, ptr @zend_string_init_interned, align 8
-  %90 = call ptr %89(ptr noundef nonnull @.str.34, i64 noundef 9, i1 noundef zeroext true) #14
+  %90 = call ptr %89(ptr noundef nonnull @.str.34, i64 noundef 9, i1 noundef zeroext true) #15
   store ptr null, ptr %9, align 8
   %91 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 16, ptr %91, align 8
-  %92 = call ptr @zend_declare_typed_class_constant(ptr noundef %51, ptr noundef %90, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #14
+  %92 = call ptr @zend_declare_typed_class_constant(ptr noundef %51, ptr noundef %90, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #15
   %93 = getelementptr inbounds i8, ptr %90, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 64
@@ -2140,11 +2137,11 @@ define hidden noundef i32 @zm_startup_spl_heap(i32 noundef %0, i32 noundef %1) l
   br i1 %.not49.i, label %104, label %103
 
 103:                                              ; preds = %101
-  call void @free(ptr noundef nonnull %90) #14
+  call void @free(ptr noundef nonnull %90) #15
   br label %register_class_SplPriorityQueue.exit
 
 104:                                              ; preds = %101
-  call void @_efree(ptr noundef nonnull %90) #14
+  call void @_efree(ptr noundef nonnull %90) #15
   br label %register_class_SplPriorityQueue.exit
 
 register_class_SplPriorityQueue.exit:             ; preds = %87, %96, %103, %104
@@ -2183,12 +2180,12 @@ define internal noundef ptr @spl_heap_get_iterator(ptr noundef %0, ptr nocapture
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.28) #14
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.28) #15
   br label %15
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @_emalloc_112() #14
-  tail call void @zend_iterator_init(ptr noundef %6) #14
+  %6 = tail call noalias ptr @_emalloc_112() #15
+  tail call void @zend_iterator_init(ptr noundef %6) #15
   %7 = getelementptr inbounds i8, ptr %6, i64 56
   %8 = load ptr, ptr %1, align 8
   %9 = load i32, ptr %8, align 4
@@ -2218,7 +2215,7 @@ define internal noundef ptr @spl_heap_object_clone(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @spl_heap_object_new_ex(ptr noundef %3, ptr noundef %0, i32 noundef 1)
-  tail call void @zend_objects_clone_members(ptr noundef %4, ptr noundef %0) #14
+  tail call void @zend_objects_clone_members(ptr noundef %4, ptr noundef %0) #15
   ret ptr %4
 }
 
@@ -2233,7 +2230,7 @@ define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = call ptr @zend_call_method(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i64 noundef 5, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #14
+  %9 = call ptr @zend_call_method(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i64 noundef 5, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #15
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load i8, ptr %10, align 8
   switch i8 %11, label %14 [
@@ -2246,13 +2243,13 @@ define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef
   br label %16
 
 14:                                               ; preds = %6
-  %15 = call i64 @zval_get_long_func(ptr noundef nonnull %3, i1 noundef zeroext false) #14
+  %15 = call i64 @zval_get_long_func(ptr noundef nonnull %3, i1 noundef zeroext false) #15
   br label %16
 
 16:                                               ; preds = %14, %12
   %17 = phi i64 [ %13, %12 ], [ %15, %14 ]
   store i64 %17, ptr %1, align 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #14
+  call void @zval_ptr_dtor(ptr noundef nonnull %3) #15
   br label %24
 
 18:                                               ; preds = %6
@@ -2283,14 +2280,14 @@ define internal ptr @spl_heap_object_get_gc(ptr noundef %0, ptr nocapture nounde
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8
   store i32 %9, ptr %2, align 4
-  %10 = tail call ptr @zend_std_get_properties(ptr noundef %0) #14
+  %10 = tail call ptr @zend_std_get_properties(ptr noundef %0) #15
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_heap_object_free_storage(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
-  tail call void @zend_object_std_dtor(ptr noundef nonnull %0) #14
+  tail call void @zend_object_std_dtor(ptr noundef nonnull %0) #15
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %spl_ptr_heap_destroy.exit, label %.preheader.i
@@ -2313,7 +2310,7 @@ define internal void @spl_heap_object_free_storage(ptr noundef %0) #0 {
   %12 = load i64, ptr %8, align 8
   %13 = mul i64 %12, %indvars.iv.i
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  tail call void %10(ptr noundef %14) #14
+  tail call void %10(ptr noundef %14) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %4, align 8
   %16 = sext i32 %15 to i64
@@ -2322,8 +2319,8 @@ define internal void @spl_heap_object_free_storage(ptr noundef %0) #0 {
 
 ._crit_edge.i:                                    ; preds = %9, %.preheader.i
   %18 = load ptr, ptr %3, align 8
-  tail call void @_efree(ptr noundef %18) #14
-  tail call void @_efree(ptr noundef nonnull %3) #14
+  tail call void @_efree(ptr noundef %18) #15
+  tail call void @_efree(ptr noundef nonnull %3) #15
   br label %spl_ptr_heap_destroy.exit
 
 spl_ptr_heap_destroy.exit:                        ; preds = %1, %._crit_edge.i
@@ -2336,12 +2333,12 @@ define internal noundef ptr @spl_pqueue_get_iterator(ptr noundef %0, ptr nocaptu
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.28) #14
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.28) #15
   br label %15
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @_emalloc_112() #14
-  tail call void @zend_iterator_init(ptr noundef %6) #14
+  %6 = tail call noalias ptr @_emalloc_112() #15
+  tail call void @zend_iterator_init(ptr noundef %6) #15
   %7 = getelementptr inbounds i8, ptr %6, i64 56
   %8 = load ptr, ptr %1, align 8
   %9 = load i32, ptr %8, align 4
@@ -2374,7 +2371,7 @@ define internal ptr @spl_pqueue_object_get_gc(ptr noundef %0, ptr nocapture noun
   %9 = load i32, ptr %8, align 8
   %10 = shl nsw i32 %9, 1
   store i32 %10, ptr %2, align 4
-  %11 = tail call ptr @zend_std_get_properties(ptr noundef %0) #14
+  %11 = tail call ptr @zend_std_get_properties(ptr noundef %0) #15
   ret ptr %11
 }
 
@@ -2431,11 +2428,11 @@ define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr n
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 4
   %13 = add nsw i64 %12, 88
-  %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #15
+  %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %15 = getelementptr inbounds i8, ptr %14, i64 32
-  tail call void @zend_object_std_init(ptr noundef nonnull %15, ptr noundef %0) #14
-  tail call void @object_properties_init(ptr noundef nonnull %15, ptr noundef %0) #14
+  tail call void @zend_object_std_init(ptr noundef nonnull %15, ptr noundef %0) #15
+  tail call void @object_properties_init(ptr noundef nonnull %15, ptr noundef %0) #15
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.lr.ph, label %21
 
@@ -2458,7 +2455,7 @@ define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr n
   br i1 %.not75, label %spl_ptr_heap_clone.exit, label %27
 
 27:                                               ; preds = %21
-  %28 = tail call noalias ptr @_emalloc_56() #14
+  %28 = tail call noalias ptr @_emalloc_56() #15
   %29 = getelementptr inbounds i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2487,7 +2484,7 @@ define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr n
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %28, i64 48
   store i64 %48, ptr %49, align 8
-  %50 = tail call noalias ptr @_safe_emalloc(i64 noundef %48, i64 noundef %39, i64 noundef 0) #14
+  %50 = tail call noalias ptr @_safe_emalloc(i64 noundef %48, i64 noundef %39, i64 noundef 0) #15
   store ptr %50, ptr %28, align 8
   %51 = load ptr, ptr %26, align 8
   %52 = load i64, ptr %47, align 8
@@ -2505,7 +2502,7 @@ define internal fastcc noundef ptr @spl_heap_object_new_ex(ptr noundef %0, ptr n
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %56 = mul i64 %indvars.iv.i, %48
   %57 = getelementptr inbounds i8, ptr %50, i64 %56
-  tail call void %33(ptr noundef %57) #14
+  tail call void %33(ptr noundef %57) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %spl_ptr_heap_clone.exit, label %.lr.ph.i
@@ -2539,14 +2536,14 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
 
 70:                                               ; preds = %.lr.ph117
   %71 = select i1 %67, ptr @spl_ptr_heap_zval_min_cmp, ptr @spl_ptr_heap_zval_max_cmp
-  %72 = tail call noalias ptr @_emalloc_56() #14
+  %72 = tail call noalias ptr @_emalloc_56() #15
   %73 = getelementptr inbounds i8, ptr %72, i64 16
   store ptr @spl_ptr_heap_zval_dtor, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %72, i64 8
   store ptr @spl_ptr_heap_zval_ctor, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %72, i64 24
   store ptr %71, ptr %75, align 8
-  %76 = tail call noalias dereferenceable_or_null(1024) ptr @_ecalloc(i64 noundef 64, i64 noundef 16) #16
+  %76 = tail call noalias dereferenceable_or_null(1024) ptr @_ecalloc(i64 noundef 64, i64 noundef 16) #17
   store ptr %76, ptr %72, align 8
   %77 = getelementptr inbounds i8, ptr %72, i64 40
   store i64 64, ptr %77, align 8
@@ -2566,14 +2563,14 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   br i1 %84, label %.loopexit, label %.lr.ph117
 
 .loopexit:                                        ; preds = %81, %.lr.ph
-  %85 = tail call noalias ptr @_emalloc_56() #14
+  %85 = tail call noalias ptr @_emalloc_56() #15
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   store ptr @spl_ptr_heap_pqueue_elem_dtor, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %85, i64 8
   store ptr @spl_ptr_heap_pqueue_elem_ctor, ptr %87, align 8
   %88 = getelementptr inbounds i8, ptr %85, i64 24
   store ptr @spl_ptr_pqueue_elem_cmp, ptr %88, align 8
-  %89 = tail call noalias dereferenceable_or_null(2048) ptr @_ecalloc(i64 noundef 64, i64 noundef 32) #16
+  %89 = tail call noalias dereferenceable_or_null(2048) ptr @_ecalloc(i64 noundef 64, i64 noundef 32) #17
   store ptr %89, ptr %85, align 8
   %90 = getelementptr inbounds i8, ptr %85, i64 40
   store i64 64, ptr %90, align 8
@@ -2591,7 +2588,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
 95:                                               ; preds = %70, %.loopexit
   %.06687107 = phi ptr [ %16, %.loopexit ], [ %.06689116, %70 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 64
-  %97 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.6, i64 noundef 7) #14
+  %97 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %96, ptr noundef nonnull @.str.6, i64 noundef 7) #15
   %.not73 = icmp ne ptr %97, null
   tail call void @llvm.assume(i1 %.not73)
   %98 = load ptr, ptr %97, align 8, !nonnull !4, !noundef !4
@@ -2605,7 +2602,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   %103 = load ptr, ptr @zend_known_strings, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 552
   %105 = load ptr, ptr %104, align 8
-  %106 = tail call ptr @zend_hash_find(ptr noundef nonnull %96, ptr noundef %105) #14
+  %106 = tail call ptr @zend_hash_find(ptr noundef nonnull %96, ptr noundef %105) #15
   %.not74 = icmp ne ptr %106, null
   tail call void @llvm.assume(i1 %.not74)
   %107 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
@@ -2678,7 +2675,7 @@ define internal void @spl_ptr_heap_zval_ctor(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_ptr_heap_zval_dtor(ptr noundef %0) #0 {
-  tail call void @zval_ptr_dtor(ptr noundef %0) #14
+  tail call void @zval_ptr_dtor(ptr noundef %0) #15
   ret void
 }
 
@@ -2704,9 +2701,9 @@ declare void @zend_iterator_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_heap_it_dtor(ptr noundef %0) #0 {
-  tail call void @zend_user_it_invalidate_current(ptr noundef %0) #14
+  tail call void @zend_user_it_invalidate_current(ptr noundef %0) #15
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #14
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #15
   ret void
 }
 
@@ -2737,7 +2734,7 @@ define internal ptr @spl_heap_it_get_current_data(ptr nocapture noundef readonly
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef 0) #15
   br label %18
 
 12:                                               ; preds = %1
@@ -2785,12 +2782,12 @@ define internal void @spl_heap_it_move_forward(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef 0) #15
   br label %14
 
 12:                                               ; preds = %1
   %13 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %2)
-  tail call void @zend_user_it_invalidate_current(ptr noundef nonnull %0) #14
+  tail call void @zend_user_it_invalidate_current(ptr noundef nonnull %0) #15
   br label %14
 
 14:                                               ; preds = %12, %9
@@ -2826,7 +2823,7 @@ define internal ptr @spl_pqueue_it_get_current_data(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @spl_ce_RuntimeException, align 8
-  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef 0) #14
+  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull @.str, i64 noundef 0) #15
   br label %25
 
 12:                                               ; preds = %1
@@ -2854,11 +2851,14 @@ define internal ptr @spl_pqueue_it_get_current_data(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2873,10 +2873,11 @@ attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind allocsize(0,1) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

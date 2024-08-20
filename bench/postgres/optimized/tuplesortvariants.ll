@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
-  %10 = tail call ptr @tuplesort_begin_common(i32 noundef %6, ptr noundef %7, i32 noundef %8) #9
+  %10 = tail call ptr @tuplesort_begin_common(i32 noundef %6, ptr noundef %7, i32 noundef %8) #10
   %11 = getelementptr inbounds i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -56,15 +56,15 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %9
-  %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
   %19 = and i32 %8, 1
   %.not = icmp eq i32 %19, 0
   %20 = select i1 %.not, i32 102, i32 116
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1, i32 noundef %6, i32 noundef %20) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull @__func__.tuplesort_begin_heap) #9
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1, i32 noundef %6, i32 noundef %20) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull @__func__.tuplesort_begin_heap) #10
   br label %22
 
 22:                                               ; preds = %18, %16, %9
@@ -85,7 +85,7 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %0, ptr %29, align 8
   %30 = sext i32 %1 to i64
   %31 = shl nsw i64 %30, 6
-  %32 = tail call ptr @palloc0(i64 noundef %31) #9
+  %32 = tail call ptr @palloc0(i64 noundef %31) #10
   %33 = getelementptr inbounds i8, ptr %10, i64 80
   store ptr %32, ptr %33, align 8
   %34 = icmp sgt i32 %1, 0
@@ -128,7 +128,7 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   store i8 %54, ptr %53, align 8
   %55 = getelementptr i32, ptr %3, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
-  tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %56, ptr noundef nonnull %36) #9
+  tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %56, ptr noundef nonnull %36) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -243,7 +243,7 @@ define internal i32 @comparetup_heap(ptr nocapture noundef readonly %0, ptr noca
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %5, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(i64 noundef %7, i64 noundef %12, ptr noundef %5) #9
+  %29 = tail call i32 %28(i64 noundef %7, i64 noundef %12, ptr noundef %5) #10
   %30 = getelementptr inbounds i8, ptr %5, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
@@ -332,7 +332,7 @@ define internal i32 @comparetup_heap_tiebreak(ptr nocapture noundef readonly %0,
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %9, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = call i32 %46(i64 noundef %28, i64 noundef %29, ptr noundef nonnull %9) #9
+  %47 = call i32 %46(i64 noundef %28, i64 noundef %29, ptr noundef nonnull %9) #10
   %48 = getelementptr inbounds i8, ptr %9, i64 12
   %49 = load i8, ptr %48, align 4
   %50 = trunc i8 %49 to i1
@@ -392,7 +392,7 @@ ApplySortAbbrevFullComparator.exit.thread44:      ; preds = %34, %ApplySortAbbre
 76:                                               ; preds = %71
   %77 = getelementptr i8, ptr %.pn56, i64 88
   %78 = load ptr, ptr %77, align 8
-  %79 = call i32 %78(i64 noundef %60, i64 noundef %61, ptr noundef %.03458) #9
+  %79 = call i32 %78(i64 noundef %60, i64 noundef %61, ptr noundef %.03458) #10
   %80 = getelementptr i8, ptr %.pn56, i64 76
   %81 = load i8, ptr %80, align 4
   %82 = trunc i8 %81 to i1
@@ -429,8 +429,8 @@ define internal void @writetup_heap(ptr nocapture noundef readonly %0, ptr nound
   %9 = zext i32 %8 to i64
   %10 = add i32 %7, -6
   store i32 %10, ptr %4, align 4
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %6, i64 noundef %9) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %6, i64 noundef %9) #10
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
@@ -438,7 +438,7 @@ define internal void @writetup_heap(ptr nocapture noundef readonly %0, ptr nound
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %3
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   br label %15
 
 15:                                               ; preds = %14, %3
@@ -454,18 +454,18 @@ define internal void @readtup_heap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %9 = add i32 %3, 6
   store i32 %9, ptr %5, align 4
   %10 = zext i32 %9 to i64
-  %11 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %10) #9
+  %11 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %10) #10
   %12 = getelementptr i8, ptr %11, i64 10
   store i32 %9, ptr %11, align 4
-  %13 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %12, i64 noundef %8) #9
+  %13 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %12, i64 noundef %8) #10
   %.not = icmp eq i64 %13, %8
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %4
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1161, ptr noundef nonnull @__func__.readtup_heap) #9
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1161, ptr noundef nonnull @__func__.readtup_heap) #10
   unreachable
 
 17:                                               ; preds = %4
@@ -476,15 +476,15 @@ define internal void @readtup_heap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not19, label %26, label %21
 
 21:                                               ; preds = %17
-  %22 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #9
+  %22 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #10
   %.not20 = icmp eq i64 %22, 4
   br i1 %.not20, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %24)
-  %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1163, ptr noundef nonnull @__func__.readtup_heap) #9
+  %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1163, ptr noundef nonnull @__func__.readtup_heap) #10
   unreachable
 
 26:                                               ; preds = %21, %17
@@ -515,18 +515,18 @@ declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @tuplesort_begin_common(i32 noundef %2, ptr noundef %3, i32 noundef %4) #9
+  %6 = tail call ptr @tuplesort_begin_common(i32 noundef %2, ptr noundef %3, i32 noundef %4) #10
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @palloc0(i64 noundef 24) #9
+  %10 = tail call ptr @palloc0(i64 noundef 24) #10
   %11 = load i8, ptr @trace_sort, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %5
-  %14 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %14 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %13
@@ -538,8 +538,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %21 = and i32 %4, 1
   %.not = icmp eq i32 %21, 0
   %22 = select i1 %.not, i32 102, i32 116
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %20, i32 noundef %2, i32 noundef %22) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 266, ptr noundef nonnull @__func__.tuplesort_begin_cluster) #9
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %20, i32 noundef %2, i32 noundef %22) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 266, ptr noundef nonnull @__func__.tuplesort_begin_cluster) #10
   br label %24
 
 24:                                               ; preds = %15, %13, %5
@@ -563,7 +563,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   store ptr @freestate_cluster, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %10, ptr %36, align 8
-  %37 = tail call ptr @BuildIndexInfo(ptr noundef %1) #9
+  %37 = tail call ptr @BuildIndexInfo(ptr noundef %1) #10
   %38 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %37, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 12
@@ -573,7 +573,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %42 = getelementptr inbounds i8, ptr %6, i64 72
   store i8 %spec.select, ptr %42, align 8
   store ptr %0, ptr %10, align 8
-  %43 = tail call ptr @_bt_mkscankey(ptr noundef nonnull %1, ptr noundef null) #9
+  %43 = tail call ptr @_bt_mkscankey(ptr noundef nonnull %1, ptr noundef null) #10
   %44 = load ptr, ptr %38, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
@@ -581,10 +581,10 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not60, label %59, label %47
 
 47:                                               ; preds = %24
-  %48 = tail call ptr @CreateExecutorState() #9
+  %48 = tail call ptr @CreateExecutorState() #10
   %49 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %48, ptr %49, align 8
-  %50 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %0, ptr noundef nonnull @TTSOpsHeapTuple) #9
+  %50 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %0, ptr noundef nonnull @TTSOpsHeapTuple) #10
   %51 = load ptr, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 232
   %53 = load ptr, ptr %52, align 8
@@ -592,7 +592,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not61, label %54, label %56
 
 54:                                               ; preds = %47
-  %55 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %51) #9
+  %55 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %51) #10
   br label %56
 
 56:                                               ; preds = %47, %54
@@ -605,7 +605,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %60 = load i32, ptr %30, align 4
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 6
-  %63 = tail call ptr @palloc0(i64 noundef %62) #9
+  %63 = tail call ptr @palloc0(i64 noundef %62) #10
   %64 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %63, ptr %64, align 8
   %65 = load i32, ptr %30, align 4
@@ -653,7 +653,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %92 = and i32 %91, 16777216
   %.not62 = icmp eq i32 %92, 0
   %93 = select i1 %.not62, i16 1, i16 5
-  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %93, ptr noundef nonnull %70) #9
+  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %93, ptr noundef nonnull %70) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %30, align 4
   %95 = sext i32 %94 to i64
@@ -661,7 +661,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   br i1 %96, label %68, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %87, %59
-  tail call void @pfree(ptr noundef %43) #9
+  tail call void @pfree(ptr noundef %43) #10
   store ptr %9, ptr @CurrentMemoryContext, align 8
   ret ptr %6
 }
@@ -744,7 +744,7 @@ define internal i32 @comparetup_cluster(ptr nocapture noundef readonly %0, ptr n
 30:                                               ; preds = %25
   %31 = getelementptr inbounds i8, ptr %9, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(i64 noundef %11, i64 noundef %16, ptr noundef %9) #9
+  %33 = tail call i32 %32(i64 noundef %11, i64 noundef %16, ptr noundef %9) #10
   %34 = getelementptr inbounds i8, ptr %9, i64 12
   %35 = load i8, ptr %34, align 4
   %36 = trunc i8 %35 to i1
@@ -832,7 +832,7 @@ define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %13, i64 56
   %47 = load ptr, ptr %46, align 8
-  %48 = call i32 %47(i64 noundef %29, i64 noundef %30, ptr noundef nonnull %13) #9
+  %48 = call i32 %47(i64 noundef %29, i64 noundef %30, ptr noundef nonnull %13) #10
   %49 = getelementptr inbounds i8, ptr %13, i64 12
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
@@ -917,7 +917,7 @@ ApplySortAbbrevFullComparator.exit.thread90:      ; preds = %35, %20, %ApplySort
 91:                                               ; preds = %86
   %92 = getelementptr inbounds i8, ptr %.1118, i64 24
   %93 = load ptr, ptr %92, align 8
-  %94 = call i32 %93(i64 noundef %75, i64 noundef %76, ptr noundef %.1118) #9
+  %94 = call i32 %93(i64 noundef %75, i64 noundef %76, ptr noundef %.1118) #10
   %95 = getelementptr inbounds i8, ptr %.1118, i64 12
   %96 = load i8, ptr %95, align 4
   %97 = trunc i8 %96 to i1
@@ -952,7 +952,7 @@ ApplySortComparator.exit.thread97:                ; preds = %81, %ApplySortCompa
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %109, i64 40
   %112 = load ptr, ptr %111, align 8
-  call void @MemoryContextReset(ptr noundef %112) #9
+  call void @MemoryContextReset(ptr noundef %112) #10
   %.pre = load ptr, ptr %106, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 232
   %.pre134 = load ptr, ptr %.phi.trans.insert, align 8
@@ -961,21 +961,21 @@ ApplySortComparator.exit.thread97:                ; preds = %81, %ApplySortCompa
 
 .thread:                                          ; preds = %105, %110
   %113 = phi ptr [ %.pre, %110 ], [ %107, %105 ]
-  %114 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %113) #9
+  %114 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %113) #10
   br label %115
 
 115:                                              ; preds = %110, %.thread
   %116 = phi ptr [ %114, %.thread ], [ %.pre134, %110 ]
   %117 = getelementptr inbounds i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = call ptr @ExecStoreHeapTuple(ptr noundef %14, ptr noundef %118, i1 noundef zeroext false) #9
+  %119 = call ptr @ExecStoreHeapTuple(ptr noundef %14, ptr noundef %118, i1 noundef zeroext false) #10
   %120 = load ptr, ptr %61, align 8
   %121 = load ptr, ptr %106, align 8
-  call void @FormIndexDatum(ptr noundef %120, ptr noundef %118, ptr noundef %121, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %122 = call ptr @ExecStoreHeapTuple(ptr noundef %15, ptr noundef %118, i1 noundef zeroext false) #9
+  call void @FormIndexDatum(ptr noundef %120, ptr noundef %118, ptr noundef %121, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %122 = call ptr @ExecStoreHeapTuple(ptr noundef %15, ptr noundef %118, i1 noundef zeroext false) #10
   %123 = load ptr, ptr %61, align 8
   %124 = load ptr, ptr %106, align 8
-  call void @FormIndexDatum(ptr noundef %123, ptr noundef %118, ptr noundef %124, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  call void @FormIndexDatum(ptr noundef %123, ptr noundef %118, ptr noundef %124, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %125 = getelementptr inbounds i8, ptr %2, i64 76
   %126 = load i32, ptr %125, align 4
   %127 = icmp slt i32 %.067, %126
@@ -1024,7 +1024,7 @@ ApplySortComparator.exit.thread97:                ; preds = %81, %ApplySortCompa
 150:                                              ; preds = %145
   %151 = getelementptr inbounds i8, ptr %.2113, i64 24
   %152 = load ptr, ptr %151, align 8
-  %153 = call i32 %152(i64 noundef %131, i64 noundef %136, ptr noundef %.2113) #9
+  %153 = call i32 %152(i64 noundef %131, i64 noundef %136, ptr noundef %.2113) #10
   %154 = getelementptr inbounds i8, ptr %.2113, i64 12
   %155 = load i8, ptr %154, align 4
   %156 = trunc i8 %155 to i1
@@ -1064,14 +1064,14 @@ define internal void @writetup_cluster(ptr nocapture noundef readonly %0, ptr no
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 10
   store i32 %7, ptr %4, align 4
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   %8 = getelementptr inbounds i8, ptr %5, i64 4
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %8, i64 noundef 6) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %8, i64 noundef 6) #10
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %5, align 8
   %12 = zext i32 %11 to i64
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %10, i64 noundef %12) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %10, i64 noundef %12) #10
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
@@ -1079,7 +1079,7 @@ define internal void @writetup_cluster(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %3
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   br label %17
 
 17:                                               ; preds = %16, %3
@@ -1095,21 +1095,21 @@ define internal void @readtup_cluster(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = add i32 %3, -10
   %9 = zext i32 %8 to i64
   %10 = add nuw nsw i64 %9, 24
-  %11 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %10) #9
+  %11 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %10) #10
   %12 = getelementptr i8, ptr %11, i64 24
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %12, ptr %13, align 8
   store i32 %8, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 4
-  %15 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %14, i64 noundef 6) #9
+  %15 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %14, i64 noundef 6) #10
   %.not = icmp eq i64 %15, 6
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %4
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1354, ptr noundef nonnull @__func__.readtup_cluster) #9
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1354, ptr noundef nonnull @__func__.readtup_cluster) #10
   unreachable
 
 19:                                               ; preds = %4
@@ -1118,17 +1118,17 @@ define internal void @readtup_cluster(ptr noundef %0, ptr noundef %1, ptr nounde
   %21 = load ptr, ptr %13, align 8
   %22 = load i32, ptr %11, align 8
   %23 = zext i32 %22 to i64
-  %24 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %21, i64 noundef %23) #9
+  %24 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %21, i64 noundef %23) #10
   %25 = load i32, ptr %11, align 8
   %26 = zext i32 %25 to i64
   %.not24 = icmp eq i64 %24, %26
   br i1 %.not24, label %30, label %27
 
 27:                                               ; preds = %19
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1358, ptr noundef nonnull @__func__.readtup_cluster) #9
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1358, ptr noundef nonnull @__func__.readtup_cluster) #10
   unreachable
 
 30:                                               ; preds = %19
@@ -1139,15 +1139,15 @@ define internal void @readtup_cluster(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not25, label %39, label %34
 
 34:                                               ; preds = %30
-  %35 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #9
+  %35 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #10
   %.not26 = icmp eq i64 %35, 4
   br i1 %.not26, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %37)
-  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1360, ptr noundef nonnull @__func__.readtup_cluster) #9
+  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1360, ptr noundef nonnull @__func__.readtup_cluster) #10
   unreachable
 
 39:                                               ; preds = %34, %30
@@ -1190,16 +1190,16 @@ define internal void @freestate_cluster(ptr nocapture noundef readonly %0) #0 {
   br i1 %.not9, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %5) #9
+  %10 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %5) #10
   br label %11
 
 11:                                               ; preds = %6, %9
   %12 = phi ptr [ %10, %9 ], [ %8, %6 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @ExecDropSingleTupleTableSlot(ptr noundef %14) #9
+  tail call void @ExecDropSingleTupleTableSlot(ptr noundef %14) #10
   %15 = load ptr, ptr %4, align 8
-  tail call void @FreeExecutorState(ptr noundef %15) #9
+  tail call void @FreeExecutorState(ptr noundef %15) #10
   br label %16
 
 16:                                               ; preds = %11, %1
@@ -1224,18 +1224,18 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = zext i1 %2 to i8
   %9 = zext i1 %3 to i8
-  %10 = tail call ptr @tuplesort_begin_common(i32 noundef %4, ptr noundef %5, i32 noundef %6) #9
+  %10 = tail call ptr @tuplesort_begin_common(i32 noundef %4, ptr noundef %5, i32 noundef %6) #10
   %11 = getelementptr inbounds i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
-  %14 = tail call ptr @palloc(i64 noundef 24) #9
+  %14 = tail call ptr @palloc(i64 noundef 24) #10
   %15 = load i8, ptr @trace_sort, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %7
-  %18 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %18 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %17
@@ -1243,8 +1243,8 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %21 = and i32 %6, 1
   %.not = icmp eq i32 %21, 0
   %22 = select i1 %.not, i32 102, i32 116
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20, i32 noundef %4, i32 noundef %22) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__func__.tuplesort_begin_index_btree) #9
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20, i32 noundef %4, i32 noundef %22) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__func__.tuplesort_begin_index_btree) #10
   br label %24
 
 24:                                               ; preds = %19, %17, %7
@@ -1275,11 +1275,11 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   store i8 %8, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %14, i64 17
   store i8 %9, ptr %39, align 1
-  %40 = tail call ptr @_bt_mkscankey(ptr noundef %1, ptr noundef null) #9
+  %40 = tail call ptr @_bt_mkscankey(ptr noundef %1, ptr noundef null) #10
   %41 = load i32, ptr %30, align 4
   %42 = sext i32 %41 to i64
   %43 = shl nsw i64 %42, 6
-  %44 = tail call ptr @palloc0(i64 noundef %43) #9
+  %44 = tail call ptr @palloc0(i64 noundef %43) #10
   %45 = getelementptr inbounds i8, ptr %10, i64 80
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %30, align 4
@@ -1327,7 +1327,7 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %73 = and i32 %72, 16777216
   %.not52 = icmp eq i32 %73, 0
   %74 = select i1 %.not52, i16 1, i16 5
-  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %74, ptr noundef nonnull %51) #9
+  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %74, ptr noundef nonnull %51) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %30, align 4
   %76 = sext i32 %75 to i64
@@ -1335,7 +1335,7 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   br i1 %77, label %49, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %68, %24
-  tail call void @pfree(ptr noundef %40) #9
+  tail call void @pfree(ptr noundef %40) #10
   store ptr %13, ptr @CurrentMemoryContext, align 8
   ret ptr %10
 }
@@ -1412,7 +1412,7 @@ define internal i32 @comparetup_index_btree(ptr nocapture noundef readonly %0, p
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %5, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(i64 noundef %7, i64 noundef %12, ptr noundef %5) #9
+  %29 = tail call i32 %28(i64 noundef %7, i64 noundef %12, ptr noundef %5) #10
   %30 = getelementptr inbounds i8, ptr %5, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
@@ -1492,7 +1492,7 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr nocapture noundef reado
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %11, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 %41(i64 noundef %23, i64 noundef %24, ptr noundef nonnull %11) #9
+  %42 = tail call i32 %41(i64 noundef %23, i64 noundef %24, ptr noundef nonnull %11) #10
   %43 = getelementptr inbounds i8, ptr %11, i64 12
   %44 = load i8, ptr %43, align 4
   %45 = trunc i8 %44 to i1
@@ -1550,7 +1550,7 @@ ApplySortAbbrevFullComparator.exit.thread84:      ; preds = %29, %ApplySortAbbre
 67:                                               ; preds = %62
   %68 = getelementptr i8, ptr %.pn103, i64 88
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call i32 %69(i64 noundef %51, i64 noundef %52, ptr noundef %.057104) #9
+  %70 = tail call i32 %69(i64 noundef %51, i64 noundef %52, ptr noundef %.057104) #10
   %71 = getelementptr i8, ptr %.pn103, i64 76
   %72 = load i8, ptr %71, align 4
   %73 = trunc i8 %72 to i1
@@ -1590,26 +1590,26 @@ ApplySortComparator.exit.thread90:                ; preds = %57, %ApplySortCompa
   br i1 %86, label %108, label %87
 
 87:                                               ; preds = %85, %81
-  call void @index_deform_tuple(ptr noundef %12, ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  call void @index_deform_tuple(ptr noundef %12, ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %88 = load ptr, ptr %16, align 8
-  %89 = call ptr @BuildIndexValueDescription(ptr noundef %88, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %89 = call ptr @BuildIndexValueDescription(ptr noundef %88, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %90)
-  %91 = call i32 @errcode(i32 noundef 83906754) #9
+  %91 = call i32 @errcode(i32 noundef 83906754) #10
   %92 = load ptr, ptr %16, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 4
-  %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %95) #9
+  %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %95) #10
   %.not71 = icmp eq ptr %89, null
   br i1 %.not71, label %99, label %97
 
 97:                                               ; preds = %87
-  %98 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %89) #9
+  %98 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %89) #10
   br label %101
 
 99:                                               ; preds = %87
-  %100 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #9
+  %100 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #10
   br label %101
 
 101:                                              ; preds = %99, %97
@@ -1618,8 +1618,8 @@ ApplySortComparator.exit.thread90:                ; preds = %57, %ApplySortCompa
   %104 = getelementptr inbounds i8, ptr %103, i64 56
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 4
-  %107 = call i32 @errtableconstraint(ptr noundef %102, ptr noundef nonnull %106) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1529, ptr noundef nonnull @__func__.comparetup_index_btree_tiebreak) #9
+  %107 = call i32 @errtableconstraint(ptr noundef %102, ptr noundef nonnull %106) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1529, ptr noundef nonnull @__func__.comparetup_index_btree_tiebreak) #10
   unreachable
 
 108:                                              ; preds = %85, %._crit_edge
@@ -1673,11 +1673,11 @@ define internal void @writetup_index(ptr nocapture noundef readonly %0, ptr noun
   %narrow = add nuw nsw i16 %8, 4
   %9 = zext nneg i16 %narrow to i32
   store i32 %9, ptr %4, align 4
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   %10 = load i16, ptr %6, align 2
   %11 = and i16 %10, 8191
   %12 = zext nneg i16 %11 to i64
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %5, i64 noundef %12) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %5, i64 noundef %12) #10
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
@@ -1685,7 +1685,7 @@ define internal void @writetup_index(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %3
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   br label %17
 
 17:                                               ; preds = %16, %3
@@ -1700,16 +1700,16 @@ define internal void @readtup_index(ptr noundef %0, ptr nocapture noundef writeo
   %8 = add i32 %3, -4
   store i32 %8, ptr %5, align 4
   %9 = zext i32 %8 to i64
-  %10 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %9) #9
-  %11 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %10, i64 noundef %9) #9
+  %10 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %9) #10
+  %11 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %10, i64 noundef %9) #10
   %.not = icmp eq i64 %11, %9
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1667, ptr noundef nonnull @__func__.readtup_index) #9
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1667, ptr noundef nonnull @__func__.readtup_index) #10
   unreachable
 
 15:                                               ; preds = %4
@@ -1720,15 +1720,15 @@ define internal void @readtup_index(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not13, label %24, label %19
 
 19:                                               ; preds = %15
-  %20 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #9
+  %20 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #10
   %.not14 = icmp eq i64 %20, 4
   br i1 %.not14, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %22)
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1669, ptr noundef nonnull @__func__.readtup_index) #9
+  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1669, ptr noundef nonnull @__func__.readtup_index) #10
   unreachable
 
 24:                                               ; preds = %19, %15
@@ -1746,26 +1746,26 @@ define internal void @readtup_index(ptr noundef %0, ptr nocapture noundef writeo
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_index_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = tail call ptr @tuplesort_begin_common(i32 noundef %5, ptr noundef %6, i32 noundef %7) #9
+  %9 = tail call ptr @tuplesort_begin_common(i32 noundef %5, ptr noundef %6, i32 noundef %7) #10
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  %13 = tail call ptr @palloc(i64 noundef 32) #9
+  %13 = tail call ptr @palloc(i64 noundef 32) #10
   %14 = load i8, ptr @trace_sort, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %8
-  %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
   %19 = and i32 %7, 1
   %.not = icmp eq i32 %19, 0
   %20 = select i1 %.not, i32 102, i32 116
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %20) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__func__.tuplesort_begin_index_hash) #9
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %20) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__func__.tuplesort_begin_index_hash) #10
   br label %22
 
 22:                                               ; preds = %18, %16, %8
@@ -1810,14 +1810,14 @@ define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr nocapture nounde
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i32 @_hash_hashkey2bucket(i32 noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef %14) #9
+  %15 = tail call i32 @_hash_hashkey2bucket(i32 noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef %14) #10
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   %19 = load i32, ptr %9, align 8
   %20 = load i32, ptr %11, align 8
   %21 = load i32, ptr %13, align 4
-  %22 = tail call i32 @_hash_hashkey2bucket(i32 noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef %21) #9
+  %22 = tail call i32 @_hash_hashkey2bucket(i32 noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef %21) #10
   %23 = icmp ugt i32 %15, %22
   br i1 %23, label %56, label %24
 
@@ -1887,26 +1887,26 @@ define internal noundef i32 @comparetup_index_hash_tiebreak(ptr nocapture readno
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @tuplesort_begin_common(i32 noundef %2, ptr noundef %3, i32 noundef %4) #9
+  %6 = tail call ptr @tuplesort_begin_common(i32 noundef %2, ptr noundef %3, i32 noundef %4) #10
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @palloc(i64 noundef 24) #9
+  %10 = tail call ptr @palloc(i64 noundef 24) #10
   %11 = load i8, ptr @trace_sort, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %5
-  %14 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %14 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
   %16 = and i32 %4, 1
   %.not = icmp eq i32 %16, 0
   %17 = select i1 %.not, i32 102, i32 116
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %2, i32 noundef %17) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 510, ptr noundef nonnull @__func__.tuplesort_begin_index_gist) #9
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %2, i32 noundef %17) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 510, ptr noundef nonnull @__func__.tuplesort_begin_index_gist) #10
   br label %19
 
 19:                                               ; preds = %15, %13, %5
@@ -1940,7 +1940,7 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   %35 = load i32, ptr %25, align 4
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 6
-  %38 = tail call ptr @palloc0(i64 noundef %37) #9
+  %38 = tail call ptr @palloc0(i64 noundef %37) #10
   %39 = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %38, ptr %39, align 8
   %40 = load i32, ptr %25, align 4
@@ -1980,7 +1980,7 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   %59 = getelementptr inbounds i8, ptr %45, i64 32
   %60 = and i8 %58, 1
   store i8 %60, ptr %59, align 8
-  tail call void @PrepareSortSupportFromGistIndexRel(ptr noundef nonnull %1, ptr noundef nonnull %45) #9
+  tail call void @PrepareSortSupportFromGistIndexRel(ptr noundef nonnull %1, ptr noundef nonnull %45) #10
   %61 = load i32, ptr %25, align 4
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
@@ -1995,21 +1995,21 @@ declare void @PrepareSortSupportFromGistIndexRel(ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplesort_begin_index_brin(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef %1, i32 noundef %2) #9
+  %4 = tail call ptr @tuplesort_begin_common(i32 noundef %0, ptr noundef %1, i32 noundef %2) #10
   %5 = load i8, ptr @trace_sort, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %8 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7
   %10 = and i32 %2, 1
   %.not = icmp eq i32 %10, 0
   %11 = select i1 %.not, i32 102, i32 116
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0, i32 noundef %11) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 568, ptr noundef nonnull @__func__.tuplesort_begin_index_brin) #9
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0, i32 noundef %11) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 568, ptr noundef nonnull @__func__.tuplesort_begin_index_brin) #10
   br label %13
 
 13:                                               ; preds = %9, %7, %3
@@ -2063,10 +2063,7 @@ define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr nocapture nounde
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
-  %10 = icmp ugt i32 %6, %9
-  %11 = icmp ult i32 %6, %9
-  %. = sext i1 %11 to i32
-  %.0 = select i1 %10, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %6, i32 %9)
   ret i32 %.0
 }
 
@@ -2078,10 +2075,10 @@ define internal void @writetup_index_brin(ptr nocapture noundef readonly %0, ptr
   %7 = trunc i64 %6 to i32
   %8 = add i32 %7, 4
   store i32 %8, ptr %4, align 4
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i64, ptr %5, align 8
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %10) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %10) #10
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
@@ -2089,7 +2086,7 @@ define internal void @writetup_index_brin(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %3
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   br label %15
 
 15:                                               ; preds = %14, %3
@@ -2103,18 +2100,18 @@ define internal void @readtup_index_brin(ptr noundef %0, ptr nocapture noundef w
   store i32 %6, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = add nuw nsw i64 %7, 8
-  %9 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %8) #9
+  %9 = tail call ptr @tuplesort_readtup_alloc(ptr noundef %0, i64 noundef %8) #10
   store i64 %7, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %10, i64 noundef %7) #9
+  %11 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %10, i64 noundef %7) #10
   %.not = icmp eq i64 %11, %7
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1743, ptr noundef nonnull @__func__.readtup_index_brin) #9
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1743, ptr noundef nonnull @__func__.readtup_index_brin) #10
   unreachable
 
 15:                                               ; preds = %4
@@ -2125,15 +2122,15 @@ define internal void @readtup_index_brin(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not11, label %24, label %19
 
 19:                                               ; preds = %15
-  %20 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #9
+  %20 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #10
   %.not12 = icmp eq i64 %20, 4
   br i1 %.not12, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %22)
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1745, ptr noundef nonnull @__func__.readtup_index_brin) #9
+  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1745, ptr noundef nonnull @__func__.readtup_index_brin) #10
   unreachable
 
 24:                                               ; preds = %19, %15
@@ -2150,26 +2147,26 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1
   %10 = zext i1 %3 to i8
-  %11 = tail call ptr @tuplesort_begin_common(i32 noundef %4, ptr noundef %5, i32 noundef %6) #9
+  %11 = tail call ptr @tuplesort_begin_common(i32 noundef %4, ptr noundef %5, i32 noundef %6) #10
   %12 = getelementptr inbounds i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %13, ptr @CurrentMemoryContext, align 8
-  %15 = tail call ptr @palloc(i64 noundef 8) #9
+  %15 = tail call ptr @palloc(i64 noundef 8) #10
   %16 = load i8, ptr @trace_sort, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %7
-  %19 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %19 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
   %21 = and i32 %6, 1
   %.not = icmp eq i32 %21, 0
   %22 = select i1 %.not, i32 102, i32 116
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %22) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 603, ptr noundef nonnull @__func__.tuplesort_begin_datum) #9
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %22) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 603, ptr noundef nonnull @__func__.tuplesort_begin_datum) #10
   br label %24
 
 24:                                               ; preds = %20, %18, %7
@@ -2189,7 +2186,7 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   %31 = getelementptr inbounds i8, ptr %11, i64 104
   store ptr %15, ptr %31, align 8
   store i32 %0, ptr %15, align 4
-  call void @get_typlenbyval(i32 noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  call void @get_typlenbyval(i32 noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %32 = load i16, ptr %8, align 2
   %33 = sext i16 %32 to i32
   %34 = getelementptr inbounds i8, ptr %15, i64 4
@@ -2199,7 +2196,7 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   %37 = and i8 %35, 1
   %38 = xor i8 %37, 1
   store i8 %38, ptr %36, align 4
-  %39 = call ptr @palloc0(i64 noundef 64) #9
+  %39 = call ptr @palloc0(i64 noundef 64) #10
   %40 = getelementptr inbounds i8, ptr %11, i64 80
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2217,7 +2214,7 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
   %50 = xor i8 %49, 1
   store i8 %50, ptr %48, align 8
   %51 = load ptr, ptr %40, align 8
-  call void @PrepareSortSupportFromOrderingOp(i32 noundef %1, ptr noundef %51) #9
+  call void @PrepareSortSupportFromOrderingOp(i32 noundef %1, ptr noundef %51) #10
   %52 = load ptr, ptr %40, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8
@@ -2297,7 +2294,7 @@ define internal i32 @comparetup_datum(ptr nocapture noundef readonly %0, ptr noc
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %15, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(i64 noundef %5, i64 noundef %10, ptr noundef %15) #9
+  %29 = tail call i32 %28(i64 noundef %5, i64 noundef %10, ptr noundef %15) #10
   %30 = getelementptr inbounds i8, ptr %15, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
@@ -2358,7 +2355,7 @@ ApplySortComparator.exit.thread15:                ; preds = %ApplySortComparator
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %36, i64 56
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 %60(i64 noundef %41, i64 noundef %45, ptr noundef nonnull %36) #9
+  %61 = tail call i32 %60(i64 noundef %41, i64 noundef %45, ptr noundef nonnull %36) #10
   %62 = getelementptr inbounds i8, ptr %36, i64 12
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
@@ -2420,7 +2417,7 @@ define internal i32 @comparetup_datum_tiebreak(ptr nocapture noundef readonly %0
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %5, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 %31(i64 noundef %10, i64 noundef %15, ptr noundef nonnull %5) #9
+  %32 = tail call i32 %31(i64 noundef %10, i64 noundef %15, ptr noundef nonnull %5) #10
   %33 = getelementptr inbounds i8, ptr %5, i64 12
   %34 = load i8, ptr %33, align 4
   %35 = trunc i8 %34 to i1
@@ -2462,7 +2459,7 @@ define internal void @writetup_datum(ptr nocapture noundef readonly %0, ptr noun
   %18 = ptrtoint ptr %17 to i64
   %19 = getelementptr inbounds i8, ptr %6, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i64 @datumGetSize(i64 noundef %18, i1 noundef zeroext false, i32 noundef %20) #9
+  %21 = tail call i64 @datumGetSize(i64 noundef %18, i1 noundef zeroext false, i32 noundef %20) #10
   %22 = and i64 %21, 4294967295
   br label %23
 
@@ -2472,8 +2469,8 @@ define internal void @writetup_datum(ptr nocapture noundef readonly %0, ptr noun
   %24 = trunc nuw i64 %.0 to i32
   %25 = add i32 %24, 4
   store i32 %25, ptr %4, align 4
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %.014, i64 noundef %.0) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef %.014, i64 noundef %.0) #10
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
@@ -2481,7 +2478,7 @@ define internal void @writetup_datum(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %23
-  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9
+  call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #10
   br label %30
 
 30:                                               ; preds = %29, %23
@@ -2505,29 +2502,29 @@ define internal void @readtup_datum(ptr noundef %0, ptr noundef %1, ptr noundef 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = zext i32 %6 to i64
-  %15 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %13, i64 noundef %14) #9
+  %15 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %13, i64 noundef %14) #10
   %.not = icmp eq i64 %15, %14
   br i1 %.not, label %29, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1846, ptr noundef nonnull @__func__.readtup_datum) #9
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1846, ptr noundef nonnull @__func__.readtup_datum) #10
   unreachable
 
 19:                                               ; preds = %8
   %20 = zext i32 %6 to i64
-  %21 = tail call ptr @tuplesort_readtup_alloc(ptr noundef nonnull %0, i64 noundef %20) #9
-  %22 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %21, i64 noundef %20) #9
+  %21 = tail call ptr @tuplesort_readtup_alloc(ptr noundef nonnull %0, i64 noundef %20) #10
+  %22 = tail call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef %21, i64 noundef %20) #10
   %.not19 = icmp eq i64 %22, %20
   br i1 %.not19, label %26, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1854, ptr noundef nonnull @__func__.readtup_datum) #9
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1854, ptr noundef nonnull @__func__.readtup_datum) #10
   unreachable
 
 26:                                               ; preds = %19
@@ -2555,15 +2552,15 @@ define internal void @readtup_datum(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not20, label %39, label %34
 
 34:                                               ; preds = %29
-  %35 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #9
+  %35 = call i64 @LogicalTapeRead(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 4) #10
   %.not21 = icmp eq i64 %35, 4
   br i1 %.not21, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %37)
-  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1861, ptr noundef nonnull @__func__.readtup_datum) #9
+  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1861, ptr noundef nonnull @__func__.readtup_datum) #10
   unreachable
 
 39:                                               ; preds = %34, %29
@@ -2586,7 +2583,7 @@ define dso_local void @tuplesort_puttupleslot(ptr noundef %0, ptr noundef %1) lo
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr %13(ptr noundef %1) #9
+  %14 = tail call ptr %13(ptr noundef %1) #10
   store ptr %14, ptr %3, align 8
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 8
@@ -2611,7 +2608,7 @@ define dso_local void @tuplesort_puttupleslot(ptr noundef %0, ptr noundef %1) lo
   %32 = trunc i8 %31 to i1
   %33 = xor i1 %32, true
   %34 = select i1 %30, i1 %33, i1 false
-  call void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %34) #9
+  call void @tuplesort_puttuple_common(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext %34) #10
   store ptr %7, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -2632,7 +2629,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #9
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #10
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -2697,10 +2694,10 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
 
 53:                                               ; preds = %41
   %54 = sext i16 %40 to i32
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %54) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #9
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %54) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
 57:                                               ; preds = %29
@@ -2708,7 +2705,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 59:                                               ; preds = %21
-  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #9
+  %60 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #10
   br label %fastgetattr.exit
 
 61:                                               ; preds = %16
@@ -2730,11 +2727,11 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 73:                                               ; preds = %61
-  %74 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #9
+  %74 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #10
   br label %fastgetattr.exit
 
 75:                                               ; preds = %4
-  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #9
+  %76 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #10
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %73, %72, %59, %57, %51, %48, %45, %42, %75, %14
@@ -2753,7 +2750,7 @@ define dso_local void @tuplesort_putheaptuple(ptr noundef %0, ptr noundef %1) lo
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @heap_copytuple(ptr noundef %1) #9
+  %9 = tail call ptr @heap_copytuple(ptr noundef %1) #10
   store ptr %9, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load i8, ptr %10, align 8
@@ -2796,7 +2793,7 @@ define dso_local void @tuplesort_putheaptuple(ptr noundef %0, ptr noundef %1) lo
 
 36:                                               ; preds = %31, %26, %23
   %37 = phi i1 [ false, %26 ], [ false, %23 ], [ %35, %31 ]
-  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %37) #9
+  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %3, i1 noundef zeroext %37) #10
   store ptr %6, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -2812,7 +2809,7 @@ define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr nocaptu
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @index_form_tuple_context(ptr noundef %10, ptr noundef %3, ptr noundef %4, ptr noundef %12) #9
+  %13 = tail call ptr @index_form_tuple_context(ptr noundef %10, ptr noundef %3, ptr noundef %4, ptr noundef %12) #10
   store ptr %13, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %13, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   %14 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2842,7 +2839,7 @@ define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr nocaptu
 
 30:                                               ; preds = %26, %23, %5
   %31 = phi i1 [ false, %23 ], [ false, %5 ], [ %29, %26 ]
-  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext %31) #9
+  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext %31) #10
   ret void
 }
 
@@ -2909,10 +2906,10 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
 
 36:                                               ; preds = %24
   %37 = sext i16 %23 to i32
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %37) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #9
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %37) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
 40:                                               ; preds = %15
@@ -2920,7 +2917,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 42:                                               ; preds = %7
-  %43 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #9
+  %43 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #10
   br label %fetch_att.exit
 
 44:                                               ; preds = %4
@@ -2942,7 +2939,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 56:                                               ; preds = %44
-  %57 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #9
+  %57 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #10
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %40, %34, %31, %28, %25, %56, %55, %42
@@ -2958,7 +2955,7 @@ define dso_local void @tuplesort_putbrintuple(ptr noundef %0, ptr nocapture noun
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
   %8 = add i64 %2, 8
-  %9 = tail call ptr @palloc(i64 noundef %8) #9
+  %9 = tail call ptr @palloc(i64 noundef %8) #10
   store i64 %2, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 4 %1, i64 %2, i1 false)
@@ -2982,7 +2979,7 @@ define dso_local void @tuplesort_putbrintuple(ptr noundef %0, ptr nocapture noun
 
 20:                                               ; preds = %17, %3
   %21 = phi i1 [ false, %3 ], [ %.not13, %17 ]
-  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %21) #9
+  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %21) #10
   store ptr %7, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -3018,7 +3015,7 @@ define dso_local void @tuplesort_putdatum(ptr noundef %0, i64 noundef %1, i1 nou
   store i8 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = tail call i64 @datumCopy(i64 noundef %1, i1 noundef zeroext false, i32 noundef %22) #9
+  %23 = tail call i64 @datumCopy(i64 noundef %1, i1 noundef zeroext false, i32 noundef %22) #10
   %24 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %23, ptr %24, align 8
   %25 = inttoptr i64 %23 to ptr
@@ -3044,7 +3041,7 @@ define dso_local void @tuplesort_putdatum(ptr noundef %0, i64 noundef %1, i1 nou
 
 36:                                               ; preds = %30, %26
   %37 = phi i1 [ false, %26 ], [ %spec.select, %30 ]
-  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %37) #9
+  call void @tuplesort_puttuple_common(ptr noundef nonnull %0, ptr noundef nonnull %4, i1 noundef zeroext %37) #10
   store ptr %8, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -3058,7 +3055,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettupleslot(ptr noundef %0, i1 n
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  %10 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %6) #9
+  %10 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %6) #10
   br i1 %10, label %11, label %.thread
 
 .thread:                                          ; preds = %5
@@ -3092,13 +3089,13 @@ define dso_local noundef zeroext i1 @tuplesort_gettupleslot(ptr noundef %0, i1 n
   br i1 %2, label %23, label %25
 
 23:                                               ; preds = %22
-  %24 = call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %.pr) #9
+  %24 = call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %.pr) #10
   store ptr %24, ptr %6, align 8
   br label %25
 
 25:                                               ; preds = %23, %22
   %26 = phi ptr [ %24, %23 ], [ %.pr, %22 ]
-  %27 = call ptr @ExecStoreMinimalTuple(ptr noundef %26, ptr noundef %3, i1 noundef zeroext %2) #9
+  %27 = call ptr @ExecStoreMinimalTuple(ptr noundef %26, ptr noundef %3, i1 noundef zeroext %2) #10
   br label %33
 
 28:                                               ; preds = %.thread, %11
@@ -3106,7 +3103,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettupleslot(ptr noundef %0, i1 n
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef %3) #9
+  call void %32(ptr noundef %3) #10
   br label %33
 
 33:                                               ; preds = %28, %25
@@ -3127,7 +3124,7 @@ define dso_local ptr @tuplesort_getheaptuple(ptr noundef %0, i1 noundef zeroext 
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  %7 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %3) #9
+  %7 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %3) #10
   %.pre = load ptr, ptr %3, align 8
   %8 = select i1 %7, ptr %.pre, ptr null
   store ptr %6, ptr @CurrentMemoryContext, align 8
@@ -3141,7 +3138,7 @@ define dso_local ptr @tuplesort_getindextuple(ptr noundef %0, i1 noundef zeroext
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  %7 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %3) #9
+  %7 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %3) #10
   %.pre = load ptr, ptr %3, align 8
   %8 = select i1 %7, ptr %.pre, ptr null
   store ptr %6, ptr @CurrentMemoryContext, align 8
@@ -3155,7 +3152,7 @@ define dso_local ptr @tuplesort_getbrintuple(ptr noundef %0, ptr nocapture nound
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  %8 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %4) #9
+  %8 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %4) #10
   br i1 %8, label %9, label %.thread
 
 .thread:                                          ; preds = %3
@@ -3188,7 +3185,7 @@ define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 nound
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %7) #9
+  %13 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %7) #10
   store ptr %10, ptr @CurrentMemoryContext, align 8
   br i1 %13, label %14, label %45
 
@@ -3235,7 +3232,7 @@ define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 nound
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %12, i64 4
   %41 = load i32, ptr %40, align 4
-  %42 = call i64 @datumCopy(i64 noundef %38, i1 noundef zeroext false, i32 noundef %41) #9
+  %42 = call i64 @datumCopy(i64 noundef %38, i1 noundef zeroext false, i32 noundef %41) #10
   br label %43
 
 43:                                               ; preds = %36, %39
@@ -3295,6 +3292,9 @@ declare i64 @datumGetSize(i64 noundef, i1 noundef zeroext, i32 noundef) local_un
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3304,8 +3304,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -67,11 +67,11 @@ define void @Map_SuperTableFree(ptr nocapture noundef %0) local_unnamed_addr #3 
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %2) #14
+  tail call void @free(ptr noundef nonnull %2) #15
   br label %4
 
 4:                                                ; preds = %3, %1
-  tail call void @free(ptr noundef nonnull %0) #14
+  tail call void @free(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -129,7 +129,7 @@ define noundef i32 @Map_SuperTableInsertC(ptr nocapture noundef %0, ptr nocaptur
 ._crit_edge:                                      ; preds = %27, %10
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %30) #14
+  %31 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %30) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   %32 = load i32, ptr %1, align 4
   store i32 %32, ptr %31, align 8
@@ -245,7 +245,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %8
   br i1 %.not, label %37, label %36
 
 36:                                               ; preds = %._crit_edge48
-  tail call void @free(ptr noundef nonnull %35) #14
+  tail call void @free(ptr noundef nonnull %35) #15
   br label %37
 
 37:                                               ; preds = %._crit_edge48, %36
@@ -307,7 +307,7 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr n
 ._crit_edge:                                      ; preds = %28, %11
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %31) #14
+  %32 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %31) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   %33 = load i32, ptr %1, align 4
   store i32 %33, ptr %32, align 8
@@ -439,10 +439,7 @@ define range(i32 -1, 2) i32 @Map_SuperTableCompareSupergates(ptr nocapture nound
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = icmp sgt i32 %5, %8
-  %10 = icmp slt i32 %5, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %8, i32 %5)
   ret i32 %.0
 }
 
@@ -465,7 +462,7 @@ define range(i32 -1, 2) i32 @Map_SuperTableCompareGatesInList(ptr nocapture noun
 define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 3
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #15
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -530,7 +527,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
 
 ._crit_edge56:                                    ; preds = %._crit_edge56.loopexit, %2
   %.031.lcssa = phi i64 [ 0, %2 ], [ %18, %._crit_edge56.loopexit ]
-  tail call void @qsort(ptr noundef %5, i64 noundef %.031.lcssa, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareSupergates) #14
+  tail call void @qsort(ptr noundef %5, i64 noundef %.031.lcssa, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareSupergates) #15
   br label %19
 
 19:                                               ; preds = %._crit_edge56, %25
@@ -567,7 +564,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
   br i1 %exitcond66.not, label %44, label %19, !llvm.loop !16
 
 44:                                               ; preds = %25, %19
-  tail call void @free(ptr noundef nonnull %5) #14
+  tail call void @free(ptr noundef nonnull %5) #15
   ret void
 }
 
@@ -581,7 +578,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 3
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #15
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -618,7 +615,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   %15 = trunc nuw i64 %indvars.iv.next to i32
   store ptr null, ptr %12, align 8
   %16 = and i64 %indvars.iv.next, 4294967295
-  tail call void @qsort(ptr noundef nonnull %5, i64 noundef %16, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareGatesInList) #14
+  tail call void @qsort(ptr noundef nonnull %5, i64 noundef %16, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareGatesInList) #15
   %.pre = load ptr, ptr %12, align 8
   br label %17
 
@@ -667,7 +664,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   br i1 %.not, label %35, label %34
 
 34:                                               ; preds = %._crit_edge51
-  tail call void @free(ptr noundef nonnull %5) #14
+  tail call void @free(ptr noundef nonnull %5) #15
   br label %35
 
 35:                                               ; preds = %._crit_edge51, %34
@@ -679,6 +676,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #14
 
 attributes #0 = { nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -694,8 +694,9 @@ attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind }
 attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

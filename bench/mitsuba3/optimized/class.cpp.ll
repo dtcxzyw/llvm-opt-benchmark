@@ -1529,75 +1529,75 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS_12
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %14)
   %32 = tail call noundef i32 @memcmp(ptr noundef %18, ptr noundef %26, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %.not.i.i.i.i.i.i = icmp eq i32 %32, 0
-  %33 = icmp ult i64 %14, %31
-  %34 = icmp slt i32 %32, 0
-  %35 = select i1 %.not.i.i.i.i.i.i, i1 %33, i1 %34
-  br i1 %35, label %36, label %38
+  %spec.select.i.i.i.i.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %14, i64 %31)
+  %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i32 %spec.select.i.i.i.i.i.i, i32 %32
+  %33 = icmp slt i32 %.0.i.i.i.i.i.i, 0
+  br i1 %33, label %34, label %36
 
-36:                                               ; preds = %19
-  %37 = load ptr, ptr %.pr, align 8
-  %.not31.i = icmp eq ptr %37, null
+34:                                               ; preds = %19
+  %35 = load ptr, ptr %.pr, align 8
+  %.not31.i = icmp eq ptr %35, null
   br i1 %.not31.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread, label %.backedge
 
-38:                                               ; preds = %19
-  %39 = tail call noundef i32 @memcmp(ptr noundef %26, ptr noundef %18, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
-  %.not.i.i.i.i.i35.i = icmp eq i32 %39, 0
-  %40 = icmp ult i64 %31, %14
-  %41 = icmp slt i32 %39, 0
-  %42 = select i1 %.not.i.i.i.i.i35.i, i1 %40, i1 %41
-  br i1 %42, label %43, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit
+36:                                               ; preds = %19
+  %37 = tail call noundef i32 @memcmp(ptr noundef %26, ptr noundef %18, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
+  %.not.i.i.i.i.i35.i = icmp eq i32 %37, 0
+  %spec.select.i.i.i.i.i36.i = tail call i32 @llvm.ucmp.i32.i64(i64 %31, i64 %14)
+  %.0.i.i.i.i.i37.i = select i1 %.not.i.i.i.i.i35.i, i32 %spec.select.i.i.i.i.i36.i, i32 %37
+  %38 = icmp slt i32 %.0.i.i.i.i.i37.i, 0
+  br i1 %38, label %39, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %.pr, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %.not30.i = icmp eq ptr %45, null
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.not30.i = icmp eq ptr %41, null
   br i1 %.not30.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24, label %.backedge
 
-.backedge:                                        ; preds = %43, %36
-  %.pr.be = phi ptr [ %37, %36 ], [ %45, %43 ]
+.backedge:                                        ; preds = %39, %34
+  %.pr.be = phi ptr [ %35, %34 ], [ %41, %39 ]
   br label %19, !llvm.loop !23
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24: ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.pr, i64 8
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24: ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.pr, i64 8
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread: ; preds = %36, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24, %5
-  %.026.i18 = phi ptr [ %6, %5 ], [ %46, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24 ], [ %.pr, %36 ]
-  %.sink.i17 = phi ptr [ %6, %5 ], [ %.pr, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24 ], [ %.pr, %36 ]
-  %47 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !24
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread: ; preds = %34, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24, %5
+  %.026.i18 = phi ptr [ %6, %5 ], [ %42, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24 ], [ %.pr, %34 ]
+  %.sink.i17 = phi ptr [ %6, %5 ], [ %.pr, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread.loopexit.split.loop.exit24 ], [ %.pr, %34 ]
+  %43 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !24
+  %44 = getelementptr inbounds i8, ptr %43, i64 32
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %3, align 8, !noalias !24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.copyload.i.i.i, i64 24, i1 false), !noalias !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.copyload.i.i.i, i64 24, i1 false), !noalias !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.copyload.i.i.i, i8 0, i64 24, i1 false), !noalias !24
-  %49 = getelementptr inbounds i8, ptr %47, i64 56
-  store ptr null, ptr %49, align 8, !noalias !24
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
-  store ptr %.sink.i17, ptr %50, align 8
-  store ptr %47, ptr %.026.i18, align 8
-  %51 = load ptr, ptr %0, align 8
-  %52 = load ptr, ptr %51, align 8
-  %.not.i9 = icmp eq ptr %52, null
-  br i1 %.not.i9, label %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit, label %53
+  %45 = getelementptr inbounds i8, ptr %43, i64 56
+  store ptr null, ptr %45, align 8, !noalias !24
+  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+  store ptr %.sink.i17, ptr %46, align 8
+  store ptr %43, ptr %.026.i18, align 8
+  %47 = load ptr, ptr %0, align 8
+  %48 = load ptr, ptr %47, align 8
+  %.not.i9 = icmp eq ptr %48, null
+  br i1 %.not.i9, label %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit, label %49
 
-53:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread
-  store ptr %52, ptr %0, align 8
+49:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread
+  store ptr %48, ptr %0, align 8
   %.pre.i = load ptr, ptr %.026.i18, align 8
   br label %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit
 
-_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit: ; preds = %53, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread
-  %54 = phi ptr [ %.pre.i, %53 ], [ %47, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread ]
-  %55 = load ptr, ptr %6, align 8
-  tail call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %55, ptr noundef %54) #19
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %56, align 8
+_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit: ; preds = %49, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread
+  %50 = phi ptr [ %.pre.i, %49 ], [ %43, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit.thread ]
+  %51 = load ptr, ptr %6, align 8
+  tail call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %51, ptr noundef %50) #19
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = load i64, ptr %52, align 8
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %52, align 8
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit: ; preds = %38, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit
-  %.014 = phi i8 [ 1, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit ], [ 0, %38 ]
-  %.0 = phi ptr [ %47, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit ], [ %.pr, %38 ]
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISM_EERKT_.exit: ; preds = %36, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit
+  %.014 = phi i8 [ 1, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit ], [ 0, %36 ]
+  %.0 = phi ptr [ %43, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEEPvEENS_22__tree_node_destructorINS6_ISE_EEEEED2B8ne190000Ev.exit ], [ %.pr, %36 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.014, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -1841,12 +1841,14 @@ define linkonce_odr hidden ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic_st
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %24)
   %29 = tail call noundef i32 @memcmp(ptr noundef %28, ptr noundef %10, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #19
   %.not.i.i.i.i.i.i = icmp eq i32 %29, 0
-  %30 = icmp ult i64 %24, %15
-  %31 = icmp slt i32 %29, 0
-  %32 = select i1 %.not.i.i.i.i.i.i, i1 %30, i1 %31
-  %.19.in.idx.i = select i1 %32, i64 8, i64 0
+  %spec.select.i.i.i.i.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %24, i64 %15)
+  %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i32 %spec.select.i.i.i.i.i.i, i32 %29
+  %30 = icmp slt i32 %.0.i.i.i.i.i.i, 0
+  %31 = lshr i32 %.0.i.i.i.i.i.i, 28
+  %32 = and i32 %31, 8
+  %.19.in.idx.i = zext nneg i32 %32 to i64
   %.19.in.i = getelementptr inbounds i8, ptr %.0811.i, i64 %.19.in.idx.i
-  %.1.i = select i1 %32, ptr %.012.i, ptr %.0811.i
+  %.1.i = select i1 %30, ptr %.012.i, ptr %.0811.i
   %.19.i = load ptr, ptr %.19.in.i, align 8
   %.not.i = icmp eq ptr %.19.i, null
   br i1 %.not.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit, label %16, !llvm.loop !28
@@ -1872,15 +1874,15 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %45, i64 %15)
   %46 = tail call noundef i32 @memcmp(ptr noundef %10, ptr noundef %40, i64 noundef %.sroa.speculated.i.i.i.i.i) #19
   %.not.i.i.i.i.i = icmp eq i32 %46, 0
-  %47 = icmp ult i64 %15, %45
-  %48 = icmp slt i32 %46, 0
-  %49 = select i1 %.not.i.i.i.i.i, i1 %47, i1 %48
-  br i1 %49, label %.critedge, label %50
+  %spec.select.i.i.i.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %15, i64 %45)
+  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i32 %spec.select.i.i.i.i.i, i32 %46
+  %47 = icmp slt i32 %.0.i.i.i.i.i, 0
+  br i1 %47, label %.critedge, label %48
 
 .critedge:                                        ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPN7mitsuba5ClassEEENS_19__map_value_compareIS7_SB_NS_4lessIS7_EELb1EEENS5_ISB_EEE13__lower_boundIS7_EENS_15__tree_iteratorISB_PNS_11__tree_nodeISB_PvEElEERKT_SN_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISL_EEEE.exit, %33
-  br label %50
+  br label %48
 
-50:                                               ; preds = %33, %.critedge
+48:                                               ; preds = %33, %.critedge
   %.sroa.0.0 = phi ptr [ %3, %.critedge ], [ %.1.i, %33 ]
   ret ptr %.sroa.0.0
 }
@@ -3195,6 +3197,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17

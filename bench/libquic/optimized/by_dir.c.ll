@@ -36,18 +36,18 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @new_dir(ptr nocapture noundef writeonly %lu) #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @BUF_MEM_new() #12
+  %call1 = tail call ptr @BUF_MEM_new() #13
   store ptr %call1, ptr %call, align 8
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call) #12
+  tail call void @free(ptr noundef nonnull %call) #13
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -73,7 +73,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @sk_pop_free(ptr noundef nonnull %1, ptr noundef nonnull @by_dir_entry_free) #12
+  tail call void @sk_pop_free(ptr noundef nonnull %1, ptr noundef nonnull @by_dir_entry_free) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -82,11 +82,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @BUF_MEM_free(ptr noundef nonnull %2) #12
+  tail call void @BUF_MEM_free(ptr noundef nonnull %2) #13
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -103,8 +103,8 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else9
 
 if.then:                                          ; preds = %sw.bb
-  %call = tail call ptr @X509_get_default_cert_dir_env() #12
-  %call1 = tail call ptr @getenv(ptr noundef %call) #12
+  %call = tail call ptr @X509_get_default_cert_dir_env() #13
+  %call1 = tail call ptr @getenv(ptr noundef %call) #13
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.else, label %if.then2
 
@@ -113,7 +113,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %call4 = tail call ptr @X509_get_default_cert_dir() #12
+  %call4 = tail call ptr @X509_get_default_cert_dir() #13
   %call5 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef %call4, i32 noundef 1)
   br label %if.end
 
@@ -123,7 +123,7 @@ if.end:                                           ; preds = %if.else, %if.then2
   br i1 %tobool6.not, label %if.then7, label %sw.epilog
 
 if.then7:                                         ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @.str.1, i32 noundef 134) #12
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @.str.1, i32 noundef 134) #13
   br label %sw.epilog
 
 if.else9:                                         ; preds = %sw.bb
@@ -161,7 +161,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp7, label %if.end14, label %if.else12
 
 if.else12:                                        ; preds = %if.else
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 133, ptr noundef nonnull @.str.1, i32 noundef 295) #12
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 133, ptr noundef nonnull @.str.1, i32 noundef 295) #13
   br label %return
 
 if.end14:                                         ; preds = %if.else, %if.end
@@ -172,19 +172,19 @@ if.end14:                                         ; preds = %if.else, %if.end
   store ptr %name, ptr %.sink.sroa.phi, align 8
   %data11 = getelementptr inbounds i8, ptr %stmp, i64 8
   store ptr %data, ptr %data11, align 8
-  %call = call ptr @BUF_MEM_new() #12
+  %call = call ptr @BUF_MEM_new() #13
   %cmp15 = icmp eq ptr %call, null
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end14
-  call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str.1, i32 noundef 300) #12
+  call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str.1, i32 noundef 300) #13
   br label %return
 
 if.end17:                                         ; preds = %if.end14
   %method_data = getelementptr inbounds i8, ptr %xl, i64 16
   %0 = load ptr, ptr %method_data, align 8
-  %call18 = call i64 @X509_NAME_hash(ptr noundef nonnull %name) #12
-  %call19 = call i64 @X509_NAME_hash_old(ptr noundef nonnull %name) #12
+  %call18 = call i64 @X509_NAME_hash(ptr noundef nonnull %name) #13
+  %call19 = call i64 @X509_NAME_hash_old(ptr noundef nonnull %name) #13
   %dirs = getelementptr inbounds i8, ptr %0, i64 8
   %cmp38 = icmp eq i32 %type, 2
   %data61 = getelementptr inbounds i8, ptr %call, i64 8
@@ -196,32 +196,32 @@ for.body:                                         ; preds = %if.end17, %for.inc1
   %cmp21 = phi i1 [ true, %if.end17 ], [ false, %for.inc152 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi i64 [ %call18, %if.end17 ], [ %call19, %for.inc152 ]
   %1 = load ptr, ptr %dirs, align 8
-  %call2499 = call i64 @sk_num(ptr noundef %1) #12
+  %call2499 = call i64 @sk_num(ptr noundef %1) #13
   %cmp25100.not = icmp eq i64 %call2499, 0
   br i1 %cmp25100.not, label %for.inc152, label %for.body26
 
 for.cond23:                                       ; preds = %if.end141
   %inc150 = add nuw i64 %i.0101, 1
   %2 = load ptr, ptr %dirs, align 8
-  %call24 = call i64 @sk_num(ptr noundef %2) #12
+  %call24 = call i64 @sk_num(ptr noundef %2) #13
   %cmp25 = icmp ult i64 %inc150, %call24
   br i1 %cmp25, label %for.body26, label %for.inc152, !llvm.loop !7
 
 for.body26:                                       ; preds = %for.body, %for.cond23
   %i.0101 = phi i64 [ %inc150, %for.cond23 ], [ 0, %for.body ]
   %3 = load ptr, ptr %dirs, align 8
-  %call28 = call ptr @sk_value(ptr noundef %3, i64 noundef %i.0101) #12
+  %call28 = call ptr @sk_value(ptr noundef %3, i64 noundef %i.0101) #13
   %4 = load ptr, ptr %call28, align 8
-  %call29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
+  %call29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
   %conv = shl i64 %call29, 32
   %sext = add i64 %conv, 73014444032
   %conv34 = ashr exact i64 %sext, 32
-  %call35 = call i64 @BUF_MEM_grow(ptr noundef nonnull %call, i64 noundef %conv34) #12
+  %call35 = call i64 @BUF_MEM_grow(ptr noundef nonnull %call, i64 noundef %conv34) #13
   %tobool.not = icmp eq i64 %call35, 0
   br i1 %tobool.not, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %for.body26
-  call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 317) #12
+  call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 317) #13
   br label %if.then157
 
 if.end37:                                         ; preds = %for.body26
@@ -235,16 +235,16 @@ land.lhs.true:                                    ; preds = %if.end37
 
 if.then41:                                        ; preds = %land.lhs.true
   store i64 %indvars.iv.sroa.phi.sroa.speculated, ptr %htmp, align 8
-  call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @g_ent_hashes_lock) #12
+  call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @g_ent_hashes_lock) #13
   %6 = load ptr, ptr %hashes, align 8
-  %call43 = call i32 @sk_find(ptr noundef %6, ptr noundef nonnull %idx, ptr noundef nonnull %htmp) #12
+  %call43 = call i32 @sk_find(ptr noundef %6, ptr noundef nonnull %idx, ptr noundef nonnull %htmp) #13
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.end49, label %if.then45
 
 if.then45:                                        ; preds = %if.then41
   %7 = load ptr, ptr %hashes, align 8
   %8 = load i64, ptr %idx, align 8
-  %call47 = call ptr @sk_value(ptr noundef %7, i64 noundef %8) #12
+  %call47 = call ptr @sk_value(ptr noundef %7, i64 noundef %8) #13
   %suffix = getelementptr inbounds i8, ptr %call47, i64 8
   %9 = load i32, ptr %suffix, align 8
   br label %if.end49
@@ -252,7 +252,7 @@ if.then45:                                        ; preds = %if.then41
 if.end49:                                         ; preds = %if.then41, %if.then45
   %k.0 = phi i32 [ %9, %if.then45 ], [ 0, %if.then41 ]
   %hent.0 = phi ptr [ %call47, %if.then45 ], [ null, %if.then41 ]
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #12
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #13
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end37, %land.lhs.true, %if.end49
@@ -261,9 +261,9 @@ if.end51:                                         ; preds = %if.end37, %land.lhs
   %10 = load ptr, ptr %data61, align 8
   %11 = load i64, ptr %max62, align 8
   %12 = load ptr, ptr %call28, align 8
-  %call6583 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str.5, ptr noundef %12, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %k.1) #12
+  %call6583 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str.5, ptr noundef %12, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %k.1) #13
   %13 = load ptr, ptr %data61, align 8
-  %call6884 = call i32 @stat(ptr noundef %13, ptr noundef nonnull %st) #12
+  %call6884 = call i32 @stat(ptr noundef %13, ptr noundef nonnull %st) #13
   %cmp6985 = icmp slt i32 %call6884, 0
   br i1 %cmp6985, label %for.end, label %if.end72.lr.ph
 
@@ -275,7 +275,7 @@ if.end72.us:                                      ; preds = %if.end72.lr.ph, %if
   %k.286.us = phi i32 [ %inc.us, %if.end94.us ], [ %k.1, %if.end72.lr.ph ]
   %14 = load ptr, ptr %data61, align 8
   %15 = load i32, ptr %dir_type87, align 8
-  %call77.us = call i32 @X509_load_cert_file(ptr noundef %xl, ptr noundef %14, i32 noundef %15) #12
+  %call77.us = call i32 @X509_load_cert_file(ptr noundef %xl, ptr noundef %14, i32 noundef %15) #13
   %cmp78.us = icmp eq i32 %call77.us, 0
   br i1 %cmp78.us, label %for.end, label %if.end94.us
 
@@ -284,9 +284,9 @@ if.end94.us:                                      ; preds = %if.end72.us
   %16 = load ptr, ptr %data61, align 8
   %17 = load i64, ptr %max62, align 8
   %18 = load ptr, ptr %call28, align 8
-  %call65.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %16, i64 noundef %17, ptr noundef nonnull @.str.5, ptr noundef %18, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %inc.us) #12
+  %call65.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %16, i64 noundef %17, ptr noundef nonnull @.str.5, ptr noundef %18, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %inc.us) #13
   %19 = load ptr, ptr %data61, align 8
-  %call68.us = call i32 @stat(ptr noundef %19, ptr noundef nonnull %st) #12
+  %call68.us = call i32 @stat(ptr noundef %19, ptr noundef nonnull %st) #13
   %cmp69.us = icmp slt i32 %call68.us, 0
   br i1 %cmp69.us, label %for.end, label %if.end72.us
 
@@ -297,7 +297,7 @@ if.end72.us90:                                    ; preds = %if.end72.lr.ph.spli
   %k.286.us91 = phi i32 [ %inc.us93, %if.end94.us92 ], [ %k.1, %if.end72.lr.ph.split ]
   %20 = load ptr, ptr %data61, align 8
   %21 = load i32, ptr %dir_type87, align 8
-  %call88.us = call i32 @X509_load_crl_file(ptr noundef %xl, ptr noundef %20, i32 noundef %21) #12
+  %call88.us = call i32 @X509_load_crl_file(ptr noundef %xl, ptr noundef %20, i32 noundef %21) #13
   %cmp89.us = icmp eq i32 %call88.us, 0
   br i1 %cmp89.us, label %for.end, label %if.end94.us92
 
@@ -306,9 +306,9 @@ if.end94.us92:                                    ; preds = %if.end72.us90
   %22 = load ptr, ptr %data61, align 8
   %23 = load i64, ptr %max62, align 8
   %24 = load ptr, ptr %call28, align 8
-  %call65.us94 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %22, i64 noundef %23, ptr noundef nonnull @.str.5, ptr noundef %24, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %inc.us93) #12
+  %call65.us94 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %22, i64 noundef %23, ptr noundef nonnull @.str.5, ptr noundef %24, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %inc.us93) #13
   %25 = load ptr, ptr %data61, align 8
-  %call68.us95 = call i32 @stat(ptr noundef %25, ptr noundef nonnull %st) #12
+  %call68.us95 = call i32 @stat(ptr noundef %25, ptr noundef nonnull %st) #13
   %cmp69.us96 = icmp slt i32 %call68.us95, 0
   br i1 %cmp69.us96, label %for.end, label %if.end72.us90
 
@@ -318,9 +318,9 @@ if.end72:                                         ; preds = %if.end72.lr.ph.spli
   %26 = load ptr, ptr %data61, align 8
   %27 = load i64, ptr %max62, align 8
   %28 = load ptr, ptr %call28, align 8
-  %call65 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %26, i64 noundef %27, ptr noundef nonnull @.str.5, ptr noundef %28, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %inc) #12
+  %call65 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %26, i64 noundef %27, ptr noundef nonnull @.str.5, ptr noundef %28, i32 noundef 47, i64 noundef %indvars.iv.sroa.phi.sroa.speculated, ptr noundef nonnull %postfix.0, i32 noundef %inc) #13
   %29 = load ptr, ptr %data61, align 8
-  %call68 = call i32 @stat(ptr noundef %29, ptr noundef nonnull %st) #12
+  %call68 = call i32 @stat(ptr noundef %29, ptr noundef nonnull %st) #13
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %for.end, label %if.end72
 
@@ -328,11 +328,11 @@ for.end:                                          ; preds = %if.end72, %if.end94
   %k.2.lcssa = phi i32 [ %k.1, %if.end51 ], [ %k.286.us, %if.end72.us ], [ %inc.us, %if.end94.us ], [ %k.286.us91, %if.end72.us90 ], [ %inc.us93, %if.end94.us92 ], [ %inc, %if.end72 ]
   %30 = load ptr, ptr %store_ctx, align 8
   %objs_lock = getelementptr inbounds i8, ptr %30, i64 16
-  call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #12
+  call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %objs_lock) #13
   %31 = load ptr, ptr %store_ctx, align 8
   %objs = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load ptr, ptr %objs, align 8
-  %call96 = call i32 @sk_find(ptr noundef %32, ptr noundef nonnull %idx, ptr noundef nonnull %stmp) #12
+  %call96 = call i32 @sk_find(ptr noundef %32, ptr noundef nonnull %idx, ptr noundef nonnull %stmp) #13
   %tobool97.not = icmp eq i32 %call96, 0
   br i1 %tobool97.not, label %if.end102, label %if.then98
 
@@ -341,18 +341,18 @@ if.then98:                                        ; preds = %for.end
   %objs100 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %objs100, align 8
   %35 = load i64, ptr %idx, align 8
-  %call101 = call ptr @sk_value(ptr noundef %34, i64 noundef %35) #12
+  %call101 = call ptr @sk_value(ptr noundef %34, i64 noundef %35) #13
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then98, %for.end
   %tmp.0 = phi ptr [ %call101, %if.then98 ], [ null, %for.end ]
   %36 = load ptr, ptr %store_ctx, align 8
   %objs_lock104 = getelementptr inbounds i8, ptr %36, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock104) #12
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %objs_lock104) #13
   br i1 %cmp38, label %if.then107, label %if.end141
 
 if.then107:                                       ; preds = %if.end102
-  call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @g_ent_hashes_lock) #12
+  call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @g_ent_hashes_lock) #13
   %tobool108.not = icmp eq ptr %hent.1, null
   br i1 %tobool108.not, label %if.then109, label %if.else133
 
@@ -360,24 +360,24 @@ if.then109:                                       ; preds = %if.then107
   store i64 %indvars.iv.sroa.phi.sroa.speculated, ptr %htmp, align 8
   %hashes111 = getelementptr inbounds i8, ptr %call28, i64 16
   %37 = load ptr, ptr %hashes111, align 8
-  %call112 = call i32 @sk_find(ptr noundef %37, ptr noundef nonnull %idx, ptr noundef nonnull %htmp) #12
+  %call112 = call i32 @sk_find(ptr noundef %37, ptr noundef nonnull %idx, ptr noundef nonnull %htmp) #13
   %tobool113.not = icmp eq i32 %call112, 0
   br i1 %tobool113.not, label %if.then120, label %if.end118
 
 if.end118:                                        ; preds = %if.then109
   %38 = load ptr, ptr %hashes111, align 8
   %39 = load i64, ptr %idx, align 8
-  %call116 = call ptr @sk_value(ptr noundef %38, i64 noundef %39) #12
+  %call116 = call ptr @sk_value(ptr noundef %38, i64 noundef %39) #13
   %tobool119.not = icmp eq ptr %call116, null
   br i1 %tobool119.not, label %if.then120, label %if.else133
 
 if.then120:                                       ; preds = %if.then109, %if.end118
-  %call121 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
+  %call121 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %cmp122 = icmp eq ptr %call121, null
   br i1 %cmp122, label %if.then124, label %if.end125
 
 if.then124:                                       ; preds = %if.then120
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #12
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #13
   br label %if.then157
 
 if.end125:                                        ; preds = %if.then120
@@ -385,13 +385,13 @@ if.end125:                                        ; preds = %if.then120
   %suffix127 = getelementptr inbounds i8, ptr %call121, i64 8
   store i32 %k.2.lcssa, ptr %suffix127, align 8
   %40 = load ptr, ptr %hashes111, align 8
-  %call129 = call i64 @sk_push(ptr noundef %40, ptr noundef nonnull %call121) #12
+  %call129 = call i64 @sk_push(ptr noundef %40, ptr noundef nonnull %call121) #13
   %tobool130.not = icmp eq i64 %call129, 0
   br i1 %tobool130.not, label %if.then131, label %if.end140
 
 if.then131:                                       ; preds = %if.end125
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #12
-  call void @free(ptr noundef nonnull %call121) #12
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #13
+  call void @free(ptr noundef nonnull %call121) #13
   br label %if.then157
 
 if.else133:                                       ; preds = %if.then107, %if.end118
@@ -406,7 +406,7 @@ if.then137:                                       ; preds = %if.else133
   br label %if.end140
 
 if.end140:                                        ; preds = %if.else133, %if.then137, %if.end125
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #12
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #13
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end140, %if.end102
@@ -427,7 +427,7 @@ for.inc152:                                       ; preds = %for.cond23, %for.bo
 
 if.then157:                                       ; preds = %for.inc152, %if.then36, %if.then131, %if.then124, %if.then144
   %ok.074 = phi i32 [ 0, %if.then131 ], [ 0, %if.then124 ], [ 1, %if.then144 ], [ 0, %if.then36 ], [ 0, %for.inc152 ]
-  call void @BUF_MEM_free(ptr noundef nonnull %call) #12
+  call void @BUF_MEM_free(ptr noundef nonnull %call) #13
   br label %return
 
 return:                                           ; preds = %if.else12, %if.then16, %if.then157, %entry
@@ -453,7 +453,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef nonnull %0) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -463,11 +463,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @sk_pop_free(ptr noundef nonnull %1, ptr noundef nonnull @by_dir_hash_free) #12
+  tail call void @sk_pop_free(ptr noundef nonnull %1, ptr noundef nonnull @by_dir_hash_free) #13
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  tail call void @free(ptr noundef nonnull %ent) #12
+  tail call void @free(ptr noundef nonnull %ent) #13
   ret void
 }
 
@@ -476,7 +476,7 @@ declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @by_dir_hash_free(ptr nocapture noundef %hash) #5 {
 entry:
-  tail call void @free(ptr noundef %hash) #12
+  tail call void @free(ptr noundef %hash) #13
   ret void
 }
 
@@ -501,7 +501,7 @@ do.body.preheader:                                ; preds = %lor.lhs.false
   br label %do.body
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 110, ptr noundef nonnull @.str.1, i32 noundef 199) #12
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 110, ptr noundef nonnull @.str.1, i32 noundef 199) #13
   br label %return
 
 do.bodythread-pre-split:                          ; preds = %do.cond
@@ -528,35 +528,35 @@ if.then7:                                         ; preds = %do.body, %do.body
 
 for.cond.preheader:                               ; preds = %if.then7
   %2 = load ptr, ptr %dirs, align 8
-  %call53 = tail call i64 @sk_num(ptr noundef %2) #12
+  %call53 = tail call i64 @sk_num(ptr noundef %2) #13
   %cmp1254.not = icmp eq i64 %call53, 0
   br i1 %cmp1254.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %j.055 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %3 = load ptr, ptr %dirs, align 8
-  %call15 = tail call ptr @sk_value(ptr noundef %3, i64 noundef %j.055) #12
+  %call15 = tail call ptr @sk_value(ptr noundef %3, i64 noundef %j.055) #13
   %4 = load ptr, ptr %call15, align 8
-  %call17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
+  %call17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
   %cmp18 = icmp eq i64 %call17, %sub.ptr.sub
   br i1 %cmp18, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %call21 = tail call i32 @strncmp(ptr noundef %4, ptr noundef %s.0, i64 noundef %sub.ptr.sub) #13
+  %call21 = tail call i32 @strncmp(ptr noundef %4, ptr noundef %s.0, i64 noundef %sub.ptr.sub) #14
   %cmp22 = icmp eq i32 %call21, 0
   br i1 %cmp22, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %inc = add nuw i64 %j.055, 1
   %5 = load ptr, ptr %dirs, align 8
-  %call = tail call i64 @sk_num(ptr noundef %5) #12
+  %call = tail call i64 @sk_num(ptr noundef %5) #13
   %cmp12 = icmp ult i64 %inc, %call
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %land.lhs.true, %for.cond.preheader
   %j.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %j.055, %land.lhs.true ], [ %inc, %for.inc ]
   %6 = load ptr, ptr %dirs, align 8
-  %call27 = tail call i64 @sk_num(ptr noundef %6) #12
+  %call27 = tail call i64 @sk_num(ptr noundef %6) #13
   %cmp28 = icmp ult i64 %j.0.lcssa, %call27
   br i1 %cmp28, label %do.cond, label %if.end31
 
@@ -566,28 +566,28 @@ if.end31:                                         ; preds = %for.end
   br i1 %cmp33, label %if.then35, label %if.end42
 
 if.then35:                                        ; preds = %if.end31
-  %call36 = tail call ptr @sk_new_null() #12
+  %call36 = tail call ptr @sk_new_null() #13
   store ptr %call36, ptr %dirs, align 8
   %tobool39.not = icmp eq ptr %call36, null
   br i1 %tobool39.not, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %if.then35
-  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 224) #12
+  tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 224) #13
   br label %return
 
 if.end42:                                         ; preds = %if.then35, %if.end31
-  %call43 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #11
+  %call43 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %tobool44.not = icmp eq ptr %call43, null
   br i1 %tobool44.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end42
   %dir_type = getelementptr inbounds i8, ptr %call43, i64 8
   store i32 %type, ptr %dir_type, align 8
-  %call47 = tail call ptr @sk_new(ptr noundef nonnull @by_dir_hash_cmp) #12
+  %call47 = tail call ptr @sk_new(ptr noundef nonnull @by_dir_hash_cmp) #13
   %hashes = getelementptr inbounds i8, ptr %call43, i64 16
   store ptr %call47, ptr %hashes, align 8
   %add = add i64 %sub.ptr.sub, 1
-  %call48 = tail call noalias ptr @malloc(i64 noundef %add) #11
+  %call48 = tail call noalias ptr @malloc(i64 noundef %add) #12
   store ptr %call48, ptr %call43, align 8
   %tobool51.not = icmp eq ptr %call48, null
   %tobool2.not.i = icmp eq ptr %call47, null
@@ -597,26 +597,26 @@ lor.lhs.false52:                                  ; preds = %if.end46
   br i1 %tobool2.not.i, label %if.end.i.thread, label %if.end56
 
 if.end.i.thread:                                  ; preds = %lor.lhs.false52
-  tail call void @free(ptr noundef nonnull %call48) #12
+  tail call void @free(ptr noundef nonnull %call48) #13
   br label %by_dir_entry_free.exit
 
 if.end.i:                                         ; preds = %if.end46
   br i1 %tobool2.not.i, label %by_dir_entry_free.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call void @sk_pop_free(ptr noundef nonnull %call47, ptr noundef nonnull @by_dir_hash_free) #12
+  tail call void @sk_pop_free(ptr noundef nonnull %call47, ptr noundef nonnull @by_dir_hash_free) #13
   br label %by_dir_entry_free.exit
 
 by_dir_entry_free.exit:                           ; preds = %if.end.i.thread, %if.end.i, %if.then3.i
-  tail call void @free(ptr noundef nonnull %call43) #12
+  tail call void @free(ptr noundef nonnull %call43) #13
   br label %return
 
 if.end56:                                         ; preds = %lor.lhs.false52
-  %call58 = tail call ptr @strncpy(ptr noundef nonnull %call48, ptr noundef %s.0, i64 noundef %sub.ptr.sub) #12
+  %call58 = tail call ptr @strncpy(ptr noundef nonnull %call48, ptr noundef %s.0, i64 noundef %sub.ptr.sub) #13
   %arrayidx = getelementptr inbounds i8, ptr %call48, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %8 = load ptr, ptr %dirs, align 8
-  %call61 = tail call i64 @sk_push(ptr noundef %8, ptr noundef nonnull %call43) #12
+  %call61 = tail call i64 @sk_push(ptr noundef %8, ptr noundef nonnull %call43) #13
   %tobool62.not = icmp eq i64 %call61, 0
   br i1 %tobool62.not, label %if.then63, label %do.cond
 
@@ -627,7 +627,7 @@ if.then63:                                        ; preds = %if.end56
   br i1 %tobool.not.i36, label %if.end.i38, label %if.then.i37
 
 if.then.i37:                                      ; preds = %if.then63
-  tail call void @free(ptr noundef nonnull %9) #12
+  tail call void @free(ptr noundef nonnull %9) #13
   br label %if.end.i38
 
 if.end.i38:                                       ; preds = %if.then.i37, %if.then63
@@ -636,11 +636,11 @@ if.end.i38:                                       ; preds = %if.then.i37, %if.th
   br i1 %tobool2.not.i40, label %by_dir_entry_free.exit42, label %if.then3.i41
 
 if.then3.i41:                                     ; preds = %if.end.i38
-  tail call void @sk_pop_free(ptr noundef nonnull %10, ptr noundef nonnull @by_dir_hash_free) #12
+  tail call void @sk_pop_free(ptr noundef nonnull %10, ptr noundef nonnull @by_dir_hash_free) #13
   br label %by_dir_entry_free.exit42
 
 by_dir_entry_free.exit42:                         ; preds = %if.end.i38, %if.then3.i41
-  tail call void @free(ptr noundef nonnull %call43) #12
+  tail call void @free(ptr noundef nonnull %call43) #13
   br label %return
 
 do.cond:                                          ; preds = %do.body, %if.end56, %for.end, %if.then7
@@ -679,10 +679,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = load ptr, ptr %b, align 8
   %3 = load i64, ptr %2, align 8
-  %cmp = icmp ugt i64 %1, %3
-  %cmp4 = icmp ult i64 %1, %3
-  %. = sext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %1, i64 %3)
   ret i32 %retval.0
 }
 
@@ -718,6 +715,9 @@ declare void @CRYPTO_MUTEX_unlock(ptr noundef) local_unnamed_addr #3
 
 declare void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef) local_unnamed_addr #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #11
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -729,9 +729,10 @@ attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

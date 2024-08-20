@@ -437,12 +437,10 @@ entry:
   %current_key_fixed.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %current_key_fixed.sroa.2.0.copyload = load i64, ptr %current_key_fixed.sroa.2.0..sroa_idx, align 8
   %current_key_fixed.sroa.2.0 = tail call i64 @llvm.umin.i64(i64 %current_key_fixed.sroa.2.0.copyload, i64 %1)
-  %cmp.i = icmp ult i64 %last_key_fixed.sroa.2.0.copyload, %current_key_fixed.sroa.2.0
   %..i = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %current_key_fixed.sroa.2.0)
   %bcmp = tail call i32 @bcmp(ptr %last_key_fixed.sroa.0.0.copyload, ptr %current_key_fixed.sroa.0.0.copyload, i64 %..i)
   %cmp6.not.i = icmp ne i32 %bcmp, 0
-  %cmp13.i = icmp ult i64 %current_key_fixed.sroa.2.0.copyload, %spec.select
-  %cmp11.not7 = or i1 %cmp13.i, %cmp.i
+  %cmp11.not7 = icmp ne i64 %spec.select, %current_key_fixed.sroa.2.0
   %cmp11.not = select i1 %cmp6.not.i, i1 true, i1 %cmp11.not7
   %cond = zext i1 %cmp11.not to i8
   ret i8 %cond

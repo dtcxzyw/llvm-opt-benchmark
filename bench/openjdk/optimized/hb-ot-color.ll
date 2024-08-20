@@ -791,17 +791,17 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4COLR16get_glyph_layersEjjPjP19hb
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = or disjoint i32 %28, %31
-  %.not2.i.i.i.i.i.not = icmp eq i32 %32, 0
-  br i1 %.not2.i.i.i.i.i.not, label %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit, label %.lr.ph.preheader.i.i.i.i.i
+  %.not1.i.i.i.i.i.not = icmp eq i32 %32, 0
+  br i1 %.not1.i.i.i.i.i.not, label %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %5
   %33 = add nsw i32 %32, -1
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %52, %.lr.ph.preheader.i.i.i.i.i
-  %.0194.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i, %52 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0203.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i, %52 ], [ %33, %.lr.ph.preheader.i.i.i.i.i ]
-  %34 = add i32 %.0203.i.i.i.i.i, %.0194.i.i.i.i.i
+  %.0193.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i, %52 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0202.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i, %52 ], [ %33, %.lr.ph.preheader.i.i.i.i.i ]
+  %34 = add i32 %.0202.i.i.i.i.i, %.0193.i.i.i.i.i
   %35 = lshr i32 %34, 1
   %36 = zext nneg i32 %35 to i64
   %37 = mul nuw nsw i64 %36, 6
@@ -821,16 +821,16 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4COLR16get_glyph_layersEjjPjP19hb
   br label %52
 
 49:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.not1.i.i.i.i.i = icmp ult i32 %45, %1
-  br i1 %.not1.i.i.i.i.i, label %50, label %53
+  %.not23.i.i.i.i.i = icmp eq i32 %45, %1
+  br i1 %.not23.i.i.i.i.i, label %53, label %50
 
 50:                                               ; preds = %49
   %51 = add nuw nsw i32 %35, 1
   br label %52
 
 52:                                               ; preds = %50, %47
-  %.121.i.i.i.i.i = phi i32 [ %48, %47 ], [ %.0203.i.i.i.i.i, %50 ]
-  %.1.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i, %47 ], [ %51, %50 ]
+  %.121.i.i.i.i.i = phi i32 [ %48, %47 ], [ %.0202.i.i.i.i.i, %50 ]
+  %.1.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i, %47 ], [ %51, %50 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i, %.121.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
 
@@ -1871,17 +1871,17 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4COLR20get_base_glyph_paintEj(ptr
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %.sroa.2.8.insert.ext.i.i.i.i = or disjoint i32 %37, %40
-  %.not2.i.i.i.i.i.i = icmp sgt i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
-  br i1 %.not2.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i, label %_ZNK2OT4COLR26get_base_glyph_paintrecordEj.exit
+  %.not1.i.i.i.i.i.i = icmp sgt i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
+  br i1 %.not1.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i, label %_ZNK2OT4COLR26get_base_glyph_paintrecordEj.exit
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %2
   %41 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %60, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0194.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %60 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.0203.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %60 ], [ %41, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %42 = add i32 %.0203.i.i.i.i.i.i, %.0194.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %60 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %60 ], [ %41, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %42 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
   %43 = lshr i32 %42, 1
   %44 = zext nneg i32 %43 to i64
   %45 = mul nuw nsw i64 %44, 6
@@ -1901,16 +1901,16 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4COLR20get_base_glyph_paintEj(ptr
   br label %60
 
 57:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not1.i.i.i.i.i.i = icmp ult i32 %53, %1
-  br i1 %.not1.i.i.i.i.i.i, label %58, label %61
+  %.not23.i.i.i.i.i.i = icmp eq i32 %53, %1
+  br i1 %.not23.i.i.i.i.i.i, label %61, label %58
 
 58:                                               ; preds = %57
   %59 = add nuw nsw i32 %43, 1
   br label %60
 
 60:                                               ; preds = %58, %55
-  %.121.i.i.i.i.i.i = phi i32 [ %56, %55 ], [ %.0203.i.i.i.i.i.i, %58 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i.i, %55 ], [ %59, %58 ]
+  %.121.i.i.i.i.i.i = phi i32 [ %56, %55 ], [ %.0202.i.i.i.i.i.i, %58 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %55 ], [ %59, %58 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT4COLR26get_base_glyph_paintrecordEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 

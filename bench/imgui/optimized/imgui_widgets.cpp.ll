@@ -7408,95 +7408,71 @@ entry:
 sw.bb:                                            ; preds = %entry
   %arg_1.val = load i8, ptr %arg_1, align 1
   %arg_2.val = load i8, ptr %arg_2, align 1
-  %cmp.i = icmp slt i8 %arg_1.val, %arg_2.val
-  %cmp4.i = icmp sgt i8 %arg_1.val, %arg_2.val
-  %..i = zext i1 %cmp4.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 -1, i32 %..i
+  %retval.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8 %arg_1.val, i8 %arg_2.val)
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   %arg_1.val19 = load i8, ptr %arg_1, align 1
   %arg_2.val20 = load i8, ptr %arg_2, align 1
-  %cmp.i37 = icmp ult i8 %arg_1.val19, %arg_2.val20
-  %cmp4.i38 = icmp ugt i8 %arg_1.val19, %arg_2.val20
-  %..i39 = zext i1 %cmp4.i38 to i32
-  %retval.0.i40 = select i1 %cmp.i37, i32 -1, i32 %..i39
+  %retval.0.i37 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8 %arg_1.val19, i8 %arg_2.val20)
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %arg_1.val21 = load i16, ptr %arg_1, align 2
   %arg_2.val22 = load i16, ptr %arg_2, align 2
-  %cmp.i41 = icmp slt i16 %arg_1.val21, %arg_2.val22
-  %cmp4.i42 = icmp sgt i16 %arg_1.val21, %arg_2.val22
-  %..i43 = zext i1 %cmp4.i42 to i32
-  %retval.0.i44 = select i1 %cmp.i41, i32 -1, i32 %..i43
+  %retval.0.i38 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %arg_1.val21, i16 %arg_2.val22)
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %arg_1.val23 = load i16, ptr %arg_1, align 2
   %arg_2.val24 = load i16, ptr %arg_2, align 2
-  %cmp.i45 = icmp ult i16 %arg_1.val23, %arg_2.val24
-  %cmp4.i46 = icmp ugt i16 %arg_1.val23, %arg_2.val24
-  %..i47 = zext i1 %cmp4.i46 to i32
-  %retval.0.i48 = select i1 %cmp.i45, i32 -1, i32 %..i47
+  %retval.0.i39 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16 %arg_1.val23, i16 %arg_2.val24)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   %arg_1.val25 = load i32, ptr %arg_1, align 4
   %arg_2.val26 = load i32, ptr %arg_2, align 4
-  %cmp.i49 = icmp slt i32 %arg_1.val25, %arg_2.val26
-  %cmp1.i = icmp sgt i32 %arg_1.val25, %arg_2.val26
-  %..i50 = zext i1 %cmp1.i to i32
-  %retval.0.i51 = select i1 %cmp.i49, i32 -1, i32 %..i50
+  %retval.0.i40 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %arg_1.val25, i32 %arg_2.val26)
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %arg_1.val27 = load i32, ptr %arg_1, align 4
   %arg_2.val28 = load i32, ptr %arg_2, align 4
-  %cmp.i52 = icmp ult i32 %arg_1.val27, %arg_2.val28
-  %cmp1.i53 = icmp ugt i32 %arg_1.val27, %arg_2.val28
-  %..i54 = zext i1 %cmp1.i53 to i32
-  %retval.0.i55 = select i1 %cmp.i52, i32 -1, i32 %..i54
+  %retval.0.i41 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %arg_1.val27, i32 %arg_2.val28)
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   %arg_1.val29 = load i64, ptr %arg_1, align 8
   %arg_2.val30 = load i64, ptr %arg_2, align 8
-  %cmp.i56 = icmp slt i64 %arg_1.val29, %arg_2.val30
-  %cmp1.i57 = icmp sgt i64 %arg_1.val29, %arg_2.val30
-  %..i58 = zext i1 %cmp1.i57 to i32
-  %retval.0.i59 = select i1 %cmp.i56, i32 -1, i32 %..i58
+  %retval.0.i42 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %arg_1.val29, i64 %arg_2.val30)
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   %arg_1.val31 = load i64, ptr %arg_1, align 8
   %arg_2.val32 = load i64, ptr %arg_2, align 8
-  %cmp.i60 = icmp ult i64 %arg_1.val31, %arg_2.val32
-  %cmp1.i61 = icmp ugt i64 %arg_1.val31, %arg_2.val32
-  %..i62 = zext i1 %cmp1.i61 to i32
-  %retval.0.i63 = select i1 %cmp.i60, i32 -1, i32 %..i62
+  %retval.0.i43 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %arg_1.val31, i64 %arg_2.val32)
   br label %return
 
 sw.bb15:                                          ; preds = %entry
   %arg_1.val33 = load float, ptr %arg_1, align 4
   %arg_2.val34 = load float, ptr %arg_2, align 4
-  %cmp.i64 = fcmp olt float %arg_1.val33, %arg_2.val34
-  %cmp1.i65 = fcmp ogt float %arg_1.val33, %arg_2.val34
-  %..i66 = zext i1 %cmp1.i65 to i32
-  %retval.0.i67 = select i1 %cmp.i64, i32 -1, i32 %..i66
+  %cmp.i = fcmp olt float %arg_1.val33, %arg_2.val34
+  %cmp1.i = fcmp ogt float %arg_1.val33, %arg_2.val34
+  %..i = zext i1 %cmp1.i to i32
+  %retval.0.i44 = select i1 %cmp.i, i32 -1, i32 %..i
   br label %return
 
 sw.bb17:                                          ; preds = %entry
   %arg_1.val35 = load double, ptr %arg_1, align 8
   %arg_2.val36 = load double, ptr %arg_2, align 8
-  %cmp.i68 = fcmp olt double %arg_1.val35, %arg_2.val36
-  %cmp1.i69 = fcmp ogt double %arg_1.val35, %arg_2.val36
-  %..i70 = zext i1 %cmp1.i69 to i32
-  %retval.0.i71 = select i1 %cmp.i68, i32 -1, i32 %..i70
+  %cmp.i45 = fcmp olt double %arg_1.val35, %arg_2.val36
+  %cmp1.i46 = fcmp ogt double %arg_1.val35, %arg_2.val36
+  %..i47 = zext i1 %cmp1.i46 to i32
+  %retval.0.i48 = select i1 %cmp.i45, i32 -1, i32 %..i47
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %retval.0 = phi i32 [ %retval.0.i71, %sw.bb17 ], [ %retval.0.i67, %sw.bb15 ], [ %retval.0.i63, %sw.bb13 ], [ %retval.0.i59, %sw.bb11 ], [ %retval.0.i55, %sw.bb9 ], [ %retval.0.i51, %sw.bb7 ], [ %retval.0.i48, %sw.bb5 ], [ %retval.0.i44, %sw.bb3 ], [ %retval.0.i40, %sw.bb1 ], [ %retval.0.i, %sw.bb ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %retval.0.i48, %sw.bb17 ], [ %retval.0.i44, %sw.bb15 ], [ %retval.0.i43, %sw.bb13 ], [ %retval.0.i42, %sw.bb11 ], [ %retval.0.i41, %sw.bb9 ], [ %retval.0.i40, %sw.bb7 ], [ %retval.0.i39, %sw.bb5 ], [ %retval.0.i38, %sw.bb3 ], [ %retval.0.i37, %sw.bb1 ], [ %retval.0.i, %sw.bb ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -11427,12 +11403,12 @@ lor.end:                                          ; preds = %land.end42
   %NavActivateId = getelementptr inbounds i8, ptr %0, i64 19192
   %23 = load i32, ptr %NavActivateId, align 8
   %cmp46 = icmp eq i32 %23, %call1
-  %brmerge127.not = and i1 %cmp46, %cmp14
-  br i1 %brmerge127.not, label %if.then58, label %if.end73
+  %brmerge125.not = and i1 %cmp46, %cmp14
+  br i1 %brmerge125.not, label %if.then58, label %if.end73
 
 if.then53:                                        ; preds = %land.end42
   call void @_ZN5ImGui11SetKeyOwnerE8ImGuiKeyji(i32 noundef 655, i32 noundef %call1, i32 noundef 0)
-  br i1 %cmp14, label %if.then58, label %if.end101.thread143
+  br i1 %cmp14, label %if.then58, label %if.end101.thread141
 
 if.then58:                                        ; preds = %lor.end, %if.then53
   br i1 %21, label %land.lhs.true60, label %lor.lhs.false63
@@ -11470,8 +11446,8 @@ if.end73:                                         ; preds = %lor.end, %lor.lhs.f
   %28 = load i8, ptr %ConfigDragClickToInputText, align 1
   %tobool75 = trunc i8 %28 to i1
   %brmerge88.not = and i1 %cmp14, %tobool75
-  %brmerge148.not = and i1 %temp_input_is_active.1.not, %brmerge88.not
-  br i1 %brmerge148.not, label %if.then80, label %if.end95
+  %brmerge146.not = and i1 %temp_input_is_active.1.not, %brmerge88.not
+  br i1 %brmerge146.not, label %if.then80, label %if.end95
 
 if.then80:                                        ; preds = %if.end73
   %ActiveId = getelementptr inbounds i8, ptr %0, i64 16492
@@ -11504,9 +11480,9 @@ if.end95:                                         ; preds = %if.end73, %if.then8
   br i1 %27, label %land.lhs.true97, label %if.end101
 
 land.lhs.true97:                                  ; preds = %if.end95
-  br i1 %temp_input_is_active.1.not, label %if.end101.thread143, label %if.then103
+  br i1 %temp_input_is_active.1.not, label %if.end101.thread141, label %if.then103
 
-if.end101.thread143:                              ; preds = %land.lhs.true97, %if.then53
+if.end101.thread141:                              ; preds = %land.lhs.true97, %if.then53
   call void @_ZN5ImGui11SetActiveIDEjP11ImGuiWindow(i32 noundef %call1, ptr noundef nonnull %2)
   call void @_ZN5ImGui10SetFocusIDEjP11ImGuiWindow(i32 noundef %call1, ptr noundef nonnull %2)
   call void @_ZN5ImGui11FocusWindowEP11ImGuiWindowi(ptr noundef nonnull %2, i32 noundef 0)
@@ -11520,16 +11496,16 @@ if.end101:                                        ; preds = %if.end95
 if.then103:                                       ; preds = %if.then91, %land.lhs.true97, %land.end, %if.end101
   %and104 = and i32 %flags, 16
   %cmp105.not = icmp eq i32 %and104, 0
-  br i1 %cmp105.not, label %land.end114, label %land.rhs106
+  br i1 %cmp105.not, label %.thread123, label %land.rhs106
 
 land.rhs106:                                      ; preds = %if.then103
   %cmp107 = icmp eq ptr %p_min, null
   %cmp109 = icmp eq ptr %p_max, null
   %or.cond = or i1 %cmp107, %cmp109
-  br i1 %or.cond, label %land.end114, label %lor.rhs110
+  br i1 %or.cond, label %.thread, label %lor.rhs110
 
 lor.rhs110:                                       ; preds = %land.rhs106
-  switch i32 %data_type, label %land.end114.thread120 [
+  switch i32 %data_type, label %.thread123 [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb3.i
@@ -11545,73 +11521,78 @@ lor.rhs110:                                       ; preds = %land.rhs106
 sw.bb.i:                                          ; preds = %lor.rhs110
   %arg_1.val.i = load i8, ptr %p_min, align 1
   %arg_2.val.i = load i8, ptr %p_max, align 1
-  %cmp.i.i = icmp slt i8 %arg_1.val.i, %arg_2.val.i
-  br i1 %cmp.i.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8 %arg_1.val.i, i8 %arg_2.val.i)
+  br label %land.end114
 
 sw.bb1.i:                                         ; preds = %lor.rhs110
   %arg_1.val19.i = load i8, ptr %p_min, align 1
   %arg_2.val20.i = load i8, ptr %p_max, align 1
-  %cmp.i37.i = icmp ult i8 %arg_1.val19.i, %arg_2.val20.i
-  br i1 %cmp.i37.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i37.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8 %arg_1.val19.i, i8 %arg_2.val20.i)
+  br label %land.end114
 
 sw.bb3.i:                                         ; preds = %lor.rhs110
   %arg_1.val21.i = load i16, ptr %p_min, align 2
   %arg_2.val22.i = load i16, ptr %p_max, align 2
-  %cmp.i41.i = icmp slt i16 %arg_1.val21.i, %arg_2.val22.i
-  br i1 %cmp.i41.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i38.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %arg_1.val21.i, i16 %arg_2.val22.i)
+  br label %land.end114
 
 sw.bb5.i:                                         ; preds = %lor.rhs110
   %arg_1.val23.i = load i16, ptr %p_min, align 2
   %arg_2.val24.i = load i16, ptr %p_max, align 2
-  %cmp.i45.i = icmp ult i16 %arg_1.val23.i, %arg_2.val24.i
-  br i1 %cmp.i45.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i39.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16 %arg_1.val23.i, i16 %arg_2.val24.i)
+  br label %land.end114
 
 sw.bb7.i:                                         ; preds = %lor.rhs110
   %arg_1.val25.i = load i32, ptr %p_min, align 4
   %arg_2.val26.i = load i32, ptr %p_max, align 4
-  %cmp.i49.i = icmp slt i32 %arg_1.val25.i, %arg_2.val26.i
-  br i1 %cmp.i49.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i40.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %arg_1.val25.i, i32 %arg_2.val26.i)
+  br label %land.end114
 
 sw.bb9.i:                                         ; preds = %lor.rhs110
   %arg_1.val27.i = load i32, ptr %p_min, align 4
   %arg_2.val28.i = load i32, ptr %p_max, align 4
-  %cmp.i52.i = icmp ult i32 %arg_1.val27.i, %arg_2.val28.i
-  br i1 %cmp.i52.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i41.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %arg_1.val27.i, i32 %arg_2.val28.i)
+  br label %land.end114
 
 sw.bb11.i:                                        ; preds = %lor.rhs110
   %arg_1.val29.i = load i64, ptr %p_min, align 8
   %arg_2.val30.i = load i64, ptr %p_max, align 8
-  %cmp.i56.i = icmp slt i64 %arg_1.val29.i, %arg_2.val30.i
-  br i1 %cmp.i56.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i42.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %arg_1.val29.i, i64 %arg_2.val30.i)
+  br label %land.end114
 
 sw.bb13.i:                                        ; preds = %lor.rhs110
   %arg_1.val31.i = load i64, ptr %p_min, align 8
   %arg_2.val32.i = load i64, ptr %p_max, align 8
-  %cmp.i60.i = icmp ult i64 %arg_1.val31.i, %arg_2.val32.i
-  br i1 %cmp.i60.i, label %land.end114, label %land.end114.thread120
+  %retval.0.i43.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %arg_1.val31.i, i64 %arg_2.val32.i)
+  br label %land.end114
 
 sw.bb15.i:                                        ; preds = %lor.rhs110
   %arg_1.val33.i = load float, ptr %p_min, align 4
   %arg_2.val34.i = load float, ptr %p_max, align 4
-  %cmp.i64.i = fcmp olt float %arg_1.val33.i, %arg_2.val34.i
-  br i1 %cmp.i64.i, label %land.end114, label %land.end114.thread120
+  %cmp.i.i = fcmp olt float %arg_1.val33.i, %arg_2.val34.i
+  br i1 %cmp.i.i, label %.thread, label %.thread123
 
 sw.bb17.i:                                        ; preds = %lor.rhs110
   %arg_1.val35.i = load double, ptr %p_min, align 8
   %arg_2.val36.i = load double, ptr %p_max, align 8
-  %cmp.i68.i = fcmp olt double %arg_1.val35.i, %arg_2.val36.i
-  br i1 %cmp.i68.i, label %land.end114, label %land.end114.thread120
+  %cmp.i45.i = fcmp olt double %arg_1.val35.i, %arg_2.val36.i
+  br i1 %cmp.i45.i, label %.thread, label %.thread123
 
-land.end114.thread120:                            ; preds = %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i, %lor.rhs110
-  br label %land.end114
+land.end114:                                      ; preds = %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
+  %retval.0.i = phi i32 [ %retval.0.i43.i, %sw.bb13.i ], [ %retval.0.i42.i, %sw.bb11.i ], [ %retval.0.i41.i, %sw.bb9.i ], [ %retval.0.i40.i, %sw.bb7.i ], [ %retval.0.i39.i, %sw.bb5.i ], [ %retval.0.i38.i, %sw.bb3.i ], [ %retval.0.i37.i, %sw.bb1.i ], [ %retval.0.i.i, %sw.bb.i ]
+  %cmp112 = icmp slt i32 %retval.0.i, 0
+  br i1 %cmp112, label %.thread, label %.thread123
 
-land.end114:                                      ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i, %sw.bb15.i, %sw.bb17.i, %land.rhs106, %if.then103, %land.end114.thread120
-  %32 = phi ptr [ null, %land.end114.thread120 ], [ null, %if.then103 ], [ %p_min, %land.rhs106 ], [ %p_min, %sw.bb17.i ], [ %p_min, %sw.bb15.i ], [ %p_min, %sw.bb13.i ], [ %p_min, %sw.bb11.i ], [ %p_min, %sw.bb9.i ], [ %p_min, %sw.bb7.i ], [ %p_min, %sw.bb5.i ], [ %p_min, %sw.bb3.i ], [ %p_min, %sw.bb1.i ], [ %p_min, %sw.bb.i ]
-  %33 = phi ptr [ null, %land.end114.thread120 ], [ null, %if.then103 ], [ %p_max, %land.rhs106 ], [ %p_max, %sw.bb17.i ], [ %p_max, %sw.bb15.i ], [ %p_max, %sw.bb13.i ], [ %p_max, %sw.bb11.i ], [ %p_max, %sw.bb9.i ], [ %p_max, %sw.bb7.i ], [ %p_max, %sw.bb5.i ], [ %p_max, %sw.bb3.i ], [ %p_max, %sw.bb1.i ], [ %p_max, %sw.bb.i ]
+.thread:                                          ; preds = %land.end114, %sw.bb15.i, %sw.bb17.i, %land.rhs106
+  br label %.thread123
+
+.thread123:                                       ; preds = %land.end114, %lor.rhs110, %sw.bb15.i, %sw.bb17.i, %if.then103, %.thread
+  %32 = phi ptr [ %p_min, %.thread ], [ null, %if.then103 ], [ null, %sw.bb17.i ], [ null, %sw.bb15.i ], [ null, %lor.rhs110 ], [ null, %land.end114 ]
+  %33 = phi ptr [ %p_max, %.thread ], [ null, %if.then103 ], [ null, %sw.bb17.i ], [ null, %sw.bb15.i ], [ null, %lor.rhs110 ], [ null, %land.end114 ]
   %call126 = call noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull align 4 dereferenceable(16) %frame_bb, i32 noundef %call1, ptr noundef %label, i32 noundef %data_type, ptr noundef %p_data, ptr noundef %format.addr.0, ptr noundef %32, ptr noundef %33)
   br label %return
 
-if.end127:                                        ; preds = %if.end101.thread143, %if.end101
+if.end127:                                        ; preds = %if.end101.thread141, %if.end101
   %ActiveId128 = getelementptr inbounds i8, ptr %0, i64 16492
   %34 = load i32, ptr %ActiveId128, align 4
   %cmp129 = icmp eq i32 %34, %call1
@@ -11665,8 +11646,8 @@ if.then156:                                       ; preds = %if.end149
   call void @_ZN5ImGui10RenderTextE6ImVec2PKcS2_b(<2 x float> %agg.tmp157.sroa.0.4.vec.insert, ptr noundef %label, ptr noundef null, i1 noundef zeroext true)
   br label %return
 
-return:                                           ; preds = %if.end149, %if.then156, %cond.end, %entry, %land.end114
-  %retval.0 = phi i1 [ %call126, %land.end114 ], [ false, %entry ], [ false, %cond.end ], [ %call140, %if.then156 ], [ %call140, %if.end149 ]
+return:                                           ; preds = %if.end149, %if.then156, %cond.end, %entry, %.thread123
+  %retval.0 = phi i1 [ %call126, %.thread123 ], [ false, %entry ], [ false, %cond.end ], [ %call140, %if.then156 ], [ %call140, %if.end149 ]
   ret i1 %retval.0
 }
 
@@ -11862,82 +11843,77 @@ land.lhs.true15:                                  ; preds = %if.then12
 sw.bb.i:                                          ; preds = %land.lhs.true15
   %arg_1.val.i = load i8, ptr %p_clamp_min, align 1
   %arg_2.val.i = load i8, ptr %p_clamp_max, align 1
-  %cmp.i.i26 = icmp slt i8 %arg_1.val.i, %arg_2.val.i
-  %cmp4.i.i = icmp sgt i8 %arg_1.val.i, %arg_2.val.i
-  br i1 %cmp.i.i26, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8 %arg_1.val.i, i8 %arg_2.val.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb1.i:                                         ; preds = %land.lhs.true15
   %arg_1.val19.i = load i8, ptr %p_clamp_min, align 1
   %arg_2.val20.i = load i8, ptr %p_clamp_max, align 1
-  %cmp.i37.i = icmp ult i8 %arg_1.val19.i, %arg_2.val20.i
-  %cmp4.i38.i = icmp ugt i8 %arg_1.val19.i, %arg_2.val20.i
-  br i1 %cmp.i37.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i37.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8 %arg_1.val19.i, i8 %arg_2.val20.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb3.i:                                         ; preds = %land.lhs.true15
   %arg_1.val21.i = load i16, ptr %p_clamp_min, align 2
   %arg_2.val22.i = load i16, ptr %p_clamp_max, align 2
-  %cmp.i41.i = icmp slt i16 %arg_1.val21.i, %arg_2.val22.i
-  %cmp4.i42.i = icmp sgt i16 %arg_1.val21.i, %arg_2.val22.i
-  br i1 %cmp.i41.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i38.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %arg_1.val21.i, i16 %arg_2.val22.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb5.i:                                         ; preds = %land.lhs.true15
   %arg_1.val23.i = load i16, ptr %p_clamp_min, align 2
   %arg_2.val24.i = load i16, ptr %p_clamp_max, align 2
-  %cmp.i45.i = icmp ult i16 %arg_1.val23.i, %arg_2.val24.i
-  %cmp4.i46.i = icmp ugt i16 %arg_1.val23.i, %arg_2.val24.i
-  br i1 %cmp.i45.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i39.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16 %arg_1.val23.i, i16 %arg_2.val24.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb7.i:                                         ; preds = %land.lhs.true15
   %arg_1.val25.i = load i32, ptr %p_clamp_min, align 4
   %arg_2.val26.i = load i32, ptr %p_clamp_max, align 4
-  %cmp.i49.i = icmp slt i32 %arg_1.val25.i, %arg_2.val26.i
-  %cmp1.i.i = icmp sgt i32 %arg_1.val25.i, %arg_2.val26.i
-  br i1 %cmp.i49.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i40.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %arg_1.val25.i, i32 %arg_2.val26.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb9.i:                                         ; preds = %land.lhs.true15
   %arg_1.val27.i = load i32, ptr %p_clamp_min, align 4
   %arg_2.val28.i = load i32, ptr %p_clamp_max, align 4
-  %cmp.i52.i = icmp ult i32 %arg_1.val27.i, %arg_2.val28.i
-  %cmp1.i53.i = icmp ugt i32 %arg_1.val27.i, %arg_2.val28.i
-  br i1 %cmp.i52.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i41.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %arg_1.val27.i, i32 %arg_2.val28.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb11.i:                                        ; preds = %land.lhs.true15
   %arg_1.val29.i = load i64, ptr %p_clamp_min, align 8
   %arg_2.val30.i = load i64, ptr %p_clamp_max, align 8
-  %cmp.i56.i = icmp slt i64 %arg_1.val29.i, %arg_2.val30.i
-  %cmp1.i57.i = icmp sgt i64 %arg_1.val29.i, %arg_2.val30.i
-  br i1 %cmp.i56.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i42.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %arg_1.val29.i, i64 %arg_2.val30.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb13.i:                                        ; preds = %land.lhs.true15
   %arg_1.val31.i = load i64, ptr %p_clamp_min, align 8
   %arg_2.val32.i = load i64, ptr %p_clamp_max, align 8
-  %cmp.i60.i = icmp ult i64 %arg_1.val31.i, %arg_2.val32.i
-  %cmp1.i61.i = icmp ugt i64 %arg_1.val31.i, %arg_2.val32.i
-  br i1 %cmp.i60.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %retval.0.i43.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %arg_1.val31.i, i64 %arg_2.val32.i)
+  br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb15.i:                                        ; preds = %land.lhs.true15
   %arg_1.val33.i = load float, ptr %p_clamp_min, align 4
   %arg_2.val34.i = load float, ptr %p_clamp_max, align 4
-  %cmp.i64.i = fcmp olt float %arg_1.val33.i, %arg_2.val34.i
-  %cmp1.i65.i = fcmp ogt float %arg_1.val33.i, %arg_2.val34.i
-  br i1 %cmp.i64.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %cmp.i.i26 = fcmp olt float %arg_1.val33.i, %arg_2.val34.i
+  %cmp1.i.i = fcmp ogt float %arg_1.val33.i, %arg_2.val34.i
+  %..i.i = zext i1 %cmp1.i.i to i32
+  br i1 %cmp.i.i26, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb17.i:                                        ; preds = %land.lhs.true15
   %arg_1.val35.i = load double, ptr %p_clamp_min, align 8
   %arg_2.val36.i = load double, ptr %p_clamp_max, align 8
-  %cmp.i68.i = fcmp olt double %arg_1.val35.i, %arg_2.val36.i
-  %cmp1.i69.i = fcmp ogt double %arg_1.val35.i, %arg_2.val36.i
-  br i1 %cmp.i68.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
+  %cmp.i45.i = fcmp olt double %arg_1.val35.i, %arg_2.val36.i
+  %cmp1.i46.i = fcmp ogt double %arg_1.val35.i, %arg_2.val36.i
+  %..i47.i = zext i1 %cmp1.i46.i to i32
+  br i1 %cmp.i45.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
-_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i, %sw.bb15.i, %sw.bb17.i
-  %retval.0.i25.in = phi i1 [ %cmp1.i69.i, %sw.bb17.i ], [ %cmp1.i65.i, %sw.bb15.i ], [ %cmp1.i61.i, %sw.bb13.i ], [ %cmp1.i57.i, %sw.bb11.i ], [ %cmp1.i53.i, %sw.bb9.i ], [ %cmp1.i.i, %sw.bb7.i ], [ %cmp4.i46.i, %sw.bb5.i ], [ %cmp4.i42.i, %sw.bb3.i ], [ %cmp4.i38.i, %sw.bb1.i ], [ %cmp4.i.i, %sw.bb.i ]
-  %spec.select = select i1 %retval.0.i25.in, ptr %p_clamp_max, ptr %p_clamp_min
-  %spec.select42 = select i1 %retval.0.i25.in, ptr %p_clamp_min, ptr %p_clamp_max
+_ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %sw.bb15.i, %sw.bb17.i, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
+  %retval.0.i25 = phi i32 [ %..i47.i, %sw.bb17.i ], [ %..i.i, %sw.bb15.i ], [ %retval.0.i43.i, %sw.bb13.i ], [ %retval.0.i42.i, %sw.bb11.i ], [ %retval.0.i41.i, %sw.bb9.i ], [ %retval.0.i40.i, %sw.bb7.i ], [ %retval.0.i39.i, %sw.bb5.i ], [ %retval.0.i38.i, %sw.bb3.i ], [ %retval.0.i37.i, %sw.bb1.i ], [ %retval.0.i.i, %sw.bb.i ]
+  %cmp17 = icmp sgt i32 %retval.0.i25, 0
+  %spec.select = select i1 %cmp17, ptr %p_clamp_max, ptr %p_clamp_min
+  %spec.select34 = select i1 %cmp17, ptr %p_clamp_min, ptr %p_clamp_max
   br label %if.end19
 
-if.end19:                                         ; preds = %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i, %sw.bb15.i, %sw.bb17.i, %land.lhs.true15, %if.then12
-  %p_clamp_min.addr.0 = phi ptr [ %p_clamp_min, %if.then12 ], [ %p_clamp_min, %land.lhs.true15 ], [ %p_clamp_min, %sw.bb17.i ], [ %p_clamp_min, %sw.bb15.i ], [ %p_clamp_min, %sw.bb13.i ], [ %p_clamp_min, %sw.bb11.i ], [ %p_clamp_min, %sw.bb9.i ], [ %p_clamp_min, %sw.bb7.i ], [ %p_clamp_min, %sw.bb5.i ], [ %p_clamp_min, %sw.bb3.i ], [ %p_clamp_min, %sw.bb1.i ], [ %p_clamp_min, %sw.bb.i ], [ %spec.select, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
-  %p_clamp_max.addr.0 = phi ptr [ %p_clamp_max, %if.then12 ], [ %p_clamp_max, %land.lhs.true15 ], [ %p_clamp_max, %sw.bb17.i ], [ %p_clamp_max, %sw.bb15.i ], [ %p_clamp_max, %sw.bb13.i ], [ %p_clamp_max, %sw.bb11.i ], [ %p_clamp_max, %sw.bb9.i ], [ %p_clamp_max, %sw.bb7.i ], [ %p_clamp_max, %sw.bb5.i ], [ %p_clamp_max, %sw.bb3.i ], [ %p_clamp_max, %sw.bb1.i ], [ %p_clamp_max, %sw.bb.i ], [ %spec.select42, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
+if.end19:                                         ; preds = %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %sw.bb15.i, %sw.bb17.i, %land.lhs.true15, %if.then12
+  %p_clamp_min.addr.0 = phi ptr [ %p_clamp_min, %if.then12 ], [ %p_clamp_min, %land.lhs.true15 ], [ %p_clamp_min, %sw.bb17.i ], [ %p_clamp_min, %sw.bb15.i ], [ %spec.select, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
+  %p_clamp_max.addr.0 = phi ptr [ %p_clamp_max, %if.then12 ], [ %p_clamp_max, %land.lhs.true15 ], [ %p_clamp_max, %sw.bb17.i ], [ %p_clamp_max, %sw.bb15.i ], [ %spec.select34, %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit ]
   %call20 = call noundef zeroext i1 @_ZN5ImGui13DataTypeClampEiPvPKvS2_(i32 noundef %data_type, ptr noundef %p_data, ptr noundef %p_clamp_min.addr.0, ptr noundef %p_clamp_max.addr.0)
   br label %if.end21
 
@@ -41093,6 +41069,30 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i8(i8, i8) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i8(i8, i8) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i16(i16, i16) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #34

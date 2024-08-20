@@ -1850,15 +1850,12 @@ entry:
   %2 = load i64, ptr %size_.i, align 8
   %size_2.i = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %size_2.i, align 8
-  %cmp.i = icmp ult i64 %2, %3
   %..i = tail call i64 @llvm.umin.i64(i64 %2, i64 %3)
   %4 = load ptr, ptr %a, align 8
   %5 = load ptr, ptr %b, align 8
   %call.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %5, i64 noundef %..i) #28
   %cmp6.not.i = icmp eq i32 %call.i, 0
-  %cmp13.i = icmp ugt i64 %2, %3
-  %spec.select.i = zext i1 %cmp13.i to i32
-  %call.mux.i = select i1 %cmp.i, i32 -1, i32 %spec.select.i
+  %call.mux.i = tail call i32 @llvm.ucmp.i32.i64(i64 %2, i64 %3)
   %r.0.i = select i1 %cmp6.not.i, i32 %call.mux.i, i32 %call.i
   ret i32 %r.0.i
 }
@@ -1892,15 +1889,12 @@ entry:
   %0 = load i64, ptr %size_.i, align 8
   %size_2.i = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %size_2.i, align 8
-  %cmp.i = icmp ult i64 %0, %1
   %..i = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %2 = load ptr, ptr %a, align 8
   %3 = load ptr, ptr %b, align 8
   %call.i = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %..i) #28
   %cmp6.not.i = icmp eq i32 %call.i, 0
-  %cmp13.i = icmp ugt i64 %0, %1
-  %spec.select.i = zext i1 %cmp13.i to i32
-  %call.mux.i = select i1 %cmp.i, i32 -1, i32 %spec.select.i
+  %call.mux.i = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   %r.0.i = select i1 %cmp6.not.i, i32 %call.mux.i, i32 %call.i
   ret i32 %r.0.i
 }
@@ -1985,15 +1979,12 @@ entry:
   %0 = load i64, ptr %size_.i.i, align 8
   %size_2.i.i = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %size_2.i.i, align 8
-  %cmp.i.i = icmp ult i64 %0, %1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %2 = load ptr, ptr %a, align 8
   %3 = load ptr, ptr %b, align 8
   %call.i.i = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %..i.i) #28
   %cmp6.not.i.i = icmp eq i32 %call.i.i, 0
-  %cmp13.i.i = icmp ugt i64 %0, %1
-  %spec.select.i.i = zext i1 %cmp13.i.i to i32
-  %call.mux.i.i = select i1 %cmp.i.i, i32 -1, i32 %spec.select.i.i
+  %call.mux.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   %r.0.i.i = select i1 %cmp6.not.i.i, i32 %call.mux.i.i, i32 %call.i.i
   ret i32 %r.0.i.i
 }
@@ -2321,15 +2312,12 @@ entry:
   %2 = load i64, ptr %size_.i, align 8
   %size_2.i = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %size_2.i, align 8
-  %cmp.i = icmp ult i64 %2, %3
   %..i = tail call i64 @llvm.umin.i64(i64 %2, i64 %3)
   %4 = load ptr, ptr %a, align 8
   %5 = load ptr, ptr %b, align 8
   %call.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %5, i64 noundef %..i) #28
   %cmp6.not.i = icmp eq i32 %call.i, 0
-  %cmp13.i = icmp ugt i64 %2, %3
-  %spec.select.i = zext i1 %cmp13.i to i32
-  %call.mux.i = select i1 %cmp.i, i32 -1, i32 %spec.select.i
+  %call.mux.i = tail call i32 @llvm.ucmp.i32.i64(i64 %2, i64 %3)
   %r.0.i = select i1 %cmp6.not.i, i32 %call.mux.i, i32 %call.i
   %sub = sub nsw i32 0, %r.0.i
   ret i32 %sub
@@ -2342,15 +2330,12 @@ entry:
   %0 = load i64, ptr %size_.i, align 8
   %size_2.i = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %size_2.i, align 8
-  %cmp.i = icmp ult i64 %0, %1
   %..i = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %2 = load ptr, ptr %a, align 8
   %3 = load ptr, ptr %b, align 8
   %call.i = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %..i) #28
   %cmp6.not.i = icmp eq i32 %call.i, 0
-  %cmp13.i = icmp ugt i64 %0, %1
-  %spec.select.i = zext i1 %cmp13.i to i32
-  %call.mux.i = select i1 %cmp.i, i32 -1, i32 %spec.select.i
+  %call.mux.i = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   %r.0.i = select i1 %cmp6.not.i, i32 %call.mux.i, i32 %call.i
   %sub = sub nsw i32 0, %r.0.i
   ret i32 %sub
@@ -2436,15 +2421,12 @@ entry:
   %0 = load i64, ptr %size_.i.i, align 8
   %size_2.i.i = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %size_2.i.i, align 8
-  %cmp.i.i = icmp ult i64 %0, %1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %2 = load ptr, ptr %a, align 8
   %3 = load ptr, ptr %b, align 8
   %call.i.i = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %..i.i) #28
   %cmp6.not.i.i = icmp eq i32 %call.i.i, 0
-  %cmp13.i.i = icmp ugt i64 %0, %1
-  %spec.select.i.i = zext i1 %cmp13.i.i to i32
-  %call.mux.i.i = select i1 %cmp.i.i, i32 -1, i32 %spec.select.i.i
+  %call.mux.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   %r.0.i.i = select i1 %cmp6.not.i.i, i32 %call.mux.i.i, i32 %call.i.i
   %sub.i = sub nsw i32 0, %r.0.i.i
   ret i32 %sub.i
@@ -2659,10 +2641,7 @@ entry:
   %result.0.copyload.i = load i64, ptr %0, align 1
   %1 = load ptr, ptr %ts2, align 8
   %result.0.copyload.i3 = load i64, ptr %1, align 1
-  %cmp = icmp ult i64 %result.0.copyload.i, %result.0.copyload.i3
-  %cmp5 = icmp ugt i64 %result.0.copyload.i, %result.0.copyload.i3
-  %. = zext i1 %cmp5 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %result.0.copyload.i, i64 %result.0.copyload.i3)
   ret i32 %retval.0
 }
 
@@ -2681,13 +2660,10 @@ entry:
   %sub.i.i7 = select i1 %b_has_ts, i64 %0, i64 0
   %rhs.sroa.3.0 = sub i64 %retval.sroa.2.0.copyload.i6, %sub.i.i7
   %rhs.sroa.0.0 = load ptr, ptr %b, align 8
-  %cmp.i.i = icmp ult i64 %lhs.sroa.3.0, %rhs.sroa.3.0
   %..i.i = tail call i64 @llvm.umin.i64(i64 %lhs.sroa.3.0, i64 %rhs.sroa.3.0)
   %call.i.i = tail call i32 @memcmp(ptr noundef %lhs.sroa.0.0, ptr noundef %rhs.sroa.0.0, i64 noundef %..i.i) #28
   %cmp6.not.i.i = icmp eq i32 %call.i.i, 0
-  %cmp13.i.i = icmp ugt i64 %lhs.sroa.3.0, %rhs.sroa.3.0
-  %spec.select.i.i = zext i1 %cmp13.i.i to i32
-  %call.mux.i.i = select i1 %cmp.i.i, i32 -1, i32 %spec.select.i.i
+  %call.mux.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %lhs.sroa.3.0, i64 %rhs.sroa.3.0)
   %r.0.i.i = select i1 %cmp6.not.i.i, i32 %call.mux.i.i, i32 %call.i.i
   ret i32 %r.0.i.i
 }
@@ -3056,10 +3032,7 @@ entry:
   %result.0.copyload.i = load i64, ptr %0, align 1
   %1 = load ptr, ptr %ts2, align 8
   %result.0.copyload.i3 = load i64, ptr %1, align 1
-  %cmp = icmp ult i64 %result.0.copyload.i, %result.0.copyload.i3
-  %cmp5 = icmp ugt i64 %result.0.copyload.i, %result.0.copyload.i3
-  %. = zext i1 %cmp5 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %result.0.copyload.i, i64 %result.0.copyload.i3)
   ret i32 %retval.0
 }
 
@@ -3078,13 +3051,10 @@ entry:
   %sub.i.i7 = select i1 %b_has_ts, i64 %0, i64 0
   %rhs.sroa.3.0 = sub i64 %retval.sroa.2.0.copyload.i6, %sub.i.i7
   %rhs.sroa.0.0 = load ptr, ptr %b, align 8
-  %cmp.i.i = icmp ult i64 %lhs.sroa.3.0, %rhs.sroa.3.0
   %..i.i = tail call i64 @llvm.umin.i64(i64 %lhs.sroa.3.0, i64 %rhs.sroa.3.0)
   %call.i.i = tail call i32 @memcmp(ptr noundef %lhs.sroa.0.0, ptr noundef %rhs.sroa.0.0, i64 noundef %..i.i) #28
   %cmp6.not.i.i = icmp eq i32 %call.i.i, 0
-  %cmp13.i.i = icmp ugt i64 %lhs.sroa.3.0, %rhs.sroa.3.0
-  %spec.select.i.i = zext i1 %cmp13.i.i to i32
-  %call.mux.i.i = select i1 %cmp.i.i, i32 -1, i32 %spec.select.i.i
+  %call.mux.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %lhs.sroa.3.0, i64 %rhs.sroa.3.0)
   %r.0.i.i = select i1 %cmp6.not.i.i, i32 %call.mux.i.i, i32 %call.i.i
   %sub.i = sub nsw i32 0, %r.0.i.i
   ret i32 %sub.i
@@ -5512,6 +5482,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22

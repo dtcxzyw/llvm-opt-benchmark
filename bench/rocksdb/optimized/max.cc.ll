@@ -107,34 +107,34 @@ if.end8:                                          ; preds = %if.end8.sink.split,
   %6 = load ptr, ptr %5, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not17 = icmp eq ptr %6, %7
-  br i1 %cmp.i.not17, label %for.end, label %for.body.lr.ph
+  %cmp.i.not15 = icmp eq ptr %6, %7
+  br i1 %cmp.i.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end8
   %size_.i12 = getelementptr inbounds i8, ptr %0, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.018 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %__begin1.sroa.0.016 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %8 = load i64, ptr %size_.i12, align 8
-  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 8
+  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 8
   %9 = load i64, ptr %size_2.i, align 8
-  %cmp.i13 = icmp ult i64 %8, %9
   %..i = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
   %10 = load ptr, ptr %0, align 8
-  %11 = load ptr, ptr %__begin1.sroa.0.018, align 8
+  %11 = load ptr, ptr %__begin1.sroa.0.016, align 8
   %call.i = tail call i32 @memcmp(ptr noundef %10, ptr noundef %11, i64 noundef %..i) #14
   %cmp6.not.i = icmp eq i32 %call.i, 0
-  %cmp1516 = icmp slt i32 %call.i, 0
-  %cmp15 = select i1 %cmp6.not.i, i1 %cmp.i13, i1 %cmp1516
+  %call.mux.i = tail call i32 @llvm.ucmp.i32.i64(i64 %8, i64 %9)
+  %r.0.i = select i1 %cmp6.not.i, i32 %call.mux.i, i32 %call.i
+  %cmp15 = icmp slt i32 %r.0.i, 0
   br i1 %cmp15, label %if.then16, label %for.inc
 
 if.then16:                                        ; preds = %for.body
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %__begin1.sroa.0.018, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %__begin1.sroa.0.016, i64 16, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then16
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -152,13 +152,12 @@ entry:
   %2 = load i64, ptr %size_.i, align 8
   %size_2.i = getelementptr inbounds i8, ptr %right_operand, i64 8
   %3 = load i64, ptr %size_2.i, align 8
-  %cmp.i = icmp ult i64 %2, %3
   %..i = tail call i64 @llvm.umin.i64(i64 %2, i64 %3)
   %4 = load ptr, ptr %left_operand, align 8
   %5 = load ptr, ptr %right_operand, align 8
   %call.i = tail call i32 @memcmp(ptr noundef %4, ptr noundef %5, i64 noundef %..i) #14
   %cmp6.not.i = icmp eq i32 %call.i, 0
-  %call.mux.i = sext i1 %cmp.i to i32
+  %call.mux.i = tail call i32 @llvm.ucmp.i32.i64(i64 %2, i64 %3)
   %r.0.i = select i1 %cmp6.not.i, i32 %call.mux.i, i32 %call.i
   %cmp = icmp sgt i32 %r.0.i, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -184,8 +183,8 @@ entry:
   %2 = load ptr, ptr %_M_start.i, align 8, !noalias !4
   %_M_finish.i = getelementptr inbounds i8, ptr %operand_list, i64 48
   %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !7
-  %cmp.i.i.not19 = icmp eq ptr %2, %3
-  br i1 %cmp.i.i.not19, label %for.end, label %for.body.preheader
+  %cmp.i.i.not17 = icmp eq ptr %2, %3
+  br i1 %cmp.i.i.not17, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %_M_node5.i.i = getelementptr inbounds i8, ptr %operand_list, i64 40
@@ -195,42 +194,42 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
-  %max.sroa.4.024 = phi i64 [ %spec.select17, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ 0, %for.body.preheader ]
-  %max.sroa.0.023 = phi ptr [ %spec.select, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ @.str, %for.body.preheader ]
-  %__begin1.sroa.11.022 = phi ptr [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %4, %for.body.preheader ]
-  %__begin1.sroa.8.021 = phi ptr [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %5, %for.body.preheader ]
-  %__begin1.sroa.0.020 = phi ptr [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %2, %for.body.preheader ]
-  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.020, i64 8
+  %max.sroa.4.022 = phi i64 [ %spec.select16, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ 0, %for.body.preheader ]
+  %max.sroa.0.021 = phi ptr [ %spec.select, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ @.str, %for.body.preheader ]
+  %__begin1.sroa.11.020 = phi ptr [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %4, %for.body.preheader ]
+  %__begin1.sroa.8.019 = phi ptr [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %5, %for.body.preheader ]
+  %__begin1.sroa.0.018 = phi ptr [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %2, %for.body.preheader ]
+  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 8
   %6 = load i64, ptr %size_2.i, align 8
-  %cmp.i = icmp ult i64 %max.sroa.4.024, %6
-  %..i = tail call i64 @llvm.umin.i64(i64 %max.sroa.4.024, i64 %6)
-  %7 = load ptr, ptr %__begin1.sroa.0.020, align 8
-  %call.i = tail call i32 @memcmp(ptr noundef %max.sroa.0.023, ptr noundef %7, i64 noundef %..i) #14
+  %..i = tail call i64 @llvm.umin.i64(i64 %max.sroa.4.022, i64 %6)
+  %7 = load ptr, ptr %__begin1.sroa.0.018, align 8
+  %call.i = tail call i32 @memcmp(ptr noundef %max.sroa.0.021, ptr noundef %7, i64 noundef %..i) #14
   %cmp6.not.i = icmp eq i32 %call.i, 0
-  %cmp18 = icmp slt i32 %call.i, 0
-  %cmp = select i1 %cmp6.not.i, i1 %cmp.i, i1 %cmp18
-  %spec.select = select i1 %cmp, ptr %7, ptr %max.sroa.0.023
-  %spec.select17 = select i1 %cmp, i64 %6, i64 %max.sroa.4.024
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.020, i64 16
-  %cmp.i10 = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.021
-  br i1 %cmp.i10, label %if.then.i, label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
+  %call.mux.i = tail call i32 @llvm.ucmp.i32.i64(i64 %max.sroa.4.022, i64 %6)
+  %r.0.i = select i1 %cmp6.not.i, i32 %call.mux.i, i32 %call.i
+  %cmp = icmp slt i32 %r.0.i, 0
+  %spec.select = select i1 %cmp, ptr %7, ptr %max.sroa.0.021
+  %spec.select16 = select i1 %cmp, i64 %6, i64 %max.sroa.4.022
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 16
+  %cmp.i = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.019
+  br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.11.022, i64 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.11.020, i64 8
   %8 = load ptr, ptr %add.ptr.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit: ; preds = %for.body, %if.then.i
   %__begin1.sroa.0.1 = phi ptr [ %8, %if.then.i ], [ %incdec.ptr.i, %for.body ]
-  %__begin1.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %__begin1.sroa.8.021, %for.body ]
-  %__begin1.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i ], [ %__begin1.sroa.11.022, %for.body ]
+  %__begin1.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %__begin1.sroa.8.019, %for.body ]
+  %__begin1.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i ], [ %__begin1.sroa.11.020, %for.body ]
   %cmp.i.i.not = icmp eq ptr %__begin1.sroa.0.1, %3
   br i1 %cmp.i.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit, %entry
   %max.sroa.0.0.lcssa = phi ptr [ @.str, %entry ], [ %spec.select, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ]
-  %max.sroa.4.0.lcssa = phi i64 [ 0, %entry ], [ %spec.select17, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ]
+  %max.sroa.4.0.lcssa = phi i64 [ 0, %entry ], [ %spec.select16, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ]
   %call8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %new_value, ptr noundef %max.sroa.0.0.lcssa, i64 noundef %max.sroa.4.0.lcssa)
   ret i1 true
 }
@@ -734,6 +733,9 @@ declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

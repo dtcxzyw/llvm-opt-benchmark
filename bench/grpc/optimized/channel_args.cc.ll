@@ -204,12 +204,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @"_ZN9grpc_core11ChannelArgs5Value3$_28__invokeEPvS3_"(ptr noundef readnone %p1, ptr noundef readnone %p2) #3 align 2 {
+define internal noundef i32 @"_ZN9grpc_core11ChannelArgs5Value3$_28__invokeEPvS3_"(ptr noundef %p1, ptr noundef %p2) #3 align 2 {
 entry:
-  %cmp.i.i = icmp slt ptr %p1, %p2
-  %cmp1.i.i = icmp slt ptr %p2, %p1
-  %..i.i = zext i1 %cmp1.i.i to i32
-  %retval.0.i.i = select i1 %cmp.i.i, i32 -1, i32 %..i.i
+  %0 = ptrtoint ptr %p1 to i64
+  %1 = ptrtoint ptr %p2 to i64
+  %retval.0.i.i = tail call noundef i32 @llvm.scmp.i32.i64(i64 %0, i64 %1)
   ret i32 %retval.0.i.i
 }
 
@@ -3320,11 +3319,8 @@ if.then4:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
-  %cmp.i = icmp ult i64 %0, %1
-  %cmp1.i = icmp ult i64 %1, %0
-  %..i = zext i1 %cmp1.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 -1, i32 %..i
-  %cmp8.not = icmp eq i32 %retval.0.i, 0
+  %retval.0.i = tail call noundef i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
+  %cmp8.not = icmp eq i64 %0, %1
   br i1 %cmp8.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end6
@@ -3345,11 +3341,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx14 = getelementptr inbounds %struct.grpc_arg, ptr %4, i64 %i.023
   %5 = load i32, ptr %arrayidx, align 4
   %6 = load i32, ptr %arrayidx14, align 4
-  %cmp.i.i = icmp slt i32 %5, %6
-  %cmp1.i.i = icmp slt i32 %6, %5
-  %..i.i = zext i1 %cmp1.i.i to i32
-  %retval.0.i.i = select i1 %cmp.i.i, i32 -1, i32 %..i.i
-  %cmp.not.i = icmp eq i32 %retval.0.i.i, 0
+  %retval.0.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
+  %cmp.not.i = icmp eq i32 %5, %6
   br i1 %cmp.not.i, label %if.end.i, label %_ZL7cmp_argPK8grpc_argS1_.exit
 
 if.end.i:                                         ; preds = %for.body
@@ -3381,10 +3374,8 @@ sw.bb10.i:                                        ; preds = %if.end6.i
   %value12.i = getelementptr inbounds i8, ptr %arrayidx14, i64 16
   %11 = load i32, ptr %value11.i, align 4
   %12 = load i32, ptr %value12.i, align 4
-  %cmp.i15.i = icmp slt i32 %11, %12
-  %cmp1.i16.i = icmp slt i32 %12, %11
-  %..i17.i = zext i1 %cmp1.i16.i to i32
-  br i1 %cmp.i15.i, label %return, label %_ZL7cmp_argPK8grpc_argS1_.exit
+  %retval.0.i15.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %11, i32 %12)
+  br label %_ZL7cmp_argPK8grpc_argS1_.exit
 
 sw.bb14.i:                                        ; preds = %if.end6.i
   %value15.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -3393,8 +3384,8 @@ sw.bb14.i:                                        ; preds = %if.end6.i
   %14 = load ptr, ptr %vtable.i, align 8
   %value17.i = getelementptr inbounds i8, ptr %arrayidx14, i64 16
   %15 = load ptr, ptr %value17.i, align 8
-  %cmp.i19.i = icmp eq ptr %15, %13
-  br i1 %cmp.i19.i, label %for.inc, label %if.end.i.i
+  %cmp.i.i = icmp eq ptr %15, %13
+  br i1 %cmp.i.i, label %for.inc, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb14.i
   %vtable20.i = getelementptr inbounds i8, ptr %arrayidx14, i64 24
@@ -3416,8 +3407,8 @@ do.body.i:                                        ; preds = %if.end6.i
   tail call void @gpr_unreachable_code(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.3, i32 noundef 476) #31
   unreachable
 
-_ZL7cmp_argPK8grpc_argS1_.exit:                   ; preds = %sw.bb10.i, %for.body, %sw.bb.i, %if.end.i.i, %if.end4.i.i
-  %retval.0.i16 = phi i32 [ %..i17.i, %sw.bb10.i ], [ %call9.i, %sw.bb.i ], [ %retval.0.i.i, %for.body ], [ %call6.i.i, %if.end4.i.i ], [ %retval.0.i6.i.i, %if.end.i.i ]
+_ZL7cmp_argPK8grpc_argS1_.exit:                   ; preds = %for.body, %sw.bb.i, %sw.bb10.i, %if.end.i.i, %if.end4.i.i
+  %retval.0.i16 = phi i32 [ %retval.0.i15.i, %sw.bb10.i ], [ %call9.i, %sw.bb.i ], [ %retval.0.i.i, %for.body ], [ %call6.i.i, %if.end4.i.i ], [ %retval.0.i6.i.i, %if.end.i.i ]
   %cmp16.not = icmp eq i32 %retval.0.i16, 0
   br i1 %cmp16.not, label %_ZL7cmp_argPK8grpc_argS1_.exit.for.inc_crit_edge, label %return
 
@@ -3431,8 +3422,8 @@ for.inc:                                          ; preds = %_ZL7cmp_argPK8grpc_
   %cmp12 = icmp ult i64 %inc, %18
   br i1 %cmp12, label %for.body, label %return, !llvm.loop !84
 
-return:                                           ; preds = %_ZL7cmp_argPK8grpc_argS1_.exit, %for.inc, %if.end.i, %sw.bb10.i, %for.cond.preheader, %if.end6, %entry, %if.then4
-  %retval.0 = phi i32 [ %cond, %if.then4 ], [ 0, %entry ], [ %retval.0.i, %if.end6 ], [ 0, %for.cond.preheader ], [ %retval.0.i16, %_ZL7cmp_argPK8grpc_argS1_.exit ], [ 0, %for.inc ], [ %call3.i, %if.end.i ], [ -1, %sw.bb10.i ]
+return:                                           ; preds = %_ZL7cmp_argPK8grpc_argS1_.exit, %for.inc, %if.end.i, %for.cond.preheader, %if.end6, %entry, %if.then4
+  %retval.0 = phi i32 [ %cond, %if.then4 ], [ 0, %entry ], [ %retval.0.i, %if.end6 ], [ 0, %for.cond.preheader ], [ %retval.0.i16, %_ZL7cmp_argPK8grpc_argS1_.exit ], [ 0, %for.inc ], [ %call3.i, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -10707,7 +10698,16 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

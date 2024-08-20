@@ -22,14 +22,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @H5FA__test_crt_context(ptr nocapture readnone %0) #0 {
-  %2 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list) #7
+  %2 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @H5E_FARRAY_g, align 8
   %6 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA__test_crt_context, i32 noundef 121, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.2) #7
+  %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA__test_crt_context, i32 noundef 121, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.2) #8
   br label %9
 
 8:                                                ; preds = %1
@@ -42,7 +42,7 @@ define internal noalias ptr @H5FA__test_crt_context(ptr nocapture readnone %0) #
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5FA__test_dst_context(ptr noundef %0) #0 {
-  %2 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list, ptr noundef %0) #7
+  %2 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list, ptr noundef %0) #8
   ret i32 0
 }
 
@@ -50,7 +50,7 @@ define internal noundef i32 @H5FA__test_dst_context(ptr noundef %0) #0 {
 define internal noundef i32 @H5FA__test_fill(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 -1, ptr %3, align 8
-  %4 = call i32 @H5VM_array_fill(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 8, i64 noundef %1) #7
+  %4 = call i32 @H5VM_array_fill(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 8, i64 noundef %1) #8
   ret i32 0
 }
 
@@ -130,22 +130,22 @@ define internal noundef i32 @H5FA__test_decode(ptr nocapture noundef readonly %0
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5FA__test_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #2 {
   %6 = alloca [128 x i8], align 16
-  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.4, i64 noundef %3) #7
+  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.4, i64 noundef %3) #8
   %8 = load i64, ptr %4, align 8
-  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %1, ptr noundef nonnull @.str.6, i32 noundef %2, ptr noundef nonnull %6, i64 noundef %8) #7
+  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %1, ptr noundef nonnull @.str.6, i32 noundef %2, ptr noundef nonnull %6, i64 noundef %8) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @H5FA__test_crt_dbg_context(ptr nocapture readnone %0, i64 %1) #0 {
-  %3 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list) #7
+  %3 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
   %6 = load i64, ptr @H5E_FARRAY_g, align 8
   %7 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %8 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA__test_crt_dbg_context, i32 noundef 314, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.2) #7
+  %8 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA__test_crt_dbg_context, i32 noundef 314, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.2) #8
   br label %10
 
 9:                                                ; preds = %2
@@ -177,10 +177,7 @@ define range(i32 -1, 2) i32 @H5FA__cmp_cparam_test(ptr nocapture noundef readonl
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
-  %7 = icmp ult i8 %4, %6
-  %8 = icmp ugt i8 %4, %6
-  %spec.select = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %spec.select
+  %.0 = tail call i32 @llvm.ucmp.i32.i8(i8 %4, i8 %6)
   ret i32 %.0
 }
 
@@ -198,6 +195,9 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i8(i8, i8) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -205,7 +205,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

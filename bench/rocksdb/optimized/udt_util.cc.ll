@@ -1867,17 +1867,16 @@ _ZN7rocksdb5SliceC2EPKc.exit.i:                   ; preds = %cond.false.i.i, %in
   %..i.i = tail call i64 @llvm.umin.i64(i64 %cond.i.i, i64 %call2.i.i)
   %bcmp.i = tail call i32 @bcmp(ptr %call1.i, ptr %call.i3.i, i64 %..i.i)
   %cmp6.not.i.i = icmp eq i32 %bcmp.i, 0
-  %cmp13.i.i = icmp ugt i64 %cond.i.i, %call2.i.i
-  %.not.i = icmp eq i64 %cond.i.i, %call2.i.i
-  %cmp.i = select i1 %cmp6.not.i.i, i1 %.not.i, i1 false
+  %cmp50.i = icmp eq i64 %cond.i.i, %call2.i.i
+  %cmp.i = select i1 %cmp6.not.i.i, i1 %cmp50.i, i1 false
   br i1 %cmp.i, label %sw.bb, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7rocksdb5SliceC2EPKc.exit.i
-  %cmp.i6.i = icmp ult i64 %cond.i.i, %call2.i.i
   %add.i = add i64 %call2.i.i, 6
   %cmp5.i = icmp ne i64 %cond.i.i, %add.i
-  %brmerge.i = or i1 %cmp.i6.i, %cmp5.i
-  br i1 %brmerge.i, label %if.end10.i, label %_ZNK7rocksdb5Slice11starts_withERKS0_.exit.i
+  %cmp.not.i.i = icmp ult i64 %cond.i.i, %call2.i.i
+  %or.cond.i = or i1 %cmp.not.i.i, %cmp5.i
+  br i1 %or.cond.i, label %if.end10.i, label %_ZNK7rocksdb5Slice11starts_withERKS0_.exit.i
 
 _ZNK7rocksdb5Slice11starts_withERKS0_.exit.i:     ; preds = %if.end.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %call1.i, ptr %call.i3.i, i64 %call2.i.i)
@@ -1887,43 +1886,44 @@ _ZNK7rocksdb5Slice11starts_withERKS0_.exit.i:     ; preds = %if.end.i
 land.lhs.true7.i:                                 ; preds = %_ZNK7rocksdb5Slice11starts_withERKS0_.exit.i
   %.b = load i1, ptr @_ZZN7rocksdb12_GLOBAL__N_117CompareComparatorEPKNS_10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12kSuffixSlice.1, align 8
   %4 = select i1 %.b, i64 6, i64 0
-  %cmp.not.i13.i = icmp ult i64 %cond.i.i, %4
-  br i1 %cmp.not.i13.i, label %if.end10.i, label %_ZNK7rocksdb5Slice9ends_withERKS0_.exit.i
+  %cmp.not.i12.i = icmp ult i64 %cond.i.i, %4
+  br i1 %cmp.not.i12.i, label %if.end10.i, label %_ZNK7rocksdb5Slice9ends_withERKS0_.exit.i
 
 _ZNK7rocksdb5Slice9ends_withERKS0_.exit.i:        ; preds = %land.lhs.true7.i
   %.neg = select i1 %.b, i64 -6, i64 0
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call1.i, i64 %cond.i.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %.neg
   %5 = load ptr, ptr @_ZZN7rocksdb12_GLOBAL__N_117CompareComparatorEPKNS_10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12kSuffixSlice.0, align 8
-  %bcmp.i15.i = tail call i32 @bcmp(ptr %add.ptr5.i.i, ptr %5, i64 %4)
-  %cmp8.i.i = icmp eq i32 %bcmp.i15.i, 0
+  %bcmp.i14.i = tail call i32 @bcmp(ptr %add.ptr5.i.i, ptr %5, i64 %4)
+  %cmp8.i.i = icmp eq i32 %bcmp.i14.i, 0
   br i1 %cmp8.i.i, label %sw.bb9, label %if.end10.i
 
 if.end10.i:                                       ; preds = %_ZNK7rocksdb5Slice9ends_withERKS0_.exit.i, %land.lhs.true7.i, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit.i, %if.end.i
   %add13.i = add i64 %cond.i.i, 6
   %cmp14.i = icmp ne i64 %call2.i.i, %add13.i
-  %brmerge50.i = or i1 %cmp14.i, %cmp13.i.i
-  br i1 %brmerge50.i, label %sw.bb21, label %_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i
+  %cmp.not.i19.i = icmp ult i64 %call2.i.i, %cond.i.i
+  %or.cond49.i = or i1 %cmp14.i, %cmp.not.i19.i
+  br i1 %or.cond49.i, label %sw.bb21, label %_ZNK7rocksdb5Slice11starts_withERKS0_.exit23.i
 
-_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i:   ; preds = %if.end10.i
-  %bcmp.i22.i = tail call i32 @bcmp(ptr %call.i3.i, ptr %call1.i, i64 %cond.i.i)
-  %cmp5.i23.i = icmp eq i32 %bcmp.i22.i, 0
-  br i1 %cmp5.i23.i, label %land.lhs.true17.i, label %sw.bb21
+_ZNK7rocksdb5Slice11starts_withERKS0_.exit23.i:   ; preds = %if.end10.i
+  %bcmp.i21.i = tail call i32 @bcmp(ptr %call.i3.i, ptr %call1.i, i64 %cond.i.i)
+  %cmp5.i22.i = icmp eq i32 %bcmp.i21.i, 0
+  br i1 %cmp5.i22.i, label %land.lhs.true17.i, label %sw.bb21
 
-land.lhs.true17.i:                                ; preds = %_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i
+land.lhs.true17.i:                                ; preds = %_ZNK7rocksdb5Slice11starts_withERKS0_.exit23.i
   %.b26 = load i1, ptr @_ZZN7rocksdb12_GLOBAL__N_117CompareComparatorEPKNS_10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12kSuffixSlice.1, align 8
   %6 = select i1 %.b26, i64 6, i64 0
-  %cmp.not.i26.i = icmp ult i64 %call2.i.i, %6
-  br i1 %cmp.not.i26.i, label %sw.bb21, label %_ZNK7rocksdb5Slice9ends_withERKS0_.exit33.i
+  %cmp.not.i25.i = icmp ult i64 %call2.i.i, %6
+  br i1 %cmp.not.i25.i, label %sw.bb21, label %_ZNK7rocksdb5Slice9ends_withERKS0_.exit32.i
 
-_ZNK7rocksdb5Slice9ends_withERKS0_.exit33.i:      ; preds = %land.lhs.true17.i
+_ZNK7rocksdb5Slice9ends_withERKS0_.exit32.i:      ; preds = %land.lhs.true17.i
   %.neg27 = select i1 %.b26, i64 -6, i64 0
-  %add.ptr.i28.i = getelementptr inbounds i8, ptr %call.i3.i, i64 %call2.i.i
-  %add.ptr5.i30.i = getelementptr inbounds i8, ptr %add.ptr.i28.i, i64 %.neg27
+  %add.ptr.i27.i = getelementptr inbounds i8, ptr %call.i3.i, i64 %call2.i.i
+  %add.ptr5.i29.i = getelementptr inbounds i8, ptr %add.ptr.i27.i, i64 %.neg27
   %7 = load ptr, ptr @_ZZN7rocksdb12_GLOBAL__N_117CompareComparatorEPKNS_10ComparatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12kSuffixSlice.0, align 8
-  %bcmp.i31.i = tail call i32 @bcmp(ptr %add.ptr5.i30.i, ptr %7, i64 %6)
-  %cmp8.i32.i = icmp eq i32 %bcmp.i31.i, 0
-  br i1 %cmp8.i32.i, label %sw.bb15, label %sw.bb21
+  %bcmp.i30.i = tail call i32 @bcmp(ptr %add.ptr5.i29.i, ptr %7, i64 %6)
+  %cmp8.i31.i = icmp eq i32 %bcmp.i30.i, 0
+  br i1 %cmp8.i31.i, label %sw.bb15, label %sw.bb21
 
 sw.bb:                                            ; preds = %_ZN7rocksdb5SliceC2EPKc.exit.i
   %8 = xor i1 %new_persist_udt, %old_persist_udt
@@ -1975,7 +1975,7 @@ if.end12:                                         ; preds = %sw.bb9
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14, i8 noundef zeroext 0)
   br label %return
 
-sw.bb15:                                          ; preds = %_ZNK7rocksdb5Slice9ends_withERKS0_.exit33.i
+sw.bb15:                                          ; preds = %_ZNK7rocksdb5Slice9ends_withERKS0_.exit32.i
   br i1 %old_persist_udt, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %sw.bb15
@@ -1994,7 +1994,7 @@ if.end18:                                         ; preds = %sw.bb15
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i8 noundef zeroext 0)
   br label %return
 
-sw.bb21:                                          ; preds = %_ZNK7rocksdb5Slice9ends_withERKS0_.exit33.i, %land.lhs.true17.i, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit24.i, %if.end10.i
+sw.bb21:                                          ; preds = %_ZNK7rocksdb5Slice9ends_withERKS0_.exit32.i, %land.lhs.true17.i, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit23.i, %if.end10.i
   %vtable = load ptr, ptr %new_comparator, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %9 = load ptr, ptr %vfn, align 8
