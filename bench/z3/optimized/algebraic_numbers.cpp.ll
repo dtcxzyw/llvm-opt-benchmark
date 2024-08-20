@@ -14866,10 +14866,10 @@ _ZSt12__move_mergeIPjS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7
 define linkonce_odr hidden void @_ZSt30__move_merge_adaptive_backwardIPjS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_SA_T1_T2_(ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr noundef %__result, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.25") align 8 %__comp) local_unnamed_addr #3 comdat {
 entry:
   %cmp = icmp eq ptr %__first1, %__last1
+  %tobool.not.i.i.i.i.i = icmp eq ptr %__last2, %__first2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %tobool.not.i.i.i.i.i = icmp eq ptr %__last2, %__first2
   br i1 %tobool.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then
@@ -14883,8 +14883,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp eq ptr %__first2, %__last2
-  br i1 %cmp1, label %return, label %if.end3
+  br i1 %tobool.not.i.i.i.i.i, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.else
   %incdec.ptr4 = getelementptr inbounds i8, ptr %__last2, i64 -4

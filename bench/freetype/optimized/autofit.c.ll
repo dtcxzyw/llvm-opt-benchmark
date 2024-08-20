@@ -5785,11 +5785,11 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %158 = sub nsw i64 %.2353, %spec.select510
   %159 = call i64 @llvm.abs.i64(i64 %158, i1 true)
   %160 = icmp ugt i64 %157, %159
+  %spec.select446 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %.0312)
+  %.4 = call i64 @llvm.smax.i64(i64 %.2367, i64 %.0308)
   br i1 %160, label %161, label %170
 
 161:                                              ; preds = %155
-  %spec.select446 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %.0312)
-  %.4 = call i64 @llvm.smax.i64(i64 %.2367, i64 %.0308)
   store ptr %.2386, ptr %100, align 8
   %162 = add nsw i64 %spec.select446, %.4
   %163 = lshr i64 %162, 1
@@ -5804,16 +5804,14 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   br label %194
 
 170:                                              ; preds = %155
-  %spec.select447 = call i64 @llvm.smin.i64(i64 %.0312, i64 %spec.select)
-  %.6371 = call i64 @llvm.smax.i64(i64 %.0308, i64 %.2367)
   %171 = getelementptr inbounds i8, ptr %.1, i64 72
   store ptr %.2386, ptr %171, align 8
-  %172 = add nsw i64 %spec.select447, %.6371
+  %172 = add nsw i64 %spec.select446, %.4
   %173 = lshr i64 %172, 1
   %174 = trunc i64 %173 to i16
   %175 = getelementptr inbounds i8, ptr %.1, i64 2
   store i16 %174, ptr %175, align 2
-  %176 = sub nsw i64 %.6371, %spec.select447
+  %176 = sub nsw i64 %.4, %spec.select446
   %177 = lshr i64 %176, 1
   %178 = trunc i64 %177 to i16
   %179 = getelementptr inbounds i8, ptr %.1, i64 4
@@ -5846,16 +5844,16 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   br label %194
 
 194:                                              ; preds = %161, %187, %132
-  %.5378 = phi i64 [ %spec.select443, %132 ], [ %spec.select, %161 ], [ %spec.select447, %187 ]
-  %.5370 = phi i64 [ %.4369, %132 ], [ %.2367, %161 ], [ %.6371, %187 ]
+  %.5378 = phi i64 [ %spec.select443, %132 ], [ %spec.select, %161 ], [ %spec.select446, %187 ]
+  %.5370 = phi i64 [ %.4369, %132 ], [ %.2367, %161 ], [ %.4, %187 ]
   %.5363 = phi i64 [ %.4362, %132 ], [ %spec.select510, %161 ], [ %spec.select510, %187 ]
   %.5356 = phi i64 [ %.4355, %132 ], [ %.2353, %161 ], [ %.2353, %187 ]
   %.5349 = phi i16 [ %.4348, %132 ], [ %spec.select511, %161 ], [ %spec.select511, %187 ]
   %.5342 = phi i16 [ %.4341, %132 ], [ %.2339, %161 ], [ %.2339, %187 ]
   %.6335 = phi i64 [ %.5334, %132 ], [ %.2331, %161 ], [ %.2331, %187 ]
   %.5 = phi i64 [ %.4328, %132 ], [ %.2326, %161 ], [ %.2326, %187 ]
-  %.3315 = phi i64 [ %.0312, %132 ], [ %spec.select446, %161 ], [ %spec.select447, %187 ]
-  %.3311 = phi i64 [ %.0308, %132 ], [ %.4, %161 ], [ %.6371, %187 ]
+  %.3315 = phi i64 [ %.0312, %132 ], [ %spec.select446, %161 ], [ %spec.select446, %187 ]
+  %.3311 = phi i64 [ %.0308, %132 ], [ %.4, %161 ], [ %.4, %187 ]
   %.3307 = phi i64 [ %.0304, %132 ], [ %.0304, %161 ], [ %spec.select510, %187 ]
   %.3303 = phi i64 [ %.0300, %132 ], [ %.0300, %161 ], [ %.2353, %187 ]
   %.3299 = phi i16 [ %.0296, %132 ], [ %.0296, %161 ], [ %spec.select511, %187 ]

@@ -15948,10 +15948,10 @@ if.then13.i.i.i2712:                              ; preds = %if.else.i.i.i2710
 
 invoke.cont757:                                   ; preds = %if.else.i.i.i2710, %if.then.i.i.i2714, %if.then13.i.i.i2712
   %cmp758 = icmp eq i32 %300, 14
+  %cmp.i2723 = icmp eq ptr %292, %302
   br i1 %cmp758, label %if.then759, label %if.end892
 
 if.then759:                                       ; preds = %invoke.cont757
-  %cmp.i2723 = icmp eq ptr %292, %302
   br i1 %cmp.i2723, label %if.then763, label %if.end810
 
 if.then763:                                       ; preds = %if.then759
@@ -16525,8 +16525,7 @@ ehcleanup876:                                     ; preds = %ehcleanup862, %lpad
   br label %ehcleanup1022
 
 if.end892:                                        ; preds = %invoke.cont757
-  %cmp.i3060 = icmp eq ptr %302, %292
-  br i1 %cmp.i3060, label %cleanup1021, label %if.end911
+  br i1 %cmp.i2723, label %cleanup1021, label %if.end911
 
 if.end911:                                        ; preds = %if.end892
   %call913 = invoke noundef ptr @_ZNK4cvc58internal9TrustNode12getGeneratorEv(ptr noundef nonnull align 8 dereferenceable(24) %trn)

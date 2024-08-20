@@ -51659,11 +51659,11 @@ _ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit: ; preds = %_ZN15AstToDfgVis
 120:                                              ; preds = %117
   %121 = load ptr, ptr %10, align 8
   %122 = load ptr, ptr %12, align 8
+  %.not.i.i.i51 = icmp eq ptr %122, %121
   br i1 %119, label %130, label %123
 
 123:                                              ; preds = %120
-  %.not7.i39 = icmp eq ptr %121, %122
-  br i1 %.not7.i39, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit48, label %.lr.ph.i40
+  br i1 %.not.i.i.i51, label %_ZN15AstToDfgVisitor25revertUncommittedVerticesEv.exit48, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %123
   %124 = getelementptr inbounds i8, ptr %0, i64 40
@@ -51702,7 +51702,6 @@ _ZN15AstToDfgVisitor14markReferencedEP7AstNode.exit50: ; preds = %_ZN15AstToDfgV
   br label %140
 
 130:                                              ; preds = %120
-  %.not.i.i.i51 = icmp eq ptr %122, %121
   br i1 %.not.i.i.i51, label %_ZN15AstToDfgVisitor14commitVerticesEv.exit, label %131
 
 131:                                              ; preds = %130

@@ -1429,13 +1429,13 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture nound
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
-  br i1 %9, label %14, label %135
+  %14 = add i32 %13, %11
+  br i1 %9, label %15, label %135
 
-14:                                               ; preds = %6
-  %15 = add i32 %13, %11
-  %16 = and i32 %15, 7
+15:                                               ; preds = %6
+  %16 = and i32 %14, 7
   %.not48 = icmp eq i32 %16, 0
-  %17 = lshr i32 %15, 3
+  %17 = lshr i32 %14, 3
   %18 = sext i1 %.not48 to i32
   %.045 = add nsw i32 %17, %18
   %19 = lshr i32 %13, 3
@@ -1443,7 +1443,7 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture nound
   %.not4964 = icmp slt i32 %.045, %19
   br i1 %.not4964, label %.loopexit, label %.lr.ph66
 
-.lr.ph66:                                         ; preds = %14
+.lr.ph66:                                         ; preds = %15
   %.not.i = icmp eq i32 %.045, %19
   %20 = zext nneg i32 %.045 to i64
   br i1 %.not.i, label %.lr.ph66.split.us, label %.lr.ph66.split.preheader
@@ -1624,211 +1624,210 @@ H5Z__nbit_decompress_one_byte.exit:               ; preds = %102, %.sink.split.i
 135:                                              ; preds = %6
   %136 = load i32, ptr %5, align 4
   %137 = shl i32 %136, 3
-  %138 = add i32 %11, %13
-  %139 = sub i32 %137, %138
-  %140 = lshr i32 %139, 3
-  %141 = and i32 %13, 7
-  %.not = icmp eq i32 %141, 0
-  %142 = sub i32 %137, %13
-  %143 = lshr i32 %142, 3
-  %144 = sext i1 %.not to i32
-  %.044 = add nsw i32 %143, %144
+  %138 = sub i32 %137, %14
+  %139 = lshr i32 %138, 3
+  %140 = and i32 %13, 7
+  %.not = icmp eq i32 %140, 0
+  %141 = sub i32 %137, %13
+  %142 = lshr i32 %141, 3
+  %143 = sext i1 %.not to i32
+  %.044 = add nsw i32 %142, %143
   %invariant.gep = getelementptr i8, ptr %0, i64 %1
-  %.not4760 = icmp sgt i32 %140, %.044
+  %.not4760 = icmp sgt i32 %139, %.044
   br i1 %.not4760, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %135
-  %.not.i50 = icmp eq i32 %140, %.044
-  %145 = lshr i32 %139, 3
-  %146 = zext nneg i32 %145 to i64
+  %.not.i50 = icmp eq i32 %139, %.044
+  %144 = lshr i32 %138, 3
+  %145 = zext nneg i32 %144 to i64
   br i1 %.not.i50, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %147 = zext nneg i32 %.044 to i64
-  %148 = zext nneg i32 %140 to i64
-  %149 = tail call i32 @llvm.umax.i32(i32 %.044, i32 %140)
-  %150 = add nuw nsw i32 %149, %145
-  %151 = add nuw nsw i32 %150, 1
-  %152 = sub nsw i32 %151, %140
-  %wide.trip.count = zext i32 %152 to i64
+  %146 = zext nneg i32 %.044 to i64
+  %147 = zext nneg i32 %139 to i64
+  %148 = tail call i32 @llvm.umax.i32(i32 %.044, i32 %139)
+  %149 = add nuw nsw i32 %148, %144
+  %150 = add nuw nsw i32 %149, 1
+  %151 = sub nsw i32 %150, %139
+  %wide.trip.count = zext i32 %151 to i64
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.pre = load i64, ptr %4, align 8
-  %153 = load i64, ptr %3, align 8
-  %154 = getelementptr inbounds i8, ptr %2, i64 %153
-  %155 = load i8, ptr %154, align 1
-  %156 = load i32, ptr %12, align 4
-  %157 = and i32 %156, 7
-  %158 = load i32, ptr %10, align 4
-  %159 = zext i32 %158 to i64
-  %160 = icmp ugt i64 %.pre, %159
-  %161 = zext i8 %155 to i32
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %146
-  %162 = trunc i64 %.pre to i32
-  br i1 %160, label %191, label %163
+  %152 = load i64, ptr %3, align 8
+  %153 = getelementptr inbounds i8, ptr %2, i64 %152
+  %154 = load i8, ptr %153, align 1
+  %155 = load i32, ptr %12, align 4
+  %156 = and i32 %155, 7
+  %157 = load i32, ptr %10, align 4
+  %158 = zext i32 %157 to i64
+  %159 = icmp ugt i64 %.pre, %158
+  %160 = zext i8 %154 to i32
+  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %145
+  %161 = trunc i64 %.pre to i32
+  br i1 %159, label %190, label %162
 
-163:                                              ; preds = %.lr.ph.split.us
-  %164 = shl nsw i32 -1, %162
-  %165 = xor i32 %164, -1
-  %166 = and i32 %165, %161
-  %167 = sub i32 %158, %162
-  %168 = shl i32 %166, %167
-  %169 = shl i32 %168, %157
-  %170 = trunc i32 %169 to i8
-  store i8 %170, ptr %gep.us, align 1
-  %171 = load i64, ptr %4, align 8
-  %172 = load i64, ptr %3, align 8
-  %173 = add i64 %172, 1
-  store i64 %173, ptr %3, align 8
+162:                                              ; preds = %.lr.ph.split.us
+  %163 = shl nsw i32 -1, %161
+  %164 = xor i32 %163, -1
+  %165 = and i32 %164, %160
+  %166 = sub i32 %157, %161
+  %167 = shl i32 %165, %166
+  %168 = shl i32 %167, %156
+  %169 = trunc i32 %168 to i8
+  store i8 %169, ptr %gep.us, align 1
+  %170 = load i64, ptr %4, align 8
+  %171 = load i64, ptr %3, align 8
+  %172 = add i64 %171, 1
+  store i64 %172, ptr %3, align 8
   store i64 8, ptr %4, align 8
-  %174 = icmp eq i64 %171, %159
-  br i1 %174, label %.loopexit, label %175
+  %173 = icmp eq i64 %170, %158
+  br i1 %173, label %.loopexit, label %174
 
-175:                                              ; preds = %163
-  %176 = sub i64 %159, %171
-  %177 = load i64, ptr %3, align 8
-  %178 = getelementptr inbounds i8, ptr %2, i64 %177
-  %179 = load i8, ptr %178, align 1
-  %180 = zext i8 %179 to i32
-  %181 = trunc i64 %176 to i32
-  %182 = sub i32 8, %181
-  %183 = lshr i32 %180, %182
-  %184 = shl nsw i32 -1, %181
-  %185 = xor i32 %184, -1
-  %186 = and i32 %183, %185
-  %187 = shl nuw nsw i32 %186, %157
-  %188 = load i8, ptr %gep.us, align 1
-  %189 = trunc i32 %187 to i8
-  %190 = or i8 %188, %189
+174:                                              ; preds = %162
+  %175 = sub i64 %158, %170
+  %176 = load i64, ptr %3, align 8
+  %177 = getelementptr inbounds i8, ptr %2, i64 %176
+  %178 = load i8, ptr %177, align 1
+  %179 = zext i8 %178 to i32
+  %180 = trunc i64 %175 to i32
+  %181 = sub i32 8, %180
+  %182 = lshr i32 %179, %181
+  %183 = shl nsw i32 -1, %180
+  %184 = xor i32 %183, -1
+  %185 = and i32 %182, %184
+  %186 = shl nuw nsw i32 %185, %156
+  %187 = load i8, ptr %gep.us, align 1
+  %188 = trunc i32 %186 to i8
+  %189 = or i8 %187, %188
   br label %.sink.split.i53.us
 
-191:                                              ; preds = %.lr.ph.split.us
-  %192 = sub i32 %162, %158
-  %193 = lshr i32 %161, %192
-  %194 = shl nsw i32 -1, %158
-  %195 = xor i32 %194, -1
-  %196 = and i32 %193, %195
-  %197 = shl nuw nsw i32 %196, %157
-  %198 = trunc i32 %197 to i8
+190:                                              ; preds = %.lr.ph.split.us
+  %191 = sub i32 %161, %157
+  %192 = lshr i32 %160, %191
+  %193 = shl nsw i32 -1, %157
+  %194 = xor i32 %193, -1
+  %195 = and i32 %192, %194
+  %196 = shl nuw nsw i32 %195, %156
+  %197 = trunc i32 %196 to i8
   br label %.sink.split.i53.us
 
-.sink.split.i53.us:                               ; preds = %191, %175
-  %.sink.i54.us = phi i8 [ %190, %175 ], [ %198, %191 ]
-  %.sink60.i55.us = phi i64 [ %176, %175 ], [ %159, %191 ]
+.sink.split.i53.us:                               ; preds = %190, %174
+  %.sink.i54.us = phi i8 [ %189, %174 ], [ %197, %190 ]
+  %.sink60.i55.us = phi i64 [ %175, %174 ], [ %158, %190 ]
   store i8 %.sink.i54.us, ptr %gep.us, align 1
   br label %.loopexit.sink.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %H5Z__nbit_decompress_one_byte.exit56
-  %indvars.iv = phi i64 [ %146, %.lr.ph.split.preheader ], [ %indvars.iv.next, %H5Z__nbit_decompress_one_byte.exit56 ]
-  %199 = load i64, ptr %3, align 8
-  %200 = getelementptr inbounds i8, ptr %2, i64 %199
-  %201 = load i8, ptr %200, align 1
-  %202 = icmp eq i64 %indvars.iv, %148
-  br i1 %202, label %203, label %212
+  %indvars.iv = phi i64 [ %145, %.lr.ph.split.preheader ], [ %indvars.iv.next, %H5Z__nbit_decompress_one_byte.exit56 ]
+  %198 = load i64, ptr %3, align 8
+  %199 = getelementptr inbounds i8, ptr %2, i64 %198
+  %200 = load i8, ptr %199, align 1
+  %201 = icmp eq i64 %indvars.iv, %147
+  br i1 %201, label %202, label %211
 
-203:                                              ; preds = %.lr.ph.split
-  %204 = load i32, ptr %10, align 4
-  %205 = zext i32 %204 to i64
-  %206 = load i32, ptr %12, align 4
-  %207 = zext i32 %206 to i64
-  %208 = add nuw nsw i64 %205, %207
-  %209 = sub nsw i64 0, %208
-  %210 = and i64 %209, 7
-  %211 = sub nuw nsw i64 8, %210
-  br label %219
+202:                                              ; preds = %.lr.ph.split
+  %203 = load i32, ptr %10, align 4
+  %204 = zext i32 %203 to i64
+  %205 = load i32, ptr %12, align 4
+  %206 = zext i32 %205 to i64
+  %207 = add nuw nsw i64 %204, %206
+  %208 = sub nsw i64 0, %207
+  %209 = and i64 %208, 7
+  %210 = sub nuw nsw i64 8, %209
+  br label %218
 
-212:                                              ; preds = %.lr.ph.split
-  %213 = icmp eq i64 %indvars.iv, %147
-  br i1 %213, label %214, label %219
+211:                                              ; preds = %.lr.ph.split
+  %212 = icmp eq i64 %indvars.iv, %146
+  br i1 %212, label %213, label %218
 
-214:                                              ; preds = %212
-  %215 = load i32, ptr %12, align 4
-  %216 = and i32 %215, 7
-  %217 = sub nuw nsw i32 8, %216
-  %218 = zext nneg i32 %217 to i64
-  br label %219
+213:                                              ; preds = %211
+  %214 = load i32, ptr %12, align 4
+  %215 = and i32 %214, 7
+  %216 = sub nuw nsw i32 8, %215
+  %217 = zext nneg i32 %216 to i64
+  br label %218
 
-219:                                              ; preds = %214, %212, %203
-  %.051.i51 = phi i64 [ %211, %203 ], [ %218, %214 ], [ 8, %212 ]
-  %.0.i52 = phi i32 [ 0, %203 ], [ %216, %214 ], [ 0, %212 ]
-  %220 = load i64, ptr %4, align 8
-  %221 = icmp ugt i64 %220, %.051.i51
-  %222 = zext i8 %201 to i32
+218:                                              ; preds = %213, %211, %202
+  %.051.i51 = phi i64 [ %210, %202 ], [ %217, %213 ], [ 8, %211 ]
+  %.0.i52 = phi i32 [ 0, %202 ], [ %215, %213 ], [ 0, %211 ]
+  %219 = load i64, ptr %4, align 8
+  %220 = icmp ugt i64 %219, %.051.i51
+  %221 = zext i8 %200 to i32
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  br i1 %221, label %223, label %233
+  br i1 %220, label %222, label %232
 
-223:                                              ; preds = %219
-  %224 = sub nuw i64 %220, %.051.i51
-  %225 = trunc i64 %224 to i32
-  %226 = lshr i32 %222, %225
-  %227 = trunc nuw nsw i64 %.051.i51 to i32
-  %228 = shl nsw i32 -1, %227
-  %229 = xor i32 %228, -1
-  %230 = and i32 %226, %229
-  %231 = shl nuw nsw i32 %230, %.0.i52
-  %232 = trunc i32 %231 to i8
+222:                                              ; preds = %218
+  %223 = sub nuw i64 %219, %.051.i51
+  %224 = trunc i64 %223 to i32
+  %225 = lshr i32 %221, %224
+  %226 = trunc nuw nsw i64 %.051.i51 to i32
+  %227 = shl nsw i32 -1, %226
+  %228 = xor i32 %227, -1
+  %229 = and i32 %225, %228
+  %230 = shl nuw nsw i32 %229, %.0.i52
+  %231 = trunc i32 %230 to i8
   br label %.sink.split.i53
 
-233:                                              ; preds = %219
-  %234 = trunc nuw i64 %220 to i32
-  %235 = shl nsw i32 -1, %234
-  %236 = xor i32 %235, -1
-  %237 = and i32 %236, %222
-  %238 = sub nuw nsw i64 %.051.i51, %220
-  %239 = trunc nuw nsw i64 %238 to i32
-  %240 = shl nuw nsw i32 %237, %239
-  %241 = shl nuw nsw i32 %240, %.0.i52
-  %242 = trunc i32 %241 to i8
-  store i8 %242, ptr %gep, align 1
-  %243 = load i64, ptr %4, align 8
-  %244 = load i64, ptr %3, align 8
-  %245 = add i64 %244, 1
-  store i64 %245, ptr %3, align 8
+232:                                              ; preds = %218
+  %233 = trunc nuw i64 %219 to i32
+  %234 = shl nsw i32 -1, %233
+  %235 = xor i32 %234, -1
+  %236 = and i32 %235, %221
+  %237 = sub nuw nsw i64 %.051.i51, %219
+  %238 = trunc nuw nsw i64 %237 to i32
+  %239 = shl nuw nsw i32 %236, %238
+  %240 = shl nuw nsw i32 %239, %.0.i52
+  %241 = trunc i32 %240 to i8
+  store i8 %241, ptr %gep, align 1
+  %242 = load i64, ptr %4, align 8
+  %243 = load i64, ptr %3, align 8
+  %244 = add i64 %243, 1
+  store i64 %244, ptr %3, align 8
   store i64 8, ptr %4, align 8
-  %246 = icmp eq i64 %.051.i51, %243
-  br i1 %246, label %H5Z__nbit_decompress_one_byte.exit56, label %247
+  %245 = icmp eq i64 %.051.i51, %242
+  br i1 %245, label %H5Z__nbit_decompress_one_byte.exit56, label %246
 
-247:                                              ; preds = %233
-  %248 = sub i64 %.051.i51, %243
-  %249 = load i64, ptr %3, align 8
-  %250 = getelementptr inbounds i8, ptr %2, i64 %249
-  %251 = load i8, ptr %250, align 1
-  %252 = zext i8 %251 to i32
-  %253 = trunc i64 %248 to i32
-  %254 = sub i32 8, %253
-  %255 = lshr i32 %252, %254
-  %256 = shl nsw i32 -1, %253
-  %257 = xor i32 %256, -1
-  %258 = and i32 %255, %257
-  %259 = shl nuw nsw i32 %258, %.0.i52
-  %260 = load i8, ptr %gep, align 1
-  %261 = trunc i32 %259 to i8
-  %262 = or i8 %260, %261
+246:                                              ; preds = %232
+  %247 = sub i64 %.051.i51, %242
+  %248 = load i64, ptr %3, align 8
+  %249 = getelementptr inbounds i8, ptr %2, i64 %248
+  %250 = load i8, ptr %249, align 1
+  %251 = zext i8 %250 to i32
+  %252 = trunc i64 %247 to i32
+  %253 = sub i32 8, %252
+  %254 = lshr i32 %251, %253
+  %255 = shl nsw i32 -1, %252
+  %256 = xor i32 %255, -1
+  %257 = and i32 %254, %256
+  %258 = shl nuw nsw i32 %257, %.0.i52
+  %259 = load i8, ptr %gep, align 1
+  %260 = trunc i32 %258 to i8
+  %261 = or i8 %259, %260
   br label %.sink.split.i53
 
-.sink.split.i53:                                  ; preds = %247, %223
-  %.sink.i54 = phi i8 [ %262, %247 ], [ %232, %223 ]
-  %.sink60.i55 = phi i64 [ %248, %247 ], [ %.051.i51, %223 ]
+.sink.split.i53:                                  ; preds = %246, %222
+  %.sink.i54 = phi i8 [ %261, %246 ], [ %231, %222 ]
+  %.sink60.i55 = phi i64 [ %247, %246 ], [ %.051.i51, %222 ]
   store i8 %.sink.i54, ptr %gep, align 1
-  %263 = load i64, ptr %4, align 8
-  %264 = sub i64 %263, %.sink60.i55
-  store i64 %264, ptr %4, align 8
+  %262 = load i64, ptr %4, align 8
+  %263 = sub i64 %262, %.sink60.i55
+  store i64 %263, ptr %4, align 8
   br label %H5Z__nbit_decompress_one_byte.exit56
 
-H5Z__nbit_decompress_one_byte.exit56:             ; preds = %233, %.sink.split.i53
+H5Z__nbit_decompress_one_byte.exit56:             ; preds = %232, %.sink.split.i53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split
 
 .loopexit.sink.split:                             ; preds = %.sink.split.i.us, %.sink.split.i53.us
   %.sink60.i55.us.sink = phi i64 [ %.sink60.i55.us, %.sink.split.i53.us ], [ %.sink60.i.us, %.sink.split.i.us ]
-  %265 = load i64, ptr %4, align 8
-  %266 = sub i64 %265, %.sink60.i55.us.sink
-  store i64 %266, ptr %4, align 8
+  %264 = load i64, ptr %4, align 8
+  %265 = sub i64 %264, %.sink60.i55.us.sink
+  store i64 %265, ptr %4, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %H5Z__nbit_decompress_one_byte.exit56, %H5Z__nbit_decompress_one_byte.exit, %.loopexit.sink.split, %163, %32, %135, %14
+.loopexit:                                        ; preds = %H5Z__nbit_decompress_one_byte.exit56, %H5Z__nbit_decompress_one_byte.exit, %.loopexit.sink.split, %162, %32, %135, %15
   ret void
 }
 
@@ -2270,13 +2269,13 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
-  br i1 %9, label %14, label %126
+  %14 = add i32 %13, %11
+  br i1 %9, label %15, label %126
 
-14:                                               ; preds = %6
-  %15 = add i32 %13, %11
-  %16 = and i32 %15, 7
+15:                                               ; preds = %6
+  %16 = and i32 %14, 7
   %.not48 = icmp eq i32 %16, 0
-  %17 = lshr i32 %15, 3
+  %17 = lshr i32 %14, 3
   %18 = sext i1 %.not48 to i32
   %.045 = add nsw i32 %17, %18
   %19 = lshr i32 %13, 3
@@ -2284,7 +2283,7 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef
   %.not4963 = icmp slt i32 %.045, %19
   br i1 %.not4963, label %.loopexit, label %.lr.ph65
 
-.lr.ph65:                                         ; preds = %14
+.lr.ph65:                                         ; preds = %15
   %.not.i = icmp eq i32 %.045, %19
   %20 = zext nneg i32 %.045 to i64
   br i1 %.not.i, label %.lr.ph65.split.us.preheader, label %.lr.ph65.split.preheader
@@ -2452,198 +2451,197 @@ H5Z__nbit_compress_one_byte.exit:                 ; preds = %101, %.sink.split.i
 126:                                              ; preds = %6
   %127 = load i32, ptr %5, align 4
   %128 = shl i32 %127, 3
-  %129 = add i32 %11, %13
-  %130 = sub i32 %128, %129
-  %131 = lshr i32 %130, 3
-  %132 = and i32 %13, 7
-  %.not = icmp eq i32 %132, 0
-  %133 = sub i32 %128, %13
-  %134 = lshr i32 %133, 3
-  %135 = sext i1 %.not to i32
-  %.044 = add nsw i32 %134, %135
+  %129 = sub i32 %128, %14
+  %130 = lshr i32 %129, 3
+  %131 = and i32 %13, 7
+  %.not = icmp eq i32 %131, 0
+  %132 = sub i32 %128, %13
+  %133 = lshr i32 %132, 3
+  %134 = sext i1 %.not to i32
+  %.044 = add nsw i32 %133, %134
   %invariant.gep = getelementptr i8, ptr %0, i64 %1
-  %.not4759 = icmp sgt i32 %131, %.044
+  %.not4759 = icmp sgt i32 %130, %.044
   br i1 %.not4759, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %126
-  %.not.i50 = icmp eq i32 %131, %.044
-  %136 = lshr i32 %130, 3
-  %137 = zext nneg i32 %136 to i64
+  %.not.i50 = icmp eq i32 %130, %.044
+  %135 = lshr i32 %129, 3
+  %136 = zext nneg i32 %135 to i64
   br i1 %.not.i50, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %138 = zext nneg i32 %.044 to i64
-  %139 = zext nneg i32 %131 to i64
-  %140 = tail call i32 @llvm.umax.i32(i32 %.044, i32 %131)
-  %141 = add nuw nsw i32 %140, %136
-  %142 = add nuw nsw i32 %141, 1
-  %143 = sub nsw i32 %142, %131
-  %wide.trip.count = zext i32 %143 to i64
+  %137 = zext nneg i32 %.044 to i64
+  %138 = zext nneg i32 %130 to i64
+  %139 = tail call i32 @llvm.umax.i32(i32 %.044, i32 %130)
+  %140 = add nuw nsw i32 %139, %135
+  %141 = add nuw nsw i32 %140, 1
+  %142 = sub nsw i32 %141, %130
+  %wide.trip.count = zext i32 %142 to i64
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %.pre = load i64, ptr %4, align 8
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %137
-  %144 = load i8, ptr %gep.us, align 1
-  %145 = zext i8 %144 to i32
-  %146 = load i32, ptr %12, align 4
-  %147 = and i32 %146, 7
-  %148 = lshr i32 %145, %147
-  %149 = load i32, ptr %10, align 4
-  %150 = zext i32 %149 to i64
-  %151 = icmp ugt i64 %.pre, %150
-  %152 = load i64, ptr %3, align 8
-  %153 = getelementptr inbounds i8, ptr %2, i64 %152
-  %154 = load i8, ptr %153, align 1
-  br i1 %151, label %176, label %155
+  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %136
+  %143 = load i8, ptr %gep.us, align 1
+  %144 = zext i8 %143 to i32
+  %145 = load i32, ptr %12, align 4
+  %146 = and i32 %145, 7
+  %147 = lshr i32 %144, %146
+  %148 = load i32, ptr %10, align 4
+  %149 = zext i32 %148 to i64
+  %150 = icmp ugt i64 %.pre, %149
+  %151 = load i64, ptr %3, align 8
+  %152 = getelementptr inbounds i8, ptr %2, i64 %151
+  %153 = load i8, ptr %152, align 1
+  br i1 %150, label %175, label %154
 
-155:                                              ; preds = %.lr.ph.split.us.preheader
-  %156 = trunc i64 %.pre to i32
-  %157 = sub i32 %149, %156
-  %158 = lshr i32 %148, %157
-  %159 = shl nsw i32 -1, %156
-  %160 = xor i32 %159, -1
-  %161 = and i32 %158, %160
-  %162 = trunc nuw i32 %161 to i8
-  %163 = or i8 %154, %162
-  store i8 %163, ptr %153, align 1
-  %164 = load i64, ptr %4, align 8
-  %165 = load i64, ptr %3, align 8
-  %166 = add i64 %165, 1
-  store i64 %166, ptr %3, align 8
+154:                                              ; preds = %.lr.ph.split.us.preheader
+  %155 = trunc i64 %.pre to i32
+  %156 = sub i32 %148, %155
+  %157 = lshr i32 %147, %156
+  %158 = shl nsw i32 -1, %155
+  %159 = xor i32 %158, -1
+  %160 = and i32 %157, %159
+  %161 = trunc nuw i32 %160 to i8
+  %162 = or i8 %153, %161
+  store i8 %162, ptr %152, align 1
+  %163 = load i64, ptr %4, align 8
+  %164 = load i64, ptr %3, align 8
+  %165 = add i64 %164, 1
+  store i64 %165, ptr %3, align 8
   store i64 8, ptr %4, align 8
-  %167 = icmp eq i64 %164, %150
-  br i1 %167, label %.loopexit, label %168
+  %166 = icmp eq i64 %163, %149
+  br i1 %166, label %.loopexit, label %167
 
-168:                                              ; preds = %155
-  %169 = sub i64 %150, %164
-  %170 = trunc i64 %169 to i32
-  %171 = sub i32 8, %170
-  %172 = shl i32 %148, %171
-  %173 = trunc i32 %172 to i8
-  %174 = load i64, ptr %3, align 8
-  %175 = getelementptr inbounds i8, ptr %2, i64 %174
-  store i8 %173, ptr %175, align 1
+167:                                              ; preds = %154
+  %168 = sub i64 %149, %163
+  %169 = trunc i64 %168 to i32
+  %170 = sub i32 8, %169
+  %171 = shl i32 %147, %170
+  %172 = trunc i32 %171 to i8
+  %173 = load i64, ptr %3, align 8
+  %174 = getelementptr inbounds i8, ptr %2, i64 %173
+  store i8 %172, ptr %174, align 1
   br label %.loopexit.sink.split
 
-176:                                              ; preds = %.lr.ph.split.us.preheader
-  %177 = shl nsw i32 -1, %149
-  %178 = xor i32 %177, -1
-  %179 = and i32 %148, %178
-  %180 = trunc i64 %.pre to i32
-  %181 = sub i32 %180, %149
-  %182 = shl i32 %179, %181
-  %183 = trunc i32 %182 to i8
-  %184 = or i8 %154, %183
-  store i8 %184, ptr %153, align 1
+175:                                              ; preds = %.lr.ph.split.us.preheader
+  %176 = shl nsw i32 -1, %148
+  %177 = xor i32 %176, -1
+  %178 = and i32 %147, %177
+  %179 = trunc i64 %.pre to i32
+  %180 = sub i32 %179, %148
+  %181 = shl i32 %178, %180
+  %182 = trunc i32 %181 to i8
+  %183 = or i8 %153, %182
+  store i8 %183, ptr %152, align 1
   br label %.loopexit.sink.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %H5Z__nbit_compress_one_byte.exit55
-  %indvars.iv = phi i64 [ %137, %.lr.ph.split.preheader ], [ %indvars.iv.next, %H5Z__nbit_compress_one_byte.exit55 ]
+  %indvars.iv = phi i64 [ %136, %.lr.ph.split.preheader ], [ %indvars.iv.next, %H5Z__nbit_compress_one_byte.exit55 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %185 = load i8, ptr %gep, align 1
-  %186 = icmp eq i64 %indvars.iv, %139
-  br i1 %186, label %187, label %196
+  %184 = load i8, ptr %gep, align 1
+  %185 = icmp eq i64 %indvars.iv, %138
+  br i1 %185, label %186, label %195
 
-187:                                              ; preds = %.lr.ph.split
-  %188 = load i32, ptr %10, align 4
-  %189 = zext i32 %188 to i64
-  %190 = load i32, ptr %12, align 4
-  %191 = zext i32 %190 to i64
-  %192 = add nuw nsw i64 %189, %191
-  %193 = sub nsw i64 0, %192
-  %194 = and i64 %193, 7
-  %195 = sub nuw nsw i64 8, %194
-  br label %206
+186:                                              ; preds = %.lr.ph.split
+  %187 = load i32, ptr %10, align 4
+  %188 = zext i32 %187 to i64
+  %189 = load i32, ptr %12, align 4
+  %190 = zext i32 %189 to i64
+  %191 = add nuw nsw i64 %188, %190
+  %192 = sub nsw i64 0, %191
+  %193 = and i64 %192, 7
+  %194 = sub nuw nsw i64 8, %193
+  br label %205
 
-196:                                              ; preds = %.lr.ph.split
-  %197 = icmp eq i64 %indvars.iv, %138
-  br i1 %197, label %198, label %206
+195:                                              ; preds = %.lr.ph.split
+  %196 = icmp eq i64 %indvars.iv, %137
+  br i1 %196, label %197, label %205
 
-198:                                              ; preds = %196
-  %199 = load i32, ptr %12, align 4
-  %200 = and i32 %199, 7
-  %201 = sub nuw nsw i32 8, %200
-  %202 = zext nneg i32 %201 to i64
-  %203 = zext i8 %185 to i32
-  %204 = lshr i32 %203, %200
-  %205 = trunc nuw i32 %204 to i8
-  br label %206
+197:                                              ; preds = %195
+  %198 = load i32, ptr %12, align 4
+  %199 = and i32 %198, 7
+  %200 = sub nuw nsw i32 8, %199
+  %201 = zext nneg i32 %200 to i64
+  %202 = zext i8 %184 to i32
+  %203 = lshr i32 %202, %199
+  %204 = trunc nuw i32 %203 to i8
+  br label %205
 
-206:                                              ; preds = %198, %196, %187
-  %.046.i51 = phi i64 [ %195, %187 ], [ %202, %198 ], [ 8, %196 ]
-  %.0.i52 = phi i8 [ %185, %187 ], [ %205, %198 ], [ %185, %196 ]
-  %207 = load i64, ptr %4, align 8
-  %208 = icmp ugt i64 %207, %.046.i51
-  %209 = zext i8 %.0.i52 to i32
-  %210 = load i64, ptr %3, align 8
-  %211 = getelementptr inbounds i8, ptr %2, i64 %210
-  %212 = load i8, ptr %211, align 1
-  br i1 %208, label %213, label %223
+205:                                              ; preds = %197, %195, %186
+  %.046.i51 = phi i64 [ %194, %186 ], [ %201, %197 ], [ 8, %195 ]
+  %.0.i52 = phi i8 [ %184, %186 ], [ %204, %197 ], [ %184, %195 ]
+  %206 = load i64, ptr %4, align 8
+  %207 = icmp ugt i64 %206, %.046.i51
+  %208 = zext i8 %.0.i52 to i32
+  %209 = load i64, ptr %3, align 8
+  %210 = getelementptr inbounds i8, ptr %2, i64 %209
+  %211 = load i8, ptr %210, align 1
+  br i1 %207, label %212, label %222
 
-213:                                              ; preds = %206
-  %214 = trunc nuw nsw i64 %.046.i51 to i32
-  %215 = shl nsw i32 -1, %214
-  %216 = xor i32 %215, -1
-  %217 = and i32 %209, %216
-  %218 = sub nuw i64 %207, %.046.i51
-  %219 = trunc i64 %218 to i32
-  %220 = shl i32 %217, %219
-  %221 = trunc i32 %220 to i8
-  %222 = or i8 %212, %221
-  store i8 %222, ptr %211, align 1
+212:                                              ; preds = %205
+  %213 = trunc nuw nsw i64 %.046.i51 to i32
+  %214 = shl nsw i32 -1, %213
+  %215 = xor i32 %214, -1
+  %216 = and i32 %208, %215
+  %217 = sub nuw i64 %206, %.046.i51
+  %218 = trunc i64 %217 to i32
+  %219 = shl i32 %216, %218
+  %220 = trunc i32 %219 to i8
+  %221 = or i8 %211, %220
+  store i8 %221, ptr %210, align 1
   br label %.sink.split.i53
 
-223:                                              ; preds = %206
-  %224 = sub nuw nsw i64 %.046.i51, %207
-  %225 = trunc nuw nsw i64 %224 to i32
-  %226 = lshr i32 %209, %225
-  %227 = trunc nuw i64 %207 to i32
-  %228 = shl nsw i32 -1, %227
-  %229 = xor i32 %228, -1
-  %230 = and i32 %226, %229
-  %231 = trunc nuw i32 %230 to i8
-  %232 = or i8 %212, %231
-  store i8 %232, ptr %211, align 1
-  %233 = load i64, ptr %4, align 8
-  %234 = load i64, ptr %3, align 8
-  %235 = add i64 %234, 1
-  store i64 %235, ptr %3, align 8
+222:                                              ; preds = %205
+  %223 = sub nuw nsw i64 %.046.i51, %206
+  %224 = trunc nuw nsw i64 %223 to i32
+  %225 = lshr i32 %208, %224
+  %226 = trunc nuw i64 %206 to i32
+  %227 = shl nsw i32 -1, %226
+  %228 = xor i32 %227, -1
+  %229 = and i32 %225, %228
+  %230 = trunc nuw i32 %229 to i8
+  %231 = or i8 %211, %230
+  store i8 %231, ptr %210, align 1
+  %232 = load i64, ptr %4, align 8
+  %233 = load i64, ptr %3, align 8
+  %234 = add i64 %233, 1
+  store i64 %234, ptr %3, align 8
   store i64 8, ptr %4, align 8
-  %236 = icmp eq i64 %.046.i51, %233
-  br i1 %236, label %H5Z__nbit_compress_one_byte.exit55, label %237
+  %235 = icmp eq i64 %.046.i51, %232
+  br i1 %235, label %H5Z__nbit_compress_one_byte.exit55, label %236
 
-237:                                              ; preds = %223
-  %238 = sub i64 %.046.i51, %233
-  %239 = trunc i64 %238 to i32
-  %240 = sub i32 8, %239
-  %241 = shl i32 %209, %240
-  %242 = trunc i32 %241 to i8
-  %243 = load i64, ptr %3, align 8
-  %244 = getelementptr inbounds i8, ptr %2, i64 %243
-  store i8 %242, ptr %244, align 1
+236:                                              ; preds = %222
+  %237 = sub i64 %.046.i51, %232
+  %238 = trunc i64 %237 to i32
+  %239 = sub i32 8, %238
+  %240 = shl i32 %208, %239
+  %241 = trunc i32 %240 to i8
+  %242 = load i64, ptr %3, align 8
+  %243 = getelementptr inbounds i8, ptr %2, i64 %242
+  store i8 %241, ptr %243, align 1
   br label %.sink.split.i53
 
-.sink.split.i53:                                  ; preds = %237, %213
-  %.sink55.i54 = phi i64 [ %238, %237 ], [ %.046.i51, %213 ]
-  %245 = load i64, ptr %4, align 8
-  %246 = sub i64 %245, %.sink55.i54
-  store i64 %246, ptr %4, align 8
+.sink.split.i53:                                  ; preds = %236, %212
+  %.sink55.i54 = phi i64 [ %237, %236 ], [ %.046.i51, %212 ]
+  %244 = load i64, ptr %4, align 8
+  %245 = sub i64 %244, %.sink55.i54
+  store i64 %245, ptr %4, align 8
   br label %H5Z__nbit_compress_one_byte.exit55
 
-H5Z__nbit_compress_one_byte.exit55:               ; preds = %223, %.sink.split.i53
+H5Z__nbit_compress_one_byte.exit55:               ; preds = %222, %.sink.split.i53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split
 
-.loopexit.sink.split:                             ; preds = %168, %176, %46, %54
-  %.sink55.i54.us.sink = phi i64 [ %47, %46 ], [ %28, %54 ], [ %169, %168 ], [ %150, %176 ]
-  %247 = load i64, ptr %4, align 8
-  %248 = sub i64 %247, %.sink55.i54.us.sink
-  store i64 %248, ptr %4, align 8
+.loopexit.sink.split:                             ; preds = %167, %175, %46, %54
+  %.sink55.i54.us.sink = phi i64 [ %47, %46 ], [ %28, %54 ], [ %168, %167 ], [ %149, %175 ]
+  %246 = load i64, ptr %4, align 8
+  %247 = sub i64 %246, %.sink55.i54.us.sink
+  store i64 %247, ptr %4, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %H5Z__nbit_compress_one_byte.exit55, %H5Z__nbit_compress_one_byte.exit, %.loopexit.sink.split, %155, %33, %126, %14
+.loopexit:                                        ; preds = %H5Z__nbit_compress_one_byte.exit55, %H5Z__nbit_compress_one_byte.exit, %.loopexit.sink.split, %154, %33, %126, %15
   ret void
 }
 

@@ -3845,18 +3845,18 @@ if.else.i.i.i:                                    ; preds = %entry
   %call.i.i.i = tail call i64 @malloc_usable_size(ptr noundef nonnull %call2.i) #26
   %.pre = load i8, ptr %im_flags.i, align 1
   %.pre31 = load i32, ptr %refs.i, align 4
+  %3 = or i8 %.pre, 4
+  %4 = add i32 %.pre31, 1
   br label %_ZN7rocksdb9lru_cache13LRUCacheShard12CreateHandleERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEm.exit
 
 _ZN7rocksdb9lru_cache13LRUCacheShard12CreateHandleERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEm.exit: ; preds = %entry, %if.else.i.i.i
-  %3 = phi i32 [ %.pre31, %if.else.i.i.i ], [ 0, %entry ]
-  %4 = phi i8 [ %.pre, %if.else.i.i.i ], [ 0, %entry ]
+  %inc.i = phi i32 [ %4, %if.else.i.i.i ], [ 1, %entry ]
+  %.sink.i = phi i8 [ %3, %if.else.i.i.i ], [ 4, %entry ]
   %retval.0.i.i.i = phi i64 [ %call.i.i.i, %if.else.i.i.i ], [ 0, %entry ]
   %add.i.i = add i64 %retval.0.i.i.i, %charge
   %total_charge.i.i = getelementptr inbounds i8, ptr %call2.i, i64 40
   store i64 %add.i.i, ptr %total_charge.i.i, align 8
-  %.sink.i = or i8 %4, 4
   store i8 %.sink.i, ptr %im_flags.i, align 1
-  %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %refs.i, align 4
   store i64 0, ptr %last_reference_list, align 8
   %values_.i = getelementptr inbounds i8, ptr %last_reference_list, i64 72
@@ -3880,20 +3880,14 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %.pre32 = load i64, ptr %total_charge.i.i, align 8
   %usage_ = getelementptr inbounds i8, ptr %this, i64 192
   %7 = load i64, ptr %usage_, align 64
-  br i1 %tobool, label %land.lhs.true, label %invoke.cont3.if.else8_crit_edge
-
-invoke.cont3.if.else8_crit_edge:                  ; preds = %invoke.cont3
-  %.pre35 = add i64 %7, %.pre32
-  br label %if.else8
-
-land.lhs.true:                                    ; preds = %invoke.cont3
   %add = add i64 %.pre32, %7
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %capacity_, align 8
   %cmp = icmp ugt i64 %add, %8
-  br i1 %cmp, label %if.then, label %if.else8
+  %or.cond = select i1 %tobool, i1 %cmp, i1 false
+  br i1 %or.cond, label %if.then, label %if.else8
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %invoke.cont3
   br i1 %allow_uncharged, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then
@@ -3927,10 +3921,9 @@ if.else:                                          ; preds = %if.then
   call void @free(ptr noundef nonnull %call2.i) #26
   br label %if.end12
 
-if.else8:                                         ; preds = %invoke.cont3.if.else8_crit_edge, %land.lhs.true
-  %add11.pre-phi = phi i64 [ %.pre35, %invoke.cont3.if.else8_crit_edge ], [ %add, %land.lhs.true ]
+if.else8:                                         ; preds = %invoke.cont3
   %usage_10 = getelementptr inbounds i8, ptr %this, i64 192
-  store i64 %add11.pre-phi, ptr %usage_10, align 64
+  store i64 %add, ptr %usage_10, align 64
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then6, %if.else, %if.else8

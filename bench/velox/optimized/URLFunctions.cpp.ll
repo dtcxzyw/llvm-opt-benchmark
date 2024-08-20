@@ -23940,11 +23940,11 @@ land.rhs:                                         ; preds = %if.end34, %while.bo
   %cmp62.not = icmp eq i8 %24, 36
   %incdec.ptr86 = getelementptr inbounds i8, ptr %21, i64 1
   store ptr %incdec.ptr86, ptr %m_position, align 8
+  %cmp87 = icmp eq ptr %0, %incdec.ptr86
   br i1 %cmp62.not, label %if.end83, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %cmp57.not = icmp eq ptr %incdec.ptr86, %0
-  br i1 %cmp57.not, label %if.then69, label %land.rhs, !llvm.loop !221
+  br i1 %cmp87, label %if.then69, label %land.rhs, !llvm.loop !221
 
 if.then69:                                        ; preds = %while.body
   %m_base71 = getelementptr inbounds i8, ptr %this, i64 176
@@ -23982,7 +23982,6 @@ ehcleanup82:                                      ; preds = %lpad79, %lpad77
   br label %eh.resume
 
 if.end83:                                         ; preds = %land.rhs
-  %cmp87 = icmp eq ptr %0, %incdec.ptr86
   br i1 %cmp87, label %if.then93, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end83
@@ -24281,11 +24280,11 @@ land.rhs213:                                      ; preds = %if.end187, %while.b
   %cmp218.not = icmp eq i8 %63, 37
   %incdec.ptr246 = getelementptr inbounds i8, ptr %60, i64 1
   store ptr %incdec.ptr246, ptr %m_position, align 8
+  %cmp247 = icmp eq ptr %0, %incdec.ptr246
   br i1 %cmp218.not, label %if.end243, label %while.body220
 
 while.body220:                                    ; preds = %land.rhs213
-  %cmp212.not = icmp eq ptr %incdec.ptr246, %0
-  br i1 %cmp212.not, label %if.then229, label %land.rhs213, !llvm.loop !222
+  br i1 %cmp247, label %if.then229, label %land.rhs213, !llvm.loop !222
 
 if.then229:                                       ; preds = %while.body220
   %m_base231 = getelementptr inbounds i8, ptr %this, i64 176
@@ -24354,7 +24353,6 @@ ehcleanup242:                                     ; preds = %lpad237, %lpad.i110
   br label %eh.resume
 
 if.end243:                                        ; preds = %land.rhs213
-  %cmp247 = icmp eq ptr %0, %incdec.ptr246
   br i1 %cmp247, label %if.then254, label %lor.lhs.false248
 
 lor.lhs.false248:                                 ; preds = %if.end243
@@ -24676,11 +24674,11 @@ land.rhs:                                         ; preds = %if.end63, %while.bo
   %cmp82.not = icmp eq i8 %26, 5
   %incdec.ptr97 = getelementptr inbounds i8, ptr %23, i64 1
   store ptr %incdec.ptr97, ptr %m_position, align 8
+  %cmp98 = icmp eq ptr %15, %incdec.ptr97
   br i1 %cmp82.not, label %if.end94, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %cmp77.not = icmp eq ptr %incdec.ptr97, %15
-  br i1 %cmp77.not, label %if.then89, label %land.rhs, !llvm.loop !223
+  br i1 %cmp98, label %if.then89, label %land.rhs, !llvm.loop !223
 
 if.then89:                                        ; preds = %while.body
   %m_base90 = getelementptr inbounds i8, ptr %this, i64 176
@@ -24692,7 +24690,6 @@ if.then89:                                        ; preds = %while.body
   br label %return
 
 if.end94:                                         ; preds = %land.rhs
-  %cmp98 = icmp eq ptr %15, %incdec.ptr97
   br i1 %cmp98, label %if.then105, label %lor.lhs.false99
 
 lor.lhs.false99:                                  ; preds = %if.end94

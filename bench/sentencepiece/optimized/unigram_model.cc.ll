@@ -12132,10 +12132,10 @@ define linkonce_odr void @_ZNSt21discrete_distributionIiE10param_type13_M_initia
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
   %8 = icmp ult i64 %7, 9
+  %.not.i.i = icmp eq ptr %3, %4
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  %.not.i.i = icmp eq ptr %3, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE5clearEv.exit, label %10
 
 10:                                               ; preds = %9
@@ -12143,8 +12143,7 @@ define linkonce_odr void @_ZNSt21discrete_distributionIiE10param_type13_M_initia
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit
 
 11:                                               ; preds = %1
-  %.not5.i = icmp eq ptr %4, %3
-  br i1 %.not5.i, label %_ZNSt8__detail11__normalizeIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES7_dEET0_T_S9_S8_RKT1_.exit, label %.lr.ph.i
+  br i1 %.not.i.i, label %_ZNSt8__detail11__normalizeIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES7_dEET0_T_S9_S8_RKT1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %.07.i = phi double [ %13, %.lr.ph.i ], [ 0.000000e+00, %11 ]

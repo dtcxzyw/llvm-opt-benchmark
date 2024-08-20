@@ -64,13 +64,13 @@ define dso_local noundef zeroext i1 @_ZN14cmNewLineStyle17ReadFromArgumentsERKSt
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 5
-  br i1 %10, label %18, label %42
+  %18 = icmp ugt i64 %17, %11
+  br i1 %10, label %19, label %42
 
-18:                                               ; preds = %.lr.ph
-  %19 = icmp ugt i64 %17, %11
-  br i1 %19, label %20, label %40
+19:                                               ; preds = %.lr.ph
+  br i1 %18, label %20, label %40
 
-20:                                               ; preds = %18
+20:                                               ; preds = %19
   %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %13, i64 %11
   %22 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.1) #8
   %23 = icmp eq i32 %22, 0
@@ -108,13 +108,12 @@ define dso_local noundef zeroext i1 @_ZN14cmNewLineStyle17ReadFromArgumentsERKSt
   %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.6)
   br label %.loopexit
 
-40:                                               ; preds = %18
+40:                                               ; preds = %19
   %41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.7)
   br label %.loopexit
 
 42:                                               ; preds = %.lr.ph
-  %43 = icmp ult i64 %11, %17
-  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %42, %3, %40, %38, %37, %27
   %.0 = phi i1 [ true, %27 ], [ true, %37 ], [ false, %38 ], [ false, %40 ], [ true, %3 ], [ true, %42 ]

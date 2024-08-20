@@ -5867,18 +5867,17 @@ if.else85:                                        ; preds = %lor.lhs.false80, %f
   %cmp87.not = icmp eq i32 %74, 0
   %m_value.i117.phi.trans.insert = getelementptr inbounds i8, ptr %n1.addr.0, i64 24
   %.pre = load i32, ptr %m_value.i117.phi.trans.insert, align 8
+  %cmp99.not = icmp eq i32 %74, %.pre
   br i1 %cmp87.not, label %if.else93, label %land.lhs.true88
 
 land.lhs.true88:                                  ; preds = %if.else85
-  %cmp91.not = icmp eq i32 %.pre, %74
-  br i1 %cmp91.not, label %if.end103, label %if.then92
+  br i1 %cmp99.not, label %if.end103, label %if.then92
 
 if.then92:                                        ; preds = %land.lhs.true88
   call void @_ZN3euf6egraph11add_literalEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %n1.addr.0, ptr noundef nonnull %n2.addr.0)
   br label %if.end103
 
 if.else93:                                        ; preds = %if.else85
-  %cmp99.not = icmp eq i32 %74, %.pre
   br i1 %cmp99.not, label %if.end103, label %if.then100
 
 if.then100:                                       ; preds = %if.else93

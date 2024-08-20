@@ -219,17 +219,16 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.outer: ; preds = %149, %68
 _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.outer
   %.sroa.0184.0 = phi ptr [ %.sroa.0184.0.ph, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.outer ], [ %.sroa.0184.6254, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge ]
   %.not.i125 = phi i1 [ %.not.i125.ph, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.outer ], [ true, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge ]
-  br i1 %.not.i125, label %72, label %..lr.ph49.i.i_crit_edge.i.preheader
+  %72 = icmp eq ptr %.sroa.0184.0, %69
+  br i1 %.not.i125, label %73, label %..lr.ph49.i.i_crit_edge.i.preheader
 
 ..lr.ph49.i.i_crit_edge.i.preheader:              ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
-  %.not26.i.i.i = icmp eq ptr %69, %.sroa.0184.0
-  br i1 %.not26.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %.loopexit.i.i
+  br i1 %72, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %.loopexit.i.i
 
-72:                                               ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
-  %73 = icmp eq ptr %.sroa.0184.0, %69
-  br i1 %73, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %74
+73:                                               ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
+  br i1 %72, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %74
 
-74:                                               ; preds = %72
+74:                                               ; preds = %73
   %75 = getelementptr inbounds i8, ptr %.sroa.0184.0, i64 1
   %76 = load i8, ptr %.sroa.0184.0, align 1, !noalias !12, !noundef !4
   %77 = icmp sgt i8 %76, -1
@@ -353,7 +352,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %_ZN5alloc6stri
   %146 = icmp eq i32 %145, 1114112
   br i1 %146, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread"
 
-"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260": ; preds = %149, %149, %149, %149, %149, %.loopexit.i.i, %72, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit", %..lr.ph49.i.i_crit_edge.i.preheader
+"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260": ; preds = %149, %149, %149, %149, %149, %.loopexit.i.i, %73, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit", %..lr.ph49.i.i_crit_edge.i.preheader
   %147 = load i64, ptr %.sroa.585.0..sroa_idx, align 8, !noundef !4
   %148 = icmp eq i64 %147, 0
   br i1 %148, label %243, label %241

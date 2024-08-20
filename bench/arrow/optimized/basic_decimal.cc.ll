@@ -3348,10 +3348,10 @@ if.end.i:                                         ; preds = %if.end
   %cmp9.i.i = icmp slt i64 %1, 0
   %arrayidx.i.i.i1.i.i.i = getelementptr inbounds i8, ptr %out, i64 24
   %2 = load i64, ptr %arrayidx.i.i.i1.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq i64 %1, %2
   br i1 %cmp9.i.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %cmp.not.i.i.i = icmp eq i64 %1, %2
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.true.i
@@ -3389,8 +3389,7 @@ cond.false25.i.i.i:                               ; preds = %cond.false17.i.i.i
   br label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal256EEEbRKT_iS4_PS2_.exit
 
 cond.false.i:                                     ; preds = %if.end.i
-  %cmp.not.i11.i = icmp eq i64 %2, %1
-  br i1 %cmp.not.i11.i, label %cond.false.i15.i, label %cond.true.i12.i
+  br i1 %cmp.not.i.i.i, label %cond.false.i15.i, label %cond.true.i12.i
 
 cond.true.i12.i:                                  ; preds = %cond.false.i
   %cmp9.i13.i = icmp slt i64 %2, %1

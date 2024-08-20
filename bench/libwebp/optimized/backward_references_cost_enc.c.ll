@@ -1454,66 +1454,65 @@ define internal fastcc void @PushInterval(ptr noundef %0, float noundef %1, i32 
 
 62:                                               ; preds = %58
   %.not104 = icmp sgt i32 %.091122, %51
-  br i1 %.not104, label %78, label %63
+  %63 = icmp slt i32 %47, %57
+  br i1 %.not104, label %79, label %64
 
-63:                                               ; preds = %62
-  %.not105 = icmp sgt i32 %57, %47
-  br i1 %.not105, label %76, label %64
+64:                                               ; preds = %62
+  br i1 %63, label %77, label %65
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %.1123, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %.not.i.i = icmp eq ptr %66, null
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
-  %.sink.i.i = select i1 %.not.i.i, ptr %0, ptr %67
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds i8, ptr %.1123, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %.not.i.i = icmp eq ptr %67, null
+  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %.sink.i.i = select i1 %.not.i.i, ptr %0, ptr %68
   store ptr %55, ptr %.sink.i.i, align 8
   %.not9.i.i = icmp eq ptr %55, null
-  br i1 %.not9.i.i, label %PopInterval.exit, label %68
+  br i1 %.not9.i.i, label %PopInterval.exit, label %69
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %55, i64 16
-  store ptr %66, ptr %69, align 8
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %55, i64 16
+  store ptr %67, ptr %70, align 8
   br label %PopInterval.exit
 
-PopInterval.exit:                                 ; preds = %64, %68
-  %70 = icmp ugt ptr %35, %.1123
-  %71 = icmp ult ptr %36, %.1123
-  %.not15.i = select i1 %70, i1 true, i1 %71
+PopInterval.exit:                                 ; preds = %65, %69
+  %71 = icmp ugt ptr %35, %.1123
+  %72 = icmp ult ptr %36, %.1123
+  %.not15.i = select i1 %71, i1 true, i1 %72
   %..i = select i1 %.not15.i, i64 16760, i64 16752
-  %72 = getelementptr inbounds i8, ptr %0, i64 %..i
-  %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %54, align 8
-  store ptr %.1123, ptr %72, align 8
-  %74 = load i32, ptr %37, align 8
-  %75 = add nsw i32 %74, -1
-  store i32 %75, ptr %37, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 %..i
+  %74 = load ptr, ptr %73, align 8
+  store ptr %74, ptr %54, align 8
+  store ptr %.1123, ptr %73, align 8
+  %75 = load i32, ptr %37, align 8
+  %76 = add nsw i32 %75, -1
+  store i32 %76, ptr %37, align 8
   br label %84
 
-76:                                               ; preds = %63
-  %77 = getelementptr inbounds i8, ptr %.1123, i64 4
-  store i32 %47, ptr %77, align 4
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds i8, ptr %.1123, i64 4
+  store i32 %47, ptr %78, align 4
   br label %.critedge2
 
-78:                                               ; preds = %62
-  %79 = icmp slt i32 %47, %57
+79:                                               ; preds = %62
   store i32 %.091122, ptr %56, align 8
-  br i1 %79, label %80, label %84
+  br i1 %63, label %80, label %84
 
-80:                                               ; preds = %78
+80:                                               ; preds = %79
   %81 = getelementptr inbounds i8, ptr %.1123, i64 12
   %82 = load i32, ptr %81, align 4
   tail call fastcc void @InsertInterval(ptr noundef nonnull %0, ptr noundef nonnull %.1123, float noundef %59, i32 noundef %82, i32 noundef %47, i32 noundef %57)
   %83 = load ptr, ptr %54, align 8
   br label %.critedge2
 
-84:                                               ; preds = %78, %PopInterval.exit, %61, %53
-  %.293 = phi i32 [ %.091122, %53 ], [ %57, %61 ], [ %.091122, %PopInterval.exit ], [ %.091122, %78 ]
+84:                                               ; preds = %79, %PopInterval.exit, %61, %53
+  %.293 = phi i32 [ %.091122, %53 ], [ %57, %61 ], [ %.091122, %PopInterval.exit ], [ %.091122, %79 ]
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !20
 
-.critedge2:                                       ; preds = %.lr.ph, %61, %84, %43, %80, %76
-  %.192 = phi i32 [ %.091122, %76 ], [ %.091122, %80 ], [ %44, %43 ], [ %.091122, %.lr.ph ], [ %57, %61 ], [ %.293, %84 ]
-  %.2 = phi ptr [ %.1123, %76 ], [ %83, %80 ], [ null, %43 ], [ %.1123, %.lr.ph ], [ %.1123, %61 ], [ null, %84 ]
+.critedge2:                                       ; preds = %.lr.ph, %61, %84, %43, %80, %77
+  %.192 = phi i32 [ %.091122, %77 ], [ %.091122, %80 ], [ %44, %43 ], [ %.091122, %.lr.ph ], [ %57, %61 ], [ %.293, %84 ]
+  %.2 = phi ptr [ %.1123, %77 ], [ %83, %80 ], [ null, %43 ], [ %.1123, %.lr.ph ], [ %.1123, %61 ], [ null, %84 ]
   tail call fastcc void @InsertInterval(ptr noundef nonnull %0, ptr noundef %.2, float noundef %49, i32 noundef %2, i32 noundef %.192, i32 noundef %47)
   %85 = add nuw i64 %.0132, 1
   %86 = load i64, ptr %32, align 8

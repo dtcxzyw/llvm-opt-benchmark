@@ -540,11 +540,11 @@ if.else26:                                        ; preds = %if.else21
   %cmp.i.not.i = icmp eq ptr %14, %15
   %buf_size_.i = getelementptr inbounds i8, ptr %this, i64 96
   %16 = load i64, ptr %buf_size_.i, align 8
+  %cmp.i = icmp ugt i64 %add.i, %16
   br i1 %cmp.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else26
-  %cmp.i10.i = icmp ult i64 %16, %add.i
-  br i1 %cmp.i10.i, label %if.then.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
+  br i1 %cmp.i, label %if.then.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   call void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(72) %raw_key_, i64 noundef %add.i)
@@ -560,7 +560,6 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i: ; preds = %if.then.i.i, %if
   br label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
 if.else.i:                                        ; preds = %if.else26
-  %cmp.i = icmp ugt i64 %add.i, %16
   br i1 %cmp.i, label %if.then2.i, label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -9310,30 +9309,29 @@ if.else26:                                        ; preds = %if.else21
   %cmp.i.not.i = icmp eq ptr %20, %21
   %buf_size_.i = getelementptr inbounds i8, ptr %this, i64 96
   %22 = load i64, ptr %buf_size_.i, align 8
-  br i1 %cmp.i.not.i, label %if.else.i21, label %if.then.i16
+  %cmp.i16 = icmp ugt i64 %add.i, %22
+  br i1 %cmp.i.not.i, label %if.else.i22, label %if.then.i17
 
-if.then.i16:                                      ; preds = %if.else26
-  %cmp.i10.i = icmp ult i64 %22, %add.i
-  br i1 %cmp.i10.i, label %if.then.i.i20, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
+if.then.i17:                                      ; preds = %if.else26
+  br i1 %cmp.i16, label %if.then.i.i21, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
 
-if.then.i.i20:                                    ; preds = %if.then.i16
+if.then.i.i21:                                    ; preds = %if.then.i17
   call void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(72) %raw_key_, i64 noundef %add.i)
   %.pre.i = load ptr, ptr %raw_key_, align 8
   %.pre11.i = load ptr, ptr %key_.i.i, align 8
   br label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
 
-_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i: ; preds = %if.then.i.i20, %if.then.i16
-  %23 = phi ptr [ %20, %if.then.i16 ], [ %.pre11.i, %if.then.i.i20 ]
-  %24 = phi ptr [ %21, %if.then.i16 ], [ %.pre.i, %if.then.i.i20 ]
+_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i: ; preds = %if.then.i.i21, %if.then.i17
+  %23 = phi ptr [ %20, %if.then.i17 ], [ %.pre11.i, %if.then.i.i21 ]
+  %24 = phi ptr [ %21, %if.then.i17 ], [ %.pre.i, %if.then.i.i21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %23, i64 %conv, i1 false)
   %.pre12.i = load ptr, ptr %raw_key_, align 8
   br label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
-if.else.i21:                                      ; preds = %if.else26
-  %cmp.i22 = icmp ugt i64 %add.i, %22
-  br i1 %cmp.i22, label %if.then2.i, label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
+if.else.i22:                                      ; preds = %if.else26
+  br i1 %cmp.i16, label %if.then2.i, label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
-if.then2.i:                                       ; preds = %if.else.i21
+if.then2.i:                                       ; preds = %if.else.i22
   %call3.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr align 1 %20, i64 %conv, i1 false)
   %space_.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -9351,10 +9349,10 @@ if.end.i23:                                       ; preds = %delete.notnull.i, %
   store i64 %add.i, ptr %buf_size_.i, align 8
   br label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
-_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit:       ; preds = %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i, %if.else.i21, %if.end.i23
-  %25 = phi ptr [ %21, %if.else.i21 ], [ %call3.i, %if.end.i23 ], [ %.pre12.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i ]
-  %add.ptr.i18 = getelementptr inbounds i8, ptr %25, i64 %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i18, ptr nonnull align 1 %retval.0.i34, i64 %conv25, i1 false)
+_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit:       ; preds = %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i, %if.else.i22, %if.end.i23
+  %25 = phi ptr [ %21, %if.else.i22 ], [ %call3.i, %if.end.i23 ], [ %.pre12.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i ]
+  %add.ptr.i19 = getelementptr inbounds i8, ptr %25, i64 %conv
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i19, ptr nonnull align 1 %retval.0.i34, i64 %conv25, i1 false)
   %26 = load ptr, ptr %raw_key_, align 8
   store ptr %26, ptr %key_.i.i, align 8
   store i64 %add.i, ptr %key_size_.i, align 8
@@ -10434,11 +10432,11 @@ if.else26:                                        ; preds = %if.else21
   %cmp.i.not.i = icmp eq ptr %17, %18
   %buf_size_.i = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load i64, ptr %buf_size_.i, align 8
+  %cmp.i = icmp ugt i64 %add.i, %19
   br i1 %cmp.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else26
-  %cmp.i10.i = icmp ult i64 %19, %add.i
-  br i1 %cmp.i10.i, label %if.then.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
+  br i1 %cmp.i, label %if.then.i.i, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   call void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(72) %raw_key_, i64 noundef %add.i)
@@ -10454,7 +10452,6 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i: ; preds = %if.then.i.i, %if
   br label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
 if.else.i:                                        ; preds = %if.else26
-  %cmp.i = icmp ugt i64 %add.i, %19
   br i1 %cmp.i, label %if.then2.i, label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -10735,30 +10732,29 @@ if.else26:                                        ; preds = %if.else21
   %cmp.i.not.i = icmp eq ptr %20, %21
   %buf_size_.i = getelementptr inbounds i8, ptr %this, i64 96
   %22 = load i64, ptr %buf_size_.i, align 8
-  br i1 %cmp.i.not.i, label %if.else.i21, label %if.then.i16
+  %cmp.i16 = icmp ugt i64 %add.i, %22
+  br i1 %cmp.i.not.i, label %if.else.i22, label %if.then.i17
 
-if.then.i16:                                      ; preds = %if.else26
-  %cmp.i10.i = icmp ult i64 %22, %add.i
-  br i1 %cmp.i10.i, label %if.then.i.i20, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
+if.then.i17:                                      ; preds = %if.else26
+  br i1 %cmp.i16, label %if.then.i.i21, label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
 
-if.then.i.i20:                                    ; preds = %if.then.i16
+if.then.i.i21:                                    ; preds = %if.then.i17
   call void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(72) %raw_key_, i64 noundef %add.i)
   %.pre.i = load ptr, ptr %raw_key_, align 8
   %.pre11.i = load ptr, ptr %key_.i.i, align 8
   br label %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i
 
-_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i: ; preds = %if.then.i.i20, %if.then.i16
-  %23 = phi ptr [ %20, %if.then.i16 ], [ %.pre11.i, %if.then.i.i20 ]
-  %24 = phi ptr [ %21, %if.then.i16 ], [ %.pre.i, %if.then.i.i20 ]
+_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i: ; preds = %if.then.i.i21, %if.then.i17
+  %23 = phi ptr [ %20, %if.then.i17 ], [ %.pre11.i, %if.then.i.i21 ]
+  %24 = phi ptr [ %21, %if.then.i17 ], [ %.pre.i, %if.then.i.i21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %23, i64 %conv, i1 false)
   %.pre12.i = load ptr, ptr %raw_key_, align 8
   br label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
-if.else.i21:                                      ; preds = %if.else26
-  %cmp.i22 = icmp ugt i64 %add.i, %22
-  br i1 %cmp.i22, label %if.then2.i, label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
+if.else.i22:                                      ; preds = %if.else26
+  br i1 %cmp.i16, label %if.then2.i, label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
-if.then2.i:                                       ; preds = %if.else.i21
+if.then2.i:                                       ; preds = %if.else.i22
   %call3.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3.i, ptr align 1 %20, i64 %conv, i1 false)
   %space_.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -10776,10 +10772,10 @@ if.end.i23:                                       ; preds = %delete.notnull.i, %
   store i64 %add.i, ptr %buf_size_.i, align 8
   br label %_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit
 
-_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit:       ; preds = %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i, %if.else.i21, %if.end.i23
-  %25 = phi ptr [ %21, %if.else.i21 ], [ %call3.i, %if.end.i23 ], [ %.pre12.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i ]
-  %add.ptr.i18 = getelementptr inbounds i8, ptr %25, i64 %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i18, ptr nonnull align 1 %retval.0.i34, i64 %conv25, i1 false)
+_ZN7rocksdb7IterKey10TrimAppendEmPKcm.exit:       ; preds = %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i, %if.else.i22, %if.end.i23
+  %25 = phi ptr [ %21, %if.else.i22 ], [ %call3.i, %if.end.i23 ], [ %.pre12.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i ]
+  %add.ptr.i19 = getelementptr inbounds i8, ptr %25, i64 %conv
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i19, ptr nonnull align 1 %retval.0.i34, i64 %conv25, i1 false)
   %26 = load ptr, ptr %raw_key_, align 8
   store ptr %26, ptr %key_.i.i, align 8
   store i64 %add.i, ptr %key_size_.i, align 8

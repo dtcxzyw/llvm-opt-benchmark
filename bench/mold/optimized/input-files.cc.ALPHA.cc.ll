@@ -23270,11 +23270,11 @@ entry:
   %add.ptr.i.i6.i33.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %15, i64 %conv.i5.i32.i
   %st_value5.i35.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i, i64 8
   %16 = load i64, ptr %st_value5.i35.i, align 1
+  %cmp.eq.i.i.i.i37.i = icmp eq i64 %11, %16
   br i1 %cmp.i.i.i, label %cond.true.i, label %cond.false17.i
 
 cond.true.i:                                      ; preds = %entry
   %cmp.lt.i.i.i.i36.i = icmp ult i64 %11, %16
-  %cmp.eq.i.i.i.i37.i = icmp eq i64 %11, %16
   %cmp.lt.i.i.i.i.i38.i = icmp ult ptr %add.ptr.i.i6.i.i, %add.ptr.i.i6.i33.i
   %cmp.i.i39.i = select i1 %cmp.eq.i.i.i.i37.i, i1 %cmp.lt.i.i.i.i.i38.i, i1 %cmp.lt.i.i.i.i36.i
   br i1 %cmp.i.i39.i, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit, label %cond.false.i
@@ -23289,9 +23289,8 @@ cond.false.i:                                     ; preds = %cond.true.i
 
 cond.false17.i:                                   ; preds = %entry
   %cmp.lt.i.i.i.i68.i = icmp ult i64 %16, %11
-  %cmp.eq.i.i.i.i69.i = icmp eq i64 %16, %11
   %cmp.lt.i.i.i.i.i70.i = icmp ult ptr %add.ptr.i.i6.i33.i, %add.ptr.i.i6.i.i
-  %cmp.i.i71.i = select i1 %cmp.eq.i.i.i.i69.i, i1 %cmp.lt.i.i.i.i.i70.i, i1 %cmp.lt.i.i.i.i68.i
+  %cmp.i.i71.i = select i1 %cmp.eq.i.i.i.i37.i, i1 %cmp.lt.i.i.i.i.i70.i, i1 %cmp.lt.i.i.i.i68.i
   br i1 %cmp.i.i71.i, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit, label %cond.false23.i
 
 cond.false23.i:                                   ; preds = %cond.false17.i
@@ -23344,186 +23343,183 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf
   %add.ptr.i.i6.i33.i31 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %30, i64 %conv.i5.i32.i30
   %st_value5.i35.i32 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i31, i64 8
   %31 = load i64, ptr %st_value5.i35.i32, align 1
-  br i1 %cmp.i.i.i26, label %cond.true.i45, label %cond.false17.i33
+  %cmp.eq.i.i.i.i37.i33 = icmp eq i64 %26, %31
+  br i1 %cmp.i.i.i26, label %cond.true.i45, label %cond.false17.i34
 
 cond.true.i45:                                    ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit
   %cmp.lt.i.i.i.i36.i46 = icmp ult i64 %26, %31
-  %cmp.eq.i.i.i.i37.i47 = icmp eq i64 %26, %31
-  %cmp.lt.i.i.i.i.i38.i48 = icmp ult ptr %add.ptr.i.i6.i.i20, %add.ptr.i.i6.i33.i31
-  %cmp.i.i39.i49 = select i1 %cmp.eq.i.i.i.i37.i47, i1 %cmp.lt.i.i.i.i.i38.i48, i1 %cmp.lt.i.i.i.i36.i46
-  br i1 %cmp.i.i39.i49, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit56, label %cond.false.i50
+  %cmp.lt.i.i.i.i.i38.i47 = icmp ult ptr %add.ptr.i.i6.i.i20, %add.ptr.i.i6.i33.i31
+  %cmp.i.i39.i48 = select i1 %cmp.eq.i.i.i.i37.i33, i1 %cmp.lt.i.i.i.i.i38.i47, i1 %cmp.lt.i.i.i.i36.i46
+  br i1 %cmp.i.i39.i48, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55, label %cond.false.i49
 
-cond.false.i50:                                   ; preds = %cond.true.i45
-  %cmp.lt.i.i.i.i52.i51 = icmp ult i64 %25, %31
-  %cmp.eq.i.i.i.i53.i52 = icmp eq i64 %25, %31
-  %cmp.lt.i.i.i.i.i54.i53 = icmp ult ptr %add.ptr.i.i.i.i16, %add.ptr.i.i6.i33.i31
-  %cmp.i.i55.i54 = select i1 %cmp.eq.i.i.i.i53.i52, i1 %cmp.lt.i.i.i.i.i54.i53, i1 %cmp.lt.i.i.i.i52.i51
-  %cond.i55 = select i1 %cmp.i.i55.i54, i64 %mul4, i64 %mul2
-  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit56
+cond.false.i49:                                   ; preds = %cond.true.i45
+  %cmp.lt.i.i.i.i52.i50 = icmp ult i64 %25, %31
+  %cmp.eq.i.i.i.i53.i51 = icmp eq i64 %25, %31
+  %cmp.lt.i.i.i.i.i54.i52 = icmp ult ptr %add.ptr.i.i.i.i16, %add.ptr.i.i6.i33.i31
+  %cmp.i.i55.i53 = select i1 %cmp.eq.i.i.i.i53.i51, i1 %cmp.lt.i.i.i.i.i54.i52, i1 %cmp.lt.i.i.i.i52.i50
+  %cond.i54 = select i1 %cmp.i.i55.i53, i64 %mul4, i64 %mul2
+  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
 
-cond.false17.i33:                                 ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit
-  %cmp.lt.i.i.i.i68.i34 = icmp ult i64 %31, %26
-  %cmp.eq.i.i.i.i69.i35 = icmp eq i64 %31, %26
+cond.false17.i34:                                 ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit
+  %cmp.lt.i.i.i.i68.i35 = icmp ult i64 %31, %26
   %cmp.lt.i.i.i.i.i70.i36 = icmp ult ptr %add.ptr.i.i6.i33.i31, %add.ptr.i.i6.i.i20
-  %cmp.i.i71.i37 = select i1 %cmp.eq.i.i.i.i69.i35, i1 %cmp.lt.i.i.i.i.i70.i36, i1 %cmp.lt.i.i.i.i68.i34
-  br i1 %cmp.i.i71.i37, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit56, label %cond.false23.i38
+  %cmp.i.i71.i37 = select i1 %cmp.eq.i.i.i.i37.i33, i1 %cmp.lt.i.i.i.i.i70.i36, i1 %cmp.lt.i.i.i.i68.i35
+  br i1 %cmp.i.i71.i37, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55, label %cond.false23.i38
 
-cond.false23.i38:                                 ; preds = %cond.false17.i33
+cond.false23.i38:                                 ; preds = %cond.false17.i34
   %cmp.lt.i.i.i.i84.i39 = icmp ult i64 %31, %25
   %cmp.eq.i.i.i.i85.i40 = icmp eq i64 %31, %25
   %cmp.lt.i.i.i.i.i86.i41 = icmp ult ptr %add.ptr.i.i6.i33.i31, %add.ptr.i.i.i.i16
   %cmp.i.i87.i42 = select i1 %cmp.eq.i.i.i.i85.i40, i1 %cmp.lt.i.i.i.i.i86.i41, i1 %cmp.lt.i.i.i.i84.i39
   %cond31.i43 = select i1 %cmp.i.i87.i42, i64 %mul4, i64 %mul2
-  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit56
+  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
 
-_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit56: ; preds = %cond.true.i45, %cond.false.i50, %cond.false17.i33, %cond.false23.i38
-  %cond35.i44 = phi i64 [ %cond.i55, %cond.false.i50 ], [ %cond31.i43, %cond.false23.i38 ], [ %mul3, %cond.true.i45 ], [ %mul3, %cond.false17.i33 ]
+_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55: ; preds = %cond.true.i45, %cond.false.i49, %cond.false17.i34, %cond.false23.i38
+  %cond35.i44 = phi i64 [ %cond.i54, %cond.false.i49 ], [ %cond31.i43, %cond.false23.i38 ], [ %mul3, %cond.true.i45 ], [ %mul3, %cond.false17.i34 ]
   %mul6 = mul nuw i64 %div11, 6
   %mul7 = mul nuw i64 %div11, 7
   %sub = add i64 %0, -1
-  %arrayidx.i.i57 = getelementptr inbounds ptr, ptr %1, i64 %mul6
-  %32 = load ptr, ptr %arrayidx.i.i57, align 8
-  %arrayidx.i23.i58 = getelementptr inbounds ptr, ptr %1, i64 %mul7
-  %33 = load ptr, ptr %arrayidx.i23.i58, align 8
+  %arrayidx.i.i56 = getelementptr inbounds ptr, ptr %1, i64 %mul6
+  %32 = load ptr, ptr %arrayidx.i.i56, align 8
+  %arrayidx.i23.i57 = getelementptr inbounds ptr, ptr %1, i64 %mul7
+  %33 = load ptr, ptr %arrayidx.i23.i57, align 8
   %34 = load ptr, ptr %32, align 8
-  %elf_syms.i.i.i59 = getelementptr inbounds i8, ptr %34, i64 32
-  %sym_idx.i.i.i60 = getelementptr inbounds i8, ptr %32, i64 36
-  %35 = load i32, ptr %sym_idx.i.i.i60, align 4
-  %conv.i.i.i61 = sext i32 %35 to i64
-  %36 = load ptr, ptr %elf_syms.i.i.i59, align 8
-  %add.ptr.i.i.i.i62 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %36, i64 %conv.i.i.i61
+  %elf_syms.i.i.i58 = getelementptr inbounds i8, ptr %34, i64 32
+  %sym_idx.i.i.i59 = getelementptr inbounds i8, ptr %32, i64 36
+  %35 = load i32, ptr %sym_idx.i.i.i59, align 4
+  %conv.i.i.i60 = sext i32 %35 to i64
+  %36 = load ptr, ptr %elf_syms.i.i.i58, align 8
+  %add.ptr.i.i.i.i61 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %36, i64 %conv.i.i.i60
   %37 = load ptr, ptr %33, align 8
-  %elf_syms.i3.i.i63 = getelementptr inbounds i8, ptr %37, i64 32
-  %sym_idx.i4.i.i64 = getelementptr inbounds i8, ptr %33, i64 36
-  %38 = load i32, ptr %sym_idx.i4.i.i64, align 4
-  %conv.i5.i.i65 = sext i32 %38 to i64
-  %39 = load ptr, ptr %elf_syms.i3.i.i63, align 8
-  %add.ptr.i.i6.i.i66 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %39, i64 %conv.i5.i.i65
-  %st_value.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i62, i64 8
-  %40 = load i64, ptr %st_value.i.i67, align 1
-  %st_value5.i.i68 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i66, i64 8
-  %41 = load i64, ptr %st_value5.i.i68, align 1
-  %cmp.lt.i.i.i.i.i69 = icmp ult i64 %40, %41
-  %cmp.eq.i.i.i.i.i70 = icmp eq i64 %40, %41
-  %cmp.lt.i.i.i.i.i.i71 = icmp ult ptr %add.ptr.i.i.i.i62, %add.ptr.i.i6.i.i66
-  %cmp.i.i.i72 = select i1 %cmp.eq.i.i.i.i.i70, i1 %cmp.lt.i.i.i.i.i.i71, i1 %cmp.lt.i.i.i.i.i69
-  %arrayidx.i25.i73 = getelementptr inbounds ptr, ptr %1, i64 %sub
-  %42 = load ptr, ptr %arrayidx.i25.i73, align 8
+  %elf_syms.i3.i.i62 = getelementptr inbounds i8, ptr %37, i64 32
+  %sym_idx.i4.i.i63 = getelementptr inbounds i8, ptr %33, i64 36
+  %38 = load i32, ptr %sym_idx.i4.i.i63, align 4
+  %conv.i5.i.i64 = sext i32 %38 to i64
+  %39 = load ptr, ptr %elf_syms.i3.i.i62, align 8
+  %add.ptr.i.i6.i.i65 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %39, i64 %conv.i5.i.i64
+  %st_value.i.i66 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i61, i64 8
+  %40 = load i64, ptr %st_value.i.i66, align 1
+  %st_value5.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i65, i64 8
+  %41 = load i64, ptr %st_value5.i.i67, align 1
+  %cmp.lt.i.i.i.i.i68 = icmp ult i64 %40, %41
+  %cmp.eq.i.i.i.i.i69 = icmp eq i64 %40, %41
+  %cmp.lt.i.i.i.i.i.i70 = icmp ult ptr %add.ptr.i.i.i.i61, %add.ptr.i.i6.i.i65
+  %cmp.i.i.i71 = select i1 %cmp.eq.i.i.i.i.i69, i1 %cmp.lt.i.i.i.i.i.i70, i1 %cmp.lt.i.i.i.i.i68
+  %arrayidx.i25.i72 = getelementptr inbounds ptr, ptr %1, i64 %sub
+  %42 = load ptr, ptr %arrayidx.i25.i72, align 8
   %43 = load ptr, ptr %42, align 8
-  %elf_syms.i3.i30.i74 = getelementptr inbounds i8, ptr %43, i64 32
-  %sym_idx.i4.i31.i75 = getelementptr inbounds i8, ptr %42, i64 36
-  %44 = load i32, ptr %sym_idx.i4.i31.i75, align 4
-  %conv.i5.i32.i76 = sext i32 %44 to i64
-  %45 = load ptr, ptr %elf_syms.i3.i30.i74, align 8
-  %add.ptr.i.i6.i33.i77 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %45, i64 %conv.i5.i32.i76
-  %st_value5.i35.i78 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i77, i64 8
-  %46 = load i64, ptr %st_value5.i35.i78, align 1
-  br i1 %cmp.i.i.i72, label %cond.true.i91, label %cond.false17.i79
+  %elf_syms.i3.i30.i73 = getelementptr inbounds i8, ptr %43, i64 32
+  %sym_idx.i4.i31.i74 = getelementptr inbounds i8, ptr %42, i64 36
+  %44 = load i32, ptr %sym_idx.i4.i31.i74, align 4
+  %conv.i5.i32.i75 = sext i32 %44 to i64
+  %45 = load ptr, ptr %elf_syms.i3.i30.i73, align 8
+  %add.ptr.i.i6.i33.i76 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %45, i64 %conv.i5.i32.i75
+  %st_value5.i35.i77 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i76, i64 8
+  %46 = load i64, ptr %st_value5.i35.i77, align 1
+  %cmp.eq.i.i.i.i37.i78 = icmp eq i64 %41, %46
+  br i1 %cmp.i.i.i71, label %cond.true.i90, label %cond.false17.i79
 
-cond.true.i91:                                    ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit56
-  %cmp.lt.i.i.i.i36.i92 = icmp ult i64 %41, %46
-  %cmp.eq.i.i.i.i37.i93 = icmp eq i64 %41, %46
-  %cmp.lt.i.i.i.i.i38.i94 = icmp ult ptr %add.ptr.i.i6.i.i66, %add.ptr.i.i6.i33.i77
-  %cmp.i.i39.i95 = select i1 %cmp.eq.i.i.i.i37.i93, i1 %cmp.lt.i.i.i.i.i38.i94, i1 %cmp.lt.i.i.i.i36.i92
-  br i1 %cmp.i.i39.i95, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit102, label %cond.false.i96
+cond.true.i90:                                    ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
+  %cmp.lt.i.i.i.i36.i91 = icmp ult i64 %41, %46
+  %cmp.lt.i.i.i.i.i38.i92 = icmp ult ptr %add.ptr.i.i6.i.i65, %add.ptr.i.i6.i33.i76
+  %cmp.i.i39.i93 = select i1 %cmp.eq.i.i.i.i37.i78, i1 %cmp.lt.i.i.i.i.i38.i92, i1 %cmp.lt.i.i.i.i36.i91
+  br i1 %cmp.i.i39.i93, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100, label %cond.false.i94
 
-cond.false.i96:                                   ; preds = %cond.true.i91
-  %cmp.lt.i.i.i.i52.i97 = icmp ult i64 %40, %46
-  %cmp.eq.i.i.i.i53.i98 = icmp eq i64 %40, %46
-  %cmp.lt.i.i.i.i.i54.i99 = icmp ult ptr %add.ptr.i.i.i.i62, %add.ptr.i.i6.i33.i77
-  %cmp.i.i55.i100 = select i1 %cmp.eq.i.i.i.i53.i98, i1 %cmp.lt.i.i.i.i.i54.i99, i1 %cmp.lt.i.i.i.i52.i97
-  %cond.i101 = select i1 %cmp.i.i55.i100, i64 %sub, i64 %mul6
-  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit102
+cond.false.i94:                                   ; preds = %cond.true.i90
+  %cmp.lt.i.i.i.i52.i95 = icmp ult i64 %40, %46
+  %cmp.eq.i.i.i.i53.i96 = icmp eq i64 %40, %46
+  %cmp.lt.i.i.i.i.i54.i97 = icmp ult ptr %add.ptr.i.i.i.i61, %add.ptr.i.i6.i33.i76
+  %cmp.i.i55.i98 = select i1 %cmp.eq.i.i.i.i53.i96, i1 %cmp.lt.i.i.i.i.i54.i97, i1 %cmp.lt.i.i.i.i52.i95
+  %cond.i99 = select i1 %cmp.i.i55.i98, i64 %sub, i64 %mul6
+  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
 
-cond.false17.i79:                                 ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit56
+cond.false17.i79:                                 ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
   %cmp.lt.i.i.i.i68.i80 = icmp ult i64 %46, %41
-  %cmp.eq.i.i.i.i69.i81 = icmp eq i64 %46, %41
-  %cmp.lt.i.i.i.i.i70.i82 = icmp ult ptr %add.ptr.i.i6.i33.i77, %add.ptr.i.i6.i.i66
-  %cmp.i.i71.i83 = select i1 %cmp.eq.i.i.i.i69.i81, i1 %cmp.lt.i.i.i.i.i70.i82, i1 %cmp.lt.i.i.i.i68.i80
-  br i1 %cmp.i.i71.i83, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit102, label %cond.false23.i84
+  %cmp.lt.i.i.i.i.i70.i81 = icmp ult ptr %add.ptr.i.i6.i33.i76, %add.ptr.i.i6.i.i65
+  %cmp.i.i71.i82 = select i1 %cmp.eq.i.i.i.i37.i78, i1 %cmp.lt.i.i.i.i.i70.i81, i1 %cmp.lt.i.i.i.i68.i80
+  br i1 %cmp.i.i71.i82, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100, label %cond.false23.i83
 
-cond.false23.i84:                                 ; preds = %cond.false17.i79
-  %cmp.lt.i.i.i.i84.i85 = icmp ult i64 %46, %40
-  %cmp.eq.i.i.i.i85.i86 = icmp eq i64 %46, %40
-  %cmp.lt.i.i.i.i.i86.i87 = icmp ult ptr %add.ptr.i.i6.i33.i77, %add.ptr.i.i.i.i62
-  %cmp.i.i87.i88 = select i1 %cmp.eq.i.i.i.i85.i86, i1 %cmp.lt.i.i.i.i.i86.i87, i1 %cmp.lt.i.i.i.i84.i85
-  %cond31.i89 = select i1 %cmp.i.i87.i88, i64 %sub, i64 %mul6
-  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit102
+cond.false23.i83:                                 ; preds = %cond.false17.i79
+  %cmp.lt.i.i.i.i84.i84 = icmp ult i64 %46, %40
+  %cmp.eq.i.i.i.i85.i85 = icmp eq i64 %46, %40
+  %cmp.lt.i.i.i.i.i86.i86 = icmp ult ptr %add.ptr.i.i6.i33.i76, %add.ptr.i.i.i.i61
+  %cmp.i.i87.i87 = select i1 %cmp.eq.i.i.i.i85.i85, i1 %cmp.lt.i.i.i.i.i86.i86, i1 %cmp.lt.i.i.i.i84.i84
+  %cond31.i88 = select i1 %cmp.i.i87.i87, i64 %sub, i64 %mul6
+  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
 
-_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit102: ; preds = %cond.true.i91, %cond.false.i96, %cond.false17.i79, %cond.false23.i84
-  %cond35.i90 = phi i64 [ %cond.i101, %cond.false.i96 ], [ %cond31.i89, %cond.false23.i84 ], [ %mul7, %cond.true.i91 ], [ %mul7, %cond.false17.i79 ]
-  %arrayidx.i.i103 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i
-  %47 = load ptr, ptr %arrayidx.i.i103, align 8
-  %arrayidx.i23.i104 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i44
-  %48 = load ptr, ptr %arrayidx.i23.i104, align 8
+_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100: ; preds = %cond.true.i90, %cond.false.i94, %cond.false17.i79, %cond.false23.i83
+  %cond35.i89 = phi i64 [ %cond.i99, %cond.false.i94 ], [ %cond31.i88, %cond.false23.i83 ], [ %mul7, %cond.true.i90 ], [ %mul7, %cond.false17.i79 ]
+  %arrayidx.i.i101 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i
+  %47 = load ptr, ptr %arrayidx.i.i101, align 8
+  %arrayidx.i23.i102 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i44
+  %48 = load ptr, ptr %arrayidx.i23.i102, align 8
   %49 = load ptr, ptr %47, align 8
-  %elf_syms.i.i.i105 = getelementptr inbounds i8, ptr %49, i64 32
-  %sym_idx.i.i.i106 = getelementptr inbounds i8, ptr %47, i64 36
-  %50 = load i32, ptr %sym_idx.i.i.i106, align 4
-  %conv.i.i.i107 = sext i32 %50 to i64
-  %51 = load ptr, ptr %elf_syms.i.i.i105, align 8
-  %add.ptr.i.i.i.i108 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %51, i64 %conv.i.i.i107
+  %elf_syms.i.i.i103 = getelementptr inbounds i8, ptr %49, i64 32
+  %sym_idx.i.i.i104 = getelementptr inbounds i8, ptr %47, i64 36
+  %50 = load i32, ptr %sym_idx.i.i.i104, align 4
+  %conv.i.i.i105 = sext i32 %50 to i64
+  %51 = load ptr, ptr %elf_syms.i.i.i103, align 8
+  %add.ptr.i.i.i.i106 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %51, i64 %conv.i.i.i105
   %52 = load ptr, ptr %48, align 8
-  %elf_syms.i3.i.i109 = getelementptr inbounds i8, ptr %52, i64 32
-  %sym_idx.i4.i.i110 = getelementptr inbounds i8, ptr %48, i64 36
-  %53 = load i32, ptr %sym_idx.i4.i.i110, align 4
-  %conv.i5.i.i111 = sext i32 %53 to i64
-  %54 = load ptr, ptr %elf_syms.i3.i.i109, align 8
-  %add.ptr.i.i6.i.i112 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %54, i64 %conv.i5.i.i111
-  %st_value.i.i113 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i108, i64 8
-  %55 = load i64, ptr %st_value.i.i113, align 1
-  %st_value5.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i112, i64 8
-  %56 = load i64, ptr %st_value5.i.i114, align 1
-  %cmp.lt.i.i.i.i.i115 = icmp ult i64 %55, %56
-  %cmp.eq.i.i.i.i.i116 = icmp eq i64 %55, %56
-  %cmp.lt.i.i.i.i.i.i117 = icmp ult ptr %add.ptr.i.i.i.i108, %add.ptr.i.i6.i.i112
-  %cmp.i.i.i118 = select i1 %cmp.eq.i.i.i.i.i116, i1 %cmp.lt.i.i.i.i.i.i117, i1 %cmp.lt.i.i.i.i.i115
-  %arrayidx.i25.i119 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i90
-  %57 = load ptr, ptr %arrayidx.i25.i119, align 8
+  %elf_syms.i3.i.i107 = getelementptr inbounds i8, ptr %52, i64 32
+  %sym_idx.i4.i.i108 = getelementptr inbounds i8, ptr %48, i64 36
+  %53 = load i32, ptr %sym_idx.i4.i.i108, align 4
+  %conv.i5.i.i109 = sext i32 %53 to i64
+  %54 = load ptr, ptr %elf_syms.i3.i.i107, align 8
+  %add.ptr.i.i6.i.i110 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %54, i64 %conv.i5.i.i109
+  %st_value.i.i111 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i106, i64 8
+  %55 = load i64, ptr %st_value.i.i111, align 1
+  %st_value5.i.i112 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i110, i64 8
+  %56 = load i64, ptr %st_value5.i.i112, align 1
+  %cmp.lt.i.i.i.i.i113 = icmp ult i64 %55, %56
+  %cmp.eq.i.i.i.i.i114 = icmp eq i64 %55, %56
+  %cmp.lt.i.i.i.i.i.i115 = icmp ult ptr %add.ptr.i.i.i.i106, %add.ptr.i.i6.i.i110
+  %cmp.i.i.i116 = select i1 %cmp.eq.i.i.i.i.i114, i1 %cmp.lt.i.i.i.i.i.i115, i1 %cmp.lt.i.i.i.i.i113
+  %arrayidx.i25.i117 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i89
+  %57 = load ptr, ptr %arrayidx.i25.i117, align 8
   %58 = load ptr, ptr %57, align 8
-  %elf_syms.i3.i30.i120 = getelementptr inbounds i8, ptr %58, i64 32
-  %sym_idx.i4.i31.i121 = getelementptr inbounds i8, ptr %57, i64 36
-  %59 = load i32, ptr %sym_idx.i4.i31.i121, align 4
-  %conv.i5.i32.i122 = sext i32 %59 to i64
-  %60 = load ptr, ptr %elf_syms.i3.i30.i120, align 8
-  %add.ptr.i.i6.i33.i123 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %60, i64 %conv.i5.i32.i122
-  %st_value5.i35.i124 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i123, i64 8
-  %61 = load i64, ptr %st_value5.i35.i124, align 1
-  br i1 %cmp.i.i.i118, label %cond.true.i137, label %cond.false17.i125
+  %elf_syms.i3.i30.i118 = getelementptr inbounds i8, ptr %58, i64 32
+  %sym_idx.i4.i31.i119 = getelementptr inbounds i8, ptr %57, i64 36
+  %59 = load i32, ptr %sym_idx.i4.i31.i119, align 4
+  %conv.i5.i32.i120 = sext i32 %59 to i64
+  %60 = load ptr, ptr %elf_syms.i3.i30.i118, align 8
+  %add.ptr.i.i6.i33.i121 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %60, i64 %conv.i5.i32.i120
+  %st_value5.i35.i122 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i121, i64 8
+  %61 = load i64, ptr %st_value5.i35.i122, align 1
+  %cmp.eq.i.i.i.i37.i123 = icmp eq i64 %56, %61
+  br i1 %cmp.i.i.i116, label %cond.true.i135, label %cond.false17.i124
 
-cond.true.i137:                                   ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit102
-  %cmp.lt.i.i.i.i36.i138 = icmp ult i64 %56, %61
-  %cmp.eq.i.i.i.i37.i139 = icmp eq i64 %56, %61
-  %cmp.lt.i.i.i.i.i38.i140 = icmp ult ptr %add.ptr.i.i6.i.i112, %add.ptr.i.i6.i33.i123
-  %cmp.i.i39.i141 = select i1 %cmp.eq.i.i.i.i37.i139, i1 %cmp.lt.i.i.i.i.i38.i140, i1 %cmp.lt.i.i.i.i36.i138
-  br i1 %cmp.i.i39.i141, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit148, label %cond.false.i142
+cond.true.i135:                                   ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
+  %cmp.lt.i.i.i.i36.i136 = icmp ult i64 %56, %61
+  %cmp.lt.i.i.i.i.i38.i137 = icmp ult ptr %add.ptr.i.i6.i.i110, %add.ptr.i.i6.i33.i121
+  %cmp.i.i39.i138 = select i1 %cmp.eq.i.i.i.i37.i123, i1 %cmp.lt.i.i.i.i.i38.i137, i1 %cmp.lt.i.i.i.i36.i136
+  br i1 %cmp.i.i39.i138, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145, label %cond.false.i139
 
-cond.false.i142:                                  ; preds = %cond.true.i137
-  %cmp.lt.i.i.i.i52.i143 = icmp ult i64 %55, %61
-  %cmp.eq.i.i.i.i53.i144 = icmp eq i64 %55, %61
-  %cmp.lt.i.i.i.i.i54.i145 = icmp ult ptr %add.ptr.i.i.i.i108, %add.ptr.i.i6.i33.i123
-  %cmp.i.i55.i146 = select i1 %cmp.eq.i.i.i.i53.i144, i1 %cmp.lt.i.i.i.i.i54.i145, i1 %cmp.lt.i.i.i.i52.i143
-  %cond.i147 = select i1 %cmp.i.i55.i146, i64 %cond35.i90, i64 %cond35.i
-  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit148
+cond.false.i139:                                  ; preds = %cond.true.i135
+  %cmp.lt.i.i.i.i52.i140 = icmp ult i64 %55, %61
+  %cmp.eq.i.i.i.i53.i141 = icmp eq i64 %55, %61
+  %cmp.lt.i.i.i.i.i54.i142 = icmp ult ptr %add.ptr.i.i.i.i106, %add.ptr.i.i6.i33.i121
+  %cmp.i.i55.i143 = select i1 %cmp.eq.i.i.i.i53.i141, i1 %cmp.lt.i.i.i.i.i54.i142, i1 %cmp.lt.i.i.i.i52.i140
+  %cond.i144 = select i1 %cmp.i.i55.i143, i64 %cond35.i89, i64 %cond35.i
+  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145
 
-cond.false17.i125:                                ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit102
-  %cmp.lt.i.i.i.i68.i126 = icmp ult i64 %61, %56
-  %cmp.eq.i.i.i.i69.i127 = icmp eq i64 %61, %56
-  %cmp.lt.i.i.i.i.i70.i128 = icmp ult ptr %add.ptr.i.i6.i33.i123, %add.ptr.i.i6.i.i112
-  %cmp.i.i71.i129 = select i1 %cmp.eq.i.i.i.i69.i127, i1 %cmp.lt.i.i.i.i.i70.i128, i1 %cmp.lt.i.i.i.i68.i126
-  br i1 %cmp.i.i71.i129, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit148, label %cond.false23.i130
+cond.false17.i124:                                ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
+  %cmp.lt.i.i.i.i68.i125 = icmp ult i64 %61, %56
+  %cmp.lt.i.i.i.i.i70.i126 = icmp ult ptr %add.ptr.i.i6.i33.i121, %add.ptr.i.i6.i.i110
+  %cmp.i.i71.i127 = select i1 %cmp.eq.i.i.i.i37.i123, i1 %cmp.lt.i.i.i.i.i70.i126, i1 %cmp.lt.i.i.i.i68.i125
+  br i1 %cmp.i.i71.i127, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145, label %cond.false23.i128
 
-cond.false23.i130:                                ; preds = %cond.false17.i125
-  %cmp.lt.i.i.i.i84.i131 = icmp ult i64 %61, %55
-  %cmp.eq.i.i.i.i85.i132 = icmp eq i64 %61, %55
-  %cmp.lt.i.i.i.i.i86.i133 = icmp ult ptr %add.ptr.i.i6.i33.i123, %add.ptr.i.i.i.i108
-  %cmp.i.i87.i134 = select i1 %cmp.eq.i.i.i.i85.i132, i1 %cmp.lt.i.i.i.i.i86.i133, i1 %cmp.lt.i.i.i.i84.i131
-  %cond31.i135 = select i1 %cmp.i.i87.i134, i64 %cond35.i90, i64 %cond35.i
-  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit148
+cond.false23.i128:                                ; preds = %cond.false17.i124
+  %cmp.lt.i.i.i.i84.i129 = icmp ult i64 %61, %55
+  %cmp.eq.i.i.i.i85.i130 = icmp eq i64 %61, %55
+  %cmp.lt.i.i.i.i.i86.i131 = icmp ult ptr %add.ptr.i.i6.i33.i121, %add.ptr.i.i.i.i106
+  %cmp.i.i87.i132 = select i1 %cmp.eq.i.i.i.i85.i130, i1 %cmp.lt.i.i.i.i.i86.i131, i1 %cmp.lt.i.i.i.i84.i129
+  %cond31.i133 = select i1 %cmp.i.i87.i132, i64 %cond35.i89, i64 %cond35.i
+  br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145
 
-_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit148: ; preds = %cond.true.i137, %cond.false.i142, %cond.false17.i125, %cond.false23.i130
-  %cond35.i136 = phi i64 [ %cond.i147, %cond.false.i142 ], [ %cond31.i135, %cond.false23.i130 ], [ %cond35.i44, %cond.true.i137 ], [ %cond35.i44, %cond.false17.i125 ]
-  ret i64 %cond35.i136
+_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145: ; preds = %cond.true.i135, %cond.false.i139, %cond.false17.i124, %cond.false23.i128
+  %cond35.i134 = phi i64 [ %cond.i144, %cond.false.i139 ], [ %cond31.i133, %cond.false23.i128 ], [ %cond35.i44, %cond.true.i135 ], [ %cond35.i44, %cond.false17.i124 ]
+  ret i64 %cond35.i134
 }
 
 declare void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #0

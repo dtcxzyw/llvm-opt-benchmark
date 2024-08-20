@@ -12076,10 +12076,10 @@ while.end:                                        ; preds = %while.body, %_ZSt22
 define linkonce_odr hidden void @_ZSt16__merge_adaptiveIP6tripleIP3appS2_S2_ElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %__first, ptr noundef %__middle, ptr noundef %__last, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size, i64 %__comp.coerce) local_unnamed_addr #3 comdat {
 entry:
   %coerce.val.ip = inttoptr i64 %__comp.coerce to ptr
-  %cmp.not166 = icmp sgt i64 %__len1, %__len2
-  %cmp2.not167 = icmp sgt i64 %__len1, %__buffer_size
-  %or.cond168 = or i1 %cmp2.not167, %cmp.not166
-  br i1 %or.cond168, label %if.else.lr.ph, label %if.then
+  %cmp.not165 = icmp sgt i64 %__len1, %__len2
+  %cmp2.not166 = icmp sgt i64 %__len1, %__buffer_size
+  %or.cond167 = or i1 %cmp2.not166, %cmp.not165
+  br i1 %or.cond167, label %if.else.lr.ph, label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last to i64
@@ -12177,24 +12177,24 @@ _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit.i: ; preds = %while.end.i
   br label %if.end50
 
 if.else:                                          ; preds = %if.else.lr.ph, %if.end
-  %cmp.not173 = phi i1 [ %cmp.not166, %if.else.lr.ph ], [ %cmp.not, %if.end ]
-  %__len2.tr172 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub44, %if.end ]
-  %__len1.tr171 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %if.end ]
-  %__middle.tr170 = phi ptr [ %__middle, %if.else.lr.ph ], [ %__second_cut.0, %if.end ]
-  %__first.tr169 = phi ptr [ %__first, %if.else.lr.ph ], [ %call39, %if.end ]
-  %cmp5.not = icmp sgt i64 %__len2.tr172, %__buffer_size
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__middle.tr170 to i64
+  %cmp.not172 = phi i1 [ %cmp.not165, %if.else.lr.ph ], [ %cmp.not, %if.end ]
+  %__len2.tr171 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub44, %if.end ]
+  %__len1.tr170 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %if.end ]
+  %__middle.tr169 = phi ptr [ %__middle, %if.else.lr.ph ], [ %__second_cut.0, %if.end ]
+  %__first.tr168 = phi ptr [ %__first, %if.else.lr.ph ], [ %call39, %if.end ]
+  %cmp5.not = icmp sgt i64 %__len2.tr171, %__buffer_size
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__middle.tr169 to i64
   br i1 %cmp5.not, label %if.else12, label %if.then6
 
 if.then6:                                         ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %tobool.not.i.i.i.i.i48 = icmp eq ptr %__middle.tr170, %__last
+  %tobool.not.i.i.i.i.i48 = icmp eq ptr %__middle.tr169, %__last
   br i1 %tobool.not.i.i.i.i.i48, label %if.end50, label %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread
 
 _ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread: ; preds = %if.then6
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.tr170, i64 %sub.ptr.sub.i.i.i.i.i47, i1 false)
-  %cmp.i52182 = icmp eq ptr %__first.tr169, %__middle.tr170
-  br i1 %cmp.i52182, label %if.then.i.i.i.i.i.i, label %if.end4.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.tr169, i64 %sub.ptr.sub.i.i.i.i.i47, i1 false)
+  %cmp.i52181 = icmp eq ptr %__first.tr168, %__middle.tr169
+  br i1 %cmp.i52181, label %if.then.i.i.i.i.i.i, label %if.end4.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i47, -24
@@ -12203,60 +12203,60 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIP6tripleI
   br label %if.end50
 
 if.end4.i:                                        ; preds = %_ZSt4moveIP6tripleIP3appS2_S2_ES4_ET0_T_S6_S5_.exit51.thread
-  %add.ptr.i.i.i.i.i50181 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i47
-  %incdec.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i50181, i64 -24
-  br label %while.body.i56.outer
+  %add.ptr.i.i.i.i.i50180 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i47
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i50180, i64 -24
+  br label %while.body.i55.outer
 
-while.body.i56.outer:                             ; preds = %if.then7.i, %if.end4.i
-  %__last1.addr.0.i.ph.pn = phi ptr [ %__middle.tr170, %if.end4.i ], [ %__last1.addr.0.i.ph, %if.then7.i ]
+while.body.i55.outer:                             ; preds = %if.then7.i, %if.end4.i
+  %__last1.addr.0.i.ph.pn = phi ptr [ %__middle.tr169, %if.end4.i ], [ %__last1.addr.0.i.ph, %if.then7.i ]
   %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr5.i, %if.end4.i ], [ %__last2.addr.0.i, %if.then7.i ]
   %__result.addr.0.i.ph = phi ptr [ %__last, %if.end4.i ], [ %incdec.ptr8.i, %if.then7.i ]
   %__last1.addr.0.i.ph = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -24
-  %second4.i.i.i65 = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -16
-  %third5.i.i.i66 = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -8
-  br label %while.body.i56
+  %second4.i.i.i64 = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -16
+  %third5.i.i.i65 = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -8
+  br label %while.body.i55
 
-while.body.i56:                                   ; preds = %while.body.i56.outer, %if.end19.i
-  %__last2.addr.0.i = phi ptr [ %incdec.ptr20.i, %if.end19.i ], [ %__last2.addr.0.i.ph, %while.body.i56.outer ]
-  %__result.addr.0.i = phi ptr [ %incdec.ptr8.i, %if.end19.i ], [ %__result.addr.0.i.ph, %while.body.i56.outer ]
+while.body.i55:                                   ; preds = %while.body.i55.outer, %if.end19.i
+  %__last2.addr.0.i = phi ptr [ %incdec.ptr20.i, %if.end19.i ], [ %__last2.addr.0.i.ph, %while.body.i55.outer ]
+  %__result.addr.0.i = phi ptr [ %incdec.ptr8.i, %if.end19.i ], [ %__result.addr.0.i.ph, %while.body.i55.outer ]
   %10 = load ptr, ptr %__last2.addr.0.i, align 8
-  %second.i.i.i57 = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 8
-  %11 = load ptr, ptr %second.i.i.i57, align 8
-  %third.i.i.i58 = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 16
-  %12 = load ptr, ptr %third.i.i.i58, align 8
-  %call.i.i.i.i59 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  %tobool.i.not.i.i.i60 = icmp eq ptr %call.i.i.i.i59, null
-  br i1 %tobool.i.not.i.i.i60, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i63, label %if.then.i.i.i.i61
+  %second.i.i.i56 = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 8
+  %11 = load ptr, ptr %second.i.i.i56, align 8
+  %third.i.i.i57 = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 16
+  %12 = load ptr, ptr %third.i.i.i57, align 8
+  %call.i.i.i.i58 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  %tobool.i.not.i.i.i59 = icmp eq ptr %call.i.i.i.i58, null
+  br i1 %tobool.i.not.i.i.i59, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i62, label %if.then.i.i.i.i60
 
-if.then.i.i.i.i61:                                ; preds = %while.body.i56
-  %m_value.i.i.i.i.i62 = getelementptr inbounds i8, ptr %call.i.i.i.i59, i64 24
-  %13 = load i32, ptr %m_value.i.i.i.i.i62, align 4
-  br label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i63
+if.then.i.i.i.i60:                                ; preds = %while.body.i55
+  %m_value.i.i.i.i.i61 = getelementptr inbounds i8, ptr %call.i.i.i.i58, i64 24
+  %13 = load i32, ptr %m_value.i.i.i.i.i61, align 4
+  br label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i62
 
-_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i63: ; preds = %if.then.i.i.i.i61, %while.body.i56
-  %n1.0.i.i.i64 = phi i32 [ %13, %if.then.i.i.i.i61 ], [ 0, %while.body.i56 ]
+_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i62: ; preds = %if.then.i.i.i.i60, %while.body.i55
+  %n1.0.i.i.i63 = phi i32 [ %13, %if.then.i.i.i.i60 ], [ 0, %while.body.i55 ]
   %14 = load ptr, ptr %__last1.addr.0.i.ph, align 8
-  %15 = load ptr, ptr %second4.i.i.i65, align 8
-  %16 = load ptr, ptr %third5.i.i.i66, align 8
-  %call.i5.i.i.i67 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %14, ptr noundef %15, ptr noundef %16)
-  %tobool.i6.not.i.i.i68 = icmp eq ptr %call.i5.i.i.i67, null
-  br i1 %tobool.i6.not.i.i.i68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i71, label %if.then.i7.i.i.i69
+  %15 = load ptr, ptr %second4.i.i.i64, align 8
+  %16 = load ptr, ptr %third5.i.i.i65, align 8
+  %call.i5.i.i.i66 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %tobool.i6.not.i.i.i67 = icmp eq ptr %call.i5.i.i.i66, null
+  br i1 %tobool.i6.not.i.i.i67, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70, label %if.then.i7.i.i.i68
 
-if.then.i7.i.i.i69:                               ; preds = %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i63
-  %m_value.i.i8.i.i.i70 = getelementptr inbounds i8, ptr %call.i5.i.i.i67, i64 24
-  %17 = load i32, ptr %m_value.i.i8.i.i.i70, align 4
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i71
+if.then.i7.i.i.i68:                               ; preds = %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i62
+  %m_value.i.i8.i.i.i69 = getelementptr inbounds i8, ptr %call.i5.i.i.i66, i64 24
+  %17 = load i32, ptr %m_value.i.i8.i.i.i69, align 4
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i71: ; preds = %if.then.i7.i.i.i69, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i63
-  %n2.0.i.i.i72 = phi i32 [ %17, %if.then.i7.i.i.i69 ], [ 0, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i63 ]
-  %cmp.i.i.i73 = icmp ugt i32 %n1.0.i.i.i64, %n2.0.i.i.i72
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70: ; preds = %if.then.i7.i.i.i68, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i62
+  %n2.0.i.i.i71 = phi i32 [ %17, %if.then.i7.i.i.i68 ], [ 0, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i62 ]
+  %cmp.i.i.i72 = icmp ugt i32 %n1.0.i.i.i63, %n2.0.i.i.i71
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %__result.addr.0.i, i64 -24
-  br i1 %cmp.i.i.i73, label %if.then7.i, label %if.else15.i
+  br i1 %cmp.i.i.i72, label %if.then7.i, label %if.else15.i
 
-if.then7.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i71
+if.then7.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr8.i, ptr noundef nonnull align 8 dereferenceable(24) %__last1.addr.0.i.ph, i64 24, i1 false)
-  %cmp9.i = icmp eq ptr %__last1.addr.0.i.ph, %__first.tr169
-  br i1 %cmp9.i, label %if.then10.i, label %while.body.i56.outer, !llvm.loop !107
+  %cmp9.i = icmp eq ptr %__last1.addr.0.i.ph, %__first.tr168
+  br i1 %cmp9.i, label %if.then10.i, label %while.body.i55.outer, !llvm.loop !107
 
 if.then10.i:                                      ; preds = %if.then7.i
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 24
@@ -12272,74 +12272,74 @@ if.then.i.i.i.i.i25.i:                            ; preds = %if.then10.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i26.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i22.i, i1 false)
   br label %if.end50
 
-if.else15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i71
+if.else15.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_ESA_EEbT_T0_.exit.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr8.i, ptr noundef nonnull align 8 dereferenceable(24) %__last2.addr.0.i, i64 24, i1 false)
   %cmp17.i = icmp eq ptr %__last2.addr.0.i, %__buffer
   br i1 %cmp17.i, label %if.end50, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else15.i
   %incdec.ptr20.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 -24
-  br label %while.body.i56, !llvm.loop !107
+  br label %while.body.i55, !llvm.loop !107
 
 if.else12:                                        ; preds = %if.else
-  br i1 %cmp.not173, label %if.then14, label %if.else26
+  br i1 %cmp.not172, label %if.then14, label %if.else26
 
 if.then14:                                        ; preds = %if.else12
-  %div = sdiv i64 %__len1.tr171, 2
-  %add.ptr.i.i = getelementptr inbounds %struct.triple, ptr %__first.tr169, i64 %div
+  %div = sdiv i64 %__len1.tr170, 2
+  %add.ptr.i.i = getelementptr inbounds %struct.triple, ptr %__first.tr168, i64 %div
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp13.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 0
   br i1 %cmp13.i, label %while.body.lr.ph.i, label %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then14
   %sub.ptr.div.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %second4.i.i.i79 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %third5.i.i.i80 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  br label %while.body.i81
+  %second4.i.i.i78 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %third5.i.i.i79 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
+  br label %while.body.i80
 
-while.body.i81:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i, %while.body.lr.ph.i
-  %__first.addr.015.i = phi ptr [ %__middle.tr170, %while.body.lr.ph.i ], [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i ]
+while.body.i80:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i, %while.body.lr.ph.i
+  %__first.addr.015.i = phi ptr [ %__middle.tr169, %while.body.lr.ph.i ], [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i ]
   %__len.014.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i ]
   %shr.i = lshr i64 %__len.014.i, 1
   %add.ptr.i.i.i = getelementptr inbounds %struct.triple, ptr %__first.addr.015.i, i64 %shr.i
   %18 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %second.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
-  %19 = load ptr, ptr %second.i.i.i83, align 8
-  %third.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
-  %20 = load ptr, ptr %third.i.i.i84, align 8
-  %call.i.i.i.i85 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %18, ptr noundef %19, ptr noundef %20)
-  %tobool.i.not.i.i.i86 = icmp eq ptr %call.i.i.i.i85, null
-  br i1 %tobool.i.not.i.i.i86, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i89, label %if.then.i.i.i.i87
+  %second.i.i.i82 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %19 = load ptr, ptr %second.i.i.i82, align 8
+  %third.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
+  %20 = load ptr, ptr %third.i.i.i83, align 8
+  %call.i.i.i.i84 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  %tobool.i.not.i.i.i85 = icmp eq ptr %call.i.i.i.i84, null
+  br i1 %tobool.i.not.i.i.i85, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i88, label %if.then.i.i.i.i86
 
-if.then.i.i.i.i87:                                ; preds = %while.body.i81
-  %m_value.i.i.i.i.i88 = getelementptr inbounds i8, ptr %call.i.i.i.i85, i64 24
-  %21 = load i32, ptr %m_value.i.i.i.i.i88, align 4
-  br label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i89
+if.then.i.i.i.i86:                                ; preds = %while.body.i80
+  %m_value.i.i.i.i.i87 = getelementptr inbounds i8, ptr %call.i.i.i.i84, i64 24
+  %21 = load i32, ptr %m_value.i.i.i.i.i87, align 4
+  br label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i88
 
-_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i89: ; preds = %if.then.i.i.i.i87, %while.body.i81
-  %n1.0.i.i.i90 = phi i32 [ %21, %if.then.i.i.i.i87 ], [ 0, %while.body.i81 ]
+_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i88: ; preds = %if.then.i.i.i.i86, %while.body.i80
+  %n1.0.i.i.i89 = phi i32 [ %21, %if.then.i.i.i.i86 ], [ 0, %while.body.i80 ]
   %22 = load ptr, ptr %add.ptr.i.i, align 8
-  %23 = load ptr, ptr %second4.i.i.i79, align 8
-  %24 = load ptr, ptr %third5.i.i.i80, align 8
-  %call.i5.i.i.i91 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %22, ptr noundef %23, ptr noundef %24)
-  %tobool.i6.not.i.i.i92 = icmp eq ptr %call.i5.i.i.i91, null
-  br i1 %tobool.i6.not.i.i.i92, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i, label %if.then.i7.i.i.i93
+  %23 = load ptr, ptr %second4.i.i.i78, align 8
+  %24 = load ptr, ptr %third5.i.i.i79, align 8
+  %call.i5.i.i.i90 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %22, ptr noundef %23, ptr noundef %24)
+  %tobool.i6.not.i.i.i91 = icmp eq ptr %call.i5.i.i.i90, null
+  br i1 %tobool.i6.not.i.i.i91, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i, label %if.then.i7.i.i.i92
 
-if.then.i7.i.i.i93:                               ; preds = %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i89
-  %m_value.i.i8.i.i.i94 = getelementptr inbounds i8, ptr %call.i5.i.i.i91, i64 24
-  %25 = load i32, ptr %m_value.i.i8.i.i.i94, align 4
+if.then.i7.i.i.i92:                               ; preds = %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i88
+  %m_value.i.i8.i.i.i93 = getelementptr inbounds i8, ptr %call.i5.i.i.i90, i64 24
+  %25 = load i32, ptr %m_value.i.i8.i.i.i93, align 4
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i: ; preds = %if.then.i7.i.i.i93, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i89
-  %n2.0.i.i.i95 = phi i32 [ %25, %if.then.i7.i.i.i93 ], [ 0, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i89 ]
-  %cmp.i.i8.i = icmp ugt i32 %n1.0.i.i.i90, %n2.0.i.i.i95
-  %incdec.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i: ; preds = %if.then.i7.i.i.i92, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i88
+  %n2.0.i.i.i94 = phi i32 [ %25, %if.then.i7.i.i.i92 ], [ 0, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i88 ]
+  %cmp.i.i8.i = icmp ugt i32 %n1.0.i.i.i89, %n2.0.i.i.i94
+  %incdec.ptr.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
   %26 = xor i64 %shr.i, -1
   %sub3.i = add nsw i64 %__len.014.i, %26
   %__len.1.i = select i1 %cmp.i.i8.i, i64 %sub3.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i96, ptr %__first.addr.015.i
-  %cmp.i97 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i97, label %while.body.i81, label %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !98
+  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i95, ptr %__first.addr.015.i
+  %cmp.i96 = icmp sgt i64 %__len.1.i, 0
+  br i1 %cmp.i96, label %while.body.i80, label %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !98
 
 _ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S8_EKS9_EEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %__first.addr.1.i to i64
@@ -12347,89 +12347,89 @@ _ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3
 
 _ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit, %if.then14
   %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i, %if.then14 ]
-  %__first.addr.0.lcssa.i = phi ptr [ %__first.addr.1.i, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %__middle.tr170, %if.then14 ]
+  %__first.addr.0.lcssa.i = phi ptr [ %__first.addr.1.i, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %__middle.tr169, %if.then14 ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   br label %if.end
 
 if.else26:                                        ; preds = %if.else12
-  %div27 = sdiv i64 %__len2.tr172, 2
-  %add.ptr.i.i104 = getelementptr inbounds %struct.triple, ptr %__middle.tr170, i64 %div27
-  %sub.ptr.rhs.cast.i.i.i112 = ptrtoint ptr %__first.tr169 to i64
-  %sub.ptr.sub.i.i.i113 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i112
-  %cmp13.i114 = icmp sgt i64 %sub.ptr.sub.i.i.i113, 0
-  br i1 %cmp13.i114, label %while.body.lr.ph.i117, label %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit
+  %div27 = sdiv i64 %__len2.tr171, 2
+  %add.ptr.i.i103 = getelementptr inbounds %struct.triple, ptr %__middle.tr169, i64 %div27
+  %sub.ptr.rhs.cast.i.i.i111 = ptrtoint ptr %__first.tr168 to i64
+  %sub.ptr.sub.i.i.i112 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i111
+  %cmp13.i113 = icmp sgt i64 %sub.ptr.sub.i.i.i112, 0
+  br i1 %cmp13.i113, label %while.body.lr.ph.i116, label %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit
 
-while.body.lr.ph.i117:                            ; preds = %if.else26
-  %sub.ptr.div.i.i.i118 = udiv exact i64 %sub.ptr.sub.i.i.i113, 24
-  %second.i.i.i119 = getelementptr inbounds i8, ptr %add.ptr.i.i104, i64 8
-  %third.i.i.i120 = getelementptr inbounds i8, ptr %add.ptr.i.i104, i64 16
-  br label %while.body.i121
+while.body.lr.ph.i116:                            ; preds = %if.else26
+  %sub.ptr.div.i.i.i117 = udiv exact i64 %sub.ptr.sub.i.i.i112, 24
+  %second.i.i.i118 = getelementptr inbounds i8, ptr %add.ptr.i.i103, i64 8
+  %third.i.i.i119 = getelementptr inbounds i8, ptr %add.ptr.i.i103, i64 16
+  br label %while.body.i120
 
-while.body.i121:                                  ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i, %while.body.lr.ph.i117
-  %__first.addr.015.i122 = phi ptr [ %__first.tr169, %while.body.lr.ph.i117 ], [ %__first.addr.1.i147, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i ]
-  %__len.014.i123 = phi i64 [ %sub.ptr.div.i.i.i118, %while.body.lr.ph.i117 ], [ %__len.1.i146, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i ]
-  %shr.i124 = lshr i64 %__len.014.i123, 1
-  %add.ptr.i.i.i127 = getelementptr inbounds %struct.triple, ptr %__first.addr.015.i122, i64 %shr.i124
-  %27 = load ptr, ptr %add.ptr.i.i104, align 8
-  %28 = load ptr, ptr %second.i.i.i119, align 8
-  %29 = load ptr, ptr %third.i.i.i120, align 8
-  %call.i.i.i.i130 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %27, ptr noundef %28, ptr noundef %29)
-  %tobool.i.not.i.i.i131 = icmp eq ptr %call.i.i.i.i130, null
-  br i1 %tobool.i.not.i.i.i131, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i134, label %if.then.i.i.i.i132
+while.body.i120:                                  ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i, %while.body.lr.ph.i116
+  %__first.addr.015.i121 = phi ptr [ %__first.tr168, %while.body.lr.ph.i116 ], [ %__first.addr.1.i146, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i ]
+  %__len.014.i122 = phi i64 [ %sub.ptr.div.i.i.i117, %while.body.lr.ph.i116 ], [ %__len.1.i145, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i ]
+  %shr.i123 = lshr i64 %__len.014.i122, 1
+  %add.ptr.i.i.i126 = getelementptr inbounds %struct.triple, ptr %__first.addr.015.i121, i64 %shr.i123
+  %27 = load ptr, ptr %add.ptr.i.i103, align 8
+  %28 = load ptr, ptr %second.i.i.i118, align 8
+  %29 = load ptr, ptr %third.i.i.i119, align 8
+  %call.i.i.i.i129 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %27, ptr noundef %28, ptr noundef %29)
+  %tobool.i.not.i.i.i130 = icmp eq ptr %call.i.i.i.i129, null
+  br i1 %tobool.i.not.i.i.i130, label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i133, label %if.then.i.i.i.i131
 
-if.then.i.i.i.i132:                               ; preds = %while.body.i121
-  %m_value.i.i.i.i.i133 = getelementptr inbounds i8, ptr %call.i.i.i.i130, i64 24
-  %30 = load i32, ptr %m_value.i.i.i.i.i133, align 4
-  br label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i134
+if.then.i.i.i.i131:                               ; preds = %while.body.i120
+  %m_value.i.i.i.i.i132 = getelementptr inbounds i8, ptr %call.i.i.i.i129, i64 24
+  %30 = load i32, ptr %m_value.i.i.i.i.i132, align 4
+  br label %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i133
 
-_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i134: ; preds = %if.then.i.i.i.i132, %while.body.i121
-  %n1.0.i.i.i135 = phi i32 [ %30, %if.then.i.i.i.i132 ], [ 0, %while.body.i121 ]
-  %31 = load ptr, ptr %add.ptr.i.i.i127, align 8
-  %second4.i.i.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i127, i64 8
-  %32 = load ptr, ptr %second4.i.i.i136, align 8
-  %third5.i.i.i137 = getelementptr inbounds i8, ptr %add.ptr.i.i.i127, i64 16
-  %33 = load ptr, ptr %third5.i.i.i137, align 8
-  %call.i5.i.i.i138 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %31, ptr noundef %32, ptr noundef %33)
-  %tobool.i6.not.i.i.i139 = icmp eq ptr %call.i5.i.i.i138, null
-  br i1 %tobool.i6.not.i.i.i139, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i, label %if.then.i7.i.i.i140
+_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i133: ; preds = %if.then.i.i.i.i131, %while.body.i120
+  %n1.0.i.i.i134 = phi i32 [ %30, %if.then.i.i.i.i131 ], [ 0, %while.body.i120 ]
+  %31 = load ptr, ptr %add.ptr.i.i.i126, align 8
+  %second4.i.i.i135 = getelementptr inbounds i8, ptr %add.ptr.i.i.i126, i64 8
+  %32 = load ptr, ptr %second4.i.i.i135, align 8
+  %third5.i.i.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i126, i64 16
+  %33 = load ptr, ptr %third5.i.i.i136, align 8
+  %call.i5.i.i.i137 = tail call noundef ptr @_ZNK14obj_triple_mapI3appS0_S0_jE9find_coreEPS0_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %coerce.val.ip, ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  %tobool.i6.not.i.i.i138 = icmp eq ptr %call.i5.i.i.i137, null
+  br i1 %tobool.i6.not.i.i.i138, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i, label %if.then.i7.i.i.i139
 
-if.then.i7.i.i.i140:                              ; preds = %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i134
-  %m_value.i.i8.i.i.i141 = getelementptr inbounds i8, ptr %call.i5.i.i.i138, i64 24
-  %34 = load i32, ptr %m_value.i.i8.i.i.i141, align 4
+if.then.i7.i.i.i139:                              ; preds = %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i133
+  %m_value.i.i8.i.i.i140 = getelementptr inbounds i8, ptr %call.i5.i.i.i137, i64 24
+  %34 = load i32, ptr %m_value.i.i8.i.i.i140, align 4
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i: ; preds = %if.then.i7.i.i.i140, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i134
-  %n2.0.i.i.i142 = phi i32 [ %34, %if.then.i7.i.i.i140 ], [ 0, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i134 ]
-  %cmp.i.i8.i143 = icmp ugt i32 %n1.0.i.i.i135, %n2.0.i.i.i142
-  %incdec.ptr.i144 = getelementptr inbounds i8, ptr %add.ptr.i.i.i127, i64 24
-  %35 = xor i64 %shr.i124, -1
-  %sub3.i145 = add nsw i64 %__len.014.i123, %35
-  %__len.1.i146 = select i1 %cmp.i.i8.i143, i64 %shr.i124, i64 %sub3.i145
-  %__first.addr.1.i147 = select i1 %cmp.i.i8.i143, ptr %__first.addr.015.i122, ptr %incdec.ptr.i144
-  %cmp.i148 = icmp sgt i64 %__len.1.i146, 0
-  br i1 %cmp.i148, label %while.body.i121, label %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !99
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i: ; preds = %if.then.i7.i.i.i139, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i133
+  %n2.0.i.i.i141 = phi i32 [ %34, %if.then.i7.i.i.i139 ], [ 0, %_ZNK14obj_triple_mapI3appS0_S0_jE4findEPS0_S2_S2_Rj.exit.i.i.i133 ]
+  %cmp.i.i8.i142 = icmp ugt i32 %n1.0.i.i.i134, %n2.0.i.i.i141
+  %incdec.ptr.i143 = getelementptr inbounds i8, ptr %add.ptr.i.i.i126, i64 24
+  %35 = xor i64 %shr.i123, -1
+  %sub3.i144 = add nsw i64 %__len.014.i122, %35
+  %__len.1.i145 = select i1 %cmp.i.i8.i142, i64 %shr.i123, i64 %sub3.i144
+  %__first.addr.1.i146 = select i1 %cmp.i.i8.i142, ptr %__first.addr.015.i121, ptr %incdec.ptr.i143
+  %cmp.i147 = icmp sgt i64 %__len.1.i145, 0
+  br i1 %cmp.i147, label %while.body.i120, label %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !99
 
 _ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEclIK6tripleIP3appS8_S8_EPS9_EEbRT_T0_.exit.i
-  %.pre180 = ptrtoint ptr %__first.addr.1.i147 to i64
+  %.pre179 = ptrtoint ptr %__first.addr.1.i146 to i64
   br label %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit, %if.else26
-  %sub.ptr.lhs.cast.i.i149.pre-phi = phi i64 [ %.pre180, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i112, %if.else26 ]
-  %__first.addr.0.lcssa.i116 = phi ptr [ %__first.addr.1.i147, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %__first.tr169, %if.else26 ]
-  %sub.ptr.sub.i.i151 = sub i64 %sub.ptr.lhs.cast.i.i149.pre-phi, %sub.ptr.rhs.cast.i.i.i112
-  %sub.ptr.div.i.i152 = sdiv exact i64 %sub.ptr.sub.i.i151, 24
+  %sub.ptr.lhs.cast.i.i148.pre-phi = phi i64 [ %.pre179, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i111, %if.else26 ]
+  %__first.addr.0.lcssa.i115 = phi ptr [ %__first.addr.1.i146, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %__first.tr168, %if.else26 ]
+  %sub.ptr.sub.i.i150 = sub i64 %sub.ptr.lhs.cast.i.i148.pre-phi, %sub.ptr.rhs.cast.i.i.i111
+  %sub.ptr.div.i.i151 = sdiv exact i64 %sub.ptr.sub.i.i150, 24
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit
-  %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i116, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ]
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ], [ %add.ptr.i.i104, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ]
+  %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i115, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ], [ %add.ptr.i.i103, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ], [ %div27, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ]
-  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ], [ %sub.ptr.div.i.i152, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ]
-  %sub = sub nsw i64 %__len1.tr171, %__len11.0
-  %call39 = tail call noundef ptr @_ZSt17__rotate_adaptiveIP6tripleIP3appS2_S2_ES4_lET_S5_S5_S5_T1_S6_T0_S6_(ptr noundef %__first_cut.0, ptr noundef %__middle.tr170, ptr noundef %__second_cut.0, i64 noundef %sub, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
-  tail call void @_ZSt16__merge_adaptiveIP6tripleIP3appS2_S2_ElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %__first.tr169, ptr noundef %__first_cut.0, ptr noundef %call39, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size, i64 %__comp.coerce)
-  %sub44 = sub nsw i64 %__len2.tr172, %__len22.0
+  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ], [ %sub.ptr.div.i.i151, %_ZSt13__upper_boundIP6tripleIP3appS2_S2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterIN3smt13app_triple_ltEEEET_SB_SB_RKT0_T1_.exit ]
+  %sub = sub nsw i64 %__len1.tr170, %__len11.0
+  %call39 = tail call noundef ptr @_ZSt17__rotate_adaptiveIP6tripleIP3appS2_S2_ES4_lET_S5_S5_S5_T1_S6_T0_S6_(ptr noundef %__first_cut.0, ptr noundef %__middle.tr169, ptr noundef %__second_cut.0, i64 noundef %sub, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  tail call void @_ZSt16__merge_adaptiveIP6tripleIP3appS2_S2_ElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %__first.tr168, ptr noundef %__first_cut.0, ptr noundef %call39, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size, i64 %__comp.coerce)
+  %sub44 = sub nsw i64 %__len2.tr171, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub44
   %cmp2.not = icmp sgt i64 %sub, %__buffer_size
   %or.cond = or i1 %cmp2.not, %cmp.not

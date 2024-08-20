@@ -49008,13 +49008,13 @@ define linkonce_odr void @_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellI
   %24 = getelementptr inbounds i8, ptr %0, i64 64
   br label %25
 
-25:                                               ; preds = %.lr.ph, %231
-  %.sroa.021.042 = phi ptr [ %6, %.lr.ph ], [ %232, %231 ]
+25:                                               ; preds = %.lr.ph, %230
+  %.sroa.021.042 = phi ptr [ %6, %.lr.ph ], [ %231, %230 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.021.042, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not27 = icmp eq i32 %28, 0
-  br i1 %.not27, label %.preheader, label %231
+  br i1 %.not27, label %.preheader, label %230
 
 .preheader:                                       ; preds = %25
   %29 = getelementptr inbounds i8, ptr %.sroa.021.042, i64 8
@@ -49393,85 +49393,84 @@ _ZNSt8__detail9_Map_baseIN3vcg6Point3IiEESt4pairIKS3_NS1_3tri16AverageColorCellI
   %207 = load ptr, ptr %4, align 8
   %208 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %207, %208
-  br i1 %.not, label %231, label %209
+  br i1 %.not, label %230, label %209
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr %23, align 8
   %.not13 = icmp eq ptr %207, %210
   %.not14 = icmp eq ptr %208, %210
   %or.cond = or i1 %.not13, %.not14
-  br i1 %or.cond, label %231, label %211
+  br i1 %or.cond, label %230, label %211
 
 211:                                              ; preds = %209
   %212 = load i8, ptr %0, align 8
   %213 = trunc i8 %212 to i1
-  br i1 %213, label %214, label %219
+  %214 = icmp ult ptr %208, %207
+  br i1 %213, label %215, label %219
 
-214:                                              ; preds = %211
-  %215 = icmp ult ptr %208, %207
+215:                                              ; preds = %211
   %216 = icmp ult ptr %208, %210
-  %or.cond3.i = and i1 %215, %216
+  %or.cond3.i = and i1 %214, %216
   br i1 %or.cond3.i, label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %214
+._crit_edge.i:                                    ; preds = %215
   %217 = icmp ult ptr %210, %207
   %218 = icmp ult ptr %210, %208
   %or.cond.i = and i1 %217, %218
   br i1 %or.cond.i, label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split, label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit
 
 219:                                              ; preds = %211
-  %220 = icmp ugt ptr %207, %208
-  br i1 %220, label %221, label %222
+  br i1 %214, label %220, label %221
 
-221:                                              ; preds = %219
+220:                                              ; preds = %219
   store ptr %208, ptr %4, align 8
   store ptr %207, ptr %22, align 8
-  br label %222
+  br label %221
 
-222:                                              ; preds = %221, %219
-  %223 = phi ptr [ %207, %221 ], [ %208, %219 ]
-  %224 = phi ptr [ %208, %221 ], [ %207, %219 ]
-  %225 = icmp ugt ptr %224, %210
-  br i1 %225, label %226, label %227
+221:                                              ; preds = %220, %219
+  %222 = phi ptr [ %207, %220 ], [ %208, %219 ]
+  %223 = phi ptr [ %208, %220 ], [ %207, %219 ]
+  %224 = icmp ugt ptr %223, %210
+  br i1 %224, label %225, label %226
 
-226:                                              ; preds = %222
+225:                                              ; preds = %221
   store ptr %210, ptr %4, align 8
-  store ptr %224, ptr %23, align 8
-  br label %227
+  store ptr %223, ptr %23, align 8
+  br label %226
 
-227:                                              ; preds = %226, %222
-  %228 = phi ptr [ %224, %226 ], [ %210, %222 ]
-  %229 = icmp ugt ptr %223, %228
-  br i1 %229, label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split, label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit
+226:                                              ; preds = %225, %221
+  %227 = phi ptr [ %223, %225 ], [ %210, %221 ]
+  %228 = icmp ugt ptr %222, %227
+  br i1 %228, label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split, label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit
 
-_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split: ; preds = %._crit_edge.i, %214
-  %.sink65 = phi ptr [ %208, %214 ], [ %210, %._crit_edge.i ]
-  %.sink64.ph = phi ptr [ %210, %214 ], [ %207, %._crit_edge.i ]
-  %.sink.ph = phi ptr [ %207, %214 ], [ %208, %._crit_edge.i ]
+_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split: ; preds = %._crit_edge.i, %215
+  %.sink65 = phi ptr [ %208, %215 ], [ %210, %._crit_edge.i ]
+  %.sink64.ph = phi ptr [ %210, %215 ], [ %207, %._crit_edge.i ]
+  %.sink.ph = phi ptr [ %207, %215 ], [ %208, %._crit_edge.i ]
   store ptr %.sink65, ptr %4, align 8
   br label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split
 
-_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split: ; preds = %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split, %227
-  %.sink64 = phi ptr [ %228, %227 ], [ %.sink64.ph, %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split ]
-  %.sink = phi ptr [ %223, %227 ], [ %.sink.ph, %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split ]
+_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split: ; preds = %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split, %226
+  %.sink64 = phi ptr [ %227, %226 ], [ %.sink64.ph, %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split ]
+  %.sink = phi ptr [ %222, %226 ], [ %.sink.ph, %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split.sink.split ]
   store ptr %.sink64, ptr %22, align 8
   store ptr %.sink, ptr %23, align 8
   br label %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit
 
-_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit: ; preds = %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split, %227, %._crit_edge.i
+_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit: ; preds = %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit.sink.split, %226, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %24, ptr %3, align 8
-  %230 = call { ptr, i8 } @_ZNSt10_HashtableIN3vcg3tri10ClusteringI6CMeshONS1_16AverageColorCellIS3_EEE9SimpleTriES7_SaIS7_ENSt8__detail9_IdentityESt8equal_toIS7_ES7_NS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS7_SL_NS9_10_AllocNodeISaINS9_10_Hash_nodeIS7_Lb1EEEEEEEESt4pairINS9_14_Node_iteratorIS7_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %229 = call { ptr, i8 } @_ZNSt10_HashtableIN3vcg3tri10ClusteringI6CMeshONS1_16AverageColorCellIS3_EEE9SimpleTriES7_SaIS7_ENSt8__detail9_IdentityESt8equal_toIS7_ES7_NS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS7_SL_NS9_10_AllocNodeISaINS9_10_Hash_nodeIS7_Lb1EEEEEEEESt4pairINS9_14_Node_iteratorIS7_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %231
+  br label %230
 
-231:                                              ; preds = %25, %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit, %209, %206
-  %232 = getelementptr inbounds i8, ptr %.sroa.021.042, i64 48
-  %233 = load ptr, ptr %7, align 8
-  %.not26 = icmp eq ptr %232, %233
+230:                                              ; preds = %25, %_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE9SimpleTri10sortOrientEv.exit, %209, %206
+  %231 = getelementptr inbounds i8, ptr %.sroa.021.042, i64 48
+  %232 = load ptr, ptr %7, align 8
+  %.not26 = icmp eq ptr %231, %232
   br i1 %.not26, label %._crit_edge, label %25, !llvm.loop !150
 
-._crit_edge:                                      ; preds = %231, %2
+._crit_edge:                                      ; preds = %230, %2
   ret void
 }
 

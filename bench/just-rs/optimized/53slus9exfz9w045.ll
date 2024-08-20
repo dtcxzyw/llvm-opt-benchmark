@@ -14962,17 +14962,16 @@ define hidden void @_ZN4just10positional10Positional19override_from_value17h7b73
 80:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.thread.i", %.preheader.i
   %.sroa.015.0.i = phi ptr [ %.sroa.015.628.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.thread.i" ], [ %1, %.preheader.i ]
   %.not.i.i27 = phi i1 [ true, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.thread.i" ], [ false, %.preheader.i ]
-  br i1 %.not.i.i27, label %81, label %..lr.ph49.i.i_crit_edge.i.preheader.i
+  %81 = icmp eq ptr %.sroa.015.0.i, %27
+  br i1 %.not.i.i27, label %82, label %..lr.ph49.i.i_crit_edge.i.preheader.i
 
 ..lr.ph49.i.i_crit_edge.i.preheader.i:            ; preds = %80
-  %.not26.i.i.i.i = icmp eq ptr %27, %.sroa.015.0.i
-  br i1 %.not26.i.i.i.i, label %160, label %.loopexit.i.i.i
+  br i1 %81, label %160, label %.loopexit.i.i.i
 
-81:                                               ; preds = %80
-  %82 = icmp eq ptr %.sroa.015.0.i, %27
-  br i1 %82, label %160, label %83
+82:                                               ; preds = %80
+  br i1 %81, label %160, label %83
 
-83:                                               ; preds = %81
+83:                                               ; preds = %82
   %84 = getelementptr inbounds i8, ptr %.sroa.015.0.i, i64 1
   %85 = load i8, ptr %.sroa.015.0.i, align 1, !alias.scope !2563, !noalias !2569, !noundef !4
   %86 = icmp sgt i8 %85, -1
@@ -15100,7 +15099,7 @@ _ZN4just5lexer5Lexer13is_identifier17h86959368456b6d4eE.exit: ; preds = %"_ZN100
   store i64 -9223372036854775808, ptr %0, align 8
   br label %172
 
-160:                                              ; preds = %.loopexit.i.i.i, %81, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.i", %..lr.ph49.i.i_crit_edge.i.preheader.i
+160:                                              ; preds = %.loopexit.i.i.i, %82, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf35177bdba05b4E.exit.i", %..lr.ph49.i.i_crit_edge.i.preheader.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.017)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %161 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdbf984e918f80b5eE"(i64 noundef %.sroa.3.0.i, i1 noundef zeroext false)

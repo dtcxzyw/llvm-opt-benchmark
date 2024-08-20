@@ -10573,14 +10573,10 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4, %42
   %78 = getelementptr inbounds i8, ptr %0, i64 32
   %79 = load i32, ptr %78, align 8
   %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.lr.ph563, label %.preheader555..preheader554_crit_edge
-
-.preheader555..preheader554_crit_edge:            ; preds = %.preheader555
-  %.pre611 = add nsw i32 %28, %66
-  br label %.preheader554
+  %81 = add nsw i32 %66, %28
+  br i1 %80, label %.lr.ph563, label %.preheader554
 
 .lr.ph563:                                        ; preds = %.preheader555
-  %81 = add nsw i32 %66, %28
   %82 = sext i32 %81 to i64
   %wide.trip.count589 = zext nneg i32 %79 to i64
   br label %149
@@ -10599,9 +10595,8 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4, %42
   %exitcond585.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count584
   br i1 %exitcond585.not, label %.preheader555, label %.lr.ph561, !llvm.loop !183
 
-.preheader554:                                    ; preds = %149, %.preheader555..preheader554_crit_edge
-  %.pre-phi = phi i32 [ %.pre611, %.preheader555..preheader554_crit_edge ], [ %81, %149 ]
-  %90 = icmp slt i32 %66, %.pre-phi
+.preheader554:                                    ; preds = %149, %.preheader555
+  %90 = icmp sgt i32 %28, 0
   br i1 %90, label %.lr.ph571, label %.preheader547
 
 .lr.ph571:                                        ; preds = %.preheader554
@@ -10682,7 +10677,7 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4, %42
 .preheader547:                                    ; preds = %.loopexit553, %.preheader554
   %155 = phi i32 [ %28, %.preheader554 ], [ %674, %.loopexit553 ]
   %156 = phi i32 [ %66, %.preheader554 ], [ %673, %.loopexit553 ]
-  %.lcssa = phi i32 [ %.pre-phi, %.preheader554 ], [ %675, %.loopexit553 ]
+  %.lcssa = phi i32 [ %81, %.preheader554 ], [ %675, %.loopexit553 ]
   %157 = getelementptr inbounds i8, ptr %0, i64 36
   %158 = load i32, ptr %157, align 4
   %159 = icmp slt i32 %.lcssa, %158

@@ -19228,7 +19228,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 17:                                               ; preds = %8
   %puts223 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br label %411
+  br label %409
 
 18:                                               ; preds = %8
   %19 = getelementptr i8, ptr %0, i64 72
@@ -19246,7 +19246,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 25:                                               ; preds = %18
   %puts222 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  br label %411
+  br label %409
 
 26:                                               ; preds = %18
   %27 = icmp eq i32 %.val278, 0
@@ -19256,7 +19256,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 29:                                               ; preds = %26
   %puts221 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %411
+  br label %409
 
 30:                                               ; preds = %7
   %31 = getelementptr i8, ptr %0, i64 64
@@ -19272,7 +19272,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 35:                                               ; preds = %30
   %puts204 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %411
+  br label %409
 
 36:                                               ; preds = %30
   %37 = getelementptr i8, ptr %0, i64 72
@@ -19288,7 +19288,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 41:                                               ; preds = %36
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %411
+  br label %409
 
 42:                                               ; preds = %26, %36
   %43 = getelementptr i8, ptr %0, i64 24
@@ -19543,7 +19543,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %.not216421 = icmp eq ptr %.val254420, null
   br i1 %.not216421, label %.critedge8, label %.lr.ph425
 
-143:                                              ; preds = %210
+143:                                              ; preds = %209
   %.val254 = load ptr, ptr %48, align 8
   %.not216 = icmp eq ptr %.val254, null
   br i1 %.not216, label %.critedge8, label %.lr.ph425, !llvm.loop !248
@@ -19606,7 +19606,7 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %186 = lshr i32 %185, 29
   %187 = and i32 %186, 1
   %188 = xor i32 %187, %184
-  br label %210
+  br label %209
 
 189:                                              ; preds = %.lr.ph425
   %.val297 = load ptr, ptr %50, align 8
@@ -19625,365 +19625,363 @@ define ptr @Gia_ManMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %200 = trunc i64 %195 to i32
   %201 = lshr i32 %200, 29
   %202 = and i32 %201, 1
-  br i1 %.not220, label %207, label %203
+  %203 = xor i32 %202, %199
+  br i1 %.not220, label %207, label %204
 
-203:                                              ; preds = %189
-  %204 = xor i32 %199, %202
-  %205 = xor i32 %204, 1
+204:                                              ; preds = %189
+  %205 = xor i32 %203, 1
   %206 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %46, i32 noundef %172, i32 noundef %205) #29
-  br label %210
+  br label %209
 
 207:                                              ; preds = %189
-  %208 = xor i32 %202, %199
-  %209 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %46, i32 noundef %172, i32 noundef %208) #29
-  br label %210
+  %208 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %46, i32 noundef %172, i32 noundef %203) #29
+  br label %209
 
-210:                                              ; preds = %173, %207, %203
-  %.sink402 = phi i32 [ %188, %173 ], [ %209, %207 ], [ %206, %203 ]
-  %211 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %.sink402)
+209:                                              ; preds = %173, %207, %204
+  %.sink402 = phi i32 [ %188, %173 ], [ %208, %207 ], [ %206, %204 ]
+  %210 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %.sink402)
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372422, 1
   %.val284 = load i32, ptr %52, align 8
   %.val285 = load ptr, ptr %139, align 8
-  %212 = getelementptr i8, ptr %.val285, i64 4
-  %.val285.val = load i32, ptr %212, align 4
-  %213 = sub nsw i32 %.val285.val, %.val284
-  %214 = sext i32 %213 to i64
-  %215 = icmp slt i64 %indvars.iv.next373, %214
-  br i1 %215, label %143, label %.critedge8, !llvm.loop !248
+  %211 = getelementptr i8, ptr %.val285, i64 4
+  %.val285.val = load i32, ptr %211, align 4
+  %212 = sub nsw i32 %.val285.val, %.val284
+  %213 = sext i32 %212 to i64
+  %214 = icmp slt i64 %indvars.iv.next373, %213
+  br i1 %214, label %143, label %.critedge8, !llvm.loop !248
 
-.critedge8:                                       ; preds = %210, %143, %.lr.ph342, %.critedge6
-  %.val261344 = phi i32 [ %.val284337, %.critedge6 ], [ %.val284337, %.lr.ph342 ], [ %.val284, %143 ], [ %.val284, %210 ]
-  %216 = icmp sgt i32 %.val261344, 0
-  br i1 %216, label %.lr.ph347, label %.critedge10
+.critedge8:                                       ; preds = %209, %143, %.lr.ph342, %.critedge6
+  %.val261344 = phi i32 [ %.val284337, %.critedge6 ], [ %.val284337, %.lr.ph342 ], [ %.val284, %143 ], [ %.val284, %209 ]
+  %215 = icmp sgt i32 %.val261344, 0
+  br i1 %215, label %.lr.ph347, label %.critedge10
 
-.lr.ph347:                                        ; preds = %.critedge8, %217
-  %.val261346 = phi i32 [ %.val261, %217 ], [ %.val261344, %.critedge8 ]
-  %.5345 = phi i32 [ %243, %217 ], [ 0, %.critedge8 ]
+.lr.ph347:                                        ; preds = %.critedge8, %216
+  %.val261346 = phi i32 [ %.val261, %216 ], [ %.val261344, %.critedge8 ]
+  %.5345 = phi i32 [ %242, %216 ], [ 0, %.critedge8 ]
   %.val252 = load ptr, ptr %48, align 8
   %.not217 = icmp eq ptr %.val252, null
-  br i1 %.not217, label %.critedge10, label %217
+  br i1 %.not217, label %.critedge10, label %216
 
-217:                                              ; preds = %.lr.ph347
+216:                                              ; preds = %.lr.ph347
   %.val283 = load ptr, ptr %139, align 8
-  %218 = getelementptr i8, ptr %.val283, i64 8
-  %.val253.val = load ptr, ptr %218, align 8
-  %219 = getelementptr i8, ptr %.val283, i64 4
-  %.val283.val = load i32, ptr %219, align 4
-  %220 = sub i32 %.5345, %.val261346
-  %221 = add i32 %220, %.val283.val
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i32, ptr %.val253.val, i64 %222
-  %224 = load i32, ptr %223, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val252, i64 %225
-  %227 = load i64, ptr %226, align 4
-  %228 = and i64 %227, 536870911
-  %229 = sub nsw i64 0, %228
-  %230 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %226, i64 %229
-  %231 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %0, ptr noundef nonnull %230)
-  %232 = load i64, ptr %226, align 4
-  %233 = and i64 %232, 536870911
-  %234 = sub nsw i64 0, %233
-  %235 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %226, i64 %234, i32 1
-  %236 = load i32, ptr %235, align 4
-  %237 = trunc i64 %232 to i32
-  %238 = lshr i32 %237, 29
-  %239 = and i32 %238, 1
-  %240 = xor i32 %239, %236
-  %241 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %240)
-  %242 = getelementptr inbounds i8, ptr %226, i64 8
-  store i32 %241, ptr %242, align 4
-  %243 = add nuw nsw i32 %.5345, 1
+  %217 = getelementptr i8, ptr %.val283, i64 8
+  %.val253.val = load ptr, ptr %217, align 8
+  %218 = getelementptr i8, ptr %.val283, i64 4
+  %.val283.val = load i32, ptr %218, align 4
+  %219 = sub i32 %.5345, %.val261346
+  %220 = add i32 %219, %.val283.val
+  %221 = sext i32 %220 to i64
+  %222 = getelementptr inbounds i32, ptr %.val253.val, i64 %221
+  %223 = load i32, ptr %222, align 4
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val252, i64 %224
+  %226 = load i64, ptr %225, align 4
+  %227 = and i64 %226, 536870911
+  %228 = sub nsw i64 0, %227
+  %229 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %225, i64 %228
+  %230 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %0, ptr noundef nonnull %229)
+  %231 = load i64, ptr %225, align 4
+  %232 = and i64 %231, 536870911
+  %233 = sub nsw i64 0, %232
+  %234 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %225, i64 %233, i32 1
+  %235 = load i32, ptr %234, align 4
+  %236 = trunc i64 %231 to i32
+  %237 = lshr i32 %236, 29
+  %238 = and i32 %237, 1
+  %239 = xor i32 %238, %235
+  %240 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %239)
+  %241 = getelementptr inbounds i8, ptr %225, i64 8
+  store i32 %240, ptr %241, align 4
+  %242 = add nuw nsw i32 %.5345, 1
   %.val261 = load i32, ptr %52, align 8
-  %244 = icmp slt i32 %243, %.val261
-  br i1 %244, label %.lr.ph347, label %.critedge10, !llvm.loop !249
+  %243 = icmp slt i32 %242, %.val261
+  br i1 %243, label %.lr.ph347, label %.critedge10, !llvm.loop !249
 
-.critedge10:                                      ; preds = %.lr.ph347, %217, %.critedge8
-  %.val259400 = phi i32 [ %.val261344, %.critedge8 ], [ %.val261346, %.lr.ph347 ], [ %.val261, %217 ]
+.critedge10:                                      ; preds = %.lr.ph347, %216, %.critedge8
+  %.val259400 = phi i32 [ %.val261344, %.critedge8 ], [ %.val261346, %.lr.ph347 ], [ %.val261, %216 ]
   %.val260349 = load i32, ptr %70, align 8
-  %245 = icmp sgt i32 %.val260349, 0
-  br i1 %245, label %.lr.ph352, label %.critedge12
+  %244 = icmp sgt i32 %.val260349, 0
+  br i1 %244, label %.lr.ph352, label %.critedge12
 
 .lr.ph352:                                        ; preds = %.critedge10
-  %246 = getelementptr i8, ptr %1, i64 72
-  br label %247
+  %245 = getelementptr i8, ptr %1, i64 72
+  br label %246
 
-247:                                              ; preds = %.lr.ph352, %248
-  %.val260351 = phi i32 [ %.val260349, %.lr.ph352 ], [ %.val260, %248 ]
-  %.6350 = phi i32 [ 0, %.lr.ph352 ], [ %274, %248 ]
+246:                                              ; preds = %.lr.ph352, %247
+  %.val260351 = phi i32 [ %.val260349, %.lr.ph352 ], [ %.val260, %247 ]
+  %.6350 = phi i32 [ 0, %.lr.ph352 ], [ %273, %247 ]
   %.val250 = load ptr, ptr %50, align 8
   %.not218 = icmp eq ptr %.val250, null
-  br i1 %.not218, label %.critedge12.loopexit, label %248
+  br i1 %.not218, label %.critedge12.loopexit, label %247
 
-248:                                              ; preds = %247
-  %.val281 = load ptr, ptr %246, align 8
-  %249 = getelementptr i8, ptr %.val281, i64 8
-  %.val251.val = load ptr, ptr %249, align 8
-  %250 = getelementptr i8, ptr %.val281, i64 4
-  %.val281.val = load i32, ptr %250, align 4
-  %251 = sub i32 %.6350, %.val260351
-  %252 = add i32 %251, %.val281.val
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds i32, ptr %.val251.val, i64 %253
-  %255 = load i32, ptr %254, align 4
-  %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val250, i64 %256
-  %258 = load i64, ptr %257, align 4
-  %259 = and i64 %258, 536870911
-  %260 = sub nsw i64 0, %259
-  %261 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %257, i64 %260
-  %262 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef nonnull %261)
-  %263 = load i64, ptr %257, align 4
-  %264 = and i64 %263, 536870911
-  %265 = sub nsw i64 0, %264
-  %266 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %257, i64 %265, i32 1
-  %267 = load i32, ptr %266, align 4
-  %268 = trunc i64 %263 to i32
-  %269 = lshr i32 %268, 29
-  %270 = and i32 %269, 1
-  %271 = xor i32 %270, %267
-  %272 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %271)
-  %273 = getelementptr inbounds i8, ptr %257, i64 8
-  store i32 %272, ptr %273, align 4
-  %274 = add nuw nsw i32 %.6350, 1
+247:                                              ; preds = %246
+  %.val281 = load ptr, ptr %245, align 8
+  %248 = getelementptr i8, ptr %.val281, i64 8
+  %.val251.val = load ptr, ptr %248, align 8
+  %249 = getelementptr i8, ptr %.val281, i64 4
+  %.val281.val = load i32, ptr %249, align 4
+  %250 = sub i32 %.6350, %.val260351
+  %251 = add i32 %250, %.val281.val
+  %252 = sext i32 %251 to i64
+  %253 = getelementptr inbounds i32, ptr %.val251.val, i64 %252
+  %254 = load i32, ptr %253, align 4
+  %255 = sext i32 %254 to i64
+  %256 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val250, i64 %255
+  %257 = load i64, ptr %256, align 4
+  %258 = and i64 %257, 536870911
+  %259 = sub nsw i64 0, %258
+  %260 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %256, i64 %259
+  %261 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef nonnull %260)
+  %262 = load i64, ptr %256, align 4
+  %263 = and i64 %262, 536870911
+  %264 = sub nsw i64 0, %263
+  %265 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %256, i64 %264, i32 1
+  %266 = load i32, ptr %265, align 4
+  %267 = trunc i64 %262 to i32
+  %268 = lshr i32 %267, 29
+  %269 = and i32 %268, 1
+  %270 = xor i32 %269, %266
+  %271 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %270)
+  %272 = getelementptr inbounds i8, ptr %256, i64 8
+  store i32 %271, ptr %272, align 4
+  %273 = add nuw nsw i32 %.6350, 1
   %.val260 = load i32, ptr %70, align 8
-  %275 = icmp slt i32 %274, %.val260
-  br i1 %275, label %247, label %.critedge12.loopexit, !llvm.loop !250
+  %274 = icmp slt i32 %273, %.val260
+  br i1 %274, label %246, label %.critedge12.loopexit, !llvm.loop !250
 
-.critedge12.loopexit:                             ; preds = %248, %247
-  %.val260.lcssa.ph = phi i32 [ %.val260351, %247 ], [ %.val260, %248 ]
+.critedge12.loopexit:                             ; preds = %247, %246
+  %.val260.lcssa.ph = phi i32 [ %.val260351, %246 ], [ %.val260, %247 ]
   %.val259.pre = load i32, ptr %52, align 8
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.loopexit, %.critedge10
   %.val259 = phi i32 [ %.val259400, %.critedge10 ], [ %.val259.pre, %.critedge12.loopexit ]
   %.val260.lcssa = phi i32 [ %.val260349, %.critedge10 ], [ %.val260.lcssa.ph, %.critedge12.loopexit ]
-  %276 = add nsw i32 %.val259, %.val260.lcssa
-  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %46, i32 noundef %276) #29
+  %275 = add nsw i32 %.val259, %.val260.lcssa
+  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %46, i32 noundef %275) #29
   br label %.critedge18
 
-.lr.ph357:                                        ; preds = %.preheader, %278
-  %indvars.iv375 = phi i64 [ %indvars.iv.next376, %278 ], [ 0, %.preheader ]
-  %277 = phi ptr [ %285, %278 ], [ %57, %.preheader ]
+.lr.ph357:                                        ; preds = %.preheader, %277
+  %indvars.iv375 = phi i64 [ %indvars.iv.next376, %277 ], [ 0, %.preheader ]
+  %276 = phi ptr [ %284, %277 ], [ %57, %.preheader ]
   %.val232 = load ptr, ptr %48, align 8
   %.not207 = icmp eq ptr %.val232, null
-  br i1 %.not207, label %.critedge14, label %278
+  br i1 %.not207, label %.critedge14, label %277
 
-278:                                              ; preds = %.lr.ph357
-  %279 = getelementptr i8, ptr %277, i64 8
-  %.val233.val = load ptr, ptr %279, align 8
-  %280 = getelementptr inbounds i32, ptr %.val233.val, i64 %indvars.iv375
-  %281 = load i32, ptr %280, align 4
-  %282 = sext i32 %281 to i64
-  %283 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %46)
-  %284 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val232, i64 %282, i32 1
-  store i32 %283, ptr %284, align 4
+277:                                              ; preds = %.lr.ph357
+  %278 = getelementptr i8, ptr %276, i64 8
+  %.val233.val = load ptr, ptr %278, align 8
+  %279 = getelementptr inbounds i32, ptr %.val233.val, i64 %indvars.iv375
+  %280 = load i32, ptr %279, align 4
+  %281 = sext i32 %280 to i64
+  %282 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %46)
+  %283 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val232, i64 %281, i32 1
+  store i32 %282, ptr %283, align 4
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %285 = load ptr, ptr %56, align 8
-  %286 = getelementptr i8, ptr %285, i64 4
-  %.val225 = load i32, ptr %286, align 4
-  %287 = sext i32 %.val225 to i64
-  %288 = icmp slt i64 %indvars.iv.next376, %287
-  br i1 %288, label %.lr.ph357, label %.critedge14, !llvm.loop !251
+  %284 = load ptr, ptr %56, align 8
+  %285 = getelementptr i8, ptr %284, i64 4
+  %.val225 = load i32, ptr %285, align 4
+  %286 = sext i32 %.val225 to i64
+  %287 = icmp slt i64 %indvars.iv.next376, %286
+  br i1 %287, label %.lr.ph357, label %.critedge14, !llvm.loop !251
 
-.critedge14:                                      ; preds = %.lr.ph357, %278, %.preheader
-  %289 = getelementptr inbounds i8, ptr %1, i64 64
-  %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr i8, ptr %290, i64 4
-  %.val224359 = load i32, ptr %291, align 4
-  %292 = icmp sgt i32 %.val224359, 0
-  br i1 %292, label %.lr.ph362, label %.critedge16
+.critedge14:                                      ; preds = %.lr.ph357, %277, %.preheader
+  %288 = getelementptr inbounds i8, ptr %1, i64 64
+  %289 = load ptr, ptr %288, align 8
+  %290 = getelementptr i8, ptr %289, i64 4
+  %.val224359 = load i32, ptr %290, align 4
+  %291 = icmp sgt i32 %.val224359, 0
+  br i1 %291, label %.lr.ph362, label %.critedge16
 
 .lr.ph362:                                        ; preds = %.critedge14
-  %293 = getelementptr i8, ptr %46, i64 32
-  %294 = getelementptr i8, ptr %46, i64 64
-  br label %295
+  %292 = getelementptr i8, ptr %46, i64 32
+  %293 = getelementptr i8, ptr %46, i64 64
+  br label %294
 
-295:                                              ; preds = %.lr.ph362, %323
-  %indvars.iv378 = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next379, %323 ]
-  %.val224361 = phi i32 [ %.val224359, %.lr.ph362 ], [ %.val224, %323 ]
-  %296 = phi ptr [ %290, %.lr.ph362 ], [ %325, %323 ]
+294:                                              ; preds = %.lr.ph362, %322
+  %indvars.iv378 = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next379, %322 ]
+  %.val224361 = phi i32 [ %.val224359, %.lr.ph362 ], [ %.val224, %322 ]
+  %295 = phi ptr [ %289, %.lr.ph362 ], [ %324, %322 ]
   %.val230 = load ptr, ptr %50, align 8
-  %297 = getelementptr i8, ptr %296, i64 8
-  %.val231.val = load ptr, ptr %297, align 8
-  %298 = getelementptr inbounds i32, ptr %.val231.val, i64 %indvars.iv378
-  %299 = load i32, ptr %298, align 4
-  %300 = sext i32 %299 to i64
+  %296 = getelementptr i8, ptr %295, i64 8
+  %.val231.val = load ptr, ptr %296, align 8
+  %297 = getelementptr inbounds i32, ptr %.val231.val, i64 %indvars.iv378
+  %298 = load i32, ptr %297, align 4
+  %299 = sext i32 %298 to i64
   %.not208 = icmp eq ptr %.val230, null
-  br i1 %.not208, label %.critedge16, label %301
+  br i1 %.not208, label %.critedge16, label %300
 
-301:                                              ; preds = %295
-  %302 = sub nsw i32 %.val224361, %2
-  %303 = sext i32 %302 to i64
-  %304 = icmp slt i64 %indvars.iv378, %303
-  br i1 %304, label %305, label %321
+300:                                              ; preds = %294
+  %301 = sub nsw i32 %.val224361, %2
+  %302 = sext i32 %301 to i64
+  %303 = icmp slt i64 %indvars.iv378, %302
+  br i1 %303, label %304, label %320
 
-305:                                              ; preds = %301
-  %.val228 = load ptr, ptr %293, align 8
-  %.val229 = load ptr, ptr %294, align 8
-  %306 = getelementptr i8, ptr %.val229, i64 8
-  %.val229.val = load ptr, ptr %306, align 8
-  %307 = getelementptr inbounds i32, ptr %.val229.val, i64 %indvars.iv378
-  %308 = load i32, ptr %307, align 4
-  %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val228, i64 %309
-  %311 = ptrtoint ptr %310 to i64
-  %312 = and i64 %311, -2
-  %313 = ptrtoint ptr %.val228 to i64
-  %314 = sub i64 %312, %313
-  %315 = sdiv exact i64 %314, 12
-  %316 = trunc i64 %315 to i32
-  %317 = trunc i64 %311 to i32
-  %318 = and i32 %317, 1
-  %319 = shl nsw i32 %316, 1
-  %320 = or disjoint i32 %319, %318
-  br label %323
+304:                                              ; preds = %300
+  %.val228 = load ptr, ptr %292, align 8
+  %.val229 = load ptr, ptr %293, align 8
+  %305 = getelementptr i8, ptr %.val229, i64 8
+  %.val229.val = load ptr, ptr %305, align 8
+  %306 = getelementptr inbounds i32, ptr %.val229.val, i64 %indvars.iv378
+  %307 = load i32, ptr %306, align 4
+  %308 = sext i32 %307 to i64
+  %309 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val228, i64 %308
+  %310 = ptrtoint ptr %309 to i64
+  %311 = and i64 %310, -2
+  %312 = ptrtoint ptr %.val228 to i64
+  %313 = sub i64 %311, %312
+  %314 = sdiv exact i64 %313, 12
+  %315 = trunc i64 %314 to i32
+  %316 = trunc i64 %310 to i32
+  %317 = and i32 %316, 1
+  %318 = shl nsw i32 %315, 1
+  %319 = or disjoint i32 %318, %317
+  br label %322
 
-321:                                              ; preds = %301
-  %322 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %46)
-  br label %323
+320:                                              ; preds = %300
+  %321 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %46)
+  br label %322
 
-323:                                              ; preds = %305, %321
-  %.sink384 = phi i32 [ %320, %305 ], [ %322, %321 ]
-  %324 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val230, i64 %300, i32 1
-  store i32 %.sink384, ptr %324, align 4
+322:                                              ; preds = %304, %320
+  %.sink384 = phi i32 [ %319, %304 ], [ %321, %320 ]
+  %323 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val230, i64 %299, i32 1
+  store i32 %.sink384, ptr %323, align 4
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
-  %325 = load ptr, ptr %289, align 8
-  %326 = getelementptr i8, ptr %325, i64 4
-  %.val224 = load i32, ptr %326, align 4
-  %327 = sext i32 %.val224 to i64
-  %328 = icmp slt i64 %indvars.iv.next379, %327
-  br i1 %328, label %295, label %.critedge16, !llvm.loop !252
+  %324 = load ptr, ptr %288, align 8
+  %325 = getelementptr i8, ptr %324, i64 4
+  %.val224 = load i32, ptr %325, align 4
+  %326 = sext i32 %.val224 to i64
+  %327 = icmp slt i64 %indvars.iv.next379, %326
+  br i1 %327, label %294, label %.critedge16, !llvm.loop !252
 
-.critedge16:                                      ; preds = %295, %323, %.critedge14
-  %329 = getelementptr inbounds i8, ptr %0, i64 72
-  %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr i8, ptr %330, i64 4
-  %.val364 = load i32, ptr %331, align 4
-  %332 = icmp sgt i32 %.val364, 0
-  br i1 %332, label %.lr.ph366, label %.critedge18
+.critedge16:                                      ; preds = %294, %322, %.critedge14
+  %328 = getelementptr inbounds i8, ptr %0, i64 72
+  %329 = load ptr, ptr %328, align 8
+  %330 = getelementptr i8, ptr %329, i64 4
+  %.val364 = load i32, ptr %330, align 4
+  %331 = icmp sgt i32 %.val364, 0
+  br i1 %331, label %.lr.ph366, label %.critedge18
 
 .lr.ph366:                                        ; preds = %.critedge16
-  %333 = getelementptr i8, ptr %1, i64 72
+  %332 = getelementptr i8, ptr %1, i64 72
   %.not210 = icmp eq i32 %3, 0
   %.not211 = icmp eq i32 %5, 0
-  br label %334
+  br label %333
 
-334:                                              ; preds = %.lr.ph366, %403
-  %indvars.iv381 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next382, %403 ]
-  %335 = phi ptr [ %330, %.lr.ph366 ], [ %405, %403 ]
+333:                                              ; preds = %.lr.ph366, %401
+  %indvars.iv381 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next382, %401 ]
+  %334 = phi ptr [ %329, %.lr.ph366 ], [ %403, %401 ]
   %.val248 = load ptr, ptr %48, align 8
   %.not209 = icmp eq ptr %.val248, null
-  br i1 %.not209, label %.critedge18, label %336
+  br i1 %.not209, label %.critedge18, label %335
 
-336:                                              ; preds = %334
-  %337 = getelementptr i8, ptr %335, i64 8
-  %.val249.val = load ptr, ptr %337, align 8
-  %338 = getelementptr inbounds i32, ptr %.val249.val, i64 %indvars.iv381
-  %339 = load i32, ptr %338, align 4
-  %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val248, i64 %340
-  %342 = load i64, ptr %341, align 4
-  %343 = and i64 %342, 536870911
-  %344 = sub nsw i64 0, %343
-  %345 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %341, i64 %344
-  %346 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %0, ptr noundef nonnull %345)
+335:                                              ; preds = %333
+  %336 = getelementptr i8, ptr %334, i64 8
+  %.val249.val = load ptr, ptr %336, align 8
+  %337 = getelementptr inbounds i32, ptr %.val249.val, i64 %indvars.iv381
+  %338 = load i32, ptr %337, align 4
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val248, i64 %339
+  %341 = load i64, ptr %340, align 4
+  %342 = and i64 %341, 536870911
+  %343 = sub nsw i64 0, %342
+  %344 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %340, i64 %343
+  %345 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %0, ptr noundef nonnull %344)
   %.val246 = load ptr, ptr %50, align 8
-  %.val247 = load ptr, ptr %333, align 8
-  %347 = getelementptr i8, ptr %.val247, i64 8
-  %.val247.val = load ptr, ptr %347, align 8
-  %348 = getelementptr inbounds i32, ptr %.val247.val, i64 %indvars.iv381
-  %349 = load i32, ptr %348, align 4
-  %350 = sext i32 %349 to i64
-  %351 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val246, i64 %350
-  %352 = load i64, ptr %351, align 4
-  %353 = and i64 %352, 536870911
-  %354 = sub nsw i64 0, %353
-  %355 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %351, i64 %354
-  %356 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef nonnull %355)
-  %357 = load i64, ptr %341, align 4
-  %358 = and i64 %357, 536870911
-  %359 = sub nsw i64 0, %358
-  %360 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %341, i64 %359, i32 1
-  %361 = load i32, ptr %360, align 4
-  %362 = trunc i64 %357 to i32
-  %363 = lshr i32 %362, 29
-  %364 = and i32 %363, 1
-  %365 = xor i32 %364, %361
-  br i1 %.not210, label %382, label %366
+  %.val247 = load ptr, ptr %332, align 8
+  %346 = getelementptr i8, ptr %.val247, i64 8
+  %.val247.val = load ptr, ptr %346, align 8
+  %347 = getelementptr inbounds i32, ptr %.val247.val, i64 %indvars.iv381
+  %348 = load i32, ptr %347, align 4
+  %349 = sext i32 %348 to i64
+  %350 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val246, i64 %349
+  %351 = load i64, ptr %350, align 4
+  %352 = and i64 %351, 536870911
+  %353 = sub nsw i64 0, %352
+  %354 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %350, i64 %353
+  %355 = tail call i32 @Gia_ManMiter_rec(ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef nonnull %354)
+  %356 = load i64, ptr %340, align 4
+  %357 = and i64 %356, 536870911
+  %358 = sub nsw i64 0, %357
+  %359 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %340, i64 %358, i32 1
+  %360 = load i32, ptr %359, align 4
+  %361 = trunc i64 %356 to i32
+  %362 = lshr i32 %361, 29
+  %363 = and i32 %362, 1
+  %364 = xor i32 %363, %360
+  br i1 %.not210, label %381, label %365
 
-366:                                              ; preds = %336
-  %367 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %365)
+365:                                              ; preds = %335
+  %366 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %364)
   %.val244 = load ptr, ptr %50, align 8
-  %.val245 = load ptr, ptr %333, align 8
-  %368 = getelementptr i8, ptr %.val245, i64 8
-  %.val245.val = load ptr, ptr %368, align 8
-  %369 = getelementptr inbounds i32, ptr %.val245.val, i64 %indvars.iv381
-  %370 = load i32, ptr %369, align 4
-  %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val244, i64 %371
-  %373 = load i64, ptr %372, align 4
-  %374 = and i64 %373, 536870911
-  %375 = sub nsw i64 0, %374
-  %376 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %372, i64 %375, i32 1
-  %377 = load i32, ptr %376, align 4
-  %378 = trunc i64 %373 to i32
-  %379 = lshr i32 %378, 29
-  %380 = and i32 %379, 1
-  %381 = xor i32 %380, %377
-  br label %403
+  %.val245 = load ptr, ptr %332, align 8
+  %367 = getelementptr i8, ptr %.val245, i64 8
+  %.val245.val = load ptr, ptr %367, align 8
+  %368 = getelementptr inbounds i32, ptr %.val245.val, i64 %indvars.iv381
+  %369 = load i32, ptr %368, align 4
+  %370 = sext i32 %369 to i64
+  %371 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val244, i64 %370
+  %372 = load i64, ptr %371, align 4
+  %373 = and i64 %372, 536870911
+  %374 = sub nsw i64 0, %373
+  %375 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %371, i64 %374, i32 1
+  %376 = load i32, ptr %375, align 4
+  %377 = trunc i64 %372 to i32
+  %378 = lshr i32 %377, 29
+  %379 = and i32 %378, 1
+  %380 = xor i32 %379, %376
+  br label %401
 
-382:                                              ; preds = %336
+381:                                              ; preds = %335
   %.val242 = load ptr, ptr %50, align 8
-  %.val243 = load ptr, ptr %333, align 8
-  %383 = getelementptr i8, ptr %.val243, i64 8
-  %.val243.val = load ptr, ptr %383, align 8
-  %384 = getelementptr inbounds i32, ptr %.val243.val, i64 %indvars.iv381
-  %385 = load i32, ptr %384, align 4
-  %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val242, i64 %386
-  %388 = load i64, ptr %387, align 4
-  %389 = and i64 %388, 536870911
-  %390 = sub nsw i64 0, %389
-  %391 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %387, i64 %390, i32 1
-  %392 = load i32, ptr %391, align 4
-  %393 = trunc i64 %388 to i32
-  %394 = lshr i32 %393, 29
-  %395 = and i32 %394, 1
-  br i1 %.not211, label %400, label %396
+  %.val243 = load ptr, ptr %332, align 8
+  %382 = getelementptr i8, ptr %.val243, i64 8
+  %.val243.val = load ptr, ptr %382, align 8
+  %383 = getelementptr inbounds i32, ptr %.val243.val, i64 %indvars.iv381
+  %384 = load i32, ptr %383, align 4
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val242, i64 %385
+  %387 = load i64, ptr %386, align 4
+  %388 = and i64 %387, 536870911
+  %389 = sub nsw i64 0, %388
+  %390 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %386, i64 %389, i32 1
+  %391 = load i32, ptr %390, align 4
+  %392 = trunc i64 %387 to i32
+  %393 = lshr i32 %392, 29
+  %394 = and i32 %393, 1
+  %395 = xor i32 %394, %391
+  br i1 %.not211, label %399, label %396
 
-396:                                              ; preds = %382
-  %397 = xor i32 %392, %395
-  %398 = xor i32 %397, 1
-  %399 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %46, i32 noundef %365, i32 noundef %398) #29
-  br label %403
+396:                                              ; preds = %381
+  %397 = xor i32 %395, 1
+  %398 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %46, i32 noundef %364, i32 noundef %397) #29
+  br label %401
 
-400:                                              ; preds = %382
-  %401 = xor i32 %395, %392
-  %402 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %46, i32 noundef %365, i32 noundef %401) #29
-  br label %403
+399:                                              ; preds = %381
+  %400 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %46, i32 noundef %364, i32 noundef %395) #29
+  br label %401
 
-403:                                              ; preds = %366, %400, %396
-  %.sink403 = phi i32 [ %381, %366 ], [ %402, %400 ], [ %399, %396 ]
-  %404 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %.sink403)
+401:                                              ; preds = %365, %399, %396
+  %.sink403 = phi i32 [ %380, %365 ], [ %400, %399 ], [ %398, %396 ]
+  %402 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %46, i32 noundef %.sink403)
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
-  %405 = load ptr, ptr %329, align 8
-  %406 = getelementptr i8, ptr %405, i64 4
-  %.val = load i32, ptr %406, align 4
-  %407 = sext i32 %.val to i64
-  %408 = icmp slt i64 %indvars.iv.next382, %407
-  br i1 %408, label %334, label %.critedge18, !llvm.loop !253
+  %403 = load ptr, ptr %328, align 8
+  %404 = getelementptr i8, ptr %403, i64 4
+  %.val = load i32, ptr %404, align 4
+  %405 = sext i32 %.val to i64
+  %406 = icmp slt i64 %indvars.iv.next382, %405
+  br i1 %406, label %333, label %.critedge18, !llvm.loop !253
 
-.critedge18:                                      ; preds = %403, %334, %.critedge16, %.critedge12
+.critedge18:                                      ; preds = %401, %333, %.critedge16, %.critedge12
   tail call void @Gia_ManHashStop(ptr noundef nonnull %46) #29
-  %409 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %46) #29
+  %407 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %46) #29
   tail call void @Gia_ManStop(ptr noundef nonnull %46) #29
-  %410 = tail call ptr @Gia_ManDupNormalize(ptr noundef %409, i32 noundef 0) #29
-  tail call void @Gia_ManStop(ptr noundef %409) #29
-  br label %411
+  %408 = tail call ptr @Gia_ManDupNormalize(ptr noundef %407, i32 noundef 0) #29
+  tail call void @Gia_ManStop(ptr noundef %407) #29
+  br label %409
 
-411:                                              ; preds = %.critedge18, %41, %35, %29, %25, %17
-  %.0191 = phi ptr [ null, %17 ], [ null, %25 ], [ null, %29 ], [ %410, %.critedge18 ], [ null, %35 ], [ null, %41 ]
+409:                                              ; preds = %.critedge18, %41, %35, %29, %25, %17
+  %.0191 = phi ptr [ null, %17 ], [ null, %25 ], [ null, %29 ], [ %408, %.critedge18 ], [ null, %35 ], [ null, %41 ]
   ret ptr %.0191
 }
 
@@ -23088,57 +23086,56 @@ Abc_UtilStrsav.exit200:                           ; preds = %Abc_UtilStrsav.exit
   %213 = lshr i32 %212, 29
   %214 = and i32 %213, 1
   %215 = xor i32 %211, %214
-  %216 = xor i32 %215, 1
-  %217 = xor i32 %214, %211
-  %.sink279 = select i1 %206, i32 %216, i32 %217
-  %218 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %21, i32 noundef %.sink279)
-  %219 = getelementptr inbounds i8, ptr %203, i64 8
-  store i32 %218, ptr %219, align 4
+  %216 = zext i1 %206 to i32
+  %.sink279 = xor i32 %215, %216
+  %217 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %21, i32 noundef %.sink279)
+  %218 = getelementptr inbounds i8, ptr %203, i64 8
+  store i32 %217, ptr %218, align 4
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %.val167 = load i32, ptr %6, align 8
-  %220 = sext i32 %.val167 to i64
-  %221 = icmp slt i64 %indvars.iv.next270, %220
-  br i1 %221, label %.lr.ph250, label %.critedge10, !llvm.loop !297
+  %219 = sext i32 %.val167 to i64
+  %220 = icmp slt i64 %indvars.iv.next270, %219
+  br i1 %220, label %.lr.ph250, label %.critedge10, !llvm.loop !297
 
 .critedge10:                                      ; preds = %.lr.ph250, %193, %.critedge8
   %.val167.lcssa = phi i32 [ %.val167247, %.critedge8 ], [ %.val167, %193 ], [ %.val167249, %.lr.ph250 ]
   %.val178 = load ptr, ptr %7, align 8
-  %222 = getelementptr i8, ptr %.val178, i64 4
-  %.val178.val = load i32, ptr %222, align 4
-  %223 = sub nsw i32 %.val178.val, %.val167.lcssa
-  %224 = icmp sgt i32 %.0134.lcssa, %223
-  br i1 %224, label %225, label %227
+  %221 = getelementptr i8, ptr %.val178, i64 4
+  %.val178.val = load i32, ptr %221, align 4
+  %222 = sub nsw i32 %.val178.val, %.val167.lcssa
+  %223 = icmp sgt i32 %.0134.lcssa, %222
+  br i1 %223, label %224, label %226
 
-225:                                              ; preds = %.critedge10
-  %226 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %21, i32 noundef 1)
+224:                                              ; preds = %.critedge10
+  %225 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %21, i32 noundef 1)
   %.val166.pre = load i32, ptr %6, align 8
   %.val176.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.val176.pre, i64 4
   %.val176.val.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre278 = sub nsw i32 %.val176.val.pre, %.val166.pre
-  br label %227
+  br label %226
 
-227:                                              ; preds = %225, %.critedge10
-  %.pre-phi = phi i32 [ %.pre278, %225 ], [ %223, %.critedge10 ]
-  %.val166 = phi i32 [ %.val166.pre, %225 ], [ %.val167.lcssa, %.critedge10 ]
-  %228 = icmp sgt i32 %.0134.lcssa, %.pre-phi
-  %229 = zext i1 %228 to i32
-  %230 = add nsw i32 %.val166, %229
-  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %21, i32 noundef %230) #29
+226:                                              ; preds = %224, %.critedge10
+  %.pre-phi = phi i32 [ %.pre278, %224 ], [ %222, %.critedge10 ]
+  %.val166 = phi i32 [ %.val166.pre, %224 ], [ %.val167.lcssa, %.critedge10 ]
+  %227 = icmp sgt i32 %.0134.lcssa, %.pre-phi
+  %228 = zext i1 %227 to i32
+  %229 = add nsw i32 %.val166, %228
+  tail call void @Gia_ManSetRegNum(ptr noundef nonnull %21, i32 noundef %229) #29
   %.not151 = icmp eq i32 %4, 0
-  br i1 %.not151, label %235, label %231
+  br i1 %.not151, label %234, label %230
 
-231:                                              ; preds = %227
+230:                                              ; preds = %226
   %.val173 = load i32, ptr %6, align 8
   %.val174 = load ptr, ptr %7, align 8
-  %232 = getelementptr i8, ptr %.val174, i64 4
-  %.val174.val = load i32, ptr %232, align 4
+  %231 = getelementptr i8, ptr %.val174, i64 4
+  %.val174.val = load i32, ptr %231, align 4
   %.neg = add i32 %.val173, %.0134.lcssa
-  %233 = sub i32 %.neg, %.val174.val
-  %234 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.0.lcssa, i32 noundef %233)
-  br label %235
+  %232 = sub i32 %.neg, %.val174.val
+  %233 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.0.lcssa, i32 noundef %232)
+  br label %234
 
-235:                                              ; preds = %231, %227
+234:                                              ; preds = %230, %226
   ret ptr %21
 }
 

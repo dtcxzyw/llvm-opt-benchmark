@@ -4952,11 +4952,11 @@ invoke.cont58:                                    ; preds = %invoke.cont53
   %tobool60.not = icmp eq ptr %28, %29
   %30 = load ptr, ptr %post_nodes_chain, align 8
   %31 = load ptr, ptr %_M_finish.i.i66, align 8
+  %tobool.not.i.i105 = icmp eq ptr %31, %30
   br i1 %tobool60.not, label %if.else, label %if.then61
 
 if.then61:                                        ; preds = %invoke.cont58
-  %cmp.i101.not235 = icmp eq ptr %30, %31
-  br i1 %cmp.i101.not235, label %if.end89, label %for.body68
+  br i1 %tobool.not.i.i105, label %if.end89, label %for.body68
 
 for.body68:                                       ; preds = %if.then61, %if.end81
   %last_parent.1237 = phi ptr [ %36, %if.end81 ], [ %last_parent.0.lcssa, %if.then61 ]
@@ -5020,7 +5020,6 @@ if.end81:                                         ; preds = %invoke.cont74, %for
   br i1 %cmp.i101.not, label %if.end89, label %for.body68
 
 if.else:                                          ; preds = %invoke.cont58
-  %tobool.not.i.i105 = icmp eq ptr %31, %30
   br i1 %tobool.not.i.i105, label %if.end89, label %for.body.i.i.i.i.i106
 
 for.body.i.i.i.i.i106:                            ; preds = %if.else, %_ZSt8_DestroyIN6Assimp3FBX12FBXConverter13PotentialNodeEEvPT_.exit.i.i.i.i.i110

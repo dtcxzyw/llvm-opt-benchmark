@@ -3799,10 +3799,10 @@ _ZN12_GLOBAL__N_117EntriesProcessing9AddGroupsERKSt3mapImSt6vectorImSaImEESt4les
   %.val3 = load ptr, ptr %554, align 8
   %555 = load i32, ptr %43, align 8
   %556 = icmp eq i32 %555, 1
+  %.not10.i.i = icmp eq ptr %.val3, %.val
   br i1 %556, label %557, label %626
 
 557:                                              ; preds = %_ZN12_GLOBAL__N_117EntriesProcessing9AddGroupsERKSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS4_EEE.exit
-  %.not10.i.i = icmp eq ptr %.val3, %.val
   br i1 %.not10.i.i, label %_ZN12_GLOBAL__N_117EntriesProcessing12AddLibrariesERKSt6vectorImSaImEE.exit.thread, label %.lr.ph.i.i
 
 _ZN12_GLOBAL__N_117EntriesProcessing12AddLibrariesERKSt6vectorImSaImEE.exit.thread: ; preds = %557
@@ -3993,8 +3993,7 @@ _ZNSt6vectorIN20cmComputeLinkDepends9LinkEntryESaIS1_EE12emplace_backIJRKS1_EEER
   br i1 %.not.i.i12, label %_ZN12_GLOBAL__N_117EntriesProcessing12AddLibrariesERKSt6vectorImSaImEE.exit, label %.lr.ph.i.i
 
 626:                                              ; preds = %_ZN12_GLOBAL__N_117EntriesProcessing9AddGroupsERKSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS4_EEE.exit
-  %.not12.i.i = icmp eq ptr %.val, %.val3
-  br i1 %.not12.i.i, label %_ZN12_GLOBAL__N_117EntriesProcessing12AddLibrariesERKSt6vectorImSaImEE.exit.thread52, label %.lr.ph.i6.i
+  br i1 %.not10.i.i, label %_ZN12_GLOBAL__N_117EntriesProcessing12AddLibrariesERKSt6vectorImSaImEE.exit.thread52, label %.lr.ph.i6.i
 
 _ZN12_GLOBAL__N_117EntriesProcessing12AddLibrariesERKSt6vectorImSaImEE.exit.thread52: ; preds = %626
   %627 = getelementptr inbounds i8, ptr %0, i64 744

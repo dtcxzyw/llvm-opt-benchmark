@@ -8311,11 +8311,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %3334 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 3334:                                             ; preds = %.invoke.i, %3329
+  %.not324331.i = icmp eq ptr %3313, %3312
   br i1 %.0321.lcssa, label %3337, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3334
-  %.not334.i = icmp eq ptr %3312, %3313
-  br i1 %.not334.i, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit241.i, label %.lr.ph.i
+  br i1 %.not324331.i, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit241.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %3335 = getelementptr inbounds i8, ptr %35, i64 8
@@ -8323,7 +8323,6 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %3340
 
 3337:                                             ; preds = %3334
-  %.not324331.i = icmp eq ptr %3313, %3312
   br i1 %.not324331.i, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit241.i, label %.lr.ph333.i
 
 .lr.ph333.i:                                      ; preds = %3337, %3338

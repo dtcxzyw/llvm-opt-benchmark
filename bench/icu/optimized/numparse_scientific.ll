@@ -258,15 +258,15 @@ if.end3:                                          ; preds = %if.end
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  %cmp8 = icmp eq i32 %call5, %cond.i
+  %cmp8 = icmp ne i32 %call5, %cond.i
   %call10 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
-  br i1 %cmp8, label %if.then9, label %if.else75
-
-if.then9:                                         ; preds = %if.end3
   %cmp11 = icmp eq i32 %call10, %call5
-  br i1 %cmp11, label %return, label %if.end13
+  %brmerge = or i1 %cmp8, %cmp11
+  %not.cmp8 = xor i1 %cmp8, true
+  %cmp11.mux = or i1 %cmp11, %not.cmp8
+  br i1 %brmerge, label %return, label %if.end13
 
-if.end13:                                         ; preds = %if.then9
+if.end13:                                         ; preds = %if.end3
   tail call void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %call5)
   %fIgnorablesMatcher = getelementptr inbounds i8, ptr %this, i64 272
   %call14 = tail call noundef zeroext i1 @_ZNK6icu_758numparse4impl13SymbolMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %fIgnorablesMatcher, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -391,12 +391,8 @@ if.else72:                                        ; preds = %if.end58
   tail call void @_ZN6icu_7513StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %call4)
   br label %return
 
-if.else75:                                        ; preds = %if.end3
-  %cmp77 = icmp eq i32 %call5, %call10
-  br label %return
-
-return:                                           ; preds = %if.else75, %if.then70, %if.else72, %if.then9, %if.end, %entry, %if.then57, %if.then51, %if.then43, %if.then33, %if.then17
-  %retval.0 = phi i1 [ true, %if.then17 ], [ true, %if.then51 ], [ true, %if.then57 ], [ true, %if.then33 ], [ true, %if.then43 ], [ false, %entry ], [ false, %if.end ], [ true, %if.then9 ], [ %call62, %if.else72 ], [ %call62, %if.then70 ], [ %cmp77, %if.else75 ]
+return:                                           ; preds = %if.end3, %if.then70, %if.else72, %if.end, %entry, %if.then57, %if.then51, %if.then43, %if.then33, %if.then17
+  %retval.0 = phi i1 [ true, %if.then17 ], [ true, %if.then51 ], [ true, %if.then57 ], [ true, %if.then33 ], [ true, %if.then43 ], [ false, %entry ], [ false, %if.end ], [ %call62, %if.else72 ], [ %call62, %if.then70 ], [ %cmp11.mux, %if.end3 ]
   ret i1 %retval.0
 }
 

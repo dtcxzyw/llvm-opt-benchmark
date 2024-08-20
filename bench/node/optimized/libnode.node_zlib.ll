@@ -8923,11 +8923,11 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
   %7 = load ptr, ptr %dictionary_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %sw.epilog
-  %tobool.not.i.i = icmp eq ptr %8, %7
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIhSaIhEE5clearEv.exit, label %if.then.i.i
+  br i1 %cmp.i.i.i, label %_ZNSt6vectorIhSaIhEE5clearEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then8
   store ptr %7, ptr %_M_finish.i.i.i, align 8
@@ -8938,7 +8938,6 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %if.then8, %if.then.
   br label %cleanup
 
 if.end10:                                         ; preds = %sw.epilog
-  %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end10
