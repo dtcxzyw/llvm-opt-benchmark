@@ -124,10 +124,9 @@ define i32 @Extra_ThreshComputeChow(ptr nocapture noundef readonly %0, i32 nound
   %30 = load i64, ptr %29, align 8
   %31 = and i32 %.032, 63
   %32 = zext nneg i32 %31 to i64
-  %33 = shl nuw i64 1, %32
-  %34 = and i64 %30, %33
-  %.not = icmp ne i64 %34, 0
-  %35 = zext i1 %.not to i32
+  %33 = lshr i64 %30, %32
+  %34 = trunc i64 %33 to i32
+  %35 = and i32 %34, 1
   %spec.select = add nuw nsw i32 %.02531, %35
   %36 = add nuw nsw i32 %.032, 1
   %exitcond.not = icmp eq i32 %36, %smax40
@@ -3103,11 +3102,10 @@ define i32 @Extra_ThreshCheck(ptr noundef %0, i32 noundef %1, ptr nocapture noun
   %32 = load i64, ptr %31, align 8
   %33 = and i32 %.032.i, 63
   %34 = zext nneg i32 %33 to i64
-  %35 = shl nuw i64 1, %34
-  %36 = and i64 %35, %32
-  %.not.i = icmp ne i64 %36, 0
-  %37 = zext i1 %.not.i to i32
-  %spec.select.i = add nuw nsw i32 %.02531.i, %37
+  %35 = lshr i64 %32, %34
+  %36 = trunc i64 %35 to i32
+  %37 = and i32 %36, 1
+  %spec.select.i = add nuw nsw i32 %37, %.02531.i
   %38 = add nuw nsw i32 %.032.i, 1
   %exitcond.not.i = icmp eq i32 %38, %9
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph34.split.i, !llvm.loop !7
@@ -3687,9 +3685,9 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   br i1 %exitcond.not.i73, label %.lr.ph.preheader, label %.lr.ph.i69, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06482 = phi i32 [ %53, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %52 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %.06482) #18
-  %53 = add nuw nsw i32 %.06482, 1
+  %.06481 = phi i32 [ %53, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %52 = tail call ptr @Cudd_bddIthVar(ptr noundef %36, i32 noundef %.06481) #18
+  %53 = add nuw nsw i32 %.06481, 1
   %exitcond.not = icmp eq i32 %53, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
@@ -3727,25 +3725,25 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i77, %._crit
   %66 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %55, ptr noundef %65, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef 1)
   %67 = icmp sgt i32 %1, 5
   %68 = icmp eq i32 %66, 0
-  %or.cond383 = and i1 %67, %68
-  br i1 %or.cond383, label %.lr.ph85.split, label %.critedge
+  %or.cond382 = and i1 %67, %68
+  br i1 %or.cond382, label %.lr.ph84.split, label %.critedge
 
-.lr.ph85.split:                                   ; preds = %Abc_TtNot.exit, %.lr.ph85.split
-  %.184 = phi i32 [ %70, %.lr.ph85.split ], [ 2, %Abc_TtNot.exit ]
-  %69 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %55, ptr noundef %65, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef %.184)
-  %70 = add nuw nsw i32 %.184, 1
-  %71 = icmp ult i32 %.184, 3
+.lr.ph84.split:                                   ; preds = %Abc_TtNot.exit, %.lr.ph84.split
+  %.183 = phi i32 [ %70, %.lr.ph84.split ], [ 2, %Abc_TtNot.exit ]
+  %69 = call i32 @Extra_ThreshAssignWeights(ptr poison, ptr noundef %55, ptr noundef %65, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %35, i32 noundef %.183)
+  %70 = add nuw nsw i32 %.183, 1
+  %71 = icmp ult i32 %.183, 3
   %72 = icmp eq i32 %69, 0
   %or.cond = and i1 %72, %71
-  br i1 %or.cond, label %.lr.ph85.split, label %.critedge, !llvm.loop !99
+  br i1 %or.cond, label %.lr.ph84.split, label %.critedge, !llvm.loop !99
 
-.critedge:                                        ; preds = %.lr.ph85.split, %Abc_TtNot.exit
-  %.065.lcssa = phi i32 [ %66, %Abc_TtNot.exit ], [ %69, %.lr.ph85.split ]
+.critedge:                                        ; preds = %.lr.ph84.split, %Abc_TtNot.exit
+  %.065.lcssa = phi i32 [ %66, %Abc_TtNot.exit ], [ %69, %.lr.ph84.split ]
   tail call void @free(ptr noundef %55) #18
   tail call void @free(ptr noundef %65) #18
   %73 = load ptr, ptr %41, align 8
-  %.not.i81 = icmp eq ptr %73, null
-  br i1 %.not.i81, label %Vec_StrFree.exit, label %74
+  %.not.i = icmp eq ptr %73, null
+  br i1 %.not.i, label %Vec_StrFree.exit, label %74
 
 74:                                               ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %73) #18

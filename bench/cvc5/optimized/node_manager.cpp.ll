@@ -12211,11 +12211,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %22 = load i64, ptr %second.i4.i.i, align 8
   %23 = shl nuw i64 1, %8
   %24 = and i64 %22, %23
-  %tobool.i6.i.i = icmp ne i64 %24, 0
+  %tobool.i.i.i = icmp ne i64 %24, 0
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i, %invoke.cont3
-  %.not = phi i1 [ true, %invoke.cont3 ], [ %tobool.i6.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i ]
+  %.not = phi i1 [ true, %invoke.cont3 ], [ %tobool.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i ]
   %brmerge.not = and i1 %call.i.i1718, %.not
   br i1 %brmerge.not, label %nrvo.skipdtor, label %invoke.cont17
 
@@ -12488,11 +12488,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %65 = load i64, ptr %second.i4.i.i79, align 8
   %66 = shl nuw i64 1, %51
   %67 = and i64 %65, %66
-  %tobool.i6.i.i80 = icmp ne i64 %67, 0
+  %tobool.i.i.i80 = icmp ne i64 %67, 0
   br label %cleanup.done43
 
 cleanup.done43:                                   ; preds = %lor.lhs.false.i.i.i.i.i.i.i68, %if.end3.i.i.i.i.i.i.i65, %for.cond.i.i.i.i.i83, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i77, %if.end15.i.i.i.i.i52, %invoke.cont30
-  %68 = phi i1 [ %cmp.i, %invoke.cont30 ], [ false, %if.end15.i.i.i.i.i52 ], [ %tobool.i6.i.i80, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i77 ], [ false, %for.cond.i.i.i.i.i83 ], [ false, %if.end3.i.i.i.i.i.i.i65 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i68 ]
+  %68 = phi i1 [ %cmp.i, %invoke.cont30 ], [ false, %if.end15.i.i.i.i.i52 ], [ %tobool.i.i.i80, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i77 ], [ false, %for.cond.i.i.i.i.i83 ], [ false, %if.end3.i.i.i.i.i.i.i65 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i68 ]
   %69 = load ptr, ptr %ref.tmp, align 8
   %bf.load.i.i = load i64, ptr %69, align 8
   %70 = and i64 %bf.load.i.i, 1152920405095219200
@@ -13103,11 +13103,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %156 = load i64, ptr %second.i4.i.i275, align 8
   %157 = shl nuw i64 1, %142
   %158 = and i64 %156, %157
-  %tobool.i6.i.i276 = icmp ne i64 %158, 0
+  %tobool.i.i.i276 = icmp ne i64 %158, 0
   br label %lor.end143
 
 lor.end143:                                       ; preds = %lor.lhs.false.i.i.i.i.i.i.i264, %if.end3.i.i.i.i.i.i.i261, %for.cond.i.i.i.i.i279, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i273, %if.end15.i.i.i.i.i248, %invoke.cont129
-  %159 = phi i1 [ true, %invoke.cont129 ], [ %tobool.i6.i.i276, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i273 ], [ false, %if.end15.i.i.i.i.i248 ], [ false, %for.cond.i.i.i.i.i279 ], [ false, %if.end3.i.i.i.i.i.i.i261 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i264 ]
+  %159 = phi i1 [ true, %invoke.cont129 ], [ %tobool.i.i.i276, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i273 ], [ false, %if.end15.i.i.i.i.i248 ], [ false, %for.cond.i.i.i.i.i279 ], [ false, %if.end3.i.i.i.i.i.i.i261 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i264 ]
   %frombool144 = zext i1 %159 to i8
   store i8 %frombool144, ptr %ref.tmp133, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i287)

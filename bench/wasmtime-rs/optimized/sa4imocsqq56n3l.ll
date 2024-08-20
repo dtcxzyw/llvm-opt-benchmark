@@ -27215,12 +27215,12 @@ _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.578
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %163, %154, %145, %137, %128, %118
-  %lpad.loopexit103 = landingpad { ptr, i32 }
+  %lpad.loopexit102 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %112, %._crit_edge, %180, %194, %205, %241
-  %lpad.loopexit106 = landingpad { ptr, i32 }
+  %lpad.loopexit105 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -27230,7 +27230,7 @@ _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.578
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit103, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit106, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit105, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$cranelift_entity..set..EntitySet$LT$cranelift_codegen..ir..entities..JumpTable$GT$$GT$17h456d0ee4b168f660E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #42
           to label %23 unwind label %303
 
@@ -27248,27 +27248,27 @@ _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.578
   %98 = getelementptr inbounds { i32, i32 }, ptr %58, i64 %97
   %.0.i.i = select i1 %.not.i28, ptr %98, ptr %61
   %99 = load i32, ptr %.0.i.i, align 4, !noundef !4
-  %.not99 = icmp eq i32 %99, 0
-  br i1 %.not99, label %108, label %211
+  %.not98 = icmp eq i32 %99, 0
+  br i1 %.not98, label %108, label %211
 
 _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i30: ; preds = %108, %113
-  %.pre-phi = phi i64 [ %97, %108 ], [ %.pre144, %113 ]
-  %100 = phi i32 [ %.pn16.i, %108 ], [ %.pre142, %113 ]
+  %.pre-phi = phi i64 [ %97, %108 ], [ %.pre143, %113 ]
+  %100 = phi i32 [ %.pn16.i, %108 ], [ %.pre141, %113 ]
   %101 = load ptr, ptr %52, align 8, !nonnull !4, !noundef !4
   %102 = load i64, ptr %53, align 8, !noundef !4
   %.not.i.i32 = icmp ugt i64 %102, %97
   %103 = getelementptr inbounds { i32, i32, i32, i32, i8, [3 x i8] }, ptr %101, i64 %97
   %.0.i.i.i33 = select i1 %.not.i.i32, ptr %103, ptr %54
   %104 = load i32, ptr %.0.i.i.i33, align 4, !noalias !3398, !noundef !4
-  %.not100 = icmp eq i32 %104, -1
-  %..i38 = select i1 %.not100, i32 0, i32 3
-  %.not.i50127 = icmp ugt i64 %102, %.pre-phi
+  %.not99 = icmp eq i32 %104, -1
+  %..i38 = select i1 %.not99, i32 0, i32 3
+  %.not.i50126 = icmp ugt i64 %102, %.pre-phi
   %105 = getelementptr inbounds { i32, i32, i32, i32, i8, [3 x i8] }, ptr %101, i64 %.pre-phi
-  %.0.i.i51128 = select i1 %.not.i50127, ptr %105, ptr %54
-  %106 = getelementptr inbounds i8, ptr %.0.i.i51128, i64 8
+  %.0.i.i51127 = select i1 %.not.i50126, ptr %105, ptr %54
+  %106 = getelementptr inbounds i8, ptr %.0.i.i51127, i64 8
   %107 = load i32, ptr %106, align 4, !noundef !4
-  %.not101129 = icmp eq i32 %107, -1
-  br i1 %.not101129, label %._crit_edge, label %.lr.ph
+  %.not100128 = icmp eq i32 %107, -1
+  br i1 %.not100128, label %._crit_edge, label %.lr.ph
 
 108:                                              ; preds = %96
   %109 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
@@ -27293,13 +27293,13 @@ _ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.578
 113:                                              ; preds = %112
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %.pre142 = load i32, ptr %16, align 4
-  %.pre144 = zext i32 %.pre142 to i64
+  %.pre141 = load i32, ptr %16, align 4
+  %.pre143 = zext i32 %.pre141 to i64
   br label %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i30
 
 ._crit_edge:                                      ; preds = %_ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit, %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i30
-  %.lcssa115 = phi i32 [ %100, %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i30 ], [ %169, %_ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit ]
-  invoke void @_ZN17cranelift_codegen9flowgraph16ControlFlowGraph15recompute_block17hf1708e89ffac3640E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %0, i32 noundef %.lcssa115)
+  %.lcssa114 = phi i32 [ %100, %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i30 ], [ %169, %_ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit ]
+  invoke void @_ZN17cranelift_codegen9flowgraph16ControlFlowGraph15recompute_block17hf1708e89ffac3640E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %0, i32 noundef %.lcssa114)
           to label %176 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .lr.ph:                                           ; preds = %_ZN17cranelift_codegen6cursor6Cursor13current_block17h58dd51c08ecfd105E.llvm.5781664634918412060.exit.thread.i30, %_ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit
@@ -27458,8 +27458,8 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   %.0.i.i51 = select i1 %.not.i50, ptr %173, ptr %54
   %174 = getelementptr inbounds i8, ptr %.0.i.i51, i64 8
   %175 = load i32, ptr %174, align 4, !noundef !4
-  %.not101 = icmp eq i32 %175, -1
-  br i1 %.not101, label %._crit_edge, label %.lr.ph
+  %.not100 = icmp eq i32 %175, -1
+  br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 176:                                              ; preds = %._crit_edge
   %177 = load i32, ptr %16, align 4, !noundef !4
@@ -27558,8 +27558,8 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   %.0.i.i71 = select i1 %.not.i70, ptr %214, ptr %54
   %215 = getelementptr inbounds i8, ptr %.0.i.i71, i64 12
   %216 = load i32, ptr %215, align 4, !noundef !4
-  %.not102 = icmp eq i32 %216, -1
-  br i1 %.not102, label %217, label %219
+  %.not101 = icmp eq i32 %216, -1
+  br i1 %.not101, label %217, label %219
 
 217:                                              ; preds = %211
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.402) #40
@@ -27597,14 +27597,14 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   %234 = zext i32 %233 to i64
   %235 = load i64, ptr %64, align 8, !alias.scope !3458, !noundef !4
   %.not.i74 = icmp ugt i64 %235, %234
-  %.pre141 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3458
+  %.pre140 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3458
   br i1 %.not.i74, label %243, label %236
 
 236:                                              ; preds = %231
   %237 = add nuw nsw i64 %234, 1
   %238 = add nuw nsw i64 %234, 64
   %239 = lshr i64 %238, 6
-  %240 = icmp ult i64 %.pre141, %239
+  %240 = icmp ult i64 %.pre140, %239
   br i1 %240, label %241, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9ea3ad5b18b022e4E.llvm.14502953478370073462.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9ea3ad5b18b022e4E.llvm.14502953478370073462.exit.i.i": ; preds = %236
@@ -27612,7 +27612,7 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   br label %.thread.i
 
 241:                                              ; preds = %236
-  %242 = sub nuw nsw i64 %239, %.pre141
+  %242 = sub nuw nsw i64 %239, %.pre140
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17had34e05582d9f06cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %242, i64 noundef 0)
           to label %..thread.i_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -27626,7 +27626,7 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   br label %243
 
 243:                                              ; preds = %231, %.thread.i
-  %244 = phi i64 [ %.pre141, %231 ], [ %.pre, %.thread.i ]
+  %244 = phi i64 [ %.pre140, %231 ], [ %.pre, %.thread.i ]
   %245 = lshr i64 %234, 6
   %246 = icmp ult i64 %245, %244
   br i1 %246, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$6insert17h8028f5707b09aedeE.exit", label %.invoke, !prof !1349
@@ -27654,7 +27654,7 @@ _ZN17cranelift_codegen2ir6layout6Layout11remove_inst17ha518a64ce21b86a8E.exit: ;
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   br label %258
 
-258:                                              ; preds = %.backedge158, %253
+258:                                              ; preds = %.backedge157, %253
   %259 = invoke noundef align 8 dereferenceable_or_null(24) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1464102f325cca20E.llvm.17595789031839490487"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc77 unwind label %.loopexit
 
@@ -27751,10 +27751,9 @@ common.resume:                                    ; preds = %23, %282, %"_ZN63_$
   %298 = getelementptr inbounds [0 x i64], ptr %297, i64 0, i64 %277
   %299 = load i64, ptr %298, align 8, !noalias !3485, !noundef !4
   %300 = and i64 %271, 63
-  %301 = shl nuw i64 1, %300
-  %302 = and i64 %299, %301
-  %.not98 = icmp eq i64 %302, 0
-  br i1 %.not98, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17hccc4b96a2d82f35fE.exit.thread", label %.backedge158
+  %301 = lshr i64 %299, %300
+  %302 = trunc i64 %301 to i1
+  br i1 %302, label %.backedge157, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17hccc4b96a2d82f35fE.exit.thread"
 
 "_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17hccc4b96a2d82f35fE.exit.thread": ; preds = %270, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17hccc4b96a2d82f35fE.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !3497
@@ -27767,9 +27766,9 @@ common.resume:                                    ; preds = %23, %282, %"_ZN63_$
 
 _ZN17cranelift_codegen2ir9jumptable13JumpTableData5clear17h3ba30f6f8828107bE.exit: ; preds = %.noexc80
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !3497
-  br label %.backedge158
+  br label %.backedge157
 
-.backedge158:                                     ; preds = %_ZN17cranelift_codegen2ir9jumptable13JumpTableData5clear17h3ba30f6f8828107bE.exit, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17hccc4b96a2d82f35fE.exit"
+.backedge157:                                     ; preds = %_ZN17cranelift_codegen2ir9jumptable13JumpTableData5clear17h3ba30f6f8828107bE.exit, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17hccc4b96a2d82f35fE.exit"
   br label %258
 
 303:                                              ; preds = %.loopexit.split-lp, %23

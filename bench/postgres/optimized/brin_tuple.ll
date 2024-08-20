@@ -941,12 +941,11 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = and i32 %71, 7
-  %78 = shl nuw nsw i32 1, %77
-  %79 = and i32 %78, %76
-  %.not.i.us.i = icmp ne i32 %79, 0
-  %80 = getelementptr i8, ptr %58, i64 %indvars.iv112.i
-  %81 = zext i1 %.not.i.us.i to i8
-  store i8 %81, ptr %80, align 1
+  %78 = getelementptr i8, ptr %58, i64 %indvars.iv112.i
+  %79 = lshr i32 %76, %77
+  %80 = trunc nuw i32 %79 to i8
+  %81 = and i8 %80, 1
+  store i8 %81, ptr %78, align 1
   %82 = load ptr, ptr %66, align 8
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, %71
@@ -956,12 +955,11 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = and i32 %84, 7
-  %91 = shl nuw nsw i32 1, %90
-  %92 = and i32 %91, %89
-  %.not.i87.us.i = icmp ne i32 %92, 0
-  %93 = getelementptr i8, ptr %60, i64 %indvars.iv112.i
-  %94 = zext i1 %.not.i87.us.i to i8
-  store i8 %94, ptr %93, align 1
+  %91 = getelementptr i8, ptr %60, i64 %indvars.iv112.i
+  %92 = lshr i32 %89, %90
+  %93 = trunc nuw i32 %92 to i8
+  %94 = and i8 %93, 1
+  store i8 %94, ptr %91, align 1
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %95 = load ptr, ptr %66, align 8
   %96 = load i32, ptr %95, align 8

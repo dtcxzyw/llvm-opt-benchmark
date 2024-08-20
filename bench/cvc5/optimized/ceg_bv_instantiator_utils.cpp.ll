@@ -398,8 +398,8 @@ land.end:                                         ; preds = %for.cond.i.i.i.i.i.
   %37 = load i64, ptr %second.i4.i.i.i, align 8
   %38 = shl nuw i64 1, %23
   %39 = and i64 %37, %38
-  %tobool.i6.i.i.i.not = icmp eq i64 %39, 0
-  br i1 %tobool.i6.i.i.i.not, label %cond.true, label %if.then24
+  %tobool.i.i.i.i.not = icmp eq i64 %39, 0
+  br i1 %tobool.i.i.i.i.not, label %cond.true, label %if.then24
 
 if.then24:                                        ; preds = %land.end
   %d_kind.i.i.i.i23 = getelementptr inbounds i8, ptr %21, i64 8
@@ -897,8 +897,8 @@ invoke.cont37:                                    ; preds = %for.cond.i.i.i.i.i.
   %29 = load i64, ptr %second.i4.i.i.i, align 8
   %30 = shl nuw i64 1, %15
   %31 = and i64 %29, %30
-  %tobool.i6.i.i.i.not = icmp eq i64 %31, 0
-  br i1 %tobool.i6.i.i.i.not, label %if.end48, label %if.then39
+  %tobool.i.i.i.i.not = icmp eq i64 %31, 0
+  br i1 %tobool.i.i.i.i.not, label %if.end48, label %if.then39
 
 if.then39:                                        ; preds = %invoke.cont37
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -2209,8 +2209,8 @@ invoke.cont33:                                    ; preds = %for.cond.i.i.i.i.i.
   %30 = load i64, ptr %second.i4.i.i.i, align 8
   %31 = shl nuw i64 1, %16
   %32 = and i64 %30, %31
-  %tobool.i6.i.i.i.not = icmp eq i64 %32, 0
-  br i1 %tobool.i6.i.i.i.not, label %invoke.cont64, label %invoke.cont33.if.then35_crit_edge
+  %tobool.i.i.i.i.not = icmp eq i64 %32, 0
+  br i1 %tobool.i.i.i.i.not, label %invoke.cont64, label %invoke.cont33.if.then35_crit_edge
 
 invoke.cont33.if.then35_crit_edge:                ; preds = %invoke.cont33
   %.pre = load ptr, ptr %pv, align 8
@@ -2485,8 +2485,8 @@ invoke.cont68:                                    ; preds = %for.cond.i.i.i.i.i.
   %70 = load i64, ptr %second.i4.i.i.i133, align 8
   %71 = shl nuw i64 1, %56
   %72 = and i64 %70, %71
-  %tobool.i6.i.i.i134.not = icmp eq i64 %72, 0
-  br i1 %tobool.i6.i.i.i134.not, label %if.end126, label %if.then70
+  %tobool.i.i.i.i134.not = icmp eq i64 %72, 0
+  br i1 %tobool.i.i.i.i134.not, label %if.end126, label %if.then70
 
 if.then70:                                        ; preds = %invoke.cont68
   %73 = load ptr, ptr %pv, align 8
@@ -4364,8 +4364,8 @@ invoke.cont31:                                    ; preds = %for.cond.i.i.i.i.i.
   %29 = load i64, ptr %second.i4.i.i.i, align 8
   %30 = shl nuw i64 1, %15
   %31 = and i64 %29, %30
-  %tobool.i6.i.i.i.not = icmp eq i64 %31, 0
-  br i1 %tobool.i6.i.i.i.not, label %lor.lhs.false, label %invoke.cont36
+  %tobool.i.i.i.i.not = icmp eq i64 %31, 0
+  br i1 %tobool.i.i.i.i.not, label %lor.lhs.false, label %invoke.cont36
 
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %invoke.cont31
   %32 = load ptr, ptr %pv, align 8

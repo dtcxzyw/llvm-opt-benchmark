@@ -16753,7 +16753,7 @@ define linkonce_odr hidden void @_ZN6casadi13assign_vectorIbcEEvRKSt6vectorIT_Sa
 
 28:                                               ; preds = %27
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #27
-          to label %86 unwind label %42
+          to label %85 unwind label %42
 
 .thread:                                          ; preds = %17
   %29 = landingpad { ptr, i32 }
@@ -16835,12 +16835,12 @@ define linkonce_odr hidden void @_ZN6casadi13assign_vectorIbcEEvRKSt6vectorIT_Sa
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %48 ], [ %31, %30 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28
-  br i1 %.221, label %50, label %85
+  br i1 %.221, label %50, label %84
 
 50:                                               ; preds = %.thread, %49
   %.pn.pn.pn.pn.pn.pn.pn38 = phi { ptr, i32 } [ %29, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %49 ]
   call void @__cxa_free_exception(ptr %18) #28
-  br label %85
+  br label %84
 
 51:                                               ; preds = %2
   %52 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16872,35 +16872,34 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader: ; preds = %51
   br label %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i
 
 _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i:    ; preds = %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i
-  %.014.i.i.i.i.i = phi i64 [ %83, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i ], [ %71, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader ]
-  %.0413.i.i.i.i.i = phi ptr [ %82, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i ], [ %73, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader ]
+  %.014.i.i.i.i.i = phi i64 [ %82, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i ], [ %71, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader ]
+  %.0413.i.i.i.i.i = phi ptr [ %81, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i ], [ %73, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader ]
   %.sroa.5.012.i.i.i.i.i = phi i32 [ %spec.select10.i.i.i.i.i, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i ], [ 0, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader ]
   %.sroa.05.011.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i ], [ %63, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.preheader ]
   %74 = zext nneg i32 %.sroa.5.012.i.i.i.i.i to i64
-  %75 = shl nuw i64 1, %74
-  %76 = load i64, ptr %.sroa.05.011.i.i.i.i.i, align 8
-  %77 = and i64 %76, %75
-  %78 = icmp ne i64 %77, 0
-  %79 = zext i1 %78 to i8
-  store i8 %79, ptr %.0413.i.i.i.i.i, align 1
-  %80 = add i32 %.sroa.5.012.i.i.i.i.i, 1
-  %81 = icmp eq i32 %.sroa.5.012.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i = select i1 %81, i64 8, i64 0
+  %75 = load i64, ptr %.sroa.05.011.i.i.i.i.i, align 8
+  %76 = lshr i64 %75, %74
+  %77 = trunc i64 %76 to i8
+  %78 = and i8 %77, 1
+  store i8 %78, ptr %.0413.i.i.i.i.i, align 1
+  %79 = add i32 %.sroa.5.012.i.i.i.i.i, 1
+  %80 = icmp eq i32 %.sroa.5.012.i.i.i.i.i, 63
+  %spec.select.idx.i.i.i.i.i = select i1 %80, i64 8, i64 0
   %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.05.011.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
-  %spec.select10.i.i.i.i.i = select i1 %81, i32 0, i32 %80
-  %82 = getelementptr inbounds i8, ptr %.0413.i.i.i.i.i, i64 1
-  %83 = add nsw i64 %.014.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.014.i.i.i.i.i, 1
-  br i1 %84, label %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i, label %_ZSt4copyISt19_Bit_const_iteratorN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_S9_S8_.exit, !llvm.loop !127
+  %spec.select10.i.i.i.i.i = select i1 %80, i32 0, i32 %79
+  %81 = getelementptr inbounds i8, ptr %.0413.i.i.i.i.i, i64 1
+  %82 = add nsw i64 %.014.i.i.i.i.i, -1
+  %83 = icmp ugt i64 %.014.i.i.i.i.i, 1
+  br i1 %83, label %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i, label %_ZSt4copyISt19_Bit_const_iteratorN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_S9_S8_.exit, !llvm.loop !127
 
 _ZSt4copyISt19_Bit_const_iteratorN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_S9_S8_.exit: ; preds = %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i, %51
   ret void
 
-85:                                               ; preds = %49, %50
+84:                                               ; preds = %49, %50
   %.pn.pn.pn.pn.pn.pn.pn37 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %49 ], [ %.pn.pn.pn.pn.pn.pn.pn38, %50 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn37
 
-86:                                               ; preds = %28
+85:                                               ; preds = %28
   unreachable
 }
 

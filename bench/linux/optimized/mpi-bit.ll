@@ -92,7 +92,7 @@ define dso_local range(i32 0, 2) i32 @mpi_test_bit(ptr nocapture noundef readonl
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %3, %5
-  br i1 %6, label %7, label %19
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %2
   %8 = and i32 %1, 63
@@ -102,15 +102,14 @@ define dso_local range(i32 0, 2) i32 @mpi_test_bit(ptr nocapture noundef readonl
   %12 = getelementptr i64, ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = zext nneg i32 %8 to i64
-  %15 = shl nuw i64 1, %14
-  %16 = and i64 %13, %15
-  %17 = icmp ne i64 %16, 0
-  %18 = zext i1 %17 to i32
-  br label %19
+  %15 = lshr i64 %13, %14
+  %16 = trunc i64 %15 to i32
+  %17 = and i32 %16, 1
+  br label %18
 
-19:                                               ; preds = %7, %2
-  %20 = phi i32 [ %18, %7 ], [ 0, %2 ]
-  ret i32 %20
+18:                                               ; preds = %7, %2
+  %19 = phi i32 [ %17, %7 ], [ 0, %2 ]
+  ret i32 %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

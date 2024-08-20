@@ -912,16 +912,16 @@ define i32 @lllp_distribution(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 111:                                              ; preds = %106
   %112 = load ptr, ptr %101, align 8
   %113 = call ptr @strtok_r(ptr noundef %112, ptr noundef nonnull @.str.19, ptr noundef nonnull %23) #8
-  %.not6684.i = icmp eq ptr %113, null
-  br i1 %.not6684.i, label %.critedge.i, label %.lr.ph.i
+  %.not6681.i = icmp eq ptr %113, null
+  br i1 %.not6681.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %111, %151
-  %.05486.i = phi ptr [ %152, %151 ], [ %113, %111 ]
-  %.05585.i = phi i1 [ %.2.i, %151 ], [ true, %111 ]
+  %.05483.i = phi ptr [ %152, %151 ], [ %113, %111 ]
+  %.05582.i = phi i1 [ %.2.i, %151 ], [ true, %111 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %25, i8 0, i64 128, i1 false)
-  %114 = call i32 @task_str_to_cpuset(ptr noundef nonnull %25, ptr noundef nonnull %.05486.i) #8
+  %114 = call i32 @task_str_to_cpuset(ptr noundef nonnull %25, ptr noundef nonnull %.05483.i) #8
   %.not68.i = icmp eq i32 %114, 0
-  br i1 %.not68.i, label %.preheader78.i, label %115
+  br i1 %.not68.i, label %.preheader75.i, label %115
 
 115:                                              ; preds = %.lr.ph.i
   %116 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.20) #8
@@ -936,28 +936,28 @@ define i32 @lllp_distribution(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   call void @slurm_xfree(ptr noundef nonnull %22) #8
   br label %_validate_mask.exit
 
-.preheader78.i:                                   ; preds = %.lr.ph.i, %134
+.preheader75.i:                                   ; preds = %.lr.ph.i, %134
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %134 ], [ 0, %.lr.ph.i ]
-  %.182.i = phi i1 [ %.2.i, %134 ], [ %.05585.i, %.lr.ph.i ]
-  %.05980.i = phi i32 [ %.160.i, %134 ], [ 0, %.lr.ph.i ]
+  %.179.i = phi i1 [ %.2.i, %134 ], [ %.05582.i, %.lr.ph.i ]
+  %.05977.i = phi i32 [ %.160.i, %134 ], [ 0, %.lr.ph.i ]
   %119 = lshr i64 %indvars.iv.i, 6
   %120 = getelementptr inbounds i64, ptr %25, i64 %119
   %121 = load i64, ptr %120, align 8
   %122 = and i64 %indvars.iv.i, 63
   %123 = shl nuw i64 1, %122
   %124 = and i64 %121, %123
-  %.not76.i = icmp eq i64 %124, 0
-  br i1 %.not76.i, label %134, label %125
+  %.not71.i = icmp eq i64 %124, 0
+  br i1 %.not71.i, label %134, label %125
 
-125:                                              ; preds = %.preheader78.i
+125:                                              ; preds = %.preheader75.i
   %126 = getelementptr inbounds i64, ptr %24, i64 %119
   %127 = load i64, ptr %126, align 8
   %128 = and i64 %127, %123
-  %.not77.i = icmp eq i64 %128, 0
-  br i1 %.not77.i, label %131, label %129
+  %.not72.i = icmp eq i64 %128, 0
+  br i1 %.not72.i, label %131, label %129
 
 129:                                              ; preds = %125
-  %130 = add nsw i32 %.05980.i, 1
+  %130 = add nsw i32 %.05977.i, 1
   br label %134
 
 131:                                              ; preds = %125
@@ -966,27 +966,27 @@ define i32 @lllp_distribution(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   store i64 %133, ptr %120, align 8
   br label %134
 
-134:                                              ; preds = %131, %129, %.preheader78.i
-  %.160.i = phi i32 [ %130, %129 ], [ %.05980.i, %131 ], [ %.05980.i, %.preheader78.i ]
-  %.2.i = phi i1 [ %.182.i, %129 ], [ false, %131 ], [ %.182.i, %.preheader78.i ]
+134:                                              ; preds = %131, %129, %.preheader75.i
+  %.160.i = phi i32 [ %130, %129 ], [ %.05977.i, %131 ], [ %.05977.i, %.preheader75.i ]
+  %.2.i = phi i1 [ %.179.i, %129 ], [ false, %131 ], [ %.179.i, %.preheader75.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
-  br i1 %exitcond.not.i, label %135, label %.preheader78.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %135, label %.preheader75.i, !llvm.loop !20
 
 135:                                              ; preds = %134
   %136 = icmp eq i32 %.160.i, 0
   br i1 %136, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %135, %147
-  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %147 ], [ 0, %135 ]
-  %137 = lshr i64 %indvars.iv87.i, 6
+  %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %147 ], [ 0, %135 ]
+  %137 = lshr i64 %indvars.iv84.i, 6
   %138 = getelementptr inbounds i64, ptr %24, i64 %137
   %139 = load i64, ptr %138, align 8
-  %140 = and i64 %indvars.iv87.i, 63
+  %140 = and i64 %indvars.iv84.i, 63
   %141 = shl nuw i64 1, %140
   %142 = and i64 %141, %139
-  %.not75.i = icmp eq i64 %142, 0
-  br i1 %.not75.i, label %147, label %143
+  %.not70.i = icmp eq i64 %142, 0
+  br i1 %.not70.i, label %147, label %143
 
 143:                                              ; preds = %.preheader.i
   %144 = getelementptr inbounds i64, ptr %25, i64 %137
@@ -996,9 +996,9 @@ define i32 @lllp_distribution(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   br label %147
 
 147:                                              ; preds = %143, %.preheader.i
-  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
-  %exitcond90.not.i = icmp eq i64 %indvars.iv.next88.i, 1024
-  br i1 %exitcond90.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !21
+  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
+  %exitcond87.not.i = icmp eq i64 %indvars.iv.next85.i, 1024
+  br i1 %exitcond87.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %147, %135
   %148 = call ptr @task_cpuset_to_str(ptr noundef nonnull %25, ptr noundef nonnull %26) #8
@@ -1088,12 +1088,12 @@ _validate_mask.exit:                              ; preds = %103, %105, %108, %1
   %172 = call ptr @slurm_xstrdup(ptr noundef %171) #8
   store ptr %172, ptr %19, align 8
   %173 = call ptr @strtok_r(ptr noundef %172, ptr noundef nonnull @.str.19, ptr noundef nonnull %20) #8
-  %.not3036.i = icmp eq ptr %173, null
-  br i1 %.not3036.i, label %.critedge.i153, label %.lr.ph.i152
+  %.not3035.i = icmp eq ptr %173, null
+  br i1 %.not3035.i, label %.critedge.i153, label %.lr.ph.i152
 
 .lr.ph.i152:                                      ; preds = %170, %184
-  %.02437.i = phi ptr [ %185, %184 ], [ %173, %170 ]
-  %174 = call i32 @atoi(ptr nocapture noundef nonnull %.02437.i) #9
+  %.02436.i = phi ptr [ %185, %184 ], [ %173, %170 ]
+  %174 = call i32 @atoi(ptr nocapture noundef nonnull %.02436.i) #9
   %175 = icmp ult i32 %174, 1024
   br i1 %175, label %176, label %.thread.i
 
@@ -1105,8 +1105,8 @@ _validate_mask.exit:                              ; preds = %103, %105, %108, %1
   %181 = and i64 %177, 63
   %182 = shl nuw i64 1, %181
   %183 = and i64 %180, %182
-  %.not35.i = icmp eq i64 %183, 0
-  br i1 %.not35.i, label %.thread.i, label %184
+  %.not31.i = icmp eq i64 %183, 0
+  br i1 %.not31.i, label %.thread.i, label %184
 
 184:                                              ; preds = %176
   %185 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.19, ptr noundef nonnull %20) #8

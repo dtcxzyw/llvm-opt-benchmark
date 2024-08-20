@@ -2119,10 +2119,10 @@ for.body8.i:                                      ; preds = %for.body.i, %for.in
   %startHasProperty.119.i = phi i32 [ %startHasProperty.2.i, %for.inc.i ], [ %startHasProperty.023.i, %for.body.i ]
   %call.i = tail call signext i8 @u_charType_75(i32 noundef %ch.020.i)
   %conv2.i = zext nneg i8 %call.i to i32
-  %shl.i = shl nuw i32 1, %conv2.i
-  %and.i = and i32 %shl.i, %value
-  %cmp.i68.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i68.not, label %if.else.i, label %if.then11.i
+  %4 = shl nuw i32 1, %conv2.i
+  %5 = and i32 %4, %value
+  %tobool10.not.i = icmp eq i32 %5, 0
+  br i1 %tobool10.not.i, label %if.else.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %for.body8.i
   %cmp12.i = icmp slt i32 %startHasProperty.119.i, 0
@@ -2160,11 +2160,11 @@ if.then24.i:                                      ; preds = %for.end22.i
 
 if.end26.i:                                       ; preds = %if.then24.i, %for.end22.i, %if.end.i
   %fFlags.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %4 = load i8, ptr %fFlags.i.i, align 8
-  %5 = and i8 %4, 1
-  %tobool28.not.i = icmp eq i8 %5, 0
-  %6 = load i32, ptr %ec, align 4
-  %cmp.i16.i = icmp sgt i32 %6, 0
+  %6 = load i8, ptr %fFlags.i.i, align 8
+  %7 = and i8 %6, 1
+  %tobool28.not.i = icmp eq i8 %7, 0
+  %8 = load i32, ptr %ec, align 4
+  %cmp.i16.i = icmp sgt i32 %8, 0
   %or.cond.i = select i1 %tobool28.not.i, i1 true, i1 %cmp.i16.i
   br i1 %or.cond.i, label %return, label %if.then31.i
 
@@ -2174,8 +2174,8 @@ if.then31.i:                                      ; preds = %if.end26.i
 
 if.then7:                                         ; preds = %if.end
   %call9 = tail call noundef ptr @_ZN6icu_7519CharacterProperties24getInclusionsForPropertyE9UPropertyR10UErrorCode(i32 noundef 28672, ptr noundef nonnull align 4 dereferenceable(4) %ec)
-  %7 = load i32, ptr %ec, align 4
-  %cmp.i.i23 = icmp slt i32 %7, 1
+  %9 = load i32, ptr %ec, align 4
+  %cmp.i.i23 = icmp slt i32 %9, 1
   br i1 %cmp.i.i23, label %if.end.i24, label %return
 
 if.end.i24:                                       ; preds = %if.then7
@@ -2195,8 +2195,8 @@ for.body.i34:                                     ; preds = %if.end.i24, %for.in
 for.body8.i40:                                    ; preds = %for.body.i34, %for.inc.i48
   %ch.020.i41 = phi i32 [ %inc.i50, %for.inc.i48 ], [ %call4.i37, %for.body.i34 ]
   %startHasProperty.119.i42 = phi i32 [ %startHasProperty.2.i49, %for.inc.i48 ], [ %startHasProperty.023.i35, %for.body.i34 ]
-  %call.i69 = tail call noundef signext i8 @uscript_hasScript_75(i32 noundef %ch.020.i41, i32 noundef %value)
-  %tobool10.not.i44 = icmp eq i8 %call.i69, 0
+  %call.i68 = tail call noundef signext i8 @uscript_hasScript_75(i32 noundef %ch.020.i41, i32 noundef %value)
+  %tobool10.not.i44 = icmp eq i8 %call.i68, 0
   br i1 %tobool10.not.i44, label %if.else.i60, label %if.then11.i45
 
 if.then11.i45:                                    ; preds = %for.body8.i40
@@ -2235,11 +2235,11 @@ if.then24.i58:                                    ; preds = %for.end22.i56
 
 if.end26.i28:                                     ; preds = %if.then24.i58, %for.end22.i56, %if.end.i24
   %fFlags.i.i29 = getelementptr inbounds i8, ptr %this, i64 32
-  %8 = load i8, ptr %fFlags.i.i29, align 8
-  %9 = and i8 %8, 1
-  %tobool28.not.i30 = icmp eq i8 %9, 0
-  %10 = load i32, ptr %ec, align 4
-  %cmp.i16.i31 = icmp sgt i32 %10, 0
+  %10 = load i8, ptr %fFlags.i.i29, align 8
+  %11 = and i8 %10, 1
+  %tobool28.not.i30 = icmp eq i8 %11, 0
+  %12 = load i32, ptr %ec, align 4
+  %cmp.i16.i31 = icmp sgt i32 %12, 0
   %or.cond.i32 = select i1 %tobool28.not.i30, i1 true, i1 %cmp.i16.i31
   br i1 %or.cond.i32, label %return, label %if.then31.i33
 
@@ -2257,8 +2257,8 @@ if.then13:                                        ; preds = %if.else10
 
 if.then17:                                        ; preds = %if.then13
   %call18 = tail call ptr @u_getBinaryPropertySet_75(i32 noundef %prop, ptr noundef nonnull %ec)
-  %11 = load i32, ptr %ec, align 4
-  %cmp.i66 = icmp slt i32 %11, 1
+  %13 = load i32, ptr %ec, align 4
+  %cmp.i66 = icmp slt i32 %13, 1
   br i1 %cmp.i66, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then17
@@ -2276,8 +2276,8 @@ if.else30:                                        ; preds = %if.then13
   br label %return
 
 if.else33:                                        ; preds = %if.else10
-  %12 = add i32 %prop, -4096
-  %or.cond2 = icmp ult i32 %12, 25
+  %14 = add i32 %prop, -4096
+  %or.cond2 = icmp ult i32 %14, 25
   br i1 %or.cond2, label %if.then37, label %if.else42
 
 if.then37:                                        ; preds = %if.else33

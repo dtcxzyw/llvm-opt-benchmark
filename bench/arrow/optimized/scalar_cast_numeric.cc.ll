@@ -89432,22 +89432,21 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_8Int8TypeENS_11BooleanTy
   %arg0_it.sroa.11.1 = phi i64 [ %inc6.i.i.i.i, %if.then11.i.i.i.i ], [ %inc6.i.i.i.i, %if.then.i.i.i.i3 ], [ %arg0_it.sroa.11.0, %for.body.i ]
   %arg0_it.sroa.14.1 = phi i64 [ 0, %if.then11.i.i.i.i ], [ 0, %if.then.i.i.i.i3 ], [ %inc.i.i.i.i, %for.body.i ]
   %sh_prom.i.i.i.i = trunc i64 %arg0_it.sroa.14.0 to i32
-  %shl.i.i.i.i = shl nuw i32 1, %sh_prom.i.i.i.i
   %conv.i.i.i.i = zext i8 %arg0_it.sroa.7.1 to i32
-  %and.i.i.i.i = and i32 %shl.i.i.i.i, %conv.i.i.i.i
-  %cmp.i.i.i.i = icmp ne i32 %and.i.i.i.i, 0
-  %cond.i.i.i = zext i1 %cmp.i.i.i.i to i8
+  %10 = lshr i32 %conv.i.i.i.i, %sh_prom.i.i.i.i
+  %11 = trunc nuw i32 %10 to i8
+  %cond.i.i.i = and i8 %11, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %out_data.04.i, i64 1
   store i8 %cond.i.i.i, ptr %out_data.04.i, align 1, !noalias !1392
-  %10 = load i64, ptr %length.i2, align 8, !noalias !1392
-  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %10
+  %12 = load i64, ptr %length.i2, align 8, !noalias !1392
+  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %12
   br i1 %cmp.i, label %for.body.i, label %_ZN5arrow6StatusD2Ev.exit76, !llvm.loop !1395
 
 lpad:                                             ; preds = %if.then.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %st) #18
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_8Int8TypeENS_11BooleanTypeENS1_15BooleanToNumberEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i, %invoke.cont6
   store ptr null, ptr %agg.result, align 8
@@ -94798,22 +94797,21 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9Int16TypeENS_11BooleanT
   %arg0_it.sroa.11.1 = phi i64 [ %inc6.i.i.i.i, %if.then11.i.i.i.i ], [ %inc6.i.i.i.i, %if.then.i.i.i.i3 ], [ %arg0_it.sroa.11.0, %for.body.i ]
   %arg0_it.sroa.14.1 = phi i64 [ 0, %if.then11.i.i.i.i ], [ 0, %if.then.i.i.i.i3 ], [ %inc.i.i.i.i, %for.body.i ]
   %sh_prom.i.i.i.i = trunc i64 %arg0_it.sroa.14.0 to i32
-  %shl.i.i.i.i = shl nuw i32 1, %sh_prom.i.i.i.i
   %conv.i.i.i.i = zext i8 %arg0_it.sroa.7.1 to i32
-  %and.i.i.i.i = and i32 %shl.i.i.i.i, %conv.i.i.i.i
-  %cmp.i.i.i.i = icmp ne i32 %and.i.i.i.i, 0
-  %cond.i.i.i = zext i1 %cmp.i.i.i.i to i16
+  %10 = lshr i32 %conv.i.i.i.i, %sh_prom.i.i.i.i
+  %11 = trunc nuw nsw i32 %10 to i16
+  %cond.i.i.i = and i16 %11, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %out_data.04.i, i64 2
   store i16 %cond.i.i.i, ptr %out_data.04.i, align 2, !noalias !1579
-  %10 = load i64, ptr %length.i2, align 8, !noalias !1579
-  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %10
+  %12 = load i64, ptr %length.i2, align 8, !noalias !1579
+  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %12
   br i1 %cmp.i, label %for.body.i, label %_ZN5arrow6StatusD2Ev.exit76, !llvm.loop !1582
 
 lpad:                                             ; preds = %if.then.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %st) #18
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9Int16TypeENS_11BooleanTypeENS1_15BooleanToNumberEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i, %invoke.cont6
   store ptr null, ptr %agg.result, align 8
@@ -105282,22 +105280,21 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9Int64TypeENS_11BooleanT
   %arg0_it.sroa.11.1 = phi i64 [ %inc6.i.i.i.i, %if.then11.i.i.i.i ], [ %inc6.i.i.i.i, %if.then.i.i.i.i3 ], [ %arg0_it.sroa.11.0, %for.body.i ]
   %arg0_it.sroa.14.1 = phi i64 [ 0, %if.then11.i.i.i.i ], [ 0, %if.then.i.i.i.i3 ], [ %inc.i.i.i.i, %for.body.i ]
   %sh_prom.i.i.i.i = trunc i64 %arg0_it.sroa.14.0 to i32
-  %shl.i.i.i.i = shl nuw i32 1, %sh_prom.i.i.i.i
   %conv.i.i.i.i = zext i8 %arg0_it.sroa.7.1 to i32
-  %and.i.i.i.i = and i32 %shl.i.i.i.i, %conv.i.i.i.i
-  %cmp.i.i.i.i = icmp ne i32 %and.i.i.i.i, 0
-  %cond.i.i.i = zext i1 %cmp.i.i.i.i to i64
+  %10 = lshr i32 %conv.i.i.i.i, %sh_prom.i.i.i.i
+  %11 = and i32 %10, 1
+  %cond.i.i.i = zext nneg i32 %11 to i64
   %incdec.ptr.i = getelementptr inbounds i8, ptr %out_data.04.i, i64 8
   store i64 %cond.i.i.i, ptr %out_data.04.i, align 8, !noalias !1925
-  %10 = load i64, ptr %length.i2, align 8, !noalias !1925
-  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %10
+  %12 = load i64, ptr %length.i2, align 8, !noalias !1925
+  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %12
   br i1 %cmp.i, label %for.body.i, label %_ZN5arrow6StatusD2Ev.exit76, !llvm.loop !1928
 
 lpad:                                             ; preds = %if.then.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %st) #18
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9Int64TypeENS_11BooleanTypeENS1_15BooleanToNumberEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i, %invoke.cont6
   store ptr null, ptr %agg.result, align 8
@@ -110681,22 +110678,21 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9UInt8TypeENS_11BooleanT
   %arg0_it.sroa.11.1 = phi i64 [ %inc6.i.i.i.i, %if.then11.i.i.i.i ], [ %inc6.i.i.i.i, %if.then.i.i.i.i3 ], [ %arg0_it.sroa.11.0, %for.body.i ]
   %arg0_it.sroa.14.1 = phi i64 [ 0, %if.then11.i.i.i.i ], [ 0, %if.then.i.i.i.i3 ], [ %inc.i.i.i.i, %for.body.i ]
   %sh_prom.i.i.i.i = trunc i64 %arg0_it.sroa.14.0 to i32
-  %shl.i.i.i.i = shl nuw i32 1, %sh_prom.i.i.i.i
   %conv.i.i.i.i = zext i8 %arg0_it.sroa.7.1 to i32
-  %and.i.i.i.i = and i32 %shl.i.i.i.i, %conv.i.i.i.i
-  %cmp.i.i.i.i = icmp ne i32 %and.i.i.i.i, 0
-  %cond.i.i.i = zext i1 %cmp.i.i.i.i to i8
+  %10 = lshr i32 %conv.i.i.i.i, %sh_prom.i.i.i.i
+  %11 = trunc nuw i32 %10 to i8
+  %cond.i.i.i = and i8 %11, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %out_data.04.i, i64 1
   store i8 %cond.i.i.i, ptr %out_data.04.i, align 1, !noalias !2098
-  %10 = load i64, ptr %length.i2, align 8, !noalias !2098
-  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %10
+  %12 = load i64, ptr %length.i2, align 8, !noalias !2098
+  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %12
   br i1 %cmp.i, label %for.body.i, label %_ZN5arrow6StatusD2Ev.exit76, !llvm.loop !2101
 
 lpad:                                             ; preds = %if.then.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %st) #18
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_9UInt8TypeENS_11BooleanTypeENS1_15BooleanToNumberEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i, %invoke.cont6
   store ptr null, ptr %agg.result, align 8
@@ -115779,22 +115775,21 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10UInt16TypeENS_11Boolea
   %arg0_it.sroa.11.1 = phi i64 [ %inc6.i.i.i.i, %if.then11.i.i.i.i ], [ %inc6.i.i.i.i, %if.then.i.i.i.i3 ], [ %arg0_it.sroa.11.0, %for.body.i ]
   %arg0_it.sroa.14.1 = phi i64 [ 0, %if.then11.i.i.i.i ], [ 0, %if.then.i.i.i.i3 ], [ %inc.i.i.i.i, %for.body.i ]
   %sh_prom.i.i.i.i = trunc i64 %arg0_it.sroa.14.0 to i32
-  %shl.i.i.i.i = shl nuw i32 1, %sh_prom.i.i.i.i
   %conv.i.i.i.i = zext i8 %arg0_it.sroa.7.1 to i32
-  %and.i.i.i.i = and i32 %shl.i.i.i.i, %conv.i.i.i.i
-  %cmp.i.i.i.i = icmp ne i32 %and.i.i.i.i, 0
-  %cond.i.i.i = zext i1 %cmp.i.i.i.i to i16
+  %10 = lshr i32 %conv.i.i.i.i, %sh_prom.i.i.i.i
+  %11 = trunc nuw nsw i32 %10 to i16
+  %cond.i.i.i = and i16 %11, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %out_data.04.i, i64 2
   store i16 %cond.i.i.i, ptr %out_data.04.i, align 2, !noalias !2252
-  %10 = load i64, ptr %length.i2, align 8, !noalias !2252
-  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %10
+  %12 = load i64, ptr %length.i2, align 8, !noalias !2252
+  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %12
   br i1 %cmp.i, label %for.body.i, label %_ZN5arrow6StatusD2Ev.exit76, !llvm.loop !2255
 
 lpad:                                             ; preds = %if.then.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %st) #18
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10UInt16TypeENS_11BooleanTypeENS1_15BooleanToNumberEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i, %invoke.cont6
   store ptr null, ptr %agg.result, align 8
@@ -125994,22 +125989,21 @@ _ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10UInt64TypeENS_11Boolea
   %arg0_it.sroa.11.1 = phi i64 [ %inc6.i.i.i.i, %if.then11.i.i.i.i ], [ %inc6.i.i.i.i, %if.then.i.i.i.i3 ], [ %arg0_it.sroa.11.0, %for.body.i ]
   %arg0_it.sroa.14.1 = phi i64 [ 0, %if.then11.i.i.i.i ], [ 0, %if.then.i.i.i.i3 ], [ %inc.i.i.i.i, %for.body.i ]
   %sh_prom.i.i.i.i = trunc i64 %arg0_it.sroa.14.0 to i32
-  %shl.i.i.i.i = shl nuw i32 1, %sh_prom.i.i.i.i
   %conv.i.i.i.i = zext i8 %arg0_it.sroa.7.1 to i32
-  %and.i.i.i.i = and i32 %shl.i.i.i.i, %conv.i.i.i.i
-  %cmp.i.i.i.i = icmp ne i32 %and.i.i.i.i, 0
-  %cond.i.i.i = zext i1 %cmp.i.i.i.i to i64
+  %10 = lshr i32 %conv.i.i.i.i, %sh_prom.i.i.i.i
+  %11 = and i32 %10, 1
+  %cond.i.i.i = zext nneg i32 %11 to i64
   %incdec.ptr.i = getelementptr inbounds i8, ptr %out_data.04.i, i64 8
   store i64 %cond.i.i.i, ptr %out_data.04.i, align 8, !noalias !2560
-  %10 = load i64, ptr %length.i2, align 8, !noalias !2560
-  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %10
+  %12 = load i64, ptr %length.i2, align 8, !noalias !2560
+  %cmp.i = icmp slt i64 %inc2.i.i.i.i, %12
   br i1 %cmp.i, label %for.body.i, label %_ZN5arrow6StatusD2Ev.exit76, !llvm.loop !2563
 
 lpad:                                             ; preds = %if.then.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %st) #18
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %13
 
 _ZN5arrow6StatusD2Ev.exit76:                      ; preds = %_ZZN5arrow7compute8internal10applicator11ScalarUnaryINS_10UInt64TypeENS_11BooleanTypeENS1_15BooleanToNumberEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i, %invoke.cont6
   store ptr null, ptr %agg.result, align 8

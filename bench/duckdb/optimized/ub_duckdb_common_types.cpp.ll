@@ -7538,10 +7538,9 @@ entry.cont:                                       ; preds = %entry.else, %entry
   %4 = trunc i64 %add to i8
   %5 = and i8 %4, 7
   %sh_prom.i = xor i8 %5, 7
-  %6 = shl nuw i8 1, %sh_prom.i
-  %7 = and i8 %6, %3
-  %tobool.not.i = icmp ne i8 %7, 0
-  %conv4.i = zext i1 %tobool.not.i to i64
+  %6 = lshr i8 %3, %sh_prom.i
+  %7 = and i8 %6, 1
+  %conv4.i = zext nneg i8 %7 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bit_string.i)
   ret i64 %conv4.i
 }
@@ -7564,10 +7563,9 @@ entry:
   %4 = trunc i64 %n to i8
   %5 = and i8 %4, 7
   %sh_prom = xor i8 %5, 7
-  %6 = shl nuw i8 1, %sh_prom
-  %7 = and i8 %3, %6
-  %tobool.not = icmp ne i8 %7, 0
-  %conv4 = zext i1 %tobool.not to i64
+  %6 = lshr i8 %3, %sh_prom
+  %7 = and i8 %6, 1
+  %conv4 = zext nneg i8 %7 to i64
   ret i64 %conv4
 }
 
@@ -40906,27 +40904,27 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i: ; preds = %_ZN
   %arrayidx.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div2.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !87
   %rem.i.i.i = and i64 %cond.i, 63
-  %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
-  %and.i.i.i = and i64 %5, %shl.i.i.i
-  %tobool.i.i.i = icmp eq i64 %and.i.i.i, 0
-  %6 = zext i1 %tobool.i.i.i to i8
+  %6 = xor i64 %5, -1
+  %7 = lshr i64 %6, %rem.i.i.i
+  %8 = trunc i64 %7 to i8
+  %9 = and i8 %8, 1
   br label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit
-  %retval.0.i = phi i8 [ %6, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
-  %7 = load i16, ptr %segment, align 8, !tbaa !834
-  %idxprom = zext i16 %7 to i64
+  %retval.0.i = phi i8 [ %9, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ]
+  %10 = load i16, ptr %segment, align 8, !tbaa !834
+  %idxprom = zext i16 %10 to i64
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom
   store i8 %retval.0.i, ptr %arrayidx, align 1, !tbaa !397
   %capacity.i = getelementptr inbounds i8, ptr %segment, i64 2
-  %8 = load i16, ptr %capacity.i, align 2, !tbaa !832
-  %conv.i28 = zext i16 %8 to i64
+  %11 = load i16, ptr %capacity.i, align 2, !tbaa !832
+  %conv.i28 = zext i16 %11 to i64
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv.i28
   %children = getelementptr inbounds i8, ptr %input_data, i64 72
   %_M_finish.i = getelementptr inbounds i8, ptr %input_data, i64 80
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !870
-  %10 = load ptr, ptr %children, align 8, !tbaa !871
-  %cmp33.not = icmp eq ptr %9, %10
+  %12 = load ptr, ptr %_M_finish.i, align 8, !tbaa !870
+  %13 = load ptr, ptr %children, align 8, !tbaa !871
+  %cmp33.not = icmp eq ptr %12, %13
   br i1 %cmp33.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -40942,17 +40940,17 @@ for.body:                                         ; preds = %for.body, %for.body
   %ret.0.copyload.i = load ptr, ptr %add.ptr, align 1
   %call9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK6duckdb6vectorINS_20ListSegmentFunctionsELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %child_functions, i64 noundef %i.034)
   %write_data = getelementptr inbounds i8, ptr %call9, i64 8
-  %11 = load ptr, ptr %write_data, align 8, !tbaa !835
+  %14 = load ptr, ptr %write_data, align 8, !tbaa !835
   %call11 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN6duckdb6vectorINS_28RecursiveUnifiedVectorFormatELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %children, i64 noundef %i.034)
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(48) %call9, ptr noundef nonnull align 8 dereferenceable(64) %allocator, ptr noundef %ret.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(120) %call11, ptr noundef nonnull align 8 dereferenceable(8) %entry_idx)
-  %12 = load i16, ptr %ret.0.copyload.i, align 8, !tbaa !834
-  %inc = add i16 %12, 1
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(48) %call9, ptr noundef nonnull align 8 dereferenceable(64) %allocator, ptr noundef %ret.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(120) %call11, ptr noundef nonnull align 8 dereferenceable(8) %entry_idx)
+  %15 = load i16, ptr %ret.0.copyload.i, align 8, !tbaa !834
+  %inc = add i16 %15, 1
   store i16 %inc, ptr %ret.0.copyload.i, align 8, !tbaa !834
   %inc13 = add nuw i64 %i.034, 1
-  %13 = load ptr, ptr %_M_finish.i, align 8, !tbaa !870
-  %14 = load ptr, ptr %children, align 8, !tbaa !871
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
+  %16 = load ptr, ptr %_M_finish.i, align 8, !tbaa !870
+  %17 = load ptr, ptr %children, align 8, !tbaa !871
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 120
   %cmp = icmp ult i64 %inc13, %sub.ptr.div.i

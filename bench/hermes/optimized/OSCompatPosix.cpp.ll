@@ -1165,16 +1165,16 @@ cond.true:                                        ; preds = %entry, %_ZNSt6vecto
   %retval.sroa.2.0.copyload.i5.i = phi i32 [ %retval.sroa.2.0.copyload.i.i, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ 0, %entry ]
   %0 = phi ptr [ %retval.sroa.0.0.copyload.i.i, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ null, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ 0, %entry ]
-  %lastSet.013 = phi i32 [ %lastSet.1, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ -1, %entry ]
+  %lastSet.014 = phi i32 [ %lastSet.1, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ -1, %entry ]
   %div37 = lshr i64 %indvars.iv, 6
   %arrayidx = getelementptr inbounds i64, ptr %mask, i64 %div37
   %1 = load i64, ptr %arrayidx, align 8
   %rem = and i64 %indvars.iv, 63
-  %shl = shl nuw i64 1, %rem
-  %and = and i64 %1, %shl
-  %cmp4 = icmp ne i64 %and, 0
-  %2 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %2
+  %2 = shl nuw i64 1, %rem
+  %3 = and i64 %1, %2
+  %tobool = icmp ne i64 %3, 0
+  %4 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %cmp.not.i = icmp eq ptr %0, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true
@@ -1192,23 +1192,23 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %if.then.i.i.i, %if.then.i
   %sh_prom.i.i = zext nneg i32 %retval.sroa.2.0.copyload.i5.i to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  br i1 %cmp4, label %if.then.i.i, label %if.else.i.i
+  br i1 %tobool, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
-  %3 = load i64, ptr %0, align 8
-  %or.i.i = or i64 %3, %shl.i.i
+  %5 = load i64, ptr %0, align 8
+  %or.i.i = or i64 %5, %shl.i.i
   store i64 %or.i.i, ptr %0, align 8
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
   %not.i.i = xor i64 %shl.i.i, -1
-  %4 = load i64, ptr %0, align 8
-  %and.i.i = and i64 %4, %not.i.i
+  %6 = load i64, ptr %0, align 8
+  %and.i.i = and i64 %6, %not.i.i
   store i64 %and.i.i, ptr %0, align 8
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
 if.else.i:                                        ; preds = %cond.true
-  call void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr %0, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext %cmp4)
+  call void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr %0, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext %tobool)
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %if.then.i.i, %if.else.i.i, %if.else.i
@@ -1218,17 +1218,17 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %if.then.i.i, %if.el
   %add.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i, -1
   %div.i.i.i.i.i = sdiv i64 %add.i.i.i.i.i, 64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %retval.sroa.0.0.copyload.i.i, i64 %div.i.i.i.i.i
-  %5 = and i64 %add.i.i.i.i.i, -9223372036854775745
-  %cmp.i.i.i.i.i = icmp ugt i64 %5, -9223372036854775808
+  %7 = and i64 %add.i.i.i.i.i, -9223372036854775745
+  %cmp.i.i.i.i.i = icmp ugt i64 %7, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
   %conv4.i.i.i.i.i = and i64 %add.i.i.i.i.i, 63
   %shl.i.i9 = shl nuw i64 1, %conv4.i.i.i.i.i
-  %6 = load i64, ptr %storemerge.i.i.i.i.i, align 8
-  %and.i = and i64 %shl.i.i9, %6
+  %8 = load i64, ptr %storemerge.i.i.i.i.i, align 8
+  %and.i = and i64 %shl.i.i9, %8
   %tobool.i.not = icmp eq i64 %and.i, 0
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %lastSet.1 = select i1 %tobool.i.not, i32 %lastSet.013, i32 %7
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %lastSet.1 = select i1 %tobool.i.not, i32 %lastSet.014, i32 %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
   br i1 %exitcond.not, label %for.end, label %cond.true, !llvm.loop !25
@@ -1236,9 +1236,9 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %if.then.i.i, %if.el
 for.end:                                          ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit
   %add = add nsw i32 %lastSet.1, 1
   %conv10 = sext i32 %add to i64
-  %8 = load ptr, ptr %agg.result, align 8
+  %10 = load ptr, ptr %agg.result, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.ptr.sub.i.i.i, 3
   %add.i.i.i = add nsw i64 %mul.i.i.i, %conv.i.i.i.i.i
@@ -1248,9 +1248,9 @@ for.end:                                          ; preds = %_ZNSt6vectorIbSaIbE
 if.then.i11:                                      ; preds = %for.end
   %div.i.i.i.i12 = sdiv i32 %add, 64
   %div.i.i.i.i.sext = sext i32 %div.i.i.i.i12 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.sext
-  %9 = and i64 %conv10, -9223372036854775745
-  %cmp.i.i.i.i = icmp ugt i64 %9, -9223372036854775808
+  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.sext
+  %11 = and i64 %conv10, -9223372036854775745
+  %cmp.i.i.i.i = icmp ugt i64 %11, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %storemerge.idx.i.i.i.i
   %conv4.i.i.i.i = and i32 %add, 63

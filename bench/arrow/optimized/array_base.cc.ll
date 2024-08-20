@@ -6774,13 +6774,10 @@ sw.bb2:                                           ; preds = %entry
   %shr.i.i.i = lshr i64 %add.i.i, 3
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %shr.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1, !noalias !38
-  %conv.i.i.i = zext i8 %6 to i32
-  %7 = trunc i64 %add.i.i to i32
-  %sh_prom.i.i.i = and i32 %7, 7
-  %8 = shl nuw nsw i32 1, %sh_prom.i.i.i
-  %9 = and i32 %8, %conv.i.i.i
-  %tobool.i.i.i = icmp ne i32 %9, 0
-  %frombool.i = zext i1 %tobool.i.i.i to i8
+  %7 = trunc i64 %add.i.i to i8
+  %sh_prom.i.i.i = and i8 %7, 7
+  %8 = lshr i8 %6, %sh_prom.i.i.i
+  %frombool.i = and i8 %8, 1
   store i8 %frombool.i, ptr %ref.tmp.i, align 1, !noalias !38
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIbEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -6789,15 +6786,15 @@ sw.bb2:                                           ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i86)
   %index_.i87 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %10 = load i64, ptr %index_.i87, align 8, !noalias !41
+  %9 = load i64, ptr %index_.i87, align 8, !noalias !41
   %raw_values_.i.i.i = getelementptr inbounds i8, ptr %array, i64 32
-  %11 = load ptr, ptr %raw_values_.i.i.i, align 8, !noalias !41
+  %10 = load ptr, ptr %raw_values_.i.i.i, align 8, !noalias !41
   %offset.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = load i64, ptr %offset.i.i.i, align 8, !noalias !41
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 %12
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %10
-  %13 = load i8, ptr %arrayidx.i.i, align 1, !noalias !41
-  store i8 %13, ptr %ref.tmp.i86, align 1, !noalias !41
+  %11 = load i64, ptr %offset.i.i.i, align 8, !noalias !41
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %11
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
+  %12 = load i8, ptr %arrayidx.i.i, align 1, !noalias !41
+  store i8 %12, ptr %ref.tmp.i86, align 1, !noalias !41
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIaEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i86)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i86)
   br label %return
@@ -6805,15 +6802,15 @@ sw.bb4:                                           ; preds = %entry
 sw.bb6:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i88)
   %index_.i89 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %14 = load i64, ptr %index_.i89, align 8, !noalias !44
+  %13 = load i64, ptr %index_.i89, align 8, !noalias !44
   %raw_values_.i.i.i90 = getelementptr inbounds i8, ptr %array, i64 32
-  %15 = load ptr, ptr %raw_values_.i.i.i90, align 8, !noalias !44
+  %14 = load ptr, ptr %raw_values_.i.i.i90, align 8, !noalias !44
   %offset.i.i.i92 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i64, ptr %offset.i.i.i92, align 8, !noalias !44
-  %add.ptr.i.i.i93 = getelementptr inbounds i8, ptr %15, i64 %16
-  %arrayidx.i.i94 = getelementptr inbounds i8, ptr %add.ptr.i.i.i93, i64 %14
-  %17 = load i8, ptr %arrayidx.i.i94, align 1, !noalias !44
-  store i8 %17, ptr %ref.tmp.i88, align 1, !noalias !44
+  %15 = load i64, ptr %offset.i.i.i92, align 8, !noalias !44
+  %add.ptr.i.i.i93 = getelementptr inbounds i8, ptr %14, i64 %15
+  %arrayidx.i.i94 = getelementptr inbounds i8, ptr %add.ptr.i.i.i93, i64 %13
+  %16 = load i8, ptr %arrayidx.i.i94, align 1, !noalias !44
+  store i8 %16, ptr %ref.tmp.i88, align 1, !noalias !44
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIhEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i88)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i88)
   br label %return
@@ -6821,15 +6818,15 @@ sw.bb6:                                           ; preds = %entry
 sw.bb8:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp.i95)
   %index_.i96 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %18 = load i64, ptr %index_.i96, align 8, !noalias !47
+  %17 = load i64, ptr %index_.i96, align 8, !noalias !47
   %raw_values_.i.i.i97 = getelementptr inbounds i8, ptr %array, i64 32
-  %19 = load ptr, ptr %raw_values_.i.i.i97, align 8, !noalias !47
+  %18 = load ptr, ptr %raw_values_.i.i.i97, align 8, !noalias !47
   %offset.i.i.i99 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = load i64, ptr %offset.i.i.i99, align 8, !noalias !47
-  %add.ptr.i.i.i100 = getelementptr inbounds i16, ptr %19, i64 %20
-  %arrayidx.i.i101 = getelementptr inbounds i16, ptr %add.ptr.i.i.i100, i64 %18
-  %21 = load i16, ptr %arrayidx.i.i101, align 2, !noalias !47
-  store i16 %21, ptr %ref.tmp.i95, align 2, !noalias !47
+  %19 = load i64, ptr %offset.i.i.i99, align 8, !noalias !47
+  %add.ptr.i.i.i100 = getelementptr inbounds i16, ptr %18, i64 %19
+  %arrayidx.i.i101 = getelementptr inbounds i16, ptr %add.ptr.i.i.i100, i64 %17
+  %20 = load i16, ptr %arrayidx.i.i101, align 2, !noalias !47
+  store i16 %20, ptr %ref.tmp.i95, align 2, !noalias !47
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIsEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp.i95)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ref.tmp.i95)
   br label %return
@@ -6837,15 +6834,15 @@ sw.bb8:                                           ; preds = %entry
 sw.bb10:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp.i102)
   %index_.i103 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %22 = load i64, ptr %index_.i103, align 8, !noalias !50
+  %21 = load i64, ptr %index_.i103, align 8, !noalias !50
   %raw_values_.i.i.i104 = getelementptr inbounds i8, ptr %array, i64 32
-  %23 = load ptr, ptr %raw_values_.i.i.i104, align 8, !noalias !50
+  %22 = load ptr, ptr %raw_values_.i.i.i104, align 8, !noalias !50
   %offset.i.i.i106 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = load i64, ptr %offset.i.i.i106, align 8, !noalias !50
-  %add.ptr.i.i.i107 = getelementptr inbounds i16, ptr %23, i64 %24
-  %arrayidx.i.i108 = getelementptr inbounds i16, ptr %add.ptr.i.i.i107, i64 %22
-  %25 = load i16, ptr %arrayidx.i.i108, align 2, !noalias !50
-  store i16 %25, ptr %ref.tmp.i102, align 2, !noalias !50
+  %23 = load i64, ptr %offset.i.i.i106, align 8, !noalias !50
+  %add.ptr.i.i.i107 = getelementptr inbounds i16, ptr %22, i64 %23
+  %arrayidx.i.i108 = getelementptr inbounds i16, ptr %add.ptr.i.i.i107, i64 %21
+  %24 = load i16, ptr %arrayidx.i.i108, align 2, !noalias !50
+  store i16 %24, ptr %ref.tmp.i102, align 2, !noalias !50
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishItEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp.i102)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ref.tmp.i102)
   br label %return
@@ -6853,15 +6850,15 @@ sw.bb10:                                          ; preds = %entry
 sw.bb12:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i109)
   %index_.i110 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %26 = load i64, ptr %index_.i110, align 8, !noalias !53
+  %25 = load i64, ptr %index_.i110, align 8, !noalias !53
   %raw_values_.i.i.i111 = getelementptr inbounds i8, ptr %array, i64 32
-  %27 = load ptr, ptr %raw_values_.i.i.i111, align 8, !noalias !53
+  %26 = load ptr, ptr %raw_values_.i.i.i111, align 8, !noalias !53
   %offset.i.i.i113 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = load i64, ptr %offset.i.i.i113, align 8, !noalias !53
-  %add.ptr.i.i.i114 = getelementptr inbounds i32, ptr %27, i64 %28
-  %arrayidx.i.i115 = getelementptr inbounds i32, ptr %add.ptr.i.i.i114, i64 %26
-  %29 = load i32, ptr %arrayidx.i.i115, align 4, !noalias !53
-  store i32 %29, ptr %ref.tmp.i109, align 4, !noalias !53
+  %27 = load i64, ptr %offset.i.i.i113, align 8, !noalias !53
+  %add.ptr.i.i.i114 = getelementptr inbounds i32, ptr %26, i64 %27
+  %arrayidx.i.i115 = getelementptr inbounds i32, ptr %add.ptr.i.i.i114, i64 %25
+  %28 = load i32, ptr %arrayidx.i.i115, align 4, !noalias !53
+  store i32 %28, ptr %ref.tmp.i109, align 4, !noalias !53
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i109)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i109)
   br label %return
@@ -6869,15 +6866,15 @@ sw.bb12:                                          ; preds = %entry
 sw.bb14:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i116)
   %index_.i117 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %30 = load i64, ptr %index_.i117, align 8, !noalias !56
+  %29 = load i64, ptr %index_.i117, align 8, !noalias !56
   %raw_values_.i.i.i118 = getelementptr inbounds i8, ptr %array, i64 32
-  %31 = load ptr, ptr %raw_values_.i.i.i118, align 8, !noalias !56
+  %30 = load ptr, ptr %raw_values_.i.i.i118, align 8, !noalias !56
   %offset.i.i.i120 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = load i64, ptr %offset.i.i.i120, align 8, !noalias !56
-  %add.ptr.i.i.i121 = getelementptr inbounds i32, ptr %31, i64 %32
-  %arrayidx.i.i122 = getelementptr inbounds i32, ptr %add.ptr.i.i.i121, i64 %30
-  %33 = load i32, ptr %arrayidx.i.i122, align 4, !noalias !56
-  store i32 %33, ptr %ref.tmp.i116, align 4, !noalias !56
+  %31 = load i64, ptr %offset.i.i.i120, align 8, !noalias !56
+  %add.ptr.i.i.i121 = getelementptr inbounds i32, ptr %30, i64 %31
+  %arrayidx.i.i122 = getelementptr inbounds i32, ptr %add.ptr.i.i.i121, i64 %29
+  %32 = load i32, ptr %arrayidx.i.i122, align 4, !noalias !56
+  store i32 %32, ptr %ref.tmp.i116, align 4, !noalias !56
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIjEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i116)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i116)
   br label %return
@@ -6885,15 +6882,15 @@ sw.bb14:                                          ; preds = %entry
 sw.bb16:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i123)
   %index_.i124 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %34 = load i64, ptr %index_.i124, align 8, !noalias !59
+  %33 = load i64, ptr %index_.i124, align 8, !noalias !59
   %raw_values_.i.i.i125 = getelementptr inbounds i8, ptr %array, i64 32
-  %35 = load ptr, ptr %raw_values_.i.i.i125, align 8, !noalias !59
+  %34 = load ptr, ptr %raw_values_.i.i.i125, align 8, !noalias !59
   %offset.i.i.i127 = getelementptr inbounds i8, ptr %0, i64 32
-  %36 = load i64, ptr %offset.i.i.i127, align 8, !noalias !59
-  %add.ptr.i.i.i128 = getelementptr inbounds i64, ptr %35, i64 %36
-  %arrayidx.i.i129 = getelementptr inbounds i64, ptr %add.ptr.i.i.i128, i64 %34
-  %37 = load i64, ptr %arrayidx.i.i129, align 8, !noalias !59
-  store i64 %37, ptr %ref.tmp.i123, align 8, !noalias !59
+  %35 = load i64, ptr %offset.i.i.i127, align 8, !noalias !59
+  %add.ptr.i.i.i128 = getelementptr inbounds i64, ptr %34, i64 %35
+  %arrayidx.i.i129 = getelementptr inbounds i64, ptr %add.ptr.i.i.i128, i64 %33
+  %36 = load i64, ptr %arrayidx.i.i129, align 8, !noalias !59
+  store i64 %36, ptr %ref.tmp.i123, align 8, !noalias !59
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i123)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i123)
   br label %return
@@ -6901,15 +6898,15 @@ sw.bb16:                                          ; preds = %entry
 sw.bb18:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i130)
   %index_.i131 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %38 = load i64, ptr %index_.i131, align 8, !noalias !62
+  %37 = load i64, ptr %index_.i131, align 8, !noalias !62
   %raw_values_.i.i.i132 = getelementptr inbounds i8, ptr %array, i64 32
-  %39 = load ptr, ptr %raw_values_.i.i.i132, align 8, !noalias !62
+  %38 = load ptr, ptr %raw_values_.i.i.i132, align 8, !noalias !62
   %offset.i.i.i134 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = load i64, ptr %offset.i.i.i134, align 8, !noalias !62
-  %add.ptr.i.i.i135 = getelementptr inbounds i64, ptr %39, i64 %40
-  %arrayidx.i.i136 = getelementptr inbounds i64, ptr %add.ptr.i.i.i135, i64 %38
-  %41 = load i64, ptr %arrayidx.i.i136, align 8, !noalias !62
-  store i64 %41, ptr %ref.tmp.i130, align 8, !noalias !62
+  %39 = load i64, ptr %offset.i.i.i134, align 8, !noalias !62
+  %add.ptr.i.i.i135 = getelementptr inbounds i64, ptr %38, i64 %39
+  %arrayidx.i.i136 = getelementptr inbounds i64, ptr %add.ptr.i.i.i135, i64 %37
+  %40 = load i64, ptr %arrayidx.i.i136, align 8, !noalias !62
+  store i64 %40, ptr %ref.tmp.i130, align 8, !noalias !62
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishImEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i130)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i130)
   br label %return
@@ -6917,15 +6914,15 @@ sw.bb18:                                          ; preds = %entry
 sw.bb20:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp.i137)
   %index_.i138 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %42 = load i64, ptr %index_.i138, align 8, !noalias !65
+  %41 = load i64, ptr %index_.i138, align 8, !noalias !65
   %raw_values_.i.i.i139 = getelementptr inbounds i8, ptr %array, i64 32
-  %43 = load ptr, ptr %raw_values_.i.i.i139, align 8, !noalias !65
+  %42 = load ptr, ptr %raw_values_.i.i.i139, align 8, !noalias !65
   %offset.i.i.i141 = getelementptr inbounds i8, ptr %0, i64 32
-  %44 = load i64, ptr %offset.i.i.i141, align 8, !noalias !65
-  %add.ptr.i.i.i142 = getelementptr inbounds i16, ptr %43, i64 %44
-  %arrayidx.i.i143 = getelementptr inbounds i16, ptr %add.ptr.i.i.i142, i64 %42
-  %45 = load i16, ptr %arrayidx.i.i143, align 2, !noalias !65
-  store i16 %45, ptr %ref.tmp.i137, align 2, !noalias !65
+  %43 = load i64, ptr %offset.i.i.i141, align 8, !noalias !65
+  %add.ptr.i.i.i142 = getelementptr inbounds i16, ptr %42, i64 %43
+  %arrayidx.i.i143 = getelementptr inbounds i16, ptr %add.ptr.i.i.i142, i64 %41
+  %44 = load i16, ptr %arrayidx.i.i143, align 2, !noalias !65
+  store i16 %44, ptr %ref.tmp.i137, align 2, !noalias !65
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishItEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp.i137)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ref.tmp.i137)
   br label %return
@@ -6933,15 +6930,15 @@ sw.bb20:                                          ; preds = %entry
 sw.bb22:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i144)
   %index_.i145 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %46 = load i64, ptr %index_.i145, align 8, !noalias !68
+  %45 = load i64, ptr %index_.i145, align 8, !noalias !68
   %raw_values_.i.i.i146 = getelementptr inbounds i8, ptr %array, i64 32
-  %47 = load ptr, ptr %raw_values_.i.i.i146, align 8, !noalias !68
+  %46 = load ptr, ptr %raw_values_.i.i.i146, align 8, !noalias !68
   %offset.i.i.i148 = getelementptr inbounds i8, ptr %0, i64 32
-  %48 = load i64, ptr %offset.i.i.i148, align 8, !noalias !68
-  %add.ptr.i.i.i149 = getelementptr inbounds float, ptr %47, i64 %48
-  %arrayidx.i.i150 = getelementptr inbounds float, ptr %add.ptr.i.i.i149, i64 %46
-  %49 = load float, ptr %arrayidx.i.i150, align 4, !noalias !68
-  store float %49, ptr %ref.tmp.i144, align 4, !noalias !68
+  %47 = load i64, ptr %offset.i.i.i148, align 8, !noalias !68
+  %add.ptr.i.i.i149 = getelementptr inbounds float, ptr %46, i64 %47
+  %arrayidx.i.i150 = getelementptr inbounds float, ptr %add.ptr.i.i.i149, i64 %45
+  %48 = load float, ptr %arrayidx.i.i150, align 4, !noalias !68
+  store float %48, ptr %ref.tmp.i144, align 4, !noalias !68
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIfEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i144)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i144)
   br label %return
@@ -6949,15 +6946,15 @@ sw.bb22:                                          ; preds = %entry
 sw.bb24:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i151)
   %index_.i152 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %50 = load i64, ptr %index_.i152, align 8, !noalias !71
+  %49 = load i64, ptr %index_.i152, align 8, !noalias !71
   %raw_values_.i.i.i153 = getelementptr inbounds i8, ptr %array, i64 32
-  %51 = load ptr, ptr %raw_values_.i.i.i153, align 8, !noalias !71
+  %50 = load ptr, ptr %raw_values_.i.i.i153, align 8, !noalias !71
   %offset.i.i.i155 = getelementptr inbounds i8, ptr %0, i64 32
-  %52 = load i64, ptr %offset.i.i.i155, align 8, !noalias !71
-  %add.ptr.i.i.i156 = getelementptr inbounds double, ptr %51, i64 %52
-  %arrayidx.i.i157 = getelementptr inbounds double, ptr %add.ptr.i.i.i156, i64 %50
-  %53 = load double, ptr %arrayidx.i.i157, align 8, !noalias !71
-  store double %53, ptr %ref.tmp.i151, align 8, !noalias !71
+  %51 = load i64, ptr %offset.i.i.i155, align 8, !noalias !71
+  %add.ptr.i.i.i156 = getelementptr inbounds double, ptr %50, i64 %51
+  %arrayidx.i.i157 = getelementptr inbounds double, ptr %add.ptr.i.i.i156, i64 %49
+  %52 = load double, ptr %arrayidx.i.i157, align 8, !noalias !71
+  store double %52, ptr %ref.tmp.i151, align 8, !noalias !71
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIdEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i151)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i151)
   br label %return
@@ -6965,19 +6962,19 @@ sw.bb24:                                          ; preds = %entry
 sw.bb26:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   %index_.i158 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %54 = load i64, ptr %index_.i158, align 8, !noalias !74
-  call void @_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %54), !noalias !74
+  %53 = load i64, ptr %index_.i158, align 8, !noalias !74
+  call void @_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %53), !noalias !74
   invoke void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %agg.tmp.i)
           to label %_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_10BinaryTypeEEENS_6StatusERKNS_15BaseBinaryArrayIT_EE.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad.i179, %lpad.i175, %lpad.i172, %lpad.i168, %lpad.i164, %lpad.i161, %lpad.i
   %agg.tmp.i177.sink = phi ptr [ %agg.tmp.i177, %lpad.i179 ], [ %agg.tmp.i173, %lpad.i175 ], [ %agg.tmp.i170, %lpad.i172 ], [ %agg.tmp.i166, %lpad.i168 ], [ %agg.tmp.i162, %lpad.i164 ], [ %agg.tmp.i159, %lpad.i161 ], [ %agg.tmp.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %67, %lpad.i179 ], [ %65, %lpad.i175 ], [ %63, %lpad.i172 ], [ %61, %lpad.i168 ], [ %59, %lpad.i164 ], [ %57, %lpad.i161 ], [ %55, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %lpad.i179 ], [ %64, %lpad.i175 ], [ %62, %lpad.i172 ], [ %60, %lpad.i168 ], [ %58, %lpad.i164 ], [ %56, %lpad.i161 ], [ %54, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i177.sink) #15
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %sw.bb26
-  %55 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -6989,13 +6986,13 @@ _ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_10BinaryTypeEEENS_6StatusER
 sw.bb28:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i159)
   %index_.i160 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %56 = load i64, ptr %index_.i160, align 8, !noalias !77
-  call void @_ZNK5arrow15BinaryViewArray9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i159, ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %56), !noalias !77
+  %55 = load i64, ptr %index_.i160, align 8, !noalias !77
+  call void @_ZNK5arrow15BinaryViewArray9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i159, ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %55), !noalias !77
   invoke void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %agg.tmp.i159)
           to label %_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitERKNS_15BinaryViewArrayE.exit unwind label %lpad.i161
 
 lpad.i161:                                        ; preds = %sw.bb28
-  %57 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -7007,13 +7004,13 @@ _ZN5arrow8internal23ScalarFromArraySlotImpl5VisitERKNS_15BinaryViewArrayE.exit: 
 sw.bb30:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i162)
   %index_.i163 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %58 = load i64, ptr %index_.i163, align 8, !noalias !80
-  call void @_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i162, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %58), !noalias !80
+  %57 = load i64, ptr %index_.i163, align 8, !noalias !80
+  call void @_ZNK5arrow15BaseBinaryArrayINS_10BinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i162, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %57), !noalias !80
   invoke void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %agg.tmp.i162)
           to label %_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_10BinaryTypeEEENS_6StatusERKNS_15BaseBinaryArrayIT_EE.exit165 unwind label %lpad.i164
 
 lpad.i164:                                        ; preds = %sw.bb30
-  %59 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -7025,13 +7022,13 @@ _ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_10BinaryTypeEEENS_6StatusER
 sw.bb32:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i166)
   %index_.i167 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %60 = load i64, ptr %index_.i167, align 8, !noalias !83
-  call void @_ZNK5arrow15BinaryViewArray9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i166, ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %60), !noalias !83
+  %59 = load i64, ptr %index_.i167, align 8, !noalias !83
+  call void @_ZNK5arrow15BinaryViewArray9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i166, ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %59), !noalias !83
   invoke void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %agg.tmp.i166)
           to label %_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitERKNS_15BinaryViewArrayE.exit169 unwind label %lpad.i168
 
 lpad.i168:                                        ; preds = %sw.bb32
-  %61 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -7043,13 +7040,13 @@ _ZN5arrow8internal23ScalarFromArraySlotImpl5VisitERKNS_15BinaryViewArrayE.exit16
 sw.bb34:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i170)
   %index_.i171 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %62 = load i64, ptr %index_.i171, align 8, !noalias !86
-  call void @_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i170, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %62), !noalias !86
+  %61 = load i64, ptr %index_.i171, align 8, !noalias !86
+  call void @_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i170, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %61), !noalias !86
   invoke void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %agg.tmp.i170)
           to label %_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_15LargeBinaryTypeEEENS_6StatusERKNS_15BaseBinaryArrayIT_EE.exit unwind label %lpad.i172
 
 lpad.i172:                                        ; preds = %sw.bb34
-  %63 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -7061,13 +7058,13 @@ _ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_15LargeBinaryTypeEEENS_6Sta
 sw.bb36:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i173)
   %index_.i174 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %64 = load i64, ptr %index_.i174, align 8, !noalias !89
-  call void @_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i173, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %64), !noalias !89
+  %63 = load i64, ptr %index_.i174, align 8, !noalias !89
+  call void @_ZNK5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEE9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i173, ptr noundef nonnull align 8 dereferenceable(48) %array, i64 noundef %63), !noalias !89
   invoke void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %agg.tmp.i173)
           to label %_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_15LargeBinaryTypeEEENS_6StatusERKNS_15BaseBinaryArrayIT_EE.exit176 unwind label %lpad.i175
 
 lpad.i175:                                        ; preds = %sw.bb36
-  %65 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -7079,13 +7076,13 @@ _ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_15LargeBinaryTypeEEENS_6Sta
 sw.bb38:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i177)
   %index_.i178 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %66 = load i64, ptr %index_.i178, align 8, !noalias !92
-  call void @_ZNK5arrow20FixedSizeBinaryArray9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i177, ptr noundef nonnull align 8 dereferenceable(44) %array, i64 noundef %66), !noalias !92
+  %65 = load i64, ptr %index_.i178, align 8, !noalias !92
+  call void @_ZNK5arrow20FixedSizeBinaryArray9GetStringB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i177, ptr noundef nonnull align 8 dereferenceable(44) %array, i64 noundef %65), !noalias !92
   invoke void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull %agg.tmp.i177)
           to label %_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitERKNS_20FixedSizeBinaryArrayE.exit unwind label %lpad.i179
 
 lpad.i179:                                        ; preds = %sw.bb38
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -7097,15 +7094,15 @@ _ZN5arrow8internal23ScalarFromArraySlotImpl5VisitERKNS_20FixedSizeBinaryArrayE.e
 sw.bb40:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i180)
   %index_.i181 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %68 = load i64, ptr %index_.i181, align 8, !noalias !95
+  %67 = load i64, ptr %index_.i181, align 8, !noalias !95
   %raw_values_.i.i.i182 = getelementptr inbounds i8, ptr %array, i64 32
-  %69 = load ptr, ptr %raw_values_.i.i.i182, align 8, !noalias !95
+  %68 = load ptr, ptr %raw_values_.i.i.i182, align 8, !noalias !95
   %offset.i.i.i184 = getelementptr inbounds i8, ptr %0, i64 32
-  %70 = load i64, ptr %offset.i.i.i184, align 8, !noalias !95
-  %add.ptr.i.i.i185 = getelementptr inbounds i64, ptr %69, i64 %70
-  %arrayidx.i.i186 = getelementptr inbounds i64, ptr %add.ptr.i.i.i185, i64 %68
-  %71 = load i64, ptr %arrayidx.i.i186, align 8, !noalias !95
-  store i64 %71, ptr %ref.tmp.i180, align 8, !noalias !95
+  %69 = load i64, ptr %offset.i.i.i184, align 8, !noalias !95
+  %add.ptr.i.i.i185 = getelementptr inbounds i64, ptr %68, i64 %69
+  %arrayidx.i.i186 = getelementptr inbounds i64, ptr %add.ptr.i.i.i185, i64 %67
+  %70 = load i64, ptr %arrayidx.i.i186, align 8, !noalias !95
+  store i64 %70, ptr %ref.tmp.i180, align 8, !noalias !95
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i180)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i180)
   br label %return
@@ -7113,15 +7110,15 @@ sw.bb40:                                          ; preds = %entry
 sw.bb42:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i187)
   %index_.i188 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %72 = load i64, ptr %index_.i188, align 8, !noalias !98
+  %71 = load i64, ptr %index_.i188, align 8, !noalias !98
   %raw_values_.i.i.i189 = getelementptr inbounds i8, ptr %array, i64 32
-  %73 = load ptr, ptr %raw_values_.i.i.i189, align 8, !noalias !98
+  %72 = load ptr, ptr %raw_values_.i.i.i189, align 8, !noalias !98
   %offset.i.i.i191 = getelementptr inbounds i8, ptr %0, i64 32
-  %74 = load i64, ptr %offset.i.i.i191, align 8, !noalias !98
-  %add.ptr.i.i.i192 = getelementptr inbounds i32, ptr %73, i64 %74
-  %arrayidx.i.i193 = getelementptr inbounds i32, ptr %add.ptr.i.i.i192, i64 %72
-  %75 = load i32, ptr %arrayidx.i.i193, align 4, !noalias !98
-  store i32 %75, ptr %ref.tmp.i187, align 4, !noalias !98
+  %73 = load i64, ptr %offset.i.i.i191, align 8, !noalias !98
+  %add.ptr.i.i.i192 = getelementptr inbounds i32, ptr %72, i64 %73
+  %arrayidx.i.i193 = getelementptr inbounds i32, ptr %add.ptr.i.i.i192, i64 %71
+  %74 = load i32, ptr %arrayidx.i.i193, align 4, !noalias !98
+  store i32 %74, ptr %ref.tmp.i187, align 4, !noalias !98
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i187)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i187)
   br label %return
@@ -7129,15 +7126,15 @@ sw.bb42:                                          ; preds = %entry
 sw.bb44:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i194)
   %index_.i195 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %76 = load i64, ptr %index_.i195, align 8, !noalias !101
+  %75 = load i64, ptr %index_.i195, align 8, !noalias !101
   %raw_values_.i.i.i196 = getelementptr inbounds i8, ptr %array, i64 32
-  %77 = load ptr, ptr %raw_values_.i.i.i196, align 8, !noalias !101
+  %76 = load ptr, ptr %raw_values_.i.i.i196, align 8, !noalias !101
   %offset.i.i.i198 = getelementptr inbounds i8, ptr %0, i64 32
-  %78 = load i64, ptr %offset.i.i.i198, align 8, !noalias !101
-  %add.ptr.i.i.i199 = getelementptr inbounds i64, ptr %77, i64 %78
-  %arrayidx.i.i200 = getelementptr inbounds i64, ptr %add.ptr.i.i.i199, i64 %76
-  %79 = load i64, ptr %arrayidx.i.i200, align 8, !noalias !101
-  store i64 %79, ptr %ref.tmp.i194, align 8, !noalias !101
+  %77 = load i64, ptr %offset.i.i.i198, align 8, !noalias !101
+  %add.ptr.i.i.i199 = getelementptr inbounds i64, ptr %76, i64 %77
+  %arrayidx.i.i200 = getelementptr inbounds i64, ptr %add.ptr.i.i.i199, i64 %75
+  %78 = load i64, ptr %arrayidx.i.i200, align 8, !noalias !101
+  store i64 %78, ptr %ref.tmp.i194, align 8, !noalias !101
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i194)
   br label %return
@@ -7145,15 +7142,15 @@ sw.bb44:                                          ; preds = %entry
 sw.bb46:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i201)
   %index_.i202 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %80 = load i64, ptr %index_.i202, align 8, !noalias !104
+  %79 = load i64, ptr %index_.i202, align 8, !noalias !104
   %raw_values_.i.i.i203 = getelementptr inbounds i8, ptr %array, i64 32
-  %81 = load ptr, ptr %raw_values_.i.i.i203, align 8, !noalias !104
+  %80 = load ptr, ptr %raw_values_.i.i.i203, align 8, !noalias !104
   %offset.i.i.i205 = getelementptr inbounds i8, ptr %0, i64 32
-  %82 = load i64, ptr %offset.i.i.i205, align 8, !noalias !104
-  %add.ptr.i.i.i206 = getelementptr inbounds i64, ptr %81, i64 %82
-  %arrayidx.i.i207 = getelementptr inbounds i64, ptr %add.ptr.i.i.i206, i64 %80
-  %83 = load i64, ptr %arrayidx.i.i207, align 8, !noalias !104
-  store i64 %83, ptr %ref.tmp.i201, align 8, !noalias !104
+  %81 = load i64, ptr %offset.i.i.i205, align 8, !noalias !104
+  %add.ptr.i.i.i206 = getelementptr inbounds i64, ptr %80, i64 %81
+  %arrayidx.i.i207 = getelementptr inbounds i64, ptr %add.ptr.i.i.i206, i64 %79
+  %82 = load i64, ptr %arrayidx.i.i207, align 8, !noalias !104
+  store i64 %82, ptr %ref.tmp.i201, align 8, !noalias !104
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i201)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i201)
   br label %return
@@ -7161,15 +7158,15 @@ sw.bb46:                                          ; preds = %entry
 sw.bb48:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i208)
   %index_.i209 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %84 = load i64, ptr %index_.i209, align 8, !noalias !107
+  %83 = load i64, ptr %index_.i209, align 8, !noalias !107
   %raw_values_.i.i.i210 = getelementptr inbounds i8, ptr %array, i64 32
-  %85 = load ptr, ptr %raw_values_.i.i.i210, align 8, !noalias !107
+  %84 = load ptr, ptr %raw_values_.i.i.i210, align 8, !noalias !107
   %offset.i.i.i212 = getelementptr inbounds i8, ptr %0, i64 32
-  %86 = load i64, ptr %offset.i.i.i212, align 8, !noalias !107
-  %add.ptr.i.i.i213 = getelementptr inbounds i32, ptr %85, i64 %86
-  %arrayidx.i.i214 = getelementptr inbounds i32, ptr %add.ptr.i.i.i213, i64 %84
-  %87 = load i32, ptr %arrayidx.i.i214, align 4, !noalias !107
-  store i32 %87, ptr %ref.tmp.i208, align 4, !noalias !107
+  %85 = load i64, ptr %offset.i.i.i212, align 8, !noalias !107
+  %add.ptr.i.i.i213 = getelementptr inbounds i32, ptr %84, i64 %85
+  %arrayidx.i.i214 = getelementptr inbounds i32, ptr %add.ptr.i.i.i213, i64 %83
+  %86 = load i32, ptr %arrayidx.i.i214, align 4, !noalias !107
+  store i32 %86, ptr %ref.tmp.i208, align 4, !noalias !107
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i208)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i208)
   br label %return
@@ -7177,15 +7174,15 @@ sw.bb48:                                          ; preds = %entry
 sw.bb50:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i215)
   %index_.i216 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %88 = load i64, ptr %index_.i216, align 8, !noalias !110
+  %87 = load i64, ptr %index_.i216, align 8, !noalias !110
   %raw_values_.i.i.i217 = getelementptr inbounds i8, ptr %array, i64 32
-  %89 = load ptr, ptr %raw_values_.i.i.i217, align 8, !noalias !110
+  %88 = load ptr, ptr %raw_values_.i.i.i217, align 8, !noalias !110
   %offset.i.i.i219 = getelementptr inbounds i8, ptr %0, i64 32
-  %90 = load i64, ptr %offset.i.i.i219, align 8, !noalias !110
-  %add.ptr.i.i.i220 = getelementptr inbounds i64, ptr %89, i64 %90
-  %arrayidx.i.i221 = getelementptr inbounds i64, ptr %add.ptr.i.i.i220, i64 %88
-  %91 = load i64, ptr %arrayidx.i.i221, align 8, !noalias !110
-  store i64 %91, ptr %ref.tmp.i215, align 8, !noalias !110
+  %89 = load i64, ptr %offset.i.i.i219, align 8, !noalias !110
+  %add.ptr.i.i.i220 = getelementptr inbounds i64, ptr %88, i64 %89
+  %arrayidx.i.i221 = getelementptr inbounds i64, ptr %add.ptr.i.i.i220, i64 %87
+  %90 = load i64, ptr %arrayidx.i.i221, align 8, !noalias !110
+  store i64 %90, ptr %ref.tmp.i215, align 8, !noalias !110
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i215)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i215)
   br label %return
@@ -7193,13 +7190,13 @@ sw.bb50:                                          ; preds = %entry
 sw.bb52:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i222)
   %index_.i223 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %92 = load i64, ptr %index_.i223, align 8, !noalias !113
-  %call.i.i = tail call { i64, i64 } @_ZNK5arrow25MonthDayNanoIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %92), !noalias !113
-  %93 = extractvalue { i64, i64 } %call.i.i, 0
-  store i64 %93, ptr %ref.tmp.i222, align 8, !noalias !113
-  %94 = getelementptr inbounds i8, ptr %ref.tmp.i222, i64 8
-  %95 = extractvalue { i64, i64 } %call.i.i, 1
-  store i64 %95, ptr %94, align 8, !noalias !113
+  %91 = load i64, ptr %index_.i223, align 8, !noalias !113
+  %call.i.i = tail call { i64, i64 } @_ZNK5arrow25MonthDayNanoIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %91), !noalias !113
+  %92 = extractvalue { i64, i64 } %call.i.i, 0
+  store i64 %92, ptr %ref.tmp.i222, align 8, !noalias !113
+  %93 = getelementptr inbounds i8, ptr %ref.tmp.i222, i64 8
+  %94 = extractvalue { i64, i64 } %call.i.i, 1
+  store i64 %94, ptr %93, align 8, !noalias !113
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishINS_24MonthDayNanoIntervalType13MonthDayNanosEEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i222)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i222)
   br label %return
@@ -7207,15 +7204,15 @@ sw.bb52:                                          ; preds = %entry
 sw.bb54:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i224)
   %index_.i225 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %96 = load i64, ptr %index_.i225, align 8, !noalias !116
+  %95 = load i64, ptr %index_.i225, align 8, !noalias !116
   %raw_values_.i.i.i226 = getelementptr inbounds i8, ptr %array, i64 32
-  %97 = load ptr, ptr %raw_values_.i.i.i226, align 8, !noalias !116
+  %96 = load ptr, ptr %raw_values_.i.i.i226, align 8, !noalias !116
   %offset.i.i.i228 = getelementptr inbounds i8, ptr %0, i64 32
-  %98 = load i64, ptr %offset.i.i.i228, align 8, !noalias !116
-  %add.ptr.i.i.i229 = getelementptr inbounds i32, ptr %97, i64 %98
-  %arrayidx.i.i230 = getelementptr inbounds i32, ptr %add.ptr.i.i.i229, i64 %96
-  %99 = load i32, ptr %arrayidx.i.i230, align 4, !noalias !116
-  store i32 %99, ptr %ref.tmp.i224, align 4, !noalias !116
+  %97 = load i64, ptr %offset.i.i.i228, align 8, !noalias !116
+  %add.ptr.i.i.i229 = getelementptr inbounds i32, ptr %96, i64 %97
+  %arrayidx.i.i230 = getelementptr inbounds i32, ptr %add.ptr.i.i.i229, i64 %95
+  %98 = load i32, ptr %arrayidx.i.i230, align 4, !noalias !116
+  store i32 %98, ptr %ref.tmp.i224, align 4, !noalias !116
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i224)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i224)
   br label %return
@@ -7223,8 +7220,8 @@ sw.bb54:                                          ; preds = %entry
 sw.bb56:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i231)
   %index_.i232 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %100 = load i64, ptr %index_.i232, align 8, !noalias !119
-  %call.i.i233 = tail call i64 @_ZNK5arrow20DayTimeIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %100), !noalias !119
+  %99 = load i64, ptr %index_.i232, align 8, !noalias !119
+  %call.i.i233 = tail call i64 @_ZNK5arrow20DayTimeIntervalArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(40) %array, i64 noundef %99), !noalias !119
   store i64 %call.i.i233, ptr %ref.tmp.i231, align 8, !noalias !119
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishINS_19DayTimeIntervalType15DayMillisecondsEEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i231)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i231)
@@ -7233,8 +7230,8 @@ sw.bb56:                                          ; preds = %entry
 sw.bb58:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i234)
   %index_.i235 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %101 = load i64, ptr %index_.i235, align 8, !noalias !122
-  %call.i = tail call noundef ptr @_ZNK5arrow20FixedSizeBinaryArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(44) %array, i64 noundef %101), !noalias !122
+  %100 = load i64, ptr %index_.i235, align 8, !noalias !122
+  %call.i = tail call noundef ptr @_ZNK5arrow20FixedSizeBinaryArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(44) %array, i64 noundef %100), !noalias !122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i234, ptr noundef nonnull align 1 dereferenceable(16) %call.i, i64 16, i1 false), !noalias !122
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishINS_10Decimal128EEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i234)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i234)
@@ -7243,8 +7240,8 @@ sw.bb58:                                          ; preds = %entry
 sw.bb60:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i236)
   %index_.i237 = getelementptr inbounds i8, ptr %visitor, i64 8
-  %102 = load i64, ptr %index_.i237, align 8, !noalias !125
-  %call.i238 = tail call noundef ptr @_ZNK5arrow20FixedSizeBinaryArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(44) %array, i64 noundef %102), !noalias !125
+  %101 = load i64, ptr %index_.i237, align 8, !noalias !125
+  %call.i238 = tail call noundef ptr @_ZNK5arrow20FixedSizeBinaryArray8GetValueEl(ptr noundef nonnull align 8 dereferenceable(44) %array, i64 noundef %101), !noalias !125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i236, ptr noundef nonnull align 1 dereferenceable(32) %call.i238, i64 32, i1 false), !noalias !125
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishINS_10Decimal256EEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %visitor, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i236)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i236)

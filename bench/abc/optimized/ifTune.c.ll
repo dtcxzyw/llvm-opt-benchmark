@@ -3438,12 +3438,11 @@ Abc_TtMinBase.exit.thread:                        ; preds = %._crit_edge115, %._
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %183
   %185 = load i32, ptr %184, align 4
-  %186 = shl nuw i64 1, %181
-  %187 = and i64 %186, %26
-  %188 = icmp ne i64 %187, 0
-  %189 = zext i1 %188 to i32
-  %190 = xor i32 %185, %189
-  ret i32 %190
+  %186 = lshr i64 %26, %181
+  %187 = trunc i64 %186 to i32
+  %188 = and i32 %187, 1
+  %189 = xor i32 %185, %188
+  ret i32 %189
 }
 
 declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7

@@ -2454,22 +2454,22 @@ if.then28:                                        ; preds = %entry.if.then28_cri
   %21 = load i64, ptr %arrayidx.i.i.i, align 8
   %sh_prom.i.i.i = zext nneg i32 %20 to i64
   %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
-  %and2.i.i.i = and i64 %shl.i.i.i, %21
-  %cmp.i.i.i = icmp ne i64 %and2.i.i.i, 0
-  %frombool.i.i = zext i1 %cmp.i.i.i to i8
-  %22 = load i8, ptr %op, align 1
-  %23 = and i8 %22, 1
-  %cmp.i.i.i.i = icmp ult i8 %23, %frombool.i.i
-  %24 = select i1 %cmp.i.i.i.i, i8 %22, i8 %frombool.i.i
-  %tobool.i.i = trunc i8 %24 to i1
+  %22 = lshr i64 %21, %sh_prom.i.i.i
+  %23 = trunc i64 %22 to i8
+  %frombool.i.i = and i8 %23, 1
+  %24 = load i8, ptr %op, align 1
+  %25 = and i8 %24, 1
+  %cmp.i.i.i.i = icmp ult i8 %25, %frombool.i.i
+  %26 = select i1 %cmp.i.i.i.i, i8 %24, i8 %23
+  %tobool.i.i = trunc i8 %26 to i1
   %not.i.i.i.i = xor i64 %shl.i.i.i, -1
   %and2.i.i.i.i = and i64 %21, %not.i.i.i.i
   %or.i.i.i.i = or i64 %shl.i.i.i, %21
   %storemerge.i.i = select i1 %tobool.i.i, i64 %or.i.i.i.i, i64 %and2.i.i.i.i
   store i64 %storemerge.i.i, ptr %arrayidx.i.i.i, align 8
   %arrayidx.i8.i.i = getelementptr inbounds [8 x i64], ptr %19, i64 0, i64 %idxprom.i.i.i
-  %25 = load i64, ptr %arrayidx.i8.i.i, align 8
-  %or.i.i.i = or i64 %25, %shl.i.i.i
+  %27 = load i64, ptr %arrayidx.i8.i.i, align 8
+  %or.i.i.i = or i64 %27, %shl.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i8.i.i, align 8
   br label %if.end33
 
@@ -22304,22 +22304,22 @@ if.then27:                                        ; preds = %entry.if.then27_cri
   %21 = load i64, ptr %arrayidx.i.i.i, align 8
   %sh_prom.i.i.i = zext nneg i32 %20 to i64
   %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
-  %and2.i.i.i = and i64 %shl.i.i.i, %21
-  %cmp.i.i.i = icmp ne i64 %and2.i.i.i, 0
-  %frombool.i.i = zext i1 %cmp.i.i.i to i8
-  %22 = load i8, ptr %op, align 1
-  %23 = and i8 %22, 1
-  %cmp.i.i.i.i = icmp ugt i8 %23, %frombool.i.i
-  %24 = select i1 %cmp.i.i.i.i, i8 %22, i8 %frombool.i.i
-  %tobool.i.i = trunc i8 %24 to i1
+  %22 = lshr i64 %21, %sh_prom.i.i.i
+  %23 = trunc i64 %22 to i8
+  %frombool.i.i = and i8 %23, 1
+  %24 = load i8, ptr %op, align 1
+  %25 = and i8 %24, 1
+  %cmp.i.i.i.i = icmp ult i8 %frombool.i.i, %25
+  %26 = select i1 %cmp.i.i.i.i, i8 %24, i8 %23
+  %tobool.i.i = trunc i8 %26 to i1
   %not.i.i.i.i = xor i64 %shl.i.i.i, -1
   %and2.i.i.i.i = and i64 %21, %not.i.i.i.i
   %or.i.i.i.i = or i64 %shl.i.i.i, %21
   %storemerge.i.i = select i1 %tobool.i.i, i64 %or.i.i.i.i, i64 %and2.i.i.i.i
   store i64 %storemerge.i.i, ptr %arrayidx.i.i.i, align 8
   %arrayidx.i8.i.i = getelementptr inbounds [8 x i64], ptr %19, i64 0, i64 %idxprom.i.i.i
-  %25 = load i64, ptr %arrayidx.i8.i.i, align 8
-  %or.i.i.i = or i64 %25, %shl.i.i.i
+  %27 = load i64, ptr %arrayidx.i8.i.i, align 8
+  %or.i.i.i = or i64 %27, %shl.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i8.i.i, align 8
   br label %if.end32
 

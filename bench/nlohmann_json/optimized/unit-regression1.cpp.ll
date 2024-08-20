@@ -142250,15 +142250,15 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %__begin3.sroa.0.036 = phi ptr [ %4, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKbbTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit.lr.ph ], [ %spec.select, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ]
   %sh_prom.i = zext nneg i32 %__begin3.sroa.5.037 to i64
   %5 = load i64, ptr %__begin3.sroa.0.036, align 8
-  %6 = load ptr, ptr %m_value, align 8
+  %6 = lshr i64 %5, %sh_prom.i
+  %frombool = and i64 %6, 1
+  %7 = load ptr, ptr %m_value, align 8
   store i64 0, ptr %ref.tmp14, align 8
   store i8 4, ptr %ref.tmp14, align 8
-  %7 = lshr i64 %5, %sh_prom.i
-  %ref.tmp.sroa.0.0.insert.ext.i.i.i.i.i = and i64 %7, 1
-  store i64 %ref.tmp.sroa.0.0.insert.ext.i.i.i.i.i, ptr %m_value.i.i, align 8
-  %_M_finish.i.i18 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %frombool, ptr %m_value.i.i, align 8
+  %_M_finish.i.i18 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %_M_finish.i.i18, align 8
-  %_M_end_of_storage.i.i19 = getelementptr inbounds i8, ptr %6, i64 16
+  %_M_end_of_storage.i.i19 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %_M_end_of_storage.i.i19, align 8
   %cmp.not.i.i = icmp eq ptr %8, %9
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i20
@@ -142273,7 +142273,7 @@ if.then.i.i20:                                    ; preds = %_ZN8nlohmann16json_
   br label %invoke.cont
 
 if.else.i.i:                                      ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKbbTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit
-  invoke void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
+  invoke void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
           to label %if.else.i.i.invoke.cont_crit_edge unwind label %lpad
 
 if.else.i.i.invoke.cont_crit_edge:                ; preds = %if.else.i.i

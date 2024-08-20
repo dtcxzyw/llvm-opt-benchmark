@@ -2382,8 +2382,8 @@ if.then45:                                        ; preds = %if.end24
 
 land.lhs.true:                                    ; preds = %if.then45
   %8 = and i32 %significand.0, 1
-  %tobool51.not136 = icmp eq i32 %8, 0
-  %tobool51.not = select i1 %cmp.i, i1 true, i1 %tobool51.not136
+  %tobool51.not135 = icmp eq i32 %8, 0
+  %tobool51.not = select i1 %cmp.i, i1 true, i1 %tobool51.not135
   br i1 %tobool51.not, label %while.cond.i142.preheader, label %if.then52
 
 if.then52:                                        ; preds = %land.lhs.true
@@ -2400,19 +2400,18 @@ if.else58:                                        ; preds = %if.else55
   %mul.i.i = mul i64 %6, %conv.i.i110
   %sub.i111 = sub nsw i32 64, %add33
   %sh_prom.i112 = zext nneg i32 %sub.i111 to i64
-  %9 = shl nuw i64 1, %sh_prom.i112
-  %10 = and i64 %9, %mul.i.i
-  %cmp5.i = icmp ne i64 %10, 0
+  %9 = lshr i64 %mul.i.i, %sh_prom.i112
+  %10 = trunc i64 %9 to i32
+  %frombool6.i = and i32 %10, 1
   %sub7.i = sub nsw i32 32, %add33
   %sh_prom8.i = zext nneg i32 %sub7.i to i64
   %11 = shl i64 4294967295, %sh_prom8.i
   %12 = and i64 %11, %mul.i.i
   %cmp10.i = icmp eq i64 %12, 0
-  %conv62 = zext i1 %cmp5.i to i32
   %conv67 = and i32 %significand.0, 1
   %13 = xor i32 %conv67, 1
   %and68 = select i1 %cmp10.i, i32 %13, i32 0
-  %or69 = or i32 %and68, %conv62
+  %or69 = or i32 %and68, %frombool6.i
   %tobool70.not = icmp eq i32 %or69, 0
   br i1 %tobool70.not, label %small_divisor_case_label, label %while.cond.i142.preheader
 
@@ -2458,12 +2457,12 @@ if.end97:                                         ; preds = %small_divisor_case_
   %mul.i.i120 = mul i64 %6, %conv.i.i119
   %sub.i121 = sub nsw i32 64, %add33
   %sh_prom.i122 = zext nneg i32 %sub.i121 to i64
-  %15 = shl nuw i64 1, %sh_prom.i122
-  %16 = and i64 %15, %mul.i.i120
-  %cmp5.i123 = icmp ne i64 %16, 0
-  %17 = trunc i32 %sub86 to i1
-  %18 = xor i1 %cmp5.i123, %17
-  br i1 %18, label %if.then105, label %if.else108
+  %15 = lshr i64 %mul.i.i120, %sh_prom.i122
+  %16 = trunc i64 %15 to i32
+  %17 = xor i32 %sub86, %16
+  %18 = and i32 %17, 1
+  %cmp104.not = icmp eq i32 %18, 0
+  br i1 %cmp104.not, label %if.else108, label %if.then105
 
 if.then105:                                       ; preds = %if.end97
   %dec107 = add nsw i32 %add94, -1
@@ -2476,8 +2475,8 @@ if.else108:                                       ; preds = %if.end97
   %20 = and i64 %19, %mul.i.i120
   %cmp10.i126 = icmp eq i64 %20, 0
   %21 = and i32 %mul.i117, 65536
-  %tobool117.not137 = icmp ne i32 %21, 0
-  %tobool117.not.not = and i1 %cmp10.i126, %tobool117.not137
+  %tobool117.not136 = icmp ne i32 %21, 0
+  %tobool117.not.not = and i1 %cmp10.i126, %tobool117.not136
   %dec120 = sext i1 %tobool117.not.not to i32
   %spec.select79 = add nsw i32 %add94, %dec120
   br label %return
@@ -2517,12 +2516,12 @@ if.then11:                                        ; preds = %if.then
   %shr.i113 = ashr i32 %mul.i112, 19
   %add.i = add nsw i32 %shr.i113, %sub
   %2 = trunc nsw i32 %shr.i111 to i16
-  %div.i114273.lhs.trunc = sub nsw i16 292, %2
-  %div.i114273274 = udiv i16 %div.i114273.lhs.trunc, 27
-  %div.i114273.zext = zext nneg i16 %div.i114273274 to i32
-  %mul.i115 = mul nuw nsw i32 %div.i114273.zext, 27
+  %div.i114272.lhs.trunc = sub nsw i16 292, %2
+  %div.i114272273 = udiv i16 %div.i114272.lhs.trunc, 27
+  %div.i114272.zext = zext nneg i16 %div.i114272273 to i32
+  %mul.i115 = mul nuw nsw i32 %div.i114272.zext, 27
   %add.i116 = add nsw i32 %mul.i115, -292
-  %idxprom.i = zext nneg i16 %div.i114273274 to i64
+  %idxprom.i = zext nneg i16 %div.i114272273 to i64
   %arrayidx.i = getelementptr inbounds [23 x %"class.fmt::v9::detail::uint128_fallback"], ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 0, i64 %idxprom.i
   %base_cache.sroa.3.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %base_cache.sroa.3.0.copyload.i = load i64, ptr %base_cache.sroa.3.0.arrayidx.sroa_idx.i, align 8
@@ -2589,12 +2588,12 @@ if.then8.i:                                       ; preds = %_ZN3fmt2v96detail9d
   %11 = and i128 %mul.i127, 1237940020838636201189572608
   %cmp2.i = icmp eq i128 %11, 0
   %cmp4.i = icmp ult i64 %conv3.i, -6067343680855748867
-  %or.cond275 = and i1 %cmp4.i, %cmp2.i
-  br i1 %or.cond275, label %if.then.i135, label %while.cond23.i
+  %or.cond274 = and i1 %cmp4.i, %cmp2.i
+  br i1 %or.cond274, label %if.then.i135, label %while.cond23.i
 
 if.then.i135:                                     ; preds = %if.then8.i
-  %shr.i277 = lshr i128 %mul.i127, 90
-  %conv.i = trunc i128 %shr.i277 to i32
+  %shr.i276 = lshr i128 %mul.i127, 90
+  %conv.i = trunc i128 %shr.i276 to i32
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then.i135
@@ -2674,12 +2673,12 @@ if.end25:                                         ; preds = %if.else, %if.end
   %shr.i145 = ashr i32 %mul.i144, 20
   %sub30 = sub nsw i32 2, %shr.i145
   %12 = trunc nsw i32 %shr.i145 to i16
-  %div.i146271.lhs.trunc = sub nsw i16 294, %12
-  %div.i146271272 = udiv i16 %div.i146271.lhs.trunc, 27
-  %div.i146271.zext = zext nneg i16 %div.i146271272 to i32
-  %mul.i147 = mul nuw nsw i32 %div.i146271.zext, 27
+  %div.i146270.lhs.trunc = sub nsw i16 294, %12
+  %div.i146270271 = udiv i16 %div.i146270.lhs.trunc, 27
+  %div.i146270.zext = zext nneg i16 %div.i146270271 to i32
+  %mul.i147 = mul nuw nsw i32 %div.i146270.zext, 27
   %add.i148 = add nsw i32 %mul.i147, -292
-  %idxprom.i149 = zext nneg i16 %div.i146271272 to i64
+  %idxprom.i149 = zext nneg i16 %div.i146270271 to i64
   %arrayidx.i150 = getelementptr inbounds [23 x %"class.fmt::v9::detail::uint128_fallback"], ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 0, i64 %idxprom.i149
   %base_cache.sroa.0.0.copyload.i151 = load i64, ptr %arrayidx.i150, align 16
   %base_cache.sroa.3.0.arrayidx.sroa_idx.i152 = getelementptr inbounds i8, ptr %arrayidx.i150, i64 8
@@ -2689,7 +2688,7 @@ if.end25:                                         ; preds = %if.else, %if.end
 
 if.end25._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190_crit_edge: ; preds = %if.end25
   %.pre = mul nsw i32 %sub30, 1741647
-  %.pre284 = ashr i32 %.pre, 19
+  %.pre283 = ashr i32 %.pre, 19
   br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190
 
 if.end.i155:                                      ; preds = %if.end25
@@ -2732,7 +2731,7 @@ if.end.i155:                                      ; preds = %if.end25
   br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190
 
 _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190: ; preds = %if.end25._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190_crit_edge, %if.end.i155
-  %shr.i193.pre-phi = phi i32 [ %.pre284, %if.end25._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190_crit_edge ], [ %shr.i.i158, %if.end.i155 ]
+  %shr.i193.pre-phi = phi i32 [ %.pre283, %if.end25._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190_crit_edge ], [ %shr.i.i158, %if.end.i155 ]
   %retval.sroa.0.0.i186 = phi i64 [ %base_cache.sroa.0.0.copyload.i151, %if.end25._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190_crit_edge ], [ %add44.i185, %if.end.i155 ]
   %retval.sroa.3.0.i187 = phi i64 [ %base_cache.sroa.3.0.copyload.i153, %if.end25._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit190_crit_edge ], [ %or.i182, %if.end.i155 ]
   %add34 = add nsw i32 %shr.i193.pre-phi, %exponent.0
@@ -2776,8 +2775,8 @@ if.then48:                                        ; preds = %_ZN3fmt2v96detail9d
 
 land.lhs.true:                                    ; preds = %if.then48
   %23 = and i64 %significand.0, 1
-  %tobool55.not278 = icmp eq i64 %23, 0
-  %tobool55.not = select i1 %cmp.i, i1 true, i1 %tobool55.not278
+  %tobool55.not277 = icmp eq i64 %23, 0
+  %tobool55.not = select i1 %cmp.i, i1 true, i1 %tobool55.not277
   br i1 %tobool55.not, label %if.end78, label %if.then56
 
 if.then56:                                        ; preds = %land.lhs.true
@@ -2799,19 +2798,18 @@ if.else62:                                        ; preds = %if.else59
   %add.i.i214 = add i64 %mul.i.i207, %conv2.i.i.i212
   %sub.i215 = sub nsw i32 64, %add34
   %sh_prom.i216 = zext i32 %sub.i215 to i64
-  %24 = shl nuw i64 1, %sh_prom.i216
-  %25 = and i64 %add.i.i214, %24
-  %cmp6.i = icmp ne i64 %25, 0
+  %24 = lshr i64 %add.i.i214, %sh_prom.i216
+  %25 = trunc i64 %24 to i32
+  %frombool7.i = and i32 %25, 1
   %shl.i217 = shl i64 %add.i.i214, %sh_prom38
   %shr13.i = lshr i64 %conv3.i.i.i213, %sh_prom.i216
   %or.i218 = or i64 %shl.i217, %shr13.i
   %cmp14.i = icmp eq i64 %or.i218, 0
-  %conv66 = zext i1 %cmp6.i to i32
   %26 = trunc i64 %significand.0 to i32
   %conv71 = and i32 %26, 1
   %27 = xor i32 %conv71, 1
   %and72 = select i1 %cmp14.i, i32 %27, i32 0
-  %or73 = or i32 %and72, %conv66
+  %or73 = or i32 %and72, %frombool7.i
   %tobool74.not = icmp eq i32 %or73, 0
   br i1 %tobool74.not, label %small_divisor_case_label, label %if.end78
 
@@ -2822,12 +2820,12 @@ if.end78:                                         ; preds = %if.else62, %if.then
   %28 = and i128 %mul.i220, 1237940020838636201189572608
   %cmp2.i166 = icmp eq i128 %28, 0
   %cmp4.i189 = icmp ult i64 %conv3.i223, -6067343680855748867
-  %or.cond276 = and i1 %cmp4.i189, %cmp2.i166
-  br i1 %or.cond276, label %if.then.i190, label %while.cond23.i168
+  %or.cond275 = and i1 %cmp4.i189, %cmp2.i166
+  br i1 %or.cond275, label %if.then.i190, label %while.cond23.i168
 
 if.then.i190:                                     ; preds = %if.end78
-  %shr.i192280 = lshr i128 %mul.i220, 90
-  %conv.i193 = trunc nuw nsw i128 %shr.i192280 to i32
+  %shr.i192279 = lshr i128 %mul.i220, 90
+  %conv.i193 = trunc nuw nsw i128 %shr.i192279 to i32
   br label %while.cond.i194
 
 while.cond.i194:                                  ; preds = %while.cond.i194, %if.then.i190
@@ -2897,12 +2895,12 @@ if.end102:                                        ; preds = %small_divisor_case_
   %add.i.i249 = add i64 %mul.i.i242, %conv2.i.i.i247
   %sub.i250 = sub nsw i32 64, %add34
   %sh_prom.i251 = zext i32 %sub.i250 to i64
-  %30 = shl nuw i64 1, %sh_prom.i251
-  %31 = and i64 %add.i.i249, %30
-  %cmp6.i252 = icmp ne i64 %31, 0
-  %32 = trunc i32 %sub90 to i1
-  %33 = xor i1 %cmp6.i252, %32
-  br i1 %33, label %if.then110, label %if.else113
+  %30 = lshr i64 %add.i.i249, %sh_prom.i251
+  %31 = trunc i64 %30 to i32
+  %32 = xor i32 %sub90, %31
+  %33 = and i32 %32, 1
+  %cmp109.not = icmp eq i32 %33, 0
+  br i1 %cmp109.not, label %if.else113, label %if.then110
 
 if.then110:                                       ; preds = %if.end102
   %dec112 = add nsw i64 %add99, -1
@@ -2915,8 +2913,8 @@ if.else113:                                       ; preds = %if.end102
   %or.i256 = or i64 %shl.i254, %shr13.i255
   %cmp14.i257 = icmp eq i64 %or.i256, 0
   %34 = and i32 %mul.i236, 65536
-  %tobool122.not279 = icmp ne i32 %34, 0
-  %tobool122.not.not = and i1 %cmp14.i257, %tobool122.not279
+  %tobool122.not278 = icmp ne i32 %34, 0
+  %tobool122.not.not = and i1 %cmp14.i257, %tobool122.not278
   %dec125 = sext i1 %tobool122.not.not to i64
   %spec.select108 = add nsw i64 %add99, %dec125
   br label %return

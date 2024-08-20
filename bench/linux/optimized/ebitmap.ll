@@ -198,9 +198,9 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @ebitmap_and(ptr nocaptur
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   br label %23
 
-23:                                               ; preds = %86, %21
-  %24 = phi i32 [ %18, %21 ], [ %88, %86 ]
-  %25 = phi ptr [ %6, %21 ], [ %87, %86 ]
+23:                                               ; preds = %87, %21
+  %24 = phi i32 [ %18, %21 ], [ %89, %87 ]
+  %25 = phi ptr [ %6, %21 ], [ %88, %87 ]
   %26 = sext i32 %24 to i64
   %27 = load i32, ptr %22, align 8
   %28 = zext i32 %27 to i64
@@ -245,66 +245,66 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @ebitmap_and(ptr nocaptur
   %52 = zext nneg i32 %48 to i64
   %53 = shl nuw i64 1, %52
   %54 = and i64 %51, %53
-  %.not = icmp eq i64 %54, 0
-  br i1 %.not, label %.thread, label %55
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %.thread, label %56
 
-55:                                               ; preds = %45
-  %56 = tail call i32 @ebitmap_set_bit(ptr noundef %0, i64 noundef %26, i32 noundef 1), !range !15
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.loopexit, label %.thread
+56:                                               ; preds = %45
+  %57 = tail call i32 @ebitmap_set_bit(ptr noundef %0, i64 noundef %26, i32 noundef 1), !range !15
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %.preheader12, %33, %23, %55, %45
-  %58 = getelementptr inbounds i8, ptr %25, i64 8
-  %59 = getelementptr inbounds i8, ptr %25, i64 56
-  %60 = load i32, ptr %59, align 8
-  %61 = add i32 %24, 1
-  %62 = sub i32 %61, %60
-  %63 = zext i32 %62 to i64
-  %64 = tail call i64 @_find_next_bit(ptr noundef %58, i64 noundef 384, i64 noundef %63) #12
-  %65 = and i64 %64, 4294967168
-  %66 = icmp ult i64 %65, 384
-  br i1 %66, label %67, label %.preheader
+.thread:                                          ; preds = %.preheader12, %33, %23, %56, %45
+  %59 = getelementptr inbounds i8, ptr %25, i64 8
+  %60 = getelementptr inbounds i8, ptr %25, i64 56
+  %61 = load i32, ptr %60, align 8
+  %62 = add i32 %24, 1
+  %63 = sub i32 %62, %61
+  %64 = zext i32 %63 to i64
+  %65 = tail call i64 @_find_next_bit(ptr noundef %59, i64 noundef 384, i64 noundef %64) #12
+  %66 = and i64 %65, 4294967168
+  %67 = icmp ult i64 %66, 384
+  br i1 %67, label %68, label %.preheader
 
-67:                                               ; preds = %.thread
-  %68 = trunc i64 %64 to i32
-  %69 = load i32, ptr %59, align 8
-  %70 = add i32 %69, %68
-  br label %86
+68:                                               ; preds = %.thread
+  %69 = trunc i64 %65 to i32
+  %70 = load i32, ptr %60, align 8
+  %71 = add i32 %70, %69
+  br label %87
 
-.preheader:                                       ; preds = %.thread, %74
-  %71 = phi ptr [ %72, %74 ], [ %25, %.thread ]
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %84, label %74
+.preheader:                                       ; preds = %.thread, %75
+  %72 = phi ptr [ %73, %75 ], [ %25, %.thread ]
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %85, label %75
 
-74:                                               ; preds = %.preheader
-  %75 = getelementptr inbounds i8, ptr %72, i64 8
-  %76 = tail call i64 @_find_first_bit(ptr noundef %75, i64 noundef 384) #12
-  %77 = and i64 %76, 4294967168
-  %78 = icmp ult i64 %77, 384
-  br i1 %78, label %79, label %.preheader, !llvm.loop !16
+75:                                               ; preds = %.preheader
+  %76 = getelementptr inbounds i8, ptr %73, i64 8
+  %77 = tail call i64 @_find_first_bit(ptr noundef %76, i64 noundef 384) #12
+  %78 = and i64 %77, 4294967168
+  %79 = icmp ult i64 %78, 384
+  br i1 %79, label %80, label %.preheader, !llvm.loop !16
 
-79:                                               ; preds = %74
-  %80 = trunc i64 %76 to i32
-  %81 = getelementptr inbounds i8, ptr %72, i64 56
-  %82 = load i32, ptr %81, align 8
-  %83 = add i32 %82, %80
-  br label %86
+80:                                               ; preds = %75
+  %81 = trunc i64 %77 to i32
+  %82 = getelementptr inbounds i8, ptr %73, i64 56
+  %83 = load i32, ptr %82, align 8
+  %84 = add i32 %83, %81
+  br label %87
 
-84:                                               ; preds = %.preheader
-  %85 = load i32, ptr %19, align 8
-  br label %86
+85:                                               ; preds = %.preheader
+  %86 = load i32, ptr %19, align 8
+  br label %87
 
-86:                                               ; preds = %84, %79, %67
-  %87 = phi ptr [ %25, %67 ], [ null, %84 ], [ %72, %79 ]
-  %88 = phi i32 [ %70, %67 ], [ %85, %84 ], [ %83, %79 ]
-  %89 = load i32, ptr %19, align 8
-  %90 = icmp ult i32 %88, %89
-  br i1 %90, label %23, label %.loopexit, !llvm.loop !17
+87:                                               ; preds = %85, %80, %68
+  %88 = phi ptr [ %25, %68 ], [ null, %85 ], [ %73, %80 ]
+  %89 = phi i32 [ %71, %68 ], [ %86, %85 ], [ %84, %80 ]
+  %90 = load i32, ptr %19, align 8
+  %91 = icmp ult i32 %89, %90
+  br i1 %91, label %23, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %11, %86, %55, %3, %14
-  %91 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %86 ], [ %56, %55 ], [ 0, %11 ]
-  ret i32 %91
+.loopexit:                                        ; preds = %11, %87, %56, %3, %14
+  %92 = phi i32 [ 0, %14 ], [ 0, %3 ], [ 0, %87 ], [ %57, %56 ], [ 0, %11 ]
+  ret i32 %92
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -352,15 +352,14 @@ define dso_local range(i32 0, 2) i32 @ebitmap_get_bit(ptr nocapture noundef read
   %28 = getelementptr [6 x i64], ptr %27, i64 0, i64 %25
   %29 = load i64, ptr %28, align 8
   %30 = zext nneg i32 %26 to i64
-  %31 = shl nuw i64 1, %30
-  %32 = and i64 %29, %31
-  %33 = icmp ne i64 %32, 0
-  %34 = zext i1 %33 to i32
+  %31 = lshr i64 %29, %30
+  %32 = trunc i64 %31 to i32
+  %33 = and i32 %32, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.preheader, %23, %2
-  %35 = phi i32 [ %34, %23 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %10 ]
-  ret i32 %35
+  %34 = phi i32 [ %33, %23 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %10 ]
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

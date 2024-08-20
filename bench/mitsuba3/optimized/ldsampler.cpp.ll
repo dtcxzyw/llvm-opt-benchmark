@@ -349,7 +349,7 @@ define weak_odr noundef float @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6Matri
   br i1 %.not.i, label %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit, label %.lr.ph.i.preheader.us.i
 
 .lr.ph.i.preheader.us.i:                          ; preds = %2, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i
-  %.026.us.i = phi i32 [ %36, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i ], [ 0, %2 ]
+  %.026.us.i = phi i32 [ %37, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i ], [ 0, %2 ]
   %.02425.us.i = phi i32 [ %spec.select.us.i, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i ], [ %3, %2 ]
   %14 = shl nuw i32 1, %.026.us.i
   %15 = or i32 %14, %.02425.us.i
@@ -382,12 +382,12 @@ define weak_odr noundef float @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6Matri
   br i1 %exitcond.not.i.us.i, label %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !6
 
 _ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i: ; preds = %.lr.ph.i.us.i
-  %34 = and i32 %24, %14
-  %.not.us.i = icmp eq i32 %34, 0
-  %35 = select i1 %.not.us.i, i32 0, i32 %14
-  %spec.select.us.i = xor i32 %35, %.02425.us.i
-  %36 = add nuw i32 %.026.us.i, 1
-  %exitcond28.not.i = icmp eq i32 %36, %13
+  %34 = lshr i32 %24, %.026.us.i
+  %35 = trunc i32 %34 to i1
+  %36 = select i1 %35, i32 %14, i32 0
+  %spec.select.us.i = xor i32 %36, %.02425.us.i
+  %37 = add nuw i32 %.026.us.i, 1
+  %exitcond28.not.i = icmp eq i32 %37, %13
   br i1 %exitcond28.not.i, label %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit, label %.lr.ph.i.preheader.us.i, !llvm.loop !8
 
 _ZN7mitsuba7permuteIjEET_S1_jS1_i.exit:           ; preds = %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i, %2
@@ -395,39 +395,39 @@ _ZN7mitsuba7permuteIjEET_S1_jS1_i.exit:           ; preds = %_ZN7mitsuba13sample
   br label %.lr.ph.i4
 
 .lr.ph.i4:                                        ; preds = %.lr.ph.i4, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit
-  %.019.i = phi i32 [ %54, %.lr.ph.i4 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %.0918.i = phi i32 [ %37, %.lr.ph.i4 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %.01417.i = phi i32 [ %53, %.lr.ph.i4 ], [ 1220298987, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %.01516.i = phi i32 [ %45, %.lr.ph.i4 ], [ %5, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %37 = add i32 %.0918.i, -1640531527
-  %38 = shl i32 %.01417.i, 4
-  %39 = add i32 %38, -1556008596
-  %40 = add i32 %37, %.01417.i
-  %41 = lshr i32 %.01417.i, 5
-  %42 = add nuw nsw i32 %41, -939442524
-  %43 = xor i32 %39, %40
-  %44 = xor i32 %43, %42
-  %45 = add i32 %44, %.01516.i
-  %46 = shl i32 %45, 4
-  %47 = add i32 %46, -1383041155
-  %48 = add i32 %45, %37
-  %49 = xor i32 %47, %48
-  %50 = lshr i32 %45, 5
-  %51 = add nuw i32 %50, 2123724318
-  %52 = xor i32 %49, %51
-  %53 = add i32 %52, %.01417.i
-  %54 = add nuw nsw i32 %.019.i, 1
-  %exitcond.not.i = icmp eq i32 %54, 4
+  %.019.i = phi i32 [ %55, %.lr.ph.i4 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %.0918.i = phi i32 [ %38, %.lr.ph.i4 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %.01417.i = phi i32 [ %54, %.lr.ph.i4 ], [ 1220298987, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %.01516.i = phi i32 [ %46, %.lr.ph.i4 ], [ %5, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %38 = add i32 %.0918.i, -1640531527
+  %39 = shl i32 %.01417.i, 4
+  %40 = add i32 %39, -1556008596
+  %41 = add i32 %38, %.01417.i
+  %42 = lshr i32 %.01417.i, 5
+  %43 = add nuw nsw i32 %42, -939442524
+  %44 = xor i32 %40, %41
+  %45 = xor i32 %44, %43
+  %46 = add i32 %45, %.01516.i
+  %47 = shl i32 %46, 4
+  %48 = add i32 %47, -1383041155
+  %49 = add i32 %46, %38
+  %50 = xor i32 %48, %49
+  %51 = lshr i32 %46, 5
+  %52 = add nuw i32 %51, 2123724318
+  %53 = xor i32 %50, %52
+  %54 = add i32 %53, %.01417.i
+  %55 = add nuw nsw i32 %.019.i, 1
+  %exitcond.not.i = icmp eq i32 %55, 4
   br i1 %exitcond.not.i, label %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit, label %.lr.ph.i4, !llvm.loop !6
 
 _ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit: ; preds = %.lr.ph.i4
-  %55 = tail call i32 @llvm.bitreverse.i32(i32 %.024.lcssa.i)
-  %56 = xor i32 %45, %55
-  %57 = lshr i32 %56, 9
-  %58 = or disjoint i32 %57, 1065353216
-  %59 = bitcast i32 %58 to float
-  %60 = fadd contract float %59, -1.000000e+00
-  ret float %60
+  %56 = tail call i32 @llvm.bitreverse.i32(i32 %.024.lcssa.i)
+  %57 = xor i32 %46, %56
+  %58 = lshr i32 %57, 9
+  %59 = or disjoint i32 %58, 1065353216
+  %60 = bitcast i32 %59 to float
+  %61 = fadd contract float %60, -1.000000e+00
+  ret float %61
 }
 
 declare noundef i32 @_ZNK7mitsuba7SamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20current_sample_indexEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
@@ -450,7 +450,7 @@ define weak_odr <2 x float> @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixI
   br i1 %.not.i, label %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit, label %.lr.ph.i.preheader.us.i
 
 .lr.ph.i.preheader.us.i:                          ; preds = %2, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i
-  %.026.us.i = phi i32 [ %36, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i ], [ 0, %2 ]
+  %.026.us.i = phi i32 [ %37, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i ], [ 0, %2 ]
   %.02425.us.i = phi i32 [ %spec.select.us.i, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i ], [ %3, %2 ]
   %14 = shl nuw i32 1, %.026.us.i
   %15 = or i32 %14, %.02425.us.i
@@ -483,12 +483,12 @@ define weak_odr <2 x float> @_ZN7mitsuba21LowDiscrepancySamplerIfN5drjit6MatrixI
   br i1 %exitcond.not.i.us.i, label %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !6
 
 _ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i: ; preds = %.lr.ph.i.us.i
-  %34 = and i32 %24, %14
-  %.not.us.i = icmp eq i32 %34, 0
-  %35 = select i1 %.not.us.i, i32 0, i32 %14
-  %spec.select.us.i = xor i32 %35, %.02425.us.i
-  %36 = add nuw i32 %.026.us.i, 1
-  %exitcond28.not.i = icmp eq i32 %36, %13
+  %34 = lshr i32 %24, %.026.us.i
+  %35 = trunc i32 %34 to i1
+  %36 = select i1 %35, i32 %14, i32 0
+  %spec.select.us.i = xor i32 %36, %.02425.us.i
+  %37 = add nuw i32 %.026.us.i, 1
+  %exitcond28.not.i = icmp eq i32 %37, %13
   br i1 %exitcond28.not.i, label %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit, label %.lr.ph.i.preheader.us.i, !llvm.loop !8
 
 _ZN7mitsuba7permuteIjEET_S1_jS1_i.exit:           ; preds = %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit.loopexit.us.i, %2
@@ -496,29 +496,29 @@ _ZN7mitsuba7permuteIjEET_S1_jS1_i.exit:           ; preds = %_ZN7mitsuba13sample
   br label %.lr.ph.i6
 
 .lr.ph.i6:                                        ; preds = %.lr.ph.i6, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit
-  %.019.i = phi i32 [ %54, %.lr.ph.i6 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %.0918.i = phi i32 [ %37, %.lr.ph.i6 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %.01417.i = phi i32 [ %53, %.lr.ph.i6 ], [ -1732488789, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %.01516.i = phi i32 [ %45, %.lr.ph.i6 ], [ %5, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
-  %37 = add i32 %.0918.i, -1640531527
-  %38 = shl i32 %.01417.i, 4
-  %39 = add i32 %38, -1556008596
-  %40 = add i32 %37, %.01417.i
-  %41 = lshr i32 %.01417.i, 5
-  %42 = add nuw nsw i32 %41, -939442524
-  %43 = xor i32 %39, %40
-  %44 = xor i32 %43, %42
-  %45 = add i32 %44, %.01516.i
-  %46 = shl i32 %45, 4
-  %47 = add i32 %46, -1383041155
-  %48 = add i32 %45, %37
-  %49 = xor i32 %47, %48
-  %50 = lshr i32 %45, 5
-  %51 = add nuw i32 %50, 2123724318
-  %52 = xor i32 %49, %51
-  %53 = add i32 %52, %.01417.i
-  %54 = add nuw nsw i32 %.019.i, 1
-  %exitcond.not.i = icmp eq i32 %54, 4
+  %.019.i = phi i32 [ %55, %.lr.ph.i6 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %.0918.i = phi i32 [ %38, %.lr.ph.i6 ], [ 0, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %.01417.i = phi i32 [ %54, %.lr.ph.i6 ], [ -1732488789, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %.01516.i = phi i32 [ %46, %.lr.ph.i6 ], [ %5, %_ZN7mitsuba7permuteIjEET_S1_jS1_i.exit ]
+  %38 = add i32 %.0918.i, -1640531527
+  %39 = shl i32 %.01417.i, 4
+  %40 = add i32 %39, -1556008596
+  %41 = add i32 %38, %.01417.i
+  %42 = lshr i32 %.01417.i, 5
+  %43 = add nuw nsw i32 %42, -939442524
+  %44 = xor i32 %40, %41
+  %45 = xor i32 %44, %43
+  %46 = add i32 %45, %.01516.i
+  %47 = shl i32 %46, 4
+  %48 = add i32 %47, -1383041155
+  %49 = add i32 %46, %38
+  %50 = xor i32 %48, %49
+  %51 = lshr i32 %46, 5
+  %52 = add nuw i32 %51, 2123724318
+  %53 = xor i32 %50, %52
+  %54 = add i32 %53, %.01417.i
+  %55 = add nuw nsw i32 %.019.i, 1
+  %exitcond.not.i = icmp eq i32 %55, 4
   br i1 %exitcond.not.i, label %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit, label %.lr.ph.i6, !llvm.loop !6
 
 _ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit: ; preds = %.lr.ph.i6
@@ -526,30 +526,30 @@ _ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit: ; preds = %.lr.p
   br i1 %.not18.i, label %_ZN7mitsuba7sobol_2IjfEET0_T_S2_.exit, label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit, %.lr.ph.i7
-  %.021.i = phi i32 [ %57, %.lr.ph.i7 ], [ %.024.lcssa.i, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ]
-  %.01520.i = phi i32 [ %59, %.lr.ph.i7 ], [ -2147483648, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ]
-  %.01719.i = phi i32 [ %spec.select.i, %.lr.ph.i7 ], [ %53, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ]
-  %55 = trunc i32 %.021.i to i1
-  %56 = select i1 %55, i32 %.01520.i, i32 0
-  %spec.select.i = xor i32 %56, %.01719.i
-  %57 = lshr i32 %.021.i, 1
-  %58 = lshr i32 %.01520.i, 1
-  %59 = xor i32 %58, %.01520.i
+  %.021.i = phi i32 [ %58, %.lr.ph.i7 ], [ %.024.lcssa.i, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ]
+  %.01520.i = phi i32 [ %60, %.lr.ph.i7 ], [ -2147483648, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ]
+  %.01719.i = phi i32 [ %spec.select.i, %.lr.ph.i7 ], [ %54, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ]
+  %56 = trunc i32 %.021.i to i1
+  %57 = select i1 %56, i32 %.01520.i, i32 0
+  %spec.select.i = xor i32 %57, %.01719.i
+  %58 = lshr i32 %.021.i, 1
+  %59 = lshr i32 %.01520.i, 1
+  %60 = xor i32 %59, %.01520.i
   %.not.i8 = icmp ult i32 %.021.i, 2
   br i1 %.not.i8, label %_ZN7mitsuba7sobol_2IjfEET0_T_S2_.exit, label %.lr.ph.i7, !llvm.loop !9
 
 _ZN7mitsuba7sobol_2IjfEET0_T_S2_.exit:            ; preds = %.lr.ph.i7, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit
-  %.017.lcssa.i = phi i32 [ %53, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ], [ %spec.select.i, %.lr.ph.i7 ]
-  %60 = tail call i32 @llvm.bitreverse.i32(i32 %.024.lcssa.i)
-  %61 = xor i32 %45, %60
-  %62 = lshr i32 %61, 9
-  %63 = or disjoint i32 %62, 1065353216
-  %64 = bitcast i32 %63 to float
-  %65 = fadd contract float %64, -1.000000e+00
-  %66 = uitofp i32 %.017.lcssa.i to float
-  %67 = fmul contract float %66, 0x3DF0000000000000
-  %.sroa.010.0.vec.insert = insertelement <2 x float> poison, float %65, i64 0
-  %.sroa.010.4.vec.insert = insertelement <2 x float> %.sroa.010.0.vec.insert, float %67, i64 1
+  %.017.lcssa.i = phi i32 [ %54, %_ZN7mitsuba13sample_tea_32IjEENSt3__14pairIT_S3_EES3_S3_i.exit ], [ %spec.select.i, %.lr.ph.i7 ]
+  %61 = tail call i32 @llvm.bitreverse.i32(i32 %.024.lcssa.i)
+  %62 = xor i32 %46, %61
+  %63 = lshr i32 %62, 9
+  %64 = or disjoint i32 %63, 1065353216
+  %65 = bitcast i32 %64 to float
+  %66 = fadd contract float %65, -1.000000e+00
+  %67 = uitofp i32 %.017.lcssa.i to float
+  %68 = fmul contract float %67, 0x3DF0000000000000
+  %.sroa.010.0.vec.insert = insertelement <2 x float> poison, float %66, i64 0
+  %.sroa.010.4.vec.insert = insertelement <2 x float> %.sroa.010.0.vec.insert, float %68, i64 1
   ret <2 x float> %.sroa.010.4.vec.insert
 }
 

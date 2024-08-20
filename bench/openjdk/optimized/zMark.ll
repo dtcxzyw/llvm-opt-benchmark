@@ -4252,8 +4252,8 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
 62:                                               ; preds = %64, %54
   %.020.i.i.i = phi i64 [ %60, %54 ], [ %65, %64 ]
   %63 = or i64 %.020.i.i.i, %61
-  %.not27.i.not.i.i = icmp eq i64 %63, %.020.i.i.i
-  br i1 %.not27.i.not.i.i, label %_ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit, label %64
+  %.not.i.not.i.i = icmp eq i64 %63, %.020.i.i.i
+  br i1 %.not.i.not.i.i, label %_ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit, label %64
 
 64:                                               ; preds = %62
   %65 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %63, i64 %.020.i.i.i, ptr nonnull %58) #15, !srcloc !16
@@ -4261,52 +4261,52 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   br i1 %66, label %67, label %62, !llvm.loop !19
 
 67:                                               ; preds = %64
-  %68 = shl nuw nsw i64 1, %59
-  %69 = and i64 %.020.i.i.i, %68
-  %.not.i.i.i = icmp eq i64 %69, 0
-  %70 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %0, align 64
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  %74 = load i8, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %71, i64 104
-  %76 = zext i8 %74 to i64
-  %77 = getelementptr inbounds [2 x %class.ZMarkThreadLocalStacks], ptr %75, i64 0, i64 %76
-  %78 = getelementptr inbounds i8, ptr %0, i64 384
-  %79 = lshr i64 %1, 21
-  %80 = load volatile i64, ptr %78, align 64
-  %81 = and i64 %80, %79
-  %82 = getelementptr inbounds i8, ptr %0, i64 448
-  %83 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %82, i64 0, i64 %81
-  %84 = load i64, ptr @ZAddressOffsetMask, align 8
-  %85 = and i64 %84, %1
-  %86 = shl i64 %85, 5
-  %87 = select i1 %.not.i.i.i, i64 8, i64 0
-  %88 = or disjoint i64 %86, %87
-  %89 = or disjoint i64 %88, 4
-  %90 = getelementptr inbounds i8, ptr %0, i64 64
-  %91 = getelementptr inbounds i8, ptr %0, i64 2496
-  %92 = getelementptr inbounds i8, ptr %77, i64 8
-  %93 = getelementptr inbounds [16 x ptr], ptr %92, i64 0, i64 %81
-  %94 = load ptr, ptr %93, align 8
-  %.not.i = icmp eq ptr %94, null
-  br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %95
+  %68 = xor i64 %.020.i.i.i, -1
+  %69 = lshr i64 %68, %59
+  %70 = trunc i64 %69 to i1
+  %71 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %0, align 64
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = load i8, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %72, i64 104
+  %77 = zext i8 %75 to i64
+  %78 = getelementptr inbounds [2 x %class.ZMarkThreadLocalStacks], ptr %76, i64 0, i64 %77
+  %79 = getelementptr inbounds i8, ptr %0, i64 384
+  %80 = lshr i64 %1, 21
+  %81 = load volatile i64, ptr %79, align 64
+  %82 = and i64 %81, %80
+  %83 = getelementptr inbounds i8, ptr %0, i64 448
+  %84 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %83, i64 0, i64 %82
+  %85 = load i64, ptr @ZAddressOffsetMask, align 8
+  %86 = and i64 %85, %1
+  %87 = shl i64 %86, 5
+  %88 = select i1 %70, i64 8, i64 0
+  %89 = or disjoint i64 %87, %88
+  %90 = or disjoint i64 %89, 4
+  %91 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = getelementptr inbounds i8, ptr %0, i64 2496
+  %93 = getelementptr inbounds i8, ptr %78, i64 8
+  %94 = getelementptr inbounds [16 x ptr], ptr %93, i64 0, i64 %82
+  %95 = load ptr, ptr %94, align 8
+  %.not.i = icmp eq ptr %95, null
+  br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %96
 
-95:                                               ; preds = %67
-  %96 = load i64, ptr %94, align 8
-  %.not15.i = icmp eq i64 %96, 254
+96:                                               ; preds = %67
+  %97 = load i64, ptr %95, align 8
+  %.not15.i = icmp eq i64 %97, 254
   br i1 %.not15.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i
 
-_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %94, i64 16
-  %98 = add i64 %96, 1
-  store i64 %98, ptr %94, align 8
-  %99 = getelementptr inbounds [254 x %class.ZMarkStackEntry], ptr %97, i64 0, i64 %96
-  store i64 %89, ptr %99, align 8
+_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %96
+  %98 = getelementptr inbounds i8, ptr %95, i64 16
+  %99 = add i64 %97, 1
+  store i64 %99, ptr %95, align 8
+  %100 = getelementptr inbounds [254 x %class.ZMarkStackEntry], ptr %98, i64 0, i64 %97
+  store i64 %90, ptr %100, align 8
   br label %_ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit
 
-_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i: ; preds = %95, %67
-  %100 = tail call noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks9push_slowEP19ZMarkStackAllocatorP11ZMarkStripePP6ZStackI15ZMarkStackEntryLm254EEP14ZMarkTerminateS5_b(ptr noundef nonnull align 8 dereferenceable(136) %77, ptr noundef nonnull %90, ptr noundef nonnull %83, ptr noundef nonnull %93, ptr noundef nonnull %91, i64 %89, i1 noundef zeroext false) #15
+_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i: ; preds = %96, %67
+  %101 = tail call noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks9push_slowEP19ZMarkStackAllocatorP11ZMarkStripePP6ZStackI15ZMarkStackEntryLm254EEP14ZMarkTerminateS5_b(ptr noundef nonnull align 8 dereferenceable(136) %78, ptr noundef nonnull %91, ptr noundef nonnull %84, ptr noundef nonnull %94, ptr noundef nonnull %92, i64 %90, i1 noundef zeroext false) #15
   br label %_ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit
 
 _ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit:        ; preds = %62, %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i, %2
@@ -4766,7 +4766,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8ZLiveMap3setE13ZGenerationIdm
   %28 = getelementptr inbounds i64, ptr %26, i64 %27
   %29 = and i64 %2, 63
   %30 = load volatile i64, ptr %28, align 8
-  br i1 %3, label %31, label %38
+  br i1 %3, label %31, label %39
 
 31:                                               ; preds = %24
   %32 = shl nuw i64 1, %29
@@ -4776,40 +4776,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8ZLiveMap3setE13ZGenerationIdm
 33:                                               ; preds = %35, %31
   %.017.i.i.i = phi i64 [ %30, %31 ], [ %36, %35 ]
   %34 = or i64 %.017.i.i.i, %32
-  %.not.i.not.i.not.not.i.not = icmp ne i64 %34, %.017.i.i.i
-  br i1 %.not.i.not.i.not.not.i.not, label %35, label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit
+  %.not.i.not.i.not.i.not = icmp ne i64 %34, %.017.i.i.i
+  br i1 %.not.i.not.i.not.i.not, label %35, label %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i
 
 35:                                               ; preds = %33
   %36 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %34, i64 %.017.i.i.i, ptr nonnull %28) #15, !srcloc !16
   %37 = icmp eq i64 %36, %.017.i.i.i
-  br i1 %37, label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit, label %33, !llvm.loop !21
+  br i1 %37, label %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i, label %33, !llvm.loop !21
 
-38:                                               ; preds = %24
-  %39 = shl i64 3, %29
-  br label %40
-
-40:                                               ; preds = %42, %38
-  %.020.i.i = phi i64 [ %30, %38 ], [ %43, %42 ]
-  %41 = or i64 %.020.i.i, %39
-  %.not27.i.not.i = icmp eq i64 %41, %.020.i.i
-  br i1 %.not27.i.not.i, label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit, label %42
-
-42:                                               ; preds = %40
-  %43 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %41, i64 %.020.i.i, ptr nonnull %28) #15, !srcloc !16
-  %44 = icmp eq i64 %43, %.020.i.i
-  br i1 %44, label %45, label %40, !llvm.loop !19
-
-45:                                               ; preds = %42
-  %46 = shl nuw i64 1, %29
-  %47 = and i64 %.020.i.i, %46
-  %.not.i.i = icmp eq i64 %47, 0
-  %48 = zext i1 %.not.i.i to i8
+_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i: ; preds = %35, %33
+  %38 = zext i1 %.not.i.not.i.not.i.not to i8
   br label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit
 
-_ZN7ZBitMap16par_set_bit_pairEmbRb.exit:          ; preds = %40, %33, %35, %45
-  %storemerge.shrunk.i = phi i8 [ %48, %45 ], [ 0, %33 ], [ 1, %35 ], [ 0, %40 ]
-  %.0.i = phi i1 [ true, %45 ], [ %.not.i.not.i.not.not.i.not, %35 ], [ %.not.i.not.i.not.not.i.not, %33 ], [ false, %40 ]
-  store i8 %storemerge.shrunk.i, ptr %4, align 1
+39:                                               ; preds = %24
+  %40 = shl i64 3, %29
+  br label %41
+
+41:                                               ; preds = %43, %39
+  %.020.i.i = phi i64 [ %30, %39 ], [ %44, %43 ]
+  %42 = or i64 %.020.i.i, %40
+  %.not.i.not.i = icmp eq i64 %42, %.020.i.i
+  br i1 %.not.i.not.i, label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit, label %43
+
+43:                                               ; preds = %41
+  %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %42, i64 %.020.i.i, ptr nonnull %28) #15, !srcloc !16
+  %45 = icmp eq i64 %44, %.020.i.i
+  br i1 %45, label %46, label %41, !llvm.loop !19
+
+46:                                               ; preds = %43
+  %47 = xor i64 %.020.i.i, -1
+  %48 = lshr i64 %47, %29
+  %49 = trunc i64 %48 to i8
+  %50 = and i8 %49, 1
+  br label %_ZN7ZBitMap16par_set_bit_pairEmbRb.exit
+
+_ZN7ZBitMap16par_set_bit_pairEmbRb.exit:          ; preds = %41, %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i, %46
+  %storemerge.i = phi i8 [ %38, %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i ], [ %50, %46 ], [ 0, %41 ]
+  %.0.i = phi i1 [ %.not.i.not.i.not.i.not, %_ZN7ZBitMap28par_set_bit_pair_finalizableEmRb.exit.i ], [ true, %46 ], [ false, %41 ]
+  store i8 %storemerge.i, ptr %4, align 1
   ret i1 %.0.i
 }
 

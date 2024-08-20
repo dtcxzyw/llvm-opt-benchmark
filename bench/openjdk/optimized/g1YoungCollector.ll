@@ -2782,7 +2782,7 @@ _ZN23G1PrepareEvacuationTask23G1PrepareRegionsClosure20sample_card_set_sizeEP12G
   %54 = zext i1 %52 to i8
   %55 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %53, i64 %49, i32 2
   store i8 %54, ptr %55, align 1
-  br label %213
+  br label %212
 
 56:                                               ; preds = %_ZN23G1PrepareEvacuationTask23G1PrepareRegionsClosure20sample_card_set_sizeEP12G1HeapRegion.exit
   %57 = getelementptr inbounds i8, ptr %1, i64 48
@@ -2830,7 +2830,7 @@ _ZN23G1PrepareEvacuationTask23G1PrepareRegionsClosure20sample_card_set_sizeEP12G
 89:                                               ; preds = %69, %61
   %90 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_54ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %90, null
-  br i1 %.not, label %209, label %91
+  br i1 %.not, label %208, label %91
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %1, align 8
@@ -2943,57 +2943,56 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %113, %116, %123, %1
   %174 = getelementptr inbounds i64, ptr %172, i64 %173
   %175 = load i64, ptr %174, align 8
   %176 = and i64 %171, 63
-  %177 = shl nuw i64 1, %176
-  %178 = and i64 %177, %175
-  %179 = icmp ne i64 %178, 0
-  %180 = zext i1 %179 to i32
-  %181 = getelementptr inbounds i8, ptr %1, i64 128
-  %182 = load volatile i64, ptr %181, align 8
-  %183 = zext i32 %58 to i64
-  %184 = getelementptr inbounds i8, ptr %157, i64 1448
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %185, i64 %183, i32 1
-  %187 = load i8, ptr %186, align 1
-  %188 = icmp eq i8 %187, -3
-  %189 = zext i1 %188 to i32
-  %190 = load i8, ptr @UseCompressedClassPointers, align 1
-  %191 = trunc i8 %190 to i1
-  %192 = getelementptr inbounds i8, ptr %160, i64 8
-  br i1 %191, label %193, label %203
+  %177 = lshr i64 %175, %176
+  %178 = trunc i64 %177 to i32
+  %179 = and i32 %178, 1
+  %180 = getelementptr inbounds i8, ptr %1, i64 128
+  %181 = load volatile i64, ptr %180, align 8
+  %182 = zext i32 %58 to i64
+  %183 = getelementptr inbounds i8, ptr %157, i64 1448
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %184, i64 %182, i32 1
+  %186 = load i8, ptr %185, align 1
+  %187 = icmp eq i8 %186, -3
+  %188 = zext i1 %187 to i32
+  %189 = load i8, ptr @UseCompressedClassPointers, align 1
+  %190 = trunc i8 %189 to i1
+  %191 = getelementptr inbounds i8, ptr %160, i64 8
+  br i1 %190, label %192, label %202
 
-193:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
-  %194 = load i32, ptr %192, align 8
-  %195 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %196 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %197 = ptrtoint ptr %195 to i64
-  %198 = zext i32 %194 to i64
-  %199 = zext nneg i32 %196 to i64
-  %200 = shl i64 %198, %199
-  %201 = add i64 %200, %197
-  %202 = inttoptr i64 %201 to ptr
+192:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
+  %193 = load i32, ptr %191, align 8
+  %194 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %195 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %196 = ptrtoint ptr %194 to i64
+  %197 = zext i32 %193 to i64
+  %198 = zext nneg i32 %195 to i64
+  %199 = shl i64 %197, %198
+  %200 = add i64 %199, %196
+  %201 = inttoptr i64 %200 to ptr
   br label %_ZNK7oopDesc12is_typeArrayEv.exit
 
-203:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
-  %204 = load ptr, ptr %192, align 8
+202:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
+  %203 = load ptr, ptr %191, align 8
   br label %_ZNK7oopDesc12is_typeArrayEv.exit
 
-_ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %193, %203
-  %.0.i.i19 = phi ptr [ %202, %193 ], [ %204, %203 ]
-  %205 = getelementptr inbounds i8, ptr %.0.i.i19, i64 12
-  %206 = load i32, ptr %205, align 4
-  %207 = icmp eq i32 %206, 5
-  %208 = zext i1 %207 to i32
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_54ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.20, i32 noundef %58, i64 noundef %148, i64 noundef %150, i64 noundef %154, i64 noundef %156, i32 noundef %180, i64 noundef %182, i32 noundef %189, i32 noundef %208)
-  br label %209
+_ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %192, %202
+  %.0.i.i19 = phi ptr [ %201, %192 ], [ %203, %202 ]
+  %204 = getelementptr inbounds i8, ptr %.0.i.i19, i64 12
+  %205 = load i32, ptr %204, align 4
+  %206 = icmp eq i32 %205, 5
+  %207 = zext i1 %206 to i32
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_54ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.20, i32 noundef %58, i64 noundef %148, i64 noundef %150, i64 noundef %154, i64 noundef %156, i32 noundef %179, i64 noundef %181, i32 noundef %188, i32 noundef %207)
+  br label %208
 
-209:                                              ; preds = %89, %_ZNK7oopDesc12is_typeArrayEv.exit
-  %210 = getelementptr inbounds i8, ptr %0, i64 32
-  %211 = load i32, ptr %210, align 8
-  %212 = add i32 %211, 1
-  store i32 %212, ptr %210, align 8
-  br label %213
+208:                                              ; preds = %89, %_ZNK7oopDesc12is_typeArrayEv.exit
+  %209 = getelementptr inbounds i8, ptr %0, i64 32
+  %210 = load i32, ptr %209, align 8
+  %211 = add i32 %210, 1
+  store i32 %211, ptr %209, align 8
+  br label %212
 
-213:                                              ; preds = %209, %34
+212:                                              ; preds = %208, %34
   ret i1 false
 }
 

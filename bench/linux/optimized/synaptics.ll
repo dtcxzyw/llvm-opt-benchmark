@@ -2555,7 +2555,7 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 65536
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %96
+  br i1 %69, label %70, label %94
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds i8, ptr %1, i64 17
@@ -2565,52 +2565,50 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   br label %75
 
 75:                                               ; preds = %75, %70
-  %76 = phi i64 [ 0, %70 ], [ %94, %75 ]
+  %76 = phi i64 [ 0, %70 ], [ %92, %75 ]
   %77 = load i8, ptr %71, align 1
   %78 = zext i8 %77 to i64
-  %79 = shl nuw i64 1, %76
-  %80 = and i64 %79, %78
-  %81 = icmp ne i64 %80, 0
-  %82 = zext i1 %81 to i32
-  %83 = trunc i64 %76 to i32
-  %84 = shl i32 %83, 1
-  %85 = add i32 %84, 256
-  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %85, i32 noundef %82) #11
-  %86 = load i8, ptr %71, align 1
-  %87 = zext i8 %86 to i64
-  %88 = add nuw nsw i64 %76, %72
-  %89 = shl nuw i64 1, %88
-  %90 = and i64 %89, %87
-  %91 = icmp ne i64 %90, 0
-  %92 = zext i1 %91 to i32
-  %93 = add i32 %84, 257
-  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %93, i32 noundef %92) #11
-  %94 = add nuw nsw i64 %76, 1
-  %95 = icmp eq i64 %94, %74
-  br i1 %95, label %.loopexit, label %75, !llvm.loop !22
+  %79 = lshr i64 %78, %76
+  %80 = trunc nuw nsw i64 %79 to i32
+  %81 = and i32 %80, 1
+  %82 = trunc i64 %76 to i32
+  %83 = shl i32 %82, 1
+  %84 = add i32 %83, 256
+  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %84, i32 noundef %81) #11
+  %85 = load i8, ptr %71, align 1
+  %86 = zext i8 %85 to i64
+  %87 = add nuw nsw i64 %76, %72
+  %88 = lshr i64 %86, %87
+  %89 = trunc nuw nsw i64 %88 to i32
+  %90 = and i32 %89, 1
+  %91 = add i32 %83, 257
+  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %91, i32 noundef %90) #11
+  %92 = add nuw nsw i64 %76, 1
+  %93 = icmp eq i64 %92, %74
+  br i1 %93, label %.loopexit, label %75, !llvm.loop !22
 
-96:                                               ; preds = %65
-  %97 = getelementptr inbounds i8, ptr %38, i64 72
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %.loopexit, label %100
+94:                                               ; preds = %65
+  %95 = getelementptr inbounds i8, ptr %38, i64 72
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %.loopexit, label %98
 
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %1, i64 17
-  %102 = load i8, ptr %101, align 1
-  %103 = and i8 %102, 1
-  %104 = lshr i8 %102, 1
-  %105 = and i8 %104, 2
-  %106 = or disjoint i8 %105, %103
-  %107 = shl i8 %102, 1
-  %108 = and i8 %107, 4
-  %109 = or disjoint i8 %106, %108
-  %110 = tail call i32 @serio_interrupt(ptr noundef nonnull %98, i8 noundef zeroext 1, i32 noundef 8) #11
-  %111 = load ptr, ptr %97, align 8
-  %112 = tail call i32 @serio_interrupt(ptr noundef %111, i8 noundef zeroext %109, i32 noundef 8) #11
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds i8, ptr %1, i64 17
+  %100 = load i8, ptr %99, align 1
+  %101 = and i8 %100, 1
+  %102 = lshr i8 %100, 1
+  %103 = and i8 %102, 2
+  %104 = or disjoint i8 %103, %101
+  %105 = shl i8 %100, 1
+  %106 = and i8 %105, 4
+  %107 = or disjoint i8 %104, %106
+  %108 = tail call i32 @serio_interrupt(ptr noundef nonnull %96, i8 noundef zeroext 1, i32 noundef 8) #11
+  %109 = load ptr, ptr %95, align 8
+  %110 = tail call i32 @serio_interrupt(ptr noundef %109, i8 noundef zeroext %107, i32 noundef 8) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %75, %100, %96, %57, %36
+.loopexit:                                        ; preds = %75, %98, %94, %57, %36
   ret void
 }
 

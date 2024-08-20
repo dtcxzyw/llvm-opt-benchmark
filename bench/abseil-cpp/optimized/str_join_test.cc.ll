@@ -7205,13 +7205,12 @@ for.body.i.i:                                     ; preds = %invoke.cont7.i.i, %
 
 invoke.cont5.i.i:                                 ; preds = %for.body.i.i
   %sh_prom.i.i.i = zext nneg i32 %it.sroa.5.015.i.i to i64
-  %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
   %3 = load i64, ptr %it.sroa.0.016.i.i, align 8, !noalias !412
-  %and.i.i.i.i = and i64 %3, %shl.i.i.i
-  %tobool.i.i.i.i = icmp ne i64 %and.i.i.i.i, 0
+  %4 = lshr i64 %3, %sh_prom.i.i.i
+  %5 = trunc i64 %4 to i32
+  %frombool.i.i = and i32 %5, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i), !noalias !412
-  %conv.i.i.i = zext i1 %tobool.i.i.i.i to i32
-  %call.i.i23.i.i = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %conv.i.i.i, ptr noundef nonnull %digits_.i.i.i.i)
+  %call.i.i23.i.i = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %frombool.i.i, ptr noundef nonnull %digits_.i.i.i.i)
           to label %call.i.i2.noexc.i.i unwind label %lpad.i.i
 
 call.i.i2.noexc.i.i:                              ; preds = %invoke.cont5.i.i
@@ -7235,10 +7234,10 @@ invoke.cont7.i.i:                                 ; preds = %call.i.i2.noexc.i.i
   br i1 %.not.i.i.i, label %for.body.i.i, label %_ZN4absl16strings_internal9JoinRangeISt19_Bit_const_iteratorEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S9_St17basic_string_viewIcS6_E.exit, !llvm.loop !417
 
 lpad.i.i:                                         ; preds = %call.i.i2.noexc.i.i, %invoke.cont5.i.i, %for.body.i.i
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %6
 
 _ZN4absl16strings_internal9JoinRangeISt19_Bit_const_iteratorEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S9_St17basic_string_viewIcS6_E.exit: ; preds = %invoke.cont7.i.i, %entry
   ret void

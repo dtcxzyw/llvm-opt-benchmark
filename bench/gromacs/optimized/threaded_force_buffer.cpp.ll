@@ -1898,12 +1898,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %119 = load i64, ptr %118, align 8
   %120 = and i32 %.03872, 63
   %121 = zext nneg i32 %120 to i64
-  %122 = shl nuw i64 1, %121
-  %123 = and i64 %119, %122
-  %.not64 = icmp ne i64 %123, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %124 = zext i1 %.not64 to i32
-  %spec.select = add nuw nsw i32 %.03673, %124
+  %122 = lshr i64 %119, %121
+  %123 = trunc i64 %122 to i32
+  %124 = and i32 %123, 1
+  %spec.select = add nuw nsw i32 %124, %.03673
   %125 = add nuw nsw i32 %.03872, 1
   %exitcond82.not = icmp eq i32 %125, %14
   br i1 %exitcond82.not, label %._crit_edge75, label %115, !llvm.loop !31
@@ -3908,12 +3907,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %119 = load i64, ptr %118, align 8
   %120 = and i32 %.03872, 63
   %121 = zext nneg i32 %120 to i64
-  %122 = shl nuw i64 1, %121
-  %123 = and i64 %119, %122
-  %.not64 = icmp ne i64 %123, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %124 = zext i1 %.not64 to i32
-  %spec.select = add nuw nsw i32 %.03673, %124
+  %122 = lshr i64 %119, %121
+  %123 = trunc i64 %122 to i32
+  %124 = and i32 %123, 1
+  %spec.select = add nuw nsw i32 %124, %.03673
   %125 = add nuw nsw i32 %.03872, 1
   %exitcond82.not = icmp eq i32 %125, %14
   br i1 %exitcond82.not, label %._crit_edge75, label %115, !llvm.loop !66

@@ -433,7 +433,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr nocapture noundef read
   %..i = select i1 %9, i32 -71, i32 0
   %.0.i = select i1 %8, i32 -69, i32 %..i
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %.preheader.preheader, label %61
+  br i1 %.not, label %.preheader.preheader, label %62
 
 .preheader.preheader:                             ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
@@ -477,7 +477,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr nocapture noundef read
 33:                                               ; preds = %23, %21
   %.1 = phi i32 [ %24, %23 ], [ %.035, %21 ]
   %.not45 = icmp eq i32 %.1, 0
-  br i1 %.not45, label %34, label %61
+  br i1 %.not45, label %34, label %62
 
 34:                                               ; preds = %33
   %35 = udiv i32 %2, 1000
@@ -500,7 +500,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr nocapture noundef read
 
 46:                                               ; preds = %43
   %47 = icmp slt i32 %44, 0
-  br i1 %47, label %61, label %48
+  br i1 %47, label %62, label %48
 
 48:                                               ; preds = %46
   %49 = sdiv i32 %7, 64
@@ -510,18 +510,18 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr nocapture noundef read
   %53 = srem i32 %7, 64
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw i64 1, %54
-  %56 = and i64 %52, %55
-  %.not46 = icmp ne i64 %56, 0
-  %spec.select = zext i1 %.not46 to i32
-  %57 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %50
-  %58 = load i64, ptr %57, align 8
-  %59 = and i64 %58, %55
-  %.not47 = icmp eq i64 %59, 0
-  %60 = or disjoint i32 %spec.select, 2
-  %.138 = select i1 %.not47, i32 %spec.select, i32 %60
-  br label %61
+  %56 = lshr i64 %52, %54
+  %57 = trunc i64 %56 to i32
+  %spec.select = and i32 %57, 1
+  %58 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %50
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %59, %55
+  %.not47 = icmp eq i64 %60, 0
+  %61 = or disjoint i32 %spec.select, 2
+  %.138 = select i1 %.not47, i32 %spec.select, i32 %61
+  br label %62
 
-61:                                               ; preds = %46, %33, %3, %48
+62:                                               ; preds = %46, %33, %3, %48
   %.0 = phi i32 [ %.138, %48 ], [ %.0.i, %3 ], [ -73, %33 ], [ -71, %46 ]
   ret i32 %.0
 }

@@ -3313,11 +3313,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %storemerge.idx.i.i.i.i.i.i33.i.i = select i1 %cmp.i.i.i.i.i.i32.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i31.i.i, i64 %storemerge.idx.i.i.i.i.i.i33.i.i
   %conv4.i.i.i.i.i.i35.i.i = and i64 %i.5, 63
-  %shl.i.i.i.i36.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i35.i.i
   %16 = load i64, ptr %storemerge.i.i.i.i.i.i34.i.i, align 8
-  %and.i.i.i.i.i37.i.i = and i64 %16, %shl.i.i.i.i36.i.i
-  %tobool.i.i.i.i.i38.i.i = icmp ne i64 %and.i.i.i.i.i37.i.i, 0
-  %conv24.i.i = zext i1 %tobool.i.i.i.i.i38.i.i to i8
+  %17 = lshr i64 %16, %conv4.i.i.i.i.i.i35.i.i
+  %18 = trunc i64 %17 to i8
+  %conv24.i.i = and i8 %18, 1
   %arrayidx25.i.i = getelementptr inbounds [8 x i8], ptr %out_results.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %conv24.i.i, ptr %arrayidx25.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3326,27 +3325,27 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   %dec1959.i.i = add nsw i64 %dec1959.in.i.i, -1
-  %17 = load i8, ptr %out_results.i.i, align 1
-  %18 = load i8, ptr %arrayidx28.i.i, align 1
-  %shl30.i.i = shl i8 %18, 1
-  %or31.i.i = or i8 %shl30.i.i, %17
-  %19 = load i8, ptr %arrayidx32.i.i, align 1
-  %shl34.i.i = shl i8 %19, 2
+  %19 = load i8, ptr %out_results.i.i, align 1
+  %20 = load i8, ptr %arrayidx28.i.i, align 1
+  %shl30.i.i = shl i8 %20, 1
+  %or31.i.i = or i8 %shl30.i.i, %19
+  %21 = load i8, ptr %arrayidx32.i.i, align 1
+  %shl34.i.i = shl i8 %21, 2
   %or35.i.i = or i8 %or31.i.i, %shl34.i.i
-  %20 = load i8, ptr %arrayidx36.i.i, align 1
-  %shl38.i.i = shl i8 %20, 3
+  %22 = load i8, ptr %arrayidx36.i.i, align 1
+  %shl38.i.i = shl i8 %22, 3
   %or39.i.i = or i8 %or35.i.i, %shl38.i.i
-  %21 = load i8, ptr %arrayidx40.i.i, align 1
-  %shl42.i.i = shl i8 %21, 4
+  %23 = load i8, ptr %arrayidx40.i.i, align 1
+  %shl42.i.i = shl i8 %23, 4
   %or43.i.i = or i8 %or39.i.i, %shl42.i.i
-  %22 = load i8, ptr %arrayidx44.i.i, align 1
-  %shl46.i.i = shl i8 %22, 5
+  %24 = load i8, ptr %arrayidx44.i.i, align 1
+  %shl46.i.i = shl i8 %24, 5
   %or47.i.i = or i8 %or43.i.i, %shl46.i.i
-  %23 = load i8, ptr %arrayidx48.i.i, align 1
-  %shl50.i.i = shl i8 %23, 6
+  %25 = load i8, ptr %arrayidx48.i.i, align 1
+  %shl50.i.i = shl i8 %25, 6
   %or51.i.i = or i8 %or47.i.i, %shl50.i.i
-  %24 = load i8, ptr %arrayidx52.i.i, align 1
-  %shl54.i.i = shl i8 %24, 7
+  %26 = load i8, ptr %arrayidx52.i.i, align 1
+  %shl54.i.i = shl i8 %26, 7
   %or55.i.i = or i8 %or51.i.i, %shl54.i.i
   %incdec.ptr57.i.i = getelementptr inbounds i8, ptr %cur.158.i.i, i64 1
   store i8 %or55.i.i, ptr %cur.158.i.i, align 1
@@ -3365,7 +3364,7 @@ while.cond61.preheader.i.i:                       ; preds = %while.end58.i.i
   br i1 %cmp6361.i.i, label %while.body64.i.i.preheader, label %while.end75.i.i
 
 while.body64.i.i.preheader:                       ; preds = %while.cond61.preheader.i.i
-  %25 = load ptr, ptr %values, align 8
+  %27 = load ptr, ptr %values, align 8
   br label %while.body64.i.i
 
 while.body64.i.i:                                 ; preds = %while.body64.i.i.preheader, %while.body64.i.i
@@ -3376,18 +3375,18 @@ while.body64.i.i:                                 ; preds = %while.body64.i.i.pr
   %dec62.i.i = add nsw i64 %remaining_bits.064.i.i, -1
   %inc.i39.i.i = add nsw i64 %i.3, 1
   %div.i.i.i.i.i.i40.i.i = sdiv i64 %i.3, 64
-  %add.ptr.i.i.i.i.i.i41.i.i = getelementptr inbounds i64, ptr %25, i64 %div.i.i.i.i.i.i40.i.i
-  %26 = and i64 %i.3, -9223372036854775745
-  %cmp.i.i.i.i.i.i42.i.i = icmp ugt i64 %26, -9223372036854775808
+  %add.ptr.i.i.i.i.i.i41.i.i = getelementptr inbounds i64, ptr %27, i64 %div.i.i.i.i.i.i40.i.i
+  %28 = and i64 %i.3, -9223372036854775745
+  %cmp.i.i.i.i.i.i42.i.i = icmp ugt i64 %28, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i43.i.i = select i1 %cmp.i.i.i.i.i.i42.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i41.i.i, i64 %storemerge.idx.i.i.i.i.i.i43.i.i
   %conv4.i.i.i.i.i.i45.i.i = and i64 %i.3, 63
   %shl.i.i.i.i46.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i45.i.i
-  %27 = load i64, ptr %storemerge.i.i.i.i.i.i44.i.i, align 8
-  %and.i.i.i.i.i47.i.i = and i64 %27, %shl.i.i.i.i46.i.i
+  %29 = load i64, ptr %storemerge.i.i.i.i.i.i44.i.i, align 8
+  %and.i.i.i.i.i47.i.i = and i64 %29, %shl.i.i.i.i46.i.i
   %tobool.i.i.i.i.i48.not.i.i = icmp eq i64 %and.i.i.i.i.i47.i.i, 0
-  %28 = select i1 %tobool.i.i.i.i.i48.not.i.i, i8 0, i8 %bit_mask.163.i.i
-  %conv71.i.i = or i8 %28, %current_byte.162.i.i
+  %30 = select i1 %tobool.i.i.i.i.i48.not.i.i, i8 0, i8 %bit_mask.163.i.i
+  %conv71.i.i = or i8 %30, %current_byte.162.i.i
   %conv67.i.i = shl i8 %bit_mask.163.i.i, 1
   %cmp63.i.i = icmp ugt i64 %remaining_bits.064.i.i, 1
   br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end75.i.i, !llvm.loop !117
@@ -3399,8 +3398,8 @@ while.end75.i.i:                                  ; preds = %while.body64.i.i, %
 
 "_ZN5arrow8internal20GenerateBitsUnrolledIZNS_14BooleanBuilder12AppendValuesERKSt6vectorIbSaIbEES7_E3$_0EEvPhllOT_.exit.i": ; preds = %while.end75.i.i, %while.end58.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_results.i.i)
-  %29 = load i64, ptr %bit_length_.i, align 8
-  %add.i45 = add nsw i64 %29, %add.i.i
+  %31 = load i64, ptr %bit_length_.i, align 8
+  %add.i45 = add nsw i64 %31, %add.i.i
   store i64 %add.i45, ptr %bit_length_.i, align 8
   br label %"_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendILb0EZNS_14BooleanBuilder12AppendValuesERKSt6vectorIbSaIbEES8_E3$_0EEvlOT0_.exit"
 
@@ -3554,11 +3553,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %storemerge.idx.i.i.i.i.i.i33.i.i = select i1 %cmp.i.i.i.i.i.i32.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i31.i.i, i64 %storemerge.idx.i.i.i.i.i.i33.i.i
   %conv4.i.i.i.i.i.i35.i.i = and i64 %i.5, 63
-  %shl.i.i.i.i36.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i35.i.i
   %16 = load i64, ptr %storemerge.i.i.i.i.i.i34.i.i, align 8
-  %and.i.i.i.i.i37.i.i = and i64 %16, %shl.i.i.i.i36.i.i
-  %tobool.i.i.i.i.i38.i.i = icmp ne i64 %and.i.i.i.i.i37.i.i, 0
-  %conv24.i.i = zext i1 %tobool.i.i.i.i.i38.i.i to i8
+  %17 = lshr i64 %16, %conv4.i.i.i.i.i.i35.i.i
+  %18 = trunc i64 %17 to i8
+  %conv24.i.i = and i8 %18, 1
   %arrayidx25.i.i = getelementptr inbounds [8 x i8], ptr %out_results.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %conv24.i.i, ptr %arrayidx25.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3567,27 +3565,27 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   %dec1959.i.i = add nsw i64 %dec1959.in.i.i, -1
-  %17 = load i8, ptr %out_results.i.i, align 1
-  %18 = load i8, ptr %arrayidx28.i.i, align 1
-  %shl30.i.i = shl i8 %18, 1
-  %or31.i.i = or i8 %shl30.i.i, %17
-  %19 = load i8, ptr %arrayidx32.i.i, align 1
-  %shl34.i.i = shl i8 %19, 2
+  %19 = load i8, ptr %out_results.i.i, align 1
+  %20 = load i8, ptr %arrayidx28.i.i, align 1
+  %shl30.i.i = shl i8 %20, 1
+  %or31.i.i = or i8 %shl30.i.i, %19
+  %21 = load i8, ptr %arrayidx32.i.i, align 1
+  %shl34.i.i = shl i8 %21, 2
   %or35.i.i = or i8 %or31.i.i, %shl34.i.i
-  %20 = load i8, ptr %arrayidx36.i.i, align 1
-  %shl38.i.i = shl i8 %20, 3
+  %22 = load i8, ptr %arrayidx36.i.i, align 1
+  %shl38.i.i = shl i8 %22, 3
   %or39.i.i = or i8 %or35.i.i, %shl38.i.i
-  %21 = load i8, ptr %arrayidx40.i.i, align 1
-  %shl42.i.i = shl i8 %21, 4
+  %23 = load i8, ptr %arrayidx40.i.i, align 1
+  %shl42.i.i = shl i8 %23, 4
   %or43.i.i = or i8 %or39.i.i, %shl42.i.i
-  %22 = load i8, ptr %arrayidx44.i.i, align 1
-  %shl46.i.i = shl i8 %22, 5
+  %24 = load i8, ptr %arrayidx44.i.i, align 1
+  %shl46.i.i = shl i8 %24, 5
   %or47.i.i = or i8 %or43.i.i, %shl46.i.i
-  %23 = load i8, ptr %arrayidx48.i.i, align 1
-  %shl50.i.i = shl i8 %23, 6
+  %25 = load i8, ptr %arrayidx48.i.i, align 1
+  %shl50.i.i = shl i8 %25, 6
   %or51.i.i = or i8 %or47.i.i, %shl50.i.i
-  %24 = load i8, ptr %arrayidx52.i.i, align 1
-  %shl54.i.i = shl i8 %24, 7
+  %26 = load i8, ptr %arrayidx52.i.i, align 1
+  %shl54.i.i = shl i8 %26, 7
   %or55.i.i = or i8 %or51.i.i, %shl54.i.i
   %incdec.ptr57.i.i = getelementptr inbounds i8, ptr %cur.158.i.i, i64 1
   store i8 %or55.i.i, ptr %cur.158.i.i, align 1
@@ -3606,7 +3604,7 @@ while.cond61.preheader.i.i:                       ; preds = %while.end58.i.i
   br i1 %cmp6361.i.i, label %while.body64.i.i.preheader, label %while.end75.i.i
 
 while.body64.i.i.preheader:                       ; preds = %while.cond61.preheader.i.i
-  %25 = load ptr, ptr %values, align 8
+  %27 = load ptr, ptr %values, align 8
   br label %while.body64.i.i
 
 while.body64.i.i:                                 ; preds = %while.body64.i.i.preheader, %while.body64.i.i
@@ -3617,18 +3615,18 @@ while.body64.i.i:                                 ; preds = %while.body64.i.i.pr
   %dec62.i.i = add nsw i64 %remaining_bits.064.i.i, -1
   %inc.i39.i.i = add nsw i64 %i.3, 1
   %div.i.i.i.i.i.i40.i.i = sdiv i64 %i.3, 64
-  %add.ptr.i.i.i.i.i.i41.i.i = getelementptr inbounds i64, ptr %25, i64 %div.i.i.i.i.i.i40.i.i
-  %26 = and i64 %i.3, -9223372036854775745
-  %cmp.i.i.i.i.i.i42.i.i = icmp ugt i64 %26, -9223372036854775808
+  %add.ptr.i.i.i.i.i.i41.i.i = getelementptr inbounds i64, ptr %27, i64 %div.i.i.i.i.i.i40.i.i
+  %28 = and i64 %i.3, -9223372036854775745
+  %cmp.i.i.i.i.i.i42.i.i = icmp ugt i64 %28, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i43.i.i = select i1 %cmp.i.i.i.i.i.i42.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i41.i.i, i64 %storemerge.idx.i.i.i.i.i.i43.i.i
   %conv4.i.i.i.i.i.i45.i.i = and i64 %i.3, 63
   %shl.i.i.i.i46.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i45.i.i
-  %27 = load i64, ptr %storemerge.i.i.i.i.i.i44.i.i, align 8
-  %and.i.i.i.i.i47.i.i = and i64 %27, %shl.i.i.i.i46.i.i
+  %29 = load i64, ptr %storemerge.i.i.i.i.i.i44.i.i, align 8
+  %and.i.i.i.i.i47.i.i = and i64 %29, %shl.i.i.i.i46.i.i
   %tobool.i.i.i.i.i48.not.i.i = icmp eq i64 %and.i.i.i.i.i47.i.i, 0
-  %28 = select i1 %tobool.i.i.i.i.i48.not.i.i, i8 0, i8 %bit_mask.163.i.i
-  %conv71.i.i = or i8 %28, %current_byte.162.i.i
+  %30 = select i1 %tobool.i.i.i.i.i48.not.i.i, i8 0, i8 %bit_mask.163.i.i
+  %conv71.i.i = or i8 %30, %current_byte.162.i.i
   %conv67.i.i = shl i8 %bit_mask.163.i.i, 1
   %cmp63.i.i = icmp ugt i64 %remaining_bits.064.i.i, 1
   br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end75.i.i, !llvm.loop !132
@@ -3640,8 +3638,8 @@ while.end75.i.i:                                  ; preds = %while.body64.i.i, %
 
 "_ZN5arrow8internal20GenerateBitsUnrolledIZNS_14BooleanBuilder12AppendValuesERKSt6vectorIbSaIbEEE3$_0EEvPhllOT_.exit.i": ; preds = %while.end75.i.i, %while.end58.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_results.i.i)
-  %29 = load i64, ptr %bit_length_.i, align 8
-  %add.i46 = add nsw i64 %29, %add.i.i
+  %31 = load i64, ptr %bit_length_.i, align 8
+  %add.i46 = add nsw i64 %31, %add.i.i
   store i64 %add.i46, ptr %bit_length_.i, align 8
   br label %"_ZN5arrow18TypedBufferBuilderIbvE12UnsafeAppendILb0EZNS_14BooleanBuilder12AppendValuesERKSt6vectorIbSaIbEEE3$_0EEvlOT0_.exit"
 

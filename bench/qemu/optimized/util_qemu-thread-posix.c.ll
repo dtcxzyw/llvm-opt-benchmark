@@ -1437,36 +1437,36 @@ declare void @__sched_cpufree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_thread_get_affinity(ptr nocapture noundef readonly %thread, ptr nocapture noundef %host_cpus, ptr nocapture noundef writeonly %nbits) local_unnamed_addr #1 {
 entry:
-  %call29 = tail call ptr @__sched_cpualloc(i64 noundef 1024) #20
-  %tobool.not30 = icmp eq ptr %call29, null
-  br i1 %tobool.not30, label %if.else, label %do.end
+  %call30 = tail call ptr @__sched_cpualloc(i64 noundef 1024) #20
+  %tobool.not31 = icmp eq ptr %call30, null
+  br i1 %tobool.not31, label %if.else, label %do.end
 
 if.else:                                          ; preds = %if.end6, %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 632, ptr noundef nonnull @__func__.qemu_thread_get_affinity, ptr noundef nonnull @.str.4) #22
   unreachable
 
 do.end:                                           ; preds = %entry, %if.end6
-  %call32 = phi ptr [ %call, %if.end6 ], [ %call29, %entry ]
-  %tmpbits.031 = phi i64 [ %mul7, %if.end6 ], [ 1024, %entry ]
-  %sub = lshr exact i64 %tmpbits.031, 3
+  %call33 = phi ptr [ %call, %if.end6 ], [ %call30, %entry ]
+  %tmpbits.032 = phi i64 [ %mul7, %if.end6 ], [ 1024, %entry ]
+  %sub = lshr exact i64 %tmpbits.032, 3
   %0 = load i64, ptr %thread, align 8
-  %call2 = tail call i32 @pthread_getaffinity_np(i64 noundef %0, i64 noundef %sub, ptr noundef nonnull %call32) #20
+  %call2 = tail call i32 @pthread_getaffinity_np(i64 noundef %0, i64 noundef %sub, ptr noundef nonnull %call33) #20
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %while.end, label %if.then4
 
 if.then4:                                         ; preds = %do.end
-  tail call void @__sched_cpufree(ptr noundef nonnull %call32) #20
+  tail call void @__sched_cpufree(ptr noundef nonnull %call33) #20
   %cmp.not = icmp eq i32 %call2, -22
   br i1 %cmp.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then4
-  %mul7 = shl i64 %tmpbits.031, 1
+  %mul7 = shl i64 %tmpbits.032, 1
   %call = tail call ptr @__sched_cpualloc(i64 noundef %mul7) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.else, label %do.end
 
 while.end:                                        ; preds = %do.end
-  store i64 %tmpbits.031, ptr %nbits, align 8
+  store i64 %tmpbits.032, ptr %nbits, align 8
   %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %sub) #26
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %bitmap_new.exit
@@ -1477,41 +1477,41 @@ if.then.i:                                        ; preds = %while.end
 
 bitmap_new.exit:                                  ; preds = %while.end
   store ptr %call.i.i, ptr %host_cpus, align 8
-  %cmp1133.not = icmp eq i64 %tmpbits.031, 0
-  br i1 %cmp1133.not, label %for.end, label %for.body
+  %cmp1134.not = icmp eq i64 %tmpbits.032, 0
+  br i1 %cmp1134.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %bitmap_new.exit, %for.inc
-  %conv35 = phi i64 [ %conv, %for.inc ], [ 0, %bitmap_new.exit ]
-  %i.034 = phi i32 [ %inc, %for.inc ], [ 0, %bitmap_new.exit ]
-  %cmp15 = icmp ult i32 %i.034, 1024
+  %conv36 = phi i64 [ %conv, %for.inc ], [ 0, %bitmap_new.exit ]
+  %i.035 = phi i32 [ %inc, %for.inc ], [ 0, %bitmap_new.exit ]
+  %cmp15 = icmp ult i32 %i.035, 1024
   br i1 %cmp15, label %cond.end, label %for.inc
 
 cond.end:                                         ; preds = %for.body
-  %div1720 = lshr i64 %conv35, 6
-  %arrayidx = getelementptr i64, ptr %call32, i64 %div1720
+  %div1720 = lshr i64 %conv36, 6
+  %arrayidx = getelementptr i64, ptr %call33, i64 %div1720
   %1 = load i64, ptr %arrayidx, align 8
-  %rem = and i64 %conv35, 63
-  %shl = shl nuw i64 1, %rem
-  %and = and i64 %1, %shl
-  %cmp18.not = icmp eq i64 %and, 0
-  br i1 %cmp18.not, label %for.inc, label %if.then21
+  %rem = and i64 %conv36, 63
+  %2 = shl nuw i64 1, %rem
+  %3 = and i64 %1, %2
+  %tobool20.not = icmp eq i64 %3, 0
+  br i1 %tobool20.not, label %for.inc, label %if.then21
 
 if.then21:                                        ; preds = %cond.end
-  %2 = load ptr, ptr %host_cpus, align 8
-  %add.ptr.i = getelementptr i64, ptr %2, i64 %div1720
-  %3 = load i64, ptr %add.ptr.i, align 8
-  %or.i = or i64 %3, %shl
+  %4 = load ptr, ptr %host_cpus, align 8
+  %add.ptr.i = getelementptr i64, ptr %4, i64 %div1720
+  %5 = load i64, ptr %add.ptr.i, align 8
+  %or.i = or i64 %5, %2
   store i64 %or.i, ptr %add.ptr.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %cond.end, %if.then21
-  %inc = add i32 %i.034, 1
+  %inc = add i32 %i.035, 1
   %conv = sext i32 %inc to i64
-  %cmp11 = icmp ugt i64 %tmpbits.031, %conv
+  %cmp11 = icmp ugt i64 %tmpbits.032, %conv
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %bitmap_new.exit
-  tail call void @__sched_cpufree(ptr noundef nonnull %call32) #20
+  tail call void @__sched_cpufree(ptr noundef nonnull %call33) #20
   br label %return
 
 return:                                           ; preds = %if.then4, %for.end

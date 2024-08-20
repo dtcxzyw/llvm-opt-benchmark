@@ -27,7 +27,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit:        ; preds = %4
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %10(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %12)
   %.not41 = icmp eq i32 %13, 0
-  br i1 %.not41, label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread, label %53
+  br i1 %.not41, label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread, label %52
 
 _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
   %14 = load ptr, ptr %0, align 8
@@ -35,137 +35,136 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 16
   %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %18, label %53
+  br i1 %.not, label %18, label %52
 
 18:                                               ; preds = %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread
-  switch i32 %2, label %53 [
+  switch i32 %2, label %52 [
     i32 1460, label %19
     i32 1463, label %22
     i32 1464, label %25
     i32 1465, label %28
     i32 1468, label %31
-    i32 1471, label %43
-    i32 1473, label %47
-    i32 1474, label %50
+    i32 1471, label %42
+    i32 1473, label %46
+    i32 1474, label %49
   ]
 
 19:                                               ; preds = %18
   %20 = icmp eq i32 %1, 1497
-  br i1 %20, label %21, label %53
+  br i1 %20, label %21, label %52
 
 21:                                               ; preds = %19
   store i32 64285, ptr %3, align 4
-  br label %53
+  br label %52
 
 22:                                               ; preds = %18
-  switch i32 %1, label %53 [
+  switch i32 %1, label %52 [
     i32 1522, label %23
     i32 1488, label %24
   ]
 
 23:                                               ; preds = %22
   store i32 64287, ptr %3, align 4
-  br label %53
+  br label %52
 
 24:                                               ; preds = %22
   store i32 64302, ptr %3, align 4
-  br label %53
+  br label %52
 
 25:                                               ; preds = %18
   %26 = icmp eq i32 %1, 1488
-  br i1 %26, label %27, label %53
+  br i1 %26, label %27, label %52
 
 27:                                               ; preds = %25
   store i32 64303, ptr %3, align 4
-  br label %53
+  br label %52
 
 28:                                               ; preds = %18
   %29 = icmp eq i32 %1, 1493
-  br i1 %29, label %30, label %53
+  br i1 %29, label %30, label %52
 
 30:                                               ; preds = %28
   store i32 64331, ptr %3, align 4
-  br label %53
+  br label %52
 
 31:                                               ; preds = %18
   %32 = add i32 %1, -1488
   %or.cond = icmp ult i32 %32, 27
-  br i1 %or.cond, label %33, label %40
+  br i1 %or.cond, label %33, label %39
 
 33:                                               ; preds = %31
   %34 = zext nneg i32 %32 to i64
   %35 = getelementptr inbounds [27 x i32], ptr @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %3, align 4
-  %37 = shl nuw nsw i64 1, %34
-  %38 = and i64 %37, 131817343
-  %39 = icmp ne i64 %38, 0
-  br label %53
+  %37 = lshr i64 131817343, %34
+  %38 = trunc i64 %37 to i1
+  br label %52
 
-40:                                               ; preds = %31
-  switch i32 %1, label %53 [
-    i32 64298, label %41
-    i32 64299, label %42
+39:                                               ; preds = %31
+  switch i32 %1, label %52 [
+    i32 64298, label %40
+    i32 64299, label %41
   ]
 
-41:                                               ; preds = %40
+40:                                               ; preds = %39
   store i32 64300, ptr %3, align 4
-  br label %53
+  br label %52
 
-42:                                               ; preds = %40
+41:                                               ; preds = %39
   store i32 64301, ptr %3, align 4
-  br label %53
+  br label %52
 
-43:                                               ; preds = %18
-  switch i32 %1, label %53 [
-    i32 1489, label %44
-    i32 1499, label %45
-    i32 1508, label %46
+42:                                               ; preds = %18
+  switch i32 %1, label %52 [
+    i32 1489, label %43
+    i32 1499, label %44
+    i32 1508, label %45
   ]
 
-44:                                               ; preds = %43
+43:                                               ; preds = %42
   store i32 64332, ptr %3, align 4
-  br label %53
+  br label %52
 
-45:                                               ; preds = %43
+44:                                               ; preds = %42
   store i32 64333, ptr %3, align 4
-  br label %53
+  br label %52
 
-46:                                               ; preds = %43
+45:                                               ; preds = %42
   store i32 64334, ptr %3, align 4
-  br label %53
+  br label %52
 
-47:                                               ; preds = %18
-  switch i32 %1, label %53 [
-    i32 1513, label %48
-    i32 64329, label %49
+46:                                               ; preds = %18
+  switch i32 %1, label %52 [
+    i32 1513, label %47
+    i32 64329, label %48
   ]
 
-48:                                               ; preds = %47
+47:                                               ; preds = %46
   store i32 64298, ptr %3, align 4
-  br label %53
+  br label %52
 
-49:                                               ; preds = %47
+48:                                               ; preds = %46
   store i32 64300, ptr %3, align 4
-  br label %53
+  br label %52
 
-50:                                               ; preds = %18
-  switch i32 %1, label %53 [
-    i32 1513, label %51
-    i32 64329, label %52
+49:                                               ; preds = %18
+  switch i32 %1, label %52 [
+    i32 1513, label %50
+    i32 64329, label %51
   ]
 
-51:                                               ; preds = %50
+50:                                               ; preds = %49
   store i32 64299, ptr %3, align 4
-  br label %53
+  br label %52
 
-52:                                               ; preds = %50
+51:                                               ; preds = %49
   store i32 64301, ptr %3, align 4
-  br label %53
+  br label %52
 
-53:                                               ; preds = %50, %47, %40, %22, %18, %21, %19, %24, %23, %27, %25, %30, %28, %41, %42, %33, %46, %45, %44, %43, %49, %48, %52, %51, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
-  %.0.shrunk = phi i1 [ true, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit ], [ false, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread ], [ false, %18 ], [ true, %51 ], [ true, %52 ], [ true, %48 ], [ true, %49 ], [ false, %43 ], [ true, %46 ], [ true, %45 ], [ true, %44 ], [ %39, %33 ], [ true, %41 ], [ true, %42 ], [ true, %30 ], [ false, %28 ], [ true, %27 ], [ false, %25 ], [ true, %23 ], [ true, %24 ], [ true, %21 ], [ false, %19 ], [ false, %22 ], [ false, %40 ], [ false, %47 ], [ false, %50 ]
-  ret i1 %.0.shrunk
+52:                                               ; preds = %49, %46, %39, %22, %18, %21, %19, %24, %23, %27, %25, %30, %28, %40, %41, %33, %45, %44, %43, %42, %48, %47, %51, %50, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
+  %.0 = phi i1 [ true, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit ], [ false, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread ], [ false, %18 ], [ true, %50 ], [ true, %51 ], [ true, %47 ], [ true, %48 ], [ false, %42 ], [ true, %45 ], [ true, %44 ], [ true, %43 ], [ %38, %33 ], [ true, %40 ], [ true, %41 ], [ true, %30 ], [ false, %28 ], [ true, %27 ], [ false, %25 ], [ true, %23 ], [ true, %24 ], [ true, %21 ], [ false, %19 ], [ false, %22 ], [ false, %39 ], [ false, %46 ], [ false, %49 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

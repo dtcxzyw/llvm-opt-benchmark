@@ -296,11 +296,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %16 = load i64, ptr %second.i4.i.i.i, align 8
   %17 = shl nuw i64 1, %2
   %18 = and i64 %16, %17
-  %tobool.i6.i.i.i = icmp ne i64 %18, 0
+  %tobool.i.i.i.i = icmp ne i64 %18, 0
   br label %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS4_9IsListTagEbEEEENT_10value_typeERKS8_.exit
 
 _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS4_9IsListTagEbEEEENT_10value_typeERKS8_.exit: ; preds = %if.end3.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i
-  %retval.0.i.i.i = phi i1 [ %tobool.i6.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i = phi i1 [ %tobool.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i.i ]
   ret i1 %retval.0.i.i.i
 }
 
@@ -604,8 +604,8 @@ invoke.cont19:                                    ; preds = %for.cond.i.i.i.i.i.
   %47 = load i64, ptr %second.i4.i.i.i.i, align 8
   %48 = shl nuw i64 1, %33
   %49 = and i64 %47, %48
-  %tobool.i6.i.i.i.i.not = icmp eq i64 %49, 0
-  br i1 %tobool.i6.i.i.i.i.not, label %if.end, label %cleanupthread-pre-split
+  %tobool.i.i.i.i.i.not = icmp eq i64 %49, 0
+  br i1 %tobool.i.i.i.i.i.not, label %if.end, label %cleanupthread-pre-split
 
 lpad3.loopexit:                                   ; preds = %if.end15.i.i, %if.then, %if.end, %invoke.cont31
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -983,8 +983,8 @@ invoke.cont19:                                    ; preds = %for.cond.i.i.i.i.i.
   %38 = load i64, ptr %second.i4.i.i.i.i, align 8
   %39 = shl nuw i64 1, %24
   %40 = and i64 %38, %39
-  %tobool.i6.i.i.i.i.not = icmp eq i64 %40, 0
-  br i1 %tobool.i6.i.i.i.i.not, label %if.end, label %cleanup70
+  %tobool.i.i.i.i.i.not = icmp eq i64 %40, 0
+  br i1 %tobool.i.i.i.i.i.not, label %if.end, label %cleanup70
 
 lpad3.loopexit:                                   ; preds = %if.end15.i.i, %if.then, %if.end
   %lpad.loopexit165 = landingpad { ptr, i32 }
@@ -1139,8 +1139,8 @@ invoke.cont39:                                    ; preds = %for.cond.i.i.i.i.i.
   %62 = load i64, ptr %second.i4.i.i.i.i63, align 8
   %63 = shl nuw i64 1, %48
   %64 = and i64 %62, %63
-  %tobool.i6.i.i.i.i64.not = icmp eq i64 %64, 0
-  br i1 %tobool.i6.i.i.i.i64.not, label %if.end61, label %if.then41
+  %tobool.i.i.i.i.i64.not = icmp eq i64 %64, 0
+  br i1 %tobool.i.i.i.i.i64.not, label %if.end61, label %if.then41
 
 if.then41:                                        ; preds = %invoke.cont39
   %65 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -4092,8 +4092,8 @@ invoke.cont47:                                    ; preds = %for.cond.i.i.i.i.i.
   %60 = load i64, ptr %second.i4.i.i.i.i, align 8
   %61 = shl nuw i64 1, %46
   %62 = and i64 %60, %61
-  %tobool.i6.i.i.i.i.not = icmp eq i64 %62, 0
-  br i1 %tobool.i6.i.i.i.i.not, label %if.then49, label %if.end55
+  %tobool.i.i.i.i.i.not = icmp eq i64 %62, 0
+  br i1 %tobool.i.i.i.i.i.not, label %if.then49, label %if.end55
 
 if.then49:                                        ; preds = %if.end3.i.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i.i, %invoke.cont47
   %63 = load ptr, ptr %subs, align 8
@@ -4660,8 +4660,8 @@ invoke.cont135:                                   ; preds = %for.cond.i.i.i.i.i.
   %127 = load i64, ptr %second.i4.i.i.i.i265, align 8
   %128 = shl nuw i64 1, %113
   %129 = and i64 %127, %128
-  %tobool.i6.i.i.i.i266.not = icmp eq i64 %129, 0
-  br i1 %tobool.i6.i.i.i.i266.not, label %if.else, label %if.then137
+  %tobool.i.i.i.i.i266.not = icmp eq i64 %129, 0
+  br i1 %tobool.i.i.i.i.i266.not, label %if.else, label %if.then137
 
 if.then137:                                       ; preds = %invoke.cont135
   %130 = load ptr, ptr %_M_finish.i278, align 8

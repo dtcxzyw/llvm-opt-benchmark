@@ -147,14 +147,13 @@ land.rhs:                                         ; preds = %entry
   %arrayidx = getelementptr inbounds i64, ptr %1, i64 %div4
   %2 = load i64, ptr %arrayidx, align 8
   %rem = and i64 %pos, 63
-  %shl = shl nuw i64 1, %rem
-  %and = and i64 %2, %shl
-  %cmp1 = icmp ne i64 %and, 0
-  %3 = zext i1 %cmp1 to i32
+  %3 = lshr i64 %2, %rem
+  %4 = trunc i64 %3 to i32
+  %5 = and i32 %4, 1
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %land.ext = phi i32 [ 0, %entry ], [ %3, %land.rhs ]
+  %land.ext = phi i32 [ 0, %entry ], [ %5, %land.rhs ]
   ret i32 %land.ext
 }
 

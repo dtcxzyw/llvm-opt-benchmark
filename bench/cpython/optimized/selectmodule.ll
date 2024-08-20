@@ -2811,32 +2811,31 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load i64, ptr %arrayidx5, align 8
   %rem = srem i32 %1, 64
   %sh_prom = zext nneg i32 %rem to i64
-  %shl = shl nuw i64 1, %sh_prom
-  %and = and i64 %shl, %2
-  %cmp9.not = icmp ne i64 %and, 0
-  %inc = zext i1 %cmp9.not to i32
-  %spec.select = add i32 %count.026, %inc
+  %3 = lshr i64 %2, %sh_prom
+  %4 = trunc i64 %3 to i32
+  %inc = and i32 %4, 1
+  %spec.select = add i32 %inc, %count.026
   %inc10 = add i32 %j.027, 1
   %idxprom = sext i32 %inc10 to i64
   %arrayidx = getelementptr %struct.pylist, ptr %fd2obj, i64 %idxprom
   %sentinel = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  %3 = load i32, ptr %sentinel, align 4
-  %cmp = icmp sgt i32 %3, -1
+  %5 = load i32, ptr %sentinel, align 4
+  %cmp = icmp sgt i32 %5, -1
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.body
-  %4 = sext i32 %spec.select to i64
+  %6 = sext i32 %spec.select to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %count.0.lcssa = phi i64 [ 0, %entry ], [ %4, %for.end.loopexit ]
+  %count.0.lcssa = phi i64 [ 0, %entry ], [ %6, %for.end.loopexit ]
   %call = tail call ptr @PyList_New(i64 noundef %count.0.lcssa) #8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %for.cond13.preheader
 
 for.cond13.preheader:                             ; preds = %for.end
-  %5 = load i32, ptr %sentinel24, align 4
-  %cmp1730 = icmp sgt i32 %5, -1
+  %7 = load i32, ptr %sentinel24, align 4
+  %cmp1730 = icmp sgt i32 %7, -1
   br i1 %cmp1730, label %for.body19, label %return
 
 for.body19:                                       ; preds = %for.cond13.preheader, %for.inc47
@@ -2844,23 +2843,23 @@ for.body19:                                       ; preds = %for.cond13.preheade
   %i.032 = phi i32 [ %i.1, %for.inc47 ], [ 0, %for.cond13.preheader ]
   %j.131 = phi i32 [ %inc48, %for.inc47 ], [ 0, %for.cond13.preheader ]
   %fd22 = getelementptr inbounds i8, ptr %arrayidx1533, i64 8
-  %6 = load i32, ptr %fd22, align 8
-  %div24 = sdiv i32 %6, 64
+  %8 = load i32, ptr %fd22, align 8
+  %div24 = sdiv i32 %8, 64
   %idxprom25 = sext i32 %div24 to i64
   %arrayidx26 = getelementptr [16 x i64], ptr %set, i64 0, i64 %idxprom25
-  %7 = load i64, ptr %arrayidx26, align 8
-  %rem27 = srem i32 %6, 64
+  %9 = load i64, ptr %arrayidx26, align 8
+  %rem27 = srem i32 %8, 64
   %sh_prom28 = zext nneg i32 %rem27 to i64
   %shl29 = shl nuw i64 1, %sh_prom28
-  %and30 = and i64 %shl29, %7
+  %and30 = and i64 %shl29, %9
   %cmp31.not = icmp eq i64 %and30, 0
   br i1 %cmp31.not, label %for.inc47, label %if.then33
 
 if.then33:                                        ; preds = %for.body19
-  %8 = load ptr, ptr %arrayidx1533, align 8
+  %10 = load ptr, ptr %arrayidx1533, align 8
   store ptr null, ptr %arrayidx1533, align 8
   %conv39 = sext i32 %i.032 to i64
-  %call40 = tail call i32 @PyList_SetItem(ptr noundef nonnull %call, i64 noundef %conv39, ptr noundef %8) #8
+  %call40 = tail call i32 @PyList_SetItem(ptr noundef nonnull %call, i64 noundef %conv39, ptr noundef %10) #8
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %finally, label %if.end44
 
@@ -2874,18 +2873,18 @@ for.inc47:                                        ; preds = %for.body19, %if.end
   %idxprom14 = sext i32 %inc48 to i64
   %arrayidx15 = getelementptr %struct.pylist, ptr %fd2obj, i64 %idxprom14
   %sentinel16 = getelementptr inbounds i8, ptr %arrayidx15, i64 12
-  %9 = load i32, ptr %sentinel16, align 4
-  %cmp17 = icmp sgt i32 %9, -1
+  %11 = load i32, ptr %sentinel16, align 4
+  %cmp17 = icmp sgt i32 %11, -1
   br i1 %cmp17, label %for.body19, label %return, !llvm.loop !12
 
 finally:                                          ; preds = %if.then33
-  %10 = load i64, ptr %call, align 8
-  %11 = and i64 %10, 2147483648
-  %cmp.i51.not = icmp eq i64 %11, 0
+  %12 = load i64, ptr %call, align 8
+  %13 = and i64 %12, 2147483648
+  %cmp.i51.not = icmp eq i64 %13, 0
   br i1 %cmp.i51.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %finally
-  %dec.i = add i64 %10, -1
+  %dec.i = add i64 %12, -1
   store i64 %dec.i, ptr %call, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return

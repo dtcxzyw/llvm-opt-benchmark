@@ -1267,29 +1267,29 @@ Abc_ObjMvVarNum.exit501:                          ; preds = %80, %91, %93
   %110 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv726
   store ptr %109, ptr %110, align 8
   %111 = trunc nuw nsw i64 %indvars.iv726 to i32
-  br label %112
+  %112 = xor i32 %111, -1
+  br label %113
 
-112:                                              ; preds = %.lr.ph586.us, %112
-  %113 = phi ptr [ %109, %.lr.ph586.us ], [ %125, %112 ]
-  %indvars.iv721 = phi i64 [ 0, %.lr.ph586.us ], [ %indvars.iv.next722, %112 ]
-  %114 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv721
-  %115 = load ptr, ptr %114, align 8
-  %116 = ptrtoint ptr %115 to i64
-  %117 = trunc nuw nsw i64 %indvars.iv721 to i32
-  %118 = shl nuw i32 1, %117
-  %119 = and i32 %118, %111
-  %120 = icmp eq i32 %119, 0
-  %121 = zext i1 %120 to i64
-  %122 = xor i64 %116, %121
+113:                                              ; preds = %.lr.ph586.us, %113
+  %114 = phi ptr [ %109, %.lr.ph586.us ], [ %125, %113 ]
+  %indvars.iv721 = phi i64 [ 0, %.lr.ph586.us ], [ %indvars.iv.next722, %113 ]
+  %115 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv721
+  %116 = load ptr, ptr %115, align 8
+  %117 = ptrtoint ptr %116 to i64
+  %118 = trunc nuw nsw i64 %indvars.iv721 to i32
+  %119 = lshr i32 %112, %118
+  %120 = and i32 %119, 1
+  %121 = zext nneg i32 %120 to i64
+  %122 = xor i64 %117, %121
   %123 = inttoptr i64 %122 to ptr
   %124 = load ptr, ptr %70, align 8
-  %125 = call ptr @Abc_AigAnd(ptr noundef %124, ptr noundef %113, ptr noundef %123) #14
+  %125 = call ptr @Abc_AigAnd(ptr noundef %124, ptr noundef %114, ptr noundef %123) #14
   store ptr %125, ptr %110, align 8
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count724
-  br i1 %exitcond725.not, label %._crit_edge.us, label %112, !llvm.loop !18
+  br i1 %exitcond725.not, label %._crit_edge.us, label %113, !llvm.loop !18
 
-._crit_edge.us:                                   ; preds = %112
+._crit_edge.us:                                   ; preds = %113
   %indvars.iv.next727 = add nuw nsw i64 %indvars.iv726, 1
   %exitcond730.not = icmp eq i64 %indvars.iv.next727, %wide.trip.count729
   br i1 %exitcond730.not, label %._crit_edge589.split.us, label %.lr.ph586.us, !llvm.loop !19
@@ -1448,29 +1448,29 @@ Abc_ObjMvVarNum.exit508:                          ; preds = %154, %165, %167
   %186 = getelementptr inbounds ptr, ptr %173, i64 %indvars.iv750
   store ptr %185, ptr %186, align 8
   %187 = trunc nuw nsw i64 %indvars.iv750 to i32
-  br label %188
+  %188 = xor i32 %187, -1
+  br label %189
 
-188:                                              ; preds = %.lr.ph602.us, %188
-  %189 = phi ptr [ %185, %.lr.ph602.us ], [ %201, %188 ]
-  %indvars.iv744 = phi i64 [ 0, %.lr.ph602.us ], [ %indvars.iv.next745, %188 ]
-  %190 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv744
-  %191 = load ptr, ptr %190, align 8
-  %192 = ptrtoint ptr %191 to i64
-  %193 = trunc nuw nsw i64 %indvars.iv744 to i32
-  %194 = shl nuw i32 1, %193
-  %195 = and i32 %194, %187
-  %196 = icmp eq i32 %195, 0
-  %197 = zext i1 %196 to i64
-  %198 = xor i64 %192, %197
+189:                                              ; preds = %.lr.ph602.us, %189
+  %190 = phi ptr [ %185, %.lr.ph602.us ], [ %201, %189 ]
+  %indvars.iv744 = phi i64 [ 0, %.lr.ph602.us ], [ %indvars.iv.next745, %189 ]
+  %191 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv744
+  %192 = load ptr, ptr %191, align 8
+  %193 = ptrtoint ptr %192 to i64
+  %194 = trunc nuw nsw i64 %indvars.iv744 to i32
+  %195 = lshr i32 %188, %194
+  %196 = and i32 %195, 1
+  %197 = zext nneg i32 %196 to i64
+  %198 = xor i64 %193, %197
   %199 = inttoptr i64 %198 to ptr
   %200 = load ptr, ptr %73, align 8
-  %201 = call ptr @Abc_AigAnd(ptr noundef %200, ptr noundef %189, ptr noundef %199) #14
+  %201 = call ptr @Abc_AigAnd(ptr noundef %200, ptr noundef %190, ptr noundef %199) #14
   store ptr %201, ptr %186, align 8
   %indvars.iv.next745 = add nuw nsw i64 %indvars.iv744, 1
   %exitcond749.not = icmp eq i64 %indvars.iv.next745, %wide.trip.count748
-  br i1 %exitcond749.not, label %._crit_edge.us606, label %188, !llvm.loop !22
+  br i1 %exitcond749.not, label %._crit_edge.us606, label %189, !llvm.loop !22
 
-._crit_edge.us606:                                ; preds = %188
+._crit_edge.us606:                                ; preds = %189
   %indvars.iv.next751 = add nuw nsw i64 %indvars.iv750, 1
   %exitcond754.not = icmp eq i64 %indvars.iv.next751, %wide.trip.count753
   br i1 %exitcond754.not, label %._crit_edge605.split.us, label %.lr.ph602.us, !llvm.loop !23

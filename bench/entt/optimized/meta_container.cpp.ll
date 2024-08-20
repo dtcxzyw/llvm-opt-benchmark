@@ -115995,30 +115995,29 @@ cond.true:                                        ; preds = %entry
   %_M_offset.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load i32, ptr %_M_offset.i, align 8, !tbaa !1987
   %sh_prom.i = zext nneg i32 %1 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
   %2 = load i64, ptr %0, align 8, !tbaa !208
-  %and.i.i = and i64 %shl.i, %2
-  %tobool.i.i = icmp ne i64 %and.i.i, 0
-  %frombool = zext i1 %tobool.i.i to i8
+  %3 = lshr i64 %2, %sh_prom.i
+  %4 = trunc i64 %3 to i8
+  %frombool = and i8 %4, 1
   store i8 %frombool, ptr %ref.tmp, align 1, !tbaa !364
   call void @_ZN4entt8meta_any7emplaceIbJbEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(168) %other, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   br label %cond.end
 
 if.else5.i.i:                                     ; preds = %entry
   %_M_offset.i.i15.i.i = getelementptr inbounds i8, ptr %value, i64 8
-  %3 = load i32, ptr %_M_offset.i.i15.i.i, align 8, !tbaa !1987
-  %conv.i.i.i.i = zext i32 %3 to i64
+  %5 = load i32, ptr %_M_offset.i.i15.i.i, align 8, !tbaa !1987
+  %conv.i.i.i.i = zext i32 %5 to i64
   %add.i.i.i.i = add nsw i64 %conv.i.i.i.i, %offset
   %div.i.i.i.i = sdiv i64 %add.i.i.i.i, 64
-  %4 = load ptr, ptr %value, align 8, !tbaa !402
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %4, i64 %div.i.i.i.i
-  %5 = and i64 %add.i.i.i.i, -9223372036854775745
-  %cmp.i.i20.i.i = icmp ugt i64 %5, -9223372036854775808
+  %6 = load ptr, ptr %value, align 8, !tbaa !402
+  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %div.i.i.i.i
+  %7 = and i64 %add.i.i.i.i, -9223372036854775745
+  %cmp.i.i20.i.i = icmp ugt i64 %7, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %cmp.i.i20.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %storemerge.idx.i.i.i.i
   store ptr %storemerge.i.i.i.i, ptr %value, align 8, !tbaa !402
-  %6 = trunc i64 %add.i.i.i.i to i32
-  %conv4.i.i.i.i = and i32 %6, 63
+  %8 = trunc i64 %add.i.i.i.i to i32
+  %conv4.i.i.i.i = and i32 %8, 63
   store i32 %conv4.i.i.i.i, ptr %_M_offset.i.i15.i.i, align 8, !tbaa !1987
   br label %cond.end
 

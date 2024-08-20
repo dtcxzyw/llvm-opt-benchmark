@@ -43941,38 +43941,38 @@ define noundef zeroext i1 @_ZN5typst11foundations7content7Content10is_guarded17h
   %14 = getelementptr i8, ptr %11, i64 72
   %15 = load ptr, ptr %14, align 8, !alias.scope !9235, !noundef !4
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit, label %22
+  br i1 %.not.i, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit, label %18
 
 16:                                               ; preds = %2
   %17 = getelementptr i8, ptr %11, i64 64
-  %18 = load i64, ptr %17, align 8, !alias.scope !9235, !noundef !4
-  %19 = shl nuw i64 1, %1
-  %20 = and i64 %18, %19
-  %21 = icmp ne i64 %20, 0
+  br label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.sink.split
+
+18:                                               ; preds = %13
+  %19 = lshr i64 %1, 6
+  %20 = add nsw i64 %19, -1
+  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !9235, !noundef !4
+  %23 = icmp ult i64 %20, %22
+  br i1 %23, label %24, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit
+
+24:                                               ; preds = %18
+  %25 = and i64 %1, 63
+  %26 = getelementptr inbounds i8, ptr %15, i64 8
+  %27 = load ptr, ptr %26, align 8, !noalias !9235, !nonnull !4, !noundef !4
+  %28 = getelementptr inbounds i64, ptr %27, i64 %20
+  br label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.sink.split
+
+_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.sink.split: ; preds = %24, %16
+  %.sink = phi ptr [ %17, %16 ], [ %28, %24 ]
+  %.sink2 = phi i64 [ %1, %16 ], [ %25, %24 ]
+  %29 = load i64, ptr %.sink, align 8, !noundef !4
+  %30 = lshr i64 %29, %.sink2
+  %31 = trunc i64 %30 to i1
   br label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit
 
-22:                                               ; preds = %13
-  %23 = lshr i64 %1, 6
-  %24 = add nsw i64 %23, -1
-  %25 = getelementptr inbounds i8, ptr %15, i64 16
-  %26 = load i64, ptr %25, align 8, !noalias !9235, !noundef !4
-  %27 = icmp ult i64 %24, %26
-  br i1 %27, label %28, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit
-
-28:                                               ; preds = %22
-  %29 = and i64 %1, 63
-  %30 = getelementptr inbounds i8, ptr %15, i64 8
-  %31 = load ptr, ptr %30, align 8, !noalias !9235, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i64, ptr %31, i64 %24
-  %33 = shl nuw i64 1, %29
-  %34 = load i64, ptr %32, align 8, !noalias !9235, !noundef !4
-  %35 = and i64 %34, %33
-  %36 = icmp ne i64 %35, 0
-  br label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit
-
-_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit: ; preds = %13, %16, %22, %28
-  %.0.shrunk.i = phi i1 [ %21, %16 ], [ %36, %28 ], [ false, %13 ], [ false, %22 ]
-  ret i1 %.0.shrunk.i
+_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit: ; preds = %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.sink.split, %13, %18
+  %.0.i = phi i1 [ false, %13 ], [ false, %18 ], [ %31, %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.sink.split ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -43988,9 +43988,8 @@ define noundef zeroext i1 @_ZN5typst11foundations7content7Content11is_prepared17
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = getelementptr i8, ptr %10, i64 64
   %12 = load i64, ptr %11, align 8, !alias.scope !9238, !noundef !4
-  %13 = and i64 %12, 1
-  %14 = icmp ne i64 %13, 0
-  ret i1 %14
+  %13 = trunc i64 %12 to i1
+  ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable
