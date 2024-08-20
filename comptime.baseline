@@ -8516,7 +8516,7 @@ gromacs/freeenergy.cpp.ll 105285772
 gromacs/freeenergydispatch.cpp.ll 697174475
 gromacs/freeenergyparameters.cpp.ll 93813468
 gromacs/freeenergyperturbationdata.cpp.ll 1407213613
-gromacs/freevolume.cpp.ll 916727116
+gromacs/freevolume.cpp.ll 917644467
 gromacs/functions.cpp.ll 92146299
 gromacs/futil.cpp.ll 523992512
 gromacs/g96io.cpp.ll 322553906
@@ -25680,7 +25680,7 @@ openssl/libssl-lib-quic_rstream.ll 209292776
 openssl/libssl-lib-quic_rx_depack.ll 434176591
 openssl/libssl-lib-quic_sf_list.ll 147491212
 openssl/libssl-lib-quic_srt_gen.ll 50591055
-openssl/libssl-lib-quic_srtm.ll 154758080
+openssl/libssl-lib-quic_srtm.ll 154913152
 openssl/libssl-lib-quic_sstream.ll 208062212
 openssl/libssl-lib-quic_stream_map.ll 241121250
 openssl/libssl-lib-quic_thread_assist.ll 72158468
