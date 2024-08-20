@@ -337,129 +337,133 @@ define noundef i64 @_ZN9softposit4p8e07convert21convert_p8bits_to_u6417hca086a50
   ret i64 %.027
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @_ZN9softposit4p8e07convert21convert_u32_to_p8bits17h8208a40846ebde42E(i32 noundef %0) unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
+define noundef i8 @_ZN9softposit4p8e07convert21convert_u32_to_p8bits17h8208a40846ebde42E(i32 noundef %0) unnamed_addr #9 {
   %2 = icmp ugt i32 %0, 48
-  br i1 %2, label %29, label %3
+  br i1 %2, label %32, label %3
 
 3:                                                ; preds = %1
   %4 = icmp ult i32 %0, 2
-  br i1 %4, label %5, label %._crit_edge
+  br i1 %4, label %5, label %.lr.ph
 
 5:                                                ; preds = %3
   %.tr = trunc nuw i32 %0 to i8
   %6 = shl nuw nsw i8 %.tr, 6
-  br label %29
+  br label %32
 
-._crit_edge:                                      ; preds = %3
-  %.masked.numleadingzeros = tail call range(i32 26, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
-  %7 = trunc nuw nsw i32 %.masked.numleadingzeros to i8
-  %8 = xor i8 %7, 31
-  %.masked.leadingonepos = xor i32 %.masked.numleadingzeros, 31
-  %.lr.ph.tripcount = sub nuw nsw i32 6, %.masked.leadingonepos
-  %9 = shl nuw nsw i32 %0, %.lr.ph.tripcount
-  %10 = and i32 %9, 8127
-  %11 = lshr i8 63, %8
-  %12 = xor i8 %11, 127
-  %13 = sub nsw i32 0, %.masked.numleadingzeros
-  %14 = and i32 %13, 31
-  %15 = lshr i32 %10, %14
-  %16 = trunc i32 %15 to i8
-  %17 = or i8 %12, %16
-  %18 = zext nneg i8 %8 to i32
-  %19 = shl nuw nsw i32 1, %18
-  %20 = and i32 %19, %10
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %29, label %22
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.023 = phi i32 [ %8, %.lr.ph ], [ %0, %3 ]
+  %.02022 = phi i8 [ %7, %.lr.ph ], [ 6, %3 ]
+  %7 = add i8 %.02022, -1
+  %8 = shl i32 %.023, 1
+  %9 = and i32 %.023, 32
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
-22:                                               ; preds = %._crit_edge
-  %23 = add nuw i32 %19, 8191
-  %24 = shl nuw nsw i32 2, %18
-  %25 = or i32 %23, %24
-  %26 = and i32 %25, %10
-  %27 = icmp ne i32 %26, 0
-  %28 = zext i1 %27 to i8
-  %spec.select = add i8 %17, %28
-  br label %29
+._crit_edge:                                      ; preds = %.lr.ph
+  %11 = and i32 %8, -66
+  %12 = and i8 %7, 7
+  %13 = lshr i8 63, %12
+  %14 = xor i8 %13, 127
+  %15 = and i8 %.02022, 31
+  %16 = zext nneg i8 %15 to i32
+  %17 = lshr i32 %11, %16
+  %18 = trunc i32 %17 to i8
+  %19 = or i8 %14, %18
+  %20 = and i8 %7, 31
+  %21 = zext nneg i8 %20 to i32
+  %22 = shl nuw i32 1, %21
+  %23 = and i32 %22, %11
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %32, label %25
 
-29:                                               ; preds = %22, %1, %5, %._crit_edge
-  %.019 = phi i8 [ %6, %5 ], [ %17, %._crit_edge ], [ 127, %1 ], [ %spec.select, %22 ]
+25:                                               ; preds = %._crit_edge
+  %26 = add i32 %22, -1
+  %27 = shl i32 2, %21
+  %28 = or i32 %26, %27
+  %29 = and i32 %28, %11
+  %30 = icmp ne i32 %29, 0
+  %31 = zext i1 %30 to i8
+  %spec.select = add i8 %19, %31
+  br label %32
+
+32:                                               ; preds = %25, %1, %5, %._crit_edge
+  %.019 = phi i8 [ %6, %5 ], [ %19, %._crit_edge ], [ 127, %1 ], [ %spec.select, %25 ]
   ret i8 %.019
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE(i64 noundef %0) unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
+define noundef i8 @_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE(i64 noundef %0) unnamed_addr #9 {
   %2 = icmp ugt i64 %0, 48
-  br i1 %2, label %29, label %3
+  br i1 %2, label %32, label %3
 
 3:                                                ; preds = %1
   %4 = icmp ult i64 %0, 2
-  br i1 %4, label %5, label %._crit_edge
+  br i1 %4, label %5, label %.lr.ph
 
 5:                                                ; preds = %3
   %.tr = trunc nuw i64 %0 to i8
   %6 = shl nuw nsw i8 %.tr, 6
-  br label %29
+  br label %32
 
-._crit_edge:                                      ; preds = %3
-  %.masked.numleadingzeros = tail call range(i64 58, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
-  %7 = trunc nuw nsw i64 %.masked.numleadingzeros to i8
-  %8 = xor i8 %7, 63
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.tripcount = sub nuw nsw i64 6, %.masked.leadingonepos
-  %9 = shl nuw nsw i64 %0, %.lr.ph.tripcount
-  %10 = and i64 %9, 8127
-  %11 = lshr i8 63, %8
-  %12 = xor i8 %11, 127
-  %13 = sub nsw i64 0, %.masked.numleadingzeros
-  %14 = and i64 %13, 63
-  %15 = lshr i64 %10, %14
-  %16 = trunc i64 %15 to i8
-  %17 = or i8 %12, %16
-  %18 = zext nneg i8 %8 to i64
-  %19 = shl nuw nsw i64 1, %18
-  %20 = and i64 %19, %10
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %29, label %22
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.023 = phi i64 [ %8, %.lr.ph ], [ %0, %3 ]
+  %.02022 = phi i8 [ %7, %.lr.ph ], [ 6, %3 ]
+  %7 = add i8 %.02022, -1
+  %8 = shl i64 %.023, 1
+  %9 = and i64 %.023, 32
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
-22:                                               ; preds = %._crit_edge
-  %23 = add nuw i64 %19, 8191
-  %24 = shl nuw nsw i64 2, %18
-  %25 = or i64 %23, %24
-  %26 = and i64 %25, %10
-  %27 = icmp ne i64 %26, 0
-  %28 = zext i1 %27 to i8
-  %spec.select = add i8 %17, %28
-  br label %29
+._crit_edge:                                      ; preds = %.lr.ph
+  %11 = and i64 %8, -66
+  %12 = and i8 %7, 7
+  %13 = lshr i8 63, %12
+  %14 = xor i8 %13, 127
+  %15 = and i8 %.02022, 63
+  %16 = zext nneg i8 %15 to i64
+  %17 = lshr i64 %11, %16
+  %18 = trunc i64 %17 to i8
+  %19 = or i8 %14, %18
+  %20 = and i8 %7, 63
+  %21 = zext nneg i8 %20 to i64
+  %22 = shl nuw i64 1, %21
+  %23 = and i64 %22, %11
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %32, label %25
 
-29:                                               ; preds = %22, %1, %5, %._crit_edge
-  %.019 = phi i8 [ %6, %5 ], [ %17, %._crit_edge ], [ 127, %1 ], [ %spec.select, %22 ]
+25:                                               ; preds = %._crit_edge
+  %26 = add i64 %22, -1
+  %27 = shl i64 2, %21
+  %28 = or i64 %26, %27
+  %29 = and i64 %28, %11
+  %30 = icmp ne i64 %29, 0
+  %31 = zext i1 %30 to i8
+  %spec.select = add i8 %19, %31
+  br label %32
+
+32:                                               ; preds = %25, %1, %5, %._crit_edge
+  %.019 = phi i8 [ %6, %5 ], [ %19, %._crit_edge ], [ 127, %1 ], [ %spec.select, %25 ]
   ret i8 %.019
 }
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #11
+declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #14
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
+declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -471,12 +475,11 @@ attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

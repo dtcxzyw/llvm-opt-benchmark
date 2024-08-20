@@ -334,10 +334,10 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.729031739036
   br label %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_i6417h0047fc670376fa54E"(i64 noundef %0) unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
+define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_i6417h0047fc670376fa54E"(i64 noundef %0) unnamed_addr #1 {
   %2 = icmp slt i64 %0, -48
-  br i1 %2, label %33, label %3
+  br i1 %2, label %36, label %3
 
 3:                                                ; preds = %1
   %4 = icmp slt i64 %0, 0
@@ -347,51 +347,56 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
 
 6:                                                ; preds = %3
   %7 = icmp ult i64 %spec.select, 2
-  br i1 %7, label %8, label %._crit_edge.i
+  br i1 %7, label %8, label %.lr.ph.i
 
 8:                                                ; preds = %6
   %.tr.i = trunc nuw i64 %spec.select to i8
   %9 = shl nuw nsw i8 %.tr.i, 6
   br label %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit
 
-._crit_edge.i:                                    ; preds = %6
-  %.masked.numleadingzeros.i = tail call range(i64 58, 65) i64 @llvm.ctlz.i64(i64 %spec.select, i1 true)
-  %10 = trunc nuw nsw i64 %.masked.numleadingzeros.i to i8
-  %11 = xor i8 %10, 63
-  %.masked.leadingonepos.i = xor i64 %.masked.numleadingzeros.i, 63
-  %.lr.ph.tripcount.i = sub nuw nsw i64 6, %.masked.leadingonepos.i
-  %12 = shl nuw nsw i64 %spec.select, %.lr.ph.tripcount.i
-  %13 = and i64 %12, 8127
-  %14 = lshr i8 63, %11
-  %15 = xor i8 %14, 127
-  %16 = sub nsw i64 0, %.masked.numleadingzeros.i
-  %17 = and i64 %16, 63
-  %18 = lshr i64 %13, %17
-  %19 = trunc i64 %18 to i8
-  %20 = or i8 %15, %19
-  %21 = zext nneg i8 %11 to i64
-  %22 = shl nuw nsw i64 1, %21
-  %23 = and i64 %22, %13
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit, label %25
+.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
+  %.023.i = phi i64 [ %11, %.lr.ph.i ], [ %spec.select, %6 ]
+  %.02022.i = phi i8 [ %10, %.lr.ph.i ], [ 6, %6 ]
+  %10 = add i8 %.02022.i, -1
+  %11 = shl i64 %.023.i, 1
+  %12 = and i64 %.023.i, 32
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
-25:                                               ; preds = %._crit_edge.i
-  %26 = add nuw nsw i64 %22, 8191
-  %27 = shl nuw nsw i64 2, %21
-  %28 = or i64 %26, %27
-  %29 = and i64 %28, %13
-  %30 = icmp ne i64 %29, 0
-  %31 = zext i1 %30 to i8
-  %spec.select.i = add i8 %20, %31
+._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %14 = and i64 %11, -66
+  %15 = and i8 %10, 7
+  %16 = lshr i8 63, %15
+  %17 = xor i8 %16, 127
+  %18 = and i8 %.02022.i, 63
+  %19 = zext nneg i8 %18 to i64
+  %20 = lshr i64 %14, %19
+  %21 = trunc i64 %20 to i8
+  %22 = or i8 %17, %21
+  %23 = and i8 %10, 63
+  %24 = zext nneg i8 %23 to i64
+  %25 = shl nuw i64 1, %24
+  %26 = and i64 %25, %14
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit, label %28
+
+28:                                               ; preds = %._crit_edge.i
+  %29 = add i64 %25, -1
+  %30 = shl i64 2, %24
+  %31 = or i64 %29, %30
+  %32 = and i64 %31, %14
+  %33 = icmp ne i64 %32, 0
+  %34 = zext i1 %33 to i8
+  %spec.select.i = add i8 %22, %34
   br label %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit
 
-_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit: ; preds = %3, %8, %._crit_edge.i, %25
-  %.019.i = phi i8 [ %9, %8 ], [ %20, %._crit_edge.i ], [ 127, %3 ], [ %spec.select.i, %25 ]
-  %32 = sub i8 0, %.019.i
-  %.0.i = select i1 %4, i8 %32, i8 %.019.i
-  br label %33
+_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit: ; preds = %3, %8, %._crit_edge.i, %28
+  %.019.i = phi i8 [ %9, %8 ], [ %22, %._crit_edge.i ], [ 127, %3 ], [ %spec.select.i, %28 ]
+  %35 = sub i8 0, %.019.i
+  %.0.i = select i1 %4, i8 %35, i8 %.019.i
+  br label %36
 
-33:                                               ; preds = %1, %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit
+36:                                               ; preds = %1, %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit
   %.05 = phi i8 [ %.0.i, %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit ], [ -127, %1 ]
   ret i8 %.05
 }
@@ -3552,9 +3557,6 @@ declare float @llvm.fabs.f32(float) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9

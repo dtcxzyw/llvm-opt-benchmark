@@ -592,13 +592,19 @@ if.then:                                          ; preds = %entry
   %lightudnum = getelementptr inbounds i8, ptr %1, i64 35
   %21 = load i8, ptr %lightudnum, align 1
   %tobool10.not = icmp eq i8 %21, 0
+  br i1 %tobool10.not, label %cond.end, label %cond.true
+
+cond.true:                                        ; preds = %if.then
   %conv9 = zext i8 %21 to i32
   %22 = tail call range(i32 24, 33) i32 @llvm.ctlz.i32(i32 %conv9, i1 true)
   %xor = xor i32 %22, 31
   %shl = shl nuw nsw i32 2, %xor
   %23 = zext nneg i32 %shl to i64
   %24 = shl nuw nsw i64 %23, 2
-  %cond = select i1 %tobool10.not, i64 8, i64 %24
+  br label %cond.end
+
+cond.end:                                         ; preds = %if.then, %cond.true
+  %cond = phi i64 [ %24, %cond.true ], [ 8, %if.then ]
   %25 = inttoptr i64 %20 to ptr
   %26 = load i64, ptr %gc.i34, align 8
   %sub.i = sub i64 %26, %cond
@@ -608,7 +614,7 @@ if.then:                                          ; preds = %entry
   %call.i = tail call ptr %27(ptr noundef %28, ptr noundef nonnull %25, i64 noundef %cond, i64 noundef 0) #7
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %entry
+if.end:                                           ; preds = %cond.end, %entry
   %29 = load ptr, ptr %1, align 8
   %cmp = icmp eq ptr %29, @lj_alloc_f
   %30 = load ptr, ptr %allocd.i36, align 8

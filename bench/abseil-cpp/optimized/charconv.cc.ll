@@ -160,8 +160,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   %cmp1.i.i.i = icmp sgt i32 %spec.select6.i.i.i, 971
   %cmp4.i.i.i = icmp eq i64 %spec.select.i10.i.i, 0
   %spec.select7.i.i.i = select i1 %cmp4.i.i.i, i32 -99999, i32 %spec.select6.i.i.i
-  %cmp.i272.i = icmp eq i32 %spec.select7.i.i.i, 99999
-  %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i272.i
+  %cmp.i274.i = icmp eq i32 %spec.select7.i.i.i, 99999
+  %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i274.i
   br i1 %cmp.i.i, label %if.then.i47.i, label %if.else.i45.i
 
 if.then.i47.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
@@ -327,8 +327,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatE
   %cmp1.i.i107.i = icmp sgt i32 %spec.select6.i.i106.i, 971
   %cmp4.i.i108.i = icmp eq i64 %spec.select.i10.i104.i, 0
   %spec.select7.i.i109.i = select i1 %cmp4.i.i108.i, i32 -99999, i32 %spec.select6.i.i106.i
-  %cmp.i126271.i = icmp eq i32 %spec.select7.i.i109.i, 99999
-  %cmp.i126.i = or i1 %cmp1.i.i107.i, %cmp.i126271.i
+  %cmp.i126273.i = icmp eq i32 %spec.select7.i.i109.i, 99999
+  %cmp.i126.i = or i1 %cmp1.i.i107.i, %cmp.i126273.i
   br i1 %cmp.i126.i, label %if.then.i144.i, label %if.else.i127.i
 
 if.then.i144.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
@@ -551,127 +551,161 @@ if.end81.i.i:                                     ; preds = %if.end69.i.i
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.end71.i:                                       ; preds = %if.end64.i
-  br i1 %cmp.i178.i, label %if.then5.i246.i, label %if.else.i188.i
+  br i1 %cmp.i178.i, label %if.then5.i248.i, label %if.else.i188.i
 
 if.else.i188.i:                                   ; preds = %if.end71.i
   %cmp.i23.i.i = icmp sgt i32 %decimal_parse.val44.i, 308
-  br i1 %cmp.i23.i.i, label %if.then.i249.i, label %if.then12.i.i
+  br i1 %cmp.i23.i.i, label %if.then.i251.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.else.i188.i
   %.pre = add nsw i32 %decimal_parse.val44.i, 342
-  %.pre1 = zext nneg i32 %.pre to i64
-  %.pre2 = mul nsw i32 %decimal_parse.val44.i, 217706
-  %.pre3 = ashr i32 %.pre2, 16
-  %arrayidx.i.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre1
+  %.pre2 = zext nneg i32 %.pre to i64
+  %.pre3 = mul nsw i32 %decimal_parse.val44.i, 217706
+  %.pre4 = ashr i32 %.pre3, 16
+  %arrayidx.i.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre2
   %31 = load i64, ptr %arrayidx.i.i.i, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i191.i = zext i64 %23 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i.i = zext i64 %31 to i128
   %mul.i.i.i.i = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i.i.i.i, %coerce.sroa.0.0.insert.ext.i.i.i191.i
-  %coerce3.sroa.0.0.extract.trunc.i.i.i192.i = trunc i128 %mul.i.i.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
   %coerce3.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i to i64
-  %sub.i25.i.i = add nsw i32 %.pre3, -63
+  %sub.i25.i.i = add nsw i32 %.pre4, -63
   %cmp.i.i.i195.i = icmp eq i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i, 0
-  %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
-  %33 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i192.i, i1 false)
-  %.sink5.i.i.i.i = select i1 %cmp.i.i.i195.i, i64 %33, i64 %32
+  br i1 %cmp.i.i.i195.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %if.then12.i.i
+  %coerce3.sroa.0.0.extract.trunc.i.i.i192.i = trunc i128 %mul.i.i.i.i to i64
+  %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i192.i, i1 false)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
+
+if.end.i.i.i.i:                                   ; preds = %if.then12.i.i
+  %33 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
+
+_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
+  %.sink5.i.i.i.i = phi i64 [ %33, %if.end.i.i.i.i ], [ %32, %if.then.i.i.i.i ]
+  %.sink.i.i.i.i = phi i32 [ 128, %if.end.i.i.i.i ], [ 64, %if.then.i.i.i.i ]
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %.sink5.i.i.i.i to i32
-  %.neg.i.i = select i1 %cmp.i.i.i195.i, i32 6, i32 70
-  %sub.i28.i.i = sub nsw i32 %.neg.i.i, %cast.i.i.i.i.i.i
+  %reass.sub.i196.i = sub nuw nsw i32 %.sink.i.i.i.i, %cast.i.i.i.i.i.i
+  %sub.i28.i.i = add nsw i32 %reass.sub.i196.i, -58
   %sh_prom.i.i.i.i.i = zext nneg i32 %sub.i28.i.i to i128
-  %shr.i.i.i.i196.i = lshr i128 %mul.i.i.i.i, %sh_prom.i.i.i.i.i
-  %coerce1.sroa.0.0.extract.trunc.i.i.i.i197.i = trunc i128 %shr.i.i.i.i196.i to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %shr.i.i.i.i196.i, 64
+  %shr.i.i.i.i197.i = lshr i128 %mul.i.i.i.i, %sh_prom.i.i.i.i.i
+  %coerce1.sroa.0.0.extract.trunc.i.i.i.i198.i = trunc i128 %shr.i.i.i.i197.i to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %shr.i.i.i.i197.i, 64
   %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i to i64
-  %add.i198.i = add nsw i32 %sub.i28.i.i, %sub.i25.i.i
+  %add.i199.i = add nsw i32 %sub.i28.i.i, %sub.i25.i.i
   br label %if.end24.i.i
 
 if.else14.i.i:                                    ; preds = %if.end69.i.i, %land.lhs.true60.i.i, %land.lhs.true40.i.i
-  %arrayidx.i.i.i6 = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
-  %34 = load i64, ptr %arrayidx.i.i.i6, align 8
-  %coerce.sroa.0.0.insert.ext.i.i.i191.i7 = zext i64 %23 to i128
-  %coerce2.sroa.0.0.insert.ext.i.i.i.i8 = zext i64 %34 to i128
-  %mul.i.i.i.i9 = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i.i.i.i8, %coerce.sroa.0.0.insert.ext.i.i.i191.i7
-  %coerce3.sroa.0.0.extract.trunc.i.i.i192.i10 = trunc i128 %mul.i.i.i.i9 to i64
-  %coerce3.sroa.2.0.extract.shift.i.i.i.i11 = lshr i128 %mul.i.i.i.i9, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i.i.i12 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i11 to i64
-  %sub.i25.i.i13 = add nsw i32 %shr.i.i, -63
+  %arrayidx.i.i.i7 = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
+  %34 = load i64, ptr %arrayidx.i.i.i7, align 8
+  %coerce.sroa.0.0.insert.ext.i.i.i191.i8 = zext i64 %23 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i.i9 = zext i64 %34 to i128
+  %mul.i.i.i.i10 = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i.i.i.i9, %coerce.sroa.0.0.insert.ext.i.i.i191.i8
+  %coerce3.sroa.0.0.extract.trunc.i.i.i192.i11 = trunc i128 %mul.i.i.i.i10 to i64
+  %coerce3.sroa.2.0.extract.shift.i.i.i.i12 = lshr i128 %mul.i.i.i.i10, 64
+  %coerce3.sroa.2.0.extract.trunc.i.i.i.i13 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i12 to i64
+  %sub.i25.i.i14 = add nsw i32 %shr.i.i, -63
   %35 = icmp ult i32 %decimal_parse.val44.i, 28
-  %cmp.i46.i.i = icmp eq i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i12, 0
-  %36 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i12, i1 true)
-  %37 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i192.i10, i1 false)
-  %.sink5.i.i.i = select i1 %cmp.i46.i.i, i64 %37, i64 %36
-  %cast.i.i.i.i230.i = trunc nuw nsw i64 %.sink5.i.i.i to i32
+  %cmp.i49.i.i = icmp eq i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, 0
   br i1 %35, label %if.else20.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.else14.i.i
-  %.neg75.i.i = select i1 %cmp.i46.i.i, i32 1, i32 65
-  %sub.i36.i.i = sub nsw i32 %.neg75.i.i, %cast.i.i.i.i230.i
-  %sh_prom.i.i.i41.i.i = zext nneg i32 %sub.i36.i.i to i128
-  %shr.i.i.i42.i.i = lshr i128 %mul.i.i.i.i9, %sh_prom.i.i.i41.i.i
-  %coerce1.sroa.0.0.extract.trunc.i.i.i43.i.i = trunc i128 %shr.i.i.i42.i.i to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i44.i.i = lshr i128 %shr.i.i.i42.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i45.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i44.i.i to i64
-  %add19.i.i = add nsw i32 %sub.i36.i.i, %sub.i25.i.i13
+  br i1 %cmp.i49.i.i, label %if.then.i.i47.i.i, label %if.end.i.i33.i.i
+
+if.then.i.i47.i.i:                                ; preds = %if.then17.i.i
+  %36 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i192.i11, i1 false)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i
+
+if.end.i.i33.i.i:                                 ; preds = %if.then17.i.i
+  %37 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, i1 true)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i
+
+_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i: ; preds = %if.end.i.i33.i.i, %if.then.i.i47.i.i
+  %.sink5.i.i34.i.i = phi i64 [ %37, %if.end.i.i33.i.i ], [ %36, %if.then.i.i47.i.i ]
+  %.sink.i.i35.i.i = phi i32 [ 128, %if.end.i.i33.i.i ], [ 64, %if.then.i.i47.i.i ]
+  %cast.i.i.i.i36.i.i = trunc nuw nsw i64 %.sink5.i.i34.i.i to i32
+  %reass.sub81.i.i = sub nuw nsw i32 %.sink.i.i35.i.i, %cast.i.i.i.i36.i.i
+  %sub.i37.i.i = add nsw i32 %reass.sub81.i.i, -63
+  %sh_prom.i.i.i42.i.i = zext nneg i32 %sub.i37.i.i to i128
+  %shr.i.i.i43.i.i = lshr i128 %mul.i.i.i.i10, %sh_prom.i.i.i42.i.i
+  %coerce1.sroa.0.0.extract.trunc.i.i.i44.i.i = trunc i128 %shr.i.i.i43.i.i to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i45.i.i = lshr i128 %shr.i.i.i43.i.i, 64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i46.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i45.i.i to i64
+  %add19.i.i = add nsw i32 %sub.i37.i.i, %sub.i25.i.i14
   br label %if.end24.i.i
 
 if.else20.i.i:                                    ; preds = %if.else14.i.i
-  %sub.i47.i.i = select i1 %cmp.i46.i.i, i32 11, i32 75
-  %38 = sub nsw i32 %sub.i47.i.i, %cast.i.i.i.i230.i
+  br i1 %cmp.i49.i.i, label %if.then.i.i232.i, label %if.end.i.i230.i
+
+if.then.i.i232.i:                                 ; preds = %if.else20.i.i
+  %38 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i192.i11, i1 false)
+  br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
+
+if.end.i.i230.i:                                  ; preds = %if.else20.i.i
+  %39 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, i1 true)
+  br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
+
+_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i: ; preds = %if.end.i.i230.i, %if.then.i.i232.i
+  %.sink5.i.i.i = phi i64 [ %39, %if.end.i.i230.i ], [ %38, %if.then.i.i232.i ]
+  %.sink.i.i.i = phi i32 [ 128, %if.end.i.i230.i ], [ 64, %if.then.i.i232.i ]
+  %cast.i.i.i.i231.i = trunc nuw nsw i64 %.sink5.i.i.i to i32
+  %reass.sub1 = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i.i231.i
+  %40 = add nsw i32 %reass.sub1, -53
   br label %if.end24.i.i
 
-if.end24.i.i:                                     ; preds = %if.else20.i.i, %if.then17.i.i, %if.then12.i.i
-  %wide_binary_mantissa.sroa.0.0.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i.i.i192.i10, %if.else20.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i43.i.i, %if.then17.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i197.i, %if.then12.i.i ]
-  %wide_binary_mantissa.sroa.9.0.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i.i.i12, %if.else20.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i45.i.i, %if.then17.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i, %if.then12.i.i ]
-  %mantissa_width.0.i.i = phi i32 [ %38, %if.else20.i.i ], [ 10, %if.then17.i.i ], [ 5, %if.then12.i.i ]
-  %mantissa_exact.0.i.i = phi i1 [ true, %if.else20.i.i ], [ false, %if.then17.i.i ], [ false, %if.then12.i.i ]
-  %binary_exponent.0.i.i = phi i32 [ %sub.i25.i.i13, %if.else20.i.i ], [ %add19.i.i, %if.then17.i.i ], [ %add.i198.i, %if.then12.i.i ]
-  %sub1.i.i199.i = sub nsw i32 -1074, %binary_exponent.0.i.i
-  %.sroa.speculated.i.i200.i = call noundef i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i199.i)
-  %add26.i.i = add nsw i32 %.sroa.speculated.i.i200.i, %binary_exponent.0.i.i
-  %cmp.i49.i.i = icmp slt i32 %.sroa.speculated.i.i200.i, 1
-  br i1 %cmp.i49.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i.i201.i
+if.end24.i.i:                                     ; preds = %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
+  %wide_binary_mantissa.sroa.0.0.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i.i.i192.i11, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i44.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i198.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %wide_binary_mantissa.sroa.9.0.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i46.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %mantissa_width.0.i.i = phi i32 [ %40, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ 10, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ 5, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %mantissa_exact.0.i.i = phi i1 [ true, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %binary_exponent.0.i.i = phi i32 [ %sub.i25.i.i14, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %add19.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %add.i199.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %sub1.i.i200.i = sub nsw i32 -1074, %binary_exponent.0.i.i
+  %.sroa.speculated.i.i201.i = call noundef i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i200.i)
+  %add26.i.i = add nsw i32 %.sroa.speculated.i.i201.i, %binary_exponent.0.i.i
+  %cmp.i52.i.i = icmp slt i32 %.sroa.speculated.i.i201.i, 1
+  br i1 %cmp.i52.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i53.i.i
 
-if.end.i.i201.i:                                  ; preds = %if.end24.i.i
-  %cmp3.i.i202.i = icmp ugt i32 %.sroa.speculated.i.i200.i, 127
+if.end.i53.i.i:                                   ; preds = %if.end24.i.i
+  %cmp3.i.i202.i = icmp ugt i32 %.sroa.speculated.i.i201.i, 127
   br i1 %cmp3.i.i202.i, label %if.end36.i.i, label %if.end5.i.i203.i
 
-if.end5.i.i203.i:                                 ; preds = %if.end.i.i201.i
-  %sh_prom.i23.i.i204.i = zext nneg i32 %.sroa.speculated.i.i200.i to i128
+if.end5.i.i203.i:                                 ; preds = %if.end.i53.i.i
+  %sh_prom.i23.i.i204.i = zext nneg i32 %.sroa.speculated.i.i201.i to i128
   %notmask.i.i205.i = shl nsw i128 -1, %sh_prom.i23.i.i204.i
   %coerce.sroa.0.0.insert.insert.i34.i.i.i = xor i128 %notmask.i.i205.i, -1
-  %sub12.i.i206.i = add nsw i32 %.sroa.speculated.i.i200.i, -1
+  %sub12.i.i206.i = add nsw i32 %.sroa.speculated.i.i201.i, -1
   %sh_prom.i42.i.i207.i = zext nneg i32 %sub12.i.i206.i to i128
   %shl.i43.i.i208.i = shl nuw nsw i128 1, %sh_prom.i42.i.i207.i
   %coerce.sroa.2.0.insert.ext.i49.i.i.i = zext i64 %wide_binary_mantissa.sroa.9.0.i.i to i128
   %coerce.sroa.2.0.insert.shift.i50.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i49.i.i.i, 64
   %coerce.sroa.0.0.insert.ext.i51.i.i209.i = zext i64 %wide_binary_mantissa.sroa.0.0.i.i to i128
   %coerce.sroa.0.0.insert.insert.i52.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i50.i.i.i, %coerce.sroa.0.0.insert.ext.i51.i.i209.i
-  %39 = trunc i128 %coerce.sroa.0.0.insert.insert.i34.i.i.i to i64
-  %coerce3.sroa.0.0.extract.trunc.i54.i.i210.i = and i64 %wide_binary_mantissa.sroa.0.0.i.i, %39
-  %coerce3.sroa.2.0.extract.shift.i.i50.i.i = and i128 %coerce.sroa.2.0.insert.shift.i50.i.i.i, %coerce.sroa.0.0.insert.insert.i34.i.i.i
-  %shr.i.i.i51.i.i = lshr i128 %coerce.sroa.0.0.insert.insert.i52.i.i.i, %sh_prom.i23.i.i204.i
-  %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i = trunc i128 %shr.i.i.i51.i.i to i64
+  %41 = trunc i128 %coerce.sroa.0.0.insert.insert.i34.i.i.i to i64
+  %coerce3.sroa.0.0.extract.trunc.i54.i.i210.i = and i64 %wide_binary_mantissa.sroa.0.0.i.i, %41
+  %coerce3.sroa.2.0.extract.shift.i.i54.i.i = and i128 %coerce.sroa.2.0.insert.shift.i50.i.i.i, %coerce.sroa.0.0.insert.insert.i34.i.i.i
+  %shr.i.i.i55.i.i = lshr i128 %coerce.sroa.0.0.insert.insert.i52.i.i.i, %sh_prom.i23.i.i204.i
+  %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i = trunc i128 %shr.i.i.i55.i.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i211.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i210.i to i128
-  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %coerce3.sroa.2.0.extract.shift.i.i50.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i211.i
+  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %coerce3.sroa.2.0.extract.shift.i.i54.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i211.i
   %cmp.i.i.i.i212.i = icmp ult i128 %shl.i43.i.i208.i, %coerce2.sroa.0.0.insert.insert.i.i.i.i.i
   br i1 %cmp.i.i.i.i212.i, label %if.then21.i.i225.i, label %if.end27.i.i213.i
 
 if.then21.i.i225.i:                               ; preds = %if.end5.i.i203.i
-  %coerce3.sroa.0.0.extract.trunc.i68.i.i226.i = add i64 %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i, 1
+  %coerce3.sroa.0.0.extract.trunc.i68.i.i226.i = add i64 %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i, 1
   br label %if.end36.i.i
 
 if.end27.i.i213.i:                                ; preds = %if.end5.i.i203.i
-  %cmp.i.i53.i.i = icmp eq i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i, %shl.i43.i.i208.i
-  br i1 %cmp.i.i53.i.i, label %if.then31.i.i222.i, label %if.end43.i.i.i
+  %cmp.i.i57.i.i = icmp eq i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i, %shl.i43.i.i208.i
+  br i1 %cmp.i.i57.i.i, label %if.then31.i.i222.i, label %if.end43.i.i.i
 
 if.then31.i.i222.i:                               ; preds = %if.end27.i.i213.i
-  %coerce.sroa.0.0.insert.ext.i99.i.i.i = and i128 %shr.i.i.i51.i.i, 1
+  %coerce.sroa.0.0.insert.ext.i99.i.i.i = and i128 %shr.i.i.i55.i.i, 1
   %cmp.i105.i.i.i = icmp eq i128 %coerce.sroa.0.0.insert.ext.i99.i.i.i, 0
   %brmerge.not.i.i.i = and i1 %mantissa_exact.0.i.i, %cmp.i105.i.i.i
   %not.brmerge.not.i.i.i = xor i1 %brmerge.not.i.i.i, true
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i223.i = zext i1 %not.brmerge.not.i.i.i to i64
-  %spec.select.i.i224.i = add i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i223.i, %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i
+  %spec.select.i.i224.i = add i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i223.i, %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i
   br label %if.end36.i.i
 
 if.end43.i.i.i:                                   ; preds = %if.end27.i.i213.i
@@ -681,61 +715,61 @@ if.end43.i.i.i:                                   ; preds = %if.end27.i.i213.i
   br i1 %or.cond.not.i.i.i, label %if.end36.i.i, label %if.then31.i.i
 
 _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i: ; preds = %if.end24.i.i
-  %sub.i54.i.i = sub nsw i32 0, %.sroa.speculated.i.i200.i
-  %coerce.sroa.0.0.insert.ext.i.i55.i.i = zext i64 %wide_binary_mantissa.sroa.0.0.i.i to i128
-  %sh_prom.i.i.i227.i = zext nneg i32 %sub.i54.i.i to i128
-  %shl.i.i.i228.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i55.i.i, %sh_prom.i.i.i227.i
+  %sub.i59.i.i = sub nsw i32 0, %.sroa.speculated.i.i201.i
+  %coerce.sroa.0.0.insert.ext.i.i60.i.i = zext i64 %wide_binary_mantissa.sroa.0.0.i.i to i128
+  %sh_prom.i.i.i227.i = zext nneg i32 %sub.i59.i.i to i128
+  %shl.i.i.i228.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i60.i.i, %sh_prom.i.i.i227.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i229.i = trunc i128 %shl.i.i.i228.i to i64
   br i1 %mantissa_exact.0.i.i, label %if.end36.i.i, label %if.then31.i.i
 
 if.then31.i.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %if.end43.i.i.i
-  %retval.0.i74.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i229.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i, %if.end43.i.i.i ]
-  %call32.i.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %retval.0.i74.i.i, i32 noundef %add26.i.i, ptr noundef nonnull align 8 dereferenceable(48) %decimal_parse.i)
+  %retval.0.i79.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i229.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i, %if.end43.i.i.i ]
+  %call32.i.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %retval.0.i79.i.i, i32 noundef %add26.i.i, ptr noundef nonnull align 8 dereferenceable(48) %decimal_parse.i)
   %add34.i.i = zext i1 %call32.i.i to i64
-  %spec.select.i214.i = add i64 %retval.0.i74.i.i, %add34.i.i
+  %spec.select.i214.i = add i64 %retval.0.i79.i.i, %add34.i.i
   br label %if.end36.i.i
 
-if.end36.i.i:                                     ; preds = %if.then31.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %if.end43.i.i.i, %if.then31.i.i222.i, %if.then21.i.i225.i, %if.end.i.i201.i
-  %binary_mantissa.0.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i229.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i214.i, %if.then31.i.i ], [ %spec.select.i.i224.i, %if.then31.i.i222.i ], [ 0, %if.end.i.i201.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i, %if.end43.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i226.i, %if.then21.i.i225.i ]
-  %cmp.i56.i.i = icmp eq i64 %binary_mantissa.0.i.i, 9007199254740992
-  %spec.select.i57.i.i = select i1 %cmp.i56.i.i, i64 4503599627370496, i64 %binary_mantissa.0.i.i
-  %add.i.i215.i = zext i1 %cmp.i56.i.i to i32
+if.end36.i.i:                                     ; preds = %if.then31.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %if.end43.i.i.i, %if.then31.i.i222.i, %if.then21.i.i225.i, %if.end.i53.i.i
+  %binary_mantissa.0.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i229.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i214.i, %if.then31.i.i ], [ %spec.select.i.i224.i, %if.then31.i.i222.i ], [ 0, %if.end.i53.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i, %if.end43.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i226.i, %if.then21.i.i225.i ]
+  %cmp.i61.i.i = icmp eq i64 %binary_mantissa.0.i.i, 9007199254740992
+  %spec.select.i62.i.i = select i1 %cmp.i61.i.i, i64 4503599627370496, i64 %binary_mantissa.0.i.i
+  %add.i.i215.i = zext i1 %cmp.i61.i.i to i32
   %spec.select6.i.i216.i = add nsw i32 %add26.i.i, %add.i.i215.i
   %cmp1.i.i217.i = icmp sgt i32 %spec.select6.i.i216.i, 971
-  %cmp4.i.i218.i = icmp eq i64 %spec.select.i57.i.i, 0
+  %cmp4.i.i218.i = icmp eq i64 %spec.select.i62.i.i, 0
   %spec.select7.i.i219.i = select i1 %cmp4.i.i218.i, i32 -99999, i32 %spec.select6.i.i216.i
-  br i1 %cmp1.i.i217.i, label %if.then.i249.i, label %if.else.i232.i
+  br i1 %cmp1.i.i217.i, label %if.then.i251.i, label %if.else.i234.i
 
-if.then.i249.i:                                   ; preds = %if.end36.i.i, %if.else.i188.i
-  %cond.i251.i = select i1 %negative.0.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
-  store double %cond.i251.i, ptr %value, align 8
+if.then.i251.i:                                   ; preds = %if.end36.i.i, %if.else.i188.i
+  %cond.i253.i = select i1 %negative.0.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
+  store double %cond.i253.i, ptr %value, align 8
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.else.i232.i:                                   ; preds = %if.end36.i.i
-  %cmp4.i234.i = icmp eq i32 %spec.select7.i.i219.i, -99999
-  br i1 %cmp4.i234.i, label %if.then5.i246.i, label %if.end9.i236.i
+if.else.i234.i:                                   ; preds = %if.end36.i.i
+  %cmp4.i236.i = icmp eq i32 %spec.select7.i.i219.i, -99999
+  br i1 %cmp4.i236.i, label %if.then5.i248.i, label %if.end9.i238.i
 
-if.then5.i246.i:                                  ; preds = %if.else.i232.i, %if.end71.i
-  %cond8.i248.i = select i1 %negative.0.i, double -0.000000e+00, double 0.000000e+00
-  store double %cond8.i248.i, ptr %value, align 8
+if.then5.i248.i:                                  ; preds = %if.else.i234.i, %if.end71.i
+  %cond8.i250.i = select i1 %negative.0.i, double -0.000000e+00, double 0.000000e+00
+  store double %cond8.i250.i, ptr %value, align 8
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.end9.i236.i:                                   ; preds = %if.else.i232.i
-  %shl.i.i237.i = select i1 %negative.0.i, i64 -9223372036854775808, i64 0
-  %cmp.i.i238.i = icmp ugt i64 %spec.select.i57.i.i, 4503599627370495
-  %sub.i.i239.i = add nsw i32 %spec.select7.i.i219.i, 1075
-  %conv2.i.i240.i = zext i32 %sub.i.i239.i to i64
-  %shl3.i.i241.i = shl i64 %conv2.i.i240.i, 52
-  %and.i.i242.i = and i64 %spec.select.i57.i.i, 4503599627370495
-  %add4.i.i243.i = select i1 %cmp.i.i238.i, i64 %shl3.i.i241.i, i64 0
-  %dbl.0.i.i244.i = add i64 %add4.i.i243.i, %shl.i.i237.i
-  %add5.i.i245.i = or disjoint i64 %dbl.0.i.i244.i, %and.i.i242.i
-  store i64 %add5.i.i245.i, ptr %value, align 8
+if.end9.i238.i:                                   ; preds = %if.else.i234.i
+  %shl.i.i239.i = select i1 %negative.0.i, i64 -9223372036854775808, i64 0
+  %cmp.i.i240.i = icmp ugt i64 %spec.select.i62.i.i, 4503599627370495
+  %sub.i.i241.i = add nsw i32 %spec.select7.i.i219.i, 1075
+  %conv2.i.i242.i = zext i32 %sub.i.i241.i to i64
+  %shl3.i.i243.i = shl i64 %conv2.i.i242.i, 52
+  %and.i.i244.i = and i64 %spec.select.i62.i.i, 4503599627370495
+  %add4.i.i245.i = select i1 %cmp.i.i240.i, i64 %shl3.i.i243.i, i64 0
+  %dbl.0.i.i246.i = add i64 %add4.i.i245.i, %shl.i.i239.i
+  %add5.i.i247.i = or disjoint i64 %dbl.0.i.i246.i, %and.i.i244.i
+  store i64 %add5.i.i247.i, ptr %value, align 8
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit: ; preds = %if.then18.i, %if.else.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %if.then.i47.i, %if.then5.i.i, %if.end9.i.i, %if.then37.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit79.thread.i, %if.then.i144.i, %if.then5.i141.i, %if.end9.i131.i, %if.else53.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit177.thread.i, %if.then.i185.i, %if.then2.i184.i, %if.end81.i.i, %if.then.i249.i, %if.then5.i246.i, %if.end9.i236.i
-  %retval.sroa.0.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %first, %if.then18.i ], [ %3, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %3, %if.then.i47.i ], [ %3, %if.then5.i.i ], [ %3, %if.end9.i.i ], [ %first, %if.then37.i ], [ %10, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit79.thread.i ], [ %10, %if.then.i144.i ], [ %10, %if.then5.i141.i ], [ %10, %if.end9.i131.i ], [ %first, %if.else53.i ], [ %19, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit177.thread.i ], [ %19, %if.then.i249.i ], [ %19, %if.then5.i246.i ], [ %19, %if.end9.i236.i ], [ %19, %if.then.i185.i ], [ %19, %if.then2.i184.i ], [ %19, %if.end81.i.i ]
-  %retval.sroa.6.0.i = phi i32 [ 0, %if.else.i ], [ 22, %if.then18.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %if.then.i47.i ], [ 34, %if.then5.i.i ], [ 0, %if.end9.i.i ], [ 22, %if.then37.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit79.thread.i ], [ 34, %if.then.i144.i ], [ 34, %if.then5.i141.i ], [ 0, %if.end9.i131.i ], [ 22, %if.else53.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit177.thread.i ], [ 34, %if.then.i249.i ], [ 34, %if.then5.i246.i ], [ 0, %if.end9.i236.i ], [ 34, %if.then.i185.i ], [ 34, %if.then2.i184.i ], [ 0, %if.end81.i.i ]
+_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit: ; preds = %if.then18.i, %if.else.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %if.then.i47.i, %if.then5.i.i, %if.end9.i.i, %if.then37.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit79.thread.i, %if.then.i144.i, %if.then5.i141.i, %if.end9.i131.i, %if.else53.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit177.thread.i, %if.then.i185.i, %if.then2.i184.i, %if.end81.i.i, %if.then.i251.i, %if.then5.i248.i, %if.end9.i238.i
+  %retval.sroa.0.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %first, %if.then18.i ], [ %3, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %3, %if.then.i47.i ], [ %3, %if.then5.i.i ], [ %3, %if.end9.i.i ], [ %first, %if.then37.i ], [ %10, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit79.thread.i ], [ %10, %if.then.i144.i ], [ %10, %if.then5.i141.i ], [ %10, %if.end9.i131.i ], [ %first, %if.else53.i ], [ %19, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit177.thread.i ], [ %19, %if.then.i251.i ], [ %19, %if.then5.i248.i ], [ %19, %if.end9.i238.i ], [ %19, %if.then.i185.i ], [ %19, %if.then2.i184.i ], [ %19, %if.end81.i.i ]
+  %retval.sroa.6.0.i = phi i32 [ 0, %if.else.i ], [ 22, %if.then18.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %if.then.i47.i ], [ 34, %if.then5.i.i ], [ 0, %if.end9.i.i ], [ 22, %if.then37.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit79.thread.i ], [ 34, %if.then.i144.i ], [ 34, %if.then5.i141.i ], [ 0, %if.end9.i131.i ], [ 22, %if.else53.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit177.thread.i ], [ 34, %if.then.i251.i ], [ 34, %if.then5.i248.i ], [ 0, %if.end9.i238.i ], [ 34, %if.then.i185.i ], [ 34, %if.then2.i184.i ], [ 0, %if.end81.i.i ]
   %.fca.0.insert.i = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i32 } %.fca.0.insert.i, i32 %retval.sroa.6.0.i, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hex_parse.i)
@@ -883,8 +917,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   %cmp1.i.i.i = icmp sgt i32 %spec.select6.i.i.i, 104
   %cmp4.i.i.i = icmp eq i64 %spec.select.i10.i.i, 0
   %spec.select7.i.i.i = select i1 %cmp4.i.i.i, i32 -99999, i32 %spec.select6.i.i.i
-  %cmp.i275.i = icmp eq i32 %spec.select7.i.i.i, 99999
-  %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i275.i
+  %cmp.i277.i = icmp eq i32 %spec.select7.i.i.i, 99999
+  %cmp.i.i = or i1 %cmp1.i.i.i, %cmp.i277.i
   br i1 %cmp.i.i, label %if.then.i48.i, label %if.else.i45.i
 
 if.then.i48.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
@@ -1050,8 +1084,8 @@ _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatE
   %cmp1.i.i108.i = icmp sgt i32 %spec.select6.i.i107.i, 104
   %cmp4.i.i109.i = icmp eq i64 %spec.select.i10.i105.i, 0
   %spec.select7.i.i110.i = select i1 %cmp4.i.i109.i, i32 -99999, i32 %spec.select6.i.i107.i
-  %cmp.i127274.i = icmp eq i32 %spec.select7.i.i110.i, 99999
-  %cmp.i127.i = or i1 %cmp1.i.i108.i, %cmp.i127274.i
+  %cmp.i127276.i = icmp eq i32 %spec.select7.i.i110.i, 99999
+  %cmp.i127.i = or i1 %cmp1.i.i108.i, %cmp.i127276.i
   br i1 %cmp.i127.i, label %if.then.i145.i, label %if.else.i128.i
 
 if.then.i145.i:                                   ; preds = %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
@@ -1277,127 +1311,161 @@ if.end82.i.i:                                     ; preds = %if.end70.i.i
 
 if.end72.i:                                       ; preds = %if.end65.i
   %cmp.i.i190.i = icmp slt i32 %decimal_parse.val44.i, -342
-  br i1 %cmp.i.i190.i, label %if.then5.i249.i, label %if.else.i191.i
+  br i1 %cmp.i.i190.i, label %if.then5.i251.i, label %if.else.i191.i
 
 if.else.i191.i:                                   ; preds = %if.end72.i
   %cmp.i23.i.i = icmp sgt i32 %decimal_parse.val44.i, 308
-  br i1 %cmp.i23.i.i, label %if.then.i252.i, label %if.then12.i.i
+  br i1 %cmp.i23.i.i, label %if.then.i254.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.else.i191.i
   %.pre = add nsw i32 %decimal_parse.val44.i, 342
-  %.pre1 = zext nneg i32 %.pre to i64
-  %.pre2 = mul nsw i32 %decimal_parse.val44.i, 217706
-  %.pre3 = ashr i32 %.pre2, 16
-  %arrayidx.i.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre1
+  %.pre2 = zext nneg i32 %.pre to i64
+  %.pre3 = mul nsw i32 %decimal_parse.val44.i, 217706
+  %.pre4 = ashr i32 %.pre3, 16
+  %arrayidx.i.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre2
   %33 = load i64, ptr %arrayidx.i.i.i, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i194.i = zext i64 %23 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i.i = zext i64 %33 to i128
   %mul.i.i.i.i = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i.i.i.i, %coerce.sroa.0.0.insert.ext.i.i.i194.i
-  %coerce3.sroa.0.0.extract.trunc.i.i.i195.i = trunc i128 %mul.i.i.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i.i.i = lshr i128 %mul.i.i.i.i, 64
   %coerce3.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i to i64
-  %sub.i25.i.i = add nsw i32 %.pre3, -63
+  %sub.i25.i.i = add nsw i32 %.pre4, -63
   %cmp.i.i.i198.i = icmp eq i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i, 0
-  %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
-  %35 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i195.i, i1 false)
-  %.sink5.i.i.i.i = select i1 %cmp.i.i.i198.i, i64 %35, i64 %34
+  br i1 %cmp.i.i.i198.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %if.then12.i.i
+  %coerce3.sroa.0.0.extract.trunc.i.i.i195.i = trunc i128 %mul.i.i.i.i to i64
+  %34 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i195.i, i1 false)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
+
+if.end.i.i.i.i:                                   ; preds = %if.then12.i.i
+  %35 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i, i1 true)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
+
+_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
+  %.sink5.i.i.i.i = phi i64 [ %35, %if.end.i.i.i.i ], [ %34, %if.then.i.i.i.i ]
+  %.sink.i.i.i.i = phi i32 [ 128, %if.end.i.i.i.i ], [ 64, %if.then.i.i.i.i ]
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %.sink5.i.i.i.i to i32
-  %.neg.i.i = select i1 %cmp.i.i.i198.i, i32 6, i32 70
-  %sub.i28.i.i = sub nsw i32 %.neg.i.i, %cast.i.i.i.i.i.i
+  %reass.sub.i199.i = sub nuw nsw i32 %.sink.i.i.i.i, %cast.i.i.i.i.i.i
+  %sub.i28.i.i = add nsw i32 %reass.sub.i199.i, -58
   %sh_prom.i.i.i.i.i = zext nneg i32 %sub.i28.i.i to i128
-  %shr.i.i.i.i199.i = lshr i128 %mul.i.i.i.i, %sh_prom.i.i.i.i.i
-  %coerce1.sroa.0.0.extract.trunc.i.i.i.i200.i = trunc i128 %shr.i.i.i.i199.i to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %shr.i.i.i.i199.i, 64
+  %shr.i.i.i.i200.i = lshr i128 %mul.i.i.i.i, %sh_prom.i.i.i.i.i
+  %coerce1.sroa.0.0.extract.trunc.i.i.i.i201.i = trunc i128 %shr.i.i.i.i200.i to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i.i.i = lshr i128 %shr.i.i.i.i200.i, 64
   %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i.i.i to i64
-  %add.i201.i = add nsw i32 %sub.i28.i.i, %sub.i25.i.i
+  %add.i202.i = add nsw i32 %sub.i28.i.i, %sub.i25.i.i
   br label %if.end24.i.i
 
 if.else14.i.i:                                    ; preds = %if.end70.i.i, %land.lhs.true61.i.i, %land.lhs.true41.i.i
-  %arrayidx.i.i.i6 = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
-  %36 = load i64, ptr %arrayidx.i.i.i6, align 8
-  %coerce.sroa.0.0.insert.ext.i.i.i194.i7 = zext i64 %23 to i128
-  %coerce2.sroa.0.0.insert.ext.i.i.i.i8 = zext i64 %36 to i128
-  %mul.i.i.i.i9 = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i.i.i.i8, %coerce.sroa.0.0.insert.ext.i.i.i194.i7
-  %coerce3.sroa.0.0.extract.trunc.i.i.i195.i10 = trunc i128 %mul.i.i.i.i9 to i64
-  %coerce3.sroa.2.0.extract.shift.i.i.i.i11 = lshr i128 %mul.i.i.i.i9, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i.i.i12 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i11 to i64
-  %sub.i25.i.i13 = add nsw i32 %shr.i.i, -63
+  %arrayidx.i.i.i7 = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
+  %36 = load i64, ptr %arrayidx.i.i.i7, align 8
+  %coerce.sroa.0.0.insert.ext.i.i.i194.i8 = zext i64 %23 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i.i9 = zext i64 %36 to i128
+  %mul.i.i.i.i10 = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i.i.i.i9, %coerce.sroa.0.0.insert.ext.i.i.i194.i8
+  %coerce3.sroa.0.0.extract.trunc.i.i.i195.i11 = trunc i128 %mul.i.i.i.i10 to i64
+  %coerce3.sroa.2.0.extract.shift.i.i.i.i12 = lshr i128 %mul.i.i.i.i10, 64
+  %coerce3.sroa.2.0.extract.trunc.i.i.i.i13 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i12 to i64
+  %sub.i25.i.i14 = add nsw i32 %shr.i.i, -63
   %37 = icmp ult i32 %decimal_parse.val44.i, 28
-  %cmp.i46.i.i = icmp eq i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i12, 0
-  %38 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i12, i1 true)
-  %39 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i195.i10, i1 false)
-  %.sink5.i.i.i = select i1 %cmp.i46.i.i, i64 %39, i64 %38
-  %cast.i.i.i.i233.i = trunc nuw nsw i64 %.sink5.i.i.i to i32
+  %cmp.i49.i.i = icmp eq i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, 0
   br i1 %37, label %if.else20.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.else14.i.i
-  %.neg75.i.i = select i1 %cmp.i46.i.i, i32 1, i32 65
-  %sub.i36.i.i = sub nsw i32 %.neg75.i.i, %cast.i.i.i.i233.i
-  %sh_prom.i.i.i41.i.i = zext nneg i32 %sub.i36.i.i to i128
-  %shr.i.i.i42.i.i = lshr i128 %mul.i.i.i.i9, %sh_prom.i.i.i41.i.i
-  %coerce1.sroa.0.0.extract.trunc.i.i.i43.i.i = trunc i128 %shr.i.i.i42.i.i to i64
-  %coerce1.sroa.2.0.extract.shift.i.i.i44.i.i = lshr i128 %shr.i.i.i42.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i.i45.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i44.i.i to i64
-  %add19.i.i = add nsw i32 %sub.i36.i.i, %sub.i25.i.i13
+  br i1 %cmp.i49.i.i, label %if.then.i.i47.i.i, label %if.end.i.i33.i.i
+
+if.then.i.i47.i.i:                                ; preds = %if.then17.i.i
+  %38 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i195.i11, i1 false)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i
+
+if.end.i.i33.i.i:                                 ; preds = %if.then17.i.i
+  %39 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, i1 true)
+  br label %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i
+
+_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i: ; preds = %if.end.i.i33.i.i, %if.then.i.i47.i.i
+  %.sink5.i.i34.i.i = phi i64 [ %39, %if.end.i.i33.i.i ], [ %38, %if.then.i.i47.i.i ]
+  %.sink.i.i35.i.i = phi i32 [ 128, %if.end.i.i33.i.i ], [ 64, %if.then.i.i47.i.i ]
+  %cast.i.i.i.i36.i.i = trunc nuw nsw i64 %.sink5.i.i34.i.i to i32
+  %reass.sub81.i.i = sub nuw nsw i32 %.sink.i.i35.i.i, %cast.i.i.i.i36.i.i
+  %sub.i37.i.i = add nsw i32 %reass.sub81.i.i, -63
+  %sh_prom.i.i.i42.i.i = zext nneg i32 %sub.i37.i.i to i128
+  %shr.i.i.i43.i.i = lshr i128 %mul.i.i.i.i10, %sh_prom.i.i.i42.i.i
+  %coerce1.sroa.0.0.extract.trunc.i.i.i44.i.i = trunc i128 %shr.i.i.i43.i.i to i64
+  %coerce1.sroa.2.0.extract.shift.i.i.i45.i.i = lshr i128 %shr.i.i.i43.i.i, 64
+  %coerce1.sroa.2.0.extract.trunc.i.i.i46.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i.i45.i.i to i64
+  %add19.i.i = add nsw i32 %sub.i37.i.i, %sub.i25.i.i14
   br label %if.end24.i.i
 
 if.else20.i.i:                                    ; preds = %if.else14.i.i
-  %sub.i47.i.i = select i1 %cmp.i46.i.i, i32 40, i32 104
-  %40 = sub nsw i32 %sub.i47.i.i, %cast.i.i.i.i233.i
+  br i1 %cmp.i49.i.i, label %if.then.i.i235.i, label %if.end.i.i233.i
+
+if.then.i.i235.i:                                 ; preds = %if.else20.i.i
+  %40 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i195.i11, i1 false)
+  br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
+
+if.end.i.i233.i:                                  ; preds = %if.else20.i.i
+  %41 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, i1 true)
+  br label %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i
+
+_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i: ; preds = %if.end.i.i233.i, %if.then.i.i235.i
+  %.sink5.i.i.i = phi i64 [ %41, %if.end.i.i233.i ], [ %40, %if.then.i.i235.i ]
+  %.sink.i.i.i = phi i32 [ 128, %if.end.i.i233.i ], [ 64, %if.then.i.i235.i ]
+  %cast.i.i.i.i234.i = trunc nuw nsw i64 %.sink5.i.i.i to i32
+  %reass.sub1 = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i.i234.i
+  %42 = add nsw i32 %reass.sub1, -24
   br label %if.end24.i.i
 
-if.end24.i.i:                                     ; preds = %if.else20.i.i, %if.then17.i.i, %if.then12.i.i
-  %wide_binary_mantissa.sroa.0.0.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i.i.i195.i10, %if.else20.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i43.i.i, %if.then17.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i200.i, %if.then12.i.i ]
-  %wide_binary_mantissa.sroa.9.0.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i.i.i12, %if.else20.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i45.i.i, %if.then17.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i, %if.then12.i.i ]
-  %mantissa_width.0.i.i = phi i32 [ %40, %if.else20.i.i ], [ 39, %if.then17.i.i ], [ 34, %if.then12.i.i ]
-  %mantissa_exact.0.i.i = phi i1 [ true, %if.else20.i.i ], [ false, %if.then17.i.i ], [ false, %if.then12.i.i ]
-  %binary_exponent.0.i.i = phi i32 [ %sub.i25.i.i13, %if.else20.i.i ], [ %add19.i.i, %if.then17.i.i ], [ %add.i201.i, %if.then12.i.i ]
-  %sub1.i.i202.i = sub nsw i32 -149, %binary_exponent.0.i.i
-  %.sroa.speculated.i.i203.i = call noundef i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i202.i)
-  %add26.i.i = add nsw i32 %.sroa.speculated.i.i203.i, %binary_exponent.0.i.i
-  %cmp.i49.i.i = icmp slt i32 %.sroa.speculated.i.i203.i, 1
-  br i1 %cmp.i49.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i.i204.i
+if.end24.i.i:                                     ; preds = %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i
+  %wide_binary_mantissa.sroa.0.0.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i.i.i195.i11, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i44.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i.i201.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %wide_binary_mantissa.sroa.9.0.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i.i.i13, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i46.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %coerce1.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %mantissa_width.0.i.i = phi i32 [ %42, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ 39, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ 34, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %mantissa_exact.0.i.i = phi i1 [ true, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %binary_exponent.0.i.i = phi i32 [ %sub.i25.i.i14, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %add19.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %add.i202.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
+  %sub1.i.i203.i = sub nsw i32 -149, %binary_exponent.0.i.i
+  %.sroa.speculated.i.i204.i = call noundef i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i203.i)
+  %add26.i.i = add nsw i32 %.sroa.speculated.i.i204.i, %binary_exponent.0.i.i
+  %cmp.i52.i.i = icmp slt i32 %.sroa.speculated.i.i204.i, 1
+  br i1 %cmp.i52.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i53.i.i
 
-if.end.i.i204.i:                                  ; preds = %if.end24.i.i
-  %cmp3.i.i205.i = icmp ugt i32 %.sroa.speculated.i.i203.i, 127
+if.end.i53.i.i:                                   ; preds = %if.end24.i.i
+  %cmp3.i.i205.i = icmp ugt i32 %.sroa.speculated.i.i204.i, 127
   br i1 %cmp3.i.i205.i, label %if.end36.i.i, label %if.end5.i.i206.i
 
-if.end5.i.i206.i:                                 ; preds = %if.end.i.i204.i
-  %sh_prom.i23.i.i207.i = zext nneg i32 %.sroa.speculated.i.i203.i to i128
+if.end5.i.i206.i:                                 ; preds = %if.end.i53.i.i
+  %sh_prom.i23.i.i207.i = zext nneg i32 %.sroa.speculated.i.i204.i to i128
   %notmask.i.i208.i = shl nsw i128 -1, %sh_prom.i23.i.i207.i
   %coerce.sroa.0.0.insert.insert.i34.i.i.i = xor i128 %notmask.i.i208.i, -1
-  %sub12.i.i209.i = add nsw i32 %.sroa.speculated.i.i203.i, -1
+  %sub12.i.i209.i = add nsw i32 %.sroa.speculated.i.i204.i, -1
   %sh_prom.i42.i.i210.i = zext nneg i32 %sub12.i.i209.i to i128
   %shl.i43.i.i211.i = shl nuw nsw i128 1, %sh_prom.i42.i.i210.i
   %coerce.sroa.2.0.insert.ext.i49.i.i.i = zext i64 %wide_binary_mantissa.sroa.9.0.i.i to i128
   %coerce.sroa.2.0.insert.shift.i50.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i49.i.i.i, 64
   %coerce.sroa.0.0.insert.ext.i51.i.i212.i = zext i64 %wide_binary_mantissa.sroa.0.0.i.i to i128
   %coerce.sroa.0.0.insert.insert.i52.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i50.i.i.i, %coerce.sroa.0.0.insert.ext.i51.i.i212.i
-  %41 = trunc i128 %coerce.sroa.0.0.insert.insert.i34.i.i.i to i64
-  %coerce3.sroa.0.0.extract.trunc.i54.i.i213.i = and i64 %wide_binary_mantissa.sroa.0.0.i.i, %41
-  %coerce3.sroa.2.0.extract.shift.i.i50.i.i = and i128 %coerce.sroa.2.0.insert.shift.i50.i.i.i, %coerce.sroa.0.0.insert.insert.i34.i.i.i
-  %shr.i.i.i51.i.i = lshr i128 %coerce.sroa.0.0.insert.insert.i52.i.i.i, %sh_prom.i23.i.i207.i
-  %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i = trunc i128 %shr.i.i.i51.i.i to i64
+  %43 = trunc i128 %coerce.sroa.0.0.insert.insert.i34.i.i.i to i64
+  %coerce3.sroa.0.0.extract.trunc.i54.i.i213.i = and i64 %wide_binary_mantissa.sroa.0.0.i.i, %43
+  %coerce3.sroa.2.0.extract.shift.i.i54.i.i = and i128 %coerce.sroa.2.0.insert.shift.i50.i.i.i, %coerce.sroa.0.0.insert.insert.i34.i.i.i
+  %shr.i.i.i55.i.i = lshr i128 %coerce.sroa.0.0.insert.insert.i52.i.i.i, %sh_prom.i23.i.i207.i
+  %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i = trunc i128 %shr.i.i.i55.i.i to i64
   %coerce2.sroa.0.0.insert.ext.i.i.i.i214.i = zext i64 %coerce3.sroa.0.0.extract.trunc.i54.i.i213.i to i128
-  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %coerce3.sroa.2.0.extract.shift.i.i50.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i214.i
+  %coerce2.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %coerce3.sroa.2.0.extract.shift.i.i54.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i.i214.i
   %cmp.i.i.i.i215.i = icmp ult i128 %shl.i43.i.i211.i, %coerce2.sroa.0.0.insert.insert.i.i.i.i.i
   br i1 %cmp.i.i.i.i215.i, label %if.then21.i.i228.i, label %if.end27.i.i216.i
 
 if.then21.i.i228.i:                               ; preds = %if.end5.i.i206.i
-  %coerce3.sroa.0.0.extract.trunc.i68.i.i229.i = add i64 %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i, 1
+  %coerce3.sroa.0.0.extract.trunc.i68.i.i229.i = add i64 %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i, 1
   br label %if.end36.i.i
 
 if.end27.i.i216.i:                                ; preds = %if.end5.i.i206.i
-  %cmp.i.i53.i.i = icmp eq i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i, %shl.i43.i.i211.i
-  br i1 %cmp.i.i53.i.i, label %if.then31.i.i225.i, label %if.end43.i.i.i
+  %cmp.i.i57.i.i = icmp eq i128 %coerce2.sroa.0.0.insert.insert.i.i.i.i.i, %shl.i43.i.i211.i
+  br i1 %cmp.i.i57.i.i, label %if.then31.i.i225.i, label %if.end43.i.i.i
 
 if.then31.i.i225.i:                               ; preds = %if.end27.i.i216.i
-  %coerce.sroa.0.0.insert.ext.i99.i.i.i = and i128 %shr.i.i.i51.i.i, 1
+  %coerce.sroa.0.0.insert.ext.i99.i.i.i = and i128 %shr.i.i.i55.i.i, 1
   %cmp.i105.i.i.i = icmp eq i128 %coerce.sroa.0.0.insert.ext.i99.i.i.i, 0
   %brmerge.not.i.i.i = and i1 %mantissa_exact.0.i.i, %cmp.i105.i.i.i
   %not.brmerge.not.i.i.i = xor i1 %brmerge.not.i.i.i, true
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i226.i = zext i1 %not.brmerge.not.i.i.i to i64
-  %spec.select.i.i227.i = add i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i226.i, %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i
+  %spec.select.i.i227.i = add i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i226.i, %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i
   br label %if.end36.i.i
 
 if.end43.i.i.i:                                   ; preds = %if.end27.i.i216.i
@@ -1407,61 +1475,61 @@ if.end43.i.i.i:                                   ; preds = %if.end27.i.i216.i
   br i1 %or.cond.not.i.i.i, label %if.end36.i.i, label %if.then31.i.i
 
 _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i: ; preds = %if.end24.i.i
-  %sub.i54.i.i = sub nsw i32 0, %.sroa.speculated.i.i203.i
-  %coerce.sroa.0.0.insert.ext.i.i55.i.i = zext i64 %wide_binary_mantissa.sroa.0.0.i.i to i128
-  %sh_prom.i.i.i230.i = zext nneg i32 %sub.i54.i.i to i128
-  %shl.i.i.i231.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i55.i.i, %sh_prom.i.i.i230.i
+  %sub.i59.i.i = sub nsw i32 0, %.sroa.speculated.i.i204.i
+  %coerce.sroa.0.0.insert.ext.i.i60.i.i = zext i64 %wide_binary_mantissa.sroa.0.0.i.i to i128
+  %sh_prom.i.i.i230.i = zext nneg i32 %sub.i59.i.i to i128
+  %shl.i.i.i231.i = shl nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i60.i.i, %sh_prom.i.i.i230.i
   %coerce1.sroa.0.0.extract.trunc.i.i.i232.i = trunc i128 %shl.i.i.i231.i to i64
   br i1 %mantissa_exact.0.i.i, label %if.end36.i.i, label %if.then31.i.i
 
 if.then31.i.i:                                    ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %if.end43.i.i.i
-  %retval.0.i74.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i232.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i, %if.end43.i.i.i ]
-  %call32.i.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %retval.0.i74.i.i, i32 noundef %add26.i.i, ptr noundef nonnull align 8 dereferenceable(48) %decimal_parse.i)
+  %retval.0.i79.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i232.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i, %if.end43.i.i.i ]
+  %call32.i.i = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %retval.0.i79.i.i, i32 noundef %add26.i.i, ptr noundef nonnull align 8 dereferenceable(48) %decimal_parse.i)
   %add34.i.i = zext i1 %call32.i.i to i64
-  %spec.select.i217.i = add i64 %retval.0.i74.i.i, %add34.i.i
+  %spec.select.i217.i = add i64 %retval.0.i79.i.i, %add34.i.i
   br label %if.end36.i.i
 
-if.end36.i.i:                                     ; preds = %if.then31.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %if.end43.i.i.i, %if.then31.i.i225.i, %if.then21.i.i228.i, %if.end.i.i204.i
-  %binary_mantissa.0.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i232.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i217.i, %if.then31.i.i ], [ %spec.select.i.i227.i, %if.then31.i.i225.i ], [ 0, %if.end.i.i204.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i52.i.i, %if.end43.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i229.i, %if.then21.i.i228.i ]
-  %cmp.i56.i.i = icmp eq i64 %binary_mantissa.0.i.i, 16777216
-  %spec.select.i57.i.i = select i1 %cmp.i56.i.i, i64 8388608, i64 %binary_mantissa.0.i.i
-  %add.i.i218.i = zext i1 %cmp.i56.i.i to i32
+if.end36.i.i:                                     ; preds = %if.then31.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %if.end43.i.i.i, %if.then31.i.i225.i, %if.then21.i.i228.i, %if.end.i53.i.i
+  %binary_mantissa.0.i.i = phi i64 [ %coerce1.sroa.0.0.extract.trunc.i.i.i232.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i217.i, %if.then31.i.i ], [ %spec.select.i.i227.i, %if.then31.i.i225.i ], [ 0, %if.end.i53.i.i ], [ %coerce1.sroa.0.0.extract.trunc.i.i.i56.i.i, %if.end43.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i68.i.i229.i, %if.then21.i.i228.i ]
+  %cmp.i61.i.i = icmp eq i64 %binary_mantissa.0.i.i, 16777216
+  %spec.select.i62.i.i = select i1 %cmp.i61.i.i, i64 8388608, i64 %binary_mantissa.0.i.i
+  %add.i.i218.i = zext i1 %cmp.i61.i.i to i32
   %spec.select6.i.i219.i = add nsw i32 %add26.i.i, %add.i.i218.i
   %cmp1.i.i220.i = icmp sgt i32 %spec.select6.i.i219.i, 104
-  %cmp4.i.i221.i = icmp eq i64 %spec.select.i57.i.i, 0
+  %cmp4.i.i221.i = icmp eq i64 %spec.select.i62.i.i, 0
   %spec.select7.i.i222.i = select i1 %cmp4.i.i221.i, i32 -99999, i32 %spec.select6.i.i219.i
-  br i1 %cmp1.i.i220.i, label %if.then.i252.i, label %if.else.i235.i
+  br i1 %cmp1.i.i220.i, label %if.then.i254.i, label %if.else.i237.i
 
-if.then.i252.i:                                   ; preds = %if.end36.i.i, %if.else.i191.i
-  %cond.i254.i = select i1 %negative.0.i, float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000
-  store float %cond.i254.i, ptr %value, align 4
+if.then.i254.i:                                   ; preds = %if.end36.i.i, %if.else.i191.i
+  %cond.i256.i = select i1 %negative.0.i, float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000
+  store float %cond.i256.i, ptr %value, align 4
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.else.i235.i:                                   ; preds = %if.end36.i.i
-  %cmp4.i237.i = icmp eq i32 %spec.select7.i.i222.i, -99999
-  br i1 %cmp4.i237.i, label %if.then5.i249.i, label %if.end9.i239.i
+if.else.i237.i:                                   ; preds = %if.end36.i.i
+  %cmp4.i239.i = icmp eq i32 %spec.select7.i.i222.i, -99999
+  br i1 %cmp4.i239.i, label %if.then5.i251.i, label %if.end9.i241.i
 
-if.then5.i249.i:                                  ; preds = %if.else.i235.i, %if.end72.i
-  %conv.i251.i = select i1 %negative.0.i, float -0.000000e+00, float 0.000000e+00
-  store float %conv.i251.i, ptr %value, align 4
+if.then5.i251.i:                                  ; preds = %if.else.i237.i, %if.end72.i
+  %conv.i253.i = select i1 %negative.0.i, float -0.000000e+00, float 0.000000e+00
+  store float %conv.i253.i, ptr %value, align 4
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-if.end9.i239.i:                                   ; preds = %if.else.i235.i
-  %conv11.i240.i = trunc i64 %spec.select.i57.i.i to i32
-  %shl.i.i241.i = select i1 %negative.0.i, i32 -2147483648, i32 0
-  %cmp.i.i242.i = icmp ugt i32 %conv11.i240.i, 8388607
-  %sub.i.i243.i = shl i32 %spec.select7.i.i222.i, 23
-  %shl2.i.i244.i = add i32 %sub.i.i243.i, 1258291200
-  %and.i.i245.i = and i32 %conv11.i240.i, 8388607
-  %add3.i.i246.i = select i1 %cmp.i.i242.i, i32 %shl2.i.i244.i, i32 0
-  %flt.0.i.i247.i = add i32 %add3.i.i246.i, %shl.i.i241.i
-  %add4.i.i248.i = or disjoint i32 %flt.0.i.i247.i, %and.i.i245.i
-  store i32 %add4.i.i248.i, ptr %value, align 4
+if.end9.i241.i:                                   ; preds = %if.else.i237.i
+  %conv11.i242.i = trunc i64 %spec.select.i62.i.i to i32
+  %shl.i.i243.i = select i1 %negative.0.i, i32 -2147483648, i32 0
+  %cmp.i.i244.i = icmp ugt i32 %conv11.i242.i, 8388607
+  %sub.i.i245.i = shl i32 %spec.select7.i.i222.i, 23
+  %shl2.i.i246.i = add i32 %sub.i.i245.i, 1258291200
+  %and.i.i247.i = and i32 %conv11.i242.i, 8388607
+  %add3.i.i248.i = select i1 %cmp.i.i244.i, i32 %shl2.i.i246.i, i32 0
+  %flt.0.i.i249.i = add i32 %add3.i.i248.i, %shl.i.i243.i
+  %add4.i.i250.i = or disjoint i32 %flt.0.i.i249.i, %and.i.i247.i
+  store i32 %add4.i.i250.i, ptr %value, align 4
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
-_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit: ; preds = %if.then18.i, %if.else.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %if.then.i48.i, %if.then5.i.i, %if.end9.i.i, %if.then38.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit80.thread.i, %if.then.i145.i, %if.then5.i142.i, %if.end9.i132.i, %if.else54.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit178.thread.i, %if.then.i188.i, %if.then2.i187.i, %if.end82.i.i, %if.then.i252.i, %if.then5.i249.i, %if.end9.i239.i
-  %retval.sroa.0.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %first, %if.then18.i ], [ %3, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %3, %if.then.i48.i ], [ %3, %if.then5.i.i ], [ %3, %if.end9.i.i ], [ %first, %if.then38.i ], [ %10, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit80.thread.i ], [ %10, %if.then.i145.i ], [ %10, %if.then5.i142.i ], [ %10, %if.end9.i132.i ], [ %first, %if.else54.i ], [ %19, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit178.thread.i ], [ %19, %if.then.i252.i ], [ %19, %if.then5.i249.i ], [ %19, %if.end9.i239.i ], [ %19, %if.then.i188.i ], [ %19, %if.then2.i187.i ], [ %19, %if.end82.i.i ]
-  %retval.sroa.6.0.i = phi i32 [ 0, %if.else.i ], [ 22, %if.then18.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %if.then.i48.i ], [ 34, %if.then5.i.i ], [ 0, %if.end9.i.i ], [ 22, %if.then38.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit80.thread.i ], [ 34, %if.then.i145.i ], [ 34, %if.then5.i142.i ], [ 0, %if.end9.i132.i ], [ 22, %if.else54.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit178.thread.i ], [ 34, %if.then.i252.i ], [ 34, %if.then5.i249.i ], [ 0, %if.end9.i239.i ], [ 34, %if.then.i188.i ], [ 34, %if.then2.i187.i ], [ 0, %if.end82.i.i ]
+_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit: ; preds = %if.then18.i, %if.else.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i, %if.then.i48.i, %if.then5.i.i, %if.end9.i.i, %if.then38.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit80.thread.i, %if.then.i145.i, %if.then5.i142.i, %if.end9.i132.i, %if.else54.i, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit178.thread.i, %if.then.i188.i, %if.then2.i187.i, %if.end82.i.i, %if.then.i254.i, %if.then5.i251.i, %if.end9.i241.i
+  %retval.sroa.0.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %first, %if.then18.i ], [ %3, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ %3, %if.then.i48.i ], [ %3, %if.then5.i.i ], [ %3, %if.end9.i.i ], [ %first, %if.then38.i ], [ %10, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit80.thread.i ], [ %10, %if.then.i145.i ], [ %10, %if.then5.i142.i ], [ %10, %if.end9.i132.i ], [ %first, %if.else54.i ], [ %19, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit178.thread.i ], [ %19, %if.then.i254.i ], [ %19, %if.then5.i251.i ], [ %19, %if.end9.i241.i ], [ %19, %if.then.i188.i ], [ %19, %if.then2.i187.i ], [ %19, %if.end82.i.i ]
+  %retval.sroa.6.0.i = phi i32 [ 0, %if.else.i ], [ 22, %if.then18.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit.thread.i ], [ 34, %if.then.i48.i ], [ 34, %if.then5.i.i ], [ 0, %if.end9.i.i ], [ 22, %if.then38.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit80.thread.i ], [ 34, %if.then.i145.i ], [ 34, %if.then5.i142.i ], [ 0, %if.end9.i132.i ], [ 22, %if.else54.i ], [ 0, %_ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatEbPT_.exit178.thread.i ], [ 34, %if.then.i254.i ], [ 34, %if.then5.i251.i ], [ 0, %if.end9.i241.i ], [ 34, %if.then.i188.i ], [ 34, %if.then2.i187.i ], [ 0, %if.end82.i.i ]
   %.fca.0.insert.i = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i32 } %.fca.0.insert.i, i32 %retval.sroa.6.0.i, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hex_parse.i)

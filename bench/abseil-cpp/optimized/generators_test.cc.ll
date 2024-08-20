@@ -7286,10 +7286,19 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false)
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true)
-  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %2, i64 %3
-  %.sink.i.i.i = select i1 %cmp.i.i.not.i.i.i, i32 64, i32 128
+  br i1 %cmp.i.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then.i.i
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
+
+if.else.i.i.i:                                    ; preds = %if.then.i.i
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
+
+_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %.sink12.i.i.i = phi i64 [ %3, %if.else.i.i.i ], [ %2, %if.then.i.i.i ]
+  %.sink.i.i.i = phi i32 [ 64, %if.else.i.i.i ], [ 128, %if.then.i.i.i ]
   %cast.i.i.i9.i.i.i = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %sub.i10.i.i.i = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i9.i.i.i
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
@@ -7309,8 +7318,8 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
-_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %if.then.i.i ]
+_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i, %if.else.i.i
+  %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i ]
   %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
@@ -7697,10 +7706,19 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false)
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true)
-  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %2, i64 %3
-  %.sink.i.i = select i1 %cmp.i.i.not.i.i, i32 64, i32 128
+  br i1 %cmp.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.then.i
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i
+
+if.else.i.i:                                      ; preds = %if.then.i
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i
+
+_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i: ; preds = %if.else.i.i, %if.then.i.i
+  %.sink12.i.i = phi i64 [ %3, %if.else.i.i ], [ %2, %if.then.i.i ]
+  %.sink.i.i = phi i32 [ 64, %if.else.i.i ], [ 128, %if.then.i.i ]
   %cast.i.i.i9.i.i = trunc nuw nsw i64 %.sink12.i.i to i32
   %sub.i10.i.i = sub nuw nsw i32 %.sink.i.i, %cast.i.i.i9.i.i
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
@@ -7723,8 +7741,8 @@ if.else.i:                                        ; preds = %entry
   %conv.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
 
-_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %if.then.i ]
+_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i, %if.else.i
+  %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i ]
   %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
@@ -15421,10 +15439,19 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false)
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true)
-  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %2, i64 %3
-  %.sink.i.i.i = select i1 %cmp.i.i.not.i.i.i, i32 64, i32 128
+  br i1 %cmp.i.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then.i.i
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
+
+if.else.i.i.i:                                    ; preds = %if.then.i.i
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
+
+_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %.sink12.i.i.i = phi i64 [ %3, %if.else.i.i.i ], [ %2, %if.then.i.i.i ]
+  %.sink.i.i.i = phi i32 [ 64, %if.else.i.i.i ], [ 128, %if.then.i.i.i ]
   %cast.i.i.i9.i.i.i = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %sub.i10.i.i.i = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i9.i.i.i
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
@@ -15444,8 +15471,8 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
-_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %if.then.i.i ]
+_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i, %if.else.i.i
+  %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i ]
   %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
@@ -15908,10 +15935,19 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false)
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true)
-  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %2, i64 %3
-  %.sink.i.i = select i1 %cmp.i.i.not.i.i, i32 64, i32 128
+  br i1 %cmp.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.then.i
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i
+
+if.else.i.i:                                      ; preds = %if.then.i
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i
+
+_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i: ; preds = %if.else.i.i, %if.then.i.i
+  %.sink12.i.i = phi i64 [ %3, %if.else.i.i ], [ %2, %if.then.i.i ]
+  %.sink.i.i = phi i32 [ 64, %if.else.i.i ], [ 128, %if.then.i.i ]
   %cast.i.i.i9.i.i = trunc nuw nsw i64 %.sink12.i.i to i32
   %sub.i10.i.i = sub nuw nsw i32 %.sink.i.i, %cast.i.i.i9.i.i
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
@@ -15934,8 +15970,8 @@ if.else.i:                                        ; preds = %entry
   %conv.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
 
-_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %if.then.i ]
+_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i, %if.else.i
+  %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i ]
   %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
@@ -23372,10 +23408,19 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false)
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true)
-  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %2, i64 %3
-  %.sink.i.i.i = select i1 %cmp.i.i.not.i.i.i, i32 64, i32 128
+  br i1 %cmp.i.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then.i.i
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
+
+if.else.i.i.i:                                    ; preds = %if.then.i.i
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
+
+_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %.sink12.i.i.i = phi i64 [ %3, %if.else.i.i.i ], [ %2, %if.then.i.i.i ]
+  %.sink.i.i.i = phi i32 [ 64, %if.else.i.i.i ], [ 128, %if.then.i.i.i ]
   %cast.i.i.i9.i.i.i = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %sub.i10.i.i.i = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i9.i.i.i
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
@@ -23395,8 +23440,8 @@ if.else.i.i:                                      ; preds = %entry
   %conv.i.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
-_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %if.then.i.i ]
+_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i, %if.else.i.i
+  %storemerge.i.i = phi i32 [ %conv.i.i, %if.else.i.i ], [ %sub.i10.i.i.i, %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i ]
   %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
@@ -23876,10 +23921,19 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false)
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true)
-  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %2, i64 %3
-  %.sink.i.i = select i1 %cmp.i.i.not.i.i, i32 64, i32 128
+  br i1 %cmp.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.then.i
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i
+
+if.else.i.i:                                      ; preds = %if.then.i
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false)
+  br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i
+
+_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i: ; preds = %if.else.i.i, %if.then.i.i
+  %.sink12.i.i = phi i64 [ %3, %if.else.i.i ], [ %2, %if.then.i.i ]
+  %.sink.i.i = phi i32 [ 64, %if.else.i.i ], [ 128, %if.then.i.i ]
   %cast.i.i.i9.i.i = trunc nuw nsw i64 %.sink12.i.i to i32
   %sub.i10.i.i = sub nuw nsw i32 %.sink.i.i, %cast.i.i.i9.i.i
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
@@ -23902,8 +23956,8 @@ if.else.i:                                        ; preds = %entry
   %conv.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
 
-_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
-  %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %if.then.i ]
+_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i, %if.else.i
+  %storemerge.i = phi i32 [ %conv.i, %if.else.i ], [ %sub.i10.i.i, %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i ]
   %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)

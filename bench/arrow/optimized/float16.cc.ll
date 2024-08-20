@@ -31,24 +31,28 @@ if.end.i:                                         ; preds = %sw.bb11.i
   %1 = shl nuw nsw i16 %and5.i, 1
   %shl14.i = zext nneg i16 %1 to i32
   %cmp1615.i = icmp ult i16 %and5.i, 512
-  br i1 %cmp1615.i, label %while.body.preheader.i, label %while.end.i
+  br i1 %cmp1615.i, label %while.body.i, label %while.end.i
 
-while.body.preheader.i:                           ; preds = %if.end.i
-  %shl14.masked.numleadingzeros.i = tail call range(i32 22, 33) i32 @llvm.ctlz.i32(i32 %shl14.i, i1 true)
-  %shl14.masked.leadingonepos.i = xor i32 %shl14.masked.numleadingzeros.i, 31
-  %while.body.tripcount.i = sub nuw nsw i32 10, %shl14.masked.leadingonepos.i
-  %shl17.i = shl nuw nsw i32 %shl14.i, %while.body.tripcount.i
-  %2 = shl nuw nsw i32 %shl14.masked.numleadingzeros.i, 23
-  %3 = sub nuw nsw i32 1115684864, %2
+while.body.i:                                     ; preds = %if.end.i, %while.body.i
+  %f_mant.017.i = phi i32 [ %shl17.i, %while.body.i ], [ %shl14.i, %if.end.i ]
+  %f_exp.016.i = phi i32 [ %dec.i, %while.body.i ], [ 112, %if.end.i ]
+  %dec.i = add i32 %f_exp.016.i, -1
+  %shl17.i = shl i32 %f_mant.017.i, 1
+  %2 = and i32 %f_mant.017.i, 512
+  %cmp16.i = icmp eq i32 %2, 0
+  br i1 %cmp16.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !4
+
+while.end.loopexit.i:                             ; preds = %while.body.i
+  %3 = shl i32 %dec.i, 23
   br label %while.end.i
 
-while.end.i:                                      ; preds = %while.body.preheader.i, %if.end.i
-  %f_exp.0.lcssa.i = phi i32 [ 939524096, %if.end.i ], [ %3, %while.body.preheader.i ]
-  %f_mant.0.lcssa.i = phi i32 [ %shl14.i, %if.end.i ], [ %shl17.i, %while.body.preheader.i ]
+while.end.i:                                      ; preds = %while.end.loopexit.i, %if.end.i
+  %f_exp.0.lcssa.i = phi i32 [ 939524096, %if.end.i ], [ %3, %while.end.loopexit.i ]
+  %f_mant.0.lcssa.i = phi i32 [ %shl14.i, %if.end.i ], [ %shl17.i, %while.end.loopexit.i ]
   %and19.i = shl i32 %f_mant.0.lcssa.i, 13
   %shl20.i = and i32 %and19.i, 8372224
-  %4 = or i32 %f_exp.0.lcssa.i, %shl20.i
-  %or22.i = or disjoint i32 %4, %shl.i
+  %4 = or disjoint i32 %f_exp.0.lcssa.i, %shl20.i
+  %or22.i = or i32 %4, %shl.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE12FromBinary16Et.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -170,24 +174,28 @@ if.end.i:                                         ; preds = %sw.bb12.i
   %1 = shl nuw nsw i16 %and6.i, 1
   %shl15.i = zext nneg i16 %1 to i64
   %cmp1715.i = icmp ult i16 %and6.i, 512
-  br i1 %cmp1715.i, label %while.body.preheader.i, label %while.end.i
+  br i1 %cmp1715.i, label %while.body.i, label %while.end.i
 
-while.body.preheader.i:                           ; preds = %if.end.i
-  %shl15.masked.numleadingzeros.i = tail call range(i64 54, 65) i64 @llvm.ctlz.i64(i64 %shl15.i, i1 true)
-  %shl15.masked.leadingonepos.i = xor i64 %shl15.masked.numleadingzeros.i, 63
-  %while.body.tripcount.i = sub nuw nsw i64 10, %shl15.masked.leadingonepos.i
-  %shl18.i = shl nuw nsw i64 %shl15.i, %while.body.tripcount.i
-  %2 = shl nuw nsw i64 %shl15.masked.numleadingzeros.i, 52
-  %3 = sub nuw nsw i64 4778319204640096256, %2
+while.body.i:                                     ; preds = %if.end.i, %while.body.i
+  %f_mant.017.i = phi i64 [ %shl18.i, %while.body.i ], [ %shl15.i, %if.end.i ]
+  %f_exp.016.i = phi i64 [ %dec.i, %while.body.i ], [ 1008, %if.end.i ]
+  %dec.i = add i64 %f_exp.016.i, -1
+  %shl18.i = shl i64 %f_mant.017.i, 1
+  %2 = and i64 %f_mant.017.i, 512
+  %cmp17.i = icmp eq i64 %2, 0
+  br i1 %cmp17.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !6
+
+while.end.loopexit.i:                             ; preds = %while.body.i
+  %3 = shl i64 %dec.i, 52
   br label %while.end.i
 
-while.end.i:                                      ; preds = %while.body.preheader.i, %if.end.i
-  %f_exp.0.lcssa.i = phi i64 [ 4539628424389459968, %if.end.i ], [ %3, %while.body.preheader.i ]
-  %f_mant.0.lcssa.i = phi i64 [ %shl15.i, %if.end.i ], [ %shl18.i, %while.body.preheader.i ]
-  %and20.i = shl nuw nsw i64 %f_mant.0.lcssa.i, 42
+while.end.i:                                      ; preds = %while.end.loopexit.i, %if.end.i
+  %f_exp.0.lcssa.i = phi i64 [ 4539628424389459968, %if.end.i ], [ %3, %while.end.loopexit.i ]
+  %f_mant.0.lcssa.i = phi i64 [ %shl15.i, %if.end.i ], [ %shl18.i, %while.end.loopexit.i ]
+  %and20.i = shl i64 %f_mant.0.lcssa.i, 42
   %shl21.i = and i64 %and20.i, 4494803534348288
-  %4 = or i64 %f_exp.0.lcssa.i, %shl21.i
-  %or23.i = or disjoint i64 %4, %shl.i
+  %4 = or disjoint i64 %f_exp.0.lcssa.i, %shl21.i
+  %or23.i = or i64 %4, %shl.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE12FromBinary16Et.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -305,24 +313,28 @@ if.end.i.i:                                       ; preds = %sw.bb11.i.i
   %0 = shl nuw nsw i16 %and5.i.i, 1
   %shl14.i.i = zext nneg i16 %0 to i32
   %cmp1615.i.i = icmp ult i16 %and5.i.i, 512
-  br i1 %cmp1615.i.i, label %while.body.preheader.i.i, label %while.end.i.i
+  br i1 %cmp1615.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.preheader.i.i:                         ; preds = %if.end.i.i
-  %shl14.masked.numleadingzeros.i.i = tail call range(i32 22, 33) i32 @llvm.ctlz.i32(i32 %shl14.i.i, i1 true)
-  %shl14.masked.leadingonepos.i.i = xor i32 %shl14.masked.numleadingzeros.i.i, 31
-  %while.body.tripcount.i.i = sub nuw nsw i32 10, %shl14.masked.leadingonepos.i.i
-  %shl17.i.i = shl nuw nsw i32 %shl14.i.i, %while.body.tripcount.i.i
-  %1 = shl nuw nsw i32 %shl14.masked.numleadingzeros.i.i, 23
-  %2 = sub nuw nsw i32 1115684864, %1
+while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
+  %f_mant.017.i.i = phi i32 [ %shl17.i.i, %while.body.i.i ], [ %shl14.i.i, %if.end.i.i ]
+  %f_exp.016.i.i = phi i32 [ %dec.i.i, %while.body.i.i ], [ 112, %if.end.i.i ]
+  %dec.i.i = add i32 %f_exp.016.i.i, -1
+  %shl17.i.i = shl i32 %f_mant.017.i.i, 1
+  %1 = and i32 %f_mant.017.i.i, 512
+  %cmp16.i.i = icmp eq i32 %1, 0
+  br i1 %cmp16.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !4
+
+while.end.loopexit.i.i:                           ; preds = %while.body.i.i
+  %2 = shl i32 %dec.i.i, 23
   br label %while.end.i.i
 
-while.end.i.i:                                    ; preds = %while.body.preheader.i.i, %if.end.i.i
-  %f_exp.0.lcssa.i.i = phi i32 [ 939524096, %if.end.i.i ], [ %2, %while.body.preheader.i.i ]
-  %f_mant.0.lcssa.i.i = phi i32 [ %shl14.i.i, %if.end.i.i ], [ %shl17.i.i, %while.body.preheader.i.i ]
+while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %if.end.i.i
+  %f_exp.0.lcssa.i.i = phi i32 [ 939524096, %if.end.i.i ], [ %2, %while.end.loopexit.i.i ]
+  %f_mant.0.lcssa.i.i = phi i32 [ %shl14.i.i, %if.end.i.i ], [ %shl17.i.i, %while.end.loopexit.i.i ]
   %and19.i.i = shl i32 %f_mant.0.lcssa.i.i, 13
   %shl20.i.i = and i32 %and19.i.i, 8372224
-  %3 = or i32 %f_exp.0.lcssa.i.i, %shl20.i.i
-  %or22.i.i = or disjoint i32 %3, %shl.i.i
+  %3 = or disjoint i32 %f_exp.0.lcssa.i.i, %shl20.i.i
+  %or22.i.i = or i32 %3, %shl.i.i
   br label %_ZNK5arrow4util7Float167ToFloatEv.exit
 
 sw.default.i.i:                                   ; preds = %entry
@@ -342,17 +354,10 @@ _ZNK5arrow4util7Float167ToFloatEv.exit:           ; preds = %sw.bb.i.i, %sw.bb11
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8), float noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -360,3 +365,6 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

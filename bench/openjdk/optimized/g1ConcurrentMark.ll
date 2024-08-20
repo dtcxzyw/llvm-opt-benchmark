@@ -1787,20 +1787,26 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %40, %41
 42:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit
   %43 = load i64, ptr %0, align 8
   %44 = icmp ugt i64 %43, %7
-  %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
-  %46 = xor i64 %45, 63
-  %.neg.i = shl nsw i64 -1, %46
-  %47 = select i1 %44, i64 0, i64 %.neg.i
-  %48 = load ptr, ptr %17, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %.0.i
-  %50 = load volatile ptr, ptr %49, align 8
-  %51 = getelementptr %"struct.G1CMMarkStack::TaskQueueEntryChunk", ptr %50, i64 %47
-  %52 = getelementptr %"struct.G1CMMarkStack::TaskQueueEntryChunk", ptr %51, i64 %7
+  br i1 %44, label %_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit, label %45
+
+45:                                               ; preds = %42
+  %46 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 true)
+  %47 = xor i64 %46, 63
+  %.neg.i = shl nsw i64 -1, %47
+  %48 = add i64 %.neg.i, %7
+  br label %_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit
+
+_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit: ; preds = %42, %45
+  %.0.i17 = phi i64 [ %48, %45 ], [ %7, %42 ]
+  %49 = load ptr, ptr %17, align 8
+  %50 = getelementptr inbounds ptr, ptr %49, i64 %.0.i
+  %51 = load volatile ptr, ptr %50, align 8
+  %52 = getelementptr inbounds %"struct.G1CMMarkStack::TaskQueueEntryChunk", ptr %51, i64 %.0.i17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8192) %52, i8 0, i64 8192, i1 false)
   br label %53
 
-53:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %22, %6, %1, %42
-  %.0 = phi ptr [ null, %_ZN11MutexLockerD2Ev.exit ], [ %52, %42 ], [ null, %1 ], [ null, %6 ], [ null, %22 ]
+53:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %22, %6, %1, %_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit
+  %.0 = phi ptr [ null, %_ZN11MutexLockerD2Ev.exit ], [ %52, %_ZN13G1CMMarkStack14ChunkAllocator16get_bucket_indexEm.exit ], [ null, %1 ], [ null, %6 ], [ null, %22 ]
   ret ptr %.0
 }
 

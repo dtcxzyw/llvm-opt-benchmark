@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i16 @f16_rsqrte7(i16 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f16_classify(i16 %0) #3
+  %2 = tail call i64 @f16_classify(i16 %0) #2
   %3 = trunc i64 %2 to i32
   switch i32 %3, label %14 [
     i32 1, label %4
@@ -56,25 +56,23 @@ define i16 @f16_rsqrte7(i16 %0) local_unnamed_addr #0 {
   %19 = zext i16 %0 to i64
   %20 = lshr i64 %19, 10
   %21 = and i64 %20, 31
-  %22 = and i64 %19, 1023
-  %23 = and i64 %19, 512
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %.lr.ph.i.preheader, label %._crit_edge.i
+  %22 = and i64 %19, 512
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.masked = and i64 %19, 511
-  %.masked.numleadingzeros = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.i.tripcount = sub nuw nsw i64 9, %.masked.leadingonepos
-  %25 = shl nuw nsw i64 %22, %.lr.ph.i.tripcount
-  %26 = add nuw nsw i64 %21, 54
-  %27 = sub nsw i64 %26, %.masked.numleadingzeros
-  br label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
+  %.131.i = phi i64 [ %24, %.lr.ph.i ], [ %21, %.preheader.i ]
+  %.12930.i = phi i64 [ %25, %.lr.ph.i ], [ %19, %.preheader.i ]
+  %24 = add i64 %.131.i, -1
+  %25 = shl i64 %.12930.i, 1
+  %26 = and i64 %.12930.i, 256
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.129.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
-  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
-  %28 = shl nuw nsw i64 %.129.lcssa.i, 1
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+  %.129.lcssa.i = phi i64 [ %19, %.preheader.i ], [ %25, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %24, %.lr.ph.i ]
+  %28 = shl i64 %.129.lcssa.i, 1
   %29 = and i64 %28, 1022
   br label %rsqrte7.exit
 
@@ -83,7 +81,7 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %.028.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %14 ]
   %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %17, %14 ]
   %31 = and i64 %30, 32768
-  %32 = shl nsw i64 %.0.i, 6
+  %32 = shl i64 %.0.i, 6
   %33 = and i64 %32, 64
   %34 = lshr i64 %.028.i, 4
   %35 = or disjoint i64 %33, %34
@@ -91,8 +89,8 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 3
-  %40 = shl nsw i64 %.0.i, 9
-  %41 = sub nsw i64 22528, %40
+  %40 = shl i64 %.0.i, 9
+  %41 = sub i64 22528, %40
   %42 = and i64 %41, 64512
   %43 = or i64 %42, %31
   %44 = or i64 %43, %39
@@ -108,7 +106,7 @@ declare i64 @f16_classify(i16) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @f32_rsqrte7(i32 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f32_classify(i32 %0) #3
+  %2 = tail call i64 @f32_classify(i32 %0) #2
   %3 = trunc i64 %2 to i32
   switch i32 %3, label %14 [
     i32 1, label %4
@@ -154,25 +152,23 @@ define i32 @f32_rsqrte7(i32 %0) local_unnamed_addr #0 {
   %19 = zext i32 %0 to i64
   %20 = lshr i64 %19, 23
   %21 = and i64 %20, 255
-  %22 = and i64 %19, 8388607
-  %23 = and i64 %19, 4194304
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %.lr.ph.i.preheader, label %._crit_edge.i
+  %22 = and i64 %19, 4194304
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.masked = and i64 %19, 4194303
-  %.masked.numleadingzeros = tail call range(i64 42, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.i.tripcount = sub nuw nsw i64 22, %.masked.leadingonepos
-  %25 = shl nuw nsw i64 %22, %.lr.ph.i.tripcount
-  %26 = add nuw nsw i64 %21, 41
-  %27 = sub nsw i64 %26, %.masked.numleadingzeros
-  br label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
+  %.131.i = phi i64 [ %24, %.lr.ph.i ], [ %21, %.preheader.i ]
+  %.12930.i = phi i64 [ %25, %.lr.ph.i ], [ %19, %.preheader.i ]
+  %24 = add i64 %.131.i, -1
+  %25 = shl i64 %.12930.i, 1
+  %26 = and i64 %.12930.i, 2097152
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.129.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
-  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
-  %28 = shl nuw nsw i64 %.129.lcssa.i, 1
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+  %.129.lcssa.i = phi i64 [ %19, %.preheader.i ], [ %25, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %24, %.lr.ph.i ]
+  %28 = shl i64 %.129.lcssa.i, 1
   %29 = and i64 %28, 8388606
   br label %rsqrte7.exit
 
@@ -181,7 +177,7 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %.028.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %14 ]
   %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %17, %14 ]
   %31 = and i64 %30, 2147483648
-  %32 = shl nsw i64 %.0.i, 6
+  %32 = shl i64 %.0.i, 6
   %33 = and i64 %32, 64
   %34 = lshr i64 %.028.i, 17
   %35 = or disjoint i64 %33, %34
@@ -189,8 +185,8 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 16
-  %40 = shl nsw i64 %.0.i, 22
-  %41 = sub nsw i64 1593835520, %40
+  %40 = shl i64 %.0.i, 22
+  %41 = sub i64 1593835520, %40
   %42 = and i64 %41, 4286578688
   %43 = or i64 %42, %31
   %44 = or i64 %43, %39
@@ -206,7 +202,7 @@ declare i64 @f32_classify(i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @f64_rsqrte7(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f64_classify(i64 %0) #3
+  %2 = tail call i64 @f64_classify(i64 %0) #2
   %3 = trunc i64 %2 to i32
   switch i32 %3, label %14 [
     i32 1, label %4
@@ -250,24 +246,22 @@ define i64 @f64_rsqrte7(i64 %0) local_unnamed_addr #0 {
 .preheader.i:                                     ; preds = %1
   %18 = lshr i64 %0, 52
   %19 = and i64 %18, 2047
-  %20 = and i64 %0, 4503599627370495
-  %21 = and i64 %0, 2251799813685248
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.lr.ph.i.preheader, label %._crit_edge.i
+  %20 = and i64 %0, 2251799813685248
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.masked = and i64 %0, 2251799813685247
-  %.masked.numleadingzeros = tail call range(i64 13, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.i.tripcount = sub nuw nsw i64 51, %.masked.leadingonepos
-  %23 = shl i64 %20, %.lr.ph.i.tripcount
-  %24 = add nuw nsw i64 %19, 12
-  %25 = sub nsw i64 %24, %.masked.numleadingzeros
-  br label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
+  %.131.i = phi i64 [ %22, %.lr.ph.i ], [ %19, %.preheader.i ]
+  %.12930.i = phi i64 [ %23, %.lr.ph.i ], [ %0, %.preheader.i ]
+  %22 = add i64 %.131.i, -1
+  %23 = shl i64 %.12930.i, 1
+  %24 = and i64 %.12930.i, 1125899906842624
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.129.lcssa.i = phi i64 [ %20, %.preheader.i ], [ %23, %.lr.ph.i.preheader ]
-  %.1.lcssa.i = phi i64 [ %19, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+  %.129.lcssa.i = phi i64 [ %0, %.preheader.i ], [ %23, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %19, %.preheader.i ], [ %22, %.lr.ph.i ]
   %26 = shl i64 %.129.lcssa.i, 1
   %27 = and i64 %26, 4503599627370494
   br label %rsqrte7.exit
@@ -276,7 +270,7 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %.028.i = phi i64 [ %27, %._crit_edge.i ], [ %17, %14 ]
   %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %16, %14 ]
   %28 = and i64 %0, -9223372036854775808
-  %29 = shl nsw i64 %.0.i, 6
+  %29 = shl i64 %.0.i, 6
   %30 = and i64 %29, 64
   %31 = lshr i64 %.028.i, 46
   %32 = or disjoint i64 %30, %31
@@ -284,8 +278,8 @@ rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   %36 = shl nuw nsw i64 %35, 45
-  %37 = shl nsw i64 %.0.i, 51
-  %38 = sub nsw i64 6908521828386340864, %37
+  %37 = shl i64 %.0.i, 51
+  %38 = sub i64 6908521828386340864, %37
   %39 = and i64 %38, -4503599627370496
   %40 = or i64 %39, %28
   %41 = or i64 %40, %36
@@ -300,10 +294,10 @@ declare i64 @f64_classify(i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f16_classify(i16 %0) #3
+  %2 = tail call i64 @f16_classify(i16 %0) #2
   %3 = trunc i64 %2 to i32
   switch i32 %3, label %15 [
-    i32 1, label %63
+    i32 1, label %64
     i32 128, label %4
     i32 8, label %5
     i32 16, label %8
@@ -314,19 +308,19 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   ]
 
 4:                                                ; preds = %1
-  br label %63
+  br label %64
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @softfloat_exceptionFlags, align 1
   %7 = or i8 %6, 8
   store i8 %7, ptr @softfloat_exceptionFlags, align 1
-  br label %63
+  br label %64
 
 8:                                                ; preds = %1
   %9 = load i8, ptr @softfloat_exceptionFlags, align 1
   %10 = or i8 %9, 8
   store i8 %10, ptr @softfloat_exceptionFlags, align 1
-  br label %63
+  br label %64
 
 11:                                               ; preds = %1
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -335,14 +329,14 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %11, %1
-  br label %63
+  br label %64
 
 15:                                               ; preds = %1
   %16 = zext i16 %0 to i64
   %17 = lshr i64 %16, 10
   %18 = and i64 %17, 31
   %19 = and i64 %16, 1023
-  br label %40
+  br label %41
 
 .preheader.i:                                     ; preds = %1, %1
   %20 = zext i16 %0 to i64
@@ -353,91 +347,90 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %25 = and i16 %0, -32768
   %26 = and i64 %20, 512
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %.lr.ph.i.preheader, label %._crit_edge.i
+  br i1 %27, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.masked = and i64 %20, 511
-  %.masked.numleadingzeros = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.i.tripcount = sub nuw nsw i64 9, %.masked.leadingonepos
-  %28 = shl nuw nsw i64 %24, %.lr.ph.i.tripcount
-  %29 = add nuw nsw i64 %23, 54
-  %30 = sub nsw i64 %29, %.masked.numleadingzeros
-  br label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
+  %.169.i = phi i64 [ %28, %.lr.ph.i ], [ %23, %.preheader.i ]
+  %.16268.i = phi i64 [ %29, %.lr.ph.i ], [ %24, %.preheader.i ]
+  %28 = add i64 %.169.i, -1
+  %29 = shl i64 %.16268.i, 1
+  %30 = and i64 %.16268.i, 256
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.162.lcssa.i = phi i64 [ %24, %.preheader.i ], [ %28, %.lr.ph.i.preheader ]
-  %.1.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %30, %.lr.ph.i.preheader ]
-  %31 = shl nuw nsw i64 %.162.lcssa.i, 1
-  %32 = and i64 %31, 1022
-  %33 = add nsw i64 %.1.lcssa.i, -1
-  %or.cond.i = icmp ult i64 %33, -2
-  br i1 %or.cond.i, label %34, label %40
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+  %.162.lcssa.i = phi i64 [ %24, %.preheader.i ], [ %29, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %28, %.lr.ph.i ]
+  %32 = shl i64 %.162.lcssa.i, 1
+  %33 = and i64 %32, 1022
+  %34 = add i64 %.1.lcssa.i, -1
+  %or.cond.i = icmp ult i64 %34, -2
+  br i1 %or.cond.i, label %35, label %41
 
-34:                                               ; preds = %._crit_edge.i
-  %35 = icmp eq i8 %21, 1
-  br i1 %35, label %59, label %36
+35:                                               ; preds = %._crit_edge.i
+  %36 = icmp eq i8 %21, 1
+  br i1 %36, label %60, label %37
 
-36:                                               ; preds = %34
-  %37 = icmp ne i8 %21, 2
-  %38 = icmp slt i16 %0, 0
-  %or.cond3.i = select i1 %37, i1 true, i1 %38
+37:                                               ; preds = %35
+  %38 = icmp ne i8 %21, 2
+  %39 = icmp slt i16 %0, 0
+  %or.cond3.i = select i1 %38, i1 true, i1 %39
   %or.cond3.not.i = xor i1 %or.cond3.i, true
-  %39 = icmp eq i8 %21, 3
-  %or.cond5.i = select i1 %39, i1 %38, i1 false
+  %40 = icmp eq i8 %21, 3
+  %or.cond5.i = select i1 %40, i1 %39, i1 false
   %or.cond66.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
   %spec.select = select i1 %or.cond66.i, i16 31743, i16 31744
-  br label %59
+  br label %60
 
-40:                                               ; preds = %15, %._crit_edge.i
-  %41 = phi i64 [ %20, %._crit_edge.i ], [ %16, %15 ]
-  %.061.i = phi i64 [ %32, %._crit_edge.i ], [ %19, %15 ]
+41:                                               ; preds = %15, %._crit_edge.i
+  %42 = phi i64 [ %20, %._crit_edge.i ], [ %16, %15 ]
+  %.061.i = phi i64 [ %33, %._crit_edge.i ], [ %19, %15 ]
   %.060.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %18, %15 ]
-  %42 = lshr i64 %.061.i, 3
-  %43 = getelementptr inbounds [128 x i8], ptr @recip7.table, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i64
-  %46 = shl nuw nsw i64 %45, 3
-  %47 = sub nsw i64 29, %.060.i
-  %48 = add nsw i64 %.060.i, -29
-  %or.cond7.i = icmp ult i64 %48, 2
-  br i1 %or.cond7.i, label %49, label %recip7.exit
+  %43 = lshr i64 %.061.i, 3
+  %44 = getelementptr inbounds [128 x i8], ptr @recip7.table, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i64
+  %47 = shl nuw nsw i64 %46, 3
+  %48 = sub nsw i64 29, %.060.i
+  %49 = add nsw i64 %.060.i, -29
+  %or.cond7.i = icmp ult i64 %49, 2
+  br i1 %or.cond7.i, label %50, label %recip7.exit
 
-49:                                               ; preds = %40
-  %50 = icmp eq i64 %.060.i, 30
-  %51 = shl nuw nsw i64 %45, 2
-  %52 = or i64 %51, 512
-  %53 = zext i1 %50 to i64
-  %spec.select.i = lshr exact i64 %52, %53
-  %spec.select67.i = select i1 %50, i64 0, i64 %47
+50:                                               ; preds = %41
+  %51 = icmp eq i64 %.060.i, 30
+  %52 = shl nuw nsw i64 %46, 2
+  %53 = or i64 %52, 512
+  %54 = zext i1 %51 to i64
+  %spec.select.i = lshr exact i64 %53, %54
+  %spec.select67.i = select i1 %51, i64 0, i64 %48
   br label %recip7.exit
 
-recip7.exit:                                      ; preds = %40, %49
-  %.058.i = phi i64 [ %46, %40 ], [ %spec.select.i, %49 ]
-  %.0.i = phi i64 [ %47, %40 ], [ %spec.select67.i, %49 ]
-  %54 = and i64 %41, 32768
-  %55 = shl nsw i64 %.0.i, 10
-  %56 = or i64 %.058.i, %54
-  %57 = or i64 %56, %55
-  %58 = trunc i64 %57 to i16
-  br label %63
+recip7.exit:                                      ; preds = %41, %50
+  %.058.i = phi i64 [ %47, %41 ], [ %spec.select.i, %50 ]
+  %.0.i = phi i64 [ %48, %41 ], [ %spec.select67.i, %50 ]
+  %55 = and i64 %42, 32768
+  %56 = shl nsw i64 %.0.i, 10
+  %57 = or i64 %.058.i, %55
+  %58 = or i64 %57, %56
+  %59 = trunc i64 %58 to i16
+  br label %64
 
-59:                                               ; preds = %36, %34
-  %.sink = phi i16 [ 31743, %34 ], [ %spec.select, %36 ]
-  %60 = or disjoint i16 %25, %.sink
-  %61 = load i8, ptr @softfloat_exceptionFlags, align 1
-  %62 = or i8 %61, 5
-  store i8 %62, ptr @softfloat_exceptionFlags, align 1
-  br label %63
+60:                                               ; preds = %37, %35
+  %.sink = phi i16 [ 31743, %35 ], [ %spec.select, %37 ]
+  %61 = or disjoint i16 %25, %.sink
+  %62 = load i8, ptr @softfloat_exceptionFlags, align 1
+  %63 = or i8 %62, 5
+  store i8 %63, ptr @softfloat_exceptionFlags, align 1
+  br label %64
 
-63:                                               ; preds = %recip7.exit, %1, %59, %14, %8, %5, %4
-  %.sroa.0.0 = phi i16 [ %60, %59 ], [ %58, %recip7.exit ], [ 32256, %14 ], [ 31744, %8 ], [ -1024, %5 ], [ 0, %4 ], [ -32768, %1 ]
+64:                                               ; preds = %recip7.exit, %1, %60, %14, %8, %5, %4
+  %.sroa.0.0 = phi i16 [ %61, %60 ], [ %59, %recip7.exit ], [ 32256, %14 ], [ 31744, %8 ], [ -1024, %5 ], [ 0, %4 ], [ -32768, %1 ]
   ret i16 %.sroa.0.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f32_classify(i32 %0) #3
+  %2 = tail call i64 @f32_classify(i32 %0) #2
   %3 = trunc i64 %2 to i32
   switch i32 %3, label %15 [
     i32 1, label %62
@@ -486,27 +479,25 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   %21 = load i8, ptr @softfloat_roundingMode, align 1
   %22 = lshr i64 %20, 23
   %23 = and i64 %22, 255
-  %24 = and i64 %20, 8388607
-  %25 = and i64 %20, 4194304
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %.lr.ph.i.preheader, label %._crit_edge.i
+  %24 = and i64 %20, 4194304
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.masked = and i64 %20, 4194303
-  %.masked.numleadingzeros = tail call range(i64 42, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.i.tripcount = sub nuw nsw i64 22, %.masked.leadingonepos
-  %27 = shl nuw nsw i64 %24, %.lr.ph.i.tripcount
-  %28 = add nuw nsw i64 %23, 41
-  %29 = sub nsw i64 %28, %.masked.numleadingzeros
-  br label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
+  %.169.i = phi i64 [ %26, %.lr.ph.i ], [ %23, %.preheader.i ]
+  %.16268.i = phi i64 [ %27, %.lr.ph.i ], [ %20, %.preheader.i ]
+  %26 = add i64 %.169.i, -1
+  %27 = shl i64 %.16268.i, 1
+  %28 = and i64 %.16268.i, 2097152
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.162.lcssa.i = phi i64 [ %24, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
-  %.1.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %29, %.lr.ph.i.preheader ]
-  %30 = shl nuw nsw i64 %.162.lcssa.i, 1
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+  %.162.lcssa.i = phi i64 [ %20, %.preheader.i ], [ %27, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %26, %.lr.ph.i ]
+  %30 = shl i64 %.162.lcssa.i, 1
   %31 = and i64 %30, 8388606
-  %32 = add nsw i64 %.1.lcssa.i, -1
+  %32 = add i64 %.1.lcssa.i, -1
   %or.cond.i = icmp ult i64 %32, -2
   br i1 %or.cond.i, label %33, label %39
 
@@ -559,9 +550,9 @@ recip7.exit:                                      ; preds = %39, %48
   br label %62
 
 57:                                               ; preds = %35, %33
-  %.sink12 = phi i32 [ 2139095039, %33 ], [ %spec.select, %35 ]
+  %.sink13 = phi i32 [ 2139095039, %33 ], [ %spec.select, %35 ]
   %58 = and i32 %0, -2147483648
-  %59 = or disjoint i32 %58, %.sink12
+  %59 = or disjoint i32 %58, %.sink13
   %60 = load i8, ptr @softfloat_exceptionFlags, align 1
   %61 = or i8 %60, 5
   store i8 %61, ptr @softfloat_exceptionFlags, align 1
@@ -574,7 +565,7 @@ recip7.exit:                                      ; preds = %39, %48
 
 ; Function Attrs: nounwind uwtable
 define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @f64_classify(i64 %0) #3
+  %2 = tail call i64 @f64_classify(i64 %0) #2
   %3 = trunc i64 %2 to i32
   switch i32 %3, label %15 [
     i32 1, label %59
@@ -621,27 +612,25 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   %19 = load i8, ptr @softfloat_roundingMode, align 1
   %20 = lshr i64 %0, 52
   %21 = and i64 %20, 2047
-  %22 = and i64 %0, 4503599627370495
-  %23 = and i64 %0, 2251799813685248
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %.lr.ph.i.preheader, label %._crit_edge.i
+  %22 = and i64 %0, 2251799813685248
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.masked = and i64 %0, 2251799813685247
-  %.masked.numleadingzeros = tail call range(i64 13, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.i.tripcount = sub nuw nsw i64 51, %.masked.leadingonepos
-  %25 = shl i64 %22, %.lr.ph.i.tripcount
-  %26 = add nuw nsw i64 %21, 12
-  %27 = sub nsw i64 %26, %.masked.numleadingzeros
-  br label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
+  %.169.i = phi i64 [ %24, %.lr.ph.i ], [ %21, %.preheader.i ]
+  %.16268.i = phi i64 [ %25, %.lr.ph.i ], [ %0, %.preheader.i ]
+  %24 = add i64 %.169.i, -1
+  %25 = shl i64 %.16268.i, 1
+  %26 = and i64 %.16268.i, 1125899906842624
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.162.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
-  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+  %.162.lcssa.i = phi i64 [ %0, %.preheader.i ], [ %25, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %24, %.lr.ph.i ]
   %28 = shl i64 %.162.lcssa.i, 1
   %29 = and i64 %28, 4503599627370494
-  %30 = add nsw i64 %.1.lcssa.i, -1
+  %30 = add i64 %.1.lcssa.i, -1
   %or.cond.i = icmp ult i64 %30, -2
   br i1 %or.cond.i, label %31, label %37
 
@@ -692,9 +681,9 @@ recip7.exit:                                      ; preds = %37, %46
   br label %59
 
 54:                                               ; preds = %33, %31
-  %.sink13 = phi i64 [ 9218868437227405311, %31 ], [ %spec.select, %33 ]
+  %.sink14 = phi i64 [ 9218868437227405311, %31 ], [ %spec.select, %33 ]
   %55 = and i64 %0, -9223372036854775808
-  %56 = or disjoint i64 %55, %.sink13
+  %56 = or disjoint i64 %55, %.sink14
   %57 = load i8, ptr @softfloat_exceptionFlags, align 1
   %58 = or i8 %57, 5
   store i8 %58, ptr @softfloat_exceptionFlags, align 1
@@ -705,13 +694,9 @@ recip7.exit:                                      ; preds = %37, %46
   ret i64 %.sroa.0.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #2
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #2 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -719,3 +704,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

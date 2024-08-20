@@ -3427,8 +3427,8 @@ define void @Dtt_PrintMulti(ptr nocapture noundef readonly %0) local_unnamed_add
   %5 = getelementptr inbounds i8, ptr %0, i64 288
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %47
-  %indvars.iv46 = phi i64 [ 0, %1 ], [ %indvars.iv.next47, %47 ]
+.preheader:                                       ; preds = %1, %49
+  %indvars.iv46 = phi i64 [ 0, %1 ], [ %indvars.iv.next47, %49 ]
   %6 = load i32, ptr %3, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge.thread
@@ -3439,82 +3439,88 @@ define void @Dtt_PrintMulti(ptr nocapture noundef readonly %0) local_unnamed_add
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %.02937 = phi i32 [ 0, %.lr.ph ], [ %.1, %29 ]
-  %.03036 = phi i32 [ 0, %.lr.ph ], [ %.131, %29 ]
+10:                                               ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
+  %.02937 = phi i32 [ 0, %.lr.ph ], [ %.1, %31 ]
+  %.03036 = phi i32 [ 0, %.lr.ph ], [ %.131, %31 ]
   %11 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp eq i64 %indvars.iv46, %13
-  br i1 %14, label %15, label %29
+  br i1 %14, label %15, label %31
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp slt i32 %18, 2
-  %20 = add nsw i32 %18, -1
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
-  %22 = sub nuw nsw i32 32, %21
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv46, i64 %23
-  %.sink = select i1 %19, ptr %9, ptr %24
-  %25 = load i32, ptr %.sink, align 4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %.sink, align 4
-  %27 = add nsw i32 %18, %.03036
-  %28 = add nsw i32 %.02937, 1
-  br label %29
+  br i1 %19, label %26, label %20
 
-29:                                               ; preds = %10, %15
-  %.131 = phi i32 [ %27, %15 ], [ %.03036, %10 ]
-  %.1 = phi i32 [ %28, %15 ], [ %.02937, %10 ]
+20:                                               ; preds = %15
+  %21 = add nsw i32 %18, -1
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
+  %23 = sub nuw nsw i32 32, %22
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv46, i64 %24
+  br label %26
+
+26:                                               ; preds = %15, %20
+  %.sink = phi ptr [ %25, %20 ], [ %9, %15 ]
+  %27 = load i32, ptr %.sink, align 4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %.sink, align 4
+  %29 = add nsw i32 %18, %.03036
+  %30 = add nsw i32 %.02937, 1
+  br label %31
+
+31:                                               ; preds = %10, %26
+  %.131 = phi i32 [ %29, %26 ], [ %.03036, %10 ]
+  %.1 = phi i32 [ %30, %26 ], [ %.02937, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %29
-  %30 = icmp eq i32 %.1, 0
-  br i1 %30, label %._crit_edge.thread, label %31
+._crit_edge:                                      ; preds = %31
+  %32 = icmp eq i32 %.1, 0
+  br i1 %32, label %._crit_edge.thread, label %33
 
-31:                                               ; preds = %._crit_edge
-  %32 = trunc nuw nsw i64 %indvars.iv46 to i32
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %32)
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1)
-  %35 = sitofp i32 %.131 to double
-  %36 = sitofp i32 %.1 to double
-  %37 = fdiv double %35, %36
-  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, double noundef %37)
-  br label %39
+33:                                               ; preds = %._crit_edge
+  %34 = trunc nuw nsw i64 %indvars.iv46 to i32
+  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %34)
+  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1)
+  %37 = sitofp i32 %.131 to double
+  %38 = sitofp i32 %.1 to double
+  %39 = fdiv double %37, %38
+  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, double noundef %39)
+  br label %41
 
-39:                                               ; preds = %31, %46
-  %indvars.iv42 = phi i64 [ 0, %31 ], [ %indvars.iv.next43, %46 ]
-  %40 = getelementptr inbounds [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv46, i64 %indvars.iv42
-  %41 = load i32, ptr %40, align 4
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %44, label %42
+41:                                               ; preds = %33, %48
+  %indvars.iv42 = phi i64 [ 0, %33 ], [ %indvars.iv.next43, %48 ]
+  %42 = getelementptr inbounds [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv46, i64 %indvars.iv42
+  %43 = load i32, ptr %42, align 4
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %46, label %44
 
-42:                                               ; preds = %39
-  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %41)
-  br label %46
+44:                                               ; preds = %41
+  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %43)
+  br label %48
 
-44:                                               ; preds = %39
-  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull @.str.29)
-  br label %46
+46:                                               ; preds = %41
+  %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull @.str.29)
+  br label %48
 
-46:                                               ; preds = %42, %44
+48:                                               ; preds = %44, %46
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 15
-  br i1 %exitcond45.not, label %47, label %39, !llvm.loop !31
+  br i1 %exitcond45.not, label %49, label %41, !llvm.loop !31
 
-47:                                               ; preds = %46
+49:                                               ; preds = %48
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 13
   br i1 %exitcond49.not, label %._crit_edge.thread, label %.preheader, !llvm.loop !32
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %47
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %49
   ret void
 }
 

@@ -2824,7 +2824,7 @@ return:                                           ; preds = %trace_ufs_mmio_read
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ufs_mmio_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #2 {
 entry:
-  %_now.i.i65.i = alloca %struct.timeval, align 8
+  %_now.i.i66.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i51.i = alloca %struct.timeval, align 8
   %_now.i.i29.i.i = alloca %struct.timeval, align 8
@@ -3009,14 +3009,20 @@ if.end.i.i:                                       ; preds = %sw.bb49.i
   store i64 %conv2.i.i, ptr %doorbell.i.i, align 8
   %conv3.i.i = zext i8 %17 to i64
   %cmp10.not.i.i.i = icmp eq i8 %17, 0
+  br i1 %cmp10.not.i.i.i, label %find_first_bit.exit.i.i, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.end.i.i
   %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %conv2.i.i, i1 true)
   %cond.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %conv3.i.i)
-  %retval.0.i.i.i = select i1 %cmp10.not.i.i.i, i64 0, i64 %cond.i.i.i
+  br label %find_first_bit.exit.i.i
+
+find_first_bit.exit.i.i:                          ; preds = %if.then.i.i.i, %if.end.i.i
+  %retval.0.i.i.i = phi i64 [ %cond.i.i.i, %if.then.i.i.i ], [ 0, %if.end.i.i ]
   %slot.049.i.i = trunc nuw nsw i64 %retval.0.i.i.i to i32
   %cmp50.i.i = icmp ult i32 %slot.049.i.i, %conv.i.i
   br i1 %cmp50.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
-while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
+while.body.lr.ph.i.i:                             ; preds = %find_first_bit.exit.i.i
   %req_list.i.i = getelementptr inbounds i8, ptr %opaque, i64 3296
   %tv_usec.i.i42.i.i = getelementptr inbounds i8, ptr %_now.i.i29.i.i, i64 8
   br label %while.body.i.i
@@ -3154,7 +3160,7 @@ trace_ufs_process_db.exit.i.i:                    ; preds = %if.else.i.i38.i.i, 
   %cmp.i.i = icmp ult i32 %slot.0.i.i, %conv.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !12
 
-while.end.i.i:                                    ; preds = %trace_ufs_process_db.exit.i.i, %if.end.i.i
+while.end.i.i:                                    ; preds = %trace_ufs_process_db.exit.i.i, %find_first_bit.exit.i.i
   %doorbell_bh.i.i = getelementptr inbounds i8, ptr %opaque, i64 5640
   %42 = load ptr, ptr %doorbell_bh.i.i, align 8
   call void @qemu_bh_schedule(ptr noundef %42) #14
@@ -3308,14 +3314,14 @@ land.lhs.true5.i.i.i:                             ; preds = %sw.bb69.i
   %62 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %62, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %trace_ufs_err_unsupport_register_offset.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %trace_ufs_err_unsupport_register_offset.exit.i, label %if.then.i.i65.i
 
-if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
+if.then.i.i65.i:                                  ; preds = %land.lhs.true5.i.i.i
   %63 = load i8, ptr @message_with_timestamp, align 1
   %tobool7.i.i.i = trunc i8 %63 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
-if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
+if.then8.i.i.i:                                   ; preds = %if.then.i.i65.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #14
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #14
   %64 = load i64, ptr %_now.i.i.i, align 8
@@ -3324,7 +3330,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %call10.i.i.i, i64 noundef %64, i64 noundef %65, i32 noundef %conv.i) #14
   br label %trace_ufs_err_unsupport_register_offset.exit.i
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i.i
+if.else.i.i.i:                                    ; preds = %if.then.i.i65.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %conv.i) #14
   br label %trace_ufs_err_unsupport_register_offset.exit.i
 
@@ -3334,40 +3340,40 @@ trace_ufs_err_unsupport_register_offset.exit.i:   ; preds = %if.else.i.i.i, %if.
 
 sw.default.i:                                     ; preds = %trace_ufs_mmio_write.exit
   %conv70.i = trunc i64 %addr to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i65.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i66.i)
   %66 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i66.i = icmp ne i32 %66, 0
+  %tobool.i.i67.i = icmp ne i32 %66, 0
   %67 = load i16, ptr @_TRACE_UFS_ERR_INVALID_REGISTER_OFFSET_DSTATE, align 2
-  %tobool4.i.i67.i = icmp ne i16 %67, 0
-  %or.cond.i.i68.i = select i1 %tobool.i.i66.i, i1 %tobool4.i.i67.i, i1 false
-  br i1 %or.cond.i.i68.i, label %land.lhs.true5.i.i69.i, label %trace_ufs_err_invalid_register_offset.exit.i
+  %tobool4.i.i68.i = icmp ne i16 %67, 0
+  %or.cond.i.i69.i = select i1 %tobool.i.i67.i, i1 %tobool4.i.i68.i, i1 false
+  br i1 %or.cond.i.i69.i, label %land.lhs.true5.i.i70.i, label %trace_ufs_err_invalid_register_offset.exit.i
 
-land.lhs.true5.i.i69.i:                           ; preds = %sw.default.i
+land.lhs.true5.i.i70.i:                           ; preds = %sw.default.i
   %68 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i70.i = and i32 %68, 32768
-  %cmp.i.not.i.i71.i = icmp eq i32 %and.i.i.i70.i, 0
-  br i1 %cmp.i.not.i.i71.i, label %trace_ufs_err_invalid_register_offset.exit.i, label %if.then.i.i72.i
+  %and.i.i.i71.i = and i32 %68, 32768
+  %cmp.i.not.i.i72.i = icmp eq i32 %and.i.i.i71.i, 0
+  br i1 %cmp.i.not.i.i72.i, label %trace_ufs_err_invalid_register_offset.exit.i, label %if.then.i.i73.i
 
-if.then.i.i72.i:                                  ; preds = %land.lhs.true5.i.i69.i
+if.then.i.i73.i:                                  ; preds = %land.lhs.true5.i.i70.i
   %69 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i73.i = trunc i8 %69 to i1
-  br i1 %tobool7.i.i73.i, label %if.then8.i.i75.i, label %if.else.i.i74.i
+  %tobool7.i.i74.i = trunc i8 %69 to i1
+  br i1 %tobool7.i.i74.i, label %if.then8.i.i76.i, label %if.else.i.i75.i
 
-if.then8.i.i75.i:                                 ; preds = %if.then.i.i72.i
-  %call9.i.i76.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i65.i, ptr noundef null) #14
-  %call10.i.i77.i = tail call i32 @qemu_get_thread_id() #14
-  %70 = load i64, ptr %_now.i.i65.i, align 8
-  %tv_usec.i.i78.i = getelementptr inbounds i8, ptr %_now.i.i65.i, i64 8
-  %71 = load i64, ptr %tv_usec.i.i78.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i77.i, i64 noundef %70, i64 noundef %71, i32 noundef %conv70.i) #14
+if.then8.i.i76.i:                                 ; preds = %if.then.i.i73.i
+  %call9.i.i77.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i66.i, ptr noundef null) #14
+  %call10.i.i78.i = tail call i32 @qemu_get_thread_id() #14
+  %70 = load i64, ptr %_now.i.i66.i, align 8
+  %tv_usec.i.i79.i = getelementptr inbounds i8, ptr %_now.i.i66.i, i64 8
+  %71 = load i64, ptr %tv_usec.i.i79.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i78.i, i64 noundef %70, i64 noundef %71, i32 noundef %conv70.i) #14
   br label %trace_ufs_err_invalid_register_offset.exit.i
 
-if.else.i.i74.i:                                  ; preds = %if.then.i.i72.i
+if.else.i.i75.i:                                  ; preds = %if.then.i.i73.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %conv70.i) #14
   br label %trace_ufs_err_invalid_register_offset.exit.i
 
-trace_ufs_err_invalid_register_offset.exit.i:     ; preds = %if.else.i.i74.i, %if.then8.i.i75.i, %land.lhs.true5.i.i69.i, %sw.default.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i65.i)
+trace_ufs_err_invalid_register_offset.exit.i:     ; preds = %if.else.i.i75.i, %if.then8.i.i76.i, %land.lhs.true5.i.i70.i, %sw.default.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i66.i)
   br label %return
 
 return:                                           ; preds = %trace_ufs_err_invalid_register_offset.exit.i, %trace_ufs_err_unsupport_register_offset.exit.i, %sw.bb67.i, %sw.bb65.i, %sw.bb63.i, %ufs_process_uiccmd.exit.i, %sw.bb60.i, %sw.bb57.i, %sw.bb53.i, %sw.bb51.i, %ufs_process_db.exit.i, %sw.bb47.i, %sw.bb44.i, %if.then29.i, %land.lhs.true26.i, %if.then.i, %land.lhs.true.i, %sw.bb1.i, %sw.bb.i, %trace_ufs_err_invalid_register_offset.exit

@@ -2512,11 +2512,11 @@ common.resume:                                    ; preds = %182, %137
   %157 = xor i16 %156, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %211
-  %.sroa.14.043 = phi i64 [ %173, %211 ], [ %16, %.lr.ph.preheader ]
-  %.sroa.10.042 = phi i16 [ %172, %211 ], [ %157, %.lr.ph.preheader ]
-  %.sroa.6.041 = phi ptr [ %.sroa.6.1, %211 ], [ %153, %.lr.ph.preheader ]
-  %.sroa.027.040 = phi ptr [ %.sroa.027.1, %211 ], [ %152, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %213
+  %.sroa.14.043 = phi i64 [ %173, %213 ], [ %16, %.lr.ph.preheader ]
+  %.sroa.10.042 = phi i16 [ %172, %213 ], [ %157, %.lr.ph.preheader ]
+  %.sroa.6.041 = phi ptr [ %.sroa.6.1, %213 ], [ %153, %.lr.ph.preheader ]
+  %.sroa.027.040 = phi ptr [ %.sroa.027.1, %213 ], [ %152, %.lr.ph.preheader ]
   %158 = icmp eq i16 %.sroa.10.042, 0
   br i1 %158, label %.lr.ph.i, label %170
 
@@ -2535,7 +2535,7 @@ common.resume:                                    ; preds = %182, %137
   %166 = icmp eq i16 %163, -1
   br i1 %166, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge:                                      ; preds = %211, %150
+._crit_edge:                                      ; preds = %213, %150
   store i64 %16, ptr %141, align 8
   %167 = getelementptr inbounds i8, ptr %0, i64 16
   %168 = load i64, ptr %167, align 8, !noundef !15
@@ -2578,64 +2578,64 @@ common.resume:                                    ; preds = %182, %137
   %.val17 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
   %187 = and i64 %7, %186
   %188 = getelementptr inbounds i8, ptr %.val17, i64 %187
-  %.sroa.0.0.copyload.i56.i.i = load <16 x i8>, ptr %188, align 1, !noalias !457
-  %189 = icmp slt <16 x i8> %.sroa.0.0.copyload.i56.i.i, zeroinitializer
+  %.sroa.0.0.copyload.i1011.i.i = load <16 x i8>, ptr %188, align 1, !noalias !457
+  %189 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1011.i.i, zeroinitializer
   %190 = bitcast <16 x i1> %189 to i16
-  %.not.not7.i.i = icmp eq i16 %190, 0
-  br i1 %.not.not7.i.i, label %.lr.ph.i.i21, label %._crit_edge.i.i
+  %191 = icmp eq i16 %190, 0
+  br i1 %191, label %.lr.ph.i.i21, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i21, %184
-  %.sroa.0.0.lcssa.i.i = phi i64 [ %187, %184 ], [ %207, %.lr.ph.i.i21 ]
-  %.lcssa.i.i = phi i16 [ %190, %184 ], [ %210, %.lr.ph.i.i21 ]
-  %191 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %192 = zext nneg i16 %191 to i64
-  %193 = add i64 %.sroa.0.0.lcssa.i.i, %192
-  %194 = and i64 %193, %7
-  %195 = getelementptr inbounds i8, ptr %.val17, i64 %194
-  %196 = load i8, ptr %195, align 1, !noundef !15
-  %197 = icmp sgt i8 %196, -1
-  br i1 %197, label %198, label %211
+  %.sroa.0.0.lcssa.i.i = phi i64 [ %187, %184 ], [ %208, %.lr.ph.i.i21 ]
+  %.lcssa.i.i = phi i16 [ %190, %184 ], [ %211, %.lr.ph.i.i21 ]
+  %192 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
+  %193 = zext nneg i16 %192 to i64
+  %194 = add i64 %.sroa.0.0.lcssa.i.i, %193
+  %195 = and i64 %194, %7
+  %196 = getelementptr inbounds i8, ptr %.val17, i64 %195
+  %197 = load i8, ptr %196, align 1, !noundef !15
+  %198 = icmp sgt i8 %197, -1
+  br i1 %198, label %199, label %213
 
-198:                                              ; preds = %._crit_edge.i.i
-  %199 = load <16 x i8>, ptr %.val17, align 16, !noalias !460
-  %200 = icmp slt <16 x i8> %199, zeroinitializer
-  %201 = bitcast <16 x i1> %200 to i16
-  %202 = icmp ne i16 %201, 0
-  tail call void @llvm.assume(i1 %202)
-  %203 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %201, i1 true)
-  %204 = zext nneg i16 %203 to i64
-  br label %211
+199:                                              ; preds = %._crit_edge.i.i
+  %200 = load <16 x i8>, ptr %.val17, align 16, !noalias !460
+  %201 = icmp slt <16 x i8> %200, zeroinitializer
+  %202 = bitcast <16 x i1> %201 to i16
+  %203 = icmp ne i16 %202, 0
+  tail call void @llvm.assume(i1 %203)
+  %204 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %202, i1 true)
+  %205 = zext nneg i16 %204 to i64
+  br label %213
 
 .lr.ph.i.i21:                                     ; preds = %184, %.lr.ph.i.i21
-  %.sroa.0.09.i.i = phi i64 [ %207, %.lr.ph.i.i21 ], [ %187, %184 ]
-  %.sroa.7.08.i.i = phi i64 [ %205, %.lr.ph.i.i21 ], [ 0, %184 ]
-  %205 = add i64 %.sroa.7.08.i.i, 16
-  %206 = add i64 %205, %.sroa.0.09.i.i
-  %207 = and i64 %206, %7
-  %208 = getelementptr inbounds i8, ptr %.val17, i64 %207
-  %.sroa.0.0.copyload.i5.i.i = load <16 x i8>, ptr %208, align 1, !noalias !457
-  %209 = icmp slt <16 x i8> %.sroa.0.0.copyload.i5.i.i, zeroinitializer
-  %210 = bitcast <16 x i1> %209 to i16
-  %.not.not.i.i = icmp eq i16 %210, 0
-  br i1 %.not.not.i.i, label %.lr.ph.i.i21, label %._crit_edge.i.i
+  %.sroa.0.013.i.i = phi i64 [ %208, %.lr.ph.i.i21 ], [ %187, %184 ]
+  %.sroa.7.012.i.i = phi i64 [ %206, %.lr.ph.i.i21 ], [ 0, %184 ]
+  %206 = add i64 %.sroa.7.012.i.i, 16
+  %207 = add i64 %206, %.sroa.0.013.i.i
+  %208 = and i64 %207, %7
+  %209 = getelementptr inbounds i8, ptr %.val17, i64 %208
+  %.sroa.0.0.copyload.i10.i.i = load <16 x i8>, ptr %209, align 1, !noalias !457
+  %210 = icmp slt <16 x i8> %.sroa.0.0.copyload.i10.i.i, zeroinitializer
+  %211 = bitcast <16 x i1> %210 to i16
+  %212 = icmp eq i16 %211, 0
+  br i1 %212, label %.lr.ph.i.i21, label %._crit_edge.i.i
 
-211:                                              ; preds = %._crit_edge.i.i, %198
-  %.sroa.0.0.i4.i.i = phi i64 [ %204, %198 ], [ %194, %._crit_edge.i.i ]
-  %212 = getelementptr inbounds i8, ptr %.val17, i64 %.sroa.0.0.i4.i.i
-  %213 = lshr i64 %186, 57
-  %214 = trunc nuw nsw i64 %213 to i8
-  %215 = add i64 %.sroa.0.0.i4.i.i, -16
-  %216 = and i64 %215, %7
-  store i8 %214, ptr %212, align 1
-  %217 = getelementptr i8, ptr %.val17, i64 %216
-  %218 = getelementptr i8, ptr %217, i64 16
-  store i8 %214, ptr %218, align 1
-  %219 = sub nsw i64 0, %.sroa.0.0.i4.i.i
-  %220 = getelementptr inbounds i64, ptr %.val17, i64 %219
-  %221 = getelementptr inbounds i8, ptr %220, i64 -8
-  store i64 %179, ptr %221, align 8
-  %222 = icmp eq i64 %173, 0
-  br i1 %222, label %._crit_edge, label %.lr.ph
+213:                                              ; preds = %._crit_edge.i.i, %199
+  %.sroa.0.0.i4.i.i = phi i64 [ %205, %199 ], [ %195, %._crit_edge.i.i ]
+  %214 = getelementptr inbounds i8, ptr %.val17, i64 %.sroa.0.0.i4.i.i
+  %215 = lshr i64 %186, 57
+  %216 = trunc nuw nsw i64 %215 to i8
+  %217 = add i64 %.sroa.0.0.i4.i.i, -16
+  %218 = and i64 %217, %7
+  store i8 %216, ptr %214, align 1
+  %219 = getelementptr i8, ptr %.val17, i64 %218
+  %220 = getelementptr i8, ptr %219, i64 16
+  store i8 %216, ptr %220, align 1
+  %221 = sub nsw i64 0, %.sroa.0.0.i4.i.i
+  %222 = getelementptr inbounds i64, ptr %.val17, i64 %221
+  %223 = getelementptr inbounds i8, ptr %222, i64 -8
+  store i64 %179, ptr %223, align 8
+  %224 = icmp eq i64 %173, 0
+  br i1 %224, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: cold nonlazybind uwtable

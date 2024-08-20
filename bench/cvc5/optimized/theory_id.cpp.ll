@@ -999,31 +999,30 @@ while.end:                                        ; preds = %_ZN4cvc58internal6t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i64 @_ZN4cvc58internal6theory15TheoryIdSetUtil8setIndexENS1_8TheoryIdEj(i32 noundef %id, i32 noundef %set) local_unnamed_addr #4 align 2 {
 entry:
-  %.not.i2 = icmp eq i32 %set, 0
-  %cttz.i3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %set, i1 true)
-  %retval.0.i4 = select i1 %.not.i2, i32 14, i32 %cttz.i3
-  %cmp.not5 = icmp eq i32 %retval.0.i4, %id
-  br i1 %cmp.not5, label %while.end, label %while.body
+  br label %while.cond
 
-while.body:                                       ; preds = %entry, %while.body
-  %cttz.i9 = phi i32 [ %cttz.i, %while.body ], [ %cttz.i3, %entry ]
-  %.not.i8 = phi i1 [ %.not.i, %while.body ], [ %.not.i2, %entry ]
-  %count.07 = phi i64 [ %inc, %while.body ], [ 0, %entry ]
-  %set.addr.06 = phi i32 [ %set.addr.1, %while.body ], [ %set, %entry ]
-  %shl.i.i.i = shl nuw i32 1, %cttz.i9
+while.cond:                                       ; preds = %_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj.exit, %entry
+  %set.addr.0 = phi i32 [ %set, %entry ], [ %set.addr.1, %_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj.exit ]
+  %count.0 = phi i64 [ 0, %entry ], [ %inc, %_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj.exit ]
+  %.not.i = icmp eq i32 %set.addr.0, 0
+  br i1 %.not.i, label %_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %while.cond
+  %cttz.i = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %set.addr.0, i1 true)
+  %shl.i.i.i = shl nuw i32 1, %cttz.i
   %not.i.i.i = xor i32 %shl.i.i.i, -1
-  %and.i.i.i = and i32 %set.addr.06, %not.i.i.i
-  %set.addr.1 = select i1 %.not.i8, i32 0, i32 %and.i.i.i
-  %inc = add i64 %count.07, 1
-  %.not.i = icmp eq i32 %set.addr.1, 0
-  %cttz.i = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %set.addr.1, i1 true)
-  %retval.0.i = select i1 %.not.i, i32 14, i32 %cttz.i
-  %cmp.not = icmp eq i32 %retval.0.i, %id
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !6
+  %and.i.i.i = and i32 %set.addr.0, %not.i.i.i
+  br label %_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj.exit
 
-while.end:                                        ; preds = %while.body, %entry
-  %count.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %while.body ]
-  ret i64 %count.0.lcssa
+_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj.exit: ; preds = %while.cond, %if.end.i
+  %set.addr.1 = phi i32 [ 0, %while.cond ], [ %and.i.i.i, %if.end.i ]
+  %retval.0.i = phi i32 [ 14, %while.cond ], [ %cttz.i, %if.end.i ]
+  %cmp.not = icmp eq i32 %retval.0.i, %id
+  %inc = add i64 %count.0, 1
+  br i1 %cmp.not, label %while.end, label %while.cond, !llvm.loop !6
+
+while.end:                                        ; preds = %_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj.exit
+  ret i64 %count.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

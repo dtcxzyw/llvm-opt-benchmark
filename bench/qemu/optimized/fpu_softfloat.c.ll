@@ -4656,13 +4656,19 @@ sw.bb:                                            ; preds = %entry
 
 if.then:                                          ; preds = %sw.bb
   %tobool.not.i = icmp eq i64 %3, 0
+  br i1 %tobool.not.i, label %frac64_normalize.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %if.then
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 true)
   %cast.i.i = trunc nuw nsw i64 %4 to i32
   %shl.i = shl i64 %3, %4
   %5 = sub nuw nsw i32 937, %cast.i.i
   %6 = lshr i64 %shl.i, 11
-  %shr.i = select i1 %tobool.not.i, i64 0, i64 %6
-  %retval.0.i = select i1 %tobool.not.i, i32 873, i32 %5
+  br label %frac64_normalize.exit
+
+frac64_normalize.exit:                            ; preds = %if.then, %if.then.i
+  %shr.i = phi i64 [ %6, %if.then.i ], [ 0, %if.then ]
+  %retval.0.i = phi i32 [ %5, %if.then.i ], [ 873, %if.then ]
   store i32 %retval.0.i, ptr %exp, align 4
   store i64 %shr.i, ptr %2, align 8
   br label %sw.epilog
@@ -4692,8 +4698,8 @@ do.body:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1758, ptr noundef nonnull @__func__.float64r32_round_pack_canonical, ptr noundef null) #16
   unreachable
 
-sw.epilog:                                        ; preds = %entry.sw.epilog_crit_edge, %if.then, %if.else, %sw.bb10, %sw.bb8
-  %9 = phi i32 [ %.pre, %entry.sw.epilog_crit_edge ], [ %retval.0.i, %if.then ], [ %add7, %if.else ], [ 2047, %sw.bb10 ], [ 2047, %sw.bb8 ]
+sw.epilog:                                        ; preds = %entry.sw.epilog_crit_edge, %frac64_normalize.exit, %if.else, %sw.bb10, %sw.bb8
+  %9 = phi i32 [ %.pre, %entry.sw.epilog_crit_edge ], [ %retval.0.i, %frac64_normalize.exit ], [ %add7, %if.else ], [ 2047, %sw.bb10 ], [ 2047, %sw.bb8 ]
   %sign.i.i = getelementptr inbounds i8, ptr %p, i64 1
   %10 = load i8, ptr %sign.i.i, align 1
   %11 = and i8 %10, 1
@@ -23122,21 +23128,30 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %a.sroa.0.0.insert.insert.i21.pre-phi = phi i128 [ %a.sroa.0.0.insert.insert.neg.i, %if.then4 ], [ %a.sroa.0.0.insert.insert.i, %if.then ]
-  %a.addr.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %if.then4 ], [ %a.coerce0, %if.then ]
-  %a.addr.0.off64 = phi i64 [ %retval.sroa.2.0.extract.trunc.i, %if.then4 ], [ %a.coerce1, %if.then ]
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.addr.0.off64, i1 true)
+  %a.addr.0.off0 = phi i64 [ %a.coerce0, %if.then ], [ %retval.sroa.0.0.extract.trunc.i, %if.then4 ]
+  %a.addr.0.off64 = phi i64 [ %a.coerce1, %if.then ], [ %retval.sroa.2.0.extract.trunc.i, %if.then4 ]
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.addr.0.off64, i1 false)
   %cast.i = trunc nuw nsw i64 %0 to i32
   %cmp = icmp eq i64 %a.addr.0.off64, 0
+  br i1 %cmp, label %if.then11, label %if.end15
+
+if.then11:                                        ; preds = %if.end
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.addr.0.off0, i1 false)
   %cast.i17 = trunc nuw nsw i64 %1 to i32
   %add = add nuw nsw i32 %cast.i17, 64
-  %shift.0 = select i1 %cmp, i32 %add, i32 %cast.i
+  br label %if.end15
+
+if.end15:                                         ; preds = %if.then11, %if.end
+  %shift.0 = phi i32 [ %add, %if.then11 ], [ %cast.i, %if.end ]
   %sub = sub nsw i32 127, %shift.0
   %exp = getelementptr inbounds i8, ptr %p, i64 4
   store i32 %sub, ptr %exp, align 4
+  %a.sroa.2.0.insert.ext.i18 = zext i64 %a.addr.0.off64 to i128
+  %a.sroa.2.0.insert.shift.i19 = shl nuw i128 %a.sroa.2.0.insert.ext.i18, 64
+  %a.sroa.0.0.insert.ext.i20 = zext i64 %a.addr.0.off0 to i128
+  %a.sroa.0.0.insert.insert.i21 = or disjoint i128 %a.sroa.2.0.insert.shift.i19, %a.sroa.0.0.insert.ext.i20
   %sh_prom.i = zext nneg i32 %shift.0 to i128
-  %shl.i = shl i128 %a.sroa.0.0.insert.insert.i21.pre-phi, %sh_prom.i
+  %shl.i = shl i128 %a.sroa.0.0.insert.insert.i21, %sh_prom.i
   %retval.sroa.0.0.extract.trunc.i22 = trunc i128 %shl.i to i64
   %retval.sroa.2.0.extract.shift.i23 = lshr i128 %shl.i, 64
   %retval.sroa.2.0.extract.trunc.i24 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i23 to i64
@@ -23150,7 +23165,7 @@ if.else:                                          ; preds = %entry
   store i8 1, ptr %p, align 8
   br label %if.end24
 
-if.end24:                                         ; preds = %if.else, %if.end
+if.end24:                                         ; preds = %if.else, %if.end15
   %call25 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
   ret { i64, i64 } %call25
 }
@@ -24943,16 +24958,23 @@ entry:
   %a.sroa.0.0.insert.ext.i = zext i64 %a.coerce0 to i128
   %a.sroa.0.0.insert.insert.i = or disjoint i128 %a.sroa.2.0.insert.shift.i, %a.sroa.0.0.insert.ext.i
   %cmp.i.not = icmp eq i128 %a.sroa.0.0.insert.insert.i, 0
-  br i1 %cmp.i.not, label %if.end17, label %if.then
+  br i1 %cmp.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.coerce1, i1 true)
+  store i8 2, ptr %p, align 8
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.coerce1, i1 false)
   %cast.i = trunc nuw nsw i64 %0 to i32
   %cmp = icmp eq i64 %a.coerce1, 0
+  br i1 %cmp, label %if.then5, label %if.end
+
+if.then5:                                         ; preds = %if.then
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.coerce0, i1 false)
   %cast.i9 = trunc nuw nsw i64 %1 to i32
   %add = add nuw nsw i32 %cast.i9, 64
-  %shift.0 = select i1 %cmp, i32 %add, i32 %cast.i
+  br label %if.end
+
+if.end:                                           ; preds = %if.then5, %if.then
+  %shift.0 = phi i32 [ %add, %if.then5 ], [ %cast.i, %if.then ]
   %sub = sub nsw i32 127, %shift.0
   %exp = getelementptr inbounds i8, ptr %p, i64 4
   store i32 %sub, ptr %exp, align 4
@@ -24967,9 +24989,11 @@ if.then:                                          ; preds = %entry
   store i64 %retval.sroa.0.0.extract.trunc.i, ptr %frac_lo, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %entry, %if.then
-  %.sink = phi i8 [ 2, %if.then ], [ 1, %entry ]
-  store i8 %.sink, ptr %p, align 8
+if.else:                                          ; preds = %entry
+  store i8 1, ptr %p, align 8
+  br label %if.end17
+
+if.end17:                                         ; preds = %if.else, %if.end
   %call18 = call fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull %p, ptr noundef %status)
   ret { i64, i64 } %call18
 }

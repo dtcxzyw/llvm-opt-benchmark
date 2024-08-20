@@ -1788,15 +1788,22 @@ lpad.i:                                           ; preds = %entry
 _ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %if.then13.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %cmp.not3.i = icmp eq i32 %call.i, 0
+  br i1 %cmp.not3.i, label %_ZN6symfpu20positionOfLeadingOneIjEET_S1_.exit, label %while.body.preheader.i
+
+while.body.preheader.i:                           ; preds = %_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv.exit
   %5 = lshr i32 %call.i, 1
   %6 = call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %5, i1 false)
-  %7 = sub nuw nsw i32 33, %6
+  %7 = sub nuw nsw i32 32, %6
+  br label %_ZN6symfpu20positionOfLeadingOneIjEET_S1_.exit
+
+_ZN6symfpu20positionOfLeadingOneIjEET_S1_.exit:   ; preds = %_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv.exit, %while.body.preheader.i
+  %i.0.lcssa.i = phi i32 [ -1, %_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv.exit ], [ %7, %while.body.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i45)
   call void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp.i45, ptr noundef nonnull align 8 dereferenceable(8) %shiftAmount, i1 noundef zeroext false)
   %call.i46 = invoke noundef i32 @_ZNK4cvc58internal8TypeNode16getBitVectorSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i45)
           to label %invoke.cont.i48 unwind label %lpad.i47
 
-invoke.cont.i48:                                  ; preds = %_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv.exit
+invoke.cont.i48:                                  ; preds = %_ZN6symfpu20positionOfLeadingOneIjEET_S1_.exit
   %8 = load ptr, ptr %ref.tmp.i45, align 8
   %bf.load.i.i.i49 = load i64, ptr %8, align 8
   %9 = and i64 %bf.load.i.i.i49, 1152920405095219200
@@ -1823,7 +1830,7 @@ terminate.lpad.i.i58:                             ; preds = %if.then13.i.i.i57
   call void @__clang_call_terminate(ptr %11) #21
   unreachable
 
-lpad.i47:                                         ; preds = %_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE8getWidthEv.exit
+lpad.i47:                                         ; preds = %_ZN6symfpu20positionOfLeadingOneIjEET_S1_.exit
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i45) #22
@@ -1996,10 +2003,12 @@ terminate.lpad.i.i.i99:                           ; preds = %if.then13.i.i.i.i98
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit100: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit89, %if.then.i.i.i.i92, %if.then13.i.i.i.i98
-  br i1 %cmp.not3.i, label %for.end, label %for.body.preheader
+  %add = add nsw i32 %i.0.lcssa.i, 1
+  %cmp25.not424 = icmp eq i32 %add, 0
+  br i1 %cmp25.not424, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit100
-  %31 = zext nneg i32 %7 to i64
+  %31 = zext nneg i32 %add to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245

@@ -676,92 +676,89 @@ define i32 @ompi_coll_base_barrier_intra_tree(ptr noundef %0, ptr nocapture noun
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 220
   %.val64 = load i32, ptr %7, align 4
-  %8 = add nsw i32 %.val.val, -1
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
-  %narrow.i = sub nuw nsw i32 32, %9
-  %10 = shl nuw i32 1, %narrow.i
-  %.inv.i = icmp sgt i32 %.val.val, 1
-  %.0.i = select i1 %.inv.i, i32 %10, i32 1
-  %11 = icmp sgt i32 %.0.i, 1
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  %8 = icmp slt i32 %.val.val, 2
+  br i1 %8, label %.loopexit, label %opal_next_poweroftwo_inclusive.exit
 
-.lr.ph:                                           ; preds = %6, %26
-  %.067 = phi i32 [ %27, %26 ], [ 1, %6 ]
-  %12 = xor i32 %.067, %.val64
-  %13 = add nsw i32 %.067, -1
-  %14 = and i32 %13, %.val64
-  %.not60 = icmp eq i32 %14, 0
-  %15 = icmp slt i32 %12, %.val.val
-  %or.cond = and i1 %15, %.not60
-  br i1 %or.cond, label %16, label %26
+opal_next_poweroftwo_inclusive.exit:              ; preds = %6
+  %9 = add nsw i32 %.val.val, -1
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
+  %narrow.i = sub nuw nsw i32 32, %10
+  %11 = shl nuw i32 1, %narrow.i
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %.lr.ph, label %.loopexit
 
-16:                                               ; preds = %.lr.ph
-  %17 = icmp sgt i32 %12, %.val64
-  br i1 %17, label %18, label %21
+.lr.ph:                                           ; preds = %opal_next_poweroftwo_inclusive.exit, %27
+  %.067 = phi i32 [ %28, %27 ], [ 1, %opal_next_poweroftwo_inclusive.exit ]
+  %13 = xor i32 %.067, %.val64
+  %14 = add nsw i32 %.067, -1
+  %15 = and i32 %14, %.val64
+  %.not60 = icmp eq i32 %15, 0
+  %16 = icmp slt i32 %13, %.val.val
+  %or.cond = and i1 %16, %.not60
+  br i1 %or.cond, label %17, label %27
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
-  %20 = tail call i32 %19(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %12, i32 noundef -16, ptr noundef %0, ptr noundef null) #4
-  %.not62 = icmp eq i32 %20, 0
-  br i1 %.not62, label %26, label %.loopexit
+17:                                               ; preds = %.lr.ph
+  %18 = icmp sgt i32 %13, %.val64
+  br i1 %18, label %19, label %22
 
-21:                                               ; preds = %16
-  %22 = icmp slt i32 %12, %.val64
-  br i1 %22, label %23, label %26
+19:                                               ; preds = %17
+  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %21 = tail call i32 %20(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %13, i32 noundef -16, ptr noundef %0, ptr noundef null) #4
+  %.not62 = icmp eq i32 %21, 0
+  br i1 %.not62, label %27, label %.loopexit
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %25 = tail call i32 %24(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %12, i32 noundef -16, i32 noundef 4, ptr noundef %0) #4
-  %.not61 = icmp eq i32 %25, 0
-  br i1 %.not61, label %26, label %.loopexit
+22:                                               ; preds = %17
+  %23 = icmp slt i32 %13, %.val64
+  br i1 %23, label %24, label %27
 
-26:                                               ; preds = %.lr.ph, %21, %23, %18
-  %27 = shl i32 %.067, 1
-  %28 = icmp slt i32 %27, %.0.i
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+24:                                               ; preds = %22
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %26 = tail call i32 %25(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %13, i32 noundef -16, i32 noundef 4, ptr noundef %0) #4
+  %.not61 = icmp eq i32 %26, 0
+  br i1 %.not61, label %27, label %.loopexit
 
-._crit_edge:                                      ; preds = %26, %6
-  %29 = ashr i32 %.0.i, 1
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph70, label %.loopexit
+27:                                               ; preds = %.lr.ph, %22, %24, %19
+  %28 = shl i32 %.067, 1
+  %29 = icmp slt i32 %28, %11
+  br i1 %29, label %.lr.ph, label %.lr.ph70, !llvm.loop !11
 
-.lr.ph70:                                         ; preds = %._crit_edge, %45
-  %.168 = phi i32 [ %46, %45 ], [ %29, %._crit_edge ]
-  %31 = xor i32 %.168, %.val64
-  %32 = add nsw i32 %.168, -1
-  %33 = and i32 %31, %32
-  %.not = icmp eq i32 %33, 0
-  %34 = icmp slt i32 %31, %.val.val
-  %or.cond63 = and i1 %34, %.not
-  br i1 %or.cond63, label %35, label %45
+.lr.ph70:                                         ; preds = %27, %44
+  %.168.in = phi i32 [ %.168, %44 ], [ %11, %27 ]
+  %.168 = lshr i32 %.168.in, 1
+  %30 = xor i32 %.168, %.val64
+  %31 = add nsw i32 %.168, -1
+  %32 = and i32 %.val64, %31
+  %.not = icmp eq i32 %32, 0
+  %33 = icmp slt i32 %30, %.val.val
+  %or.cond63 = and i1 %33, %.not
+  br i1 %or.cond63, label %34, label %44
 
-35:                                               ; preds = %.lr.ph70
-  %36 = icmp sgt i32 %31, %.val64
-  br i1 %36, label %37, label %40
+34:                                               ; preds = %.lr.ph70
+  %35 = icmp sgt i32 %30, %.val64
+  br i1 %35, label %36, label %39
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %39 = tail call i32 %38(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %31, i32 noundef -16, i32 noundef 4, ptr noundef %0) #4
-  %.not59 = icmp eq i32 %39, 0
-  br i1 %.not59, label %45, label %.loopexit
+36:                                               ; preds = %34
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %38 = tail call i32 %37(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %30, i32 noundef -16, i32 noundef 4, ptr noundef %0) #4
+  %.not59 = icmp eq i32 %38, 0
+  br i1 %.not59, label %44, label %.loopexit
 
-40:                                               ; preds = %35
-  %41 = icmp slt i32 %31, %.val64
-  br i1 %41, label %42, label %45
+39:                                               ; preds = %34
+  %40 = icmp slt i32 %30, %.val64
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
-  %44 = tail call i32 %43(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %31, i32 noundef -16, ptr noundef %0, ptr noundef null) #4
-  %.not58 = icmp eq i32 %44, 0
-  br i1 %.not58, label %45, label %.loopexit
+41:                                               ; preds = %39
+  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %43 = tail call i32 %42(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %30, i32 noundef -16, ptr noundef %0, ptr noundef null) #4
+  %.not58 = icmp eq i32 %43, 0
+  br i1 %.not58, label %44, label %.loopexit
 
-45:                                               ; preds = %.lr.ph70, %40, %42, %37
-  %46 = lshr i32 %.168, 1
-  %.not75 = icmp ult i32 %.168, 2
+44:                                               ; preds = %.lr.ph70, %39, %41, %36
+  %.not75 = icmp ult i32 %.168.in, 4
   br i1 %.not75, label %.loopexit, label %.lr.ph70, !llvm.loop !12
 
-.loopexit:                                        ; preds = %23, %18, %37, %42, %45, %._crit_edge, %2
-  %.047 = phi i32 [ 0, %2 ], [ 0, %._crit_edge ], [ %39, %37 ], [ %44, %42 ], [ 0, %45 ], [ %25, %23 ], [ %20, %18 ]
+.loopexit:                                        ; preds = %24, %19, %36, %41, %44, %6, %opal_next_poweroftwo_inclusive.exit, %2
+  %.047 = phi i32 [ 0, %2 ], [ 0, %opal_next_poweroftwo_inclusive.exit ], [ 0, %6 ], [ %38, %36 ], [ %43, %41 ], [ 0, %44 ], [ %26, %24 ], [ %21, %19 ]
   ret i32 %.047
 }
 

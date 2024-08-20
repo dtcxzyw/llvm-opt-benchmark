@@ -37148,80 +37148,93 @@ define linkonce_odr noundef zeroext i16 @_ZN8spvutils8HexFloatINS_10FloatProxyIf
   %18 = and i32 %.sroa.0.0.copyload.i.i.i, 2139095040
   %19 = icmp eq i32 %18, 0
   %or.cond = and i1 %17, %19
-  br i1 %or.cond, label %.lr.ph.preheader.i, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
+  br i1 %or.cond, label %20, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
 
-.lr.ph.preheader.i:                               ; preds = %15
-  %20 = and i32 %.sroa.0.0.copyload.i.i.i, 4194304
-  %21 = icmp eq i32 %20, 0
-  %.masked.i.i = and i32 %.sroa.0.0.copyload.i.i.i, 4194303
-  %.masked.numleadingzeros.i.i = tail call range(i32 10, 33) i32 @llvm.ctlz.i32(i32 %.masked.i.i, i1 true)
-  %22 = sub nuw nsw i32 -118, %.masked.numleadingzeros.i.i
-  %.08.i.ph.i = select i1 %21, i32 %22, i32 -127
+20:                                               ; preds = %15
+  %21 = and i32 %.sroa.0.0.copyload.i.i.i, 4194304
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %.lr.ph.i.i, label %.lr.ph.i.preheader
+
+.lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
+  %.012.i.i = phi i32 [ %23, %.lr.ph.i.i ], [ %.sroa.0.0.copyload.i.i.i, %20 ]
+  %.111.i.i = phi i32 [ %24, %.lr.ph.i.i ], [ -127, %20 ]
+  %23 = shl i32 %.012.i.i, 1
+  %24 = add nsw i32 %.111.i.i, -1
+  %25 = and i32 %.012.i.i, 2097152
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.lr.ph.i.i, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i, !llvm.loop !194
+
+_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i: ; preds = %.lr.ph.i.i
+  %27 = icmp ult i32 %.111.i.i, -125
+  br i1 %27, label %.lr.ph.i.preheader, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
+
+.lr.ph.i.preheader:                               ; preds = %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i, %20
+  %.09.i.ph = phi i32 [ -127, %20 ], [ %24, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.09.i = phi i32 [ %24, %.lr.ph.i ], [ %.08.i.ph.i, %.lr.ph.preheader.i ]
-  %.068.i = phi i32 [ %23, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph.preheader.i ]
-  %23 = shl i32 %.068.i, 1
-  %24 = add nsw i32 %.09.i, 1
-  %exitcond.not.i = icmp eq i32 %24, -126
-  br i1 %exitcond.not.i, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit, label %.lr.ph.i, !llvm.loop !194
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.09.i = phi i32 [ %29, %.lr.ph.i ], [ %.09.i.ph, %.lr.ph.i.preheader ]
+  %.068.i = phi i32 [ %28, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i, %.lr.ph.i.preheader ]
+  %28 = shl i32 %.068.i, 1
+  %29 = add i32 %.09.i, 1
+  %exitcond.not.i = icmp eq i32 %29, -126
+  br i1 %exitcond.not.i, label %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit, label %.lr.ph.i, !llvm.loop !195
 
-_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit: ; preds = %.lr.ph.i, %15
-  %.06.lcssa.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %15 ], [ %23, %.lr.ph.i ]
-  %25 = and i32 %.06.lcssa.i, 8388607
-  %26 = and i32 %.06.lcssa.i, 8191
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %28
+_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit: ; preds = %.lr.ph.i, %15, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i
+  %.06.lcssa.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE29getUnbiasedNormalizedExponentEv.exit.i ], [ %.sroa.0.0.copyload.i.i.i, %15 ], [ %28, %.lr.ph.i ]
+  %30 = and i32 %.06.lcssa.i, 8388607
+  %31 = and i32 %.06.lcssa.i, 8191
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %33
 
-28:                                               ; preds = %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
+33:                                               ; preds = %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
   switch i32 %1, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit [
-    i32 1, label %33
-    i32 2, label %29
-    i32 3, label %31
+    i32 1, label %38
+    i32 2, label %34
+    i32 3, label %36
   ]
 
-29:                                               ; preds = %28
-  %30 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i, -1
-  br i1 %30, label %.critedge18, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
+34:                                               ; preds = %33
+  %35 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i, -1
+  br i1 %35, label %.critedge18, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
 
-31:                                               ; preds = %28
-  %32 = icmp slt i32 %.sroa.0.0.copyload.i.i.i, 0
-  br i1 %32, label %.critedge18, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
+36:                                               ; preds = %33
+  %37 = icmp slt i32 %.sroa.0.0.copyload.i.i.i, 0
+  br i1 %37, label %.critedge18, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
 
-33:                                               ; preds = %28
-  %34 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE17first_rounded_bit, align 4
-  %35 = and i32 %34, %25
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %37
+38:                                               ; preds = %33
+  %39 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE17first_rounded_bit, align 4
+  %40 = and i32 %39, %30
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %42
 
-37:                                               ; preds = %33
-  %38 = xor i32 %34, -1
-  %39 = and i32 %26, %38
-  %.not15 = icmp eq i32 %39, 0
-  br i1 %.not15, label %40, label %.critedge18
+42:                                               ; preds = %38
+  %43 = xor i32 %39, -1
+  %44 = and i32 %31, %43
+  %.not15 = icmp eq i32 %44, 0
+  br i1 %.not15, label %45, label %.critedge18
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
-  %42 = and i32 %41, %25
-  %.not16.not = icmp eq i32 %42, 0
+45:                                               ; preds = %42
+  %46 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
+  %47 = and i32 %46, %30
+  %.not16.not = icmp eq i32 %47, 0
   br i1 %.not16.not, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %.critedge18
 
-.critedge18:                                      ; preds = %29, %31, %37, %40
-  %43 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
-  %44 = add i32 %43, %25
-  %45 = and i32 %44, 8388608
-  %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %46
+.critedge18:                                      ; preds = %34, %36, %42, %45
+  %48 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
+  %49 = add i32 %48, %30
+  %50 = and i32 %49, 8388608
+  %.not.i = icmp eq i32 %50, 0
+  br i1 %.not.i, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %51
 
-46:                                               ; preds = %.critedge18
+51:                                               ; preds = %.critedge18
   store i8 1, ptr %2, align 1
-  %47 = lshr i32 %44, 1
-  %48 = and i32 %47, 2143289343
+  %52 = lshr i32 %49, 1
+  %53 = and i32 %52, 2143289343
   br label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
 
-_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit: ; preds = %40, %33, %28, %31, %29, %46, %.critedge18, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
-  %.012.in.in = phi i32 [ %25, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit ], [ %48, %46 ], [ %44, %.critedge18 ], [ %25, %29 ], [ %25, %31 ], [ %25, %28 ], [ %25, %33 ], [ %25, %40 ]
+_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit: ; preds = %45, %38, %33, %36, %34, %51, %.critedge18, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
+  %.012.in.in = phi i32 [ %30, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit ], [ %53, %51 ], [ %49, %.critedge18 ], [ %30, %34 ], [ %30, %36 ], [ %30, %33 ], [ %30, %38 ], [ %30, %45 ]
   %.012.in = lshr i32 %.012.in.in, 13
   %.012 = trunc i32 %.012.in to i16
   ret i16 %.012
@@ -37273,7 +37286,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_
   %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !195
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !196
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -37345,7 +37358,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_
   %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !195
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !196
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -37410,7 +37423,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_
   %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !195
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !196
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -37470,7 +37483,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__det
 
 16:                                               ; preds = %19
   %17 = icmp eq i32 %3, %21
-  br i1 %17, label %_ZNKSt10_HashtableIjSt4pairIKjN3spv7Builder12DebugTypeLocEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !196
+  br i1 %17, label %_ZNKSt10_HashtableIjSt4pairIKjN3spv7Builder12DebugTypeLocEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i, !llvm.loop !197
 
 .lr.ph.i.i:                                       ; preds = %11, %16
   %.018.i.i = phi ptr [ %18, %16 ], [ %12, %11 ]
@@ -37484,7 +37497,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__det
   %22 = zext i32 %21 to i64
   %23 = urem i64 %22, %6
   %.not17.i.i = icmp eq i64 %23, %7
-  br i1 %.not17.i.i, label %16, label %.loopexit, !llvm.loop !196
+  br i1 %.not17.i.i, label %16, label %.loopexit, !llvm.loop !197
 
 .loopexit:                                        ; preds = %19, %.lr.ph.i.i, %2
   %24 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23
@@ -37647,7 +37660,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3spv7Builder12DebugTypeLocEESaIS5_ENSt8__detail10_
 31:                                               ; preds = %.sink.split, %23
   %.1 = phi i64 [ %20, %23 ], [ %.1.ph, %.sink.split ]
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !197
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !198
 
 ._crit_edge:                                      ; preds = %31, %_ZNSt10_HashtableIjSt4pairIKjN3spv7Builder12DebugTypeLocEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %32 = load ptr, ptr %0, align 8
@@ -37862,7 +37875,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
 31:                                               ; preds = %.sink.split, %23
   %.1 = phi i64 [ %20, %23 ], [ %.1.ph, %.sink.split ]
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !198
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 
 ._crit_edge:                                      ; preds = %31, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %32 = load ptr, ptr %0, align 8
@@ -38232,15 +38245,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
   %.0911.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %6, %_ZNSt12_Vector_baseISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %26 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !202, !noalias !199
-  store i64 %26, ptr %.012.i.i.i, align 8, !alias.scope !199, !noalias !202
-  store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !202, !noalias !199
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
+  %26 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !203, !noalias !200
+  store i64 %26, ptr %.012.i.i.i, align 8, !alias.scope !200, !noalias !203
+  store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !203, !noalias !200
   %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %27, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !204
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !205
 
 _ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
@@ -38251,15 +38264,15 @@ _ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %32, %.lr.ph.i.i.i17 ], [ %29, %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i19 = phi ptr [ %31, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
-  %30 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !208, !noalias !205
-  store i64 %30, ptr %.012.i.i.i18, align 8, !alias.scope !205, !noalias !208
-  store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !208, !noalias !205
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
+  %30 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !209, !noalias !206
+  store i64 %30, ptr %.012.i.i.i18, align 8, !alias.scope !206, !noalias !209
+  store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !209, !noalias !206
   %31 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
   %32 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 8
   %.not.i.i.i20 = icmp eq ptr %31, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !204
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !205
 
 _ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %29, %_ZNSt6vectorISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %32, %.lr.ph.i.i.i17 ]
@@ -38828,9 +38841,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -39062,14 +39072,15 @@ attributes #26 = { nounwind willreturn memory(read) }
 !196 = distinct !{!196, !5}
 !197 = distinct !{!197, !5}
 !198 = distinct !{!198, !5}
-!199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!201 = distinct !{!201, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!202 = !{!203}
-!203 = distinct !{!203, !201, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!204 = distinct !{!204, !5}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!207 = distinct !{!207, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!208 = !{!209}
-!209 = distinct !{!209, !207, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!199 = distinct !{!199, !5}
+!200 = !{!201}
+!201 = distinct !{!201, !202, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!202 = distinct !{!202, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!203 = !{!204}
+!204 = distinct !{!204, !202, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!205 = distinct !{!205, !5}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!208 = distinct !{!208, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!209 = !{!210}
+!210 = distinct !{!210, !208, !"_ZSt19__relocate_object_aISt10unique_ptrIN3spv8FunctionESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}

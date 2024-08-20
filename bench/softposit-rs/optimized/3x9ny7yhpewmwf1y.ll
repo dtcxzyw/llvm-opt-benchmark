@@ -467,33 +467,37 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %"_ZN9s
   ret i1 %68
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @_ZN9softposit5p16e14math7acos_pi18to_fixed28_acos_pi17hef468dc48a093872E(i64 noundef %0) unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
+define noundef i64 @_ZN9softposit5p16e14math7acos_pi18to_fixed28_acos_pi17hef468dc48a093872E(i64 noundef %0) unnamed_addr #2 {
   %2 = and i64 %0, 8192
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %3, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %1
-  %.masked = and i64 %0, 8191
-  %.masked.numleadingzeros = tail call range(i64 51, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
-  %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
-  %.lr.ph.tripcount = sub nuw nsw i64 13, %.masked.leadingonepos
-  %4 = shl i64 %0, %.lr.ph.tripcount
-  %5 = shl nuw nsw i64 %.masked.numleadingzeros, 1
-  %6 = sub nsw i64 50, %5
-  %7 = and i64 %6, 62
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.010 = phi i64 [ %4, %.lr.ph ], [ %0, %1 ]
+  %.089 = phi i32 [ %5, %.lr.ph ], [ 14, %1 ]
+  %4 = shl i64 %.010, 1
+  %5 = add i32 %.089, -2
+  %6 = and i64 %.010, 4096
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %8 = and i32 %5, 62
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
-  %.08.lcssa = phi i64 [ 14, %1 ], [ %7, %.lr.ph.preheader ]
-  %.0.lcssa = phi i64 [ %0, %1 ], [ %4, %.lr.ph.preheader ]
-  %8 = lshr i64 %.0.lcssa, 12
-  %9 = and i64 %8, 1
-  %10 = and i64 %.0.lcssa, 4095
-  %11 = or disjoint i64 %10, 4096
-  %12 = or disjoint i64 %9, %.08.lcssa
-  %13 = shl i64 %11, %12
-  ret i64 %13
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.08.lcssa = phi i32 [ 14, %1 ], [ %8, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ %0, %1 ], [ %4, %._crit_edge.loopexit ]
+  %9 = trunc i64 %.0.lcssa to i32
+  %10 = lshr i32 %9, 12
+  %11 = and i32 %10, 1
+  %12 = and i64 %.0.lcssa, 4095
+  %13 = or disjoint i64 %12, 4096
+  %14 = or disjoint i32 %11, %.08.lcssa
+  %15 = zext nneg i32 %14 to i64
+  %16 = shl i64 %13, %15
+  ret i64 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -714,9 +718,6 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.abs.i8(i8, i1 immarg) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

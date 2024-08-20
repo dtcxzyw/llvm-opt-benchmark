@@ -66,147 +66,152 @@ if.end4:                                          ; preds = %if.end.i
   %2 = add nsw i32 %conv.i.i, -1064
   %shl.i.i = shl nuw nsw i64 %retval.sroa.0.0.i.i, 1
   %add.i14.i = or disjoint i64 %shl.i.i, 1
-  br i1 %tobool.not.i.i, label %while.body.lr.ph.i.i, label %get_normalized_boundaries.exit.i
+  br i1 %tobool.not.i.i, label %while.body.i.i, label %get_normalized_boundaries.exit.i
 
-while.body.lr.ph.i.i:                             ; preds = %if.end4
-  %add.masked.i.i = and i64 %add.i14.i, 9007199254740991
-  %add.masked.numleadingzeros.i.i = tail call range(i64 11, 64) i64 @llvm.ctlz.i64(i64 %add.masked.i.i, i1 true)
-  %add.masked.leadingonepos.i.i = xor i64 %add.masked.numleadingzeros.i.i, 63
-  %while.body.tripcount.i.i = sub nuw nsw i64 53, %add.masked.leadingonepos.i.i
-  %shl5.i.i = shl i64 %add.i14.i, %while.body.tripcount.i.i
-  %3 = trunc nuw nsw i64 %add.masked.numleadingzeros.i.i to i32
-  %4 = sub nuw nsw i32 -1064, %3
-  br label %get_normalized_boundaries.exit.i
+while.body.i.i:                                   ; preds = %if.end4, %while.body.i.i
+  %storemerge.in27.in.i.i = phi i32 [ %storemerge.in27.i.i, %while.body.i.i ], [ -1074, %if.end4 ]
+  %shl52025.i.i = phi i64 [ %shl5.i.i, %while.body.i.i ], [ %add.i14.i, %if.end4 ]
+  %storemerge.in27.i.i = add nsw i32 %storemerge.in27.in.i.i, -1
+  %shl5.i.i = shl i64 %shl52025.i.i, 1
+  %3 = and i64 %shl52025.i.i, 4503599627370496
+  %cmp.i.i = icmp eq i64 %3, 0
+  br i1 %cmp.i.i, label %while.body.i.i, label %get_normalized_boundaries.exit.i, !llvm.loop !5
 
-get_normalized_boundaries.exit.i:                 ; preds = %while.body.lr.ph.i.i, %if.end4
-  %.neg109.i = phi i32 [ -1063, %while.body.lr.ph.i.i ], [ %2, %if.end4 ]
-  %storemerge.in.lcssa.i.i = phi i32 [ %4, %while.body.lr.ph.i.i ], [ %sub.i.i, %if.end4 ]
-  %.lcssa.i.i = phi i64 [ %shl5.i.i, %while.body.lr.ph.i.i ], [ %add.i14.i, %if.end4 ]
+get_normalized_boundaries.exit.i:                 ; preds = %while.body.i.i, %if.end4
+  %.neg.i = phi i32 [ %2, %if.end4 ], [ -1063, %while.body.i.i ]
+  %storemerge.in.lcssa.i.i = phi i32 [ %sub.i.i, %if.end4 ], [ %storemerge.in27.i.i, %while.body.i.i ]
+  %.lcssa.i.i = phi i64 [ %add.i14.i, %if.end4 ], [ %shl5.i.i, %while.body.i.i ]
+  %shl8.i.i = shl i64 %.lcssa.i.i, 10
   %sub10.i.i = add nsw i32 %storemerge.in.lcssa.i.i, -11
   %cmp13.i.i = icmp eq i64 %retval.sroa.0.0.i.i, 4503599627370496
-  %cond.i.neg118.i = select i1 %cmp13.i.i, i32 -2, i32 -1
+  %cond.i.neg120.i = select i1 %cmp13.i.i, i32 -2, i32 -1
   %sh_prom15.i.i = select i1 %cmp13.i.i, i64 2, i64 1
-  %reass.sub.i = add nsw i32 %.neg109.i, %cond.i.neg118.i
-  %sub24.i.i = sub nsw i32 %reass.sub.i, %storemerge.in.lcssa.i.i
-  %fp.promoted.masked.numleadingzeros.i.i = tail call range(i64 12, 65) i64 @llvm.ctlz.i64(i64 %and4.i, i1 true)
-  %fp.promoted.masked.leadingonepos.i.i = xor i64 %fp.promoted.masked.numleadingzeros.i.i, 63
-  %while.body.tripcount.i19.i = sub nuw nsw i64 52, %fp.promoted.masked.leadingonepos.i.i
-  %shl.i20.i = shl i64 %and4.i, %while.body.tripcount.i19.i
+  %shl16.i.i = shl nuw nsw i64 %retval.sroa.0.0.i.i, %sh_prom15.i.i
+  %sub17.i.i = add nsw i64 %shl16.i.i, -1
+  %reass.sub.i = add nsw i32 %.neg.i, %cond.i.neg120.i
+  %sub24.i.i = sub i32 %reass.sub.i, %storemerge.in.lcssa.i.i
+  %sh_prom26.i.i = zext nneg i32 %sub24.i.i to i64
+  %shl27.i.i = shl i64 %sub17.i.i, %sh_prom26.i.i
+  br i1 %tobool.not.i.i, label %while.body.i18.i, label %normalize.exit.i
+
+while.body.i18.i:                                 ; preds = %get_normalized_boundaries.exit.i, %while.body.i18.i
+  %shl69.i.i = phi i64 [ %shl.i19.i, %while.body.i18.i ], [ %and4.i, %get_normalized_boundaries.exit.i ]
+  %shl.i19.i = shl i64 %shl69.i.i, 1
+  %4 = and i64 %shl69.i.i, 2251799813685248
+  %cmp.i20.i = icmp eq i64 %4, 0
+  br i1 %cmp.i20.i, label %while.body.i18.i, label %normalize.exit.i, !llvm.loop !7
+
+normalize.exit.i:                                 ; preds = %while.body.i18.i, %get_normalized_boundaries.exit.i
+  %.lcssa.i16.i = phi i64 [ %add.i.i, %get_normalized_boundaries.exit.i ], [ %shl.i19.i, %while.body.i18.i ]
   %sub.i21.i = sub nsw i32 -76, %storemerge.in.lcssa.i.i
   %conv.i22.i = sitofp i32 %sub.i21.i to double
   %mul.i.i = fmul double %conv.i22.i, 0x3FD34413509F79FE
   %conv1.i.i = fptosi double %mul.i.i to i32
   %sub2.i.i = add nsw i32 %conv1.i.i, 348
   %div.i.i = sdiv i32 %sub2.i.i, 8
-  br label %while.body.i.i
+  br label %while.body.i23.i
 
-while.body.i.i:                                   ; preds = %while.body.backedge.i.i, %get_normalized_boundaries.exit.i
-  %idx.0.i.i = phi i32 [ %div.i.i, %get_normalized_boundaries.exit.i ], [ %inc.i.i, %while.body.backedge.i.i ]
+while.body.i23.i:                                 ; preds = %while.body.backedge.i.i, %normalize.exit.i
+  %idx.0.i.i = phi i32 [ %div.i.i, %normalize.exit.i ], [ %inc.i.i, %while.body.backedge.i.i ]
   %idxprom.i.i = sext i32 %idx.0.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [87 x %struct.Fp], ptr @powers_ten, i64 0, i64 %idxprom.i.i
   %exp3.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %5 = load i32, ptr %exp3.i.i, align 8
   %add4.i.i = add nsw i32 %sub10.i.i, %5
-  %cmp.i.i = icmp slt i32 %add4.i.i, -124
-  br i1 %cmp.i.i, label %while.body.backedge.i.i, label %if.end.i.i
+  %cmp.i24.i = icmp slt i32 %add4.i.i, -124
+  br i1 %cmp.i24.i, label %while.body.backedge.i.i, label %if.end.i.i
 
-while.body.backedge.i.i:                          ; preds = %if.end.i.i, %while.body.i.i
-  %.sink.i.i = phi i32 [ -1, %if.end.i.i ], [ 1, %while.body.i.i ]
+while.body.backedge.i.i:                          ; preds = %if.end.i.i, %while.body.i23.i
+  %.sink.i.i = phi i32 [ -1, %if.end.i.i ], [ 1, %while.body.i23.i ]
   %inc.i.i = add nsw i32 %.sink.i.i, %idx.0.i.i
-  br label %while.body.i.i
+  br label %while.body.i23.i
 
-if.end.i.i:                                       ; preds = %while.body.i.i
+if.end.i.i:                                       ; preds = %while.body.i23.i
   %cmp7.i.i = icmp sgt i32 %add4.i.i, -96
   br i1 %cmp7.i.i, label %while.body.backedge.i.i, label %find_cachedpow10.exit.i
 
 find_cachedpow10.exit.i:                          ; preds = %if.end.i.i
-  %shl16.i.i = shl nuw nsw i64 %retval.sroa.0.0.i.i, %sh_prom15.i.i
-  %sh_prom26.i.i = zext nneg i32 %sub24.i.i to i64
-  %.lcssa.i16.i = select i1 %tobool.not.i.i, i64 %shl.i20.i, i64 %add.i.i
-  %shl8.i.i = shl i64 %.lcssa.i.i, 10
-  %sub17.i.i = add nsw i64 %shl16.i.i, -1
-  %shl27.i.i = shl i64 %sub17.i.i, %sh_prom26.i.i
   %shl3.i.i = shl i64 %.lcssa.i16.i, 11
   %mul11.i.i = shl nsw i32 %idx.0.i.i, 3
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %arrayidx.i.i, align 16
   %shr.i.i = lshr i64 %shl3.i.i, 32
-  %and.i25.i = and i64 %retval.sroa.0.0.copyload.i.i, 4294967295
-  %mul.i26.i = mul nuw i64 %and.i25.i, %shr.i.i
+  %and.i27.i = and i64 %retval.sroa.0.0.copyload.i.i, 4294967295
+  %mul.i28.i = mul nuw i64 %and.i27.i, %shr.i.i
   %and3.i.i = and i64 %shl3.i.i, 4294965248
   %shr5.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i, 32
   %mul6.i.i = mul nuw i64 %shr5.i.i, %and3.i.i
-  %mul11.i27.i = mul nuw i64 %and.i25.i, %and3.i.i
+  %mul11.i29.i = mul nuw i64 %and.i27.i, %and3.i.i
   %mul16.i.i = mul nuw i64 %shr5.i.i, %shr.i.i
-  %and17.i.i = and i64 %mul.i26.i, 4294967295
+  %and17.i.i = and i64 %mul.i28.i, 4294967295
   %and18.i.i = and i64 %mul6.i.i, 4294965248
-  %shr19.i.i = lshr i64 %mul11.i27.i, 32
-  %add.i28.i = add nuw nsw i64 %and18.i.i, 2147483648
-  %add20.i.i = add nuw nsw i64 %add.i28.i, %and17.i.i
+  %shr19.i.i = lshr i64 %mul11.i29.i, 32
+  %add.i30.i = add nuw nsw i64 %and18.i.i, 2147483648
+  %add20.i.i = add nuw nsw i64 %add.i30.i, %and17.i.i
   %add21.i.i = add nuw nsw i64 %add20.i.i, %shr19.i.i
-  %shr23.i.i = lshr i64 %mul.i26.i, 32
+  %shr23.i.i = lshr i64 %mul.i28.i, 32
   %shr25.i.i = lshr i64 %mul6.i.i, 32
   %shr27.i.i = lshr i64 %add21.i.i, 32
-  %shr.i31.i = lshr i64 %shl8.i.i, 32
-  %mul.i33.i = mul nuw i64 %and.i25.i, %shr.i31.i
-  %and3.i34.i = and i64 %shl8.i.i, 4294966272
-  %mul6.i36.i = mul nuw i64 %shr5.i.i, %and3.i34.i
-  %mul11.i37.i = mul nuw i64 %and.i25.i, %and3.i34.i
-  %mul16.i38.i = mul nuw i64 %shr5.i.i, %shr.i31.i
-  %and17.i39.i = and i64 %mul.i33.i, 4294967295
-  %and18.i40.i = and i64 %mul6.i36.i, 4294966272
-  %shr19.i41.i = lshr i64 %mul11.i37.i, 32
-  %add.i42.i = add nuw nsw i64 %and18.i40.i, 2147483648
-  %add20.i43.i = add nuw nsw i64 %add.i42.i, %and17.i39.i
-  %add21.i44.i = add nuw nsw i64 %add20.i43.i, %shr19.i41.i
-  %shr23.i45.i = lshr i64 %mul.i33.i, 32
-  %shr25.i47.i = lshr i64 %mul6.i36.i, 32
-  %shr27.i49.i = lshr i64 %add21.i44.i, 32
+  %shr.i33.i = lshr i64 %shl8.i.i, 32
+  %mul.i35.i = mul nuw i64 %and.i27.i, %shr.i33.i
+  %and3.i36.i = and i64 %shl8.i.i, 4294966272
+  %mul6.i38.i = mul nuw i64 %shr5.i.i, %and3.i36.i
+  %mul11.i39.i = mul nuw i64 %and.i27.i, %and3.i36.i
+  %mul16.i40.i = mul nuw i64 %shr5.i.i, %shr.i33.i
+  %and17.i41.i = and i64 %mul.i35.i, 4294967295
+  %and18.i42.i = and i64 %mul6.i38.i, 4294966272
+  %shr19.i43.i = lshr i64 %mul11.i39.i, 32
+  %add.i44.i = add nuw nsw i64 %and18.i42.i, 2147483648
+  %add20.i45.i = add nuw nsw i64 %add.i44.i, %and17.i41.i
+  %add21.i46.i = add nuw nsw i64 %add20.i45.i, %shr19.i43.i
+  %shr23.i47.i = lshr i64 %mul.i35.i, 32
+  %shr25.i49.i = lshr i64 %mul6.i38.i, 32
+  %shr27.i51.i = lshr i64 %add21.i46.i, 32
   %6 = add i32 %storemerge.in.lcssa.i.i, %5
-  %add32.i52.neg.i = sub i32 -53, %6
-  %shr.i55.i = lshr i64 %shl27.i.i, 32
-  %mul.i57.i = mul nuw i64 %and.i25.i, %shr.i55.i
-  %and3.i58.i = and i64 %shl27.i.i, 4294967295
-  %mul6.i60.i = mul nuw i64 %shr5.i.i, %and3.i58.i
-  %mul11.i61.i = mul nuw i64 %and.i25.i, %and3.i58.i
-  %mul16.i62.i = mul nuw i64 %shr5.i.i, %shr.i55.i
-  %and17.i63.i = and i64 %mul.i57.i, 4294967295
-  %and18.i64.i = and i64 %mul6.i60.i, 4294967295
-  %shr19.i65.i = lshr i64 %mul11.i61.i, 32
-  %add.i66.i = add nuw nsw i64 %and18.i64.i, 2147483648
-  %add20.i67.i = add nuw nsw i64 %add.i66.i, %and17.i63.i
-  %add21.i68.i = add nuw nsw i64 %add20.i67.i, %shr19.i65.i
-  %shr23.i69.i = lshr i64 %mul.i57.i, 32
-  %add24.i70.i = add nuw i64 %shr23.i69.i, %mul16.i62.i
-  %shr25.i71.i = lshr i64 %mul6.i60.i, 32
-  %add26.i72.i = add nuw i64 %add24.i70.i, %shr25.i71.i
-  %shr27.i73.i = lshr i64 %add21.i68.i, 32
-  %add28.i74.i = add i64 %add26.i72.i, %shr27.i73.i
-  %inc.neg.i = xor i64 %add28.i74.i, -1
-  %add24.i46.i = add i64 %mul16.i38.i, -1
-  %add26.i48.i = add i64 %add24.i46.i, %shr23.i45.i
-  %add28.i50.i = add i64 %add26.i48.i, %shr25.i47.i
-  %dec.i = add i64 %add28.i50.i, %shr27.i49.i
+  %add32.i54.neg.i = sub i32 -53, %6
+  %shr.i57.i = lshr i64 %shl27.i.i, 32
+  %mul.i59.i = mul nuw i64 %and.i27.i, %shr.i57.i
+  %and3.i60.i = and i64 %shl27.i.i, 4294967295
+  %mul6.i62.i = mul nuw i64 %shr5.i.i, %and3.i60.i
+  %mul11.i63.i = mul nuw i64 %and.i27.i, %and3.i60.i
+  %mul16.i64.i = mul nuw i64 %shr5.i.i, %shr.i57.i
+  %and17.i65.i = and i64 %mul.i59.i, 4294967295
+  %and18.i66.i = and i64 %mul6.i62.i, 4294967295
+  %shr19.i67.i = lshr i64 %mul11.i63.i, 32
+  %add.i68.i = add nuw nsw i64 %and18.i66.i, 2147483648
+  %add20.i69.i = add nuw nsw i64 %add.i68.i, %and17.i65.i
+  %add21.i70.i = add nuw nsw i64 %add20.i69.i, %shr19.i67.i
+  %shr23.i71.i = lshr i64 %mul.i59.i, 32
+  %add24.i72.i = add nuw i64 %shr23.i71.i, %mul16.i64.i
+  %shr25.i73.i = lshr i64 %mul6.i62.i, 32
+  %add26.i74.i = add nuw i64 %add24.i72.i, %shr25.i73.i
+  %shr27.i75.i = lshr i64 %add21.i70.i, 32
+  %add28.i76.i = add i64 %add26.i74.i, %shr27.i75.i
+  %inc.neg.i = xor i64 %add28.i76.i, -1
+  %add24.i48.i = add i64 %mul16.i40.i, -1
+  %add26.i50.i = add i64 %add24.i48.i, %shr23.i47.i
+  %add28.i52.i = add i64 %add26.i50.i, %shr25.i49.i
+  %dec.i = add i64 %add28.i52.i, %shr27.i51.i
   %7 = add nuw i64 %shr23.i.i, %mul16.i.i
   %8 = add nuw i64 %7, %shr25.i.i
   %9 = add nuw i64 %8, %shr27.i.i
-  %sub.i79.i = sub i64 %dec.i, %9
+  %sub.i81.i = sub i64 %dec.i, %9
   %sub4.i.i = add i64 %dec.i, %inc.neg.i
-  %sh_prom.i.i = zext i32 %add32.i52.neg.i to i64
-  %shl.i80.i = shl nuw i64 1, %sh_prom.i.i
-  %shr.i81.i = lshr i64 %dec.i, %sh_prom.i.i
-  %sub15.i.i = add i64 %shl.i80.i, -1
-  %and.i82.i = and i64 %dec.i, %sub15.i.i
+  %sh_prom.i.i = zext i32 %add32.i54.neg.i to i64
+  %shl.i82.i = shl nuw i64 1, %sh_prom.i.i
+  %shr.i83.i = lshr i64 %dec.i, %sh_prom.i.i
+  %sub15.i.i = add i64 %shl.i82.i, -1
+  %and.i84.i = and i64 %dec.i, %sub15.i.i
   br label %for.body.i.i
 
-for.cond.i.i:                                     ; preds = %if.end.i83.i
+for.cond.i.i:                                     ; preds = %if.end.i85.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %divp.06.i.i, i64 8
-  %cmp.i86.i = icmp ugt i32 %kappa.05.i.i, 1
-  br i1 %cmp.i86.i, label %for.body.i.i, label %while.body.i87.i, !llvm.loop !5
+  %cmp.i89.i = icmp ugt i32 %kappa.05.i.i, 1
+  br i1 %cmp.i89.i, label %for.body.i.i, label %while.body.i90.i, !llvm.loop !8
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %find_cachedpow10.exit.i
-  %part1.07.i.i = phi i64 [ %shr.i81.i, %find_cachedpow10.exit.i ], [ %sub20.i85.i, %for.cond.i.i ]
+  %part1.07.i.i = phi i64 [ %shr.i83.i, %find_cachedpow10.exit.i ], [ %sub20.i87.i, %for.cond.i.i ]
   %divp.06.i.i = phi ptr [ getelementptr inbounds (i8, ptr @tens, i64 80), %find_cachedpow10.exit.i ], [ %incdec.ptr.i.i, %for.cond.i.i ]
-  %kappa.05.i.i = phi i32 [ 10, %find_cachedpow10.exit.i ], [ %dec.i.i, %for.cond.i.i ]
+  %kappa.05.i.i = phi i32 [ 10, %find_cachedpow10.exit.i ], [ %dec.i88.i, %for.cond.i.i ]
   %idx.04.i.i = phi i32 [ 0, %find_cachedpow10.exit.i ], [ %idx.1.i.i, %for.cond.i.i ]
   %10 = load i64, ptr %divp.06.i.i, align 8
   %div16.i.i = udiv i64 %part1.07.i.i, %10
@@ -214,30 +219,30 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %find
   %tobool.i.i = icmp ne i64 %11, 0
   %tobool17.i.i = icmp ne i32 %idx.04.i.i, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 true, i1 %tobool17.i.i
-  br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i83.i
+  br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i85.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %12 = trunc i64 %div16.i.i to i8
   %conv18.i.i = add i8 %12, 48
-  %inc.i88.i = add nsw i32 %idx.04.i.i, 1
-  %idxprom.i89.i = sext i32 %idx.04.i.i to i64
-  %arrayidx.i90.i = getelementptr inbounds i8, ptr %digits, i64 %idxprom.i89.i
-  store i8 %conv18.i.i, ptr %arrayidx.i90.i, align 1
-  br label %if.end.i83.i
+  %inc.i91.i = add nsw i32 %idx.04.i.i, 1
+  %idxprom.i92.i = sext i32 %idx.04.i.i to i64
+  %arrayidx.i93.i = getelementptr inbounds i8, ptr %digits, i64 %idxprom.i92.i
+  store i8 %conv18.i.i, ptr %arrayidx.i93.i, align 1
+  br label %if.end.i85.i
 
-if.end.i83.i:                                     ; preds = %if.then.i.i, %for.body.i.i
-  %idx.1.i.i = phi i32 [ %inc.i88.i, %if.then.i.i ], [ 0, %for.body.i.i ]
-  %mul.i84.i = mul i64 %11, %10
-  %sub20.i85.i = sub i64 %part1.07.i.i, %mul.i84.i
-  %dec.i.i = add nsw i32 %kappa.05.i.i, -1
-  %shl24.i.i = shl i64 %sub20.i85.i, %sh_prom.i.i
-  %add25.i.i = add i64 %shl24.i.i, %and.i82.i
+if.end.i85.i:                                     ; preds = %if.then.i.i, %for.body.i.i
+  %idx.1.i.i = phi i32 [ %inc.i91.i, %if.then.i.i ], [ 0, %for.body.i.i ]
+  %mul.i86.i = mul i64 %11, %10
+  %sub20.i87.i = sub i64 %part1.07.i.i, %mul.i86.i
+  %dec.i88.i = add nsw i32 %kappa.05.i.i, -1
+  %shl24.i.i = shl i64 %sub20.i87.i, %sh_prom.i.i
+  %add25.i.i = add i64 %shl24.i.i, %and.i84.i
   %cmp26.not.i.i = icmp ugt i64 %add25.i.i, %sub4.i.i
   br i1 %cmp26.not.i.i, label %for.cond.i.i, label %if.then28.i.i
 
-if.then28.i.i:                                    ; preds = %if.end.i83.i
+if.then28.i.i:                                    ; preds = %if.end.i85.i
   %shl33.i.i = shl i64 %10, %sh_prom.i.i
-  %cmp12.i.i.i = icmp uge i64 %add25.i.i, %sub.i79.i
+  %cmp12.i.i.i = icmp uge i64 %add25.i.i, %sub.i81.i
   %sub13.i.i.i = sub nuw i64 %sub4.i.i, %add25.i.i
   %cmp1.not14.i.i.i = icmp ult i64 %sub13.i.i.i, %shl33.i.i
   %or.cond15.i.i.i = or i1 %cmp12.i.i.i, %cmp1.not14.i.i.i
@@ -252,12 +257,12 @@ land.rhs.lr.ph.i.i.i:                             ; preds = %if.then28.i.i
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %land.rhs.lr.ph.i.i.i
   %rem.addr.016.i.i.i = phi i64 [ %add25.i.i, %land.rhs.lr.ph.i.i.i ], [ %add.i.i.i, %while.body.i.i.i ]
   %add.i.i.i = add i64 %rem.addr.016.i.i.i, %shl33.i.i
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, %sub.i79.i
+  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, %sub.i81.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i.i
-  %sub3.i.i.i = sub i64 %sub.i79.i, %rem.addr.016.i.i.i
-  %sub5.i.i.i = sub nuw i64 %add.i.i.i, %sub.i79.i
+  %sub3.i.i.i = sub i64 %sub.i81.i, %rem.addr.016.i.i.i
+  %sub5.i.i.i = sub nuw i64 %add.i.i.i, %sub.i81.i
   %cmp6.i.i.i = icmp ugt i64 %sub3.i.i.i, %sub5.i.i.i
   br i1 %cmp6.i.i.i, label %while.body.i.i.i, label %grisu2.exit
 
@@ -265,16 +270,16 @@ while.body.i.i.i:                                 ; preds = %lor.rhs.i.i.i, %lan
   %14 = load i8, ptr %gep.i.i.i, align 1
   %dec.i.i.i = add i8 %14, -1
   store i8 %dec.i.i.i, ptr %gep.i.i.i, align 1
-  %cmp.i.i.i = icmp uge i64 %add.i.i.i, %sub.i79.i
+  %cmp.i.i.i = icmp uge i64 %add.i.i.i, %sub.i81.i
   %sub.i.i.i = sub i64 %sub4.i.i, %add.i.i.i
   %cmp1.not.i.i.i = icmp ult i64 %sub.i.i.i, %shl33.i.i
   %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp1.not.i.i.i
-  br i1 %or.cond.i.i.i, label %grisu2.exit, label %land.rhs.i.i.i, !llvm.loop !7
+  br i1 %or.cond.i.i.i, label %grisu2.exit, label %land.rhs.i.i.i, !llvm.loop !9
 
-while.body.i87.i:                                 ; preds = %for.cond.i.i, %if.end53.i.i
+while.body.i90.i:                                 ; preds = %for.cond.i.i, %if.end53.i.i
   %idx.2.i.i = phi i32 [ %idx.3.i.i, %if.end53.i.i ], [ %idx.1.i.i, %for.cond.i.i ]
   %kappa.1.i.i = phi i32 [ %dec37.i.i, %if.end53.i.i ], [ 0, %for.cond.i.i ]
-  %part2.0.i.i = phi i64 [ %and56.i.i, %if.end53.i.i ], [ %and.i82.i, %for.cond.i.i ]
+  %part2.0.i.i = phi i64 [ %and56.i.i, %if.end53.i.i ], [ %and.i84.i, %for.cond.i.i ]
   %delta.0.i.i = phi i64 [ %mul36.i.i, %if.end53.i.i ], [ %sub4.i.i, %for.cond.i.i ]
   %unit.0.i.i = phi ptr [ %incdec.ptr64.i.i, %if.end53.i.i ], [ getelementptr inbounds (i8, ptr @tens, i64 144), %for.cond.i.i ]
   %mul35.i.i = mul i64 %part2.0.i.i, 10
@@ -287,7 +292,7 @@ while.body.i87.i:                                 ; preds = %for.cond.i.i, %if.e
   %or.cond1.i.i = select i1 %tobool44.i.i, i1 true, i1 %tobool46.i.i
   br i1 %or.cond1.i.i, label %if.then47.i.i, label %if.end53.i.i
 
-if.then47.i.i:                                    ; preds = %while.body.i87.i
+if.then47.i.i:                                    ; preds = %while.body.i90.i
   %16 = trunc i64 %shr42.i.i to i8
   %conv49.i.i = add i8 %16, 48
   %inc50.i.i = add nsw i32 %idx.2.i.i, 1
@@ -296,19 +301,19 @@ if.then47.i.i:                                    ; preds = %while.body.i87.i
   store i8 %conv49.i.i, ptr %arrayidx52.i.i, align 1
   br label %if.end53.i.i
 
-if.end53.i.i:                                     ; preds = %if.then47.i.i, %while.body.i87.i
-  %idx.3.i.i = phi i32 [ %inc50.i.i, %if.then47.i.i ], [ 0, %while.body.i87.i ]
+if.end53.i.i:                                     ; preds = %if.then47.i.i, %while.body.i90.i
+  %idx.3.i.i = phi i32 [ %inc50.i.i, %if.then47.i.i ], [ 0, %while.body.i90.i ]
   %and56.i.i = and i64 %mul35.i.i, %sub15.i.i
   %cmp57.i.i = icmp ult i64 %and56.i.i, %mul36.i.i
   %incdec.ptr64.i.i = getelementptr inbounds i8, ptr %unit.0.i.i, i64 -8
-  br i1 %cmp57.i.i, label %if.then59.i.i, label %while.body.i87.i
+  br i1 %cmp57.i.i, label %if.then59.i.i, label %while.body.i90.i
 
 if.then59.i.i:                                    ; preds = %if.end53.i.i
   %17 = load i64, ptr %unit.0.i.i, align 8
-  %mul62.i.i = mul i64 %17, %sub.i79.i
+  %mul62.i.i = mul i64 %17, %sub.i81.i
   %cmp12.i47.i.i = icmp uge i64 %and56.i.i, %mul62.i.i
   %sub13.i48.i.i = sub nuw i64 %mul36.i.i, %and56.i.i
-  %cmp1.not14.i49.i.i = icmp ult i64 %sub13.i48.i.i, %shl.i80.i
+  %cmp1.not14.i49.i.i = icmp ult i64 %sub13.i48.i.i, %shl.i82.i
   %or.cond15.i50.i.i = or i1 %cmp1.not14.i49.i.i, %cmp12.i47.i.i
   br i1 %or.cond15.i50.i.i, label %grisu2.exit, label %land.rhs.lr.ph.i51.i.i
 
@@ -320,7 +325,7 @@ land.rhs.lr.ph.i51.i.i:                           ; preds = %if.then59.i.i
 
 land.rhs.i54.i.i:                                 ; preds = %while.body.i62.i.i, %land.rhs.lr.ph.i51.i.i
   %rem.addr.016.i55.i.i = phi i64 [ %and56.i.i, %land.rhs.lr.ph.i51.i.i ], [ %add.i56.i.i, %while.body.i62.i.i ]
-  %add.i56.i.i = add i64 %rem.addr.016.i55.i.i, %shl.i80.i
+  %add.i56.i.i = add i64 %rem.addr.016.i55.i.i, %shl.i82.i
   %cmp2.i57.i.i = icmp ult i64 %add.i56.i.i, %mul62.i.i
   br i1 %cmp2.i57.i.i, label %while.body.i62.i.i, label %lor.rhs.i58.i.i
 
@@ -336,12 +341,12 @@ while.body.i62.i.i:                               ; preds = %lor.rhs.i58.i.i, %l
   store i8 %dec.i63.i.i, ptr %gep.i53.i.i, align 1
   %cmp.i64.i.i = icmp uge i64 %add.i56.i.i, %mul62.i.i
   %sub.i65.i.i = sub i64 %mul36.i.i, %add.i56.i.i
-  %cmp1.not.i66.i.i = icmp ult i64 %sub.i65.i.i, %shl.i80.i
+  %cmp1.not.i66.i.i = icmp ult i64 %sub.i65.i.i, %shl.i82.i
   %or.cond.i67.i.i = or i1 %cmp.i64.i.i, %cmp1.not.i66.i.i
-  br i1 %or.cond.i67.i.i, label %grisu2.exit, label %land.rhs.i54.i.i, !llvm.loop !7
+  br i1 %or.cond.i67.i.i, label %grisu2.exit, label %land.rhs.i54.i.i, !llvm.loop !9
 
 grisu2.exit:                                      ; preds = %lor.rhs.i.i.i, %while.body.i.i.i, %lor.rhs.i58.i.i, %while.body.i62.i.i, %if.then28.i.i, %if.then59.i.i
-  %dec37.i.i.pn = phi i32 [ %dec37.i.i, %if.then59.i.i ], [ %dec.i.i, %if.then28.i.i ], [ %dec37.i.i, %while.body.i62.i.i ], [ %dec37.i.i, %lor.rhs.i58.i.i ], [ %dec.i.i, %while.body.i.i.i ], [ %dec.i.i, %lor.rhs.i.i.i ]
+  %dec37.i.i.pn = phi i32 [ %dec37.i.i, %if.then59.i.i ], [ %dec.i88.i, %if.then28.i.i ], [ %dec37.i.i, %while.body.i62.i.i ], [ %dec37.i.i, %lor.rhs.i58.i.i ], [ %dec.i88.i, %while.body.i.i.i ], [ %dec.i88.i, %lor.rhs.i.i.i ]
   %retval.0.i.i = phi i32 [ %idx.3.i.i, %if.then59.i.i ], [ %idx.1.i.i, %if.then28.i.i ], [ %idx.3.i.i, %while.body.i62.i.i ], [ %idx.3.i.i, %lor.rhs.i58.i.i ], [ %idx.1.i.i, %while.body.i.i.i ], [ %idx.1.i.i, %lor.rhs.i.i.i ]
   %reass.sub = sub i32 %dec37.i.i.pn, %mul11.i.i
   %K.0 = add i32 %reass.sub, 348
@@ -506,9 +511,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
-
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -524,3 +526,5 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

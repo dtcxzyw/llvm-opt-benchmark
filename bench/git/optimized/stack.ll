@@ -2150,11 +2150,17 @@ if.end190:                                        ; preds = %if.then187, %if.end
 define dso_local range(i32 -2147483648, 2147483647) i32 @fastlog2(i64 noundef %sz) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %sz, 0
+  br i1 %cmp, label %return, label %for.body.preheader
+
+for.body.preheader:                               ; preds = %entry
   %0 = lshr i64 %sz, 1
   %1 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %0, i1 false)
   %2 = trunc nuw nsw i64 %1 to i32
   %3 = sub nuw nsw i32 64, %2
-  %retval.0 = select i1 %cmp, i32 0, i32 %3
+  br label %return
+
+return:                                           ; preds = %entry, %for.body.preheader
+  %retval.0 = phi i32 [ %3, %for.body.preheader ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -2184,17 +2190,23 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds i64, ptr %sizes, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %cmp.i = icmp eq i64 %0, 0
+  br i1 %cmp.i, label %fastlog2.exit, label %for.body.preheader.i
+
+for.body.preheader.i:                             ; preds = %for.body
   %1 = lshr i64 %0, 1
   %2 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
   %3 = trunc nuw nsw i64 %2 to i32
   %4 = sub nuw nsw i32 64, %3
-  %retval.0.i = select i1 %cmp.i, i32 0, i32 %4
+  br label %fastlog2.exit
+
+fastlog2.exit:                                    ; preds = %for.body, %for.body.preheader.i
+  %retval.0.i = phi i32 [ %4, %for.body.preheader.i ], [ 0, %for.body ]
   %cmp6 = icmp ne i32 %cur.sroa.6.031, %retval.0.i
   %cmp8 = icmp ne i64 %cur.sroa.811.032, 0
   %or.cond = select i1 %cmp6, i1 %cmp8, i1 false
   br i1 %or.cond, label %if.then10, label %if.end15
 
-if.then10:                                        ; preds = %for.body
+if.then10:                                        ; preds = %fastlog2.exit
   %inc = add nsw i32 %next.030, 1
   %idxprom13 = sext i32 %next.030 to i64
   %arrayidx14 = getelementptr inbounds %struct.segment, ptr %call, i64 %idxprom13
@@ -2211,11 +2223,11 @@ if.then10:                                        ; preds = %for.body
   %.pre = load i64, ptr %arrayidx, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then10, %for.body
-  %6 = phi i64 [ %.pre, %if.then10 ], [ %0, %for.body ]
-  %cur.sroa.0.1 = phi i32 [ %5, %if.then10 ], [ %cur.sroa.0.029, %for.body ]
-  %next.1 = phi i32 [ %inc, %if.then10 ], [ %next.030, %for.body ]
-  %cur.sroa.811.1 = phi i64 [ 0, %if.then10 ], [ %cur.sroa.811.032, %for.body ]
+if.end15:                                         ; preds = %if.then10, %fastlog2.exit
+  %6 = phi i64 [ %.pre, %if.then10 ], [ %0, %fastlog2.exit ]
+  %cur.sroa.0.1 = phi i32 [ %5, %if.then10 ], [ %cur.sroa.0.029, %fastlog2.exit ]
+  %next.1 = phi i32 [ %inc, %if.then10 ], [ %next.030, %fastlog2.exit ]
+  %cur.sroa.811.1 = phi i64 [ 0, %if.then10 ], [ %cur.sroa.811.032, %fastlog2.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add20 = add i64 %6, %cur.sroa.811.1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2277,17 +2289,23 @@ for.body.i:                                       ; preds = %if.end15.i, %for.bo
   %arrayidx.i = getelementptr inbounds i64, ptr %sizes, i64 %indvars.iv.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
+  br i1 %cmp.i.i, label %fastlog2.exit.i, label %for.body.preheader.i.i
+
+for.body.preheader.i.i:                           ; preds = %for.body.i
   %1 = lshr i64 %0, 1
   %2 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
   %3 = trunc nuw nsw i64 %2 to i32
   %4 = sub nuw nsw i32 64, %3
-  %retval.0.i.i = select i1 %cmp.i.i, i32 0, i32 %4
+  br label %fastlog2.exit.i
+
+fastlog2.exit.i:                                  ; preds = %for.body.preheader.i.i, %for.body.i
+  %retval.0.i.i = phi i32 [ %4, %for.body.preheader.i.i ], [ 0, %for.body.i ]
   %cmp6.i = icmp ne i32 %cur.sroa.6.031.i, %retval.0.i.i
   %cmp8.i = icmp ne i64 %cur.sroa.811.032.i, 0
   %or.cond.i = select i1 %cmp6.i, i1 %cmp8.i, i1 false
   br i1 %or.cond.i, label %if.then10.i, label %if.end15.i
 
-if.then10.i:                                      ; preds = %for.body.i
+if.then10.i:                                      ; preds = %fastlog2.exit.i
   %inc.i = add nsw i32 %next.030.i, 1
   %idxprom13.i = sext i32 %next.030.i to i64
   %arrayidx14.i = getelementptr inbounds %struct.segment, ptr %call.i, i64 %idxprom13.i
@@ -2304,11 +2322,11 @@ if.then10.i:                                      ; preds = %for.body.i
   %.pre.i = load i64, ptr %arrayidx.i, align 8
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %if.then10.i, %for.body.i
-  %6 = phi i64 [ %.pre.i, %if.then10.i ], [ %0, %for.body.i ]
-  %cur.sroa.0.1.i = phi i32 [ %5, %if.then10.i ], [ %cur.sroa.0.029.i, %for.body.i ]
-  %next.1.i = phi i32 [ %inc.i, %if.then10.i ], [ %next.030.i, %for.body.i ]
-  %cur.sroa.811.1.i = phi i64 [ 0, %if.then10.i ], [ %cur.sroa.811.032.i, %for.body.i ]
+if.end15.i:                                       ; preds = %if.then10.i, %fastlog2.exit.i
+  %6 = phi i64 [ %.pre.i, %if.then10.i ], [ %0, %fastlog2.exit.i ]
+  %cur.sroa.0.1.i = phi i32 [ %5, %if.then10.i ], [ %cur.sroa.0.029.i, %fastlog2.exit.i ]
+  %next.1.i = phi i32 [ %inc.i, %if.then10.i ], [ %next.030.i, %fastlog2.exit.i ]
+  %cur.sroa.811.1.i = phi i64 [ 0, %if.then10.i ], [ %cur.sroa.811.032.i, %fastlog2.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %add20.i = add i64 %cur.sroa.811.1.i, %6
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2332,8 +2350,8 @@ sizes_to_segments.exit:                           ; preds = %if.end15.i, %for.co
   %cur.sroa.811.0.arrayidx24.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 16
   store i64 %cur.sroa.811.0.lcssa.i, ptr %cur.sroa.811.0.arrayidx24.sroa_idx.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) @__const.suggest_compaction_segment.min_seg, i64 24, i1 false)
-  %cmp18 = icmp sgt i32 %next.0.lcssa.i, -1
-  br i1 %cmp18, label %for.body.lr.ph, label %while.end
+  %cmp19 = icmp sgt i32 %next.0.lcssa.i, -1
+  br i1 %cmp19, label %for.body.lr.ph, label %while.end
 
 for.body.lr.ph:                                   ; preds = %sizes_to_segments.exit
   %inc22.i = add nuw nsw i32 %next.0.lcssa.i, 1
@@ -2369,8 +2387,8 @@ for.inc:                                          ; preds = %if.end, %if.then7, 
 
 while.condthread-pre-split:                       ; preds = %for.inc
   %.pr.pre = load i32, ptr %agg.result, align 8
-  %cmp1120 = icmp sgt i32 %.pr.pre, 0
-  br i1 %cmp1120, label %while.body.lr.ph, label %while.end
+  %cmp1121 = icmp sgt i32 %.pr.pre, 0
+  br i1 %cmp1121, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.condthread-pre-split
   %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -2379,35 +2397,47 @@ while.body.lr.ph:                                 ; preds = %while.condthread-pr
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end19
-  %indvars.iv22 = phi i64 [ %10, %while.body.lr.ph ], [ %indvars.iv.next23, %if.end19 ]
+  %indvars.iv23 = phi i64 [ %10, %while.body.lr.ph ], [ %indvars.iv.next24, %if.end19 ]
   %11 = phi i64 [ %bytes.promoted, %while.body.lr.ph ], [ %add, %if.end19 ]
-  %indvars.iv.next23 = add nsw i64 %indvars.iv22, -1
+  %indvars.iv.next24 = add nsw i64 %indvars.iv23, -1
   %cmp.i13 = icmp eq i64 %11, 0
+  br i1 %cmp.i13, label %fastlog2.exit, label %for.body.preheader.i14
+
+for.body.preheader.i14:                           ; preds = %while.body
   %12 = lshr i64 %11, 1
   %13 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
   %14 = trunc nuw nsw i64 %13 to i32
   %15 = sub nuw nsw i32 64, %14
-  %retval.0.i = select i1 %cmp.i13, i32 0, i32 %15
-  %arrayidx15 = getelementptr inbounds i64, ptr %sizes, i64 %indvars.iv.next23
+  br label %fastlog2.exit
+
+fastlog2.exit:                                    ; preds = %while.body, %for.body.preheader.i14
+  %retval.0.i = phi i32 [ %15, %for.body.preheader.i14 ], [ 0, %while.body ]
+  %arrayidx15 = getelementptr inbounds i64, ptr %sizes, i64 %indvars.iv.next24
   %16 = load i64, ptr %arrayidx15, align 8
-  %cmp.i14 = icmp ne i64 %16, 0
+  %cmp.i15 = icmp eq i64 %16, 0
+  br i1 %cmp.i15, label %fastlog2.exit18, label %for.body.preheader.i16
+
+for.body.preheader.i16:                           ; preds = %fastlog2.exit
   %17 = lshr i64 %16, 1
   %18 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %17, i1 false)
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = sub nuw nsw i32 64, %19
-  %cmp1716 = icmp ugt i32 %20, %retval.0.i
-  %cmp17 = select i1 %cmp.i14, i1 %cmp1716, i1 false
+  br label %fastlog2.exit18
+
+fastlog2.exit18:                                  ; preds = %fastlog2.exit, %for.body.preheader.i16
+  %retval.0.i17 = phi i32 [ %20, %for.body.preheader.i16 ], [ 0, %fastlog2.exit ]
+  %cmp17 = icmp ult i32 %retval.0.i, %retval.0.i17
   br i1 %cmp17, label %while.end, label %if.end19
 
-if.end19:                                         ; preds = %while.body
-  %21 = trunc nuw nsw i64 %indvars.iv.next23 to i32
+if.end19:                                         ; preds = %fastlog2.exit18
+  %21 = trunc nuw nsw i64 %indvars.iv.next24 to i32
   store i32 %21, ptr %agg.result, align 8
   %add = add i64 %16, %11
   store i64 %add, ptr %bytes, align 8
-  %cmp11 = icmp ugt i64 %indvars.iv22, 1
+  %cmp11 = icmp ugt i64 %indvars.iv23, 1
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !27
 
-while.end:                                        ; preds = %if.end19, %while.body, %sizes_to_segments.exit.thread, %sizes_to_segments.exit, %while.condthread-pre-split
+while.end:                                        ; preds = %if.end19, %fastlog2.exit18, %sizes_to_segments.exit.thread, %sizes_to_segments.exit, %while.condthread-pre-split
   tail call void @reftable_free(ptr noundef %call.i) #14
   ret void
 }

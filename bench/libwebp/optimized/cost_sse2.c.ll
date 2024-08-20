@@ -25,15 +25,21 @@ define internal void @SetResidualCoeffs_SSE2(ptr noundef %0, ptr nocapture nound
   %7 = icmp eq <16 x i8> %6, zeroinitializer
   %8 = bitcast <16 x i1> %7 to i16
   %.not = icmp eq i16 %8, -1
-  %9 = xor i16 %8, -1
-  %10 = zext i16 %9 to i32
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
-  %12 = xor i32 %11, 31
-  %13 = select i1 %.not, i32 -1, i32 %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %0, ptr %15, align 8
+  br i1 %.not, label %14, label %9
+
+9:                                                ; preds = %2
+  %10 = xor i16 %8, -1
+  %11 = zext i16 %10 to i32
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
+  %13 = xor i32 %12, 31
+  br label %14
+
+14:                                               ; preds = %2, %9
+  %15 = phi i32 [ %13, %9 ], [ -1, %2 ]
+  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %15, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %0, ptr %17, align 8
   ret void
 }
 

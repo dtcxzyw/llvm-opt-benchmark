@@ -36168,14 +36168,14 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then5.i.i.i.i.i.
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i64 0, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp263.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp263.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2_EEb.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  %cmp264.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %cmp264.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2_EEb.exit.i.i.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %relax.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 122
   %sub25.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %internal_obj.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 3328
-  %symbol_aux.i.i198.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 3232
+  %symbol_aux.i.i199.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 3232
   %tp_addr223.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 4352
   %24 = getelementptr inbounds i8, ptr %13, i64 32
   %output_section.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
@@ -36183,7 +36183,7 @@ for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
-  %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.1.i.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.1.i.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i ]
   %25 = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i ]
   %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %25
   %26 = load ptr, ptr %13, align 8
@@ -36194,7 +36194,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.inc.i.i.i.i.i.i
   %27 = load ptr, ptr %symbols.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i99.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i
   %28 = load ptr, ptr %add.ptr.i99.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %conv6.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i to i32
+  %conv6.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %29 = load ptr, ptr %extra.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i100.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %29, i64 %25
   store i32 %conv6.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i100.i.i.i.i.i.i.i.i.i.i.i.i, align 4
@@ -36209,7 +36209,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %sh_addr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %31 = load i64, ptr %offset.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %x.0.copyload.i102.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %add.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   %add14.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add.i.i.i.i.i.i.i.i.i.i.i.i.i, %31
   %sub.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add14.i.i.i.i.i.i.i.i.i.i.i.i, %x.0.copyload.i102.i.i.i.i.i.i.i.i.i.i.i.i
   %r_addend.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
@@ -36217,19 +36217,25 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
   %add19.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %x.0.copyload.i103.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %32 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %add19.i.i.i.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %32, 1
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i105.i.i.i.i.i.i.i.i.i.i.i.i
+
+if.end.i105.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add19.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
-  %sub.i105.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 64, %33
-  %shl.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %sub.i105.i.i.i.i.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add19.i.i.i.i.i.i.i.i.i.i.i.i, i64 %shl.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %cmp.i106.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %add.i107.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %sub.i108.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add.i107.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %sub.i106.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 64, %33
+  %shl.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw i64 1, %sub.i106.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
+
+_ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i105.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %shl.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i105.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add19.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %cmp.i107.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %add.i108.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, -1
+  %sub.i109.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add.i108.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 0, %retval.0.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i108.i.i.i.i.i.i.i.i.i.i.i.i, %not.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %retval.0.i109.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i106.i.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %add16.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i103.i.i.i.i.i.i.i.i.i.i.i.i, %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i109.i.i.i.i.i.i.i.i.i.i.i.i, %not.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %retval.0.i110.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i107.i.i.i.i.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %add16.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i103.i.i.i.i.i.i.i.i.i.i.i.i, %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   %sub22.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add16.i.i.i.i.i.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i.i.i.i.i.i
-  %add23.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub22.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i109.i.i.i.i.i.i.i.i.i.i.i.i
+  %add23.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %sub22.i.i.i.i.i.i.i.i.i.i.i.i, %retval.0.i110.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36242,8 +36248,8 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.
 lor.lhs.false27.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i
   %add28.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %25, 1
   %r_type30.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add28.i.i.i.i.i.i.i.i.i.i.i.i, i32 1
-  %x.0.copyload.i112.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_type30.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %cmp32.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %x.0.copyload.i112.i.i.i.i.i.i.i.i.i.i.i.i, 51
+  %x.0.copyload.i113.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_type30.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %cmp32.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %x.0.copyload.i113.i.i.i.i.i.i.i.i.i.i.i.i, 51
   br i1 %cmp32.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end34.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end34.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %lor.lhs.false27.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36266,16 +36272,16 @@ if.end38.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end34.i.i.i.i.i.
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end38.i.i.i.i.i.i.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i.i.i.i.i.i.i
-  %tobool.not.i.i114.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
-  br i1 %tobool.not.i.i114.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %tobool.not.i.i115.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
+  br i1 %tobool.not.i.i115.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i
   %is_dso.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 112
   %37 = load i8, ptr %is_dso.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %37 to i1
-  br i1 %tobool3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i119.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i120.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i119.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+if.then.i.i120.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %elf_syms.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 32
   %sym_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 36
   %38 = load i32, ptr %sym_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
@@ -36284,14 +36290,14 @@ if.then.i.i119.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %land.lhs.true.i.i.i
   %st_shndx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %39, i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 2
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %st_shndx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -15
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i.i.i.i
   %is_imported.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 49
   %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %is_imported.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %40 = and i16 %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 16
   %bf.cast.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %40, 0
-  br i1 %bf.cast.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %bf.cast.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %origin.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
@@ -36300,15 +36306,15 @@ land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %if.end.i.i.i.i.i.i.
   %42 = and i64 %41, 1
   %tobool7.not15.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %42, 0
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %tobool7.not12.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %tobool7.not15.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %41, 3
   %cmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %tobool12.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %tobool7.not12.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %cmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %tobool12.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool12.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i119.i.i.i.i.i.i.i.i.i.i.i.i
+if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i120.i.i.i.i.i.i.i.i.i.i.i.i
   %elf_syms.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 32
   %sym_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 36
   %43 = load i32, ptr %sym_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
@@ -36325,76 +36331,76 @@ if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK4mold3elf6Symbo
   %46 = select i1 %cmp.i.i6.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %46, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i
   %call5.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZNK4mold3elf6SymbolINS0_6RV64LEEE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %28, ptr noundef nonnull align 8 dereferenceable(4576) %12, i64 noundef 0)
   %r_addend.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %x.0.copyload.i.i116.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %x.0.copyload.i.i117.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %47 = load ptr, ptr %output_section.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %sh_addr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 40
   %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %sh_addr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %48 = load i64, ptr %offset.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %x.0.copyload.i7.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %.neg3 = add i64 %x.0.copyload.i.i116.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.neg3 = add i64 %x.0.copyload.i.i117.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.i.i.i.i.i.i.i
   %49 = add i64 %x.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %48
   %50 = add i64 %49, %x.0.copyload.i7.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %sub.i117.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %.neg3, %50
-  %and.i7.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i117.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %sub.i118.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %.neg3, %50
+  %and.i7.i.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i118.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %tobool42.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i7.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool42.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end44.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end44.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %get_rd.val.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %24, align 8
   %51 = getelementptr i8, ptr %get_rd.val.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 %x.0.copyload.i7.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i121.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %51, i64 4
-  %x.0.copyload.i.i122.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i121.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %52 = and i32 %x.0.copyload.i.i122.i.i.i.i.i.i.i.i.i.i.i.i, 3968
+  %add.ptr.i122.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %51, i64 4
+  %x.0.copyload.i.i123.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i122.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %52 = and i32 %x.0.copyload.i.i123.i.i.i.i.i.i.i.i.i.i.i.i, 3968
   %cmp50.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %52, 0
-  %53 = add i64 %sub.i117.i.i.i.i.i.i.i.i.i.i.i.i, 2048
+  %53 = add i64 %sub.i118.i.i.i.i.i.i.i.i.i.i.i.i, 2048
   %cmp53.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %53, 4096
   %54 = and i1 %cmp53.i.i.i.i.i.i.i.i.i.i.i.i, %cmp50.i.i.i.i.i.i.i.i.i.i.i.i
-  %or.cond249.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %54, %tobool.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond249.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then54.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i
+  %or.cond250.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %54, %tobool.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond250.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then54.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then54.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end44.i.i.i.i.i.i.i.i.i.i.i.i
-  %add55.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 6
+  %add55.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 6
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.end44.i.i.i.i.i.i.i.i.i.i.i.i
-  %55 = add i64 %sub.i117.i.i.i.i.i.i.i.i.i.i.i.i, 1048576
+  %55 = add i64 %sub.i118.i.i.i.i.i.i.i.i.i.i.i.i, 1048576
   %cmp67.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %55, 2097152
-  %add69.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp67.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add69.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %add69.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp67.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add69.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 sw.bb73.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.end38.i.i.i.i.i.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i126.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i127.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %sw.bb73.i.i.i.i.i.i.i.i.i.i.i.i
   %is_dso.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 112
   %56 = load i8, ptr %is_dso.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool3.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %56 to i1
-  br i1 %tobool3.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i129.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i126.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool3.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i130.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i127.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.then.i129.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %elf_syms.i.i130.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 32
-  %sym_idx.i.i131.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 36
-  %57 = load i32, ptr %sym_idx.i.i131.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %conv.i.i132.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %57 to i64
-  %58 = load ptr, ptr %elf_syms.i.i130.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %st_shndx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %58, i64 %conv.i.i132.i.i.i.i.i.i.i.i.i.i.i.i, i32 2
-  %x.0.copyload.i.i.i133.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %st_shndx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %cmp.i.i134.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %x.0.copyload.i.i.i133.i.i.i.i.i.i.i.i.i.i.i.i, -15
-  br i1 %cmp.i.i134.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
+if.then.i130.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %elf_syms.i.i131.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 32
+  %sym_idx.i.i132.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 36
+  %57 = load i32, ptr %sym_idx.i.i132.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %conv.i.i133.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %57 to i64
+  %58 = load ptr, ptr %elf_syms.i.i131.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %st_shndx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %58, i64 %conv.i.i133.i.i.i.i.i.i.i.i.i.i.i.i, i32 2
+  %x.0.copyload.i.i.i134.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %st_shndx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %cmp.i.i135.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %x.0.copyload.i.i.i134.i.i.i.i.i.i.i.i.i.i.i.i, -15
+  br i1 %cmp.i.i135.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.end.i126.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb73.i.i.i.i.i.i.i.i.i.i.i.i
+if.end.i127.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb73.i.i.i.i.i.i.i.i.i.i.i.i
   %is_imported.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 49
   %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %is_imported.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %59 = and i16 %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i, 16
   %bf.cast.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %59, 0
   br i1 %bf.cast.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
-land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.end.i126.i.i.i.i.i.i.i.i.i.i.i.i
+land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.end.i127.i.i.i.i.i.i.i.i.i.i.i.i
   %origin.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %60 = load i64, ptr %origin.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool7.not12.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %60, 4
@@ -36404,60 +36410,60 @@ land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.end.i126.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %and.i.i128.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %60, 3
-  %cmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %and.i.i128.i.i.i.i.i.i.i.i.i.i.i.i, 2
+  %and.i.i129.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %60, 3
+  %cmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %and.i.i129.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %tobool12.not.i.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %tobool7.not12.i.i.i.i.i.i.i.i.i.i.i.i.i, %cmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %tobool12.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
-land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i129.i.i.i.i.i.i.i.i.i.i.i.i
+land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i130.i.i.i.i.i.i.i.i.i.i.i.i
   %add76.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %25, 3
   %cmp78.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %add76.i.i.i.i.i.i.i.i.i.i.i.i, %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp78.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true85.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.lhs.true85.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i
   %add86.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %25, 2
-  %add.ptr.i138.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add86.i.i.i.i.i.i.i.i.i.i.i.i
-  %r_type88.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i138.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %x.0.copyload.i139.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_type88.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %cmp90.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %x.0.copyload.i139.i.i.i.i.i.i.i.i.i.i.i.i, 24
+  %add.ptr.i139.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add86.i.i.i.i.i.i.i.i.i.i.i.i
+  %r_type88.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i139.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %x.0.copyload.i140.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_type88.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %cmp90.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %x.0.copyload.i140.i.i.i.i.i.i.i.i.i.i.i.i, 24
   br i1 %cmp90.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true91.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.lhs.true91.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %land.lhs.true85.i.i.i.i.i.i.i.i.i.i.i.i
-  %x.0.copyload.i141.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i138.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %x.0.copyload.i143.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %add99.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i143.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %cmp100.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %x.0.copyload.i141.i.i.i.i.i.i.i.i.i.i.i.i, %add99.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i142.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i139.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %x.0.copyload.i144.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %add99.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i144.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %cmp100.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %x.0.copyload.i142.i.i.i.i.i.i.i.i.i.i.i.i, %add99.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp100.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true101.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.lhs.true101.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %land.lhs.true91.i.i.i.i.i.i.i.i.i.i.i.i
   %62 = load ptr, ptr %13, align 8
   %symbols103.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 48
-  %r_sym106.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i138.i.i.i.i.i.i.i.i.i.i.i.i, i64 12
-  %x.0.copyload.i145.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_sym106.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv108.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %x.0.copyload.i145.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %r_sym106.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i139.i.i.i.i.i.i.i.i.i.i.i.i, i64 12
+  %x.0.copyload.i146.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_sym106.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %conv108.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %x.0.copyload.i146.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %63 = load ptr, ptr %symbols103.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i146.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %63, i64 %conv108.i.i.i.i.i.i.i.i.i.i.i.i
-  %64 = load ptr, ptr %add.ptr.i146.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i147.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %63, i64 %conv108.i.i.i.i.i.i.i.i.i.i.i.i
+  %64 = load ptr, ptr %add.ptr.i147.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %64, i64 16
   %65 = load i64, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp113.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %65, %x.0.copyload.i143.i.i.i.i.i.i.i.i.i.i.i.i
+  %cmp113.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %65, %x.0.copyload.i144.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp113.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true114.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 land.lhs.true114.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %land.lhs.true101.i.i.i.i.i.i.i.i.i.i.i.i
   %r_type117.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add76.i.i.i.i.i.i.i.i.i.i.i.i, i32 1
-  %x.0.copyload.i150.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_type117.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %cmp119.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %x.0.copyload.i150.i.i.i.i.i.i.i.i.i.i.i.i, 51
+  %x.0.copyload.i151.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_type117.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %cmp119.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %x.0.copyload.i151.i.i.i.i.i.i.i.i.i.i.i.i, 51
   br i1 %cmp119.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then120.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then120.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %land.lhs.true114.i.i.i.i.i.i.i.i.i.i.i.i
   %get_rd.val92.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %24, align 8
-  %add.ptr.i152.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %get_rd.val92.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 %x.0.copyload.i143.i.i.i.i.i.i.i.i.i.i.i.i
-  %x.0.copyload.i.i153.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i152.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %66 = lshr i32 %x.0.copyload.i.i153.i.i.i.i.i.i.i.i.i.i.i.i, 7
+  %add.ptr.i153.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %get_rd.val92.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 %x.0.copyload.i144.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i.i154.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i153.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %66 = lshr i32 %x.0.copyload.i.i154.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %67 = and i32 %66, 31
-  %add.ptr.i156.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i152.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
-  %x.0.copyload.i.i157.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i156.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %68 = lshr i32 %x.0.copyload.i.i157.i.i.i.i.i.i.i.i.i.i.i.i, 7
+  %add.ptr.i157.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %add.ptr.i153.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
+  %x.0.copyload.i.i158.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i157.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %68 = lshr i32 %x.0.copyload.i.i158.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %69 = and i32 %68, 31
   %cmp129.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %67, %69
   br i1 %cmp129.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then130.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36465,45 +36471,45 @@ if.then120.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %land.lhs.true114.i.
 if.then130.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then120.i.i.i.i.i.i.i.i.i.i.i.i
   %call131.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZNK4mold3elf6SymbolINS0_6RV64LEEE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %28, ptr noundef nonnull align 8 dereferenceable(4576) %12, i64 noundef 0)
   %r_addend132.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %x.0.copyload.i159.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend132.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %add134.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i159.i.i.i.i.i.i.i.i.i.i.i.i, %call131.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i160.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend132.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %add134.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i160.i.i.i.i.i.i.i.i.i.i.i.i, %call131.i.i.i.i.i.i.i.i.i.i.i.i
   %cmp137.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne i32 %67, 0
   %or.cond1.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %cmp137.i.i.i.i.i.i.i.i.i.i.i.i, %tobool.i.i.i.i.i.i.i.i.i.i.i
   %70 = add i64 %add134.i.i.i.i.i.i.i.i.i.i.i.i, 32
   %cmp140.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %70, 64
-  %or.cond250.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %or.cond1.i.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp140.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond250.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then141.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else143.i.i.i.i.i.i.i.i.i.i.i.i
+  %or.cond251.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %or.cond1.i.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp140.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
+  br i1 %or.cond251.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then141.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else143.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then141.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then130.i.i.i.i.i.i.i.i.i.i.i.i
-  %add142.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 6
+  %add142.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 6
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.else143.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then130.i.i.i.i.i.i.i.i.i.i.i.i
   %71 = add i64 %add134.i.i.i.i.i.i.i.i.i.i.i.i, 2048
   %cmp145.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %71, 4096
-  %add147.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %spec.select86.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp145.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add147.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %add147.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %spec.select86.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp145.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add147.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 sw.bb152.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end38.i.i.i.i.i.i.i.i.i.i.i.i
   %call154.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZNK4mold3elf6SymbolINS0_6RV64LEEE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %28, ptr noundef nonnull align 8 dereferenceable(4576) %12, i64 noundef 0)
   %r_addend155.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %x.0.copyload.i164.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend155.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %add157.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i164.i.i.i.i.i.i.i.i.i.i.i.i, %call154.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i165.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend155.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %add157.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %x.0.copyload.i165.i.i.i.i.i.i.i.i.i.i.i.i, %call154.i.i.i.i.i.i.i.i.i.i.i.i
   %72 = add i64 %add157.i.i.i.i.i.i.i.i.i.i.i.i, 2048
   %cmp163.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %72, 4096
   br i1 %cmp163.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then164.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else166.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then164.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %sw.bb152.i.i.i.i.i.i.i.i.i.i.i.i
-  %add165.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %add165.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.else166.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %sw.bb152.i.i.i.i.i.i.i.i.i.i.i.i
   %get_rd.val94.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %24, align 8
-  %x.0.copyload.i165.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %add.ptr.i166.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %get_rd.val94.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 %x.0.copyload.i165.i.i.i.i.i.i.i.i.i.i.i.i
-  %x.0.copyload.i.i167.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i166.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %73 = and i32 %x.0.copyload.i.i167.i.i.i.i.i.i.i.i.i.i.i.i, 3712
+  %x.0.copyload.i166.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %add.ptr.i167.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %get_rd.val94.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 %x.0.copyload.i166.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i.i168.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %add.ptr.i167.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %73 = and i32 %x.0.copyload.i.i168.i.i.i.i.i.i.i.i.i.i.i.i, 3712
   %74 = icmp ne i32 %73, 0
   %or.cond3.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %74, %tobool.i.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond3.i.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true172.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36511,50 +36517,50 @@ if.else166.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %sw.bb152.i.i.i.i.i.
 land.lhs.true172.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.else166.i.i.i.i.i.i.i.i.i.i.i.i
   %75 = add i64 %add157.i.i.i.i.i.i.i.i.i.i.i.i, 131072
   %cmp174.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %75, 262144
-  %add176.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 2
-  %spec.select87.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp174.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add176.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %add176.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 2
+  %spec.select87.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp174.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add176.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 sw.bb179.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end38.i.i.i.i.i.i.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i.i.i.i.i.i.i
   %call181.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZNK4mold3elf6SymbolINS0_6RV64LEEE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %28, ptr noundef nonnull align 8 dereferenceable(4576) %12, i64 noundef 0)
   %r_addend182.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %x.0.copyload.i173.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend182.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %x.0.copyload.i174.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend182.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %76 = load i64, ptr %tp_addr223.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add184.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %call181.i.i.i.i.i.i.i.i.i.i.i.i, 2048
-  %sub185.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add184.i.i.i.i.i.i.i.i.i.i.i.i, %x.0.copyload.i173.i.i.i.i.i.i.i.i.i.i.i.i
+  %sub185.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add184.i.i.i.i.i.i.i.i.i.i.i.i, %x.0.copyload.i174.i.i.i.i.i.i.i.i.i.i.i.i
   %77 = sub i64 %sub185.i.i.i.i.i.i.i.i.i.i.i.i, %76
   %cmp187.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %77, 4096
-  %add189.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %spec.select88.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp187.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add189.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %add189.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %spec.select88.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp187.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add189.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 sw.bb191.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end38.i.i.i.i.i.i.i.i.i.i.i.i
   %aux_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %78 = load i32, ptr %aux_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i176.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %78, -1
-  br i1 %cmp.i.i176.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.i.i177.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %78, -1
+  br i1 %cmp.i.i177.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb191.i.i.i.i.i.i.i.i.i.i.i.i
-  %add194235.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %add194236.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb191.i.i.i.i.i.i.i.i.i.i.i.i
-  %conv.i.i177.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %78 to i64
-  %79 = load ptr, ptr %symbol_aux.i.i198.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tlsdesc_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %79, i64 %conv.i.i177.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
+  %conv.i.i178.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %78 to i64
+  %79 = load ptr, ptr %symbol_aux.i.i199.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tlsdesc_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %79, i64 %conv.i.i178.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
   %80 = load i32, ptr %tlsdesc_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %.fr247.i.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %80
-  %.not248.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr247.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %add194.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %spec.select243.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not248.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add194.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %.fr248.i.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %80
+  %.not249.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr248.i.i.i.i.i.i.i.i.i.i.i.i, -1
+  %add194.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %spec.select244.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not249.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add194.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 sw.bb196.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end38.i.i.i.i.i.i.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %value.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
   %81 = load i64, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %x.0.copyload.i.i179.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %81, %x.0.copyload.i.i179.i.i.i.i.i.i.i.i.i.i.i.i
+  %x.0.copyload.i.i180.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i98.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %81, %x.0.copyload.i.i180.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.cond13.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.cond.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 for.cond.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %sw.bb196.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36572,19 +36578,19 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.cond.preheader.
   %82 = getelementptr i8, ptr %add.ptr.i9.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %call4.val.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %82, align 1
   switch i32 %call4.val.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i.i [
-    i32 23, label %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i
-    i32 22, label %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i
-    i32 21, label %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i
-    i32 20, label %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i
-    i32 62, label %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i
+    i32 23, label %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i
+    i32 22, label %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i
+    i32 21, label %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i
+    i32 20, label %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i
+    i32 62, label %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i
   ]
 
-land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
+land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
   %x.0.copyload.i11.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %cmp10.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %81, %x.0.copyload.i11.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2_EEbENK3$_1clEv.exit.i.i.i.i.i.i.i.i.i.i.i.i", label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
+for.inc.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i
   %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %j.023.in.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end29.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !319
 
@@ -36619,74 +36625,74 @@ if.end29.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %for.cond13.preheade
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_6RV64LEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i) #31
   unreachable
 
-"_ZZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2_EEbENK3$_1clEv.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true19.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %retval.0.i181.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %j12.026.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true19.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %j.023.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true.i180.i.i.i.i.i.i.i.i.i.i.i.i ]
+"_ZZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2_EEbENK3$_1clEv.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true19.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %retval.0.i182.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %j12.026.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true19.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %j.023.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true.i181.i.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %add.ptr.i183.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %retval.0.i181.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i184.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %retval.0.i182.i.i.i.i.i.i.i.i.i.i.i.i
   %84 = load ptr, ptr %13, align 8
   %symbols200.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %84, i64 48
-  %r_sym201.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i183.i.i.i.i.i.i.i.i.i.i.i.i, i64 12
-  %x.0.copyload.i184.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_sym201.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %conv203.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %x.0.copyload.i184.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %r_sym201.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i184.i.i.i.i.i.i.i.i.i.i.i.i, i64 12
+  %x.0.copyload.i185.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %r_sym201.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %conv203.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %x.0.copyload.i185.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %85 = load ptr, ptr %symbols200.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i185.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %85, i64 %conv203.i.i.i.i.i.i.i.i.i.i.i.i
-  %86 = load ptr, ptr %add.ptr.i185.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %add.ptr.i186.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %85, i64 %conv203.i.i.i.i.i.i.i.i.i.i.i.i
+  %86 = load ptr, ptr %add.ptr.i186.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp207.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %x.0.copyload.i101.i.i.i.i.i.i.i.i.i.i.i.i, 63
-  %aux_idx.i.i187.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 40
-  %87 = load i32, ptr %aux_idx.i.i187.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i188.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %87, -1
+  %aux_idx.i.i188.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 40
+  %87 = load i32, ptr %aux_idx.i.i188.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i189.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %87, -1
   br i1 %cmp207.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then208.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else213.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then208.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %"_ZZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2_EEbENK3$_1clEv.exit.i.i.i.i.i.i.i.i.i.i.i.i"
-  br i1 %cmp.i.i188.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.thread.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i189.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.thread.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then208.i.i.i.i.i.i.i.i.i.i.i.i
-  %add211239.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
+_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then208.i.i.i.i.i.i.i.i.i.i.i.i
+  %add211240.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then208.i.i.i.i.i.i.i.i.i.i.i.i
-  %conv.i.i191.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %87 to i64
-  %88 = load ptr, ptr %symbol_aux.i.i198.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tlsdesc_idx.i.i192.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %88, i64 %conv.i.i191.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
-  %89 = load i32, ptr %tlsdesc_idx.i.i192.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then208.i.i.i.i.i.i.i.i.i.i.i.i
+  %conv.i.i192.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %87 to i64
+  %88 = load ptr, ptr %symbol_aux.i.i199.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tlsdesc_idx.i.i193.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %88, i64 %conv.i.i192.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
+  %89 = load i32, ptr %tlsdesc_idx.i.i193.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %.fr.i.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %89
-  %.not246.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %add211.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %spec.select244.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not246.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add211.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %.not247.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i.i.i.i.i, -1
+  %add211.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %spec.select245.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not247.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add211.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.else213.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %"_ZZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2_EEbENK3$_1clEv.exit.i.i.i.i.i.i.i.i.i.i.i.i"
-  br i1 %cmp.i.i188.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then217.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit202.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i189.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then217.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit203.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit202.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else213.i.i.i.i.i.i.i.i.i.i.i.i
-  %conv.i.i199.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %87 to i64
-  %90 = load ptr, ptr %symbol_aux.i.i198.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tlsdesc_idx.i.i200.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %90, i64 %conv.i.i199.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
-  %91 = load i32, ptr %tlsdesc_idx.i.i200.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit203.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else213.i.i.i.i.i.i.i.i.i.i.i.i
+  %conv.i.i200.i.i.i.i.i.i.i.i.i.i.i.i = sext i32 %87 to i64
+  %90 = load ptr, ptr %symbol_aux.i.i199.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tlsdesc_idx.i.i201.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %90, i64 %conv.i.i200.i.i.i.i.i.i.i.i.i.i.i.i, i32 3
+  %91 = load i32, ptr %tlsdesc_idx.i.i201.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %91, -1
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit202.i.i.i.i.i.i.i.i.i.i.i.i
-  %gottp_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %90, i64 %conv.i.i199.i.i.i.i.i.i.i.i.i.i.i.i, i32 1
+_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit203.i.i.i.i.i.i.i.i.i.i.i.i
+  %gottp_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %90, i64 %conv.i.i200.i.i.i.i.i.i.i.i.i.i.i.i, i32 1
   %92 = load i32, ptr %gottp_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %.not245.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %92, -1
-  br i1 %.not245.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then217.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
+  %.not246.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %92, -1
+  br i1 %.not246.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then217.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then217.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.else213.i.i.i.i.i.i.i.i.i.i.i.i
   %call219.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 @_ZNK4mold3elf6SymbolINS0_6RV64LEEE8get_addrERNS0_7ContextIS2_EEl(ptr noundef nonnull align 8 dereferenceable(51) %86, ptr noundef nonnull align 8 dereferenceable(4576) %12, i64 noundef 0)
-  %r_addend220.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i183.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %x.0.copyload.i209.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend220.i.i.i.i.i.i.i.i.i.i.i.i, align 1
+  %r_addend220.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i184.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %x.0.copyload.i210.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %r_addend220.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %93 = load i64, ptr %tp_addr223.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %add222.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %call219.i.i.i.i.i.i.i.i.i.i.i.i, 2048
-  %sub224.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add222.i.i.i.i.i.i.i.i.i.i.i.i, %x.0.copyload.i209.i.i.i.i.i.i.i.i.i.i.i.i
+  %sub224.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %add222.i.i.i.i.i.i.i.i.i.i.i.i, %x.0.copyload.i210.i.i.i.i.i.i.i.i.i.i.i.i
   %94 = sub i64 %sub224.i.i.i.i.i.i.i.i.i.i.i.i, %93
   %cmp226.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %94, 4096
-  %add228.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %spec.select91.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp226.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add228.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i
+  %add228.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %spec.select91.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp226.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add228.i.i.i.i.i.i.i.i.i.i.i.i, i64 %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i
   br label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i
 
-for.inc.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then217.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit202.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.thread.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb179.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true172.i.i.i.i.i.i.i.i.i.i.i.i, %if.else166.i.i.i.i.i.i.i.i.i.i.i.i, %if.then164.i.i.i.i.i.i.i.i.i.i.i.i, %if.else143.i.i.i.i.i.i.i.i.i.i.i.i, %if.then141.i.i.i.i.i.i.i.i.i.i.i.i, %if.then120.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true114.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true101.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true91.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true85.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i126.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i129.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then54.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i119.i.i.i.i.i.i.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i.i.i.i.i.i.i, %if.end34.i.i.i.i.i.i.i.i.i.i.i.i, %lor.lhs.false27.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-  %delta.1.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %add23.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %lor.lhs.false27.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.end34.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit202.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add165.i.i.i.i.i.i.i.i.i.i.i.i, %if.then164.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.else166.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add142.i.i.i.i.i.i.i.i.i.i.i.i, %if.then141.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.then120.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true114.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true101.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true91.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true85.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add55.i.i.i.i.i.i.i.i.i.i.i.i, %if.then54.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select86.i.i.i.i.i.i.i.i.i.i.i.i, %if.else143.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select87.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true172.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select88.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb179.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select91.i.i.i.i.i.i.i.i.i.i.i.i, %if.then217.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i129.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add194235.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add211239.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i115.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i119.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0265.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i126.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select243.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select244.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit194.i.i.i.i.i.i.i.i.i.i.i.i ]
+for.inc.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then217.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit203.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.thread.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb179.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true172.i.i.i.i.i.i.i.i.i.i.i.i, %if.else166.i.i.i.i.i.i.i.i.i.i.i.i, %if.then164.i.i.i.i.i.i.i.i.i.i.i.i, %if.else143.i.i.i.i.i.i.i.i.i.i.i.i, %if.then141.i.i.i.i.i.i.i.i.i.i.i.i, %if.then120.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true114.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true101.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true91.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true85.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i127.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i130.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then54.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i120.i.i.i.i.i.i.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i.i.i.i.i.i.i, %if.end34.i.i.i.i.i.i.i.i.i.i.i.i, %lor.lhs.false27.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %delta.1.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %add23.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4mold8bit_ceilEm.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %lor.lhs.false27.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.end34.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.end38.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit203.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE9has_gottpERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add165.i.i.i.i.i.i.i.i.i.i.i.i, %if.then164.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.else166.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add142.i.i.i.i.i.i.i.i.i.i.i.i, %if.then141.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.then120.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true114.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true101.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true91.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true85.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true75.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4mold3elfL16compute_distanceERNS0_7ContextINS0_6RV64LEEEERNS0_6SymbolIS2_EERNS0_12InputSectionIS2_EERKNS0_6ElfRelIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add55.i.i.i.i.i.i.i.i.i.i.i.i, %if.then54.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select86.i.i.i.i.i.i.i.i.i.i.i.i, %if.else143.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select87.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true172.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select88.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb179.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select91.i.i.i.i.i.i.i.i.i.i.i.i, %if.then217.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i130.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add194236.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %add211240.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11is_absoluteEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i116.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i120.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.0266.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i127.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select244.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %spec.select245.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold3elf6SymbolINS0_6RV64LEEE11has_tlsdescERNS0_7ContextIS2_EE.exit195.i.i.i.i.i.i.i.i.i.i.i.i ]
   %inc.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %25, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i.i.i.i, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i.i.i.i.i.i.i.i, %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -36696,8 +36702,8 @@ _ZN4mold3elfL14shrink_sectionERNS0_7ContextINS0_6RV64LEEEERNS0_12InputSectionIS2
   %delta.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %delta.1.i.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i ]
   %conv232.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %delta.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %95 = load ptr, ptr %extra.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i213.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %95, i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %conv232.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i213.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %add.ptr.i214.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %95, i64 %retval.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i.i
+  store i32 %conv232.i.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i214.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %sh_size.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %96 = load i64, ptr %sh_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %sub237.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %96, %delta.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i

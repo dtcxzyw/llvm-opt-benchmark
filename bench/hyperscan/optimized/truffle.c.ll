@@ -139,7 +139,7 @@ return:                                           ; preds = %return.loopexit, %w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden ptr @rtruffleExec(<2 x i64> noundef %shuf_mask_lo_highclear, <2 x i64> noundef %shuf_mask_lo_highset, ptr noundef %buf, ptr noundef %buf_end) local_unnamed_addr #1 {
+define hidden nonnull ptr @rtruffleExec(<2 x i64> noundef %shuf_mask_lo_highclear, <2 x i64> noundef %shuf_mask_lo_highset, ptr noundef %buf, ptr noundef %buf_end) local_unnamed_addr #1 {
 entry:
   %chars.i = alloca <2 x i64>, align 16
   %sub.ptr.lhs.cast = ptrtoint ptr %buf_end to i64
@@ -204,13 +204,16 @@ if.end:                                           ; preds = %entry
   %cmp.i190 = icmp eq <16 x i8> %and.i31390, zeroinitializer
   %25 = bitcast <16 x i1> %cmp.i190 to i16
   %cmp.i331.not = icmp eq i16 %25, -1
+  br i1 %cmp.i331.not, label %if.end5, label %lastMatch.exit
+
+lastMatch.exit:                                   ; preds = %if.end
   %26 = xor i16 %25, -1
   %and.i333 = zext i16 %26 to i32
   %27 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i333, i1 true)
   %sub.i = xor i32 %27, 31
   %idx.ext.i = zext nneg i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
-  br i1 %cmp.i331.not, label %if.end5, label %return
+  br label %return
 
 if.end5:                                          ; preds = %if.end
   %and = and i64 %sub.ptr.lhs.cast, -16
@@ -240,43 +243,52 @@ while.body:                                       ; preds = %while.cond
   %cmp.i186 = icmp eq <16 x i8> %and.i31694, zeroinitializer
   %38 = bitcast <16 x i1> %cmp.i186 to i16
   %cmp.i338.not = icmp eq i16 %38, -1
-  br i1 %cmp.i338.not, label %while.cond, label %return.loopexit, !llvm.loop !7
+  br i1 %cmp.i338.not, label %while.cond, label %lastMatch.exit350.thread, !llvm.loop !7
+
+lastMatch.exit350.thread:                         ; preds = %while.body
+  %39 = xor i16 %38, -1
+  %and.i345 = zext i16 %39 to i32
+  %40 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i345, i1 true)
+  %sub.i347 = xor i32 %40, 31
+  %idx.ext.i348 = zext nneg i32 %sub.i347 to i64
+  %add.ptr.i349 = getelementptr inbounds i8, ptr %add.ptr8, i64 %idx.ext.i348
+  br label %return
 
 while.end:                                        ; preds = %while.cond
-  %39 = load <2 x i64>, ptr %buf, align 1
-  %40 = bitcast <2 x i64> %39 to <16 x i8>
-  %41 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %15, <16 x i8> %40)
-  %42 = xor <16 x i8> %40, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %43 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %18, <16 x i8> %42)
-  %44 = lshr <2 x i64> %39, <i64 4, i64 4>
-  %45 = bitcast <2 x i64> %44 to <16 x i8>
-  %46 = and <16 x i8> %45, <i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 15, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 15>
-  %47 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128>, <16 x i8> %46)
-  %or.i32791 = or <16 x i8> %43, %41
-  %and.i31992 = and <16 x i8> %or.i32791, %47
+  %41 = load <2 x i64>, ptr %buf, align 1
+  %42 = bitcast <2 x i64> %41 to <16 x i8>
+  %43 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %15, <16 x i8> %42)
+  %44 = xor <16 x i8> %42, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %45 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %18, <16 x i8> %44)
+  %46 = lshr <2 x i64> %41, <i64 4, i64 4>
+  %47 = bitcast <2 x i64> %46 to <16 x i8>
+  %48 = and <16 x i8> %47, <i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 15, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 15>
+  %49 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128>, <16 x i8> %48)
+  %or.i32791 = or <16 x i8> %45, %43
+  %and.i31992 = and <16 x i8> %or.i32791, %49
   %cmp.i = icmp eq <16 x i8> %and.i31992, zeroinitializer
-  %48 = bitcast <16 x i1> %cmp.i to i16
-  %cmp.i355.not = icmp eq i16 %48, -1
-  %49 = xor i16 %48, -1
-  %and.i362 = zext i16 %49 to i32
-  %50 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i362, i1 true)
-  %sub.i364 = xor i32 %50, 31
+  %50 = bitcast <16 x i1> %cmp.i to i16
+  %cmp.i355.not = icmp eq i16 %50, -1
+  br i1 %cmp.i355.not, label %lastMatch.exit367, label %if.then.i360
+
+if.then.i360:                                     ; preds = %while.end
+  %51 = xor i16 %50, -1
+  %and.i362 = zext i16 %51 to i32
+  %52 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i362, i1 true)
+  %sub.i364 = xor i32 %52, 31
   %idx.ext.i365 = zext nneg i32 %sub.i364 to i64
-  %spec.select.v = select i1 %cmp.i355.not, i64 -1, i64 %idx.ext.i365
-  %spec.select = getelementptr inbounds i8, ptr %buf, i64 %spec.select.v
+  %add.ptr.i366 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext.i365
+  br label %lastMatch.exit367
+
+lastMatch.exit367:                                ; preds = %while.end, %if.then.i360
+  %retval.i351.0 = phi ptr [ %add.ptr.i366, %if.then.i360 ], [ null, %while.end ]
+  %tobool16.not = icmp eq ptr %retval.i351.0, null
+  %add.ptr19 = getelementptr inbounds i8, ptr %buf, i64 -1
+  %spec.select = select i1 %tobool16.not, ptr %add.ptr19, ptr %retval.i351.0
   br label %return
 
-return.loopexit:                                  ; preds = %while.body
-  %51 = xor i16 %38, -1
-  %and.i345.le = zext i16 %51 to i32
-  %52 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i345.le, i1 true)
-  %sub.i347.le = xor i32 %52, 31
-  %idx.ext.i348.le = zext nneg i32 %sub.i347.le to i64
-  %add.ptr.i349.le = getelementptr inbounds i8, ptr %add.ptr8, i64 %idx.ext.i348.le
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %while.end, %if.end, %if.then
-  %retval.0 = phi ptr [ %retval.0.i, %if.then ], [ %add.ptr.i, %if.end ], [ %spec.select, %while.end ], [ %add.ptr.i349.le, %return.loopexit ]
+return:                                           ; preds = %lastMatch.exit350.thread, %lastMatch.exit, %lastMatch.exit367, %if.then
+  %retval.0 = phi ptr [ %retval.0.i, %if.then ], [ %add.ptr.i, %lastMatch.exit ], [ %spec.select, %lastMatch.exit367 ], [ %add.ptr.i349, %lastMatch.exit350.thread ]
   ret ptr %retval.0
 }
 

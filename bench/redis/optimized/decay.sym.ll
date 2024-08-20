@@ -15,9 +15,9 @@ entry:
   %jitter = alloca %struct.nstime_t, align 8
   %deadline = getelementptr inbounds i8, ptr %decay, i64 152
   %epoch = getelementptr inbounds i8, ptr %decay, i64 136
-  tail call void @nstime_copy(ptr noundef nonnull %deadline, ptr noundef nonnull %epoch) #9
+  tail call void @nstime_copy(ptr noundef nonnull %deadline, ptr noundef nonnull %epoch) #8
   %interval = getelementptr inbounds i8, ptr %decay, i64 128
-  tail call void @nstime_add(ptr noundef nonnull %deadline, ptr noundef nonnull %interval) #9
+  tail call void @nstime_add(ptr noundef nonnull %deadline, ptr noundef nonnull %interval) #8
   %time_ms.i = getelementptr inbounds i8, ptr %decay, i64 120
   %0 = load atomic i64, ptr %time_ms.i monotonic, align 8
   %cmp = icmp sgt i64 %0, 0
@@ -25,23 +25,33 @@ entry:
 
 if.then:                                          ; preds = %entry
   %jitter_state = getelementptr inbounds i8, ptr %decay, i64 144
-  %call3 = tail call i64 @nstime_ns(ptr noundef nonnull %interval) #9
-  %cmp.i = icmp eq i64 %call3, 1
-  br i1 %cmp.i, label %prng_range_u64.exit, label %if.end.i
+  %call3 = tail call i64 @nstime_ns(ptr noundef nonnull %interval) #8
+  switch i64 %call3, label %if.end.i14 [
+    i64 1, label %prng_range_u64.exit
+    i64 0, label %pow2_ceil_u64.exit
+  ]
 
-if.end.i:                                         ; preds = %if.then
-  %cmp.i13 = icmp ne i64 %call3, 0
-  %sub.i14 = add i64 %call3, -1
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14, i1 true)
-  tail call void @llvm.assume(i1 %cmp.i13)
+if.end.i14:                                       ; preds = %if.then
+  %sub.i15 = add i64 %call3, -1
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i15, i1 true)
+  %narrow.i = sub nuw nsw i64 64, %1
+  %shl.i = shl nuw i64 1, %narrow.i
+  br label %pow2_ceil_u64.exit
+
+pow2_ceil_u64.exit:                               ; preds = %if.then, %if.end.i14
+  %retval.0.i = phi i64 [ %shl.i, %if.end.i14 ], [ %call3, %if.then ]
+  %cmp.i.i = icmp ne i64 %retval.0.i, 0
+  tail call void @llvm.assume(i1 %cmp.i.i)
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.0.i, i1 true)
+  %sub.i = sub nuw nsw i64 64, %2
   %jitter_state.promoted = load i64, ptr %jitter_state, align 8
   br label %do.body2.i
 
-do.body2.i:                                       ; preds = %do.body2.i, %if.end.i
-  %2 = phi i64 [ %add.i, %do.body2.i ], [ %jitter_state.promoted, %if.end.i ]
-  %mul.i = mul i64 %2, 6364136223846793005
+do.body2.i:                                       ; preds = %do.body2.i, %pow2_ceil_u64.exit
+  %3 = phi i64 [ %add.i, %do.body2.i ], [ %jitter_state.promoted, %pow2_ceil_u64.exit ]
+  %mul.i = mul i64 %3, 6364136223846793005
   %add.i = add i64 %mul.i, 1442695040888963407
-  %shr.i = lshr i64 %add.i, %1
+  %shr.i = lshr i64 %add.i, %sub.i
   %cmp4.i.not = icmp ult i64 %shr.i, %call3
   br i1 %cmp4.i.not, label %prng_range_u64.exit.loopexit, label %do.body2.i, !llvm.loop !5
 
@@ -51,8 +61,8 @@ prng_range_u64.exit.loopexit:                     ; preds = %do.body2.i
 
 prng_range_u64.exit:                              ; preds = %prng_range_u64.exit.loopexit, %if.then
   %retval.i.0 = phi i64 [ 0, %if.then ], [ %shr.i, %prng_range_u64.exit.loopexit ]
-  call void @nstime_init(ptr noundef nonnull %jitter, i64 noundef %retval.i.0) #9
-  call void @nstime_add(ptr noundef nonnull %deadline, ptr noundef nonnull %jitter) #9
+  call void @nstime_init(ptr noundef nonnull %jitter, i64 noundef %retval.i.0) #8
+  call void @nstime_add(ptr noundef nonnull %deadline, ptr noundef nonnull %jitter) #8
   br label %if.end
 
 if.end:                                           ; preds = %prng_range_u64.exit, %entry
@@ -70,7 +80,6 @@ declare i64 @nstime_ns(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @decay_reinit(ptr noundef %decay, ptr noundef %cur_time, i64 noundef %decay_ms) local_unnamed_addr #0 {
 entry:
-  %jitter.i = alloca %struct.nstime_t, align 8
   %time_ms = getelementptr inbounds i8, ptr %decay, i64 120
   store atomic i64 %decay_ms, ptr %time_ms monotonic, align 8
   %cmp = icmp sgt i64 %decay_ms, 0
@@ -79,60 +88,19 @@ entry:
 if.then:                                          ; preds = %entry
   %interval = getelementptr inbounds i8, ptr %decay, i64 128
   %mul = mul i64 %decay_ms, 1000000
-  tail call void @nstime_init(ptr noundef nonnull %interval, i64 noundef %mul) #9
-  tail call void @nstime_idivide(ptr noundef nonnull %interval, i64 noundef 200) #9
+  tail call void @nstime_init(ptr noundef nonnull %interval, i64 noundef %mul) #8
+  tail call void @nstime_idivide(ptr noundef nonnull %interval, i64 noundef 200) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %epoch = getelementptr inbounds i8, ptr %decay, i64 136
-  tail call void @nstime_copy(ptr noundef nonnull %epoch, ptr noundef %cur_time) #9
+  tail call void @nstime_copy(ptr noundef nonnull %epoch, ptr noundef %cur_time) #8
   %0 = ptrtoint ptr %decay to i64
   %jitter_state = getelementptr inbounds i8, ptr %decay, i64 144
   store i64 %0, ptr %jitter_state, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %jitter.i)
-  %deadline.i = getelementptr inbounds i8, ptr %decay, i64 152
-  tail call void @nstime_copy(ptr noundef nonnull %deadline.i, ptr noundef nonnull %epoch) #9
-  %interval.i = getelementptr inbounds i8, ptr %decay, i64 128
-  tail call void @nstime_add(ptr noundef nonnull %deadline.i, ptr noundef nonnull %interval.i) #9
-  %1 = load atomic i64, ptr %time_ms monotonic, align 8
-  %cmp.i = icmp sgt i64 %1, 0
-  br i1 %cmp.i, label %if.then.i, label %decay_deadline_init.exit
-
-if.then.i:                                        ; preds = %if.end
-  %call3.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i) #9
-  %cmp.i.i = icmp eq i64 %call3.i, 1
-  br i1 %cmp.i.i, label %prng_range_u64.exit.i, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then.i
-  %cmp.i13.i = icmp ne i64 %call3.i, 0
-  %sub.i14.i = add i64 %call3.i, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true)
-  tail call void @llvm.assume(i1 %cmp.i13.i)
-  %jitter_state.promoted.i = load i64, ptr %jitter_state, align 8
-  br label %do.body2.i.i
-
-do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.end.i.i
-  %3 = phi i64 [ %add.i.i, %do.body2.i.i ], [ %jitter_state.promoted.i, %if.end.i.i ]
-  %mul.i.i = mul i64 %3, 6364136223846793005
-  %add.i.i = add i64 %mul.i.i, 1442695040888963407
-  %shr.i.i = lshr i64 %add.i.i, %2
-  %cmp4.i.not.i = icmp ult i64 %shr.i.i, %call3.i
-  br i1 %cmp4.i.not.i, label %prng_range_u64.exit.loopexit.i, label %do.body2.i.i, !llvm.loop !5
-
-prng_range_u64.exit.loopexit.i:                   ; preds = %do.body2.i.i
-  store i64 %add.i.i, ptr %jitter_state, align 8
-  br label %prng_range_u64.exit.i
-
-prng_range_u64.exit.i:                            ; preds = %prng_range_u64.exit.loopexit.i, %if.then.i
-  %retval.i.0.i = phi i64 [ 0, %if.then.i ], [ %shr.i.i, %prng_range_u64.exit.loopexit.i ]
-  call void @nstime_init(ptr noundef nonnull %jitter.i, i64 noundef %retval.i.0.i) #9
-  call void @nstime_add(ptr noundef nonnull %deadline.i, ptr noundef nonnull %jitter.i) #9
-  br label %decay_deadline_init.exit
-
-decay_deadline_init.exit:                         ; preds = %if.end, %prng_range_u64.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %jitter.i)
+  tail call void @decay_deadline_init(ptr noundef nonnull %decay)
   %nunpurged = getelementptr inbounds i8, ptr %decay, i64 168
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1608) %nunpurged, i8 0, i64 1608, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1608) %nunpurged, i8 0, i64 1608, i1 false)
   ret void
 }
 
@@ -144,16 +112,36 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @decay_init(ptr noundef %decay, ptr noundef %cur_time, i64 noundef %decay_ms) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef %decay, ptr noundef nonnull @.str, i32 noundef 14, i32 noundef 0) #9
+  %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef %decay, ptr noundef nonnull @.str, i32 noundef 14, i32 noundef 0) #8
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %purging = getelementptr inbounds i8, ptr %decay, i64 112
   store i8 0, ptr %purging, align 8
-  tail call void @decay_reinit(ptr noundef %decay, ptr noundef %cur_time, i64 noundef %decay_ms)
+  %time_ms.i = getelementptr inbounds i8, ptr %decay, i64 120
+  store atomic i64 %decay_ms, ptr %time_ms.i monotonic, align 8
+  %cmp.i = icmp sgt i64 %decay_ms, 0
+  br i1 %cmp.i, label %if.then.i, label %decay_reinit.exit
+
+if.then.i:                                        ; preds = %if.end
+  %interval.i = getelementptr inbounds i8, ptr %decay, i64 128
+  %mul.i = mul i64 %decay_ms, 1000000
+  tail call void @nstime_init(ptr noundef nonnull %interval.i, i64 noundef %mul.i) #8
+  tail call void @nstime_idivide(ptr noundef nonnull %interval.i, i64 noundef 200) #8
+  br label %decay_reinit.exit
+
+decay_reinit.exit:                                ; preds = %if.end, %if.then.i
+  %epoch.i = getelementptr inbounds i8, ptr %decay, i64 136
+  tail call void @nstime_copy(ptr noundef nonnull %epoch.i, ptr noundef %cur_time) #8
+  %0 = ptrtoint ptr %decay to i64
+  %jitter_state.i = getelementptr inbounds i8, ptr %decay, i64 144
+  store i64 %0, ptr %jitter_state.i, align 8
+  tail call void @decay_deadline_init(ptr noundef nonnull %decay)
+  %nunpurged.i = getelementptr inbounds i8, ptr %decay, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1608) %nunpurged.i, i8 0, i64 1608, i1 false)
   br label %return
 
-return:                                           ; preds = %entry, %if.end
+return:                                           ; preds = %entry, %decay_reinit.exit
   ret i1 %call
 }
 
@@ -171,8 +159,8 @@ entry:
 define hidden i64 @decay_npages_purge_in(ptr noundef %decay, ptr noundef %time, i64 noundef %npages_new) local_unnamed_addr #0 {
 entry:
   %interval.i = getelementptr inbounds i8, ptr %decay, i64 128
-  %call.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i) #9
-  %call1 = tail call i64 @nstime_ns(ptr noundef %time) #9
+  %call.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i) #8
+  %call1 = tail call i64 @nstime_ns(ptr noundef %time) #8
   %div = udiv i64 %call1, %call.i
   %cmp = icmp ugt i64 %div, 199
   br i1 %cmp, label %if.end, label %if.else
@@ -194,133 +182,47 @@ if.end:                                           ; preds = %entry, %if.else
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @decay_maybe_advance_epoch(ptr noundef %decay, ptr noundef %new_time, i64 noundef %npages_current) local_unnamed_addr #0 {
 entry:
-  %jitter.i = alloca %struct.nstime_t, align 8
-  %jitter.i.i = alloca %struct.nstime_t, align 8
   %delta = alloca %struct.nstime_t, align 8
   %0 = load ptr, ptr @nstime_monotonic, align 8
-  %call.i = tail call zeroext i1 %0() #9
+  %call.i = tail call zeroext i1 %0() #8
   br i1 %call.i, label %decay_maybe_update_time.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
   %epoch.i = getelementptr inbounds i8, ptr %decay, i64 136
-  %call1.i = tail call i32 @nstime_compare(ptr noundef nonnull %epoch.i, ptr noundef %new_time) #9
+  %call1.i = tail call i32 @nstime_compare(ptr noundef nonnull %epoch.i, ptr noundef %new_time) #8
   %cmp.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp.i, label %if.then.i, label %decay_maybe_update_time.exit
 
 if.then.i:                                        ; preds = %land.rhs.i
-  tail call void @nstime_copy(ptr noundef nonnull %epoch.i, ptr noundef %new_time) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %jitter.i.i)
-  %deadline.i.i = getelementptr inbounds i8, ptr %decay, i64 152
-  tail call void @nstime_copy(ptr noundef nonnull %deadline.i.i, ptr noundef nonnull %epoch.i) #9
-  %interval.i.i = getelementptr inbounds i8, ptr %decay, i64 128
-  tail call void @nstime_add(ptr noundef nonnull %deadline.i.i, ptr noundef nonnull %interval.i.i) #9
-  %time_ms.i.i.i = getelementptr inbounds i8, ptr %decay, i64 120
-  %1 = load atomic i64, ptr %time_ms.i.i.i monotonic, align 8
-  %cmp.i.i = icmp sgt i64 %1, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %decay_deadline_init.exit.i
-
-if.then.i.i:                                      ; preds = %if.then.i
-  %jitter_state.i.i = getelementptr inbounds i8, ptr %decay, i64 144
-  %call3.i.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i.i) #9
-  %cmp.i.i.i = icmp eq i64 %call3.i.i, 1
-  br i1 %cmp.i.i.i, label %prng_range_u64.exit.i.i, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %cmp.i13.i.i = icmp ne i64 %call3.i.i, 0
-  %sub.i14.i.i = add i64 %call3.i.i, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14.i.i, i1 true)
-  tail call void @llvm.assume(i1 %cmp.i13.i.i)
-  %jitter_state.promoted.i.i = load i64, ptr %jitter_state.i.i, align 8
-  br label %do.body2.i.i.i
-
-do.body2.i.i.i:                                   ; preds = %do.body2.i.i.i, %if.end.i.i.i
-  %3 = phi i64 [ %add.i.i.i, %do.body2.i.i.i ], [ %jitter_state.promoted.i.i, %if.end.i.i.i ]
-  %mul.i.i.i = mul i64 %3, 6364136223846793005
-  %add.i.i.i = add i64 %mul.i.i.i, 1442695040888963407
-  %shr.i.i.i = lshr i64 %add.i.i.i, %2
-  %cmp4.i.not.i.i = icmp ult i64 %shr.i.i.i, %call3.i.i
-  br i1 %cmp4.i.not.i.i, label %prng_range_u64.exit.loopexit.i.i, label %do.body2.i.i.i, !llvm.loop !5
-
-prng_range_u64.exit.loopexit.i.i:                 ; preds = %do.body2.i.i.i
-  store i64 %add.i.i.i, ptr %jitter_state.i.i, align 8
-  br label %prng_range_u64.exit.i.i
-
-prng_range_u64.exit.i.i:                          ; preds = %prng_range_u64.exit.loopexit.i.i, %if.then.i.i
-  %retval.i.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %shr.i.i.i, %prng_range_u64.exit.loopexit.i.i ]
-  call void @nstime_init(ptr noundef nonnull %jitter.i.i, i64 noundef %retval.i.0.i.i) #9
-  call void @nstime_add(ptr noundef nonnull %deadline.i.i, ptr noundef nonnull %jitter.i.i) #9
-  br label %decay_deadline_init.exit.i
-
-decay_deadline_init.exit.i:                       ; preds = %prng_range_u64.exit.i.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %jitter.i.i)
+  tail call void @nstime_copy(ptr noundef nonnull %epoch.i, ptr noundef %new_time) #8
+  tail call void @decay_deadline_init(ptr noundef %decay)
   br label %decay_maybe_update_time.exit
 
-decay_maybe_update_time.exit:                     ; preds = %entry, %land.rhs.i, %decay_deadline_init.exit.i
+decay_maybe_update_time.exit:                     ; preds = %entry, %land.rhs.i, %if.then.i
   %deadline.i = getelementptr inbounds i8, ptr %decay, i64 152
-  %call.i18 = call i32 @nstime_compare(ptr noundef nonnull %deadline.i, ptr noundef %new_time) #9
+  %call.i18 = tail call i32 @nstime_compare(ptr noundef nonnull %deadline.i, ptr noundef %new_time) #8
   %cmp.i19 = icmp slt i32 %call.i18, 1
   br i1 %cmp.i19, label %if.end, label %return
 
 if.end:                                           ; preds = %decay_maybe_update_time.exit
-  call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef %new_time) #9
+  call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef %new_time) #8
   %epoch = getelementptr inbounds i8, ptr %decay, i64 136
-  call void @nstime_subtract(ptr noundef nonnull %delta, ptr noundef nonnull %epoch) #9
+  call void @nstime_subtract(ptr noundef nonnull %delta, ptr noundef nonnull %epoch) #8
   %interval = getelementptr inbounds i8, ptr %decay, i64 128
-  %call1 = call i64 @nstime_divide(ptr noundef nonnull %delta, ptr noundef nonnull %interval) #9
-  call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef nonnull %interval) #9
-  call void @nstime_imultiply(ptr noundef nonnull %delta, i64 noundef %call1) #9
-  call void @nstime_add(ptr noundef nonnull %epoch, ptr noundef nonnull %delta) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %jitter.i)
-  call void @nstime_copy(ptr noundef nonnull %deadline.i, ptr noundef nonnull %epoch) #9
-  call void @nstime_add(ptr noundef nonnull %deadline.i, ptr noundef nonnull %interval) #9
-  %time_ms.i.i = getelementptr inbounds i8, ptr %decay, i64 120
-  %4 = load atomic i64, ptr %time_ms.i.i monotonic, align 8
-  %cmp.i22 = icmp sgt i64 %4, 0
-  br i1 %cmp.i22, label %if.then.i23, label %decay_deadline_init.exit
-
-if.then.i23:                                      ; preds = %if.end
-  %jitter_state.i = getelementptr inbounds i8, ptr %decay, i64 144
-  %call3.i = call i64 @nstime_ns(ptr noundef nonnull %interval) #9
-  %cmp.i.i24 = icmp eq i64 %call3.i, 1
-  br i1 %cmp.i.i24, label %prng_range_u64.exit.i, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then.i23
-  %cmp.i13.i = icmp ne i64 %call3.i, 0
-  %sub.i14.i = add i64 %call3.i, -1
-  %5 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true)
-  call void @llvm.assume(i1 %cmp.i13.i)
-  %jitter_state.promoted.i = load i64, ptr %jitter_state.i, align 8
-  br label %do.body2.i.i
-
-do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.end.i.i
-  %6 = phi i64 [ %add.i.i, %do.body2.i.i ], [ %jitter_state.promoted.i, %if.end.i.i ]
-  %mul.i.i = mul i64 %6, 6364136223846793005
-  %add.i.i = add i64 %mul.i.i, 1442695040888963407
-  %shr.i.i = lshr i64 %add.i.i, %5
-  %cmp4.i.not.i = icmp ult i64 %shr.i.i, %call3.i
-  br i1 %cmp4.i.not.i, label %prng_range_u64.exit.loopexit.i, label %do.body2.i.i, !llvm.loop !5
-
-prng_range_u64.exit.loopexit.i:                   ; preds = %do.body2.i.i
-  store i64 %add.i.i, ptr %jitter_state.i, align 8
-  br label %prng_range_u64.exit.i
-
-prng_range_u64.exit.i:                            ; preds = %prng_range_u64.exit.loopexit.i, %if.then.i23
-  %retval.i.0.i = phi i64 [ 0, %if.then.i23 ], [ %shr.i.i, %prng_range_u64.exit.loopexit.i ]
-  call void @nstime_init(ptr noundef nonnull %jitter.i, i64 noundef %retval.i.0.i) #9
-  call void @nstime_add(ptr noundef nonnull %deadline.i, ptr noundef nonnull %jitter.i) #9
-  br label %decay_deadline_init.exit
-
-decay_deadline_init.exit:                         ; preds = %if.end, %prng_range_u64.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %jitter.i)
-  %cmp.i25 = icmp ugt i64 %call1, 199
+  %call1 = call i64 @nstime_divide(ptr noundef nonnull %delta, ptr noundef nonnull %interval) #8
+  call void @nstime_copy(ptr noundef nonnull %delta, ptr noundef nonnull %interval) #8
+  call void @nstime_imultiply(ptr noundef nonnull %delta, i64 noundef %call1) #8
+  call void @nstime_add(ptr noundef nonnull %epoch, ptr noundef nonnull %delta) #8
+  call void @decay_deadline_init(ptr noundef %decay)
+  %cmp.i20 = icmp ugt i64 %call1, 199
   %backlog.i = getelementptr inbounds i8, ptr %decay, i64 176
-  br i1 %cmp.i25, label %if.then.i26, label %if.else.i
+  br i1 %cmp.i20, label %if.then.i21, label %if.else.i
 
-if.then.i26:                                      ; preds = %decay_deadline_init.exit
+if.then.i21:                                      ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1592) %backlog.i, i8 0, i64 1592, i1 false)
   br label %decay_backlog_update.exit
 
-if.else.i:                                        ; preds = %decay_deadline_init.exit
+if.else.i:                                        ; preds = %if.end
   %arrayidx.i = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %call1
   %sub.i = sub nuw nsw i64 200, %call1
   %mul.i = shl nuw nsw i64 %sub.i, 3
@@ -335,10 +237,10 @@ if.then5.i:                                       ; preds = %if.else.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %arrayidx8.i, i8 0, i64 %mul10.i, i1 false)
   br label %decay_backlog_update.exit
 
-decay_backlog_update.exit:                        ; preds = %if.then.i26, %if.else.i, %if.then5.i
+decay_backlog_update.exit:                        ; preds = %if.then.i21, %if.else.i, %if.then5.i
   %nunpurged.i = getelementptr inbounds i8, ptr %decay, i64 168
-  %7 = load i64, ptr %nunpurged.i, align 8
-  %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %npages_current, i64 %7)
+  %1 = load i64, ptr %nunpurged.i, align 8
+  %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %npages_current, i64 %1)
   %arrayidx16.i = getelementptr inbounds i8, ptr %decay, i64 1768
   store i64 %spec.select.i, ptr %arrayidx16.i, align 8
   br label %for.body.i
@@ -346,12 +248,12 @@ decay_backlog_update.exit:                        ; preds = %if.then.i26, %if.el
 for.body.i:                                       ; preds = %for.body.i, %decay_backlog_update.exit
   %indvars.iv.i = phi i64 [ 0, %decay_backlog_update.exit ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.06.i = phi i64 [ 0, %decay_backlog_update.exit ], [ %add.i, %for.body.i ]
-  %arrayidx.i28 = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %indvars.iv.i
-  %8 = load i64, ptr %arrayidx.i28, align 8
+  %arrayidx.i23 = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %indvars.iv.i
+  %2 = load i64, ptr %arrayidx.i23, align 8
   %arrayidx2.i = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %indvars.iv.i
-  %9 = load i64, ptr %arrayidx2.i, align 8
-  %mul.i29 = mul i64 %9, %8
-  %add.i = add i64 %mul.i29, %sum.06.i
+  %3 = load i64, ptr %arrayidx2.i, align 8
+  %mul.i24 = mul i64 %3, %2
+  %add.i = add i64 %mul.i24, %sum.06.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
   br i1 %exitcond.not.i, label %decay_backlog_npages_limit.exit, label %for.body.i, !llvm.loop !7
@@ -384,7 +286,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %interval.i = getelementptr inbounds i8, ptr %decay, i64 128
-  %call.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i) #9
+  %call.i = tail call i64 @nstime_ns(ptr noundef nonnull %interval.i) #8
   %cmp = icmp eq i64 %npages_current, 0
   br i1 %cmp, label %for.cond.preheader, label %if.end10
 
@@ -561,6 +463,9 @@ return:                                           ; preds = %for.inc, %entry, %w
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 declare i32 @nstime_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -571,17 +476,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -590,9 +489,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

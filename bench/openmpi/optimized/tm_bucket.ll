@@ -441,10 +441,16 @@ is_power_of_2.exit.i:                             ; preds = %31
   %121 = shl nuw nsw i64 %99, 4
   %122 = tail call noalias ptr @malloc(i64 noundef %121) #17
   %.not5.i.i.i = icmp eq i32 %30, 0
+  br i1 %.not5.i.i.i, label %ilog2.exit.i.i, label %.lr.ph.i.i.preheader.i
+
+.lr.ph.i.i.preheader.i:                           ; preds = %._crit_edge112.i
   %123 = lshr i32 %30, 1
   %124 = tail call range(i32 2, 33) i32 @llvm.ctlz.i32(i32 %123, i1 false)
   %125 = sub nuw nsw i32 32, %124
-  %.0.lcssa.i.i.i = select i1 %.not5.i.i.i, i32 -1, i32 %125
+  br label %ilog2.exit.i.i
+
+ilog2.exit.i.i:                                   ; preds = %.lr.ph.i.i.preheader.i, %._crit_edge112.i
+  %.0.lcssa.i.i.i = phi i32 [ -1, %._crit_edge112.i ], [ %125, %.lr.ph.i.i.preheader.i ]
   %126 = getelementptr inbounds i8, ptr %43, i64 56
   store i32 %.0.lcssa.i.i.i, ptr %126, align 8
   %127 = add nsw i32 %30, -1
@@ -453,9 +459,9 @@ is_power_of_2.exit.i:                             ; preds = %31
   %128 = shl nuw nsw i32 %30, 1
   br i1 %.not5.i.i.i, label %._crit_edge.i.thread.i, label %.lr.ph.i95.i
 
-.lr.ph.i95.i:                                     ; preds = %._crit_edge112.i, %.lr.ph.i95.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i95.i ], [ %99, %._crit_edge112.i ]
-  %.027.i.i = phi i32 [ %129, %.lr.ph.i95.i ], [ 0, %._crit_edge112.i ]
+.lr.ph.i95.i:                                     ; preds = %ilog2.exit.i.i, %.lr.ph.i95.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i95.i ], [ %99, %ilog2.exit.i.i ]
+  %.027.i.i = phi i32 [ %129, %.lr.ph.i95.i ], [ 0, %ilog2.exit.i.i ]
   %129 = add nuw i32 %.027.i.i, 1
   %130 = uitofp nneg i32 %.027.i.i to double
   %131 = getelementptr inbounds double, ptr %122, i64 %indvars.iv.i.i
@@ -476,7 +482,7 @@ built_pivot_tree.exit.i.thread:                   ; preds = %._crit_edge.i.i
   store ptr %135, ptr %43, align 8
   br label %.lr.ph114.i.preheader
 
-._crit_edge.i.thread.i:                           ; preds = %._crit_edge112.i
+._crit_edge.i.thread.i:                           ; preds = %ilog2.exit.i.i
   %136 = getelementptr inbounds i8, ptr %43, i64 48
   store ptr %122, ptr %136, align 8
   %137 = load i32, ptr @verbose_level, align 4

@@ -1181,9 +1181,9 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %sub.i.i = add nsw i32 %conv2.i.i, -1
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
   %xor.i.i = xor i32 %15, 31
-  %cond.i.i = select i1 %cmp9.i.i, i32 %xor.i.i, i32 0
-  %idxprom.i.i = zext nneg i32 %cond.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %bins, i64 %idxprom.i.i
+  %narrow.i.i = select i1 %cmp9.i.i, i32 %xor.i.i, i32 0
+  %cond.i.i = zext nneg i32 %narrow.i.i to i64
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %bins, i64 %cond.i.i
   %16 = load i32, ptr %arrayidx.i.i, align 4
   %inc.i.i = add i32 %16, 1
   store i32 %inc.i.i, ptr %arrayidx.i.i, align 4
@@ -1224,12 +1224,12 @@ if.then8.i:                                       ; preds = %if.then.i20
   %sub.i23 = add nsw i32 %conv2.i, -1
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i23, i1 true)
   %xor.i = xor i32 %19, 31
-  %cond.i = select i1 %cmp9.i, i32 %xor.i, i32 0
-  %idxprom.i24 = zext nneg i32 %cond.i to i64
-  %arrayidx.i25 = getelementptr inbounds i32, ptr %bins, i64 %idxprom.i24
-  %20 = load i32, ptr %arrayidx.i25, align 4
-  %inc.i26 = add i32 %20, 1
-  store i32 %inc.i26, ptr %arrayidx.i25, align 4
+  %narrow.i = select i1 %cmp9.i, i32 %xor.i, i32 0
+  %cond.i = zext nneg i32 %narrow.i to i64
+  %arrayidx.i24 = getelementptr inbounds i32, ptr %bins, i64 %cond.i
+  %20 = load i32, ptr %arrayidx.i24, align 4
+  %inc.i25 = add i32 %20, 1
+  store i32 %inc.i25, ptr %arrayidx.i24, align 4
   br label %countint.exit
 
 countint.exit:                                    ; preds = %counthash.exit, %if.then.i20, %if.then8.i
@@ -1237,45 +1237,45 @@ countint.exit:                                    ; preds = %counthash.exit, %if
   %add6 = add i32 %add5.i, %retval.0.i19
   %mul.i = shl i32 %add6, 1
   %cmp11.not.i = icmp eq i32 %mul.i, 0
-  br i1 %cmp11.not.i, label %bestasize.exit, label %for.body.i27
+  br i1 %cmp11.not.i, label %bestasize.exit, label %for.body.i26
 
-for.body.i27:                                     ; preds = %countint.exit, %for.inc.i31
-  %shl17.i = phi i32 [ %shl.i34, %for.inc.i31 ], [ 1, %countint.exit ]
-  %b.016.i = phi i32 [ %inc.i33, %for.inc.i31 ], [ 0, %countint.exit ]
-  %sz.015.i = phi i32 [ %sz.1.i, %for.inc.i31 ], [ 0, %countint.exit ]
-  %na.014.i = phi i32 [ %na.1.i32, %for.inc.i31 ], [ 0, %countint.exit ]
-  %sum.013.i = phi i32 [ %sum.1.i, %for.inc.i31 ], [ 0, %countint.exit ]
-  %idxprom.i28 = zext i32 %b.016.i to i64
-  %arrayidx.i29 = getelementptr inbounds i32, ptr %bins, i64 %idxprom.i28
-  %21 = load i32, ptr %arrayidx.i29, align 4
+for.body.i26:                                     ; preds = %countint.exit, %for.inc.i30
+  %shl17.i = phi i32 [ %shl.i33, %for.inc.i30 ], [ 1, %countint.exit ]
+  %b.016.i = phi i32 [ %inc.i32, %for.inc.i30 ], [ 0, %countint.exit ]
+  %sz.015.i = phi i32 [ %sz.1.i, %for.inc.i30 ], [ 0, %countint.exit ]
+  %na.014.i = phi i32 [ %na.1.i31, %for.inc.i30 ], [ 0, %countint.exit ]
+  %sum.013.i = phi i32 [ %sum.1.i, %for.inc.i30 ], [ 0, %countint.exit ]
+  %idxprom.i27 = zext i32 %b.016.i to i64
+  %arrayidx.i28 = getelementptr inbounds i32, ptr %bins, i64 %idxprom.i27
+  %21 = load i32, ptr %arrayidx.i28, align 4
   %cmp2.not.i = icmp eq i32 %21, 0
-  br i1 %cmp2.not.i, label %for.inc.i31, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %for.inc.i30, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %for.body.i27
-  %add.i30 = add i32 %21, %sum.013.i
-  %mul5.i = shl i32 %add.i30, 1
+land.lhs.true.i:                                  ; preds = %for.body.i26
+  %add.i29 = add i32 %21, %sum.013.i
+  %mul5.i = shl i32 %add.i29, 1
   %cmp7.i = icmp ugt i32 %mul5.i, %shl17.i
-  br i1 %cmp7.i, label %if.then.i37, label %for.inc.i31
+  br i1 %cmp7.i, label %if.then.i36, label %for.inc.i30
 
-if.then.i37:                                      ; preds = %land.lhs.true.i
+if.then.i36:                                      ; preds = %land.lhs.true.i
   %shl8.i = shl i32 2, %b.016.i
   %add9.i = or disjoint i32 %shl8.i, 1
-  br label %for.inc.i31
+  br label %for.inc.i30
 
-for.inc.i31:                                      ; preds = %if.then.i37, %land.lhs.true.i, %for.body.i27
-  %sum.1.i = phi i32 [ %add.i30, %if.then.i37 ], [ %add.i30, %land.lhs.true.i ], [ %sum.013.i, %for.body.i27 ]
-  %na.1.i32 = phi i32 [ %add.i30, %if.then.i37 ], [ %na.014.i, %land.lhs.true.i ], [ %na.014.i, %for.body.i27 ]
-  %sz.1.i = phi i32 [ %add9.i, %if.then.i37 ], [ %sz.015.i, %land.lhs.true.i ], [ %sz.015.i, %for.body.i27 ]
-  %inc.i33 = add i32 %b.016.i, 1
-  %shl.i34 = shl nuw i32 1, %inc.i33
-  %cmp.i35 = icmp ugt i32 %mul.i, %shl.i34
+for.inc.i30:                                      ; preds = %if.then.i36, %land.lhs.true.i, %for.body.i26
+  %sum.1.i = phi i32 [ %add.i29, %if.then.i36 ], [ %add.i29, %land.lhs.true.i ], [ %sum.013.i, %for.body.i26 ]
+  %na.1.i31 = phi i32 [ %add.i29, %if.then.i36 ], [ %na.014.i, %land.lhs.true.i ], [ %na.014.i, %for.body.i26 ]
+  %sz.1.i = phi i32 [ %add9.i, %if.then.i36 ], [ %sz.015.i, %land.lhs.true.i ], [ %sz.015.i, %for.body.i26 ]
+  %inc.i32 = add i32 %b.016.i, 1
+  %shl.i33 = shl nuw i32 1, %inc.i32
+  %cmp.i34 = icmp ugt i32 %mul.i, %shl.i33
   %cmp1.i = icmp ne i32 %sum.1.i, %add6
-  %22 = select i1 %cmp.i35, i1 %cmp1.i, i1 false
-  br i1 %22, label %for.body.i27, label %bestasize.exit, !llvm.loop !16
+  %22 = select i1 %cmp.i34, i1 %cmp1.i, i1 false
+  br i1 %22, label %for.body.i26, label %bestasize.exit, !llvm.loop !16
 
-bestasize.exit:                                   ; preds = %for.inc.i31, %countint.exit
-  %na.0.lcssa.i = phi i32 [ 0, %countint.exit ], [ %na.1.i32, %for.inc.i31 ]
-  %sz.0.lcssa.i = phi i32 [ 0, %countint.exit ], [ %sz.1.i, %for.inc.i31 ]
+bestasize.exit:                                   ; preds = %for.inc.i30, %countint.exit
+  %na.0.lcssa.i = phi i32 [ 0, %countint.exit ], [ %na.1.i31, %for.inc.i30 ]
+  %sz.0.lcssa.i = phi i32 [ 0, %countint.exit ], [ %sz.1.i, %for.inc.i30 ]
   %sub = sub i32 %add3, %na.0.lcssa.i
   %tobool.not = icmp eq i32 %add3, %na.0.lcssa.i
   br i1 %tobool.not, label %cond.end14, label %cond.true

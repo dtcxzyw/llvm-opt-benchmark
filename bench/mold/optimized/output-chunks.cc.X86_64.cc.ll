@@ -12069,17 +12069,23 @@ if.then6:                                         ; preds = %_ZN4mold3elf14GnuHa
   %div5 = lshr i64 %mul, 6
   %10 = tail call range(i64 0, 59) i64 @llvm.ctpop.i64(i64 %div5)
   %cmp.i.i7 = icmp eq i64 %10, 1
+  br i1 %cmp.i.i7, label %_ZN4mold8bit_ceilEm.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %if.then6
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div5, i1 false)
   %sub.i = sub nuw nsw i64 64, %11
   %shl.i = shl nuw nsw i64 1, %sub.i
-  %retval.0.i = select i1 %cmp.i.i7, i64 %div5, i64 %shl.i
+  br label %_ZN4mold8bit_ceilEm.exit
+
+_ZN4mold8bit_ceilEm.exit:                         ; preds = %if.then6, %if.end.i
+  %retval.0.i = phi i64 [ %shl.i, %if.end.i ], [ %div5, %if.then6 ]
   %conv8 = trunc i64 %retval.0.i to i32
   %num_bloom = getelementptr inbounds i8, ptr %this, i64 204
   store i32 %conv8, ptr %num_bloom, align 4
   br label %if.end9
 
-if.end9:                                          ; preds = %_ZN4mold3elf14GnuHashSectionINS0_6X86_64EE20get_exported_symbolsERNS0_7ContextIS2_EE.exit.if.end9_crit_edge, %if.then6
-  %12 = phi i32 [ %.pre, %_ZN4mold3elf14GnuHashSectionINS0_6X86_64EE20get_exported_symbolsERNS0_7ContextIS2_EE.exit.if.end9_crit_edge ], [ %conv8, %if.then6 ]
+if.end9:                                          ; preds = %_ZN4mold3elf14GnuHashSectionINS0_6X86_64EE20get_exported_symbolsERNS0_7ContextIS2_EE.exit.if.end9_crit_edge, %_ZN4mold8bit_ceilEm.exit
+  %12 = phi i32 [ %.pre, %_ZN4mold3elf14GnuHashSectionINS0_6X86_64EE20get_exported_symbolsERNS0_7ContextIS2_EE.exit.if.end9_crit_edge ], [ %conv8, %_ZN4mold8bit_ceilEm.exit ]
   %sh_size = getelementptr inbounds i8, ptr %this, i64 56
   %conv13 = zext i32 %12 to i64
   %mul14 = shl nuw nsw i64 %conv13, 3
@@ -40382,17 +40388,23 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
-  %map.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 224
   %estimator.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 200
   %call.i.i.i.i.i = tail call noundef i64 @_ZNK4mold11HyperLogLog15get_cardinalityEv(ptr noundef nonnull align 8 dereferenceable(24) %estimator.i.i.i.i.i) #13
   %mul.i.i.i.i.i = mul nsw i64 %call.i.i.i.i.i, 3
   %div.i.i.i.i.i = sdiv i64 %mul.i.i.i.i.i, 2
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %div.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %4, 1
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold3elf13MergedSectionINS4_6X86_64EE6insertERNS4_7ContextIS6_EESt17basic_string_viewIcSt11char_traitsIcEEmlEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit, label %if.end.i.i.i.i.i.i.i
+
+if.end.i.i.i.i.i.i.i:                             ; preds = %entry
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div.i.i.i.i.i, i1 false)
   %sub.i.i.i.i.i.i.i = sub nuw nsw i64 64, %5
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sub.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 %div.i.i.i.i.i, i64 %shl.i.i.i.i.i.i.i
+  br label %_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold3elf13MergedSectionINS4_6X86_64EE6insertERNS4_7ContextIS6_EESt17basic_string_viewIcSt11char_traitsIcEEmlEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit
+
+_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN4mold3elf13MergedSectionINS4_6X86_64EE6insertERNS4_7ContextIS6_EESt17basic_string_viewIcSt11char_traitsIcEEmlEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSH_ENKUlvE_clEv.exit: ; preds = %entry, %if.end.i.i.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i.i = phi i64 [ %shl.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %div.i.i.i.i.i, %entry ]
+  %map.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 224
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %retval.0.i.i.i.i.i.i.i, i64 2048)
   %nbuckets3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 240
   store i64 %.sroa.speculated.i.i.i.i.i.i, ptr %nbuckets3.i.i.i.i.i.i, align 8
