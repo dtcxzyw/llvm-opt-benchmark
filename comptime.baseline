@@ -28753,7 +28753,7 @@ qemu/hw_misc_ivshmem.c.ll 334113616
 qemu/hw_misc_mchp_pfsoc_dmc.c.ll 58712212
 qemu/hw_misc_mchp_pfsoc_ioscb.c.ll 69767858
 qemu/hw_misc_mchp_pfsoc_sysreg.c.ll 49800085
-qemu/hw_misc_pci-testdev.c.ll 112038282
+qemu/hw_misc_pci-testdev.c.ll 112150431
 qemu/hw_misc_pvpanic.c.ll 45738149
 qemu/hw_misc_sifive_e_aon.c.ll 144164660
 qemu/hw_misc_sifive_e_prci.c.ll 53025344
@@ -34588,7 +34588,7 @@ wasmtime-rs/kcbyjtydoiey2uc.ll 222863535
 wasmtime-rs/ke7pay3ulx40emi.ll 58743550
 wasmtime-rs/kpzz8s92vshq6im.ll 3319915104
 wasmtime-rs/kvmdx5fg2h4ypfb.ll 40745752
-wasmtime-rs/l31loksshexfbhd.ll 54803395
+wasmtime-rs/l31loksshexfbhd.ll 54858413
 wasmtime-rs/l3869xz334uj87z.ll 756465915
 wasmtime-rs/lcsv5aicvugqjg3.ll 383322044
 wasmtime-rs/lf24e9vruqwevqt.ll 43573746
