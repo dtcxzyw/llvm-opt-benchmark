@@ -401,8 +401,8 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr nocapture noundef
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %22, %111
-  %.lcssa130 = phi ptr [ %113, %111 ], [ %26, %22 ]
+._crit_edge:                                      ; preds = %22, %110
+  %.lcssa130 = phi ptr [ %112, %110 ], [ %26, %22 ]
   %30 = getelementptr inbounds i8, ptr %.lcssa130, i64 16
   %31 = load i32, ptr %6, align 8
   %32 = add i32 %31, 1
@@ -413,11 +413,11 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr nocapture noundef
   store i32 1, ptr %30, align 8
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %22, %111
-  %.val83210 = phi i32 [ %.val83, %111 ], [ %.val84, %22 ]
-  %34 = phi ptr [ %113, %111 ], [ %26, %22 ]
-  %.076132 = phi i32 [ %101, %111 ], [ %24, %22 ]
-  %.081131 = phi i32 [ %102, %111 ], [ 0, %22 ]
+.lr.ph:                                           ; preds = %22, %110
+  %.val83210 = phi i32 [ %.val83, %110 ], [ %.val84, %22 ]
+  %34 = phi ptr [ %112, %110 ], [ %26, %22 ]
+  %.076132 = phi i32 [ %69, %110 ], [ %24, %22 ]
+  %.081131 = phi i32 [ %101, %110 ], [ 0, %22 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %2
@@ -488,10 +488,10 @@ tuplehash_distance.exit:                          ; preds = %61, %63
   %.0.i = sub i32 %.pn.i, %62
   %67 = icmp ugt i32 %.081131, %.0.i
   %68 = add i32 %.076132, 1
+  %69 = and i32 %68, %.val83
   br i1 %67, label %.preheader91, label %100
 
 .preheader91:                                     ; preds = %tuplehash_distance.exit
-  %69 = and i32 %68, %.val83
   %70 = zext i32 %69 to i64
   %71 = getelementptr %struct.TupleHashEntryData, ptr %23, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 16
@@ -522,8 +522,8 @@ tuplehash_distance.exit:                          ; preds = %61, %63
   %84 = fcmp ult double %83, 1.000000e-01
   br i1 %84, label %86, label %.backedge
 
-.backedge:                                        ; preds = %104, %78
-  %85 = phi i32 [ %79, %78 ], [ %105, %104 ]
+.backedge:                                        ; preds = %103, %78
+  %85 = phi i32 [ %79, %78 ], [ %104, %103 ]
   store i32 0, ptr %7, align 8
   br label %11
 
@@ -559,33 +559,32 @@ tuplehash_distance.exit:                          ; preds = %61, %63
   br label %.loopexit
 
 100:                                              ; preds = %tuplehash_distance.exit
-  %101 = and i32 %.val83, %68
-  %102 = add i32 %.081131, 1
-  %103 = icmp ugt i32 %102, 25
-  br i1 %103, label %104, label %111
+  %101 = add i32 %.081131, 1
+  %102 = icmp ugt i32 %101, 25
+  br i1 %102, label %103, label %110
 
-104:                                              ; preds = %100
-  %105 = load i32, ptr %6, align 8
-  %106 = uitofp i32 %105 to double
-  %107 = load i64, ptr %0, align 8
-  %108 = uitofp i64 %107 to double
-  %109 = fdiv double %106, %108
-  %110 = fcmp ult double %109, 1.000000e-01
-  br i1 %110, label %111, label %.backedge
+103:                                              ; preds = %100
+  %104 = load i32, ptr %6, align 8
+  %105 = uitofp i32 %104 to double
+  %106 = load i64, ptr %0, align 8
+  %107 = uitofp i64 %106 to double
+  %108 = fdiv double %105, %107
+  %109 = fcmp ult double %108, 1.000000e-01
+  br i1 %109, label %110, label %.backedge
 
-111:                                              ; preds = %104, %100
-  %112 = zext i32 %101 to i64
-  %113 = getelementptr %struct.TupleHashEntryData, ptr %23, i64 %112
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
-  %115 = load i32, ptr %114, align 8
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %._crit_edge, label %.lr.ph
+110:                                              ; preds = %103, %100
+  %111 = zext i32 %69 to i64
+  %112 = getelementptr %struct.TupleHashEntryData, ptr %23, i64 %111
+  %113 = getelementptr inbounds i8, ptr %112, i64 16
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %TupleHashTableMatch.exit, %TupleHashTableMatch.exit.thread, %._crit_edge164, %._crit_edge
   %.sink = phi i8 [ 0, %._crit_edge164 ], [ 0, %._crit_edge ], [ 1, %TupleHashTableMatch.exit.thread ], [ 1, %TupleHashTableMatch.exit ]
-  %117 = phi ptr [ %34, %._crit_edge164 ], [ %.lcssa130, %._crit_edge ], [ %34, %TupleHashTableMatch.exit.thread ], [ %34, %TupleHashTableMatch.exit ]
+  %116 = phi ptr [ %34, %._crit_edge164 ], [ %.lcssa130, %._crit_edge ], [ %34, %TupleHashTableMatch.exit.thread ], [ %34, %TupleHashTableMatch.exit ]
   store i8 %.sink, ptr %3, align 1
-  ret ptr %117
+  ret ptr %116
 }
 
 ; Function Attrs: nounwind uwtable

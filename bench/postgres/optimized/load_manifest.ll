@@ -293,10 +293,10 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.sink.split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %18, %79
-  %25 = phi ptr [ %81, %79 ], [ %22, %18 ]
-  %.069108 = phi i32 [ %69, %79 ], [ %20, %18 ]
-  %.074107 = phi i32 [ %70, %79 ], [ 0, %18 ]
+.lr.ph:                                           ; preds = %18, %78
+  %25 = phi ptr [ %80, %78 ], [ %22, %18 ]
+  %.069108 = phi i32 [ %41, %78 ], [ %20, %18 ]
+  %.074107 = phi i32 [ %69, %78 ], [ 0, %18 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #19
@@ -323,10 +323,10 @@ manifest_files_distance.exit:                     ; preds = %30, %35
   %.0.i = sub i32 %.pn.i, %34
   %39 = icmp ugt i32 %.074107, %.0.i
   %40 = add i32 %.069108, 1
+  %41 = and i32 %40, %.val76
   br i1 %39, label %.preheader81, label %68
 
 .preheader81:                                     ; preds = %manifest_files_distance.exit
-  %41 = and i32 %40, %.val76
   %42 = zext i32 %41 to i64
   %43 = getelementptr %struct.manifest_file, ptr %19, i64 %42
   %44 = load i32, ptr %43, align 8
@@ -355,8 +355,8 @@ manifest_files_distance.exit:                     ; preds = %30, %35
   %55 = fcmp ult double %54, 1.000000e-01
   br i1 %55, label %57, label %.backedge
 
-.backedge:                                        ; preds = %72, %49
-  %56 = phi i32 [ %50, %49 ], [ %73, %72 ]
+.backedge:                                        ; preds = %71, %49
+  %56 = phi i32 [ %50, %49 ], [ %72, %71 ]
   store i32 0, ptr %6, align 8
   br label %9
 
@@ -382,29 +382,28 @@ manifest_files_distance.exit:                     ; preds = %30, %35
   br i1 %.not75, label %.sink.split, label %.lr.ph135, !llvm.loop !8
 
 68:                                               ; preds = %manifest_files_distance.exit
-  %69 = and i32 %.val76, %40
-  %70 = add i32 %.074107, 1
-  %71 = icmp ugt i32 %70, 25
-  br i1 %71, label %72, label %79
+  %69 = add i32 %.074107, 1
+  %70 = icmp ugt i32 %69, 25
+  br i1 %70, label %71, label %78
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %5, align 8
-  %74 = uitofp i32 %73 to double
-  %75 = load i64, ptr %0, align 8
-  %76 = uitofp i64 %75 to double
-  %77 = fdiv double %74, %76
-  %78 = fcmp ult double %77, 1.000000e-01
-  br i1 %78, label %79, label %.backedge
+71:                                               ; preds = %68
+  %72 = load i32, ptr %5, align 8
+  %73 = uitofp i32 %72 to double
+  %74 = load i64, ptr %0, align 8
+  %75 = uitofp i64 %74 to double
+  %76 = fdiv double %73, %75
+  %77 = fcmp ult double %76, 1.000000e-01
+  br i1 %77, label %78, label %.backedge
 
-79:                                               ; preds = %72, %68
-  %80 = zext i32 %69 to i64
-  %81 = getelementptr %struct.manifest_file, ptr %19, i64 %80
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.sink.split, label %.lr.ph
+78:                                               ; preds = %71, %68
+  %79 = zext i32 %41 to i64
+  %80 = getelementptr %struct.manifest_file, ptr %19, i64 %79
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %.sink.split, label %.lr.ph
 
-.sink.split:                                      ; preds = %18, %79, %.lr.ph135, %.preheader
-  %.lcssa210.lcssa.sink.sink = phi ptr [ %25, %.preheader ], [ %25, %.lr.ph135 ], [ %81, %79 ], [ %22, %18 ]
+.sink.split:                                      ; preds = %18, %78, %.lr.ph135, %.preheader
+  %.lcssa210.lcssa.sink.sink = phi ptr [ %25, %.preheader ], [ %25, %.lr.ph135 ], [ %80, %78 ], [ %22, %18 ]
   %storemerge.in = load i32, ptr %5, align 8
   %storemerge = add i32 %storemerge.in, 1
   store i32 %storemerge, ptr %5, align 8
@@ -415,9 +414,9 @@ manifest_files_distance.exit:                     ; preds = %30, %35
 
 .loopexit:                                        ; preds = %.lr.ph, %.sink.split
   %.sink = phi i8 [ 0, %.sink.split ], [ 1, %.lr.ph ]
-  %84 = phi ptr [ %.lcssa210.lcssa.sink.sink, %.sink.split ], [ %25, %.lr.ph ]
+  %83 = phi ptr [ %.lcssa210.lcssa.sink.sink, %.sink.split ], [ %25, %.lr.ph ]
   store i8 %.sink, ptr %3, align 1
-  ret ptr %84
+  ret ptr %83
 }
 
 ; Function Attrs: nounwind uwtable

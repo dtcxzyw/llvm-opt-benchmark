@@ -14104,10 +14104,10 @@ for.body13:                                       ; preds = %if.then7, %for.inc1
   %14 = load ptr, ptr %Opt.015, align 8
   %cmp14 = icmp eq ptr %14, %O
   %add.ptr.i28 = getelementptr inbounds i8, ptr %Opt.015, i64 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr.i50, %add.ptr.i28
   br i1 %cmp14, label %if.then15, label %for.inc19
 
 if.then15:                                        ; preds = %for.body13
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr.i50, %add.ptr.i28
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIPNS_2cl6OptionEE5eraseEPKS3_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then15
@@ -14125,8 +14125,7 @@ _ZN4llvh15SmallVectorImplIPNS_2cl6OptionEE5eraseEPKS3_.exit: ; preds = %if.then1
   br label %if.end45
 
 for.inc19:                                        ; preds = %for.body13
-  %cmp12.not = icmp eq ptr %add.ptr.i28, %add.ptr.i50
-  br i1 %cmp12.not, label %if.end45, label %for.body13, !llvm.loop !176
+  br i1 %tobool.not.i.i.i.i.i.i, label %if.end45, label %for.body13, !llvm.loop !176
 
 if.else:                                          ; preds = %for.end
   %16 = and i16 %bf.load.i, 2048
@@ -14148,10 +14147,10 @@ for.body30:                                       ; preds = %if.then23, %for.inc
   %19 = load ptr, ptr %Opt24.013, align 8
   %cmp31 = icmp eq ptr %19, %O
   %add.ptr.i38 = getelementptr inbounds i8, ptr %Opt24.013, i64 8
+  %tobool.not.i.i.i.i.i.i42 = icmp eq ptr %add.ptr.i, %add.ptr.i38
   br i1 %cmp31, label %if.then32, label %for.inc36
 
 if.then32:                                        ; preds = %for.body30
-  %tobool.not.i.i.i.i.i.i42 = icmp eq ptr %add.ptr.i, %add.ptr.i38
   br i1 %tobool.not.i.i.i.i.i.i42, label %_ZN4llvh15SmallVectorImplIPNS_2cl6OptionEE5eraseEPKS3_.exit49, label %if.then.i.i.i.i.i.i43
 
 if.then.i.i.i.i.i.i43:                            ; preds = %if.then32
@@ -14169,8 +14168,7 @@ _ZN4llvh15SmallVectorImplIPNS_2cl6OptionEE5eraseEPKS3_.exit49: ; preds = %if.the
   br label %if.end45
 
 for.inc36:                                        ; preds = %for.body30
-  %cmp29.not = icmp eq ptr %add.ptr.i38, %add.ptr.i
-  br i1 %cmp29.not, label %if.end45, label %for.body30, !llvm.loop !177
+  br i1 %tobool.not.i.i.i.i.i.i42, label %if.end45, label %for.body30, !llvm.loop !177
 
 if.else39:                                        ; preds = %if.else
   %ConsumeAfterOpt = getelementptr inbounds i8, ptr %SC, i64 160

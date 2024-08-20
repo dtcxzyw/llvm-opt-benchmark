@@ -1687,18 +1687,17 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp = icmp ult i64 %sub.ptr.div.i.i, 60
+  %cmp2 = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %for.body.i24.preheader
 
 for.body.i24.preheader:                           ; preds = %entry
-  %cmp.i.i.i27 = icmp eq ptr %1, %0
-  br i1 %cmp.i.i.i27, label %for.body.i24.us.preheader, label %for.body.i24
+  br i1 %cmp2, label %for.body.i24.us.preheader, label %for.body.i24
 
 for.body.i24.us.preheader:                        ; preds = %for.body.i24.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %buffer, i8 0, i64 240, i1 false)
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
   %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %cond = icmp eq i64 %add.ptr.idx, 240
@@ -2801,18 +2800,17 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp = icmp ult i64 %sub.ptr.div.i.i, 60
+  %cmp2 = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %for.body.i24.preheader
 
 for.body.i24.preheader:                           ; preds = %entry
-  %cmp.i.i.i27 = icmp eq ptr %1, %0
-  br i1 %cmp.i.i.i27, label %for.body.i24.us.preheader, label %for.body.i24
+  br i1 %cmp2, label %for.body.i24.us.preheader, label %for.body.i24
 
 for.body.i24.us.preheader:                        ; preds = %for.body.i24.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %buffer, i8 0, i64 240, i1 false)
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
   %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %cond = icmp eq i64 %add.ptr.idx, 240
@@ -14703,18 +14701,17 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp = icmp ult i64 %sub.ptr.div.i.i, 60
+  %cmp2 = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %for.body.i24.preheader
 
 for.body.i24.preheader:                           ; preds = %entry
-  %cmp.i.i.i27 = icmp eq ptr %1, %0
-  br i1 %cmp.i.i.i27, label %for.body.i24.us.preheader, label %for.body.i24
+  br i1 %cmp2, label %for.body.i24.us.preheader, label %for.body.i24
 
 for.body.i24.us.preheader:                        ; preds = %for.body.i24.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %buffer, i8 0, i64 240, i1 false)
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
   %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %cond = icmp eq i64 %add.ptr.idx, 240
@@ -15549,18 +15546,17 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp = icmp ult i64 %sub.ptr.div.i.i, 60
+  %cmp2 = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %for.body.i24.preheader
 
 for.body.i24.preheader:                           ; preds = %entry
-  %cmp.i.i.i27 = icmp eq ptr %1, %0
-  br i1 %cmp.i.i.i27, label %for.body.i24.us.preheader, label %for.body.i24
+  br i1 %cmp2, label %for.body.i24.us.preheader, label %for.body.i24
 
 for.body.i24.us.preheader:                        ; preds = %for.body.i24.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %buffer, i8 0, i64 240, i1 false)
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
   %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %cond = icmp eq i64 %add.ptr.idx, 240

@@ -2154,16 +2154,15 @@ do.end6.i:                                        ; preds = %do.body1.i
   %64 = load ptr, ptr %w.0.i, align 8
   store ptr %64, ptr %pw.addr.0.i, align 8
   %cmp.i.i263 = icmp eq ptr %w.0.i, %head.addr.0.i
+  %cmp3.i.i = icmp eq ptr %head.addr.0.i, %pw.addr.0.i
   br i1 %cmp.i.i263, label %if.then.i.i266, label %if.else.i.i
 
 if.then.i.i266:                                   ; preds = %do.end6.i
-  %cmp3.i.i = icmp eq ptr %head.addr.0.i, %pw.addr.0.i
   %cond.i.i = select i1 %cmp3.i.i, ptr null, ptr %pw.addr.0.i
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.else.i.i:                                      ; preds = %do.end6.i
-  %cmp4.not.i.i = icmp eq ptr %pw.addr.0.i, %head.addr.0.i
-  br i1 %cmp4.not.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %land.lhs.true.i.i264
+  br i1 %cmp3.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i, label %land.lhs.true.i.i264
 
 land.lhs.true.i.i264:                             ; preds = %if.else.i.i
   %waitp.i.i.i = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 32

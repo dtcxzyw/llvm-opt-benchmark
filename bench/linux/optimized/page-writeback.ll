@@ -466,14 +466,14 @@ declare dso_local i32 @fprop_global_init(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio_no_scale(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %1, 1000000
-  br i1 %3, label %23, label %4
+  br i1 %3, label %19, label %4
 
 4:                                                ; preds = %2
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @bdi_lock) #10
   %5 = getelementptr inbounds i8, ptr %0, i64 76
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, %1
-  br i1 %7, label %21, label %8
+  br i1 %7, label %17, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 72
@@ -481,31 +481,24 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio_no_scale(ptr n
   %11 = icmp ugt i32 %10, %1
   %12 = sub i32 %1, %10
   %13 = load i32, ptr @bdi_min_ratio, align 4
-  br i1 %11, label %14, label %16
-
-14:                                               ; preds = %8
-  %15 = add i32 %12, %13
-  br label %19
+  %14 = add i32 %12, %13
+  %15 = icmp ult i32 %14, 1000000
+  %or.cond = select i1 %11, i1 true, i1 %15
+  br i1 %or.cond, label %16, label %17
 
 16:                                               ; preds = %8
-  %17 = add i32 %13, %12
-  %18 = icmp ult i32 %17, 1000000
-  br i1 %18, label %19, label %21
-
-19:                                               ; preds = %16, %14
-  %20 = phi i32 [ %15, %14 ], [ %17, %16 ]
-  store i32 %20, ptr @bdi_min_ratio, align 4
+  store i32 %14, ptr @bdi_min_ratio, align 4
   store i32 %1, ptr %9, align 8
-  br label %21
+  br label %17
 
-21:                                               ; preds = %19, %16, %4
-  %22 = phi i32 [ -22, %4 ], [ -22, %16 ], [ 0, %19 ]
+17:                                               ; preds = %8, %16, %4
+  %18 = phi i32 [ -22, %4 ], [ 0, %16 ], [ -22, %8 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @bdi_lock) #10
-  br label %23
+  br label %19
 
-23:                                               ; preds = %21, %2
-  %24 = phi i32 [ %22, %21 ], [ -22, %2 ]
-  ret i32 %24
+19:                                               ; preds = %17, %2
+  %20 = phi i32 [ %18, %17 ], [ -22, %2 ]
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -543,14 +536,14 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio_no_scale(ptr n
 define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = mul i32 %1, 10000
   %4 = icmp ugt i32 %3, 1000000
-  br i1 %4, label %24, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %2
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @bdi_lock) #10
   %6 = getelementptr inbounds i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %7, %3
-  br i1 %8, label %22, label %9
+  br i1 %8, label %18, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 72
@@ -558,31 +551,24 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio(ptr nocapture 
   %12 = icmp ugt i32 %11, %3
   %13 = sub i32 %3, %11
   %14 = load i32, ptr @bdi_min_ratio, align 4
-  br i1 %12, label %15, label %17
-
-15:                                               ; preds = %9
-  %16 = add i32 %13, %14
-  br label %20
+  %15 = add i32 %13, %14
+  %16 = icmp ult i32 %15, 1000000
+  %or.cond = select i1 %12, i1 true, i1 %16
+  br i1 %or.cond, label %17, label %18
 
 17:                                               ; preds = %9
-  %18 = add i32 %14, %13
-  %19 = icmp ult i32 %18, 1000000
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %17, %15
-  %21 = phi i32 [ %16, %15 ], [ %18, %17 ]
-  store i32 %21, ptr @bdi_min_ratio, align 4
+  store i32 %15, ptr @bdi_min_ratio, align 4
   store i32 %3, ptr %10, align 8
-  br label %22
+  br label %18
 
-22:                                               ; preds = %20, %17, %5
-  %23 = phi i32 [ -22, %5 ], [ -22, %17 ], [ 0, %20 ]
+18:                                               ; preds = %9, %17, %5
+  %19 = phi i32 [ -22, %5 ], [ 0, %17 ], [ -22, %9 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @bdi_lock) #10
-  br label %24
+  br label %20
 
-24:                                               ; preds = %22, %2
-  %25 = phi i32 [ %23, %22 ], [ -22, %2 ]
-  ret i32 %25
+20:                                               ; preds = %18, %2
+  %21 = phi i32 [ %19, %18 ], [ -22, %2 ]
+  ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -664,7 +650,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture 
   %14 = add nuw i64 %13, %9
   %15 = add i64 %14, %11
   %16 = icmp ult i64 %15, %4
-  br i1 %16, label %54, label %17
+  br i1 %16, label %50, label %17
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #10
@@ -689,14 +675,14 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture 
   %32 = udiv i64 %31, %30
   %33 = trunc i64 %32 to i32
   %34 = icmp ugt i32 %33, 1000000
-  br i1 %34, label %54, label %35
+  br i1 %34, label %50, label %35
 
 35:                                               ; preds = %17
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @bdi_lock) #10
   %36 = getelementptr inbounds i8, ptr %0, i64 76
   %37 = load i32, ptr %36, align 4
   %38 = icmp ult i32 %37, %33
-  br i1 %38, label %52, label %39
+  br i1 %38, label %48, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %0, i64 72
@@ -704,31 +690,24 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture 
   %42 = icmp ugt i32 %41, %33
   %43 = sub i32 %33, %41
   %44 = load i32, ptr @bdi_min_ratio, align 4
-  br i1 %42, label %45, label %47
-
-45:                                               ; preds = %39
-  %46 = add i32 %43, %44
-  br label %50
+  %45 = add i32 %43, %44
+  %46 = icmp ult i32 %45, 1000000
+  %or.cond = select i1 %42, i1 true, i1 %46
+  br i1 %or.cond, label %47, label %48
 
 47:                                               ; preds = %39
-  %48 = add i32 %44, %43
-  %49 = icmp ult i32 %48, 1000000
-  br i1 %49, label %50, label %52
-
-50:                                               ; preds = %47, %45
-  %51 = phi i32 [ %46, %45 ], [ %48, %47 ]
-  store i32 %51, ptr @bdi_min_ratio, align 4
+  store i32 %45, ptr @bdi_min_ratio, align 4
   store i32 %33, ptr %40, align 8
-  br label %52
+  br label %48
 
-52:                                               ; preds = %50, %47, %35
-  %53 = phi i32 [ -22, %35 ], [ -22, %47 ], [ 0, %50 ]
+48:                                               ; preds = %39, %47, %35
+  %49 = phi i32 [ -22, %35 ], [ 0, %47 ], [ -22, %39 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @bdi_lock) #10
-  br label %54
+  br label %50
 
-54:                                               ; preds = %52, %17, %2
-  %55 = phi i32 [ -22, %2 ], [ %53, %52 ], [ -22, %17 ]
-  ret i32 %55
+50:                                               ; preds = %48, %17, %2
+  %51 = phi i32 [ -22, %2 ], [ %49, %48 ], [ -22, %17 ]
+  ret i32 %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

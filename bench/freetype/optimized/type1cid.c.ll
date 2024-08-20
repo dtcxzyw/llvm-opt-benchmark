@@ -479,10 +479,10 @@ define internal i32 @cid_face_init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %153 = ptrtoint ptr %151 to i64
   %154 = sub i64 %152, %153
   %155 = add i64 %154, 10
-  %.not164.i120.i = icmp eq i64 %155, %.3.i.i
-  br i1 %.not164.i120.i, label %cid_parser_new.exit.thread123.i, label %156
+  %.not164.i119.i = icmp eq i64 %155, %.3.i.i
+  br i1 %.not164.i119.i, label %cid_parser_new.exit.thread122.i, label %156
 
-cid_parser_new.exit.thread123.i:                  ; preds = %.thread.i
+cid_parser_new.exit.thread122.i:                  ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 266, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %.sink.split.i
@@ -498,9 +498,9 @@ cid_parser_new.exit.thread123.i:                  ; preds = %.thread.i
 160:                                              ; preds = %156
   %161 = call i32 @FT_Stream_ExtractFrame(ptr noundef %37, i64 noundef %158, ptr noundef nonnull %97) #13
   %.not166.i.i = icmp eq i32 %161, 0
-  br i1 %.not166.i.i, label %cid_parser_new.exit.thread95.i, label %cid_parser_new.exit.thread.i
+  br i1 %.not166.i.i, label %cid_parser_new.exit.thread94.i, label %cid_parser_new.exit.thread.i
 
-cid_parser_new.exit.thread95.i:                   ; preds = %160
+cid_parser_new.exit.thread94.i:                   ; preds = %160
   store i64 %157, ptr %100, align 8
   store i64 %158, ptr %101, align 8
   %162 = load ptr, ptr %97, align 8
@@ -543,9 +543,9 @@ cid_parser_new.exit._crit_edge.i:                 ; preds = %145
   %.pre.i = load i64, ptr %101, align 8
   br label %173
 
-173:                                              ; preds = %cid_parser_new.exit._crit_edge.i, %cid_parser_new.exit.thread95.i
-  %174 = phi i64 [ %158, %cid_parser_new.exit.thread95.i ], [ %.pre.i, %cid_parser_new.exit._crit_edge.i ]
-  %175 = phi ptr [ %162, %cid_parser_new.exit.thread95.i ], [ %146, %cid_parser_new.exit._crit_edge.i ]
+173:                                              ; preds = %cid_parser_new.exit._crit_edge.i, %cid_parser_new.exit.thread94.i
+  %174 = phi i64 [ %158, %cid_parser_new.exit.thread94.i ], [ %.pre.i, %cid_parser_new.exit._crit_edge.i ]
+  %175 = phi ptr [ %162, %cid_parser_new.exit.thread94.i ], [ %146, %cid_parser_new.exit._crit_edge.i ]
   %176 = getelementptr inbounds i8, ptr %175, i64 %174
   store ptr %176, ptr %105, align 8
   store i32 0, ptr %116, align 8
@@ -578,16 +578,16 @@ cid_parser_new.exit._crit_edge.i:                 ; preds = %145
   %190 = sub i64 %.06186.i.i, %.06087.i.i
   %scevgep.i.i = getelementptr i8, ptr %.060.i.i, i64 %190
   %.promoted.i = load i32, ptr %106, align 8
-  br label %.lr.ph.i91.i
+  br label %.lr.ph.i90.i
 
-.lr.ph.i91.i:                                     ; preds = %201, %.lr.ph.preheader.i.i
+.lr.ph.i90.i:                                     ; preds = %201, %.lr.ph.preheader.i.i
   %191 = phi i32 [ %202, %201 ], [ %.promoted.i, %.lr.ph.preheader.i.i ]
   %.183.i.i = phi ptr [ %203, %201 ], [ %.060.i.i, %.lr.ph.preheader.i.i ]
   %192 = load i8, ptr %.183.i.i, align 1
   %193 = icmp eq i8 %192, 37
   br i1 %193, label %194, label %201
 
-194:                                              ; preds = %.lr.ph.i91.i
+194:                                              ; preds = %.lr.ph.i90.i
   %195 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.183.i.i, ptr noundef nonnull dereferenceable(18) @.str.16, i64 noundef 17) #14
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %197, label %201
@@ -602,11 +602,11 @@ cid_parser_new.exit._crit_edge.i:                 ; preds = %145
   store i32 %200, ptr %106, align 8
   br label %201
 
-201:                                              ; preds = %199, %197, %194, %.lr.ph.i91.i
-  %202 = phi i32 [ %200, %199 ], [ %191, %197 ], [ %191, %194 ], [ %191, %.lr.ph.i91.i ]
+201:                                              ; preds = %199, %197, %194, %.lr.ph.i90.i
+  %202 = phi i32 [ %200, %199 ], [ %191, %197 ], [ %191, %194 ], [ %191, %.lr.ph.i90.i ]
   %203 = getelementptr inbounds i8, ptr %.183.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %203, %scevgep.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i85.i, label %.lr.ph.i91.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %._crit_edge.i85.i, label %.lr.ph.i90.i, !llvm.loop !7
 
 ._crit_edge.i85.i:                                ; preds = %201, %.loopexit.i.i
   br i1 %.not.i84.i, label %204, label %259
@@ -618,8 +618,8 @@ cid_parser_new.exit._crit_edge.i:                 ; preds = %145
   %.not71.i.i = icmp ult ptr %206, %176
   %207 = load i32, ptr %116, align 8
   %.not72.i.i = icmp eq i32 %207, 0
-  %or.cond100.i = select i1 %.not71.i.i, i1 %.not72.i.i, i1 false
-  br i1 %or.cond100.i, label %208, label %259
+  %or.cond99.i = select i1 %.not71.i.i, i1 %.not72.i.i, i1 false
+  br i1 %or.cond99.i, label %208, label %259
 
 208:                                              ; preds = %204
   %209 = load i8, ptr %187, align 1
@@ -731,11 +731,11 @@ cid_load_keyword.exit.i.i:                        ; preds = %253, %250, %232
   br i1 %.not74.i.i, label %cid_load_keyword.exit..loopexit_crit_edge.i.i, label %.sink.split.i
 
 cid_load_keyword.exit..loopexit_crit_edge.i.i:    ; preds = %cid_load_keyword.exit.i.i
-  %.pre.i90.i = load ptr, ptr %9, align 8
+  %.pre.i.i = load ptr, ptr %9, align 8
   br label %.loopexit.i.i.backedge
 
 .loopexit.i.i.backedge:                           ; preds = %256, %cid_load_keyword.exit..loopexit_crit_edge.i.i, %213, %208
-  %.060.i.i.be = phi ptr [ %.pre.i90.i, %cid_load_keyword.exit..loopexit_crit_edge.i.i ], [ %206, %213 ], [ %206, %208 ], [ %206, %256 ]
+  %.060.i.i.be = phi ptr [ %.pre.i.i, %cid_load_keyword.exit..loopexit_crit_edge.i.i ], [ %206, %213 ], [ %206, %208 ], [ %206, %256 ]
   br label %.loopexit.i.i
 
 256:                                              ; preds = %224, %221
@@ -857,8 +857,8 @@ cid_parse_dict.exit.i:                            ; preds = %259
 
 .preheader.i:                                     ; preds = %316
   %322 = load i32, ptr %178, align 8
-  %.not109.i = icmp eq i32 %322, 0
-  br i1 %.not109.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not108.i = icmp eq i32 %322, 0
+  br i1 %.not108.i, label %._crit_edge.i, label %.lr.ph.i
 
 323:                                              ; preds = %346
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -895,23 +895,23 @@ cid_parse_dict.exit.i:                            ; preds = %259
   %338 = load i32, ptr %337, align 8
   %.not80.i = icmp ne i32 %338, 0
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %328, i64 328
-  %.pre117.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %339 = icmp eq i32 %.pre117.i, 0
-  %or.cond132.i = select i1 %.not80.i, i1 %339, i1 false
-  %340 = icmp ugt i32 %.pre117.i, 4
-  %or.cond134.i = select i1 %or.cond132.i, i1 true, i1 %340
-  br i1 %or.cond134.i, label %.sink.split.i, label %341
+  %.pre116.i = load i32, ptr %.phi.trans.insert.i, align 8
+  %339 = icmp eq i32 %.pre116.i, 0
+  %or.cond131.i = select i1 %.not80.i, i1 %339, i1 false
+  %340 = icmp ugt i32 %.pre116.i, 4
+  %or.cond133.i = select i1 %or.cond131.i, i1 true, i1 %340
+  br i1 %or.cond133.i, label %.sink.split.i, label %341
 
 341:                                              ; preds = %336
   %342 = getelementptr inbounds i8, ptr %328, i64 320
   %343 = load i64, ptr %342, align 8
   %344 = icmp ugt i64 %343, %308
   %345 = icmp ugt i32 %338, 1073741823
-  %or.cond135.i = or i1 %345, %344
-  br i1 %or.cond135.i, label %.sink.split.i, label %346
+  %or.cond134.i = or i1 %345, %344
+  br i1 %or.cond134.i, label %.sink.split.i, label %346
 
 346:                                              ; preds = %341
-  %347 = mul nuw i32 %.pre117.i, %338
+  %347 = mul nuw i32 %.pre116.i, %338
   %348 = zext i32 %347 to i64
   %349 = sub nuw i64 %308, %343
   %350 = icmp ult i64 %349, %348
@@ -921,16 +921,16 @@ cid_parse_dict.exit.i:                            ; preds = %259
   %351 = call fastcc i32 @cid_read_subrs(ptr noundef nonnull %1)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %cid_load_keyword.exit.i.i, %346, %341, %336, %._crit_edge.i, %316, %312, %304, %299, %294, %259, %cid_load_keyword.exit.thread.i.i, %cid_parser_new.exit.thread.i, %cid_parser_new.exit.thread123.i
-  %.sink133.i = phi i32 [ 3, %cid_parser_new.exit.thread123.i ], [ %.0.i.ph.i, %cid_parser_new.exit.thread.i ], [ %351, %._crit_edge.i ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %259 ], [ 3, %294 ], [ 3, %299 ], [ 3, %304 ], [ 3, %316 ], [ 3, %312 ], [ 3, %336 ], [ 3, %341 ], [ 3, %346 ], [ %.0.i.i.i, %cid_load_keyword.exit.i.i ]
-  store i32 %.sink133.i, ptr %10, align 4
+.sink.split.i:                                    ; preds = %cid_load_keyword.exit.i.i, %346, %341, %336, %._crit_edge.i, %316, %312, %304, %299, %294, %259, %cid_load_keyword.exit.thread.i.i, %cid_parser_new.exit.thread.i, %cid_parser_new.exit.thread122.i
+  %.sink132.i = phi i32 [ 3, %cid_parser_new.exit.thread122.i ], [ %.0.i.ph.i, %cid_parser_new.exit.thread.i ], [ %351, %._crit_edge.i ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %259 ], [ 3, %294 ], [ 3, %299 ], [ 3, %304 ], [ 3, %316 ], [ 3, %312 ], [ 3, %336 ], [ 3, %341 ], [ 3, %346 ], [ %.0.i.i.i, %cid_load_keyword.exit.i.i ]
+  store i32 %.sink132.i, ptr %10, align 4
   br label %352
 
 352:                                              ; preds = %.sink.split.i, %284, %279, %264, %cid_parse_dict.exit.i
   %353 = getelementptr inbounds i8, ptr %9, i64 152
   %354 = load ptr, ptr %353, align 8
-  %.not.i.i92.i = icmp eq ptr %354, null
-  br i1 %.not.i.i92.i, label %cid_face_open.exit, label %355
+  %.not.i.i91.i = icmp eq ptr %354, null
+  br i1 %.not.i.i91.i, label %cid_face_open.exit, label %355
 
 355:                                              ; preds = %352
   %356 = load ptr, ptr %42, align 8

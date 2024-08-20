@@ -4116,10 +4116,10 @@ return:                                           ; preds = %for.end110, %for.en
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size) local_unnamed_addr #4 comdat {
 entry:
-  %cmp.not144 = icmp sgt i64 %__len1, %__len2
-  %cmp3.not145 = icmp sgt i64 %__len1, %__buffer_size
-  %or.cond146 = or i1 %cmp3.not145, %cmp.not144
-  br i1 %or.cond146, label %if.else.lr.ph, label %if.then
+  %cmp.not143 = icmp sgt i64 %__len1, %__len2
+  %cmp3.not144 = icmp sgt i64 %__len1, %__buffer_size
+  %or.cond145 = or i1 %cmp3.not144, %cmp.not143
+  br i1 %or.cond145, label %if.else.lr.ph, label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %__last.coerce to i64
@@ -4202,24 +4202,24 @@ _ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_S
   br label %if.end89
 
 if.else:                                          ; preds = %if.else.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
-  %cmp.not152 = phi i1 [ %cmp.not144, %if.else.lr.ph ], [ %cmp.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
-  %__len2.tr151 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub83, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
-  %__len1.tr150 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
-  %__middle.coerce.tr148 = phi ptr [ %__middle.coerce, %if.else.lr.ph ], [ %__second_cut.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
-  %__first.coerce.tr147 = phi ptr [ %__first.coerce, %if.else.lr.ph ], [ %retval.sroa.0.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
-  %cmp14.not = icmp sgt i64 %__len2.tr151, %__buffer_size
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__middle.coerce.tr148 to i64
+  %cmp.not151 = phi i1 [ %cmp.not143, %if.else.lr.ph ], [ %cmp.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
+  %__len2.tr150 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub83, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
+  %__len1.tr149 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
+  %__middle.coerce.tr147 = phi ptr [ %__middle.coerce, %if.else.lr.ph ], [ %__second_cut.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
+  %__first.coerce.tr146 = phi ptr [ %__first.coerce, %if.else.lr.ph ], [ %retval.sroa.0.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit ]
+  %cmp14.not = icmp sgt i64 %__len2.tr150, %__buffer_size
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__middle.coerce.tr147 to i64
   br i1 %cmp14.not, label %if.else29, label %if.then15
 
 if.then15:                                        ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i28 = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %tobool.not.i.i.i.i.i29 = icmp eq ptr %__middle.coerce.tr148, %__last.coerce
+  %tobool.not.i.i.i.i.i29 = icmp eq ptr %__middle.coerce.tr147, %__last.coerce
   br i1 %tobool.not.i.i.i.i.i29, label %if.end89, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit32.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit32.thread: ; preds = %if.then15
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr148, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
-  %cmp.i.i33163 = icmp eq ptr %__first.coerce.tr147, %__middle.coerce.tr148
-  br i1 %cmp.i.i33163, label %if.then.i.i.i.i.i.i, label %if.end7.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr147, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
+  %cmp.i.i33162 = icmp eq ptr %__first.coerce.tr146, %__middle.coerce.tr147
+  br i1 %cmp.i.i33162, label %if.then.i.i.i.i.i.i, label %if.end7.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit32.thread
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i28, 4
@@ -4229,12 +4229,12 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_c
   br label %if.end89
 
 if.end7.i:                                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit32.thread
-  %add.ptr.i.i.i.i.i31162 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i28
-  %incdec.ptr.i36 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i31162, i64 -16
+  %add.ptr.i.i.i.i.i31161 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i28
+  %incdec.ptr.i36 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i31161, i64 -16
   br label %while.body.i37.outer
 
 while.body.i37.outer:                             ; preds = %if.then12.i, %if.end7.i
-  %__last1.sroa.0.0.i.ph.pn = phi ptr [ %__middle.coerce.tr148, %if.end7.i ], [ %__last1.sroa.0.0.i.ph, %if.then12.i ]
+  %__last1.sroa.0.0.i.ph.pn = phi ptr [ %__middle.coerce.tr147, %if.end7.i ], [ %__last1.sroa.0.0.i.ph, %if.then12.i ]
   %__result.sroa.0.0.i.ph = phi ptr [ %__last.coerce, %if.end7.i ], [ %incdec.ptr.i11.i, %if.then12.i ]
   %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr.i36, %if.end7.i ], [ %__last2.addr.0.i, %if.then12.i ]
   %__last1.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %__last1.sroa.0.0.i.ph.pn, i64 -16
@@ -4276,7 +4276,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold3elf15AlphaGotSection5EntryENS_17
 if.then12.i:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i, %if.end.i.i.i.i.i42
   %incdec.ptr.i11.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i11.i, ptr noundef nonnull align 8 dereferenceable(16) %__last1.sroa.0.0.i.ph, i64 16, i1 false)
-  %cmp.i12.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce.tr147
+  %cmp.i12.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce.tr146
   br i1 %cmp.i12.i, label %if.then17.i, label %while.body.i37.outer, !llvm.loop !23
 
 if.then17.i:                                      ; preds = %if.then12.i
@@ -4305,11 +4305,11 @@ if.end31.i:                                       ; preds = %if.else26.i
   br label %while.body.i37, !llvm.loop !23
 
 if.else29:                                        ; preds = %if.else
-  br i1 %cmp.not152, label %if.then31, label %if.else46
+  br i1 %cmp.not151, label %if.then31, label %if.else46
 
 if.then31:                                        ; preds = %if.else29
-  %div = sdiv i64 %__len1.tr150, 2
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__first.coerce.tr147, i64 %div
+  %div = sdiv i64 %__len1.tr149, 2
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__first.coerce.tr146, i64 %div
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %cmp6.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
@@ -4327,7 +4327,7 @@ while.body.lr.ph.i:                               ; preds = %if.then31
 
 while.body.i58:                                   ; preds = %if.end.i62, %while.body.lr.ph.i
   %__len.08.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %if.end.i62 ]
-  %__first.sroa.0.07.i = phi ptr [ %__middle.coerce.tr148, %while.body.lr.ph.i ], [ %__first.sroa.0.1.i, %if.end.i62 ]
+  %__first.sroa.0.07.i = phi ptr [ %__middle.coerce.tr147, %while.body.lr.ph.i ], [ %__first.sroa.0.1.i, %if.end.i62 ]
   %shr.i = lshr i64 %__len.08.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__first.sroa.0.07.i, i64 %shr.i
   %26 = load ptr, ptr %add.ptr.i.i.i.i, align 8
@@ -4335,35 +4335,35 @@ while.body.i58:                                   ; preds = %if.end.i62, %while.
   %priority.i.i.i59 = getelementptr inbounds i8, ptr %27, i64 116
   %28 = load i32, ptr %priority.i.i.i59, align 4
   %cmp.eq.i.i.i.i.i.i60 = icmp eq i32 %28, %24
-  br i1 %cmp.eq.i.i.i.i.i.i60, label %if.end.i.i.i.i.i66, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i
+  br i1 %cmp.eq.i.i.i.i.i.i60, label %if.end.i.i.i.i.i65, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i
 
-if.end.i.i.i.i.i66:                               ; preds = %while.body.i58
-  %addend.i.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
-  %29 = load i64, ptr %addend.i.i.i67, align 8
+if.end.i.i.i.i.i65:                               ; preds = %while.body.i58
+  %addend.i.i.i66 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
+  %29 = load i64, ptr %addend.i.i.i66, align 8
   %30 = load i32, ptr %sym_idx7.i.i.i57, align 4
-  %sym_idx.i.i.i68 = getelementptr inbounds i8, ptr %26, i64 36
-  %31 = load i32, ptr %sym_idx.i.i.i68, align 4
-  %cmp.lt.i.i.i.i.i.i.i69 = icmp slt i32 %31, %30
-  %cmp.eq.i.i.i.i.i.i.i70 = icmp eq i32 %31, %30
+  %sym_idx.i.i.i67 = getelementptr inbounds i8, ptr %26, i64 36
+  %31 = load i32, ptr %sym_idx.i.i.i67, align 4
+  %cmp.lt.i.i.i.i.i.i.i68 = icmp slt i32 %31, %30
+  %cmp.eq.i.i.i.i.i.i.i69 = icmp eq i32 %31, %30
   %32 = icmp slt i64 %29, %25
-  %spec.select.i.i.i71 = select i1 %cmp.eq.i.i.i.i.i.i.i70, i1 %32, i1 %cmp.lt.i.i.i.i.i.i.i69
-  br i1 %spec.select.i.i.i71, label %if.then.i64, label %if.end.i62
+  %spec.select.i.i.i70 = select i1 %cmp.eq.i.i.i.i.i.i.i69, i1 %32, i1 %cmp.lt.i.i.i.i.i.i.i68
+  br i1 %spec.select.i.i.i70, label %if.then.i63, label %if.end.i62
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i: ; preds = %while.body.i58
   %cmp.lt.i.i.i.i.i.i61 = icmp ult i32 %28, %24
-  br i1 %cmp.lt.i.i.i.i.i.i61, label %if.then.i64, label %if.end.i62
+  br i1 %cmp.lt.i.i.i.i.i.i61, label %if.then.i63, label %if.end.i62
 
-if.then.i64:                                      ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %if.end.i.i.i.i.i66
-  %incdec.ptr.i.i65 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
+if.then.i63:                                      ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %if.end.i.i.i.i.i65
+  %incdec.ptr.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %33 = xor i64 %shr.i, -1
   %sub9.i = add nsw i64 %__len.08.i, %33
   br label %if.end.i62
 
-if.end.i62:                                       ; preds = %if.then.i64, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %if.end.i.i.i.i.i66
-  %__first.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i65, %if.then.i64 ], [ %__first.sroa.0.07.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %__first.sroa.0.07.i, %if.end.i.i.i.i.i66 ]
-  %__len.1.i = phi i64 [ %sub9.i, %if.then.i64 ], [ %shr.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %shr.i, %if.end.i.i.i.i.i66 ]
-  %cmp.i63 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i63, label %while.body.i58, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !4
+if.end.i62:                                       ; preds = %if.then.i63, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %if.end.i.i.i.i.i65
+  %__first.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i64, %if.then.i63 ], [ %__first.sroa.0.07.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %__first.sroa.0.07.i, %if.end.i.i.i.i.i65 ]
+  %__len.1.i = phi i64 [ %sub9.i, %if.then.i63 ], [ %shr.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %shr.i, %if.end.i.i.i.i.i65 ]
+  %cmp.i = icmp sgt i64 %__len.1.i, 0
+  br i1 %cmp.i, label %while.body.i58, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !4
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.loopexit: ; preds = %if.end.i62
   %.pre = ptrtoint ptr %__first.sroa.0.1.i to i64
@@ -4371,129 +4371,129 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.loopexit, %if.then31
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then31 ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %__middle.coerce.tr148, %if.then31 ]
+  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %__middle.coerce.tr147, %if.then31 ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   br label %if.end
 
 if.else46:                                        ; preds = %if.else29
-  %div47 = sdiv i64 %__len2.tr151, 2
-  %add.ptr.i.i.i78 = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__middle.coerce.tr148, i64 %div47
-  %sub.ptr.rhs.cast.i.i.i.i86 = ptrtoint ptr %__first.coerce.tr147 to i64
-  %sub.ptr.sub.i.i.i.i87 = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i86
-  %sub.ptr.div.i.i.i.i88 = ashr exact i64 %sub.ptr.sub.i.i.i.i87, 4
-  %cmp6.i89 = icmp sgt i64 %sub.ptr.div.i.i.i.i88, 0
-  br i1 %cmp6.i89, label %while.body.lr.ph.i91, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit
+  %div47 = sdiv i64 %__len2.tr150, 2
+  %add.ptr.i.i.i77 = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__middle.coerce.tr147, i64 %div47
+  %sub.ptr.rhs.cast.i.i.i.i85 = ptrtoint ptr %__first.coerce.tr146 to i64
+  %sub.ptr.sub.i.i.i.i86 = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i85
+  %sub.ptr.div.i.i.i.i87 = ashr exact i64 %sub.ptr.sub.i.i.i.i86, 4
+  %cmp6.i88 = icmp sgt i64 %sub.ptr.div.i.i.i.i87, 0
+  br i1 %cmp6.i88, label %while.body.lr.ph.i90, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit
 
-while.body.lr.ph.i91:                             ; preds = %if.else46
-  %34 = load ptr, ptr %add.ptr.i.i.i78, align 8
+while.body.lr.ph.i90:                             ; preds = %if.else46
+  %34 = load ptr, ptr %add.ptr.i.i.i77, align 8
   %35 = load ptr, ptr %34, align 8
-  %priority.i.i.i92 = getelementptr inbounds i8, ptr %35, i64 116
-  %36 = load i32, ptr %priority.i.i.i92, align 4
-  %addend.i.i.i93 = getelementptr inbounds i8, ptr %add.ptr.i.i.i78, i64 8
-  %37 = load i64, ptr %addend.i.i.i93, align 8
-  %sym_idx.i.i.i94 = getelementptr inbounds i8, ptr %34, i64 36
-  br label %while.body.i95
+  %priority.i.i.i91 = getelementptr inbounds i8, ptr %35, i64 116
+  %36 = load i32, ptr %priority.i.i.i91, align 4
+  %addend.i.i.i92 = getelementptr inbounds i8, ptr %add.ptr.i.i.i77, i64 8
+  %37 = load i64, ptr %addend.i.i.i92, align 8
+  %sym_idx.i.i.i93 = getelementptr inbounds i8, ptr %34, i64 36
+  br label %while.body.i94
 
-while.body.i95:                                   ; preds = %if.end.i110, %while.body.lr.ph.i91
-  %__len.08.i96 = phi i64 [ %sub.ptr.div.i.i.i.i88, %while.body.lr.ph.i91 ], [ %__len.1.i112, %if.end.i110 ]
-  %__first.sroa.0.07.i97 = phi ptr [ %__first.coerce.tr147, %while.body.lr.ph.i91 ], [ %__first.sroa.0.1.i111, %if.end.i110 ]
-  %shr.i98 = lshr i64 %__len.08.i96, 1
-  %add.ptr.i.i.i.i101 = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__first.sroa.0.07.i97, i64 %shr.i98
-  %38 = load ptr, ptr %add.ptr.i.i.i.i101, align 8
+while.body.i94:                                   ; preds = %if.end.i109, %while.body.lr.ph.i90
+  %__len.08.i95 = phi i64 [ %sub.ptr.div.i.i.i.i87, %while.body.lr.ph.i90 ], [ %__len.1.i111, %if.end.i109 ]
+  %__first.sroa.0.07.i96 = phi ptr [ %__first.coerce.tr146, %while.body.lr.ph.i90 ], [ %__first.sroa.0.1.i110, %if.end.i109 ]
+  %shr.i97 = lshr i64 %__len.08.i95, 1
+  %add.ptr.i.i.i.i100 = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__first.sroa.0.07.i96, i64 %shr.i97
+  %38 = load ptr, ptr %add.ptr.i.i.i.i100, align 8
   %39 = load ptr, ptr %38, align 8
-  %priority5.i.i.i104 = getelementptr inbounds i8, ptr %39, i64 116
-  %40 = load i32, ptr %priority5.i.i.i104, align 4
-  %cmp.eq.i.i.i.i.i.i105 = icmp eq i32 %36, %40
-  br i1 %cmp.eq.i.i.i.i.i.i105, label %if.end.i.i.i.i.i114, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
+  %priority5.i.i.i103 = getelementptr inbounds i8, ptr %39, i64 116
+  %40 = load i32, ptr %priority5.i.i.i103, align 4
+  %cmp.eq.i.i.i.i.i.i104 = icmp eq i32 %36, %40
+  br i1 %cmp.eq.i.i.i.i.i.i104, label %if.end.i.i.i.i.i113, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
 
-if.end.i.i.i.i.i114:                              ; preds = %while.body.i95
-  %addend8.i.i.i115 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i101, i64 8
-  %41 = load i64, ptr %addend8.i.i.i115, align 8
-  %sym_idx7.i.i.i116 = getelementptr inbounds i8, ptr %38, i64 36
-  %42 = load i32, ptr %sym_idx7.i.i.i116, align 4
-  %43 = load i32, ptr %sym_idx.i.i.i94, align 4
-  %cmp.lt.i.i.i.i.i.i.i117 = icmp slt i32 %43, %42
-  %cmp.eq.i.i.i.i.i.i.i118 = icmp eq i32 %43, %42
+if.end.i.i.i.i.i113:                              ; preds = %while.body.i94
+  %addend8.i.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i100, i64 8
+  %41 = load i64, ptr %addend8.i.i.i114, align 8
+  %sym_idx7.i.i.i115 = getelementptr inbounds i8, ptr %38, i64 36
+  %42 = load i32, ptr %sym_idx7.i.i.i115, align 4
+  %43 = load i32, ptr %sym_idx.i.i.i93, align 4
+  %cmp.lt.i.i.i.i.i.i.i116 = icmp slt i32 %43, %42
+  %cmp.eq.i.i.i.i.i.i.i117 = icmp eq i32 %43, %42
   %44 = icmp slt i64 %37, %41
-  %spec.select.i.i.i119 = select i1 %cmp.eq.i.i.i.i.i.i.i118, i1 %44, i1 %cmp.lt.i.i.i.i.i.i.i117
-  br i1 %spec.select.i.i.i119, label %if.end.i110, label %if.else.i107
+  %spec.select.i.i.i118 = select i1 %cmp.eq.i.i.i.i.i.i.i117, i1 %44, i1 %cmp.lt.i.i.i.i.i.i.i116
+  br i1 %spec.select.i.i.i118, label %if.end.i109, label %if.else.i106
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %while.body.i95
-  %cmp.lt.i.i.i.i.i.i106 = icmp ult i32 %36, %40
-  br i1 %cmp.lt.i.i.i.i.i.i106, label %if.end.i110, label %if.else.i107
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %while.body.i94
+  %cmp.lt.i.i.i.i.i.i105 = icmp ult i32 %36, %40
+  br i1 %cmp.lt.i.i.i.i.i.i105, label %if.end.i109, label %if.else.i106
 
-if.else.i107:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %if.end.i.i.i.i.i114
-  %incdec.ptr.i.i108 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i101, i64 16
-  %45 = xor i64 %shr.i98, -1
-  %sub9.i109 = add nsw i64 %__len.08.i96, %45
-  br label %if.end.i110
+if.else.i106:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %if.end.i.i.i.i.i113
+  %incdec.ptr.i.i107 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i100, i64 16
+  %45 = xor i64 %shr.i97, -1
+  %sub9.i108 = add nsw i64 %__len.08.i95, %45
+  br label %if.end.i109
 
-if.end.i110:                                      ; preds = %if.else.i107, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %if.end.i.i.i.i.i114
-  %__first.sroa.0.1.i111 = phi ptr [ %__first.sroa.0.07.i97, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %incdec.ptr.i.i108, %if.else.i107 ], [ %__first.sroa.0.07.i97, %if.end.i.i.i.i.i114 ]
-  %__len.1.i112 = phi i64 [ %shr.i98, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %sub9.i109, %if.else.i107 ], [ %shr.i98, %if.end.i.i.i.i.i114 ]
-  %cmp.i113 = icmp sgt i64 %__len.1.i112, 0
-  br i1 %cmp.i113, label %while.body.i95, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !17
+if.end.i109:                                      ; preds = %if.else.i106, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %if.end.i.i.i.i.i113
+  %__first.sroa.0.1.i110 = phi ptr [ %__first.sroa.0.07.i96, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %incdec.ptr.i.i107, %if.else.i106 ], [ %__first.sroa.0.07.i96, %if.end.i.i.i.i.i113 ]
+  %__len.1.i111 = phi i64 [ %shr.i97, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4mold3elf15AlphaGotSection5EntryENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %sub9.i108, %if.else.i106 ], [ %shr.i97, %if.end.i.i.i.i.i113 ]
+  %cmp.i112 = icmp sgt i64 %__len.1.i111, 0
+  br i1 %cmp.i112, label %while.body.i94, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !17
 
-_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit: ; preds = %if.end.i110
-  %.pre160 = ptrtoint ptr %__first.sroa.0.1.i111 to i64
+_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit: ; preds = %if.end.i109
+  %.pre159 = ptrtoint ptr %__first.sroa.0.1.i110 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit, %if.else46
-  %sub.ptr.lhs.cast.i.i.i120.pre-phi = phi i64 [ %.pre160, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i86, %if.else46 ]
-  %__first.sroa.0.0.lcssa.i90 = phi ptr [ %__first.sroa.0.1.i111, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %__first.coerce.tr147, %if.else46 ]
-  %sub.ptr.sub.i.i.i122 = sub i64 %sub.ptr.lhs.cast.i.i.i120.pre-phi, %sub.ptr.rhs.cast.i.i.i.i86
-  %sub.ptr.div.i.i.i123 = ashr exact i64 %sub.ptr.sub.i.i.i122, 4
+  %sub.ptr.lhs.cast.i.i.i119.pre-phi = phi i64 [ %.pre159, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i85, %if.else46 ]
+  %__first.sroa.0.0.lcssa.i89 = phi ptr [ %__first.sroa.0.1.i110, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %__first.coerce.tr146, %if.else46 ]
+  %sub.ptr.sub.i.i.i121 = sub i64 %sub.ptr.lhs.cast.i.i.i119.pre-phi, %sub.ptr.rhs.cast.i.i.i.i85
+  %sub.ptr.div.i.i.i122 = ashr exact i64 %sub.ptr.sub.i.i.i121, 4
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit
-  %__first_cut.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ], [ %__first.sroa.0.0.lcssa.i90, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit ]
-  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ], [ %add.ptr.i.i.i78, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit ]
+  %__first_cut.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ], [ %__first.sroa.0.0.lcssa.i89, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit ]
+  %__second_cut.sroa.0.0 = phi ptr [ %__first.sroa.0.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ], [ %add.ptr.i.i.i77, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ], [ %div47, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit ]
-  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ], [ %sub.ptr.div.i.i.i123, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit ]
-  %sub = sub nsw i64 %__len1.tr150, %__len11.0
-  %cmp.i124 = icmp sle i64 %sub, %__len22.0
+  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ], [ %sub.ptr.div.i.i.i122, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_less_iterEET_SD_SD_RKT0_T1_.exit ]
+  %sub = sub nsw i64 %__len1.tr149, %__len11.0
+  %cmp.i123 = icmp sle i64 %sub, %__len22.0
   %cmp3.not.i = icmp sgt i64 %__len22.0, %__buffer_size
-  %or.cond.i = or i1 %cmp3.not.i, %cmp.i124
-  br i1 %or.cond.i, label %if.else20.i, label %if.then.i125
+  %or.cond.i = or i1 %cmp3.not.i, %cmp.i123
+  br i1 %or.cond.i, label %if.else20.i, label %if.then.i124
 
-if.then.i125:                                     ; preds = %if.end
+if.then.i124:                                     ; preds = %if.end
   %tobool.not.i = icmp eq i64 %__len22.0, 0
   br i1 %tobool.not.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.then.i125
-  %sub.ptr.lhs.cast.i.i.i.i.i.i126 = ptrtoint ptr %__second_cut.sroa.0.0 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i127 = ptrtoint ptr %__middle.coerce.tr148 to i64
-  %sub.ptr.sub.i.i.i.i.i.i128 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i126, %sub.ptr.rhs.cast.i.i.i.i.i.i127
-  %tobool.not.i.i.i.i.i.i129 = icmp eq ptr %__second_cut.sroa.0.0, %__middle.coerce.tr148
-  br i1 %tobool.not.i.i.i.i.i.i129, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i, label %if.then.i.i.i.i.i.i130
+if.then4.i:                                       ; preds = %if.then.i124
+  %sub.ptr.lhs.cast.i.i.i.i.i.i125 = ptrtoint ptr %__second_cut.sroa.0.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i126 = ptrtoint ptr %__middle.coerce.tr147 to i64
+  %sub.ptr.sub.i.i.i.i.i.i127 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i125, %sub.ptr.rhs.cast.i.i.i.i.i.i126
+  %tobool.not.i.i.i.i.i.i128 = icmp eq ptr %__second_cut.sroa.0.0, %__middle.coerce.tr147
+  br i1 %tobool.not.i.i.i.i.i.i128, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i, label %if.then.i.i.i.i.i.i129
 
-if.then.i.i.i.i.i.i130:                           ; preds = %if.then4.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr148, i64 %sub.ptr.sub.i.i.i.i.i.i128, i1 false)
+if.then.i.i.i.i.i.i129:                           ; preds = %if.then4.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce.tr147, i64 %sub.ptr.sub.i.i.i.i.i.i127, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i.i130, %if.then4.i
-  %tobool.not.i.i.i.i.i13.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce.tr148
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i.i129, %if.then4.i
+  %tobool.not.i.i.i.i.i13.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce.tr147
   br i1 %tobool.not.i.i.i.i.i13.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %if.then.i.i.i.i.i14.i
 
 if.then.i.i.i.i.i14.i:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
   %sub.ptr.rhs.cast.i.i.i.i.i11.i = ptrtoint ptr %__first_cut.sroa.0.0 to i64
-  %sub.ptr.sub.i.i.i.i.i12.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i127, %sub.ptr.rhs.cast.i.i.i.i.i11.i
-  %sub.ptr.div.i.i.i.i.i.i131 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i12.i, 4
-  %.pre.i.i.i.i.i.i132 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i131
-  %add.ptr.i.i.i.i.i15.i = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__second_cut.sroa.0.0, i64 %.pre.i.i.i.i.i.i132
+  %sub.ptr.sub.i.i.i.i.i12.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i126, %sub.ptr.rhs.cast.i.i.i.i.i11.i
+  %sub.ptr.div.i.i.i.i.i.i130 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i12.i, 4
+  %.pre.i.i.i.i.i.i131 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i130
+  %add.ptr.i.i.i.i.i15.i = getelementptr inbounds %"struct.mold::elf::AlphaGotSection::Entry", ptr %__second_cut.sroa.0.0, i64 %.pre.i.i.i.i.i.i131
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i15.i, ptr align 8 %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i12.i, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i14.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit.i
-  br i1 %tobool.not.i.i.i.i.i.i129, label %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i133, label %if.then.i.i.i.i.i20.i
+  br i1 %tobool.not.i.i.i.i.i.i128, label %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i132, label %if.then.i.i.i.i.i20.i
 
 if.then.i.i.i.i.i20.i:                            ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.sroa.0.0, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i128, i1 false)
-  br label %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i133
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.sroa.0.0, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i127, i1 false)
+  br label %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i132
 
-_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i133: ; preds = %if.then.i.i.i.i.i20.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
-  %add.ptr.i.i.i.i.i21.i = getelementptr inbounds i8, ptr %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i.i128
+_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i132: ; preds = %if.then.i.i.i.i.i20.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
+  %add.ptr.i.i.i.i.i21.i = getelementptr inbounds i8, ptr %__first_cut.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i.i127
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
 
 if.else20.i:                                      ; preds = %if.end
@@ -4501,14 +4501,14 @@ if.else20.i:                                      ; preds = %if.end
   br i1 %cmp21.not.i, label %if.else44.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.else20.i
-  %tobool23.not.i = icmp eq i64 %__len11.0, %__len1.tr150
+  %tobool23.not.i = icmp eq i64 %__len11.0, %__len1.tr149
   br i1 %tobool23.not.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then22.i
-  %sub.ptr.lhs.cast.i.i.i.i.i22.i = ptrtoint ptr %__middle.coerce.tr148 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i22.i = ptrtoint ptr %__middle.coerce.tr147 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i23.i = ptrtoint ptr %__first_cut.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i.i.i24.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i22.i, %sub.ptr.rhs.cast.i.i.i.i.i23.i
-  %tobool.not.i.i.i.i.i25.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce.tr148
+  %tobool.not.i.i.i.i.i25.i = icmp eq ptr %__first_cut.sroa.0.0, %__middle.coerce.tr147
   br i1 %tobool.not.i.i.i.i.i25.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28.i, label %if.then.i.i.i.i.i26.i
 
 if.then.i.i.i.i.i26.i:                            ; preds = %if.then24.i
@@ -4516,13 +4516,13 @@ if.then.i.i.i.i.i26.i:                            ; preds = %if.then24.i
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28.i: ; preds = %if.then.i.i.i.i.i26.i, %if.then24.i
-  %tobool.not.i.i.i.i.i32.i = icmp eq ptr %__second_cut.sroa.0.0, %__middle.coerce.tr148
+  %tobool.not.i.i.i.i.i32.i = icmp eq ptr %__second_cut.sroa.0.0, %__middle.coerce.tr147
   br i1 %tobool.not.i.i.i.i.i32.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, label %if.then.i.i.i.i.i33.i
 
 if.then.i.i.i.i.i33.i:                            ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28.i
   %sub.ptr.lhs.cast.i.i.i.i.i29.i = ptrtoint ptr %__second_cut.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i.i.i31.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i29.i, %sub.ptr.lhs.cast.i.i.i.i.i22.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.sroa.0.0, ptr align 8 %__middle.coerce.tr148, i64 %sub.ptr.sub.i.i.i.i.i31.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__first_cut.sroa.0.0, ptr align 8 %__middle.coerce.tr147, i64 %sub.ptr.sub.i.i.i.i.i31.i, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %if.then.i.i.i.i.i33.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit28.i
@@ -4540,13 +4540,13 @@ _ZSt13move_backwardIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_ite
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
 
 if.else44.i:                                      ; preds = %if.else20.i
-  %call.i.i = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_St26random_access_iterator_tag(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr148, ptr %__second_cut.sroa.0.0)
+  %call.i.i = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS6_SaIS6_EEEEEET_SC_SC_SC_St26random_access_iterator_tag(ptr %__first_cut.sroa.0.0, ptr %__middle.coerce.tr147, ptr %__second_cut.sroa.0.0)
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit: ; preds = %if.then.i125, %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i133, %if.then22.i, %_ZSt13move_backwardIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i, %if.else44.i
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i.i.i.i21.i, %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i133 ], [ %add.ptr2.i.i.i.i.i43.i, %_ZSt13move_backwardIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i ], [ %call.i.i, %if.else44.i ], [ %__first_cut.sroa.0.0, %if.then.i125 ], [ %__second_cut.sroa.0.0, %if.then22.i ]
-  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr %__first.coerce.tr147, ptr %__first_cut.sroa.0.0, ptr %retval.sroa.0.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
-  %sub83 = sub nsw i64 %__len2.tr151, %__len22.0
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEES6_lET_SB_SB_SB_T1_SC_T0_SC_.exit: ; preds = %if.then.i124, %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i132, %if.then22.i, %_ZSt13move_backwardIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i, %if.else44.i
+  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i.i.i.i21.i, %_ZSt4moveIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i132 ], [ %add.ptr2.i.i.i.i.i43.i, %_ZSt13move_backwardIPN4mold3elf15AlphaGotSection5EntryEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.i ], [ %call.i.i, %if.else44.i ], [ %__first_cut.sroa.0.0, %if.then.i124 ], [ %__second_cut.sroa.0.0, %if.then22.i ]
+  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold3elf15AlphaGotSection5EntryESt6vectorIS5_SaIS5_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr %__first.coerce.tr146, ptr %__first_cut.sroa.0.0, ptr %retval.sroa.0.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size)
+  %sub83 = sub nsw i64 %__len2.tr150, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub83
   %cmp3.not = icmp sgt i64 %sub, %__buffer_size
   %or.cond = or i1 %cmp3.not, %cmp.not
