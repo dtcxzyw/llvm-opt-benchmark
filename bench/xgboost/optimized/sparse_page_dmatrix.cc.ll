@@ -26628,7 +26628,7 @@ define linkonce_odr void @_ZN7xgboost4data16SparsePageSource5ResetEv(ptr noundef
   %5 = getelementptr inbounds i8, ptr %0, i64 496
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %18, label %7
+  br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -26638,74 +26638,74 @@ define linkonce_odr void @_ZN7xgboost4data16SparsePageSource5ResetEv(ptr noundef
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   invoke void %11(ptr noundef %12)
-          to label %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit unwind label %16
+          to label %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit unwind label %17
 
 _ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit: ; preds = %7
   %13 = load ptr, ptr %3, align 8
   %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #15
-  br label %18
+  br label %19
 
-common.resume:                                    ; preds = %31, %16
-  %.sink.in = phi ptr [ %2, %31 ], [ %3, %16 ]
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %17, %16 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink) #15
+common.resume:                                    ; preds = %32, %17
+  %.sink2 = phi ptr [ %2, %32 ], [ %3, %17 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %18, %17 ]
+  %15 = load ptr, ptr %.sink2, align 8
+  %16 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #15
   resume { ptr, i32 } %common.resume.op
 
-16:                                               ; preds = %7
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %7
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-18:                                               ; preds = %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit, %1
+19:                                               ; preds = %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN7xgboost4data12TryLockGuardC2ERSt5mutex(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 264
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 280
-  %22 = load i32, ptr %21, align 8
-  store i32 0, ptr %21, align 8
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZN7xgboost4data20SparsePageSourceImplINS_10SparsePageENS0_25DefaultFormatStreamPolicyIS2_NS0_19DefaultFormatPolicyEEEE5ResetEv.exit, label %23
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @_ZN7xgboost4data12TryLockGuardC2ERSt5mutex(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %20)
+  %21 = getelementptr inbounds i8, ptr %0, i64 264
+  store i8 0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 280
+  %23 = load i32, ptr %22, align 8
+  store i32 0, ptr %22, align 8
+  %.not.i = icmp eq i32 %23, 0
+  br i1 %.not.i, label %_ZN7xgboost4data20SparsePageSourceImplINS_10SparsePageENS0_25DefaultFormatStreamPolicyIS2_NS0_19DefaultFormatPolicyEEEE5ResetEv.exit, label %24
 
-23:                                               ; preds = %18
-  %24 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
-          to label %25 unwind label %31
+24:                                               ; preds = %19
+  %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
+          to label %26 unwind label %32
 
-25:                                               ; preds = %23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false), !noalias !231
-  %26 = getelementptr inbounds i8, ptr %0, i64 312
-  %27 = load ptr, ptr %26, align 8
-  store ptr %24, ptr %26, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %27, null
+26:                                               ; preds = %24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false), !noalias !231
+  %27 = getelementptr inbounds i8, ptr %0, i64 312
+  %28 = load ptr, ptr %27, align 8
+  store ptr %25, ptr %27, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i, label %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EEaSEOSB_.exit.i
 
-_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EEaSEOSB_.exit.i: ; preds = %25
-  call void @_ZNKSt14default_deleteISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EEEclEPS8_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull %27)
+_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EEaSEOSB_.exit.i: ; preds = %26
+  call void @_ZNKSt14default_deleteISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EEEclEPS8_(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull %28)
   br label %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i
 
-_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i: ; preds = %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EEaSEOSB_.exit.i, %25
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(472) %0)
-          to label %_ZN7xgboost4data20SparsePageSourceImplINS_10SparsePageENS0_25DefaultFormatStreamPolicyIS2_NS0_19DefaultFormatPolicyEEEE5ResetEv.exit unwind label %31
+_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i: ; preds = %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EEaSEOSB_.exit.i, %26
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %31 = load ptr, ptr %30, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(472) %0)
+          to label %_ZN7xgboost4data20SparsePageSourceImplINS_10SparsePageENS0_25DefaultFormatStreamPolicyIS2_NS0_19DefaultFormatPolicyEEEE5ResetEv.exit unwind label %32
 
-31:                                               ; preds = %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i, %23
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i, %24
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN7xgboost4data20SparsePageSourceImplINS_10SparsePageENS0_25DefaultFormatStreamPolicyIS2_NS0_19DefaultFormatPolicyEEEE5ResetEv.exit: ; preds = %18, %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i
-  %33 = load ptr, ptr %2, align 8
-  %34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #15
+_ZN7xgboost4data20SparsePageSourceImplINS_10SparsePageENS0_25DefaultFormatStreamPolicyIS2_NS0_19DefaultFormatPolicyEEEE5ResetEv.exit: ; preds = %19, %_ZNSt10unique_ptrISt6vectorISt6futureISt10shared_ptrIN7xgboost10SparsePageEEESaIS6_EESt14default_deleteIS8_EED2Ev.exit.i
+  %34 = load ptr, ptr %2, align 8
+  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @_ZN7xgboost4data12TryLockGuardC2ERSt5mutex(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(40) %19)
-  %35 = getelementptr inbounds i8, ptr %0, i64 504
-  store i64 0, ptr %35, align 8
-  %36 = load ptr, ptr %4, align 8
-  %37 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
+  call void @_ZN7xgboost4data12TryLockGuardC2ERSt5mutex(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(40) %20)
+  %36 = getelementptr inbounds i8, ptr %0, i64 504
+  store i64 0, ptr %36, align 8
+  %37 = load ptr, ptr %4, align 8
+  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #15
   ret void
 }
 

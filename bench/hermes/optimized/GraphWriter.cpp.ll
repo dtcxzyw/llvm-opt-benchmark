@@ -456,8 +456,8 @@ entry:
   %ref.tmp87 = alloca %"class.llvh::StringRef", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !15
   %tobool.not.i.i = icmp eq ptr %FilenameRef.coerce0, null
-  %ref.tmp87.sink976.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
-  %ref.tmp87.sink976.sroa.gep979 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
+  %ref.tmp87.sink977.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
+  %ref.tmp87.sink977.sroa.gep980 = getelementptr inbounds i8, ptr %ref.tmp84, i64 8
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -660,10 +660,10 @@ if.end50:                                         ; preds = %_ZN4llvh9StringRefC
 
 switch.lookup:                                    ; preds = %if.end50, %_ZN4llvh9StringRefC2EPKc.exit192
   %10 = sext i32 %program to i64
-  %switch.gep977 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %10
-  %switch.load978 = load ptr, ptr %switch.gep977, align 8
-  %call.i201 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load978) #16
-  %call5581 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvh9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %S, ptr nonnull %switch.load978, i64 %call.i201, ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath)
+  %switch.gep978 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %10
+  %switch.load979 = load ptr, ptr %switch.gep978, align 8
+  %call.i201 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load979) #16
+  %call5581 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvh9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %S, ptr nonnull %switch.load979, i64 %call.i201, ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath)
   br i1 %call5581, label %for.body.i.i.i.i.i.i474.preheader, label %_ZN4llvh9StringRefC2EPKc.exit212
 
 _ZN4llvh9StringRefC2EPKc.exit212:                 ; preds = %switch.lookup
@@ -1126,29 +1126,24 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit757: ; preds = %if.the
   %_M_finish.i.i411.sink = phi ptr [ %_M_finish.i.i411, %if.then.i.i722 ], [ %_M_end_of_storage.i.i412, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i754 ]
   %incdec.ptr.i.i723 = getelementptr inbounds i8, ptr %.sink, i64 16
   store ptr %incdec.ptr.i.i723, ptr %_M_finish.i.i411.sink, align 8
-  br i1 %call42, label %sw.bb85, label %sw.bb83
-
-sw.bb83:                                          ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit757
-  %call.i439 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #15
-  store ptr %call.i439, ptr %ref.tmp84, align 8
-  br label %sw.epilog
+  br i1 %call42, label %sw.bb85, label %sw.epilog
 
 sw.bb85:                                          ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit757
   store ptr @.str.47, ptr %ref.tmp86, align 8
   %Length.i276 = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
   store i64 9, ptr %Length.i276, align 8
   call void @_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %args59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp86)
-  %call.i445 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #15
-  store ptr %call.i445, ptr %ref.tmp87, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb85, %sw.bb83
-  %ref.tmp87.sink976.sroa.phi = phi ptr [ %ref.tmp87.sink976.sroa.gep, %sw.bb85 ], [ %ref.tmp87.sink976.sroa.gep979, %sw.bb83 ]
-  %ref.tmp87.sink976 = phi ptr [ %ref.tmp87, %sw.bb85 ], [ %ref.tmp84, %sw.bb83 ]
-  %wait.addr.0.shrunk = phi i1 [ %wait, %sw.bb85 ], [ false, %sw.bb83 ]
+sw.epilog:                                        ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit757, %sw.bb85
+  %ref.tmp87.sink977.sroa.phi = phi ptr [ %ref.tmp87.sink977.sroa.gep, %sw.bb85 ], [ %ref.tmp87.sink977.sroa.gep980, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit757 ]
+  %ref.tmp87.sink977 = phi ptr [ %ref.tmp87, %sw.bb85 ], [ %ref.tmp84, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit757 ]
+  %wait.addr.0.shrunk = phi i1 [ %wait, %sw.bb85 ], [ false, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit757 ]
+  %call.i445 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #15
+  store ptr %call.i445, ptr %ref.tmp87.sink977, align 8
   %call2.i447 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #15
-  store i64 %call2.i447, ptr %ref.tmp87.sink976.sroa.phi, align 8
-  call void @_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %args59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87.sink976)
+  store i64 %call2.i447, ptr %ref.tmp87.sink977.sroa.phi, align 8
+  call void @_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %args59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87.sink977)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg) #15
   %call.i457 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #15
   %call2.i459 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #15

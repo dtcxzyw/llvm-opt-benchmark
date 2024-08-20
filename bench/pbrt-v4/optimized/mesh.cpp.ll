@@ -5361,12 +5361,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %37 to i64
   %cmp162.not = icmp ugt i64 %sub.ptr.div.i, %conv
   %or.cond138 = select i1 %cmp158, i1 %cmp162.not, i1 false
-  br i1 %or.cond138, label %for.cond, label %if.then163
-
-if.then163:                                       ; preds = %for.body
-  %conv166 = trunc i64 %sub.ptr.div.i to i32
-  store i32 %conv166, ptr %ref.tmp, align 4
-  br label %if.then189.invoke
+  br i1 %or.cond138, label %for.cond, label %if.then189.invoke
 
 for.end:                                          ; preds = %for.cond, %invoke.cont150
   %38 = load ptr, ptr %quadIndices148, align 8
@@ -5397,38 +5392,36 @@ for.body180:                                      ; preds = %for.body180.lr.ph, 
   %conv185 = zext nneg i32 %42 to i64
   %cmp188.not = icmp ugt i64 %sub.ptr.div.i117, %conv185
   %or.cond139 = select i1 %cmp183, i1 %cmp188.not, i1 false
-  br i1 %or.cond139, label %for.cond178, label %if.then189
+  br i1 %or.cond139, label %for.cond178, label %if.then189.invoke
 
-if.then189:                                       ; preds = %for.body180
-  %conv193 = trunc i64 %sub.ptr.div.i117 to i32
-  store i32 %conv193, ptr %ref.tmp190, align 4
-  br label %if.then189.invoke
-
-if.then189.invoke:                                ; preds = %if.then163, %if.then189
-  %43 = phi ptr [ %idx181, %if.then189 ], [ %idx, %if.then163 ]
-  %44 = phi ptr [ %ref.tmp190, %if.then189 ], [ %ref.tmp, %if.then163 ]
-  invoke void @_ZN4pbrt9ErrorExitIJRiiEEEvPKcDpOT_(ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %44) #22
+if.then189.invoke:                                ; preds = %for.body, %for.body180
+  %sub.ptr.div.i.sink = phi i64 [ %sub.ptr.div.i117, %for.body180 ], [ %sub.ptr.div.i, %for.body ]
+  %ref.tmp.sink = phi ptr [ %ref.tmp190, %for.body180 ], [ %ref.tmp, %for.body ]
+  %43 = phi ptr [ %idx181, %for.body180 ], [ %idx, %for.body ]
+  %conv166 = trunc i64 %sub.ptr.div.i.sink to i32
+  store i32 %conv166, ptr %ref.tmp.sink, align 4
+  invoke void @_ZN4pbrt9ErrorExitIJRiiEEEvPKcDpOT_(ptr noundef nonnull @.str.60, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.sink) #22
           to label %if.then189.cont unwind label %lpad121
 
 if.then189.cont:                                  ; preds = %if.then189.invoke
   unreachable
 
 for.end198:                                       ; preds = %for.cond178, %for.end
-  %45 = load ptr, ptr %quadIndices, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %45, null
+  %44 = load ptr, ptr %quadIndices, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end198
-  call void @_ZdlPv(ptr noundef nonnull %45) #25
+  call void @_ZdlPv(ptr noundef nonnull %44) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %for.end198
-  %46 = load ptr, ptr %triIndices.i, align 8
-  %tobool.not.i.i.i1.i = icmp eq ptr %46, null
+  %45 = load ptr, ptr %triIndices.i, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN4pbrt19FaceCallbackContextD2Ev.exit, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %46) #25
+  call void @_ZdlPv(ptr noundef nonnull %45) #25
   br label %_ZN4pbrt19FaceCallbackContextD2Ev.exit
 
 _ZN4pbrt19FaceCallbackContextD2Ev.exit:           ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %if.then.i.i.i2.i

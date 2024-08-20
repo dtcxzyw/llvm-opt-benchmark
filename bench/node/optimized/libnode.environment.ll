@@ -2277,34 +2277,28 @@ if.then87:                                        ; preds = %if.then85
   call void @_ZN4node11Environment19InitializeInspectorESt10unique_ptrINS_9inspector21ParentInspectorHandleESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(2872) %call14, ptr noundef nonnull %agg.tmp88) #12
   %8 = load ptr, ptr %agg.tmp88, align 8
   %cmp.not.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i
-
-_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i: ; preds = %if.then87
-  call void @_ZN4node9inspector21ParentInspectorHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #12
-  call void @_ZdlPv(ptr noundef nonnull %8) #23
-  br label %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.then87, %_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i
-  store ptr null, ptr %agg.tmp88, align 8
-  br label %if.end92
+  br i1 %cmp.not.i, label %if.end92.sink.split, label %if.end92.sink.split.sink.split
 
 if.else:                                          ; preds = %if.then85
   store ptr null, ptr %agg.tmp90, align 8
   call void @_ZN4node11Environment19InitializeInspectorESt10unique_ptrINS_9inspector21ParentInspectorHandleESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(2872) %call14, ptr noundef nonnull %agg.tmp90) #12
   %9 = load ptr, ptr %agg.tmp90, align 8
   %cmp.not.i30 = icmp eq ptr %9, null
-  br i1 %cmp.not.i30, label %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit33, label %_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i31
+  br i1 %cmp.not.i30, label %if.end92.sink.split, label %if.end92.sink.split.sink.split
 
-_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i31: ; preds = %if.else
-  call void @_ZN4node9inspector21ParentInspectorHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #12
-  call void @_ZdlPv(ptr noundef nonnull %9) #23
-  br label %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit33
+if.end92.sink.split.sink.split:                   ; preds = %if.else, %if.then87
+  %.sink35 = phi ptr [ %8, %if.then87 ], [ %9, %if.else ]
+  %agg.tmp88.sink.ph = phi ptr [ %agg.tmp88, %if.then87 ], [ %agg.tmp90, %if.else ]
+  call void @_ZN4node9inspector21ParentInspectorHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink35) #12
+  call void @_ZdlPv(ptr noundef nonnull %.sink35) #23
+  br label %if.end92.sink.split
 
-_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit33: ; preds = %if.else, %_ZNKSt14default_deleteIN4node9inspector21ParentInspectorHandleEEclEPS2_.exit.i31
-  store ptr null, ptr %agg.tmp90, align 8
+if.end92.sink.split:                              ; preds = %if.end92.sink.split.sink.split, %if.else, %if.then87
+  %agg.tmp88.sink = phi ptr [ %agg.tmp88, %if.then87 ], [ %agg.tmp90, %if.else ], [ %agg.tmp88.sink.ph, %if.end92.sink.split.sink.split ]
+  store ptr null, ptr %agg.tmp88.sink, align 8
   br label %if.end92
 
-if.end92:                                         ; preds = %if.end74, %land.lhs.true.i, %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev.exit33, %_ZNK4node11Environment23should_create_inspectorEv.exit
+if.end92:                                         ; preds = %if.end92.sink.split, %if.end74, %land.lhs.true.i, %_ZNK4node11Environment23should_create_inspectorEv.exit
   br i1 %cmp.i109, label %cleanup105, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end92

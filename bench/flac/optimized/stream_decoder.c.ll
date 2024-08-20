@@ -6226,61 +6226,46 @@ if.end9.i191.i:                                   ; preds = %if.end3.i187.i
   %148 = load ptr, ptr %input.i192.i, align 8
   %call11.i193.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %148) #21
   %tobool12.not.i194.i = icmp eq i32 %call11.i193.i, 0
-  br i1 %tobool12.not.i194.i, label %return.sink.split.sink.split.i69, label %FLAC__stream_decoder_get_decode_position.exit201.i
-
-FLAC__stream_decoder_get_decode_position.exit201.i: ; preds = %if.end9.i191.i
-  %149 = load ptr, ptr %private_, align 8
-  %input.i.i196.i = getelementptr inbounds i8, ptr %149, i64 88
-  %150 = load ptr, ptr %input.i.i196.i, align 8
-  %call.i.i197.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %150) #21
-  %div1.i.i198.i = lshr i32 %call.i.i197.i, 3
-  %conv.i199.i = zext nneg i32 %div1.i.i198.i to i64
-  %151 = load i64, ptr %upper_bound.i, align 8
-  %sub.i200.i = sub i64 %151, %conv.i199.i
-  store i64 %sub.i200.i, ptr %upper_bound.i, align 8
-  br label %if.end326.i
+  br i1 %tobool12.not.i194.i, label %return.sink.split.sink.split.i69, label %if.end326.i
 
 if.else308.i:                                     ; preds = %if.end287.i
   br i1 %tobool.not.i182.i, label %if.end.i205.i, label %return.sink.split.sink.split.i69
 
 if.end.i205.i:                                    ; preds = %if.else308.i
   %tell_callback.i206.i = getelementptr inbounds i8, ptr %131, i64 24
-  %152 = load ptr, ptr %tell_callback.i206.i, align 8
-  %cmp.i207.i = icmp eq ptr %152, null
+  %149 = load ptr, ptr %tell_callback.i206.i, align 8
+  %cmp.i207.i = icmp eq ptr %149, null
   br i1 %cmp.i207.i, label %return.sink.split.sink.split.i69, label %if.end3.i208.i
 
 if.end3.i208.i:                                   ; preds = %if.end.i205.i
   %client_data.i209.i = getelementptr inbounds i8, ptr %131, i64 72
-  %153 = load ptr, ptr %client_data.i209.i, align 8
-  %call.i210.i = call i32 %152(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %153) #21
+  %150 = load ptr, ptr %client_data.i209.i, align 8
+  %call.i210.i = call i32 %149(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %150) #21
   %cmp7.not.i211.i = icmp eq i32 %call.i210.i, 0
   br i1 %cmp7.not.i211.i, label %if.end9.i212.i, label %return.sink.split.sink.split.i69
 
 if.end9.i212.i:                                   ; preds = %if.end3.i208.i
-  %154 = load ptr, ptr %private_, align 8
-  %input.i213.i = getelementptr inbounds i8, ptr %154, i64 88
-  %155 = load ptr, ptr %input.i213.i, align 8
-  %call11.i214.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %155) #21
+  %151 = load ptr, ptr %private_, align 8
+  %input.i213.i = getelementptr inbounds i8, ptr %151, i64 88
+  %152 = load ptr, ptr %input.i213.i, align 8
+  %call11.i214.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %152) #21
   %tobool12.not.i215.i = icmp eq i32 %call11.i214.i, 0
-  br i1 %tobool12.not.i215.i, label %return.sink.split.sink.split.i69, label %FLAC__stream_decoder_get_decode_position.exit222.i
+  br i1 %tobool12.not.i215.i, label %return.sink.split.sink.split.i69, label %if.end326.i
 
-FLAC__stream_decoder_get_decode_position.exit222.i: ; preds = %if.end9.i212.i
-  %156 = load ptr, ptr %private_, align 8
-  %input.i.i217.i = getelementptr inbounds i8, ptr %156, i64 88
-  %157 = load ptr, ptr %input.i.i217.i, align 8
-  %call.i.i218.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %157) #21
+if.end326.i:                                      ; preds = %if.end9.i212.i, %if.end9.i191.i
+  %lower_bound.sink363.i = phi ptr [ %upper_bound.i, %if.end9.i191.i ], [ %lower_bound.i, %if.end9.i212.i ]
+  %upper_bound_sample.4.i = phi i64 [ %add263.i, %if.end9.i191.i ], [ %upper_bound_sample.3.ph.ph289.i, %if.end9.i212.i ]
+  %lower_bound_sample.3.i = phi i64 [ %lower_bound_sample.2.ph.ph290.i, %if.end9.i191.i ], [ %add263.i, %if.end9.i212.i ]
+  %153 = load ptr, ptr %private_, align 8
+  %input.i.i217.i = getelementptr inbounds i8, ptr %153, i64 88
+  %154 = load ptr, ptr %input.i.i217.i, align 8
+  %call.i.i218.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %154) #21
   %div1.i.i219.i = lshr i32 %call.i.i218.i, 3
   %conv.i220.i = zext nneg i32 %div1.i.i219.i to i64
-  %158 = load i64, ptr %lower_bound.i, align 8
-  %sub.i221.i = sub i64 %158, %conv.i220.i
-  store i64 %sub.i221.i, ptr %lower_bound.i, align 8
-  br label %if.end326.i
-
-if.end326.i:                                      ; preds = %FLAC__stream_decoder_get_decode_position.exit222.i, %FLAC__stream_decoder_get_decode_position.exit201.i
-  %.pn.i = phi i64 [ %sub.i200.i, %FLAC__stream_decoder_get_decode_position.exit201.i ], [ %sub.i221.i, %FLAC__stream_decoder_get_decode_position.exit222.i ]
-  %upper_bound_sample.4.i = phi i64 [ %add263.i, %FLAC__stream_decoder_get_decode_position.exit201.i ], [ %upper_bound_sample.3.ph.ph289.i, %FLAC__stream_decoder_get_decode_position.exit222.i ]
-  %lower_bound_sample.3.i = phi i64 [ %lower_bound_sample.2.ph.ph290.i, %FLAC__stream_decoder_get_decode_position.exit201.i ], [ %add263.i, %FLAC__stream_decoder_get_decode_position.exit222.i ]
-  %approx_bytes_per_frame.2.in.in.in.in.i = sub i64 %.pn.i, %pos.2.us.i
+  %155 = load i64, ptr %lower_bound.sink363.i, align 8
+  %sub.i221.i = sub i64 %155, %conv.i220.i
+  store i64 %sub.i221.i, ptr %lower_bound.sink363.i, align 8
+  %approx_bytes_per_frame.2.in.in.in.in.i = sub i64 %sub.i221.i, %pos.2.us.i
   %approx_bytes_per_frame.2.in.in.in.i = shl i64 %approx_bytes_per_frame.2.in.in.in.in.i, 1
   %approx_bytes_per_frame.2.in.in.i = udiv i64 %approx_bytes_per_frame.2.in.in.in.i, 3
   %approx_bytes_per_frame.2.in.i = trunc i64 %approx_bytes_per_frame.2.in.in.i to i32
@@ -6307,11 +6292,11 @@ seek_to_absolute_sample_.exit:                    ; preds = %if.end253.split.us.
 
 return.sink.split.sink.split:                     ; preds = %sw.bb1.i, %sw.bb.i, %while.body.i, %land.lhs.true.i.i, %FLAC__stream_decoder_flush.exit.i, %if.else59.i, %seek_to_absolute_sample_.exit, %return.sink.split.i, %if.end24
   %retval.0.ph.ph = phi i32 [ 0, %if.end24 ], [ %retval.0.i68, %seek_to_absolute_sample_.exit ], [ 0, %return.sink.split.i ], [ 0, %FLAC__stream_decoder_flush.exit.i ], [ 1, %if.else59.i ], [ 0, %land.lhs.true.i.i ], [ 0, %while.body.i ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ]
-  %159 = load ptr, ptr %private_, align 8
+  %156 = load ptr, ptr %private_, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %FLAC__stream_decoder_get_total_samples.exit44
-  %.sink = phi ptr [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ], [ %159, %return.sink.split.sink.split ]
+  %.sink = phi ptr [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ], [ %156, %return.sink.split.sink.split ]
   %retval.0.ph = phi i32 [ 0, %FLAC__stream_decoder_get_total_samples.exit44 ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
   %is_seeking62 = getelementptr inbounds i8, ptr %.sink, i64 5128
   store i32 0, ptr %is_seeking62, align 8

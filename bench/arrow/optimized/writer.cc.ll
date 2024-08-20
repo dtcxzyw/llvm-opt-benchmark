@@ -11844,8 +11844,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i232:        ; preds = %if.end8.sink.split.
   %msg.i.i.i233 = getelementptr inbounds i8, ptr %83, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i233) #22
   call void @_ZdlPv(ptr noundef nonnull %83) #23
-  store ptr null, ptr %__s60, align 8
-  br label %cleanup108
+  br label %cleanup108.sink.split
 
 _ZN5arrow6StatusD2Ev.exit289:                     ; preds = %_ZN5arrow6StatusD2Ev.exit216
   %vtable86 = load ptr, ptr %81, align 8
@@ -11950,8 +11949,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i341:        ; preds = %if.end8.sink.split.
   %msg.i.i.i342 = getelementptr inbounds i8, ptr %97, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i342) #22
   call void @_ZdlPv(ptr noundef nonnull %97) #23
-  store ptr null, ptr %__s83, align 8
-  br label %cleanup108
+  br label %cleanup108.sink.split
 
 _ZN5arrow6StatusD2Ev.exit398:                     ; preds = %_ZN5arrow6StatusD2Ev.exit325
   store ptr null, ptr %agg.result, align 8
@@ -11962,10 +11960,14 @@ _ZN5arrow6StatusD2Ev.exit398:                     ; preds = %_ZN5arrow6StatusD2E
   %110 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr null, ptr %_M_refcount3.i.i, align 8
   store ptr %110, ptr %_M_refcount.i.i.i.i.i400, align 8
-  store ptr null, ptr %buffer, align 8
+  br label %cleanup108.sink.split
+
+cleanup108.sink.split:                            ; preds = %_ZN5arrow6StatusD2Ev.exit398, %_ZN5arrow6Status11DeleteStateEv.exit.i232, %_ZN5arrow6Status11DeleteStateEv.exit.i341
+  %__s83.sink = phi ptr [ %__s83, %_ZN5arrow6Status11DeleteStateEv.exit.i341 ], [ %__s60, %_ZN5arrow6Status11DeleteStateEv.exit.i232 ], [ %buffer, %_ZN5arrow6StatusD2Ev.exit398 ]
+  store ptr null, ptr %__s83.sink, align 8
   br label %cleanup108
 
-cleanup108:                                       ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i341, %if.then99, %_ZN5arrow6Status11DeleteStateEv.exit.i232, %if.then73, %_ZN5arrow6StatusD2Ev.exit398
+cleanup108:                                       ; preds = %cleanup108.sink.split, %if.then99, %if.then73
   %111 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i402 = icmp eq ptr %111, null
   br i1 %cmp.not.i.i.i402, label %cleanup109, label %if.then.i.i.i403
@@ -12982,8 +12984,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i100:        ; preds = %if.end8.sink.split.
   %msg.i.i.i101 = getelementptr inbounds i8, ptr %24, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i101) #22
   call void @_ZdlPv(ptr noundef nonnull %24) #23
-  store ptr null, ptr %__s29, align 8
-  br label %cleanup51
+  br label %cleanup51.sink.split
 
 lpad24:                                           ; preds = %invoke.cont23
   %36 = landingpad { ptr, i32 }
@@ -13024,10 +13025,14 @@ _ZN5arrow6StatusD2Ev.exit162:                     ; preds = %_ZN5arrow6StatusD2E
   %42 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr %42, ptr %_M_refcount.i.i.i.i.i164, align 8
-  store ptr null, ptr %buffer, align 8
+  br label %cleanup51.sink.split
+
+cleanup51.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit162, %_ZN5arrow6Status11DeleteStateEv.exit.i100
+  %__s29.sink = phi ptr [ %__s29, %_ZN5arrow6Status11DeleteStateEv.exit.i100 ], [ %buffer, %_ZN5arrow6StatusD2Ev.exit162 ]
+  store ptr null, ptr %__s29.sink, align 8
   br label %cleanup51
 
-cleanup51:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i100, %if.then42, %_ZN5arrow6StatusD2Ev.exit162
+cleanup51:                                        ; preds = %cleanup51.sink.split, %if.then42
   call void @_ZN5arrow2io21FixedSizeBufferWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %stream) #22
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %43 = load ptr, ptr %_M_refcount.i.i, align 8

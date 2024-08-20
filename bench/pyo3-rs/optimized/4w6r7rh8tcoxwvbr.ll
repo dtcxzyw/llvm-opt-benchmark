@@ -1533,9 +1533,9 @@ default.unreachable:                              ; preds = %298, %274, %256, %2
           to label %.noexc141 unwind label %.loopexit.loopexit.split-lp
 
 .noexc141:                                        ; preds = %.noexc144, %.noexc142, %258
+  %.sink = phi ptr [ %47, %258 ], [ %46, %.noexc142 ], [ %41, %.noexc144 ]
   %.sroa.6206.0..sroa_idx207.sink = phi ptr [ %.sroa.6206.0..sroa_idx209, %258 ], [ %.sroa.6206.0..sroa_idx208, %.noexc142 ], [ %.sroa.6206.0..sroa_idx207, %.noexc144 ]
-  %.sroa.0202.0.in = phi ptr [ %47, %258 ], [ %46, %.noexc142 ], [ %41, %.noexc144 ]
-  %.sroa.0202.0 = load i64, ptr %.sroa.0202.0.in, align 8
+  %.sroa.0202.0.copyload203 = load i64, ptr %.sink, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6206, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6206.0..sroa_idx207.sink, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
@@ -1548,12 +1548,12 @@ default.unreachable:                              ; preds = %298, %274, %256, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
-  %269 = icmp eq i64 %.sroa.0202.0, -9223372036854775808
+  %269 = icmp eq i64 %.sroa.0202.0.copyload203, -9223372036854775808
   br i1 %269, label %.outer.backedge, label %270
 
 270:                                              ; preds = %.noexc141
   %271 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0202.0, ptr %271, align 8
+  store i64 %.sroa.0202.0.copyload203, ptr %271, align 8
   %.sroa.2258.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2258.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6206, i64 16, i1 false)
   br label %.sink.split
@@ -1640,9 +1640,9 @@ default.unreachable:                              ; preds = %298, %274, %256, %2
   br label %.outer.backedge
 
 .noexc153:                                        ; preds = %.noexc154, %.noexc152
+  %.sink417 = phi ptr [ %36, %.noexc152 ], [ %31, %.noexc154 ]
   %.sroa.5.0..sroa_idx191.sink = phi ptr [ %.sroa.5.0..sroa_idx192, %.noexc152 ], [ %.sroa.5.0..sroa_idx191, %.noexc154 ]
-  %.sroa.0188.0.in = phi ptr [ %36, %.noexc152 ], [ %31, %.noexc154 ]
-  %.sroa.0188.0 = load i64, ptr %.sroa.0188.0.in, align 8
+  %.sroa.0188.0.copyload189 = load i64, ptr %.sink417, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx191.sink, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
@@ -1654,12 +1654,12 @@ default.unreachable:                              ; preds = %298, %274, %256, %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  %285 = icmp eq i64 %.sroa.0188.0, -9223372036854775808
+  %285 = icmp eq i64 %.sroa.0188.0.copyload189, -9223372036854775808
   br i1 %285, label %.outer.backedge, label %286
 
 286:                                              ; preds = %.noexc153
   %287 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0188.0, ptr %287, align 8
+  store i64 %.sroa.0188.0.copyload189, ptr %287, align 8
   %.sroa.2228.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2228.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   br label %.sink.split
@@ -1825,9 +1825,9 @@ default.unreachable:                              ; preds = %298, %274, %256, %2
   br label %.sink.split
 
 .noexc167:                                        ; preds = %.noexc168, %.noexc166
+  %.sink418 = phi ptr [ %24, %.noexc166 ], [ %19, %.noexc168 ]
   %.sroa.5196.0..sroa_idx197.sink = phi ptr [ %.sroa.5196.0..sroa_idx198, %.noexc166 ], [ %.sroa.5196.0..sroa_idx197, %.noexc168 ]
-  %.sroa.0193.0.in = phi ptr [ %24, %.noexc166 ], [ %19, %.noexc168 ]
-  %.sroa.0193.0 = load i64, ptr %.sroa.0193.0.in, align 8
+  %.sroa.0193.0.copyload194 = load i64, ptr %.sink418, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5196, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5196.0..sroa_idx197.sink, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
@@ -1843,12 +1843,12 @@ default.unreachable:                              ; preds = %298, %274, %256, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
-  %316 = icmp eq i64 %.sroa.0193.0, -9223372036854775808
+  %316 = icmp eq i64 %.sroa.0193.0.copyload194, -9223372036854775808
   br i1 %316, label %.outer.backedge, label %317
 
 317:                                              ; preds = %.noexc167
   %318 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0193.0, ptr %318, align 8
+  store i64 %.sroa.0193.0.copyload194, ptr %318, align 8
   %.sroa.2238.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2238.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5196, i64 16, i1 false)
   br label %.sink.split

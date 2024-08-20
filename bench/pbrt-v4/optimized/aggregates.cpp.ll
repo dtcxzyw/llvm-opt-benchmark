@@ -8441,9 +8441,9 @@ entry:
   %0 = load i32, ptr %nextFreeNode, align 4
   store i32 %0, ptr %vb, align 4
   %cmp = icmp eq i32 %0, %nodeNum
-  %.sink390.sroa.gep = getelementptr inbounds i8, ptr %bounds0, i64 12
-  %.sink390.sroa.gep397 = getelementptr inbounds i8, ptr %bounds0, i64 16
-  %.sink390.sroa.gep398 = getelementptr inbounds i8, ptr %bounds0, i64 20
+  %.sink390.sroa.gep = getelementptr inbounds i8, ptr %bounds0, i64 16
+  %.sink390.sroa.gep397 = getelementptr inbounds i8, ptr %bounds0, i64 20
+  %.sink390.sroa.gep398 = getelementptr inbounds i8, ptr %bounds0, i64 12
   br i1 %cmp, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -9221,26 +9221,22 @@ for.end233:                                       ; preds = %for.cond210.prehead
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %bounds0, ptr noundef nonnull align 4 dereferenceable(24) %nodeBounds, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %bounds1, ptr noundef nonnull align 4 dereferenceable(24) %nodeBounds, i64 24, i1 false)
   switch i32 %bestAxis.1.lcssa, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit [
-    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread
+    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249
     i32 1, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337
   ]
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread:    ; preds = %for.end233
-  store float %52, ptr %bounds1, align 4
-  br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249
-
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337: ; preds = %for.end233
   %y.i240 = getelementptr inbounds i8, ptr %bounds1, i64 4
-  store float %52, ptr %y.i240, align 4
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit:           ; preds = %for.end233
   %z.i243 = getelementptr inbounds i8, ptr %bounds1, i64 8
-  store float %52, ptr %z.i243, align 4
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249:        ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit
-  %.sink390.sroa.phi = phi ptr [ %.sink390.sroa.gep, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread ], [ %.sink390.sroa.gep397, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337 ], [ %.sink390.sroa.gep398, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ]
+_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249:        ; preds = %for.end233, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit
+  %bounds1.sink = phi ptr [ %y.i240, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337 ], [ %z.i243, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ], [ %bounds1, %for.end233 ]
+  %.sink390.sroa.phi = phi ptr [ %.sink390.sroa.gep, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337 ], [ %.sink390.sroa.gep397, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ], [ %.sink390.sroa.gep398, %for.end233 ]
+  store float %52, ptr %bounds1.sink, align 4
   store float %52, ptr %.sink390.sroa.phi, align 4
   %add243 = add nsw i32 %nodeNum, 1
   %n.i.i = getelementptr inbounds i8, ptr %prims0, i64 8

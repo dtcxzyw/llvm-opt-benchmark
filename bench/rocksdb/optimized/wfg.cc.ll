@@ -386,20 +386,23 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 if.then14.i.i.i:                                  ; preds = %while.end.i.i.i
   %idxprom19.i.i.i = zext nneg i32 %best_zero.1.i.i.i to i64
   %arrayidx20.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom19.i.i.i
-  %6 = load ptr, ptr %arrayidx20.i.i.i, align 8
-  br label %_ZN4toku3wfg9find_nodeEm.exit
+  br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split.i
 
 if.else.i.i:                                      ; preds = %entry
   %call2.i.i = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %d.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %txnid.addr.i, ptr noundef nonnull %n.i, ptr noundef nonnull %tmp_index.i.i)
-  %.pre.i = load ptr, ptr %n.i, align 8
+  br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split.i
+
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split.i: ; preds = %if.else.i.i, %if.then14.i.i.i
+  %arrayidx20.i.i.sink.i = phi ptr [ %arrayidx20.i.i.i, %if.then14.i.i.i ], [ %n.i, %if.else.i.i ]
+  %6 = load ptr, ptr %arrayidx20.i.i.sink.i, align 8
+  %7 = icmp ne ptr %6, null
   br label %_ZN4toku3wfg9find_nodeEm.exit
 
-_ZN4toku3wfg9find_nodeEm.exit:                    ; preds = %if.then.i.i, %while.end.i.i.i, %if.then14.i.i.i, %if.else.i.i
-  %7 = phi ptr [ %.pre.i, %if.else.i.i ], [ %6, %if.then14.i.i.i ], [ null, %if.then.i.i ], [ null, %while.end.i.i.i ]
+_ZN4toku3wfg9find_nodeEm.exit:                    ; preds = %if.then.i.i, %while.end.i.i.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split.i
+  %cmp = phi i1 [ false, %if.then.i.i ], [ %7, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split.i ], [ false, %while.end.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp_index.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %txnid.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
-  %cmp = icmp ne ptr %7, null
   ret i1 %cmp
 }
 
@@ -470,16 +473,19 @@ while.end.i.i:                                    ; preds = %if.end12.i.i
 if.then14.i.i:                                    ; preds = %while.end.i.i
   %idxprom19.i.i = zext nneg i32 %best_zero.1.i.i to i64
   %arrayidx20.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom19.i.i
-  %6 = load ptr, ptr %arrayidx20.i.i, align 8
-  br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
+  br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split
 
 if.else.i:                                        ; preds = %entry
   %call2.i = call noundef i32 @_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE18find_internal_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEESA_PS3_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %d.i.i, ptr noundef nonnull align 8 dereferenceable(8) %txnid.addr, ptr noundef nonnull %n, ptr noundef nonnull %tmp_index.i)
-  %.pre = load ptr, ptr %n, align 8
+  br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split
+
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split: ; preds = %if.else.i, %if.then14.i.i
+  %arrayidx20.i.i.sink = phi ptr [ %arrayidx20.i.i, %if.then14.i.i ], [ %n, %if.else.i ]
+  %6 = load ptr, ptr %arrayidx20.i.i.sink, align 8
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %while.end.i.i, %if.then14.i.i, %if.then.i, %if.else.i
-  %7 = phi ptr [ %.pre, %if.else.i ], [ %6, %if.then14.i.i ], [ null, %if.then.i ], [ null, %while.end.i.i ]
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %while.end.i.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split, %if.then.i
+  %7 = phi ptr [ null, %if.then.i ], [ %6, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split ], [ null, %while.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp_index.i)
   ret ptr %7
 }
@@ -591,8 +597,8 @@ _ZN4toku3wfg9find_nodeEm.exit.thread:             ; preds = %if.then.i.i, %while
   br label %for.inc
 
 _ZN4toku3wfg9find_nodeEm.exit:                    ; preds = %if.then14.i.i.i, %if.else.i.i
-  %.in = phi ptr [ %n.i, %if.else.i.i ], [ %arrayidx20.i.i.i, %if.then14.i.i.i ]
-  %9 = load ptr, ptr %.in, align 8
+  %arrayidx20.i.i.sink.i = phi ptr [ %arrayidx20.i.i.i, %if.then14.i.i.i ], [ %n.i, %if.else.i.i ]
+  %9 = load ptr, ptr %arrayidx20.i.i.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp_index.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %txnid.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
@@ -785,8 +791,8 @@ _ZN4toku3wfg9find_nodeEm.exit.thread:             ; preds = %if.then.i.i, %while
   br label %if.end
 
 _ZN4toku3wfg9find_nodeEm.exit:                    ; preds = %if.then14.i.i.i, %if.else.i.i
-  %.in = phi ptr [ %n.i, %if.else.i.i ], [ %arrayidx20.i.i.i, %if.then14.i.i.i ]
-  %6 = load ptr, ptr %.in, align 8
+  %arrayidx20.i.i.sink.i = phi ptr [ %arrayidx20.i.i.i, %if.then14.i.i.i ], [ %n.i, %if.else.i.i ]
+  %6 = load ptr, ptr %arrayidx20.i.i.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp_index.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %txnid.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
@@ -1064,8 +1070,8 @@ _ZN4toku3wfg9find_nodeEm.exit.thread:             ; preds = %if.then.i.i, %while
   br label %if.end
 
 _ZN4toku3wfg9find_nodeEm.exit:                    ; preds = %if.then14.i.i.i, %if.else.i.i
-  %.in = phi ptr [ %n.i, %if.else.i.i ], [ %arrayidx20.i.i.i, %if.then14.i.i.i ]
-  %6 = load ptr, ptr %.in, align 8
+  %arrayidx20.i.i.sink.i = phi ptr [ %arrayidx20.i.i.i, %if.then14.i.i.i ], [ %n.i, %if.else.i.i ]
+  %6 = load ptr, ptr %arrayidx20.i.i.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp_index.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %txnid.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)

@@ -3201,7 +3201,7 @@ define linkonce_odr void @_ZN3igl10massmatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1
   %40 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i32
-  switch i32 %42, label %347 [
+  switch i32 %42, label %348 [
     i32 3, label %43
     i32 4, label %.critedge.i
   ]
@@ -3648,9 +3648,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br label %.invoke
 
 .invoke:                                          ; preds = %121, %127, %138, %223, %229
-  %.sink272 = phi ptr [ %122, %121 ], [ %128, %127 ], [ %139, %138 ], [ %224, %223 ], [ %230, %229 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %.sink272, align 8
-  invoke void @__cxa_throw(ptr nonnull %.sink272, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
+  %.sink = phi ptr [ %122, %121 ], [ %128, %127 ], [ %139, %138 ], [ %224, %223 ], [ %230, %229 ]
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %.sink, align 8
+  invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
           to label %.cont unwind label %339
 
 .cont:                                            ; preds = %.invoke
@@ -3856,19 +3856,19 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit.i, %344
-  %.sink.in = phi ptr [ %25, %344 ], [ %24, %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit.i ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #16
-  br label %347
+  %.sink271 = phi ptr [ %25, %344 ], [ %24, %_ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit.i ]
+  %347 = load ptr, ptr %.sink271, align 8
+  call void @free(ptr noundef %347) #16
+  br label %348
 
-347:                                              ; preds = %.sink.split, %4
+348:                                              ; preds = %.sink.split, %4
   ret void
 
 .body:                                            ; preds = %108, %46, %339
-  %.sink271.in = phi ptr [ %25, %339 ], [ %24, %46 ], [ %24, %108 ]
+  %.sink272 = phi ptr [ %25, %339 ], [ %24, %46 ], [ %24, %108 ]
   %.pn77 = phi { ptr, i32 } [ %340, %339 ], [ %47, %46 ], [ %109, %108 ]
-  %.sink271 = load ptr, ptr %.sink271.in, align 8
-  call void @free(ptr noundef %.sink271) #16
+  %349 = load ptr, ptr %.sink272, align 8
+  call void @free(ptr noundef %349) #16
   resume { ptr, i32 } %.pn77
 }
 
@@ -21077,10 +21077,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE6resizeEll.exit.
   ret void
 
 395:                                              ; preds = %374, %389, %153, %163
-  %.sink.in = phi ptr [ %28, %163 ], [ %28, %153 ], [ %31, %389 ], [ %31, %374 ]
+  %.sink881 = phi ptr [ %28, %163 ], [ %28, %153 ], [ %31, %389 ], [ %31, %374 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn45, %163 ], [ %154, %153 ], [ %.pn.pn.pn.pn, %389 ], [ %375, %374 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #16
+  %396 = load ptr, ptr %.sink881, align 8
+  call void @free(ptr noundef %396) #16
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 

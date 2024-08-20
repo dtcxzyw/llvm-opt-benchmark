@@ -10731,33 +10731,33 @@ _ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit.i:    ; preds = %.noexc94, %1041, %1
   %1066 = add nsw i32 %1064, %1065
   %1067 = load i8, ptr %1059, align 8
   %1068 = trunc i8 %1067 to i1
-  br i1 %1068, label %1069, label %1075
+  br i1 %1068, label %1069, label %1074
 
 1069:                                             ; preds = %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit.i
   %1070 = getelementptr inbounds i8, ptr %1058, i64 320
   %1071 = sext i32 %1066 to i64
   %1072 = load ptr, ptr %1070, align 8
   %1073 = getelementptr inbounds i32, ptr %1072, i64 %1071
-  %1074 = load i32, ptr %1073, align 4
+  br label %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.sink.split.i
+
+1074:                                             ; preds = %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit.i
+  %1075 = getelementptr inbounds i8, ptr %1058, i64 312
+  %1076 = load i8, ptr %1075, align 8
+  %1077 = trunc i8 %1076 to i1
+  br i1 %1077, label %1078, label %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.i
+
+1078:                                             ; preds = %1074
+  %1079 = load ptr, ptr %1008, align 8
+  %1080 = invoke noundef i32 @_Z14tMPI_Cart_rankP10tmpi_comm_PiS1_(ptr noundef %1079, ptr noundef nonnull %10, ptr noundef nonnull %8)
+          to label %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.sink.split.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.sink.split.i: ; preds = %1078, %1069
+  %.sink.i = phi ptr [ %1073, %1069 ], [ %8, %1078 ]
+  %1081 = load i32, ptr %.sink.i, align 4
   br label %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.i
 
-1075:                                             ; preds = %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit.i
-  %1076 = getelementptr inbounds i8, ptr %1058, i64 312
-  %1077 = load i8, ptr %1076, align 8
-  %1078 = trunc i8 %1077 to i1
-  br i1 %1078, label %1079, label %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.i
-
-1079:                                             ; preds = %1075
-  %1080 = load ptr, ptr %1008, align 8
-  %1081 = invoke noundef i32 @_Z14tMPI_Cart_rankP10tmpi_comm_PiS1_(ptr noundef %1080, ptr noundef nonnull %10, ptr noundef nonnull %8)
-          to label %.noexc95 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc95:                                         ; preds = %1079
-  %.pre.i121.i = load i32, ptr %8, align 4
-  br label %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.i
-
-_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.i: ; preds = %.noexc95, %1075, %1069
-  %1082 = phi i32 [ %.pre.i121.i, %.noexc95 ], [ %1074, %1069 ], [ %1066, %1075 ]
+_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.i: ; preds = %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.sink.split.i, %1074
+  %1082 = phi i32 [ %1066, %1074 ], [ %1081, %_ZL16ddcoord2ddnodeidP12gmx_domdec_tPi.exit122.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %1083 = getelementptr inbounds i8, ptr %1052, i64 4
   store i32 %1082, ptr %1083, align 4
@@ -10902,9 +10902,9 @@ _ZN3gmx5RangeIiEC2Eii.exit.split.us.i:            ; preds = %_ZN3gmx5RangeIiEC2E
   %1144 = getelementptr inbounds [3 x i32], ptr %1117, i64 0, i64 %indvars.iv197.i
   %1145 = getelementptr inbounds [3 x i32], ptr %1118, i64 0, i64 %indvars.iv197.i
   %..i = select i1 %1143, i32 -1, i32 1
-  %.215.i = select i1 %1143, i32 1, i32 -1
+  %.216.i = select i1 %1143, i32 1, i32 -1
   store i32 %..i, ptr %1144, align 4
-  store i32 %.215.i, ptr %1145, align 4
+  store i32 %.216.i, ptr %1145, align 4
   %indvars.iv.next198.i = add nuw nsw i64 %indvars.iv197.i, 1
   %exitcond200.not.i = icmp eq i64 %indvars.iv.next198.i, 3
   br i1 %exitcond200.not.i, label %.split.us.i, label %_ZN3gmx5RangeIiEC2Eii.exit.split.us.i, !llvm.loop !111
@@ -11332,7 +11332,7 @@ _ZL24setup_neighbor_relationsP12gmx_domdec_t.exit: ; preds = %_ZNSt6vectorI18DDC
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1079, %1045
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %1078, %1045
   %lpad.loopexit122 = landingpad { ptr, i32 }
           cleanup
   br label %.body

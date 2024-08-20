@@ -1700,8 +1700,8 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   %433 = and i32 %432, 8704
   %434 = or i32 %431, %433
   %435 = and i32 %432, 8704
-  %.not414 = icmp eq i32 %435, 0
-  br i1 %.not414, label %437, label %436
+  %.not415 = icmp eq i32 %435, 0
+  br i1 %.not415, label %437, label %436
 
 436:                                              ; preds = %430
   store i32 %434, ptr %387, align 8
@@ -1920,8 +1920,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   %538 = load ptr, ptr %41, align 8
   %539 = getelementptr inbounds i8, ptr %536, i64 184
   store ptr %538, ptr %539, align 8
-  store ptr null, ptr %41, align 8
-  br label %639
+  br label %.sink.split
 
 540:                                              ; preds = %366, %365
   br i1 %or.cond301.not, label %551, label %541
@@ -2096,8 +2095,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   %634 = load ptr, ptr %42, align 8
   %635 = getelementptr inbounds i8, ptr %634, i64 240
   store ptr %633, ptr %635, align 8
-  store ptr null, ptr %20, align 8
-  br label %639
+  br label %.sink.split
 
 636:                                              ; preds = %361
   %637 = load ptr, ptr %10, align 8
@@ -2106,9 +2104,16 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   %.not291 = icmp eq ptr %.pr.pre, null
   br i1 %.not291, label %686, label %639
 
-639:                                              ; preds = %.thread386, %.thread325, %636
-  %.2161328 = phi ptr [ %.7, %.thread325 ], [ %.1160351, %636 ], [ %.3162, %.thread386 ]
-  %640 = phi ptr [ %634, %.thread325 ], [ %.pr.pre, %636 ], [ %536, %.thread386 ]
+.sink.split:                                      ; preds = %.thread325, %.thread386
+  %.sink = phi ptr [ %41, %.thread386 ], [ %20, %.thread325 ]
+  %.2161328.ph = phi ptr [ %.3162, %.thread386 ], [ %.7, %.thread325 ]
+  %.ph = phi ptr [ %536, %.thread386 ], [ %634, %.thread325 ]
+  store ptr null, ptr %.sink, align 8
+  br label %639
+
+639:                                              ; preds = %.sink.split, %636
+  %.2161328 = phi ptr [ %.1160351, %636 ], [ %.2161328.ph, %.sink.split ]
+  %640 = phi ptr [ %.pr.pre, %636 ], [ %.ph, %.sink.split ]
   %641 = add nsw i32 %.1165349, 1
   %642 = load i32, ptr %23, align 4
   %643 = getelementptr inbounds i8, ptr %640, i64 264
@@ -2184,10 +2189,10 @@ switch.early.test:                                ; preds = %661
   br label %675
 
 675:                                              ; preds = %665, %673
-  %.sink = phi i16 [ %674, %673 ], [ %672, %665 ]
+  %.sink413 = phi i16 [ %674, %673 ], [ %672, %665 ]
   %676 = getelementptr inbounds i8, ptr %.pre385, i64 352
-  store i16 %.sink, ptr %676, align 8
-  %677 = icmp ult i16 %.sink, 9984
+  store i16 %.sink413, ptr %676, align 8
+  %677 = icmp ult i16 %.sink413, 9984
   br i1 %677, label %678, label %680
 
 678:                                              ; preds = %675

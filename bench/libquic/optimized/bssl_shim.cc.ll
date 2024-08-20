@@ -371,7 +371,7 @@ if.then46.i:                                      ; preds = %if.end44.i
 
 invoke.cont49.i:                                  ; preds = %if.then46.i
   %cmp.i = icmp eq i32 %call50.i, 0
-  br i1 %cmp.i, label %if.then55.i, label %lor.lhs.false.i
+  br i1 %cmp.i, label %cleanup.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont49.i
   %g.i = getelementptr inbounds i8, ptr %call41.i, i64 8
@@ -381,11 +381,7 @@ lor.lhs.false.i:                                  ; preds = %invoke.cont49.i
 
 invoke.cont52.i:                                  ; preds = %lor.lhs.false.i
   %tobool54.not.i = icmp eq i32 %call53.i, 0
-  br i1 %tobool54.not.i, label %if.then55.i, label %if.end56.i
-
-if.then55.i:                                      ; preds = %invoke.cont52.i, %invoke.cont49.i
-  store ptr null, ptr %ssl_ctx, align 8, !alias.scope !7
-  br label %cleanup.i
+  br i1 %tobool54.not.i, label %cleanup.i, label %if.end56.i
 
 lpad48.i:                                         ; preds = %land.lhs.true145.i, %if.end135.i, %land.lhs.true129.i, %land.lhs.true121.i, %if.then115.i, %invoke.cont111.i, %invoke.cont108.i, %invoke.cont105.i, %if.end103.i, %if.then100.i, %if.then93.i, %if.end89.i, %if.then86.i, %if.end82.i, %if.else.i, %invoke.cont75.i, %if.then73.i, %if.end62.i, %if.end56.i, %lor.lhs.false.i, %if.then46.i
   %10 = landingpad { ptr, i32 }
@@ -411,11 +407,7 @@ if.end62.i:                                       ; preds = %invoke.cont58.i, %i
 
 invoke.cont65.i:                                  ; preds = %if.end62.i
   %tobool67.not.i = icmp eq i32 %call66.i, 0
-  br i1 %tobool67.not.i, label %if.then68.i, label %if.end69.i
-
-if.then68.i:                                      ; preds = %invoke.cont65.i
-  store ptr null, ptr %ssl_ctx, align 8, !alias.scope !7
-  br label %cleanup.i
+  br i1 %tobool67.not.i, label %cleanup.i, label %if.end69.i
 
 if.end69.i:                                       ; preds = %invoke.cont65.i
   %async.i = getelementptr inbounds i8, ptr %config, i64 280
@@ -523,15 +515,11 @@ land.lhs.true121.i:                               ; preds = %if.end119.i
 
 invoke.cont123.i:                                 ; preds = %land.lhs.true121.i
   %tobool125.not.i = icmp eq i32 %call124.i, 0
-  br i1 %tobool125.not.i, label %if.then126.i, label %invoke.cont123.i.if.end127.i_crit_edge
+  br i1 %tobool125.not.i, label %cleanup.i, label %invoke.cont123.i.if.end127.i_crit_edge
 
 invoke.cont123.i.if.end127.i_crit_edge:           ; preds = %invoke.cont123.i
   %.pre16.pre = load ptr, ptr %ssl_ctx.i, align 8, !noalias !7
   br label %if.end127.i
-
-if.then126.i:                                     ; preds = %invoke.cont123.i
-  store ptr null, ptr %ssl_ctx, align 8, !alias.scope !7
-  br label %cleanup.i
 
 if.end127.i:                                      ; preds = %invoke.cont123.i.if.end127.i_crit_edge, %if.end119.i
   %.pre16 = phi ptr [ %.pre16.pre, %invoke.cont123.i.if.end127.i_crit_edge ], [ %call2.i8, %if.end119.i ]
@@ -546,15 +534,11 @@ land.lhs.true129.i:                               ; preds = %if.end127.i
 
 invoke.cont131.i:                                 ; preds = %land.lhs.true129.i
   %tobool133.not.i = icmp eq i32 %call132.i, 0
-  br i1 %tobool133.not.i, label %if.then134.i, label %invoke.cont131.i.if.end135.i_crit_edge
+  br i1 %tobool133.not.i, label %cleanup.i, label %invoke.cont131.i.if.end135.i_crit_edge
 
 invoke.cont131.i.if.end135.i_crit_edge:           ; preds = %invoke.cont131.i
   %.pre = load ptr, ptr %ssl_ctx.i, align 8, !noalias !7
   br label %if.end135.i
-
-if.then134.i:                                     ; preds = %invoke.cont131.i
-  store ptr null, ptr %ssl_ctx, align 8, !alias.scope !7
-  br label %cleanup.i
 
 if.end135.i:                                      ; preds = %invoke.cont131.i.if.end135.i_crit_edge, %if.end127.i
   %19 = phi ptr [ %.pre, %invoke.cont131.i.if.end135.i_crit_edge ], [ %.pre16, %if.end127.i ]
@@ -579,19 +563,15 @@ land.lhs.true145.i:                               ; preds = %if.end143.i
 
 invoke.cont151.i:                                 ; preds = %land.lhs.true145.i
   %tobool153.not.i = icmp eq i32 %call152.i, 0
-  br i1 %tobool153.not.i, label %if.then154.i, label %if.end155.i
-
-if.then154.i:                                     ; preds = %invoke.cont151.i
-  store ptr null, ptr %ssl_ctx, align 8, !alias.scope !7
-  br label %cleanup.i
+  br i1 %tobool153.not.i, label %cleanup.i, label %if.end155.i
 
 if.end155.i:                                      ; preds = %invoke.cont151.i, %if.end143.i
   store i64 %21, ptr %ssl_ctx, align 8, !alias.scope !7
-  store ptr null, ptr %ssl_ctx.i, align 8, !noalias !7
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %if.end155.i, %if.then154.i, %if.then134.i, %if.then126.i, %if.then68.i, %if.then55.i
-  %22 = phi ptr [ %19, %if.end155.i ], [ null, %if.then154.i ], [ null, %if.then134.i ], [ null, %if.then126.i ], [ null, %if.then68.i ], [ null, %if.then55.i ]
+cleanup.i:                                        ; preds = %if.end155.i, %invoke.cont151.i, %invoke.cont131.i, %invoke.cont123.i, %invoke.cont65.i, %invoke.cont52.i, %invoke.cont49.i
+  %ssl_ctx.sink.i = phi ptr [ %ssl_ctx.i, %if.end155.i ], [ %ssl_ctx, %invoke.cont52.i ], [ %ssl_ctx, %invoke.cont49.i ], [ %ssl_ctx, %invoke.cont65.i ], [ %ssl_ctx, %invoke.cont123.i ], [ %ssl_ctx, %invoke.cont131.i ], [ %ssl_ctx, %invoke.cont151.i ]
+  store ptr null, ptr %ssl_ctx.sink.i, align 8
   %.pr.i = load ptr, ptr %dh.i, align 8, !noalias !7
   %cmp.not.i.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i, label %cleanup157.i, label %if.then.i.i
@@ -601,10 +581,10 @@ if.then.i.i:                                      ; preds = %cleanup.i
           to label %cleanup157.i unwind label %terminate.lpad.i.i, !noalias !7
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #30
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #30
   unreachable
 
 ehcleanup.i:                                      ; preds = %lpad48.i, %lpad7.i
@@ -618,7 +598,6 @@ cleanup157.thread31.i:                            ; preds = %invoke.cont35.i, %i
   br label %if.then.i25.i
 
 cleanup157.i:                                     ; preds = %if.then.i.i, %cleanup.i, %cleanup.thread.i
-  %25 = phi ptr [ %22, %if.then.i.i ], [ %22, %cleanup.i ], [ null, %cleanup.thread.i ]
   store ptr null, ptr %dh.i, align 8, !noalias !7
   %.pr28.pre.i = load ptr, ptr %ssl_ctx.i, align 8, !noalias !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher_list.i) #28, !noalias !7
@@ -626,16 +605,15 @@ cleanup157.i:                                     ; preds = %if.then.i.i, %clean
   br i1 %cmp.not.i24.i, label %invoke.cont13, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %cleanup157.i, %cleanup157.thread31.i
-  %26 = phi ptr [ null, %cleanup157.thread31.i ], [ %25, %cleanup157.i ]
   %.pr2834.i = phi ptr [ %call2.i8, %cleanup157.thread31.i ], [ %.pr28.pre.i, %cleanup157.i ]
   invoke void @SSL_CTX_free(ptr noundef nonnull %.pr2834.i)
           to label %invoke.cont13 unwind label %terminate.lpad.i26.i, !noalias !7
 
 terminate.lpad.i26.i:                             ; preds = %if.then.i25.i
-  %27 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #30
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #30
   unreachable
 
 ehcleanup158.i:                                   ; preds = %ehcleanup.i, %lpad.i
@@ -644,99 +622,93 @@ ehcleanup158.i:                                   ; preds = %ehcleanup.i, %lpad.
   br label %ehcleanup35
 
 invoke.cont13:                                    ; preds = %if.then.i25.i, %cleanup157.i
-  %29 = phi ptr [ %26, %if.then.i25.i ], [ %25, %cleanup157.i ]
+  %.pr = load ptr, ptr %ssl_ctx, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ssl_ctx.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cipher_list.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dh.i)
-  %cmp.i9.not = icmp eq ptr %29, null
+  %cmp.i9.not = icmp eq ptr %.pr, null
   br i1 %cmp.i9.not, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %invoke.cont13.thread, %invoke.cont13
-  %30 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %30)
+  %26 = load ptr, ptr @stderr, align 8
+  invoke void @ERR_print_errors_fp(ptr noundef %26)
           to label %cleanup34 unwind label %lpad16
 
 lpad16:                                           ; preds = %if.then15
-  %31 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end18:                                         ; preds = %invoke.cont13
   store ptr null, ptr %session, align 8
-  %call22 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef nonnull %session, ptr noundef nonnull %29, ptr noundef nonnull %config, i1 noundef zeroext false, ptr noundef null)
+  %call22 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef nonnull %session, ptr noundef nonnull %.pr, ptr noundef nonnull %config, i1 noundef zeroext false, ptr noundef null)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.end18
   br i1 %call22, label %if.end25, label %if.then30.invoke
 
 lpad20:                                           ; preds = %if.then30.invoke, %land.lhs.true, %if.end18
-  %32 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session) #28
   br label %ehcleanup
 
 if.end25:                                         ; preds = %invoke.cont21
   %resume = getelementptr inbounds i8, ptr %config, i64 6
-  %33 = load i8, ptr %resume, align 2
-  %tobool = trunc i8 %33 to i1
+  %29 = load i8, ptr %resume, align 2
+  %tobool = trunc i8 %29 to i1
   br i1 %tobool, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %if.end25
-  %34 = load ptr, ptr %ssl_ctx, align 8
-  %35 = load ptr, ptr %session, align 8
-  %call29 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef null, ptr noundef %34, ptr noundef nonnull %config, i1 noundef zeroext true, ptr noundef %35)
+  %30 = load ptr, ptr %session, align 8
+  %call29 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef null, ptr noundef nonnull %.pr, ptr noundef nonnull %config, i1 noundef zeroext true, ptr noundef %30)
           to label %invoke.cont28 unwind label %lpad20
 
 invoke.cont28:                                    ; preds = %land.lhs.true
   br i1 %call29, label %cleanup, label %if.then30.invoke
 
 if.then30.invoke:                                 ; preds = %invoke.cont28, %invoke.cont21
-  %36 = load ptr, ptr @stderr, align 8
-  invoke void @ERR_print_errors_fp(ptr noundef %36)
+  %31 = load ptr, ptr @stderr, align 8
+  invoke void @ERR_print_errors_fp(ptr noundef %31)
           to label %cleanup unwind label %lpad20
 
 cleanup:                                          ; preds = %if.then30.invoke, %if.end25, %invoke.cont28
   %retval.3 = phi i32 [ 0, %invoke.cont28 ], [ 0, %if.end25 ], [ 1, %if.then30.invoke ]
-  %37 = load ptr, ptr %session, align 8
-  %cmp.not.i = icmp eq ptr %37, null
-  br i1 %cmp.not.i, label %cleanup33, label %if.then.i
+  %32 = load ptr, ptr %session, align 8
+  %cmp.not.i = icmp eq ptr %32, null
+  br i1 %cmp.not.i, label %if.then.i12, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  invoke void @SSL_SESSION_free(ptr noundef nonnull %37)
-          to label %cleanup33 unwind label %terminate.lpad.i
+  invoke void @SSL_SESSION_free(ptr noundef nonnull %32)
+          to label %if.then.i12 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %38 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #30
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #30
   unreachable
 
-cleanup33:                                        ; preds = %if.then.i, %cleanup
+if.then.i12:                                      ; preds = %cleanup, %if.then.i
   store ptr null, ptr %session, align 8
-  %.pre21 = load ptr, ptr %ssl_ctx, align 8
-  %cmp.not.i11 = icmp eq ptr %.pre21, null
-  br i1 %cmp.not.i11, label %cleanup34, label %if.then.i12
-
-if.then.i12:                                      ; preds = %cleanup33
-  invoke void @SSL_CTX_free(ptr noundef nonnull %.pre21)
+  invoke void @SSL_CTX_free(ptr noundef nonnull %.pr)
           to label %cleanup34 unwind label %terminate.lpad.i13
 
 terminate.lpad.i13:                               ; preds = %if.then.i12
-  %40 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #30
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #30
   unreachable
 
 ehcleanup:                                        ; preds = %lpad20, %lpad16
-  %.pn = phi { ptr, i32 } [ %32, %lpad20 ], [ %31, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %28, %lpad20 ], [ %27, %lpad16 ]
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ssl_ctx) #28
   br label %ehcleanup35
 
-cleanup34:                                        ; preds = %if.then.i12, %cleanup33, %if.then15, %if.then9
-  %retval.1 = phi i32 [ 1, %if.then9 ], [ %retval.3, %cleanup33 ], [ %retval.3, %if.then.i12 ], [ 1, %if.then15 ]
+cleanup34:                                        ; preds = %if.then.i12, %if.then15, %if.then9
+  %retval.1 = phi i32 [ 1, %if.then9 ], [ %retval.3, %if.then.i12 ], [ 1, %if.then15 ]
   call void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %config) #28
   br label %cleanup36
 
@@ -747,14 +719,14 @@ ehcleanup35:                                      ; preds = %lpad6, %ehcleanup15
 
 cleanup36:                                        ; preds = %invoke.cont3, %cleanup34
   %retval.0 = phi i32 [ %retval.1, %cleanup34 ], [ 1, %invoke.cont3 ]
-  %42 = load ptr, ptr @stderr, align 8
-  %43 = call i64 @fwrite(ptr nonnull @.str.62, i64 13, i64 1, ptr %42) #29
+  %37 = load ptr, ptr @stderr, align 8
+  %38 = call i64 @fwrite(ptr nonnull @.str.62, i64 13, i64 1, ptr %37) #29
   ret i32 %retval.0
 
 ehcleanup37:                                      ; preds = %ehcleanup35, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup35 ], [ %1, %lpad ]
-  %44 = load ptr, ptr @stderr, align 8
-  %45 = call i64 @fwrite(ptr nonnull @.str.62, i64 13, i64 1, ptr %44) #29
+  %39 = load ptr, ptr @stderr, align 8
+  %40 = call i64 @fwrite(ptr nonnull @.str.62, i64 13, i64 1, ptr %39) #29
   resume { ptr, i32 } %.pn.pn.pn
 }
 

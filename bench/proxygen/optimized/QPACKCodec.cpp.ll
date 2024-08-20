@@ -835,7 +835,7 @@ invoke.cont23:                                    ; preds = %invoke.cont20
   store i32 %conv27, ptr %uncompressed, align 4
   %16 = load ptr, ptr %agg.tmp19, align 8
   %cmp.i.i.i33 = icmp eq ptr %16, null
-  br i1 %cmp.i.i.i33, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit46, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i34
+  br i1 %cmp.i.i.i33, label %if.end68, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i34
 
 _ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i34: ; preds = %invoke.cont23
   %call.i.i.i.i1.i35 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
@@ -846,19 +846,12 @@ call.i.i.i.i.noexc.i37:                           ; preds = %_ZNK8proxygen15HPAC
   %sub.ptr.rhs.cast.i.i.i.i.i39 = ptrtoint ptr %call.i.i.i.i1.i35 to i64
   %sub.ptr.sub.i.i.i.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i38, %sub.ptr.rhs.cast.i.i.i.i.i39
   %sub.ptr.div.i.i.i.i.i41 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i40, 5
-  %17 = add nsw i64 %sub.ptr.div.i.i.i.i.i41, -89
-  %18 = icmp ult i64 %17, -87
-  br i1 %18, label %if.then.i.i43, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit46
-
-if.then.i.i43:                                    ; preds = %call.i.i.i.i.noexc.i37
+  %17 = add nsw i64 %sub.ptr.div.i.i.i.i.i41, -2
+  %18 = icmp ult i64 %17, 87
   %19 = load ptr, ptr %agg.tmp19, align 8
   %isnull.i.i44 = icmp eq ptr %19, null
-  br i1 %isnull.i.i44, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit46, label %delete.notnull.i.i45
-
-delete.notnull.i.i45:                             ; preds = %if.then.i.i43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #26
-  call void @_ZdlPv(ptr noundef nonnull %19) #28
-  br label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit46
+  %or.cond = select i1 %18, i1 true, i1 %isnull.i.i44
+  br i1 %or.cond, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i36:                               ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i34
   %20 = landingpad { ptr, i32 }
@@ -866,10 +859,6 @@ terminate.lpad.i36:                               ; preds = %_ZNK8proxygen15HPAC
   %21 = extractvalue { ptr, i32 } %20, 0
   call void @__clang_call_terminate(ptr %21) #27
   unreachable
-
-_ZN8proxygen15HPACKHeaderNameD2Ev.exit46:         ; preds = %invoke.cont23, %call.i.i.i.i.noexc.i37, %if.then.i.i43, %delete.notnull.i.i45
-  store ptr null, ptr %agg.tmp19, align 8
-  br label %if.end68
 
 if.else:                                          ; preds = %if.then
   %upgradeProtocol_.i = getelementptr inbounds i8, ptr %msg, i64 568
@@ -954,7 +943,7 @@ invoke.cont50:                                    ; preds = %invoke.cont45
   store i32 %conv54, ptr %uncompressed, align 4
   %32 = load ptr, ptr %agg.tmp44, align 8
   %cmp.i.i.i76 = icmp eq ptr %32, null
-  br i1 %cmp.i.i.i76, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit89, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i77
+  br i1 %cmp.i.i.i76, label %if.end68, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i77
 
 _ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i77: ; preds = %invoke.cont50
   %call.i.i.i.i1.i78 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
@@ -965,19 +954,12 @@ call.i.i.i.i.noexc.i80:                           ; preds = %_ZNK8proxygen15HPAC
   %sub.ptr.rhs.cast.i.i.i.i.i82 = ptrtoint ptr %call.i.i.i.i1.i78 to i64
   %sub.ptr.sub.i.i.i.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i81, %sub.ptr.rhs.cast.i.i.i.i.i82
   %sub.ptr.div.i.i.i.i.i84 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i83, 5
-  %33 = add nsw i64 %sub.ptr.div.i.i.i.i.i84, -89
-  %34 = icmp ult i64 %33, -87
-  br i1 %34, label %if.then.i.i86, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit89
-
-if.then.i.i86:                                    ; preds = %call.i.i.i.i.noexc.i80
+  %33 = add nsw i64 %sub.ptr.div.i.i.i.i.i84, -2
+  %34 = icmp ult i64 %33, 87
   %35 = load ptr, ptr %agg.tmp44, align 8
   %isnull.i.i87 = icmp eq ptr %35, null
-  br i1 %isnull.i.i87, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit89, label %delete.notnull.i.i88
-
-delete.notnull.i.i88:                             ; preds = %if.then.i.i86
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #26
-  call void @_ZdlPv(ptr noundef nonnull %35) #28
-  br label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit89
+  %or.cond283 = select i1 %34, i1 true, i1 %isnull.i.i87
+  br i1 %or.cond283, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i79:                               ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i77
   %36 = landingpad { ptr, i32 }
@@ -985,10 +967,6 @@ terminate.lpad.i79:                               ; preds = %_ZNK8proxygen15HPAC
   %37 = extractvalue { ptr, i32 } %36, 0
   call void @__clang_call_terminate(ptr %37) #27
   unreachable
-
-_ZN8proxygen15HPACKHeaderNameD2Ev.exit89:         ; preds = %invoke.cont50, %call.i.i.i.i.noexc.i80, %if.then.i.i86, %delete.notnull.i.i88
-  store ptr null, ptr %agg.tmp44, align 8
-  br label %if.end68
 
 if.else55:                                        ; preds = %if.else
   store ptr null, ptr %agg.tmp57, align 8
@@ -1013,7 +991,7 @@ invoke.cont63:                                    ; preds = %invoke.cont60
   store i32 %38, ptr %uncompressed, align 4
   %39 = load ptr, ptr %agg.tmp57, align 8
   %cmp.i.i.i97 = icmp eq ptr %39, null
-  br i1 %cmp.i.i.i97, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit110, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i98
+  br i1 %cmp.i.i.i97, label %if.end68, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i98
 
 _ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i98: ; preds = %invoke.cont63
   %call.i.i.i.i1.i99 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
@@ -1024,19 +1002,12 @@ call.i.i.i.i.noexc.i101:                          ; preds = %_ZNK8proxygen15HPAC
   %sub.ptr.rhs.cast.i.i.i.i.i103 = ptrtoint ptr %call.i.i.i.i1.i99 to i64
   %sub.ptr.sub.i.i.i.i.i104 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i102, %sub.ptr.rhs.cast.i.i.i.i.i103
   %sub.ptr.div.i.i.i.i.i105 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i104, 5
-  %40 = add nsw i64 %sub.ptr.div.i.i.i.i.i105, -89
-  %41 = icmp ult i64 %40, -87
-  br i1 %41, label %if.then.i.i107, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit110
-
-if.then.i.i107:                                   ; preds = %call.i.i.i.i.noexc.i101
+  %40 = add nsw i64 %sub.ptr.div.i.i.i.i.i105, -2
+  %41 = icmp ult i64 %40, 87
   %42 = load ptr, ptr %agg.tmp57, align 8
   %isnull.i.i108 = icmp eq ptr %42, null
-  br i1 %isnull.i.i108, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit110, label %delete.notnull.i.i109
-
-delete.notnull.i.i109:                            ; preds = %if.then.i.i107
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #26
-  call void @_ZdlPv(ptr noundef nonnull %42) #28
-  br label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit110
+  %or.cond284 = select i1 %41, i1 true, i1 %isnull.i.i108
+  br i1 %or.cond284, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i100:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i98
   %43 = landingpad { ptr, i32 }
@@ -1045,12 +1016,18 @@ terminate.lpad.i100:                              ; preds = %_ZNK8proxygen15HPAC
   call void @__clang_call_terminate(ptr %44) #27
   unreachable
 
-_ZN8proxygen15HPACKHeaderNameD2Ev.exit110:        ; preds = %invoke.cont63, %call.i.i.i.i.noexc.i101, %if.then.i.i107, %delete.notnull.i.i109
-  store ptr null, ptr %agg.tmp57, align 8
+if.end68.sink.split:                              ; preds = %call.i.i.i.i.noexc.i101, %call.i.i.i.i.noexc.i80, %call.i.i.i.i.noexc.i37
+  %.sink280 = phi ptr [ %19, %call.i.i.i.i.noexc.i37 ], [ %35, %call.i.i.i.i.noexc.i80 ], [ %42, %call.i.i.i.i.noexc.i101 ]
+  %agg.tmp44.sink.ph = phi ptr [ %agg.tmp19, %call.i.i.i.i.noexc.i37 ], [ %agg.tmp44, %call.i.i.i.i.noexc.i80 ], [ %agg.tmp57, %call.i.i.i.i.noexc.i101 ]
+  %.ph = phi i32 [ %conv27, %call.i.i.i.i.noexc.i37 ], [ %conv54, %call.i.i.i.i.noexc.i80 ], [ %38, %call.i.i.i.i.noexc.i101 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink280) #26
+  call void @_ZdlPv(ptr noundef nonnull %.sink280) #28
   br label %if.end68
 
-if.end68:                                         ; preds = %_ZN8proxygen15HPACKHeaderNameD2Ev.exit89, %_ZN8proxygen15HPACKHeaderNameD2Ev.exit110, %_ZN8proxygen15HPACKHeaderNameD2Ev.exit46
-  %45 = phi i32 [ %conv54, %_ZN8proxygen15HPACKHeaderNameD2Ev.exit89 ], [ %38, %_ZN8proxygen15HPACKHeaderNameD2Ev.exit110 ], [ %conv27, %_ZN8proxygen15HPACKHeaderNameD2Ev.exit46 ]
+if.end68:                                         ; preds = %if.end68.sink.split, %call.i.i.i.i.noexc.i101, %invoke.cont63, %call.i.i.i.i.noexc.i80, %invoke.cont50, %call.i.i.i.i.noexc.i37, %invoke.cont23
+  %agg.tmp44.sink = phi ptr [ %agg.tmp19, %invoke.cont23 ], [ %agg.tmp19, %call.i.i.i.i.noexc.i37 ], [ %agg.tmp44, %invoke.cont50 ], [ %agg.tmp44, %call.i.i.i.i.noexc.i80 ], [ %agg.tmp57, %invoke.cont63 ], [ %agg.tmp57, %call.i.i.i.i.noexc.i101 ], [ %agg.tmp44.sink.ph, %if.end68.sink.split ]
+  %45 = phi i32 [ %conv27, %invoke.cont23 ], [ %conv27, %call.i.i.i.i.noexc.i37 ], [ %conv54, %invoke.cont50 ], [ %conv54, %call.i.i.i.i.noexc.i80 ], [ %38, %invoke.cont63 ], [ %38, %call.i.i.i.i.noexc.i101 ], [ %.ph, %if.end68.sink.split ]
+  store ptr null, ptr %agg.tmp44.sink, align 8
   invoke void @_ZNK8proxygen11HTTPMessage9getMethodEv(ptr nonnull sret(%"class.folly::Optional.89") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(616) %msg)
           to label %invoke.cont71 unwind label %terminate.lpad
 
@@ -1252,7 +1229,7 @@ invoke.cont114:                                   ; preds = %invoke.cont111
   store i32 %conv118, ptr %uncompressed, align 4
   %70 = load ptr, ptr %agg.tmp110, align 8
   %cmp.i.i.i165 = icmp eq ptr %70, null
-  br i1 %cmp.i.i.i165, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit178, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i166
+  br i1 %cmp.i.i.i165, label %if.end150, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i166
 
 _ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i166: ; preds = %invoke.cont114
   %call.i.i.i.i1.i167 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
@@ -1263,19 +1240,12 @@ call.i.i.i.i.noexc.i169:                          ; preds = %_ZNK8proxygen15HPAC
   %sub.ptr.rhs.cast.i.i.i.i.i171 = ptrtoint ptr %call.i.i.i.i1.i167 to i64
   %sub.ptr.sub.i.i.i.i.i172 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i170, %sub.ptr.rhs.cast.i.i.i.i.i171
   %sub.ptr.div.i.i.i.i.i173 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i172, 5
-  %71 = add nsw i64 %sub.ptr.div.i.i.i.i.i173, -89
-  %72 = icmp ult i64 %71, -87
-  br i1 %72, label %if.then.i.i175, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit178
-
-if.then.i.i175:                                   ; preds = %call.i.i.i.i.noexc.i169
+  %71 = add nsw i64 %sub.ptr.div.i.i.i.i.i173, -2
+  %72 = icmp ult i64 %71, 87
   %73 = load ptr, ptr %agg.tmp110, align 8
   %isnull.i.i176 = icmp eq ptr %73, null
-  br i1 %isnull.i.i176, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit178, label %delete.notnull.i.i177
-
-delete.notnull.i.i177:                            ; preds = %if.then.i.i175
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #26
-  call void @_ZdlPv(ptr noundef nonnull %73) #28
-  br label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit178
+  %or.cond285 = select i1 %72, i1 true, i1 %isnull.i.i176
+  br i1 %or.cond285, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i168:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i166
   %74 = landingpad { ptr, i32 }
@@ -1283,10 +1253,6 @@ terminate.lpad.i168:                              ; preds = %_ZNK8proxygen15HPAC
   %75 = extractvalue { ptr, i32 } %74, 0
   call void @__clang_call_terminate(ptr %75) #27
   unreachable
-
-_ZN8proxygen15HPACKHeaderNameD2Ev.exit178:        ; preds = %invoke.cont114, %call.i.i.i.i.noexc.i169, %if.then.i.i175, %delete.notnull.i.i177
-  store ptr null, ptr %agg.tmp110, align 8
-  br label %if.end150
 
 if.else119:                                       ; preds = %invoke.cont2
   br i1 %cmp.i23, label %if.then122, label %if.else133
@@ -1310,7 +1276,7 @@ invoke.cont128:                                   ; preds = %invoke.cont125
   store i32 %76, ptr %uncompressed, align 4
   %77 = load ptr, ptr %agg.tmp124, align 8
   %cmp.i.i.i188 = icmp eq ptr %77, null
-  br i1 %cmp.i.i.i188, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit201, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i189
+  br i1 %cmp.i.i.i188, label %if.end150, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i189
 
 _ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i189: ; preds = %invoke.cont128
   %call.i.i.i.i1.i190 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
@@ -1321,19 +1287,12 @@ call.i.i.i.i.noexc.i192:                          ; preds = %_ZNK8proxygen15HPAC
   %sub.ptr.rhs.cast.i.i.i.i.i194 = ptrtoint ptr %call.i.i.i.i1.i190 to i64
   %sub.ptr.sub.i.i.i.i.i195 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i193, %sub.ptr.rhs.cast.i.i.i.i.i194
   %sub.ptr.div.i.i.i.i.i196 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i195, 5
-  %78 = add nsw i64 %sub.ptr.div.i.i.i.i.i196, -89
-  %79 = icmp ult i64 %78, -87
-  br i1 %79, label %if.then.i.i198, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit201
-
-if.then.i.i198:                                   ; preds = %call.i.i.i.i.noexc.i192
+  %78 = add nsw i64 %sub.ptr.div.i.i.i.i.i196, -2
+  %79 = icmp ult i64 %78, 87
   %80 = load ptr, ptr %agg.tmp124, align 8
   %isnull.i.i199 = icmp eq ptr %80, null
-  br i1 %isnull.i.i199, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit201, label %delete.notnull.i.i200
-
-delete.notnull.i.i200:                            ; preds = %if.then.i.i198
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #26
-  call void @_ZdlPv(ptr noundef nonnull %80) #28
-  br label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit201
+  %or.cond286 = select i1 %79, i1 true, i1 %isnull.i.i199
+  br i1 %or.cond286, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i191:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i189
   %81 = landingpad { ptr, i32 }
@@ -1341,10 +1300,6 @@ terminate.lpad.i191:                              ; preds = %_ZNK8proxygen15HPAC
   %82 = extractvalue { ptr, i32 } %81, 0
   call void @__clang_call_terminate(ptr %82) #27
   unreachable
-
-_ZN8proxygen15HPACKHeaderNameD2Ev.exit201:        ; preds = %invoke.cont128, %call.i.i.i.i.noexc.i192, %if.then.i.i198, %delete.notnull.i.i200
-  store ptr null, ptr %agg.tmp124, align 8
-  br label %if.end150
 
 if.else133:                                       ; preds = %if.else119
   store ptr null, ptr %agg.tmp135, align 8
@@ -1426,7 +1381,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %invoke.cont144, %if.then.i.i.i, %if.else.i.i.i, %if.then.i.i.i.i
   %93 = load ptr, ptr %agg.tmp135, align 8
   %cmp.i.i.i214 = icmp eq ptr %93, null
-  br i1 %cmp.i.i.i214, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit227, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i215
+  br i1 %cmp.i.i.i214, label %if.end150, label %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i215
 
 _ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i215: ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
   %call.i.i.i.i1.i216 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
@@ -1437,19 +1392,12 @@ call.i.i.i.i.noexc.i218:                          ; preds = %_ZNK8proxygen15HPAC
   %sub.ptr.rhs.cast.i.i.i.i.i220 = ptrtoint ptr %call.i.i.i.i1.i216 to i64
   %sub.ptr.sub.i.i.i.i.i221 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i219, %sub.ptr.rhs.cast.i.i.i.i.i220
   %sub.ptr.div.i.i.i.i.i222 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i221, 5
-  %94 = add nsw i64 %sub.ptr.div.i.i.i.i.i222, -89
-  %95 = icmp ult i64 %94, -87
-  br i1 %95, label %if.then.i.i224, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit227
-
-if.then.i.i224:                                   ; preds = %call.i.i.i.i.noexc.i218
+  %94 = add nsw i64 %sub.ptr.div.i.i.i.i.i222, -2
+  %95 = icmp ult i64 %94, 87
   %96 = load ptr, ptr %agg.tmp135, align 8
   %isnull.i.i225 = icmp eq ptr %96, null
-  br i1 %isnull.i.i225, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit227, label %delete.notnull.i.i226
-
-delete.notnull.i.i226:                            ; preds = %if.then.i.i224
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #26
-  call void @_ZdlPv(ptr noundef nonnull %96) #28
-  br label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit227
+  %or.cond287 = select i1 %95, i1 true, i1 %isnull.i.i225
+  br i1 %or.cond287, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i217:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i215
   %97 = landingpad { ptr, i32 }
@@ -1458,11 +1406,16 @@ terminate.lpad.i217:                              ; preds = %_ZNK8proxygen15HPAC
   call void @__clang_call_terminate(ptr %98) #27
   unreachable
 
-_ZN8proxygen15HPACKHeaderNameD2Ev.exit227:        ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, %call.i.i.i.i.noexc.i218, %if.then.i.i224, %delete.notnull.i.i226
-  store ptr null, ptr %agg.tmp135, align 8
+if.end150.sink.split:                             ; preds = %call.i.i.i.i.noexc.i218, %call.i.i.i.i.noexc.i192, %call.i.i.i.i.noexc.i169
+  %.sink282 = phi ptr [ %73, %call.i.i.i.i.noexc.i169 ], [ %80, %call.i.i.i.i.noexc.i192 ], [ %96, %call.i.i.i.i.noexc.i218 ]
+  %agg.tmp124.sink.ph = phi ptr [ %agg.tmp110, %call.i.i.i.i.noexc.i169 ], [ %agg.tmp124, %call.i.i.i.i.noexc.i192 ], [ %agg.tmp135, %call.i.i.i.i.noexc.i218 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink282) #26
+  call void @_ZdlPv(ptr noundef nonnull %.sink282) #28
   br label %if.end150
 
-if.end150:                                        ; preds = %_ZN8proxygen15HPACKHeaderNameD2Ev.exit201, %_ZN8proxygen15HPACKHeaderNameD2Ev.exit227, %_ZN8proxygen15HPACKHeaderNameD2Ev.exit178
+if.end150:                                        ; preds = %if.end150.sink.split, %call.i.i.i.i.noexc.i218, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, %call.i.i.i.i.noexc.i192, %invoke.cont128, %call.i.i.i.i.noexc.i169, %invoke.cont114
+  %agg.tmp124.sink = phi ptr [ %agg.tmp110, %invoke.cont114 ], [ %agg.tmp110, %call.i.i.i.i.noexc.i169 ], [ %agg.tmp124, %invoke.cont128 ], [ %agg.tmp124, %call.i.i.i.i.noexc.i192 ], [ %agg.tmp135, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit ], [ %agg.tmp135, %call.i.i.i.i.noexc.i218 ], [ %agg.tmp124.sink.ph, %if.end150.sink.split ]
+  store ptr null, ptr %agg.tmp124.sink, align 8
   store i8 0, ptr %hasDateHeader, align 1
   %headers_.i228 = getelementptr inbounds i8, ptr %msg, i64 480
   store ptr %uncompressed, ptr %agg.tmp153, align 8

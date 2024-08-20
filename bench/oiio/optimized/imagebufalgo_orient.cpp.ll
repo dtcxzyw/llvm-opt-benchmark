@@ -26730,21 +26730,21 @@ entry:
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp53 = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBufC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
-  %agg.tmp31.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp31, i64 4
-  %agg.tmp31.sink.sroa.gep38 = getelementptr inbounds i8, ptr %agg.tmp42, i64 4
-  %agg.tmp4.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp4, i64 4
-  %agg.tmp4.sink.sroa.gep39 = getelementptr inbounds i8, ptr %agg.tmp23, i64 4
+  %agg.tmp31.sink39.sroa.gep40 = getelementptr inbounds i8, ptr %agg.tmp42, i64 4
+  %agg.tmp4.sink38.sroa.gep41 = getelementptr inbounds i8, ptr %agg.tmp23, i64 4
   %call = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf11orientationEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %agg.tmp4.sink38.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp4, i64 4
+  %agg.tmp31.sink39.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp31, i64 4
   switch i32 %call, label %sw.epilog [
     i32 1, label %sw.bb
-    i32 2, label %sw.bb3
+    i32 2, label %if.then.invoke
     i32 3, label %sw.bb8
     i32 4, label %sw.bb13
     i32 5, label %sw.bb18
-    i32 6, label %sw.bb30
+    i32 6, label %if.then41.invoke
     i32 7, label %sw.bb35
     i32 8, label %sw.bb52
   ]
@@ -26766,10 +26766,6 @@ sw.bb:                                            ; preds = %invoke.cont
   store i32 0, ptr %arraylen.i, align 4
   %call2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull %agg.tmp)
           to label %sw.epilog unwind label %lpad
-
-sw.bb3:                                           ; preds = %invoke.cont
-  store i32 -2147483648, ptr %agg.tmp4, align 8
-  br label %if.then.invoke
 
 sw.bb8:                                           ; preds = %invoke.cont
   store i32 -2147483648, ptr %agg.tmp9, align 8
@@ -26793,18 +26789,15 @@ sw.bb18:                                          ; preds = %invoke.cont
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %sw.bb18
-  br i1 %call21, label %if.then, label %if.else
+  br i1 %call21, label %if.then.invoke, label %if.else
 
-if.then:                                          ; preds = %invoke.cont20
-  store i32 -2147483648, ptr %agg.tmp23, align 8
-  br label %if.then.invoke
-
-if.then.invoke:                                   ; preds = %sw.bb3, %if.then
-  %agg.tmp4.sink.sroa.phi = phi ptr [ %agg.tmp4.sink.sroa.gep, %sw.bb3 ], [ %agg.tmp4.sink.sroa.gep39, %if.then ]
-  %agg.tmp4.sink = phi ptr [ %agg.tmp4, %sw.bb3 ], [ %agg.tmp23, %if.then ]
-  %1 = phi ptr [ %src, %sw.bb3 ], [ %tmp, %if.then ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp4.sink.sroa.phi, i8 0, i64 28, i1 false)
-  %2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo4flopERNS_8ImageBufERKS1_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp4.sink, i32 noundef %nthreads)
+if.then.invoke:                                   ; preds = %invoke.cont20, %invoke.cont
+  %agg.tmp4.sink38.sroa.phi = phi ptr [ %agg.tmp4.sink38.sroa.gep, %invoke.cont ], [ %agg.tmp4.sink38.sroa.gep41, %invoke.cont20 ]
+  %agg.tmp4.sink38 = phi ptr [ %agg.tmp4, %invoke.cont ], [ %agg.tmp23, %invoke.cont20 ]
+  %1 = phi ptr [ %src, %invoke.cont ], [ %tmp, %invoke.cont20 ]
+  store i32 -2147483648, ptr %agg.tmp4.sink38, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp4.sink38.sroa.phi, i8 0, i64 28, i1 false)
+  %2 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo4flopERNS_8ImageBufERKS1_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp4.sink38, i32 noundef %nthreads)
           to label %sw.epilog unwind label %lpad
 
 if.else:                                          ; preds = %invoke.cont20
@@ -26821,10 +26814,6 @@ lpad28:                                           ; preds = %invoke.cont27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
   br label %ehcleanup
 
-sw.bb30:                                          ; preds = %invoke.cont
-  store i32 -2147483648, ptr %agg.tmp31, align 8
-  br label %if.then41.invoke
-
 sw.bb35:                                          ; preds = %invoke.cont
   store i32 -2147483648, ptr %agg.tmp36, align 8
   %xend.i35 = getelementptr inbounds i8, ptr %agg.tmp36, i64 4
@@ -26833,18 +26822,15 @@ sw.bb35:                                          ; preds = %invoke.cont
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %sw.bb35
-  br i1 %call38, label %if.then41, label %if.else46
+  br i1 %call38, label %if.then41.invoke, label %if.else46
 
-if.then41:                                        ; preds = %invoke.cont37
-  store i32 -2147483648, ptr %agg.tmp42, align 8
-  br label %if.then41.invoke
-
-if.then41.invoke:                                 ; preds = %sw.bb30, %if.then41
-  %agg.tmp31.sink.sroa.phi = phi ptr [ %agg.tmp31.sink.sroa.gep, %sw.bb30 ], [ %agg.tmp31.sink.sroa.gep38, %if.then41 ]
-  %agg.tmp31.sink = phi ptr [ %agg.tmp31, %sw.bb30 ], [ %agg.tmp42, %if.then41 ]
-  %4 = phi ptr [ %src, %sw.bb30 ], [ %tmp, %if.then41 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp31.sink.sroa.phi, i8 0, i64 28, i1 false)
-  %5 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8rotate90ERNS_8ImageBufERKS1_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp31.sink, i32 noundef %nthreads)
+if.then41.invoke:                                 ; preds = %invoke.cont37, %invoke.cont
+  %agg.tmp31.sink39.sroa.phi = phi ptr [ %agg.tmp31.sink39.sroa.gep, %invoke.cont ], [ %agg.tmp31.sink39.sroa.gep40, %invoke.cont37 ]
+  %agg.tmp31.sink39 = phi ptr [ %agg.tmp31, %invoke.cont ], [ %agg.tmp42, %invoke.cont37 ]
+  %4 = phi ptr [ %src, %invoke.cont ], [ %tmp, %invoke.cont37 ]
+  store i32 -2147483648, ptr %agg.tmp31.sink39, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp31.sink39.sroa.phi, i8 0, i64 28, i1 false)
+  %5 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo8rotate90ERNS_8ImageBufERKS1_NS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp31.sink39, i32 noundef %nthreads)
           to label %sw.epilog unwind label %lpad
 
 if.else46:                                        ; preds = %invoke.cont37

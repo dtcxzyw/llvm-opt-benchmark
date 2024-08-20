@@ -404,12 +404,12 @@ if.then.i:                                        ; preds = %if.then70
   br label %verifyconnect.exit
 
 verifyconnect.exit:                               ; preds = %if.then70, %if.then.i
-  %.in.i = phi ptr [ %call1.i, %if.then.i ], [ %err.i, %if.then70 ]
-  %16 = load i32, ptr %.in.i, align 4
-  store i32 %16, ptr %error72, align 4
+  %err.sink.i = phi ptr [ %call1.i, %if.then.i ], [ %err.i, %if.then70 ]
+  %.pre.i = load i32, ptr %err.sink.i, align 4
+  store i32 %.pre.i, ptr %error72, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %err.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errSize.i)
-  switch i32 %16, label %out [
+  switch i32 %.pre.i, label %out [
     i32 106, label %if.then74
     i32 0, label %if.then74
   ]
@@ -417,11 +417,11 @@ verifyconnect.exit:                               ; preds = %if.then70, %if.then
 if.then74:                                        ; preds = %verifyconnect.exit, %verifyconnect.exit
   %connected_at = getelementptr inbounds i8, ptr %0, i64 344
   %call75 = call { i64, i32 } @Curl_now() #13
-  %17 = extractvalue { i64, i32 } %call75, 0
-  %18 = extractvalue { i64, i32 } %call75, 1
-  store i64 %17, ptr %connected_at, align 8
+  %16 = extractvalue { i64, i32 } %call75, 0
+  %17 = extractvalue { i64, i32 } %call75, 1
+  store i64 %16, ptr %connected_at, align 8
   %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds i8, ptr %0, i64 352
-  store i32 %18, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
+  store i32 %17, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
   %cf.val71 = load ptr, ptr %ctx1, align 8
   call fastcc void @set_local_ip(ptr %cf.val71, ptr noundef %data)
   store i8 1, ptr %done, align 1
@@ -434,15 +434,15 @@ if.then74:                                        ; preds = %verifyconnect.exit,
 land.lhs.true82:                                  ; preds = %if.then74
   %verbose84 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load85 = load i64, ptr %verbose84, align 2
-  %19 = and i64 %bf.load85, 536870912
-  %tobool89.not = icmp eq i64 %19, 0
+  %18 = and i64 %bf.load85, 536870912
+  %tobool89.not = icmp eq i64 %18, 0
   br i1 %tobool89.not, label %return, label %land.lhs.true92
 
 land.lhs.true92:                                  ; preds = %land.lhs.true82
-  %20 = load ptr, ptr %cf, align 8
-  %log_level94 = getelementptr inbounds i8, ptr %20, i64 12
-  %21 = load i32, ptr %log_level94, align 4
-  %cmp95 = icmp sgt i32 %21, 0
+  %19 = load ptr, ptr %cf, align 8
+  %log_level94 = getelementptr inbounds i8, ptr %19, i64 12
+  %20 = load i32, ptr %log_level94, align 4
+  %cmp95 = icmp sgt i32 %20, 0
   br i1 %cmp95, label %if.then96, label %return
 
 if.then96:                                        ; preds = %land.lhs.true92
@@ -455,9 +455,9 @@ if.else100:                                       ; preds = %lor.lhs.false
   br i1 %tobool101.not, label %out, label %if.then102
 
 if.then102:                                       ; preds = %if.else100
-  %22 = load i32, ptr %sock, align 8
+  %21 = load i32, ptr %sock, align 8
   %error104 = getelementptr inbounds i8, ptr %0, i64 376
-  tail call fastcc void @verifyconnect(i32 noundef %22, ptr noundef nonnull %error104)
+  tail call fastcc void @verifyconnect(i32 noundef %21, ptr noundef nonnull %error104)
   br label %if.then110
 
 out:                                              ; preds = %verifyconnect.exit, %if.else100, %if.then35
@@ -468,65 +468,65 @@ out:                                              ; preds = %verifyconnect.exit,
 if.then110:                                       ; preds = %if.then102, %if.then5, %out
   %result.179 = phi i32 [ %result.1, %out ], [ 7, %if.then102 ], [ %call, %if.then5 ]
   %error111 = getelementptr inbounds i8, ptr %0, i64 376
-  %23 = load i32, ptr %error111, align 8
-  %tobool112.not = icmp eq i32 %23, 0
+  %22 = load i32, ptr %error111, align 8
+  %tobool112.not = icmp eq i32 %22, 0
   br i1 %tobool112.not, label %if.end139, label %land.lhs.true120
 
 land.lhs.true120:                                 ; preds = %if.then110
   %cf.val72 = load ptr, ptr %ctx1, align 8
   call fastcc void @set_local_ip(ptr %cf.val72, ptr noundef %data)
-  %24 = load i32, ptr %error111, align 8
+  %23 = load i32, ptr %error111, align 8
   %os_errno = getelementptr inbounds i8, ptr %data, i64 3412
-  store i32 %24, ptr %os_errno, align 4
+  store i32 %23, ptr %os_errno, align 4
   %call117 = tail call ptr @__errno_location() #14
-  store i32 %24, ptr %call117, align 4
+  store i32 %23, ptr %call117, align 4
   %verbose122 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load123 = load i64, ptr %verbose122, align 2
-  %25 = and i64 %bf.load123, 536870912
-  %tobool127.not = icmp eq i64 %25, 0
+  %24 = and i64 %bf.load123, 536870912
+  %tobool127.not = icmp eq i64 %24, 0
   br i1 %tobool127.not, label %if.end139, label %if.then128
 
 if.then128:                                       ; preds = %land.lhs.true120
   %r_ip129 = getelementptr inbounds i8, ptr %0, i64 224
   %r_port = getelementptr inbounds i8, ptr %0, i64 272
-  %26 = load i32, ptr %r_port, align 8
+  %25 = load i32, ptr %r_port, align 8
   %l_ip131 = getelementptr inbounds i8, ptr %0, i64 276
   %l_port133 = getelementptr inbounds i8, ptr %0, i64 324
-  %27 = load i32, ptr %l_port133, align 4
-  %28 = load i32, ptr %error111, align 8
-  %call136 = call ptr @Curl_strerror(i32 noundef %28, ptr noundef nonnull %buffer, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.10, ptr noundef nonnull %r_ip129, i32 noundef %26, ptr noundef nonnull %l_ip131, i32 noundef %27, ptr noundef %call136) #13
+  %26 = load i32, ptr %l_port133, align 4
+  %27 = load i32, ptr %error111, align 8
+  %call136 = call ptr @Curl_strerror(i32 noundef %27, ptr noundef nonnull %buffer, i64 noundef 256) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.10, ptr noundef nonnull %r_ip129, i32 noundef %25, ptr noundef nonnull %l_ip131, i32 noundef %26, ptr noundef %call136) #13
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then128, %land.lhs.true120, %if.then110
-  %29 = load i32, ptr %sock, align 8
-  %cmp141.not = icmp eq i32 %29, -1
+  %28 = load i32, ptr %sock, align 8
+  %cmp141.not = icmp eq i32 %28, -1
   br i1 %cmp141.not, label %if.end147, label %if.then142
 
 if.then142:                                       ; preds = %if.end139
   %conn143 = getelementptr inbounds i8, ptr %cf, i64 24
-  %30 = load ptr, ptr %conn143, align 8
-  %tobool1.i.not = icmp eq ptr %30, null
+  %29 = load ptr, ptr %conn143, align 8
+  %tobool1.i.not = icmp eq ptr %29, null
   br i1 %tobool1.i.not, label %if.end7.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.then142
-  %fclosesocket.i = getelementptr inbounds i8, ptr %30, i64 24
-  %31 = load ptr, ptr %fclosesocket.i, align 8
-  %tobool3.not.i = icmp eq ptr %31, null
-  call void @Curl_multi_closed(ptr noundef %data, i32 noundef %29) #13
+  %fclosesocket.i = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = load ptr, ptr %fclosesocket.i, align 8
+  %tobool3.not.i = icmp eq ptr %30, null
+  call void @Curl_multi_closed(ptr noundef %data, i32 noundef %28) #13
   br i1 %tobool3.not.i, label %if.end7.i, label %if.then.i75
 
 if.then.i75:                                      ; preds = %land.lhs.true2.i
   call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #13
-  %32 = load ptr, ptr %fclosesocket.i, align 8
-  %closesocket_client.i = getelementptr inbounds i8, ptr %30, i64 32
-  %33 = load ptr, ptr %closesocket_client.i, align 8
-  %call.i76 = call i32 %32(ptr noundef %33, i32 noundef %29) #13
+  %31 = load ptr, ptr %fclosesocket.i, align 8
+  %closesocket_client.i = getelementptr inbounds i8, ptr %29, i64 32
+  %32 = load ptr, ptr %closesocket_client.i, align 8
+  %call.i76 = call i32 %31(ptr noundef %32, i32 noundef %28) #13
   call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext false) #13
   br label %socket_close.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true2.i, %if.then142
-  %call8.i = call i32 @close(i32 noundef %29) #13
+  %call8.i = call i32 @close(i32 noundef %28) #13
   br label %socket_close.exit
 
 socket_close.exit:                                ; preds = %if.then.i75, %if.end7.i
@@ -3012,13 +3012,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %.in = phi ptr [ %call1, %if.then ], [ %err, %entry ]
+  %err.sink = phi ptr [ %call1, %if.then ], [ %err, %entry ]
   %tobool.not = icmp eq ptr %error, null
   br i1 %tobool.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %0 = load i32, ptr %.in, align 4
-  store i32 %0, ptr %error, align 4
+  %.pre = load i32, ptr %err.sink, align 4
+  store i32 %.pre, ptr %error, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end

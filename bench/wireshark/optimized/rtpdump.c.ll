@@ -44,12 +44,12 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   %14 = load i32, ptr %1, align 4
   %15 = icmp ne i32 %14, -12
   %16 = sext i1 %15 to i32
-  br label %150
+  br label %151
 
 17:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %4, ptr noundef nonnull dereferenceable(13) @.str, i64 13)
   %.not77 = icmp eq i32 %bcmp, 0
-  br i1 %.not77, label %18, label %150
+  br i1 %.not77, label %18, label %151
 
 18:                                               ; preds = %17
   %19 = call ptr @g_string_sized_new(i64 noundef 71) #7
@@ -71,7 +71,7 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   %28 = load i32, ptr %1, align 4
   %29 = icmp ne i32 %28, -12
   %30 = sext i1 %29 to i32
-  br label %150
+  br label %151
 
 31:                                               ; preds = %23
   %32 = load i8, ptr %5, align 1
@@ -95,7 +95,7 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   %40 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.1) #7
   store ptr %40, ptr %2, align 8
   %41 = call ptr @g_string_free(ptr noundef nonnull %19, i32 noundef 1) #7
-  br label %150
+  br label %151
 
 42:                                               ; preds = %36, %33
   %.174 = phi i32 [ 0, %33 ], [ 1, %36 ]
@@ -111,7 +111,7 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   %46 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.2) #7
   store ptr %46, ptr %2, align 8
   %47 = call ptr @g_string_free(ptr noundef %19, i32 noundef 1) #7
-  br label %150
+  br label %151
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %19, align 8
@@ -123,7 +123,7 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   %52 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.3) #7
   store ptr %52, ptr %2, align 8
   %53 = call ptr @g_string_free(ptr noundef nonnull %19, i32 noundef 1) #7
-  br label %150
+  br label %151
 
 54:                                               ; preds = %31
   %55 = zext i8 %32 to i64
@@ -157,7 +157,7 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
 
 72:                                               ; preds = %54
   %73 = call ptr @g_string_free(ptr noundef %19, i32 noundef 1) #7
-  br label %150
+  br label %151
 
 g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %.3 = phi i32 [ %.174, %42 ], [ %.073, %64 ], [ %.073, %70 ]
@@ -183,7 +183,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   store i32 -13, ptr %1, align 4
   %80 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.4) #7
   store ptr %80, ptr %2, align 8
-  br label %150
+  br label %151
 
 81:                                               ; preds = %.loopexit
   %82 = load ptr, ptr %0, align 8
@@ -195,7 +195,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %85 = load i32, ptr %1, align 4
   %86 = icmp ne i32 %85, -12
   %87 = sext i1 %86 to i32
-  br label %150
+  br label %151
 
 88:                                               ; preds = %81
   %89 = load i64, ptr %10, align 8
@@ -213,7 +213,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %96 = load i32, ptr %1, align 4
   %97 = icmp ne i32 %96, -12
   %98 = sext i1 %97 to i32
-  br label %150
+  br label %151
 
 99:                                               ; preds = %88
   %100 = load i32, ptr %93, align 8
@@ -229,7 +229,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %106 = load i32, ptr %1, align 4
   %107 = icmp ne i32 %106, -12
   %108 = sext i1 %107 to i32
-  br label %150
+  br label %151
 
 109:                                              ; preds = %99
   %110 = load ptr, ptr %0, align 8
@@ -241,7 +241,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %113 = load i32, ptr %1, align 4
   %114 = icmp ne i32 %113, -12
   %115 = sext i1 %114 to i32
-  br label %150
+  br label %151
 
 116:                                              ; preds = %109
   %117 = load i16, ptr %9, align 2
@@ -256,7 +256,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   %121 = load i32, ptr %1, align 4
   %122 = icmp ne i32 %121, -12
   %123 = sext i1 %122 to i32
-  br label %150
+  br label %151
 
 124:                                              ; preds = %116
   %125 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #8
@@ -296,29 +296,29 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   br label %140
 
 140:                                              ; preds = %136, %137, %127
-  %.sink114.in = phi ptr [ %9, %136 ], [ %9, %137 ], [ %8, %127 ]
+  %.sink115 = phi ptr [ %9, %136 ], [ %9, %137 ], [ %8, %127 ]
   %.sink = phi i16 [ 25, %136 ], [ 25, %137 ], [ 26, %127 ]
-  %.sink114 = load i16, ptr %.sink114.in, align 2
-  %141 = zext i16 %.sink114 to i32
-  call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %125, i16 noundef zeroext %.sink, i32 noundef %141) #7
-  %142 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %125, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr @rtpdump_close, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @rtpdump_read, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @rtpdump_seek_read, ptr %145, align 8
-  %146 = load i32, ptr @rtpdump_file_type_subtype, align 4
-  %147 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %146, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 155, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 3, ptr %149, align 4
-  br label %150
+  %141 = load i16, ptr %.sink115, align 2
+  %142 = zext i16 %141 to i32
+  call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %125, i16 noundef zeroext %.sink, i32 noundef %142) #7
+  %143 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %125, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %0, i64 136
+  store ptr @rtpdump_close, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @rtpdump_read, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @rtpdump_seek_read, ptr %146, align 8
+  %147 = load i32, ptr @rtpdump_file_type_subtype, align 4
+  %148 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %147, ptr %148, align 4
+  %149 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 155, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 3, ptr %150, align 4
+  br label %151
 
-150:                                              ; preds = %17, %140, %120, %112, %105, %95, %84, %79, %72, %51, %45, %39, %26, %13
+151:                                              ; preds = %17, %140, %120, %112, %105, %95, %84, %79, %72, %51, %45, %39, %26, %13
   %.0 = phi i32 [ -1, %79 ], [ 1, %140 ], [ %123, %120 ], [ %115, %112 ], [ %108, %105 ], [ %98, %95 ], [ %87, %84 ], [ -1, %39 ], [ -1, %51 ], [ -1, %45 ], [ 0, %72 ], [ %30, %26 ], [ %16, %13 ], [ 0, %17 ]
   ret i32 %.0
 }

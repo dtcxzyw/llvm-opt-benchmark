@@ -16986,17 +16986,11 @@ invoke.cont177:                                   ; preds = %if.end176
   %93 = load i8, ptr %call.i491492, align 1
   %tobool179 = trunc i8 %93 to i1
   %94 = trunc nuw i64 %indvars.iv to i32
-  br i1 %tobool179, label %if.then180, label %if.else
-
-if.then180:                                       ; preds = %invoke.cont177
-  store i32 %94, ptr %indexT, align 4
+  %indexT.indexF = select i1 %tobool179, ptr %indexT, ptr %indexF
+  store i32 %94, ptr %indexT.indexF, align 4
   br label %cleanup
 
-if.else:                                          ; preds = %invoke.cont177
-  store i32 %94, ptr %indexF, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %if.then180, %if.else, %invoke.cont170, %invoke.cont173
+cleanup:                                          ; preds = %invoke.cont177, %invoke.cont170, %invoke.cont173
   %95 = load ptr, ptr %op_arg, align 8
   %bf.load.i.i493 = load i64, ptr %95, align 8
   %96 = and i64 %bf.load.i.i493, 1152920405095219200

@@ -10155,38 +10155,36 @@ define internal void @stack_trace_recv(i32 %0, ptr noundef %1, ptr noundef %2, i
   %61 = load i32, ptr %14, align 4
   %62 = sext i32 %61 to i64
   %63 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.115, ptr noundef %59, ptr noundef %60, i64 noundef %62) #15
-  %64 = load ptr, ptr %8, align 8
-  %65 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %42, ptr noundef %64) #15
-  br label %66
+  br label %64
 
-66:                                               ; preds = %68, %58
-  %.sink173.in = phi ptr [ %8, %68 ], [ %12, %58 ]
-  %.sink.in = phi ptr [ %9, %68 ], [ %8, %58 ]
-  %.sink173 = load ptr, ptr %.sink173.in, align 8
-  call void @free(ptr noundef %.sink173) #15
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #15
+64:                                               ; preds = %70, %58
+  %.sink154 = phi ptr [ %9, %70 ], [ %8, %58 ]
+  %.sink153 = phi ptr [ %8, %70 ], [ %12, %58 ]
+  %65 = load ptr, ptr %.sink154, align 8
+  %66 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %42, ptr noundef %65) #15
+  %67 = load ptr, ptr %.sink153, align 8
+  call void @free(ptr noundef %67) #15
+  %68 = load ptr, ptr %.sink154, align 8
+  call void @free(ptr noundef %68) #15
   store i32 1, ptr %10, align 4
-  %67 = call i32 @PMIx_Data_unpack(ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10, i16 noundef zeroext 3) #15
-  switch i32 %67, label %73 [
-    i32 0, label %68
+  %69 = call i32 @PMIx_Data_unpack(ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10, i16 noundef zeroext 3) #15
+  switch i32 %69, label %73 [
+    i32 0, label %70
     i32 -2, label %.loopexit
     i32 -50, label %.loopexit
   ]
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr %8, align 8
-  %70 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.116, ptr noundef %69) #15
-  %71 = load ptr, ptr %9, align 8
-  %72 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %42, ptr noundef %71) #15
-  br label %66, !llvm.loop !40
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %8, align 8
+  %72 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.116, ptr noundef %71) #15
+  br label %64, !llvm.loop !40
 
-73:                                               ; preds = %66
-  %74 = call ptr @PMIx_Error_string(i32 noundef %67) #15
+73:                                               ; preds = %64
+  %74 = call ptr @PMIx_Error_string(i32 noundef %69) #15
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %74, ptr noundef nonnull @.str.7, i32 noundef 410) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %66, %66, %73
+.loopexit:                                        ; preds = %64, %64, %73
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %7) #15
   store i32 1, ptr %10, align 4
   br label %43, !llvm.loop !41

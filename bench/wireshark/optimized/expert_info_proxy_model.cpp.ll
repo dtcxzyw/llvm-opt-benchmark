@@ -92,19 +92,14 @@ define noundef zeroext i1 @_ZNK20ExpertInfoProxyModel8lessThanERK11QModelIndexS2
   %13 = alloca %class.QString, align 8
   %14 = alloca %class.QString, align 8
   %15 = alloca %class.QString, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !4
   %.not.i = icmp eq ptr %17, null
-  %.sink145.sroa.gep = getelementptr inbounds i8, ptr %9, i64 4
-  %.sink145.sroa.gep150 = getelementptr inbounds i8, ptr %9, i64 8
-  br i1 %.not.i, label %_ZNK11QModelIndex6parentEv.exit.thread, label %_ZNK11QModelIndex6parentEv.exit
-
-_ZNK11QModelIndex6parentEv.exit.thread:           ; preds = %3
-  %.sink145.sroa.gep151 = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink145.sroa.gep148 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 -1, ptr %8, align 8, !alias.scope !4
-  br label %.critedge.sink.split
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %8, i64 4
+  %.sink.sroa.gep150 = getelementptr inbounds i8, ptr %9, i64 4
+  %.sink.sroa.gep152 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sink.sroa.gep153 = getelementptr inbounds i8, ptr %9, i64 8
+  br i1 %.not.i, label %.critedge.sink.split, label %_ZNK11QModelIndex6parentEv.exit
 
 _ZNK11QModelIndex6parentEv.exit:                  ; preds = %3
   %18 = load ptr, ptr %17, align 8, !noalias !4
@@ -124,15 +119,10 @@ _ZNK11QModelIndex6parentEv.exit:                  ; preds = %3
   br i1 %or.cond119, label %24, label %.critedge
 
 24:                                               ; preds = %_ZNK11QModelIndex6parentEv.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %25 = getelementptr inbounds i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8, !noalias !7
   %.not.i47 = icmp eq ptr %26, null
-  br i1 %.not.i47, label %_ZNK11QModelIndex6parentEv.exit49.thread, label %_ZNK11QModelIndex6parentEv.exit49
-
-_ZNK11QModelIndex6parentEv.exit49.thread:         ; preds = %24
-  store i32 -1, ptr %9, align 8, !alias.scope !7
-  br label %.critedge.sink.split
+  br i1 %.not.i47, label %.critedge.sink.split, label %_ZNK11QModelIndex6parentEv.exit49
 
 _ZNK11QModelIndex6parentEv.exit49:                ; preds = %24
   %27 = load ptr, ptr %26, align 8, !noalias !7
@@ -196,11 +186,13 @@ _ZNK11QModelIndex6parentEv.exit57.thread:         ; preds = %_ZNK11QModelIndex6p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false), !alias.scope !13
   br label %.critedge46
 
-.critedge.sink.split:                             ; preds = %_ZNK11QModelIndex6parentEv.exit.thread, %_ZNK11QModelIndex6parentEv.exit49.thread
-  %.sink145.sroa.phi = phi ptr [ %.sink145.sroa.gep, %_ZNK11QModelIndex6parentEv.exit49.thread ], [ %.sink145.sroa.gep148, %_ZNK11QModelIndex6parentEv.exit.thread ]
-  %.sink145.sroa.phi149 = phi ptr [ %.sink145.sroa.gep150, %_ZNK11QModelIndex6parentEv.exit49.thread ], [ %.sink145.sroa.gep151, %_ZNK11QModelIndex6parentEv.exit.thread ]
-  store i32 -1, ptr %.sink145.sroa.phi, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink145.sroa.phi149, i8 0, i64 16, i1 false)
+.critedge.sink.split:                             ; preds = %24, %3
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %3 ], [ %.sink.sroa.gep150, %24 ]
+  %.sink.sroa.phi151 = phi ptr [ %.sink.sroa.gep152, %3 ], [ %.sink.sroa.gep153, %24 ]
+  %.sink = phi ptr [ %8, %3 ], [ %9, %24 ]
+  store i32 -1, ptr %.sink, align 8
+  store i32 -1, ptr %.sink.sroa.phi, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.sroa.phi151, i8 0, i64 16, i1 false)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %_ZNK11QModelIndex6parentEv.exit49, %_ZNK11QModelIndex6parentEv.exit
@@ -209,10 +201,10 @@ _ZNK11QModelIndex6parentEv.exit57.thread:         ; preds = %_ZNK11QModelIndex6p
   br label %_ZNK11QModelIndex6parentEv.exit57
 
 _ZNK11QModelIndex6parentEv.exit57:                ; preds = %44, %.critedge
-  %.pn152 = phi ptr [ %11, %44 ], [ %2, %.critedge ]
+  %.pn154 = phi ptr [ %11, %44 ], [ %2, %.critedge ]
   %.037.in = phi i64 [ %42, %44 ], [ %51, %.critedge ]
-  %.sink.sroa.phi = getelementptr inbounds i8, ptr %.pn152, i64 8
-  %.pre134 = load i64, ptr %.sink.sroa.phi, align 8
+  %.sink146.sroa.phi = getelementptr inbounds i8, ptr %.pn154, i64 8
+  %.pre134 = load i64, ptr %.sink146.sroa.phi, align 8
   %.036 = inttoptr i64 %.pre134 to ptr
   %.037 = inttoptr i64 %.037.in to ptr
   %52 = icmp ne i64 %.037.in, 0
@@ -509,10 +501,10 @@ _ZN7QStringD2Ev.exit100:                          ; preds = %.critedge46, %170, 
   ret i1 %.038
 
 _ZN7QStringD2Ev.exit108.sink.split:               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69
-  %.sink146.in = phi ptr [ %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ]
+  %.sink148 = phi ptr [ %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ]
   %.pn.ph = phi { ptr, i32 } [ %111, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %168, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ]
-  %.sink146 = load ptr, ptr %.sink146.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink146, i64 noundef 2, i64 noundef 8) #14
+  %178 = load ptr, ptr %.sink148, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %178, i64 noundef 2, i64 noundef 8) #14
   br label %_ZN7QStringD2Ev.exit108
 
 _ZN7QStringD2Ev.exit108:                          ; preds = %_ZN7QStringD2Ev.exit108.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %167, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69, %110
@@ -1643,10 +1635,10 @@ _ZN7QStringD2Ev.exit:                             ; preds = %73, %_ZN17QArrayDat
   ret void
 
 _ZN7QStringD2Ev.exit11.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9
-  %.sink.in = phi ptr [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9 ], [ %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17 ], [ %8, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25 ], [ %9, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %10, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41 ], [ %11, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ]
+  %.sink52 = phi ptr [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9 ], [ %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17 ], [ %8, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25 ], [ %9, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %10, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41 ], [ %11, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ]
   %.pn.ph = phi { ptr, i32 } [ %26, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9 ], [ %36, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17 ], [ %46, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25 ], [ %56, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %66, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41 ], [ %76, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #14
+  %81 = load ptr, ptr %.sink52, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %81, i64 noundef 2, i64 noundef 8) #14
   br label %_ZN7QStringD2Ev.exit11
 
 _ZN7QStringD2Ev.exit11:                           ; preds = %_ZN7QStringD2Ev.exit11.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49, %75, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41, %65, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33, %55, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i25, %45, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17, %35, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i9, %25

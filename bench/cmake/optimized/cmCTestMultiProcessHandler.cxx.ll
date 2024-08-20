@@ -4238,8 +4238,8 @@ define dso_local void @_ZN26cmCTestMultiProcessHandler16StartTestProcessEi(ptr n
   invoke void @_ZN14cmCTestRunTestC1ER26cmCTestMultiProcessHandleri(ptr noundef nonnull align 8 dereferenceable(640) %40, ptr noundef nonnull align 8 dereferenceable(870) %0, i32 noundef %41)
           to label %_ZSt11make_uniqueI14cmCTestRunTestJR26cmCTestMultiProcessHandlerRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %42, !noalias !23
 
-common.resume:                                    ; preds = %56, %330, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn49, %330 ], [ %.pn, %56 ]
+common.resume:                                    ; preds = %56, %329, %42
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %.pn49, %329 ], [ %.pn, %56 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %39
@@ -4285,12 +4285,12 @@ _ZSt11make_uniqueI14cmCTestRunTestJR26cmCTestMultiProcessHandlerRiEENSt8__detail
 .loopexit154:                                     ; preds = %88, %110
   %lpad.loopexit156 = landingpad { ptr, i32 }
           cleanup
-  br label %330
+  br label %329
 
 .loopexit.split-lp155:                            ; preds = %134, %278, %281, %.critedge.i, %78, %.critedge.i70
   %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
           cleanup
-  br label %330
+  br label %329
 
 57:                                               ; preds = %46, %_ZSt11make_uniqueI14cmCTestRunTestJR26cmCTestMultiProcessHandlerRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %58 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4884,7 +4884,7 @@ _ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit: ; preds = %
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %277
   %.pn41 = phi { ptr, i32 } [ %.pn38.pn, %277 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit149, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit152, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13) #26
-  br label %330
+  br label %329
 
 278:                                              ; preds = %130
   %279 = getelementptr inbounds i8, ptr %0, i64 392
@@ -4961,21 +4961,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit109: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #26
   %306 = load ptr, ptr %19, align 8
   %.not.i110 = icmp eq ptr %306, null
-  br i1 %.not.i110, label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112, label %_ZNKSt14default_deleteI14cmCTestRunTestEclEPS0_.exit.i111
-
-_ZNKSt14default_deleteI14cmCTestRunTestEclEPS0_.exit.i111: ; preds = %305
-  call void @_ZN14cmCTestRunTestD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %306) #26
-  call void @_ZdlPv(ptr noundef nonnull %306) #28
-  br label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112
-
-_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112: ; preds = %305, %_ZNKSt14default_deleteI14cmCTestRunTestEclEPS0_.exit.i111
-  store ptr null, ptr %19, align 8
-  br label %326
+  br i1 %.not.i110, label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112, label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112.sink.split
 
 307:                                              ; preds = %292, %288
   %308 = landingpad { ptr, i32 }
           cleanup
-  br label %329
+  br label %328
 
 309:                                              ; preds = %295
   %310 = landingpad { ptr, i32 }
@@ -5012,7 +5003,7 @@ _ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112: ; preds 
 318:                                              ; preds = %317, %309
   %.pn43.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %317 ], [ %310, %309 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #26
-  br label %329
+  br label %328
 
 319:                                              ; preds = %284
   store i64 %287, ptr %25, align 8
@@ -5022,43 +5013,43 @@ _ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112: ; preds 
   %322 = getelementptr inbounds i8, ptr %0, i64 304
   %323 = load i64, ptr %322, align 8
   invoke void @_ZN14cmCTestRunTest9StartTestESt10unique_ptrIS_St14default_deleteIS_EEmm(ptr noundef nonnull %25, i64 noundef %321, i64 noundef %323)
-          to label %324 unwind label %327
+          to label %324 unwind label %326
 
 324:                                              ; preds = %319
   %325 = load ptr, ptr %25, align 8
   %.not.i113 = icmp eq ptr %325, null
-  br i1 %.not.i113, label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit115, label %_ZNKSt14default_deleteI14cmCTestRunTestEclEPS0_.exit.i114
+  br i1 %.not.i113, label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112, label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112.sink.split
 
-_ZNKSt14default_deleteI14cmCTestRunTestEclEPS0_.exit.i114: ; preds = %324
-  call void @_ZN14cmCTestRunTestD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %325) #26
-  call void @_ZdlPv(ptr noundef nonnull %325) #28
-  br label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit115
+_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112.sink.split: ; preds = %324, %305
+  %.sink182 = phi ptr [ %306, %305 ], [ %325, %324 ]
+  %.sink.ph = phi ptr [ %19, %305 ], [ %25, %324 ]
+  call void @_ZN14cmCTestRunTestD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %.sink182) #26
+  call void @_ZdlPv(ptr noundef nonnull %.sink182) #28
+  br label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112
 
-_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit115: ; preds = %324, %_ZNKSt14default_deleteI14cmCTestRunTestEclEPS0_.exit.i114
-  store ptr null, ptr %25, align 8
-  br label %326
-
-326:                                              ; preds = %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit115, %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112
+_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112: ; preds = %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112.sink.split, %324, %305
+  %.sink = phi ptr [ %19, %305 ], [ %25, %324 ], [ %.sink.ph, %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112.sink.split ]
+  store ptr null, ptr %.sink, align 8
   call void @_ZN18cmWorkingDirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %18) #26
   br label %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit118
 
-_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit118: ; preds = %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit, %326
+_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit118: ; preds = %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit, %_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev.exit112
   ret void
 
-327:                                              ; preds = %319
-  %328 = landingpad { ptr, i32 }
+326:                                              ; preds = %319
+  %327 = landingpad { ptr, i32 }
           cleanup
+  br label %328
+
+328:                                              ; preds = %307, %318, %326
+  %.sink180 = phi ptr [ %25, %326 ], [ %19, %318 ], [ %19, %307 ]
+  %.pn43.pn.pn.pn.pn = phi { ptr, i32 } [ %327, %326 ], [ %.pn43.pn.pn, %318 ], [ %308, %307 ]
+  call void @_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink180) #26
+  call void @_ZN18cmWorkingDirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %18) #26
   br label %329
 
-329:                                              ; preds = %307, %318, %327
-  %.sink = phi ptr [ %25, %327 ], [ %19, %318 ], [ %19, %307 ]
-  %.pn43.pn.pn.pn.pn = phi { ptr, i32 } [ %328, %327 ], [ %.pn43.pn.pn, %318 ], [ %308, %307 ]
-  call void @_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #26
-  call void @_ZN18cmWorkingDirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %18) #26
-  br label %330
-
-330:                                              ; preds = %.loopexit154, %.loopexit.split-lp155, %329, %.loopexit.split-lp
-  %.pn49 = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn, %329 ], [ %.pn41, %.loopexit.split-lp ], [ %lpad.loopexit156, %.loopexit154 ], [ %lpad.loopexit.split-lp157, %.loopexit.split-lp155 ]
+329:                                              ; preds = %.loopexit154, %.loopexit.split-lp155, %328, %.loopexit.split-lp
+  %.pn49 = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn, %328 ], [ %.pn41, %.loopexit.split-lp ], [ %lpad.loopexit156, %.loopexit154 ], [ %lpad.loopexit.split-lp157, %.loopexit.split-lp155 ]
   call void @_ZNSt10unique_ptrI14cmCTestRunTestSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #26
   br label %common.resume
 }

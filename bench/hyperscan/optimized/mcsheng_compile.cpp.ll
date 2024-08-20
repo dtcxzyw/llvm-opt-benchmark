@@ -394,6 +394,8 @@ entry:
   %allowMcSheng = getelementptr inbounds i8, ptr %cc, i64 35
   %0 = load i8, ptr %allowMcSheng, align 1
   %tobool = trunc i8 %0 to i1
+  %ref.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
+  %ref.tmp.sink.sroa.gep139 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1178,13 +1180,7 @@ invoke.cont32:                                    ; preds = %if.then.i.i.i119.i,
   %127 = load ptr, ptr %agg.result, align 8
   store ptr %126, ptr %agg.result, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %127, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread, label %if.then.i.i.i.i.i
-
-_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread:   ; preds = %invoke.cont32
-  %bytes.i106 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes3.i107 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i106, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i107, i64 16, i1 false)
-  br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit
+  br i1 %tobool.not.i.i.i.i.i, label %if.end37.sink.split, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont32
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %127)
@@ -1203,11 +1199,11 @@ _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit:          ; preds = %if.then.i.i.i.i.i
   %bytes3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i, i64 16, i1 false)
   %cmp.not.i.i14 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i.i14, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i14, label %if.end37, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %.pr)
-          to label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit unwind label %terminate.lpad.i.i
+          to label %if.end37 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %130 = landingpad { ptr, i32 }
@@ -1215,10 +1211,6 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %131 = extractvalue { ptr, i32 } %130, 0
   call void @__clang_call_terminate(ptr %131) #26
   unreachable
-
-_ZN3ue212bytecode_ptrI3NFAED2Ev.exit:             ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit, %if.then.i.i
-  store ptr null, ptr %ref.tmp, align 8
-  br label %if.end37
 
 lpad31:                                           ; preds = %if.then40
   %132 = landingpad { ptr, i32 }
@@ -1548,14 +1540,20 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit99:           ; preds = %if.then.i.i.i43.i, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ri.i19)
   %183 = load ptr, ptr %ref.tmp34, align 8
   store ptr %183, ptr %agg.result, align 8
-  %bytes.i93110 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes3.i94111 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i93110, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i94111, i64 16, i1 false)
-  store ptr null, ptr %ref.tmp34, align 8
+  br label %if.end37.sink.split
+
+if.end37.sink.split:                              ; preds = %invoke.cont32, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit99
+  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sink.sroa.gep, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit99 ], [ %ref.tmp.sink.sroa.gep139, %invoke.cont32 ]
+  %ref.tmp.sink = phi ptr [ %ref.tmp34, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit99 ], [ %ref.tmp, %invoke.cont32 ]
+  %.ph = phi ptr [ %183, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit99 ], [ %126, %invoke.cont32 ]
+  %bytes.i106 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i106, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink.sroa.phi, i64 16, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit99, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit
-  %184 = phi ptr [ %183, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit99 ], [ %126, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit ]
+if.end37:                                         ; preds = %if.end37.sink.split, %if.then.i.i, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit
+  %ref.tmp34.sink = phi ptr [ %ref.tmp, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit ], [ %ref.tmp, %if.then.i.i ], [ %ref.tmp.sink, %if.end37.sink.split ]
+  %184 = phi ptr [ %126, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit ], [ %126, %if.then.i.i ], [ %.ph, %if.end37.sink.split ]
+  store ptr null, ptr %ref.tmp34.sink, align 8
   %cmp.i.i.i100.not = icmp eq ptr %184, null
   br i1 %cmp.i.i.i100.not, label %if.then40, label %if.end44
 
@@ -3309,6 +3307,8 @@ entry:
   %allowMcSheng = getelementptr inbounds i8, ptr %cc, i64 35
   %0 = load i8, ptr %allowMcSheng, align 1
   %tobool = trunc i8 %0 to i1
+  %ref.tmp.sink128.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
+  %ref.tmp.sink128.sroa.gep141 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4080,13 +4080,7 @@ invoke.cont32:                                    ; preds = %if.then.i.i.i119.i,
   %126 = load ptr, ptr %agg.result, align 8
   store ptr %125, ptr %agg.result, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %126, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread, label %if.then.i.i.i.i.i
-
-_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread:   ; preds = %invoke.cont32
-  %bytes.i107 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes3.i108 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i107, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i108, i64 16, i1 false)
-  br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit
+  br i1 %tobool.not.i.i.i.i.i, label %if.end39.sink.split, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont32
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %126)
@@ -4105,11 +4099,11 @@ _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit:          ; preds = %if.then.i.i.i.i.i
   %bytes3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i, i64 16, i1 false)
   %cmp.not.i.i14 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i.i14, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i14, label %if.end39, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %.pr)
-          to label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit unwind label %terminate.lpad.i.i
+          to label %if.end39 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %129 = landingpad { ptr, i32 }
@@ -4117,10 +4111,6 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %130 = extractvalue { ptr, i32 } %129, 0
   call void @__clang_call_terminate(ptr %130) #26
   unreachable
-
-_ZN3ue212bytecode_ptrI3NFAED2Ev.exit:             ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit, %if.then.i.i
-  store ptr null, ptr %ref.tmp, align 8
-  br label %if.end39
 
 lpad31.body.sink.split:                           ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit123.i, %_ZNSt6vectorIjSaIjEED2Ev.exit53.i
   %.sink = phi ptr [ %181, %_ZNSt6vectorIjSaIjEED2Ev.exit53.i ], [ %124, %_ZNSt6vectorIjSaIjEED2Ev.exit123.i ]
@@ -4448,14 +4438,20 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit102:          ; preds = %if.then.i.i.i43.i, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ri.i19)
   %182 = load ptr, ptr %ref.tmp35, align 8
   store ptr %182, ptr %agg.result, align 8
-  %bytes.i96111 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes3.i97112 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i96111, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i97112, i64 16, i1 false)
-  store ptr null, ptr %ref.tmp35, align 8
+  br label %if.end39.sink.split
+
+if.end39.sink.split:                              ; preds = %invoke.cont32, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit102
+  %ref.tmp.sink128.sroa.phi = phi ptr [ %ref.tmp.sink128.sroa.gep, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit102 ], [ %ref.tmp.sink128.sroa.gep141, %invoke.cont32 ]
+  %ref.tmp.sink128 = phi ptr [ %ref.tmp35, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit102 ], [ %ref.tmp, %invoke.cont32 ]
+  %.ph = phi ptr [ %182, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit102 ], [ %125, %invoke.cont32 ]
+  %bytes.i107 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i107, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink128.sroa.phi, i64 16, i1 false)
   br label %if.end39
 
-if.end39:                                         ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit102
-  %183 = phi ptr [ %125, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit ], [ %182, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit102 ]
+if.end39:                                         ; preds = %if.end39.sink.split, %if.then.i.i, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit
+  %ref.tmp.sink = phi ptr [ %ref.tmp, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit ], [ %ref.tmp, %if.then.i.i ], [ %ref.tmp.sink128, %if.end39.sink.split ]
+  %183 = phi ptr [ %125, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit ], [ %125, %if.then.i.i ], [ %.ph, %if.end39.sink.split ]
+  store ptr null, ptr %ref.tmp.sink, align 8
   %cmp.i.i.i103.not = icmp ne ptr %183, null
   %brmerge.not = and i1 %call13, %cmp.i.i.i103.not
   br i1 %brmerge.not, label %if.then45, label %cleanup51

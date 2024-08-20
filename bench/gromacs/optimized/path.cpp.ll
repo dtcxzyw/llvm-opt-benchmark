@@ -2668,19 +2668,19 @@ define noundef zeroext i1 @_ZN3gmx4File6existsERKNSt10filesystem7__cxx114pathEPF
   %6 = alloca %"struct.gmx::File::NotFoundInfo", align 8
   %7 = alloca %"struct.gmx::File::NotFoundInfo", align 8
   %8 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
-  %.sink24.sroa.gep = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink24.sroa.gep25 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink24.sroa.gep26 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink24.sroa.gep28 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink24.sroa.gep29 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink24.sroa.gep30 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink24.sroa.gep32 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink24.sroa.gep33 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink24.sroa.gep34 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sink24.sroa.gep36 = getelementptr inbounds i8, ptr %7, i64 28
-  %.sink24.sroa.gep37 = getelementptr inbounds i8, ptr %6, i64 28
-  %.sink24.sroa.gep38 = getelementptr inbounds i8, ptr %5, i64 28
-  br i1 %8, label %32, label %9
+  %.sink25.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink25.sroa.gep26 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink25.sroa.gep27 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sink25.sroa.gep29 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink25.sroa.gep30 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink25.sroa.gep31 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink25.sroa.gep33 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink25.sroa.gep34 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink25.sroa.gep35 = getelementptr inbounds i8, ptr %7, i64 24
+  %.sink25.sroa.gep37 = getelementptr inbounds i8, ptr %5, i64 28
+  %.sink25.sroa.gep38 = getelementptr inbounds i8, ptr %6, i64 28
+  %.sink25.sroa.gep39 = getelementptr inbounds i8, ptr %7, i64 28
+  br i1 %8, label %30, label %9
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -2712,7 +2712,6 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %9
   %20 = icmp ne i32 %19, 20
   %spec.select = and i1 %.not, %20
   %21 = zext i1 %spec.select to i8
-  store ptr %0, ptr %5, align 8
   br label %.sink.split
 
 22:                                               ; preds = %_ZNKSt10filesystem7__cxx114path6stringEv.exit
@@ -2720,41 +2719,34 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %9
   %24 = call i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.sroa.1.0.extract.shift.mask = and i64 %24, -4294967296
   %25 = icmp eq i64 %.sroa.1.0.extract.shift.mask, 281470681743360
-  br i1 %25, label %26, label %27
+  br i1 %25, label %.sink.split, label %26
 
 26:                                               ; preds = %22
-  store ptr %0, ptr %6, align 8
-  br label %.sink.split
+  %27 = call i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %28 = and i64 %27, 255
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %.sink.split
 
-27:                                               ; preds = %22
-  %28 = call i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %29 = and i64 %28, 255
-  %30 = icmp eq i64 %29, 1
-  br i1 %30, label %32, label %31
+.sink.split:                                      ; preds = %26, %22, %17
+  %.sink25.sroa.phi = phi ptr [ %.sink25.sroa.gep, %17 ], [ %.sink25.sroa.gep26, %22 ], [ %.sink25.sroa.gep27, %26 ]
+  %.sink25.sroa.phi28 = phi ptr [ %.sink25.sroa.gep29, %17 ], [ %.sink25.sroa.gep30, %22 ], [ %.sink25.sroa.gep31, %26 ]
+  %.sink25.sroa.phi32 = phi ptr [ %.sink25.sroa.gep33, %17 ], [ %.sink25.sroa.gep34, %22 ], [ %.sink25.sroa.gep35, %26 ]
+  %.sink25.sroa.phi36 = phi ptr [ %.sink25.sroa.gep37, %17 ], [ %.sink25.sroa.gep38, %22 ], [ %.sink25.sroa.gep39, %26 ]
+  %.sink25 = phi ptr [ %5, %17 ], [ %6, %22 ], [ %7, %26 ]
+  %.str.15.sink = phi ptr [ @.str.11, %17 ], [ @.str.13, %22 ], [ @.str.15, %26 ]
+  %.str.16.sink = phi ptr [ @.str.12, %17 ], [ @.str.14, %22 ], [ @.str.16, %26 ]
+  %.sink18 = phi i8 [ %21, %17 ], [ 1, %22 ], [ 1, %26 ]
+  %.sink15 = phi i32 [ %19, %17 ], [ 0, %22 ], [ 0, %26 ]
+  store ptr %0, ptr %.sink25, align 8
+  store ptr %.str.15.sink, ptr %.sink25.sroa.phi, align 8
+  store ptr %.str.16.sink, ptr %.sink25.sroa.phi28, align 8
+  store i8 %.sink18, ptr %.sink25.sroa.phi32, align 8
+  store i32 %.sink15, ptr %.sink25.sroa.phi36, align 4
+  call void %1(ptr noundef nonnull align 8 dereferenceable(32) %.sink25)
+  br label %30
 
-31:                                               ; preds = %27
-  store ptr %0, ptr %7, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %17, %26, %31
-  %.sink24.sroa.phi = phi ptr [ %.sink24.sroa.gep, %31 ], [ %.sink24.sroa.gep25, %26 ], [ %.sink24.sroa.gep26, %17 ]
-  %.sink24.sroa.phi27 = phi ptr [ %.sink24.sroa.gep28, %31 ], [ %.sink24.sroa.gep29, %26 ], [ %.sink24.sroa.gep30, %17 ]
-  %.sink24.sroa.phi31 = phi ptr [ %.sink24.sroa.gep32, %31 ], [ %.sink24.sroa.gep33, %26 ], [ %.sink24.sroa.gep34, %17 ]
-  %.sink24.sroa.phi35 = phi ptr [ %.sink24.sroa.gep36, %31 ], [ %.sink24.sroa.gep37, %26 ], [ %.sink24.sroa.gep38, %17 ]
-  %.sink24 = phi ptr [ %7, %31 ], [ %6, %26 ], [ %5, %17 ]
-  %.str.15.sink = phi ptr [ @.str.15, %31 ], [ @.str.13, %26 ], [ @.str.11, %17 ]
-  %.str.16.sink = phi ptr [ @.str.16, %31 ], [ @.str.14, %26 ], [ @.str.12, %17 ]
-  %.sink18 = phi i8 [ 1, %31 ], [ 1, %26 ], [ %21, %17 ]
-  %.sink15 = phi i32 [ 0, %31 ], [ 0, %26 ], [ %19, %17 ]
-  store ptr %.str.15.sink, ptr %.sink24.sroa.phi, align 8
-  store ptr %.str.16.sink, ptr %.sink24.sroa.phi27, align 8
-  store i8 %.sink18, ptr %.sink24.sroa.phi31, align 8
-  store i32 %.sink15, ptr %.sink24.sroa.phi35, align 4
-  call void %1(ptr noundef nonnull align 8 dereferenceable(32) %.sink24)
-  br label %32
-
-32:                                               ; preds = %.sink.split, %27, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %27 ], [ false, %.sink.split ]
+30:                                               ; preds = %.sink.split, %26, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %26 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

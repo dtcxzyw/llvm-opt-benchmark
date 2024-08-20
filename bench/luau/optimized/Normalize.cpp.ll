@@ -10948,9 +10948,9 @@ _ZNSt10unique_ptrIN4Luau7TypeIdsESt14default_deleteIS1_EEaSEOS4_.exit: ; preds =
   resume { ptr, i32 } %eh.lpad-body
 
 _ZNSt10unique_ptrIN4Luau7TypeIdsESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4Luau7TypeIdsESt14default_deleteIS1_EEaSEOS4_.exit, %48, %9
-  %.0.in = phi ptr [ %10, %9 ], [ %6, %48 ], [ %6, %_ZNSt10unique_ptrIN4Luau7TypeIdsESt14default_deleteIS1_EEaSEOS4_.exit ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  ret ptr %.0
+  %.sink = phi ptr [ %10, %9 ], [ %6, %48 ], [ %6, %_ZNSt10unique_ptrIN4Luau7TypeIdsESt14default_deleteIS1_EEaSEOS4_.exit ]
+  %63 = load ptr, ptr %.sink, align 8
+  ret ptr %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16421,11 +16421,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit31: ; preds = %
 118:                                              ; preds = %117
   %119 = load i32, ptr %78, align 8
   %120 = icmp eq i32 %119, 5
-  br i1 %120, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
-
-_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33: ; preds = %118
-  store i8 0, ptr %5, align 1
-  br label %131
+  br i1 %120, label %.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 121:                                              ; preds = %77
   %122 = invoke { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -16444,15 +16440,16 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33: ; preds = %
 128:                                              ; preds = %127
   %129 = load i32, ptr %124, align 8
   %130 = icmp eq i32 %129, 5
-  br i1 %130, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
+  br i1 %130, label %.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
-_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35: ; preds = %128
-  store i8 0, ptr %6, align 1
+.sink.split:                                      ; preds = %128, %118
+  %.sink = phi ptr [ %5, %118 ], [ %6, %128 ]
+  store i8 0, ptr %.sink, align 1
   br label %131
 
-131:                                              ; preds = %87, %107, %123, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33
-  %.sroa.064.0 = phi ptr [ %78, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33 ], [ %78, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35 ], [ undef, %123 ], [ %116, %107 ], [ %78, %87 ]
-  %.sroa.6.0 = phi i8 [ %79, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33 ], [ %79, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35 ], [ 0, %123 ], [ 1, %107 ], [ %79, %87 ]
+131:                                              ; preds = %.sink.split, %87, %107, %123
+  %.sroa.064.0 = phi ptr [ undef, %123 ], [ %116, %107 ], [ %78, %87 ], [ %78, %.sink.split ]
+  %.sroa.6.0 = phi i8 [ 0, %123 ], [ 1, %107 ], [ %79, %87 ], [ %79, %.sink.split ]
   %132 = load i8, ptr %5, align 1
   %133 = trunc i8 %132 to i1
   br i1 %133, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %134
@@ -17344,11 +17341,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit31: ; preds = %
 118:                                              ; preds = %117
   %119 = load i32, ptr %78, align 8
   %120 = icmp eq i32 %119, 5
-  br i1 %120, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
-
-_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33: ; preds = %118
-  store i8 0, ptr %5, align 1
-  br label %131
+  br i1 %120, label %.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 121:                                              ; preds = %77
   %122 = invoke { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -17367,15 +17360,16 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33: ; preds = %
 128:                                              ; preds = %127
   %129 = load i32, ptr %124, align 8
   %130 = icmp eq i32 %129, 5
-  br i1 %130, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
+  br i1 %130, label %.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
-_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35: ; preds = %128
-  store i8 0, ptr %6, align 1
+.sink.split:                                      ; preds = %128, %118
+  %.sink = phi ptr [ %5, %118 ], [ %6, %128 ]
+  store i8 0, ptr %.sink, align 1
   br label %131
 
-131:                                              ; preds = %107, %87, %123, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33
-  %.sroa.056.0 = phi ptr [ undef, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33 ], [ undef, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35 ], [ undef, %123 ], [ %78, %87 ], [ %116, %107 ]
-  %.sroa.4.0 = phi i8 [ 0, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit33 ], [ 0, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit35 ], [ 0, %123 ], [ %79, %87 ], [ 1, %107 ]
+131:                                              ; preds = %.sink.split, %107, %87, %123
+  %.sroa.056.0 = phi ptr [ undef, %123 ], [ %78, %87 ], [ %116, %107 ], [ undef, %.sink.split ]
+  %.sroa.4.0 = phi i8 [ 0, %123 ], [ %79, %87 ], [ 1, %107 ], [ 0, %.sink.split ]
   %132 = load i8, ptr %5, align 1
   %133 = trunc i8 %132 to i1
   br i1 %133, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %134

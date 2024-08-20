@@ -1976,7 +1976,6 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %181
   %193 = getelementptr inbounds i8, ptr %192, i64 120
   %194 = load ptr, ptr %193, align 8
   call void %194(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef %191)
-  store i32 0, ptr %10, align 4
   br label %.thread142.sink.split
 
 195:                                              ; preds = %175
@@ -2051,20 +2050,20 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %226, %220
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge:     ; preds = %235
   store i32 -1, ptr %95, align 8
-  store i32 0, ptr %11, align 4
   br label %.thread142.sink.split
 
 236:                                              ; preds = %173
   br i1 %3, label %.thread137, label %.thread142
 
 .thread142.sink.split:                            ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge
+  %.sink159 = phi ptr [ %11, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %10, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
   %.04.i67.sroa.gep69.sink = phi ptr [ %.04.i67.sroa.gep69, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %.04.i.sroa.gep70, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
-  %.sink = phi ptr [ %11, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %10, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
+  store i32 0, ptr %.sink159, align 4
   store i32 0, ptr %.04.i67.sroa.gep69.sink, align 4
   %237 = load ptr, ptr %0, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 40
   %239 = load ptr, ptr %238, align 8
-  %240 = call noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink, i32 noundef 0, i32 noundef 0)
+  %240 = call noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink159, i32 noundef 0, i32 noundef 0)
   br label %.thread142
 
 .thread142:                                       ; preds = %.thread142.sink.split, %235, %181, %236

@@ -4796,12 +4796,8 @@ entry:
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !81
   switch i8 %0, label %if.end8.i.i [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit
-    i8 1, label %if.then4.i.i
+    i8 1, label %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split
   ]
-
-if.then4.i.i:                                     ; preds = %entry
-  store ptr @.str.6, ptr %ref.tmp, align 8
-  br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.end8.i.i:                                      ; preds = %entry
   %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %Prefix, i64 17
@@ -4812,12 +4808,18 @@ if.end8.i.i:                                      ; preds = %entry
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %Prefix
   store ptr %spec.select20.i.i, ptr %ref.tmp, align 8, !alias.scope !81
   %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr @.str.6, ptr %RHS4.i.i.i, align 8, !alias.scope !81
+  br label %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split
+
+_ZN4llvhplERKNS_5TwineES2_.exit.sink.split:       ; preds = %entry, %if.end8.i.i
+  %ref.tmp.sink = phi ptr [ %RHS4.i.i.i, %if.end8.i.i ], [ %ref.tmp, %entry ]
+  %.sink2.ph = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ 3, %entry ]
+  %.sink.ph = phi i8 [ 3, %if.end8.i.i ], [ %0, %entry ]
+  store ptr @.str.6, ptr %ref.tmp.sink, align 8
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
-_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %if.then4.i.i, %if.end8.i.i
-  %.sink2 = phi i8 [ 3, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %0, %entry ]
-  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 3, %if.end8.i.i ], [ 1, %entry ]
+_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split, %entry
+  %.sink2 = phi i8 [ %0, %entry ], [ %.sink2.ph, %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split ]
+  %.sink = phi i8 [ 1, %entry ], [ %.sink.ph, %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split ]
   %LHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 %.sink2, ptr %LHSKind.i.i.i, align 8
   %RHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17

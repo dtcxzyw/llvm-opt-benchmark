@@ -588,7 +588,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %.079138 = phi i32 [ 0, %12 ], [ 29, %21 ]
   %.080137 = phi ptr [ null, %12 ], [ %16, %21 ]
   call void @zend_wrong_parameter_error(i32 noundef %.076140, i32 noundef %.078139, ptr noundef null, i32 noundef %.079138, ptr noundef %.080137) #7
-  br label %126
+  br label %125
 
 .thread112:                                       ; preds = %15, %13
   %23 = getelementptr inbounds i8, ptr %5, i64 8
@@ -607,7 +607,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
   call void @llvm.assume(i1 %33)
-  br label %126
+  br label %125
 
 34:                                               ; preds = %26
   %35 = load i64, ptr %5, align 16
@@ -631,7 +631,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   store i64 %39, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
   store i64 %41, ptr %45, align 8
-  br label %126
+  br label %125
 
 .thread145thread-pre-split:                       ; preds = %21
   %.pr = load ptr, ptr %3, align 8
@@ -700,7 +700,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %79 = icmp ne ptr %78, null
   call void @llvm.assume(i1 %79)
-  br label %126
+  br label %125
 
 .critedge89:                                      ; preds = %65
   store i64 %66, ptr %.sroa.1.0.copyload, align 8
@@ -710,64 +710,64 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   store i64 %72, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
   store i64 %75, ptr %82, align 8
-  br label %126
+  br label %125
 
 83:                                               ; preds = %47
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.2) #7
   %84 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %85 = icmp ne ptr %84, null
   call void @llvm.assume(i1 %85)
-  br label %126
+  br label %125
 
 .thread145.thread:                                ; preds = %.thread145, %15
-  %.in = phi ptr [ %16, %15 ], [ %4, %.thread145 ]
-  %86 = load i64, ptr %.in, align 8
-  %87 = add i64 %86, -7046029254386353131
-  %88 = lshr i64 %87, 30
-  %89 = xor i64 %88, %87
-  %90 = mul i64 %89, -4658895280553007687
-  %91 = lshr i64 %90, 27
-  %92 = xor i64 %91, %90
-  %93 = mul i64 %92, -7723592293110705685
-  %94 = lshr i64 %93, 31
-  %95 = xor i64 %94, %93
-  %96 = add i64 %86, 4354685564936845354
-  %97 = lshr i64 %96, 30
-  %98 = xor i64 %97, %96
-  %99 = mul i64 %98, -4658895280553007687
-  %100 = lshr i64 %99, 27
-  %101 = xor i64 %100, %99
-  %102 = mul i64 %101, -7723592293110705685
-  %103 = lshr i64 %102, 31
-  %104 = xor i64 %103, %102
-  %105 = add i64 %86, -2691343689449507777
-  %106 = lshr i64 %105, 30
-  %107 = xor i64 %106, %105
-  %108 = mul i64 %107, -4658895280553007687
-  %109 = lshr i64 %108, 27
-  %110 = xor i64 %109, %108
-  %111 = mul i64 %110, -7723592293110705685
-  %112 = lshr i64 %111, 31
-  %113 = xor i64 %112, %111
-  %114 = add i64 %86, 8709371129873690708
-  %115 = lshr i64 %114, 30
-  %116 = xor i64 %115, %114
-  %117 = mul i64 %116, -4658895280553007687
-  %118 = lshr i64 %117, 27
-  %119 = xor i64 %118, %117
-  %120 = mul i64 %119, -7723592293110705685
-  %121 = lshr i64 %120, 31
-  %122 = xor i64 %121, %120
-  store i64 %95, ptr %.sroa.1.0.copyload, align 8
-  %123 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
-  store i64 %104, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
-  store i64 %113, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
-  store i64 %122, ptr %125, align 8
-  br label %126
+  %.sink = phi ptr [ %16, %15 ], [ %4, %.thread145 ]
+  %.pre = load i64, ptr %.sink, align 8
+  %86 = add i64 %.pre, -7046029254386353131
+  %87 = lshr i64 %86, 30
+  %88 = xor i64 %87, %86
+  %89 = mul i64 %88, -4658895280553007687
+  %90 = lshr i64 %89, 27
+  %91 = xor i64 %90, %89
+  %92 = mul i64 %91, -7723592293110705685
+  %93 = lshr i64 %92, 31
+  %94 = xor i64 %93, %92
+  %95 = add i64 %.pre, 4354685564936845354
+  %96 = lshr i64 %95, 30
+  %97 = xor i64 %96, %95
+  %98 = mul i64 %97, -4658895280553007687
+  %99 = lshr i64 %98, 27
+  %100 = xor i64 %99, %98
+  %101 = mul i64 %100, -7723592293110705685
+  %102 = lshr i64 %101, 31
+  %103 = xor i64 %102, %101
+  %104 = add i64 %.pre, -2691343689449507777
+  %105 = lshr i64 %104, 30
+  %106 = xor i64 %105, %104
+  %107 = mul i64 %106, -4658895280553007687
+  %108 = lshr i64 %107, 27
+  %109 = xor i64 %108, %107
+  %110 = mul i64 %109, -7723592293110705685
+  %111 = lshr i64 %110, 31
+  %112 = xor i64 %111, %110
+  %113 = add i64 %.pre, 8709371129873690708
+  %114 = lshr i64 %113, 30
+  %115 = xor i64 %114, %113
+  %116 = mul i64 %115, -4658895280553007687
+  %117 = lshr i64 %116, 27
+  %118 = xor i64 %117, %116
+  %119 = mul i64 %118, -7723592293110705685
+  %120 = lshr i64 %119, 31
+  %121 = xor i64 %120, %119
+  store i64 %94, ptr %.sroa.1.0.copyload, align 8
+  %122 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
+  store i64 %103, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
+  store i64 %112, ptr %123, align 8
+  %124 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
+  store i64 %121, ptr %124, align 8
+  br label %125
 
-126:                                              ; preds = %.critedge89, %.thread145.thread, %83, %77, %.critedge, %29, %.thread130
+125:                                              ; preds = %.critedge89, %.thread145.thread, %83, %77, %.critedge, %29, %.thread130
   ret void
 }
 

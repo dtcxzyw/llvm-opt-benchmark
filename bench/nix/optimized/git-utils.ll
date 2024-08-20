@@ -26216,13 +26216,13 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
 
 44:                                               ; preds = %43
   invoke void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #29
-          to label %100 unwind label %50
+          to label %101 unwind label %50
 
 45:                                               ; preds = %17
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
-  br label %99
+  br label %100
 
 .thread:                                          ; preds = %31
   %47 = landingpad { ptr, i32 }
@@ -26247,22 +26247,22 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
   %.216 = phi i1 [ %.014, %50 ], [ true, %48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #27
-  br i1 %.216, label %53, label %99
+  br i1 %.216, label %53, label %100
 
 53:                                               ; preds = %.thread, %52
   %.pn31.pn44 = phi { ptr, i32 } [ %47, %.thread ], [ %.pn31, %52 ]
   call void @__cxa_free_exception(ptr %32) #27
-  br label %99
+  br label %100
 
 54:                                               ; preds = %3
   %55 = tail call noundef ptr @_ZN3nix16GitInputAccessor6lookupERKNS_9CanonPathE(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %97, label %56
+  br i1 %.not, label %98, label %56
 
 56:                                               ; preds = %54
   %57 = tail call i32 @git_tree_entry_type(ptr noundef nonnull %55)
   %.not25 = icmp eq i32 %57, 2
-  br i1 %.not25, label %58, label %97
+  br i1 %.not25, label %58, label %98
 
 58:                                               ; preds = %56
   store ptr null, ptr %9, align 8
@@ -26330,13 +26330,13 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
 
 87:                                               ; preds = %86
   invoke void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #29
-          to label %100 unwind label %93
+          to label %101 unwind label %93
 
 88:                                               ; preds = %58
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #27
-  br label %99
+  br label %100
 
 .thread45:                                        ; preds = %74
   %90 = landingpad { ptr, i32 }
@@ -26361,32 +26361,32 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
   %.2 = phi i1 [ %.0, %93 ], [ true, %91 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #27
-  br i1 %.2, label %96, label %99
+  br i1 %.2, label %96, label %100
 
 96:                                               ; preds = %.thread45, %95
   %.pn.pn48 = phi { ptr, i32 } [ %90, %.thread45 ], [ %.pn, %95 ]
   call void @__cxa_free_exception(ptr %75) #27
-  br label %99
+  br label %100
 
 .sink.split:                                      ; preds = %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit39, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit
-  %.sink51.in = phi ptr [ %4, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit ], [ %9, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit39 ]
-  %.sink51 = load i64, ptr %.sink51.in, align 8
-  store i64 %.sink51, ptr %0, align 8
-  br label %97
+  %.sink52 = phi ptr [ %4, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit ], [ %9, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit39 ]
+  %97 = load i64, ptr %.sink52, align 8
+  store i64 %97, ptr %0, align 8
+  br label %98
 
-97:                                               ; preds = %.sink.split, %54, %56
+98:                                               ; preds = %.sink.split, %54, %56
   %.sink = phi i8 [ 0, %56 ], [ 0, %54 ], [ 1, %.sink.split ]
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sink, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.sink, ptr %99, align 8
   ret void
 
-99:                                               ; preds = %88, %96, %95, %45, %53, %52
+100:                                              ; preds = %88, %96, %95, %45, %53, %52
   %.sink50 = phi ptr [ %4, %52 ], [ %4, %53 ], [ %4, %45 ], [ %9, %95 ], [ %9, %96 ], [ %9, %88 ]
   %.pn31.pn.pn.pn = phi { ptr, i32 } [ %.pn31, %52 ], [ %.pn31.pn44, %53 ], [ %46, %45 ], [ %.pn, %95 ], [ %.pn.pn48, %96 ], [ %89, %88 ]
   call void @_ZNSt10unique_ptrI8git_treeN3nix7DeleterIXadL_Z13git_tree_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink50) #27
   resume { ptr, i32 } %.pn31.pn.pn.pn
 
-100:                                              ; preds = %87, %44
+101:                                              ; preds = %87, %44
   unreachable
 }
 
@@ -64414,7 +64414,7 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
 
 47:                                               ; preds = %46
   invoke void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #29
-          to label %126 unwind label %53
+          to label %127 unwind label %53
 
 48:                                               ; preds = %20
   %49 = landingpad { ptr, i32 }
@@ -64455,13 +64455,13 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
 57:                                               ; preds = %55, %56, %48
   %.pn39.pn.pn = phi { ptr, i32 } [ %.pn39.pn52, %56 ], [ %.pn39, %55 ], [ %49, %48 ]
   call void @_ZNSt10unique_ptrI8git_treeN3nix7DeleterIXadL_Z13git_tree_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
-  br label %125
+  br label %126
 
 58:                                               ; preds = %3
   %59 = tail call noundef ptr @_ZN3nix16GitInputAccessor4needERKNS_9CanonPathE(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %60 = tail call i32 @git_tree_entry_type(ptr noundef %59)
   %61 = icmp eq i32 %60, 1
-  br i1 %61, label %123, label %62
+  br i1 %61, label %124, label %62
 
 62:                                               ; preds = %58
   %63 = tail call i32 @git_tree_entry_type(ptr noundef %59)
@@ -64492,7 +64492,7 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
 75:                                               ; preds = %74
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %65, align 8
   invoke void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #29
-          to label %126 unwind label %79
+          to label %127 unwind label %79
 
 .thread53:                                        ; preds = %64
   %76 = landingpad { ptr, i32 }
@@ -64517,12 +64517,12 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
   %.215 = phi i1 [ %.013, %79 ], [ true, %77 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
-  br i1 %.215, label %82, label %125
+  br i1 %.215, label %82, label %126
 
 82:                                               ; preds = %.thread53, %81
   %.pn35.pn56 = phi { ptr, i32 } [ %76, %.thread53 ], [ %.pn35, %81 ]
   call void @__cxa_free_exception(ptr %65) #27
-  br label %125
+  br label %126
 
 83:                                               ; preds = %62
   store ptr null, ptr %12, align 8
@@ -64590,7 +64590,7 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
 
 112:                                              ; preds = %111
   invoke void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #29
-          to label %126 unwind label %118
+          to label %127 unwind label %118
 
 113:                                              ; preds = %83
   %114 = landingpad { ptr, i32 }
@@ -64631,25 +64631,25 @@ _ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2
 122:                                              ; preds = %120, %121, %113
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn60, %121 ], [ %.pn, %120 ], [ %114, %113 ]
   call void @_ZNSt10unique_ptrI8git_treeN3nix7DeleterIXadL_Z13git_tree_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #27
-  br label %125
+  br label %126
 
 .sink.split:                                      ; preds = %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit47, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit
-  %.sink62.in = phi ptr [ %4, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit ], [ %12, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit47 ]
-  %.sink62 = load i64, ptr %.sink62.in, align 8
-  store i64 %.sink62, ptr %0, align 8
-  br label %123
+  %.sink63 = phi ptr [ %4, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit ], [ %12, %_ZN3nix6SetterISt10unique_ptrI8git_treeNS_7DeleterIXadL_Z13git_tree_freeEEEEEED2Ev.exit47 ]
+  %123 = load i64, ptr %.sink63, align 8
+  store i64 %123, ptr %0, align 8
+  br label %124
 
-123:                                              ; preds = %.sink.split, %58
+124:                                              ; preds = %.sink.split, %58
   %.sink = phi i8 [ 1, %58 ], [ 0, %.sink.split ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sink, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.sink, ptr %125, align 8
   ret void
 
-125:                                              ; preds = %81, %82, %122, %57
+126:                                              ; preds = %81, %82, %122, %57
   %.pn39.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %57 ], [ %.pn35.pn56, %82 ], [ %.pn35, %81 ], [ %.pn.pn.pn, %122 ]
   resume { ptr, i32 } %.pn39.pn.pn.pn
 
-126:                                              ; preds = %112, %75, %47
+127:                                              ; preds = %112, %75, %47
   unreachable
 }
 

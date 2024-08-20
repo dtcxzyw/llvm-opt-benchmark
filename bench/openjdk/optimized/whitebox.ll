@@ -27587,63 +27587,63 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %35
   %36 = icmp slt i64 %2, 0
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  br i1 %36, label %38, label %40
+  br i1 %36, label %38, label %39
 
 38:                                               ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull @.str.43, i64 noundef %2)
-  %39 = load ptr, ptr %5, align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, i32 noundef 1818, ptr noundef %37, ptr noundef %39) #15
-  br label %42
+  br label %40
 
-40:                                               ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
+39:                                               ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %6, ptr noundef nonnull @.str.44, i64 noundef %2)
-  %41 = load ptr, ptr %6, align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, i32 noundef 1824, ptr noundef %37, ptr noundef %41) #15
-  br label %42
+  br label %40
 
-42:                                               ; preds = %40, %38
-  %43 = getelementptr inbounds i8, ptr %9, i64 1312
-  store ptr null, ptr %43, align 8
-  %44 = load ptr, ptr %28, align 8
-  %.not.i18 = icmp eq ptr %44, null
-  br i1 %.not.i18, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %45
+40:                                               ; preds = %39, %38
+  %.sink22 = phi ptr [ %6, %39 ], [ %5, %38 ]
+  %.sink = phi i32 [ 1824, %39 ], [ 1818, %38 ]
+  %41 = load ptr, ptr %.sink22, align 8
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, i32 noundef %.sink, ptr noundef %37, ptr noundef %41) #15
+  %42 = getelementptr inbounds i8, ptr %9, i64 1312
+  store ptr null, ptr %42, align 8
+  %43 = load ptr, ptr %28, align 8
+  %.not.i18 = icmp eq ptr %43, null
+  br i1 %.not.i18, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %40
   call void @_ZN25WeakPreserveExceptionMark7restoreEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   br label %_ZN25WeakPreserveExceptionMarkD2Ev.exit
 
-_ZN25WeakPreserveExceptionMarkD2Ev.exit:          ; preds = %42, %45
-  %46 = getelementptr inbounds i8, ptr %9, i64 408
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+_ZN25WeakPreserveExceptionMarkD2Ev.exit:          ; preds = %40, %44
+  %45 = getelementptr inbounds i8, ptr %9, i64 408
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %49, align 8
-  %.not.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %51
+  %.not.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %50
 
-51:                                               ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %47) #15
-  %.pre.i.i = load ptr, ptr %48, align 8
+50:                                               ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %46) #15
+  %.pre.i.i = load ptr, ptr %47, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit, %51
-  %52 = phi ptr [ %49, %_ZN25WeakPreserveExceptionMarkD2Ev.exit ], [ %.pre.i.i, %51 ]
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
-  store ptr %52, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %47, i64 24
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %53, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
-  store ptr %57, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %47, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 40
-  store ptr %61, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %9, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %64) #15
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit, %50
+  %51 = phi ptr [ %48, %_ZN25WeakPreserveExceptionMarkD2Ev.exit ], [ %.pre.i.i, %50 ]
+  %52 = getelementptr inbounds i8, ptr %46, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  store ptr %51, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %46, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %52, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  store ptr %56, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %46, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %52, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 40
+  store ptr %60, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %9, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %63) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %17, align 4
   ret i64 0

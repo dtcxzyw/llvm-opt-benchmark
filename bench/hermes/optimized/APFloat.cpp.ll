@@ -4482,10 +4482,10 @@ _ZN4llvh5APIntC2ERKS0_.exit:                      ; preds = %if.then
   br i1 %cmp.i.i.i.i, label %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i, label %if.else.i.i.i
 
 _ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i:     ; preds = %_ZN4llvh5APIntC2ERKS0_.exit, %if.then
-  %.in = phi ptr [ %api, %if.then ], [ %agg.tmp9, %_ZN4llvh5APIntC2ERKS0_.exit ]
+  %agg.tmp9.sink = phi ptr [ %api, %if.then ], [ %agg.tmp9, %_ZN4llvh5APIntC2ERKS0_.exit ]
   %1 = phi i32 [ %0, %if.then ], [ %.pr, %_ZN4llvh5APIntC2ERKS0_.exit ]
-  %2 = load i64, ptr %.in, align 8
-  %xor.i.i.i = xor i64 %2, -1
+  %.pre = load i64, ptr %agg.tmp9.sink, align 8
+  %xor.i.i.i = xor i64 %.pre, -1
   %sub.i.i.i.i = add nuw nsw i32 %1, 63
   %rem.i.i.i.i = and i32 %sub.i.i.i.i, 63
   %sub2.i.i.i.i = xor i32 %rem.i.i.i.i, 63
@@ -4501,63 +4501,63 @@ if.else.i.i.i:                                    ; preds = %_ZN4llvh5APIntC2ERK
 
 _ZN4llvhngENS_5APIntE.exit:                       ; preds = %_ZN4llvh5APInt15clearUnusedBitsEv.exit.i.i.i, %if.else.i.i.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntppEv(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp9) #26, !noalias !10
-  %3 = load i32, ptr %BitWidth.i, align 8, !noalias !10
-  %4 = load i64, ptr %agg.tmp9, align 8, !noalias !10
+  %2 = load i32, ptr %BitWidth.i, align 8, !noalias !10
+  %3 = load i64, ptr %agg.tmp9, align 8, !noalias !10
   store i32 0, ptr %BitWidth.i, align 8, !noalias !10
-  %5 = load i32, ptr %BitWidth2.i, align 8
-  %cmp.i.i6 = icmp ult i32 %5, 65
+  %4 = load i32, ptr %BitWidth2.i, align 8
+  %cmp.i.i6 = icmp ult i32 %4, 65
   br i1 %cmp.i.i6, label %_ZN4llvh5APIntD2Ev.exit.thread, label %if.then.i7
 
 _ZN4llvh5APIntD2Ev.exit.thread:                   ; preds = %_ZN4llvhngENS_5APIntE.exit
-  store i64 %4, ptr %api, align 8
-  store i32 %3, ptr %BitWidth2.i, align 8
+  store i64 %3, ptr %api, align 8
+  store i32 %2, ptr %BitWidth2.i, align 8
   br label %if.end
 
 if.then.i7:                                       ; preds = %_ZN4llvhngENS_5APIntE.exit
-  %6 = load ptr, ptr %api, align 8
-  %isnull.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %api, align 8
+  %isnull.i = icmp eq ptr %5, null
   br i1 %isnull.i, label %_ZN4llvh5APIntD2Ev.exit.thread31, label %_ZN4llvh5APIntD2Ev.exit
 
 _ZN4llvh5APIntD2Ev.exit.thread31:                 ; preds = %if.then.i7
-  store i64 %4, ptr %api, align 8
-  store i32 %3, ptr %BitWidth2.i, align 8
+  store i64 %3, ptr %api, align 8
+  store i32 %2, ptr %BitWidth2.i, align 8
   br label %if.end
 
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %if.then.i7
-  call void @_ZdaPv(ptr noundef nonnull %6) #25
+  call void @_ZdaPv(ptr noundef nonnull %5) #25
   %.pr28.pre = load i32, ptr %BitWidth.i, align 8
-  %7 = icmp ugt i32 %.pr28.pre, 64
-  store i64 %4, ptr %api, align 8
-  store i32 %3, ptr %BitWidth2.i, align 8
-  br i1 %7, label %if.then.i14, label %if.end
+  %6 = icmp ugt i32 %.pr28.pre, 64
+  store i64 %3, ptr %api, align 8
+  store i32 %2, ptr %BitWidth2.i, align 8
+  br i1 %6, label %if.then.i14, label %if.end
 
 if.then.i14:                                      ; preds = %_ZN4llvh5APIntD2Ev.exit
-  %8 = load ptr, ptr %agg.tmp9, align 8
-  %isnull.i15 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %agg.tmp9, align 8
+  %isnull.i15 = icmp eq ptr %7, null
   br i1 %isnull.i15, label %if.end, label %delete.notnull.i16
 
 delete.notnull.i16:                               ; preds = %if.then.i14
-  call void @_ZdaPv(ptr noundef nonnull %8) #25
+  call void @_ZdaPv(ptr noundef nonnull %7) #25
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh5APIntD2Ev.exit.thread31, %delete.notnull.i16, %if.then.i14, %_ZN4llvh5APIntD2Ev.exit, %_ZN4llvh5APIntD2Ev.exit.thread, %land.lhs.true, %entry
   %BitWidth.i.i18 = getelementptr inbounds i8, ptr %api, i64 8
-  %9 = load i32, ptr %BitWidth.i.i18, align 8
-  %cmp.i.i19 = icmp ult i32 %9, 65
-  %10 = load ptr, ptr %api, align 8
-  %retval.0.i = select i1 %cmp.i.i19, ptr %api, ptr %10
+  %8 = load i32, ptr %BitWidth.i.i18, align 8
+  %cmp.i.i19 = icmp ult i32 %8, 65
+  %9 = load ptr, ptr %api, align 8
+  %retval.0.i = select i1 %cmp.i.i19, ptr %api, ptr %9
   %call12 = call noundef i32 @_ZN4llvh6detail9IEEEFloat24convertFromUnsignedPartsEPKmjNS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %retval.0.i, i32 noundef %div1.i, i32 noundef %rounding_mode)
-  %11 = load i32, ptr %BitWidth.i.i18, align 8
-  %cmp.i.i.i21 = icmp ugt i32 %11, 64
+  %10 = load i32, ptr %BitWidth.i.i18, align 8
+  %cmp.i.i.i21 = icmp ugt i32 %10, 64
   br i1 %cmp.i.i.i21, label %if.then.i22, label %_ZN4llvh5APIntD2Ev.exit25
 
 if.then.i22:                                      ; preds = %if.end
-  %12 = load ptr, ptr %api, align 8
-  %isnull.i23 = icmp eq ptr %12, null
+  %11 = load ptr, ptr %api, align 8
+  %isnull.i23 = icmp eq ptr %11, null
   br i1 %isnull.i23, label %_ZN4llvh5APIntD2Ev.exit25, label %delete.notnull.i24
 
 delete.notnull.i24:                               ; preds = %if.then.i22
-  call void @_ZdaPv(ptr noundef nonnull %12) #25
+  call void @_ZdaPv(ptr noundef nonnull %11) #25
   br label %_ZN4llvh5APIntD2Ev.exit25
 
 _ZN4llvh5APIntD2Ev.exit25:                        ; preds = %if.end, %if.then.i22, %delete.notnull.i24

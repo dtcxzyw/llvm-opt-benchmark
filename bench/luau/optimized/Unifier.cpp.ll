@@ -29327,7 +29327,7 @@ _ZN4Luau16RecursionLimiterC2EPii.exit:            ; preds = %4
           cleanup
   br label %common.resume
 
-.loopexit.split-lp553.loopexit.split-lp:          ; preds = %391, %389, %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721.thread, %381, %379, %377, %353, %351, %349, %.invoke696, %.invoke695, %.invoke694, %.invoke, %.noexc223, %359, %330, %328, %326, %.noexc209, %283, %277, %275, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit172, %263, %_ZN4LuauL9isBlockedERKNS_6TxnLogEPKNS_11TypePackVarE.exit175.thread, %229, %_ZN4LuauL9isBlockedERKNS_6TxnLogEPKNS_11TypePackVarE.exit.thread, %195, %168, %144, %140, %418, %416, %414, %411, %408, %403, %400, %395, %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721, %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit, %340, %_ZNK4Luau6TxnLog10getMutableINS_12FreeTypePackEPKNS_11TypePackVarEEEPT_T0_.exit222, %_ZNK4Luau6TxnLog10getMutableINS_12FreeTypePackEPKNS_11TypePackVarEEEPT_T0_.exit, %137, %94, %91
+.loopexit.split-lp553.loopexit.split-lp:          ; preds = %391, %389, %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723.thread, %381, %379, %377, %353, %351, %349, %.invoke696, %.invoke695, %.invoke694, %.invoke, %.noexc223, %359, %330, %328, %326, %.noexc209, %283, %277, %275, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit172, %263, %_ZN4LuauL9isBlockedERKNS_6TxnLogEPKNS_11TypePackVarE.exit175.thread, %229, %_ZN4LuauL9isBlockedERKNS_6TxnLogEPKNS_11TypePackVarE.exit.thread, %195, %168, %144, %140, %418, %416, %414, %411, %408, %403, %400, %395, %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723, %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit, %340, %_ZNK4Luau6TxnLog10getMutableINS_12FreeTypePackEPKNS_11TypePackVarEEEPT_T0_.exit222, %_ZNK4Luau6TxnLog10getMutableINS_12FreeTypePackEPKNS_11TypePackVarEEEPT_T0_.exit, %137, %94, %91
   %lpad.loopexit.split-lp558 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -30004,35 +30004,35 @@ _ZNK4Luau6TxnLog10getMutableINS_12FreeTypePackEPKNS_11TypePackVarEEEPT_T0_.exit2
 
 349:                                              ; preds = %345
   %350 = invoke noundef ptr @_ZNK4Luau6TxnLog7pendingEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef %.0492)
-          to label %.noexc709 unwind label %.loopexit.split-lp553.loopexit.split-lp
-
-.noexc709:                                        ; preds = %349
-  %.not.i705 = icmp eq ptr %350, null
-  br i1 %.not.i705, label %353, label %351
-
-351:                                              ; preds = %.noexc709
-  %352 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %350)
-          to label %.noexc710 unwind label %.loopexit.split-lp553.loopexit.split-lp
-
-.noexc710:                                        ; preds = %351
-  %.not.i.i.i.i706 = icmp eq ptr %352, null
-  br i1 %.not.i.i.i.i706, label %._crit_edge, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
-
-353:                                              ; preds = %.noexc709
-  %354 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %.0492)
           to label %.noexc711 unwind label %.loopexit.split-lp553.loopexit.split-lp
 
-.noexc711:                                        ; preds = %353
-  %.not.i.i.i708 = icmp eq ptr %354, null
-  br i1 %.not.i.i.i708, label %._crit_edge, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+.noexc711:                                        ; preds = %349
+  %.not.i707 = icmp eq ptr %350, null
+  br i1 %.not.i707, label %353, label %351
 
-_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i: ; preds = %.noexc711, %.noexc710
-  %.sink.i707 = phi ptr [ %352, %.noexc710 ], [ %354, %.noexc711 ]
-  %355 = load i32, ptr %.sink.i707, align 8
+351:                                              ; preds = %.noexc711
+  %352 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %350)
+          to label %.noexc712 unwind label %.loopexit.split-lp553.loopexit.split-lp
+
+.noexc712:                                        ; preds = %351
+  %.not.i.i.i.i708 = icmp eq ptr %352, null
+  br i1 %.not.i.i.i.i708, label %._crit_edge, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+
+353:                                              ; preds = %.noexc711
+  %354 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %.0492)
+          to label %.noexc713 unwind label %.loopexit.split-lp553.loopexit.split-lp
+
+.noexc713:                                        ; preds = %353
+  %.not.i.i.i710 = icmp eq ptr %354, null
+  br i1 %.not.i.i.i710, label %._crit_edge, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+
+_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i: ; preds = %.noexc713, %.noexc712
+  %.sink.i709 = phi ptr [ %352, %.noexc712 ], [ %354, %.noexc713 ]
+  %355 = load i32, ptr %.sink.i709, align 8
   %356 = icmp eq i32 %355, 3
   br i1 %356, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.noexc710, %.noexc711, %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+._crit_edge:                                      ; preds = %.noexc712, %.noexc713, %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
   %.pre659 = load i8, ptr %346, align 4
   br label %374
 
@@ -30082,80 +30082,80 @@ _ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.ex
 374:                                              ; preds = %._crit_edge, %345
   %375 = phi i8 [ %.pre659, %._crit_edge ], [ %347, %345 ]
   %376 = trunc i8 %375 to i1
-  br i1 %376, label %377, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721.thread
+  br i1 %376, label %377, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723.thread
 
 377:                                              ; preds = %374
   %378 = invoke noundef ptr @_ZNK4Luau6TxnLog7pendingEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef %storemerge)
-          to label %.noexc718 unwind label %.loopexit.split-lp553.loopexit.split-lp
-
-.noexc718:                                        ; preds = %377
-  %.not.i712 = icmp eq ptr %378, null
-  br i1 %.not.i712, label %381, label %379
-
-379:                                              ; preds = %.noexc718
-  %380 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %378)
-          to label %.noexc719 unwind label %.loopexit.split-lp553.loopexit.split-lp
-
-.noexc719:                                        ; preds = %379
-  %.not.i.i.i.i713 = icmp eq ptr %380, null
-  br i1 %.not.i.i.i.i713, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721.thread, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i714
-
-381:                                              ; preds = %.noexc718
-  %382 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %storemerge)
           to label %.noexc720 unwind label %.loopexit.split-lp553.loopexit.split-lp
 
-.noexc720:                                        ; preds = %381
-  %.not.i.i.i717 = icmp eq ptr %382, null
-  br i1 %.not.i.i.i717, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721.thread, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i714
+.noexc720:                                        ; preds = %377
+  %.not.i714 = icmp eq ptr %378, null
+  br i1 %.not.i714, label %381, label %379
 
-_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i714: ; preds = %.noexc720, %.noexc719
-  %.sink.i715 = phi ptr [ %380, %.noexc719 ], [ %382, %.noexc720 ]
-  %383 = load i32, ptr %.sink.i715, align 8
+379:                                              ; preds = %.noexc720
+  %380 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %378)
+          to label %.noexc721 unwind label %.loopexit.split-lp553.loopexit.split-lp
+
+.noexc721:                                        ; preds = %379
+  %.not.i.i.i.i715 = icmp eq ptr %380, null
+  br i1 %.not.i.i.i.i715, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723.thread, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i716
+
+381:                                              ; preds = %.noexc720
+  %382 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %storemerge)
+          to label %.noexc722 unwind label %.loopexit.split-lp553.loopexit.split-lp
+
+.noexc722:                                        ; preds = %381
+  %.not.i.i.i719 = icmp eq ptr %382, null
+  br i1 %.not.i.i.i719, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723.thread, label %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i716
+
+_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i716: ; preds = %.noexc722, %.noexc721
+  %.sink.i717 = phi ptr [ %380, %.noexc721 ], [ %382, %.noexc722 ]
+  %383 = load i32, ptr %.sink.i717, align 8
   %384 = icmp eq i32 %383, 3
-  br i1 %384, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721.thread
+  br i1 %384, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723, label %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723.thread
 
-_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721: ; preds = %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i714
+_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723: ; preds = %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i716
   %385 = invoke noundef zeroext i1 @_ZN4Luau7Unifier11occursCheckEPKNS_11TypePackVarES3_b(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef %storemerge, ptr noundef %.0492, i1 zeroext poison)
           to label %386 unwind label %.loopexit.split-lp553.loopexit.split-lp
 
-386:                                              ; preds = %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721
+386:                                              ; preds = %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723
   br i1 %385, label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC, label %.invoke696
 
 .invoke696:                                       ; preds = %386, %336, %340
   %387 = invoke noundef ptr @_ZN4Luau6TxnLog7replaceINS_9Unifiable5BoundIPKNS_11TypePackVarEEEEEPNS_15PendingTypePackES6_T_(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef %storemerge, ptr %.0492)
           to label %_ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereC unwind label %.loopexit.split-lp553.loopexit.split-lp
 
-_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721.thread: ; preds = %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i714, %.noexc720, %.noexc719, %374
+_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723.thread: ; preds = %_ZN4Luau10getMutableINS_15GenericTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i716, %.noexc722, %.noexc721, %374
   %388 = invoke noundef ptr @_ZNK4Luau6TxnLog7pendingEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef %.0492)
-          to label %.noexc727 unwind label %.loopexit.split-lp553.loopexit.split-lp
-
-.noexc727:                                        ; preds = %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit721.thread
-  %.not.i722 = icmp eq ptr %388, null
-  br i1 %.not.i722, label %391, label %389
-
-389:                                              ; preds = %.noexc727
-  %390 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %388)
-          to label %.noexc728 unwind label %.loopexit.split-lp553.loopexit.split-lp
-
-.noexc728:                                        ; preds = %389
-  %.not.i.i.i.i723 = icmp eq ptr %390, null
-  br i1 %.not.i.i.i.i723, label %395, label %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
-
-391:                                              ; preds = %.noexc727
-  %392 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %.0492)
           to label %.noexc729 unwind label %.loopexit.split-lp553.loopexit.split-lp
 
-.noexc729:                                        ; preds = %391
-  %.not.i.i.i726 = icmp eq ptr %392, null
-  br i1 %.not.i.i.i726, label %395, label %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+.noexc729:                                        ; preds = %_ZNK4Luau6TxnLog10getMutableINS_15GenericTypePackEPKNS_11TypePackVarEEEPT_T0_.exit723.thread
+  %.not.i724 = icmp eq ptr %388, null
+  br i1 %.not.i724, label %391, label %389
 
-_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i: ; preds = %.noexc729, %.noexc728
-  %.sink.i724 = phi ptr [ %390, %.noexc728 ], [ %392, %.noexc729 ]
-  %393 = load i32, ptr %.sink.i724, align 8
+389:                                              ; preds = %.noexc729
+  %390 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %388)
+          to label %.noexc730 unwind label %.loopexit.split-lp553.loopexit.split-lp
+
+.noexc730:                                        ; preds = %389
+  %.not.i.i.i.i725 = icmp eq ptr %390, null
+  br i1 %.not.i.i.i.i725, label %395, label %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+
+391:                                              ; preds = %.noexc729
+  %392 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %.0492)
+          to label %.noexc731 unwind label %.loopexit.split-lp553.loopexit.split-lp
+
+.noexc731:                                        ; preds = %391
+  %.not.i.i.i728 = icmp eq ptr %392, null
+  br i1 %.not.i.i.i728, label %395, label %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+
+_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i: ; preds = %.noexc731, %.noexc730
+  %.sink.i726 = phi ptr [ %390, %.noexc730 ], [ %392, %.noexc731 ]
+  %393 = load i32, ptr %.sink.i726, align 8
   %394 = icmp eq i32 %393, 1
   br i1 %394, label %.invoke695, label %395
 
-395:                                              ; preds = %.noexc728, %.noexc729, %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+395:                                              ; preds = %.noexc730, %.noexc731, %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
   %396 = invoke noundef ptr @_ZNK4Luau6TxnLog10getMutableINS_9Unifiable5ErrorEPKNS_11TypePackVarEEEPT_T0_(ptr noundef nonnull align 8 dereferenceable(128) %92, ptr noundef %storemerge)
           to label %397 unwind label %.loopexit.split-lp553.loopexit.split-lp
 
@@ -30478,7 +30478,7 @@ _ZNK4Luau9WeirdIter4goodEv.exit234.thread:        ; preds = %_ZNK4Luau9WeirdIter
   br i1 %.not.i235, label %_ZNK4Luau9WeirdIter4goodEv.exit234.thread._ZNK4Luau9WeirdIter4goodEv.exit240.thread_crit_edge, label %_ZNK4Luau9WeirdIter4goodEv.exit236
 
 _ZNK4Luau9WeirdIter4goodEv.exit234.thread._ZNK4Luau9WeirdIter4goodEv.exit240.thread_crit_edge: ; preds = %_ZNK4Luau9WeirdIter4goodEv.exit234.thread
-  %.pre800 = load ptr, ptr %475, align 8
+  %.pre802 = load ptr, ptr %475, align 8
   br label %_ZNK4Luau9WeirdIter4goodEv.exit240.thread
 
 _ZNK4Luau9WeirdIter4goodEv.exit236:               ; preds = %_ZNK4Luau9WeirdIter4goodEv.exit234.thread
@@ -30491,18 +30491,18 @@ _ZNK4Luau9WeirdIter4goodEv.exit236:               ; preds = %_ZNK4Luau9WeirdIter
   %552 = sub i64 %550, %551
   %553 = ashr exact i64 %552, 3
   %554 = icmp ult i64 %546, %553
-  %.pre801 = load ptr, ptr %475, align 8
+  %.pre803 = load ptr, ptr %475, align 8
   br i1 %554, label %555, label %_ZNK4Luau9WeirdIter4goodEv.exit240.thread
 
 555:                                              ; preds = %_ZNK4Luau9WeirdIter4goodEv.exit236
-  %.not.i237 = icmp eq ptr %.pre801, null
+  %.not.i237 = icmp eq ptr %.pre803, null
   br i1 %.not.i237, label %_ZNK4Luau9WeirdIter4goodEv.exit240.thread662, label %_ZNK4Luau9WeirdIter4goodEv.exit238
 
 _ZNK4Luau9WeirdIter4goodEv.exit238:               ; preds = %555
   %556 = load i64, ptr %476, align 8
-  %557 = getelementptr inbounds i8, ptr %.pre801, i64 8
+  %557 = getelementptr inbounds i8, ptr %.pre803, i64 8
   %558 = load ptr, ptr %557, align 8
-  %559 = load ptr, ptr %.pre801, align 8
+  %559 = load ptr, ptr %.pre803, align 8
   %560 = ptrtoint ptr %558 to i64
   %561 = ptrtoint ptr %559 to i64
   %562 = sub i64 %560, %561
@@ -30544,7 +30544,7 @@ _ZNK4Luau9WeirdIter4goodEv.exit238:               ; preds = %555
           to label %_ZN4Luau8TypePackD2Ev.exit325 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNK4Luau9WeirdIter4goodEv.exit240.thread:        ; preds = %_ZNK4Luau9WeirdIter4goodEv.exit234.thread._ZNK4Luau9WeirdIter4goodEv.exit240.thread_crit_edge, %_ZNK4Luau9WeirdIter4goodEv.exit236
-  %582 = phi ptr [ %.pre800, %_ZNK4Luau9WeirdIter4goodEv.exit234.thread._ZNK4Luau9WeirdIter4goodEv.exit240.thread_crit_edge ], [ %.pre801, %_ZNK4Luau9WeirdIter4goodEv.exit236 ]
+  %582 = phi ptr [ %.pre802, %_ZNK4Luau9WeirdIter4goodEv.exit234.thread._ZNK4Luau9WeirdIter4goodEv.exit240.thread_crit_edge ], [ %.pre803, %_ZNK4Luau9WeirdIter4goodEv.exit236 ]
   %.not.i241 = icmp eq ptr %582, null
   br i1 %.not.i241, label %_ZNK4Luau9WeirdIter4goodEv.exit242.thread, label %_ZNK4Luau9WeirdIter4goodEv.exit242
 
@@ -30596,9 +30596,9 @@ _ZNK4Luau9WeirdIter4tailEv.exit252.thread:        ; preds = %_ZNK4Luau9WeirdIter
   br label %_ZNK4Luau9WeirdIter4tailEv.exit252.thread.invoke.sink.split
 
 _ZNK4Luau9WeirdIter4tailEv.exit252.thread.invoke.sink.split: ; preds = %742, %.thread540, %_ZNK4Luau9WeirdIter4tailEv.exit252.thread, %740, %763
-  %.sink703 = phi ptr [ %712, %763 ], [ %712, %740 ], [ %.sroa.0.0.in.i266, %_ZNK4Luau9WeirdIter4tailEv.exit252.thread ], [ %712, %.thread540 ], [ %.mux, %742 ]
+  %.sink706 = phi ptr [ %712, %763 ], [ %712, %740 ], [ %.sroa.0.0.in.i266, %_ZNK4Luau9WeirdIter4tailEv.exit252.thread ], [ %712, %.thread540 ], [ %.mux, %742 ]
   %.ph = phi ptr [ %764, %763 ], [ %741, %740 ], [ %.sroa.0.0.i258, %_ZNK4Luau9WeirdIter4tailEv.exit252.thread ], [ %462, %.thread540 ], [ %462, %742 ]
-  %602 = load ptr, ptr %.sink703, align 8
+  %602 = load ptr, ptr %.sink706, align 8
   br label %_ZNK4Luau9WeirdIter4tailEv.exit252.thread.invoke
 
 _ZNK4Luau9WeirdIter4tailEv.exit252.thread.invoke: ; preds = %_ZNK4Luau9WeirdIter4tailEv.exit252.thread.invoke.sink.split, %664, %611
@@ -30987,10 +30987,10 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
   br i1 %.not109, label %758, label %.invoke698
 
 .invoke698:                                       ; preds = %752, %761
+  %.sink = phi ptr [ %17, %761 ], [ %16, %752 ]
   %.sink700 = phi ptr [ %472, %761 ], [ %476, %752 ]
   %754 = phi ptr [ %762, %761 ], [ %753, %752 ]
-  %.in704 = phi ptr [ %17, %761 ], [ %16, %752 ]
-  %755 = load ptr, ptr %.in704, align 8
+  %755 = load ptr, ptr %.sink, align 8
   %756 = load i64, ptr %.sink700, align 8
   %757 = trunc i64 %756 to i32
   invoke void @_ZN4Luau7Unifier17tryUnifyVariadicsEPKNS_11TypePackVarES3_bi(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef %754, ptr noundef %755, i1 noundef zeroext %.not109, i32 noundef %757)
@@ -31281,11 +31281,11 @@ _ZNK4Luau9WeirdIter4goodEv.exit341.thread:        ; preds = %_ZNK4Luau9WeirdIter
   br i1 %.not122, label %898, label %.invoke699
 
 .invoke699:                                       ; preds = %892, %901
-  %.sink701 = phi ptr [ %472, %901 ], [ %476, %892 ]
+  %.sink703 = phi ptr [ %17, %901 ], [ %16, %892 ]
+  %.sink702 = phi ptr [ %472, %901 ], [ %476, %892 ]
   %894 = phi ptr [ %902, %901 ], [ %893, %892 ]
-  %.in = phi ptr [ %17, %901 ], [ %16, %892 ]
-  %895 = load ptr, ptr %.in, align 8
-  %896 = load i64, ptr %.sink701, align 8
+  %895 = load ptr, ptr %.sink703, align 8
+  %896 = load i64, ptr %.sink702, align 8
   %897 = trunc i64 %896 to i32
   invoke void @_ZN4Luau7Unifier17tryUnifyVariadicsEPKNS_11TypePackVarES3_bi(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef %894, ptr noundef %895, i1 noundef zeroext %.not122, i32 noundef %897)
           to label %.critedge137 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -31479,8 +31479,8 @@ _ZN4Luau8TypePackD2Ev.exit325:                    ; preds = %.invoke697, %_ZN4Lu
   br i1 %453, label %.loopexit551, label %487, !llvm.loop !102
 
 .loopexit551.sink.split:                          ; preds = %676, %623
-  %.sink = phi ptr [ %618, %623 ], [ %671, %676 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #26
+  %.sink704 = phi ptr [ %618, %623 ], [ %671, %676 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink704) #26
   br label %.loopexit551
 
 .loopexit551:                                     ; preds = %_ZN4Luau8TypePackD2Ev.exit325, %.loopexit551.sink.split, %.invoke698, %_ZNK4Luau9WeirdIter4tailEv.exit252.thread.invoke, %746, %.thread541, %696, %699, %_ZNK4Luau9WeirdIter4tailEv.exit305, %646, %643

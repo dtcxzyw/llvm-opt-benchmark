@@ -64943,14 +64943,14 @@ _ZN4core4hash6Hasher19write_length_prefix17h6c42ac5ad87aa19cE.exit.i.i.i.i:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13094)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.721.0..sroa_idx, i8 0, i64 40, i1 false)
   store i64 8, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !13096, !noalias !13091
-  %.sink167.i.sroa.gep = getelementptr inbounds i8, ptr %15, i64 8
-  %.sink167.i.sroa.gep84 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sink167.i.sroa.gep86 = getelementptr inbounds i8, ptr %15, i64 32
-  %.sink167.i.sroa.gep87 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sink167.i.sroa.gep89 = getelementptr inbounds i8, ptr %15, i64 16
-  %.sink167.i.sroa.gep90 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sink167.i.sroa.gep92 = getelementptr inbounds i8, ptr %15, i64 24
-  %.sink167.i.sroa.gep93 = getelementptr inbounds i8, ptr %14, i64 24
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %15, i64 8
+  %.sink.i.sroa.gep84 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink.i.sroa.gep86 = getelementptr inbounds i8, ptr %15, i64 32
+  %.sink.i.sroa.gep87 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink.i.sroa.gep89 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sink.i.sroa.gep90 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink.i.sroa.gep92 = getelementptr inbounds i8, ptr %15, i64 24
+  %.sink.i.sroa.gep93 = getelementptr inbounds i8, ptr %14, i64 24
   %52 = xor i64 %2, 8387220255154660723
   %53 = add i64 %52, 7816392313619706465
   %54 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 16)
@@ -65508,7 +65508,6 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 329:                                              ; preds = %325
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !13253
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %15, align 8, !noalias !13253
   br label %.invoke.i
 
 330:                                              ; preds = %325
@@ -65531,20 +65530,20 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 338:                                              ; preds = %333
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !13259
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %14, align 8, !noalias !13259
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %338, %329
-  %.sink167.i.sroa.phi = phi ptr [ %.sink167.i.sroa.gep, %329 ], [ %.sink167.i.sroa.gep84, %338 ]
-  %.sink167.i.sroa.phi85 = phi ptr [ %.sink167.i.sroa.gep86, %329 ], [ %.sink167.i.sroa.gep87, %338 ]
-  %.sink167.i.sroa.phi88 = phi ptr [ %.sink167.i.sroa.gep89, %329 ], [ %.sink167.i.sroa.gep90, %338 ]
-  %.sink167.i.sroa.phi91 = phi ptr [ %.sink167.i.sroa.gep92, %329 ], [ %.sink167.i.sroa.gep93, %338 ]
-  %.sink167.i = phi ptr [ %15, %329 ], [ %14, %338 ]
-  store i64 1, ptr %.sink167.i.sroa.phi, align 8, !noalias !13247
-  store ptr null, ptr %.sink167.i.sroa.phi85, align 8, !noalias !13247
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %.sink167.i.sroa.phi88, align 8, !noalias !13247
-  store i64 0, ptr %.sink167.i.sroa.phi91, align 8, !noalias !13247
-  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink167.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #61
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %329 ], [ %.sink.i.sroa.gep84, %338 ]
+  %.sink.i.sroa.phi85 = phi ptr [ %.sink.i.sroa.gep86, %329 ], [ %.sink.i.sroa.gep87, %338 ]
+  %.sink.i.sroa.phi88 = phi ptr [ %.sink.i.sroa.gep89, %329 ], [ %.sink.i.sroa.gep90, %338 ]
+  %.sink.i.sroa.phi91 = phi ptr [ %.sink.i.sroa.gep92, %329 ], [ %.sink.i.sroa.gep93, %338 ]
+  %.sink.i = phi ptr [ %15, %329 ], [ %14, %338 ]
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %.sink.i, align 8, !noalias !13247
+  store i64 1, ptr %.sink.i.sroa.phi, align 8, !noalias !13247
+  store ptr null, ptr %.sink.i.sroa.phi85, align 8, !noalias !13247
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %.sink.i.sroa.phi88, align 8, !noalias !13247
+  store i64 0, ptr %.sink.i.sroa.phi91, align 8, !noalias !13247
+  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #61
           to label %.cont.i unwind label %323, !noalias !13239
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -65876,12 +65875,12 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %525
 
 .critedge.i:                                      ; preds = %437, %386
-  %.sink169.i = phi ptr [ %438, %437 ], [ %387, %386 ]
-  %.sink.i = phi i64 [ %439, %437 ], [ %388, %386 ]
+  %.sink170.i = phi ptr [ %438, %437 ], [ %387, %386 ]
+  %.sink168.i = phi i64 [ %439, %437 ], [ %388, %386 ]
   %441 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %.sink169.i, ptr %441, align 8, !alias.scope !13239, !noalias !13242
+  store ptr %.sink170.i, ptr %441, align 8, !alias.scope !13239, !noalias !13242
   %442 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 %.sink.i, ptr %442, align 8, !alias.scope !13239, !noalias !13242
+  store i64 %.sink168.i, ptr %442, align 8, !alias.scope !13239, !noalias !13242
   store i64 -9223372036854775808, ptr %50, align 8, !alias.scope !13239, !noalias !13242
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !13306
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1170a63ff0fdc685E.llvm.16845035774076767816"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34)
@@ -66025,12 +66024,12 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %488
 
 488:                                              ; preds = %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit135.i", %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit129.i"
-  %.sink173.i = phi ptr [ %522, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit135.i" ], [ %486, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit129.i" ]
-  %.sink171.i = phi i64 [ %523, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit135.i" ], [ %487, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit129.i" ]
+  %.sink174.i = phi ptr [ %522, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit135.i" ], [ %486, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit129.i" ]
+  %.sink172.i = phi i64 [ %523, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit135.i" ], [ %487, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit129.i" ]
   %489 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %.sink173.i, ptr %489, align 8, !alias.scope !13239, !noalias !13242
+  store ptr %.sink174.i, ptr %489, align 8, !alias.scope !13239, !noalias !13242
   %490 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 %.sink171.i, ptr %490, align 8, !alias.scope !13239, !noalias !13242
+  store i64 %.sink172.i, ptr %490, align 8, !alias.scope !13239, !noalias !13242
   store i64 -9223372036854775808, ptr %50, align 8, !alias.scope !13239, !noalias !13242
   br label %525
 

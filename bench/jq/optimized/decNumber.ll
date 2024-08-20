@@ -13787,7 +13787,6 @@ define noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, ptr nounde
 
 41:                                               ; preds = %12
   %42 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %7)
-  %.pr.pre = load i32, ptr %7, align 4
   br label %decNumberCopy.exit
 
 43:                                               ; preds = %3
@@ -13904,41 +13903,41 @@ decStatus.exit.i:                                 ; preds = %87, %85, %81
 decNumberQuantize.exit:                           ; preds = %73, %decStatus.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %92 = getelementptr inbounds i8, ptr %6, i64 20
-  %93 = load i32, ptr %92, align 4
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %41, %decNumberQuantize.exit
-  %94 = phi i32 [ %93, %decNumberQuantize.exit ], [ %.pr.pre, %41 ]
-  %.not20 = icmp eq i32 %94, 0
-  br i1 %.not20, label %decNumberCopy.exit32, label %95
+  %.sink = phi ptr [ %7, %41 ], [ %92, %decNumberQuantize.exit ]
+  %.pr.pre = load i32, ptr %.sink, align 4
+  %.not20 = icmp eq i32 %.pr.pre, 0
+  br i1 %.not20, label %decNumberCopy.exit32, label %93
 
-95:                                               ; preds = %decNumberCopy.exit
-  %96 = and i32 %94, 221
-  %.not.i33 = icmp eq i32 %96, 0
-  br i1 %.not.i33, label %decStatus.exit, label %97
+93:                                               ; preds = %decNumberCopy.exit
+  %94 = and i32 %.pr.pre, 221
+  %.not.i33 = icmp eq i32 %94, 0
+  br i1 %.not.i33, label %decStatus.exit, label %95
+
+95:                                               ; preds = %93
+  %96 = and i32 %.pr.pre, 1073741824
+  %.not6.i = icmp eq i32 %96, 0
+  br i1 %.not6.i, label %99, label %97
 
 97:                                               ; preds = %95
-  %98 = and i32 %94, 1073741824
-  %.not6.i = icmp eq i32 %98, 0
-  br i1 %.not6.i, label %101, label %99
-
-99:                                               ; preds = %97
-  %100 = and i32 %94, -1073741825
+  %98 = and i32 %.pr.pre, -1073741825
   br label %decStatus.exit
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %103, align 4
+99:                                               ; preds = %95
+  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %101, align 4
   store i32 1, ptr %0, align 4
-  %104 = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 0, ptr %104, align 2
-  store i8 32, ptr %102, align 4
+  %102 = getelementptr inbounds i8, ptr %0, i64 10
+  store i16 0, ptr %102, align 2
+  store i8 32, ptr %100, align 4
   br label %decStatus.exit
 
-decStatus.exit:                                   ; preds = %95, %99, %101
-  %.0.i = phi i32 [ %100, %99 ], [ %94, %101 ], [ %94, %95 ]
-  %105 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
+decStatus.exit:                                   ; preds = %93, %97, %99
+  %.0.i = phi i32 [ %98, %97 ], [ %.pr.pre, %99 ], [ %.pr.pre, %93 ]
+  %103 = call ptr @decContextSetStatus(ptr noundef %2, i32 noundef %.0.i) #18
   br label %decNumberCopy.exit32
 
 decNumberCopy.exit32:                             ; preds = %.lr.ph.i, %.lr.ph.i29, %16, %14, %49, %47, %decNumberCopy.exit, %decStatus.exit

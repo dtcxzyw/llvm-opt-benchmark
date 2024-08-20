@@ -38,7 +38,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
 
 14:                                               ; preds = %4
   %15 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str) #8
-  br label %142
+  br label %141
 
 16:                                               ; preds = %4
   %17 = icmp sgt i32 %12, 0
@@ -63,7 +63,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
 
 26:                                               ; preds = %18
   %27 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.3) #8
-  br label %142
+  br label %141
 
 .thread:                                          ; preds = %23, %.preheader
   %.str.2.sink = phi ptr [ @.str.1, %.preheader ], [ @.str.2, %23 ]
@@ -74,7 +74,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   %32 = shl nuw nsw i64 %31, 2
   %33 = tail call ptr @realloc(ptr noundef %11, i64 noundef %32) #9
   %.not78 = icmp eq ptr %33, null
-  br i1 %.not78, label %142, label %34
+  br i1 %.not78, label %141, label %34
 
 34:                                               ; preds = %.thread
   %35 = load i32, ptr %1, align 4
@@ -84,7 +84,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   %38 = add i32 %35, 1
   store i32 %38, ptr %1, align 4
   store ptr %33, ptr %0, align 8
-  br label %142
+  br label %141
 
 39:                                               ; preds = %16
   %40 = tail call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.5) #8
@@ -112,11 +112,11 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
 47:                                               ; preds = %39
   %48 = call ptr @gai_strerror(i32 noundef %45) #8
   %49 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef %48) #8
-  br label %142
+  br label %141
 
-50:                                               ; preds = %.lr.ph, %139
-  %.06493 = phi ptr [ %.06490, %.lr.ph ], [ %.064, %139 ]
-  %.06692 = phi ptr [ %11, %.lr.ph ], [ %55, %139 ]
+50:                                               ; preds = %.lr.ph, %138
+  %.06493 = phi ptr [ %.06490, %.lr.ph ], [ %.064, %138 ]
+  %.06692 = phi ptr [ %11, %.lr.ph ], [ %55, %138 ]
   %51 = load i32, ptr %1, align 4
   %52 = add i32 %51, 1
   %53 = zext i32 %52 to i64
@@ -144,7 +144,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
 ._crit_edge96:                                    ; preds = %.lr.ph95, %.preheader81
   %63 = load ptr, ptr %6, align 8
   call void @freeaddrinfo(ptr noundef %63) #8
-  br label %142
+  br label %141
 
 64:                                               ; preds = %50
   %65 = getelementptr inbounds i8, ptr %.06493, i64 4
@@ -162,7 +162,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   %75 = load i32, ptr %74, align 4
   %76 = call ptr @strerror(i32 noundef %75) #8
   %77 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7, ptr noundef %76) #8
-  br label %139
+  br label %138
 
 78:                                               ; preds = %64
   %79 = call i32 @setsockopt(i32 noundef %71, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %10, i32 noundef 4) #8
@@ -198,81 +198,78 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
 
 98:                                               ; preds = %97
   %99 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1025) #8
-  store i8 0, ptr %46, align 16
-  br label %101
+  br label %100
 
-100:                                              ; preds = %97
-  store i8 0, ptr %7, align 16
-  br label %101
+100:                                              ; preds = %97, %98
+  %.sink = phi ptr [ %46, %98 ], [ %7, %97 ]
+  store i8 0, ptr %.sink, align 16
+  %101 = call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.5) #8
+  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %103 = load i64, ptr %102, align 8
+  %104 = trunc i64 %103 to i32
+  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.10, i32 noundef %104) #8
+  %106 = getelementptr inbounds i8, ptr %.06493, i64 24
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %.06493, i64 16
+  %109 = load i32, ptr %108, align 8
+  %110 = call i32 @bind(i32 noundef %71, ptr %107, i32 noundef %109) #8
+  %111 = icmp eq i32 %110, -1
+  br i1 %111, label %112, label %118
 
-101:                                              ; preds = %100, %98
-  %102 = call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.5) #8
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
-  %104 = load i64, ptr %103, align 8
-  %105 = trunc i64 %104 to i32
-  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.10, i32 noundef %105) #8
-  %107 = getelementptr inbounds i8, ptr %.06493, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.06493, i64 16
-  %110 = load i32, ptr %109, align 8
-  %111 = call i32 @bind(i32 noundef %71, ptr %108, i32 noundef %110) #8
-  %112 = icmp eq i32 %111, -1
-  br i1 %112, label %113, label %119
+112:                                              ; preds = %100
+  %113 = tail call ptr @__errno_location() #10
+  %114 = load i32, ptr %113, align 4
+  %115 = call ptr @strerror(i32 noundef %114) #8
+  %116 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %115) #8
+  %117 = call i32 @close(i32 noundef %71) #8
+  br label %138
 
-113:                                              ; preds = %101
-  %114 = tail call ptr @__errno_location() #10
-  %115 = load i32, ptr %114, align 4
-  %116 = call ptr @strerror(i32 noundef %115) #8
-  %117 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %116) #8
-  %118 = call i32 @close(i32 noundef %71) #8
-  br label %139
+118:                                              ; preds = %100
+  %119 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  %120 = call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.13) #8
+  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %122 = load i64, ptr %121, align 8
+  %123 = trunc i64 %122 to i32
+  %124 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef %123) #8
+  %125 = call i32 @listen(i32 noundef %71, i32 noundef %123) #8
+  %126 = icmp eq i32 %125, -1
+  br i1 %126, label %127, label %133
 
-119:                                              ; preds = %101
-  %120 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  %121 = call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.13) #8
-  %122 = getelementptr inbounds i8, ptr %121, i64 24
-  %123 = load i64, ptr %122, align 8
-  %124 = trunc i64 %123 to i32
-  %125 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef %124) #8
-  %126 = call i32 @listen(i32 noundef %71, i32 noundef %124) #8
-  %127 = icmp eq i32 %126, -1
-  br i1 %127, label %128, label %134
+127:                                              ; preds = %118
+  %128 = tail call ptr @__errno_location() #10
+  %129 = load i32, ptr %128, align 4
+  %130 = call ptr @strerror(i32 noundef %129) #8
+  %131 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.15, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %130) #8
+  %132 = call i32 @close(i32 noundef %71) #8
+  br label %138
 
-128:                                              ; preds = %119
-  %129 = tail call ptr @__errno_location() #10
-  %130 = load i32, ptr %129, align 4
-  %131 = call ptr @strerror(i32 noundef %130) #8
-  %132 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.15, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %131) #8
-  %133 = call i32 @close(i32 noundef %71) #8
-  br label %139
+133:                                              ; preds = %118
+  %134 = load i32, ptr %1, align 4
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds i32, ptr %55, i64 %135
+  store i32 %71, ptr %136, align 4
+  %137 = add i32 %134, 1
+  store i32 %137, ptr %1, align 4
+  br label %138
 
-134:                                              ; preds = %119
-  %135 = load i32, ptr %1, align 4
-  %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %55, i64 %136
-  store i32 %71, ptr %137, align 4
-  %138 = add i32 %135, 1
-  store i32 %138, ptr %1, align 4
-  br label %139
-
-139:                                              ; preds = %134, %128, %113, %73
-  %140 = getelementptr inbounds i8, ptr %.06493, i64 40
-  %.064 = load ptr, ptr %140, align 8
+138:                                              ; preds = %133, %127, %112, %73
+  %139 = getelementptr inbounds i8, ptr %.06493, i64 40
+  %.064 = load ptr, ptr %139, align 8
   %.not75 = icmp eq ptr %.064, null
   br i1 %.not75, label %._crit_edge.loopexit, label %50
 
-._crit_edge.loopexit:                             ; preds = %139
+._crit_edge.loopexit:                             ; preds = %138
   %.pre = load ptr, ptr %6, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader82
-  %141 = phi ptr [ null, %.preheader82 ], [ %.pre, %._crit_edge.loopexit ]
+  %140 = phi ptr [ null, %.preheader82 ], [ %.pre, %._crit_edge.loopexit ]
   %.066.lcssa = phi ptr [ %11, %.preheader82 ], [ %55, %._crit_edge.loopexit ]
-  call void @freeaddrinfo(ptr noundef %141) #8
+  call void @freeaddrinfo(ptr noundef %140) #8
   store ptr %.066.lcssa, ptr %0, align 8
-  br label %142
+  br label %141
 
-142:                                              ; preds = %.thread, %._crit_edge, %._crit_edge96, %47, %34, %26, %14
+141:                                              ; preds = %.thread, %._crit_edge, %._crit_edge96, %47, %34, %26, %14
   %.0 = phi i32 [ -1, %14 ], [ -2, %26 ], [ 0, %34 ], [ -1, %47 ], [ -1, %._crit_edge96 ], [ 0, %._crit_edge ], [ -1, %.thread ]
   ret i32 %.0
 }

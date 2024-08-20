@@ -19731,6 +19731,14 @@ define internal fastcc void @_ZN3hir11term_search4expr13mod_item_path17h42c85581
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   %23 = load i8, ptr %18, align 8, !range !2939, !noundef !23
   %.not = icmp eq i8 %23, 27
+  %.sink64.sroa.gep = getelementptr inbounds i8, ptr %10, i64 4
+  %.sink64.sroa.gep69 = getelementptr inbounds i8, ptr %11, i64 4
+  %.sink64.sroa.gep71 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink64.sroa.gep72 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sink68.sroa.gep = getelementptr inbounds i8, ptr %6, i64 4
+  %.sink68.sroa.gep73 = getelementptr inbounds i8, ptr %7, i64 4
+  %.sink68.sroa.gep75 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink68.sroa.gep76 = getelementptr inbounds i8, ptr %7, i64 8
   br i1 %.not, label %42, label %24
 
 24:                                               ; preds = %5
@@ -19806,44 +19814,33 @@ define internal fastcc void @_ZN3hir11term_search4expr13mod_item_path17h42c85581
   %45 = call { ptr, ptr } %44(ptr noundef nonnull align 1 %20)
   %46 = extractvalue { ptr, ptr } %45, 0
   %47 = extractvalue { ptr, ptr } %45, 1
-  br i1 %brmerge, label %48, label %53
+  br i1 %brmerge, label %48, label %51
 
 48:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13), !noalias !5556
-  switch i8 %.sroa.0.sroa.0.0.extract.trunc, label %49 [
-    i8 1, label %51
-    i8 4, label %51
-    i8 5, label %51
+  switch i8 %.sroa.0.sroa.0.0.extract.trunc, label %_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit [
+    i8 1, label %49
+    i8 4, label %49
+    i8 5, label %49
   ]
 
-49:                                               ; preds = %48
+49:                                               ; preds = %48, %48, %48
+  call void @llvm.experimental.noalias.scope.decl(metadata !5562)
+  br label %_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit
+
+_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit: ; preds = %48, %49
+  %.sink64.sroa.phi = phi ptr [ %.sink64.sroa.gep, %49 ], [ %.sink64.sroa.gep69, %48 ]
+  %.sink64.sroa.phi70 = phi ptr [ %.sink64.sroa.gep71, %49 ], [ %.sink64.sroa.gep72, %48 ]
+  %.sink64 = phi ptr [ %10, %49 ], [ %11, %48 ]
+  %storemerge.i = phi i32 [ 1, %49 ], [ 0, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !5556
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !5556
   %50 = getelementptr inbounds i8, ptr %13, i64 4
-  store i32 %.sroa.0.0.copyload, ptr %11, align 4, !noalias !5562
-  %.sroa.8.4..sroa_idx5.i = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.4..sroa_idx5.i, align 4, !noalias !5562
-  %.sroa.9.4..sroa_idx9.i = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %.sroa.12.0.copyload, ptr %.sroa.9.4..sroa_idx9.i, align 4, !noalias !5562
-  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %50, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %11), !noalias !5565
-  br label %_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit
-
-51:                                               ; preds = %48, %48, %48
-  call void @llvm.experimental.noalias.scope.decl(metadata !5567)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !5556
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !5556
-  %52 = getelementptr inbounds i8, ptr %13, i64 4
-  store i32 %.sroa.0.0.copyload, ptr %10, align 4, !noalias !5562
-  %.sroa.8.4..sroa_idx3.i = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.4..sroa_idx3.i, align 4, !noalias !5562
-  %.sroa.9.4..sroa_idx7.i = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %.sroa.12.0.copyload, ptr %.sroa.9.4..sroa_idx7.i, align 4, !noalias !5562
-  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %52, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %10), !noalias !5565
-  br label %_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit
-
-_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit: ; preds = %49, %51
-  %storemerge.i = phi i32 [ 1, %51 ], [ 0, %49 ]
-  store i32 %storemerge.i, ptr %13, align 4, !alias.scope !5567, !noalias !5565
+  store i32 %.sroa.0.0.copyload, ptr %.sink64, align 4, !noalias !5565
+  store i32 %.sroa.8.0.copyload, ptr %.sink64.sroa.phi, align 4, !noalias !5565
+  store i64 %.sroa.12.0.copyload, ptr %.sink64.sroa.phi70, align 4, !noalias !5565
+  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %50, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %.sink64), !noalias !5566
+  store i32 %storemerge.i, ptr %13, align 4, !alias.scope !5562, !noalias !5566
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !5556
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !5556
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12), !noalias !5556
@@ -19851,44 +19848,33 @@ _ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit: ; preds = %49, %51
   call void @_ZN7hir_def9find_path9find_path17h2c4fab05e01fe586E(ptr noalias nocapture noundef nonnull sret({ i8, [39 x i8] }) align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %13, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %12, i1 noundef zeroext %3, i1 noundef zeroext %4), !noalias !5573
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12), !noalias !5556
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13), !noalias !5556
-  br label %58
+  br label %54
 
-53:                                               ; preds = %42
+51:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9), !noalias !5574
-  switch i8 %.sroa.0.sroa.0.0.extract.trunc, label %54 [
-    i8 1, label %56
-    i8 4, label %56
-    i8 5, label %56
+  switch i8 %.sroa.0.sroa.0.0.extract.trunc, label %_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit [
+    i8 1, label %52
+    i8 4, label %52
+    i8 5, label %52
   ]
 
-54:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !5574
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5574
-  %55 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.sroa.0.0.copyload, ptr %7, align 4, !noalias !5580
-  %.sroa.8.4..sroa_idx5.i18 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.4..sroa_idx5.i18, align 4, !noalias !5580
-  %.sroa.9.4..sroa_idx9.i19 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.12.0.copyload, ptr %.sroa.9.4..sroa_idx9.i19, align 4, !noalias !5580
-  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %55, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %7), !noalias !5583
+52:                                               ; preds = %51, %51, %51
+  call void @llvm.experimental.noalias.scope.decl(metadata !5580)
   br label %_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit
 
-56:                                               ; preds = %53, %53, %53
-  call void @llvm.experimental.noalias.scope.decl(metadata !5585)
+_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit: ; preds = %51, %52
+  %.sink68.sroa.phi = phi ptr [ %.sink68.sroa.gep, %52 ], [ %.sink68.sroa.gep73, %51 ]
+  %.sink68.sroa.phi74 = phi ptr [ %.sink68.sroa.gep75, %52 ], [ %.sink68.sroa.gep76, %51 ]
+  %.sink68 = phi ptr [ %6, %52 ], [ %7, %51 ]
+  %storemerge.i12 = phi i32 [ 1, %52 ], [ 0, %51 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !5574
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5574
-  %57 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 %.sroa.0.0.copyload, ptr %6, align 4, !noalias !5580
-  %.sroa.8.4..sroa_idx3.i10 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.4..sroa_idx3.i10, align 4, !noalias !5580
-  %.sroa.9.4..sroa_idx7.i11 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sroa.12.0.copyload, ptr %.sroa.9.4..sroa_idx7.i11, align 4, !noalias !5580
-  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %57, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %6), !noalias !5583
-  br label %_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit
-
-_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit: ; preds = %54, %56
-  %storemerge.i12 = phi i32 [ 1, %56 ], [ 0, %54 ]
-  store i32 %storemerge.i12, ptr %9, align 4, !alias.scope !5585, !noalias !5583
+  %53 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 %.sroa.0.0.copyload, ptr %.sink68, align 4, !noalias !5583
+  store i32 %.sroa.8.0.copyload, ptr %.sink68.sroa.phi, align 4, !noalias !5583
+  store i64 %.sroa.12.0.copyload, ptr %.sink68.sroa.phi74, align 4, !noalias !5583
+  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %53, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %.sink68), !noalias !5584
+  store i32 %storemerge.i12, ptr %9, align 4, !alias.scope !5580, !noalias !5584
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !5574
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !5574
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8), !noalias !5574
@@ -19896,9 +19882,9 @@ _ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit: ; preds = %54, 
   call void @_ZN7hir_def9find_path18find_path_prefixed17h3581c97010434708E(ptr noalias nocapture noundef nonnull sret({ i8, [39 x i8] }) align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %9, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %8, i8 noundef 2, i1 noundef zeroext %3, i1 noundef zeroext %4), !noalias !5591
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8), !noalias !5574
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9), !noalias !5574
-  br label %58
+  br label %54
 
-58:                                               ; preds = %_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit, %_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit
+54:                                               ; preds = %_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit, %_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit
   ret void
 }
 
@@ -41581,12 +41567,12 @@ attributes #48 = { nounwind }
 !5559 = distinct !{!5559, !5558, !"_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE: argument 1"}
 !5560 = distinct !{!5560, !5558, !"_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE: argument 2"}
 !5561 = distinct !{!5561, !5558, !"_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE: argument 3"}
-!5562 = !{!5563, !5557, !5559, !5560, !5561}
+!5562 = !{!5563}
 !5563 = distinct !{!5563, !5564, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE: argument 0"}
 !5564 = distinct !{!5564, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE"}
-!5565 = !{!5566, !5557, !5559, !5560, !5561}
-!5566 = distinct !{!5566, !5564, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE: argument 1"}
-!5567 = !{!5563}
+!5565 = !{!5563, !5557, !5559, !5560, !5561}
+!5566 = !{!5567, !5557, !5559, !5560, !5561}
+!5567 = distinct !{!5567, !5564, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE: argument 1"}
 !5568 = !{!5569, !5571}
 !5569 = distinct !{!5569, !5570, !"_ZN3hir7from_id86_$LT$impl$u20$core..convert..From$LT$hir..Module$GT$$u20$for$u20$hir_def..ModuleId$GT$4from17h627b0d0c340728f6E: argument 0"}
 !5570 = distinct !{!5570, !"_ZN3hir7from_id86_$LT$impl$u20$core..convert..From$LT$hir..Module$GT$$u20$for$u20$hir_def..ModuleId$GT$4from17h627b0d0c340728f6E"}
@@ -41599,12 +41585,12 @@ attributes #48 = { nounwind }
 !5577 = distinct !{!5577, !5576, !"_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE: argument 1"}
 !5578 = distinct !{!5578, !5576, !"_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE: argument 2"}
 !5579 = distinct !{!5579, !5576, !"_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE: argument 3"}
-!5580 = !{!5581, !5575, !5577, !5578, !5579}
+!5580 = !{!5581}
 !5581 = distinct !{!5581, !5582, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE: argument 0"}
 !5582 = distinct !{!5582, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE"}
-!5583 = !{!5584, !5575, !5577, !5578, !5579}
-!5584 = distinct !{!5584, !5582, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE: argument 1"}
-!5585 = !{!5581}
+!5583 = !{!5581, !5575, !5577, !5578, !5579}
+!5584 = !{!5585, !5575, !5577, !5578, !5579}
+!5585 = distinct !{!5585, !5582, !"_ZN3hir7from_id100_$LT$impl$u20$core..convert..From$LT$hir..ItemInNs$GT$$u20$for$u20$hir_def..item_scope..ItemInNs$GT$4from17hb2d6a3ba2561d55fE: argument 1"}
 !5586 = !{!5587, !5589}
 !5587 = distinct !{!5587, !5588, !"_ZN3hir7from_id86_$LT$impl$u20$core..convert..From$LT$hir..Module$GT$$u20$for$u20$hir_def..ModuleId$GT$4from17h627b0d0c340728f6E: argument 0"}
 !5588 = distinct !{!5588, !"_ZN3hir7from_id86_$LT$impl$u20$core..convert..From$LT$hir..Module$GT$$u20$for$u20$hir_def..ModuleId$GT$4from17h627b0d0c340728f6E"}

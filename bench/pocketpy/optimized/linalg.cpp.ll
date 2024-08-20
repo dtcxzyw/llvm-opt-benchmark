@@ -9230,8 +9230,8 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_188__invokeES2_S4_S4_"(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 align 2 {
-  %4 = alloca %"struct.pkpy::Vec2", align 8
-  %5 = alloca %"struct.pkpy::Vec2", align 8
+  %4 = alloca %"struct.pkpy::Vec2", align 4
+  %5 = alloca %"struct.pkpy::Vec2", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -9257,9 +9257,6 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %23 = getelementptr inbounds i8, ptr %2, i64 28
   %24 = load float, ptr %23, align 4
   %25 = fmul float %22, %24
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %20, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %25, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
 26:                                               ; preds = %3
@@ -9270,16 +9267,18 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %31 = getelementptr inbounds i8, ptr %1, i64 28
   %32 = load float, ptr %31, align 4
   %33 = fmul float %32, %28
-  %.sroa.0.0.vec.insert.i15.i = insertelement <2 x float> poison, float %30, i64 0
-  %.sroa.0.4.vec.insert.i16.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i15.i, float %33, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i16.i, ptr %5, align 8
   br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
 "_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %26
-  %.sink2.i = phi ptr [ %5, %26 ], [ %4, %15 ]
+  %.sink4.i = phi float [ %30, %26 ], [ %20, %15 ]
+  %.sink3.i = phi float [ %33, %26 ], [ %25, %15 ]
+  %.sink.i = phi ptr [ %5, %26 ], [ %4, %15 ]
+  %.sroa.0.0.vec.insert.i15.i = insertelement <2 x float> poison, float %.sink4.i, i64 0
+  %.sroa.0.4.vec.insert.i16.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i15.i, float %.sink3.i, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i16.i, ptr %.sink.i, align 4
   %34 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %35, i16 %34, ptr noundef nonnull align 4 dereferenceable(8) %.sink2.i)
+  %36 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %35, i16 %34, ptr noundef nonnull align 4 dereferenceable(8) %.sink.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret ptr %36
@@ -10993,8 +10992,8 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_168__invokeES2_S4_S4_"(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 align 2 {
-  %4 = alloca %"struct.pkpy::Vec3", align 8
-  %5 = alloca %"struct.pkpy::Vec3", align 8
+  %4 = alloca %"struct.pkpy::Vec3", align 4
+  %5 = alloca %"struct.pkpy::Vec3", align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -11010,7 +11009,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   br i1 %14, label %15, label %31
 
 15:                                               ; preds = %3
-  %.sink3.i.sroa.gep3 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink4.i.sroa.gep3 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %17 = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load float, ptr %7, align 4
@@ -11026,13 +11025,10 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %28 = getelementptr inbounds i8, ptr %2, i64 32
   %29 = load float, ptr %28, align 4
   %30 = fmul float %27, %29
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %20, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %25, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
 31:                                               ; preds = %3
-  %.sink3.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink4.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   %32 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %33 = fptrunc double %32 to float
   %34 = load float, ptr %7, align 4
@@ -11043,19 +11039,21 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %39 = getelementptr inbounds i8, ptr %1, i64 32
   %40 = load float, ptr %39, align 4
   %41 = fmul float %40, %33
-  %.sroa.0.0.vec.insert.i19.i = insertelement <2 x float> poison, float %35, i64 0
-  %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %38, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i20.i, ptr %5, align 8
   br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
 "_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %15, %31
-  %.sink3.i.sroa.phi = phi ptr [ %.sink3.i.sroa.gep, %31 ], [ %.sink3.i.sroa.gep3, %15 ]
-  %.sink3.i = phi ptr [ %5, %31 ], [ %4, %15 ]
+  %.sink6.i = phi float [ %35, %31 ], [ %20, %15 ]
+  %.sink5.i = phi float [ %38, %31 ], [ %25, %15 ]
+  %.sink4.i.sroa.phi = phi ptr [ %.sink4.i.sroa.gep, %31 ], [ %.sink4.i.sroa.gep3, %15 ]
+  %.sink4.i = phi ptr [ %5, %31 ], [ %4, %15 ]
   %.sink.i = phi float [ %41, %31 ], [ %30, %15 ]
-  store float %.sink.i, ptr %.sink3.i.sroa.phi, align 4
+  %.sroa.0.0.vec.insert.i19.i = insertelement <2 x float> poison, float %.sink6.i, i64 0
+  %.sroa.0.4.vec.insert.i20.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i19.i, float %.sink5.i, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i20.i, ptr %.sink4.i, align 4
+  store float %.sink.i, ptr %.sink4.i.sroa.phi, align 4
   %42 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %43 = getelementptr inbounds i8, ptr %0, i64 16
-  %44 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %43, i16 %42, ptr noundef nonnull align 4 dereferenceable(12) %.sink3.i)
+  %44 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %43, i16 %42, ptr noundef nonnull align 4 dereferenceable(12) %.sink4.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   ret ptr %44
@@ -12640,8 +12638,8 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_EN4$_188__invokeES2_S4_S4_"(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 align 2 {
-  %4 = alloca %"struct.pkpy::Vec4", align 8
-  %5 = alloca %"struct.pkpy::Vec4", align 8
+  %4 = alloca %"struct.pkpy::Vec4", align 4
+  %5 = alloca %"struct.pkpy::Vec4", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -12657,7 +12655,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   br i1 %14, label %15, label %36
 
 15:                                               ; preds = %3
-  %.sink3.i.sroa.gep3 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.i.sroa.gep3 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %17 = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load float, ptr %7, align 4
@@ -12678,15 +12676,10 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %33 = getelementptr inbounds i8, ptr %2, i64 36
   %34 = load float, ptr %33, align 4
   %35 = fmul float %32, %34
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %20, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %25, i64 1
-  %.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %30, i64 0
-  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i.i, float %35, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %4, align 8
   br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
 36:                                               ; preds = %3
-  %.sink3.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   %37 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %38 = fptrunc double %37 to float
   %39 = load float, ptr %7, align 4
@@ -12700,21 +12693,24 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %47 = getelementptr inbounds i8, ptr %1, i64 36
   %48 = load float, ptr %47, align 4
   %49 = fmul float %48, %38
-  %.sroa.0.0.vec.insert.i15.i = insertelement <2 x float> poison, float %40, i64 0
-  %.sroa.0.4.vec.insert.i16.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i15.i, float %43, i64 1
-  %.sroa.3.8.vec.insert.i17.i = insertelement <2 x float> poison, float %46, i64 0
-  %.sroa.3.12.vec.insert.i18.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i17.i, float %49, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i16.i, ptr %5, align 8
   br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
 "_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %36
-  %.sink3.i.sroa.phi = phi ptr [ %.sink3.i.sroa.gep, %36 ], [ %.sink3.i.sroa.gep3, %15 ]
-  %.sink3.i = phi ptr [ %5, %36 ], [ %4, %15 ]
-  %.sroa.3.12.vec.insert.i18.sink.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i18.i, %36 ], [ %.sroa.3.12.vec.insert.i.i, %15 ]
-  store <2 x float> %.sroa.3.12.vec.insert.i18.sink.i, ptr %.sink3.i.sroa.phi, align 4
+  %.sink7.i = phi float [ %40, %36 ], [ %20, %15 ]
+  %.sink6.i = phi float [ %43, %36 ], [ %25, %15 ]
+  %.sink5.i = phi float [ %46, %36 ], [ %30, %15 ]
+  %.sink4.i = phi float [ %49, %36 ], [ %35, %15 ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %36 ], [ %.sink.i.sroa.gep3, %15 ]
+  %.sink.i = phi ptr [ %5, %36 ], [ %4, %15 ]
+  %.sroa.0.0.vec.insert.i15.i = insertelement <2 x float> poison, float %.sink7.i, i64 0
+  %.sroa.0.4.vec.insert.i16.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i15.i, float %.sink6.i, i64 1
+  %.sroa.3.8.vec.insert.i17.i = insertelement <2 x float> poison, float %.sink5.i, i64 0
+  %.sroa.3.12.vec.insert.i18.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i17.i, float %.sink4.i, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i16.i, ptr %.sink.i, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i18.i, ptr %.sink.i.sroa.phi, align 4
   %50 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %51 = getelementptr inbounds i8, ptr %0, i64 16
-  %52 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %51, i16 %50, ptr noundef nonnull align 4 dereferenceable(16) %.sink3.i)
+  %52 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %51, i16 %50, ptr noundef nonnull align 4 dereferenceable(16) %.sink.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret ptr %52

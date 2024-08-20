@@ -2948,12 +2948,12 @@ define hidden void @zflf_preg_match_2(ptr nocapture noundef writeonly %0, ptr no
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = icmp eq i8 %28, 6
-  %30 = load ptr, ptr %2, align 8
-  br i1 %29, label %.sink.split86, label %31
+  br i1 %29, label %.sink.split86, label %30
 
-31:                                               ; preds = %26
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %2, align 8
   %32 = load i32, ptr %27, align 8
-  store ptr %30, ptr %5, align 8
+  store ptr %31, ptr %5, align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %32, ptr %33, align 8
   %34 = and i32 %32, 65280
@@ -2961,38 +2961,34 @@ define hidden void @zflf_preg_match_2(ptr nocapture noundef writeonly %0, ptr no
   %35 = trunc i32 %32 to i8
   br i1 %.not77, label %39, label %36
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr %30, align 4
+36:                                               ; preds = %30
+  %37 = load i32, ptr %31, align 4
   %38 = add i32 %37, 1
-  store i32 %38, ptr %30, align 4
+  store i32 %38, ptr %31, align 4
   %.pre85 = load i8, ptr %33, align 8
   br label %39
 
-39:                                               ; preds = %31, %36
-  %40 = phi i8 [ %35, %31 ], [ %.pre85, %36 ]
+39:                                               ; preds = %30, %36
+  %40 = phi i8 [ %35, %30 ], [ %.pre85, %36 ]
   %41 = icmp eq i8 %40, 6
-  br i1 %41, label %.critedge79, label %43
+  br i1 %41, label %.sink.split86, label %42
 
-.critedge79:                                      ; preds = %39
-  %42 = load ptr, ptr %5, align 8
-  br label %.sink.split86
+42:                                               ; preds = %39
+  %43 = call zeroext i1 @zend_flf_parse_arg_str_slow(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 2) #23
+  br i1 %43, label %46, label %44
 
-43:                                               ; preds = %39
-  %44 = call zeroext i1 @zend_flf_parse_arg_str_slow(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 2) #23
-  br i1 %44, label %46, label %45
-
-45:                                               ; preds = %43
+44:                                               ; preds = %42
   call void @zend_wrong_parameter_type_error(i32 noundef 2, i32 noundef 4, ptr noundef nonnull %5) #23
   br label %59
 
-.sink.split86:                                    ; preds = %26, %.critedge79
-  %.sink87 = phi ptr [ %42, %.critedge79 ], [ %30, %26 ]
-  %.173.ph = phi ptr [ %5, %.critedge79 ], [ %2, %26 ]
-  store ptr %.sink87, ptr %7, align 8
+.sink.split86:                                    ; preds = %39, %26
+  %.sink88 = phi ptr [ %2, %26 ], [ %5, %39 ]
+  %45 = load ptr, ptr %.sink88, align 8
+  store ptr %45, ptr %7, align 8
   br label %46
 
-46:                                               ; preds = %.sink.split86, %43
-  %.173 = phi ptr [ %5, %43 ], [ %.173.ph, %.sink.split86 ]
+46:                                               ; preds = %.sink.split86, %42
+  %.173 = phi ptr [ %5, %42 ], [ %.sink88, %.sink.split86 ]
   %47 = load ptr, ptr %6, align 8
   %48 = call ptr @pcre_get_compiled_regex_cache_ex(ptr noundef %47, i1 noundef zeroext true)
   %49 = icmp eq ptr %48, null
@@ -3015,8 +3011,8 @@ define hidden void @zflf_preg_match_2(ptr nocapture noundef writeonly %0, ptr no
   store i32 %58, ptr %53, align 8
   br label %59
 
-59:                                               ; preds = %52, %45
-  %.072 = phi ptr [ %.173, %52 ], [ %5, %45 ]
+59:                                               ; preds = %52, %44
+  %.072 = phi ptr [ %.173, %52 ], [ %5, %44 ]
   %60 = icmp eq ptr %.071, %4
   br i1 %60, label %61, label %62
 

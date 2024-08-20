@@ -26193,30 +26193,25 @@ define internal fastcc i24 @_ZL22havePositionRestraintsRK10gmx_mtop_t(ptr nounde
 78:                                               ; preds = %75
   store i8 1, ptr %4, align 4
   store i8 1, ptr %9, align 1
-  store i8 1, ptr %10, align 2
-  br label %92
+  br label %.sink.split
 
 79:                                               ; preds = %75
   store i8 1, ptr %10, align 2
-  store i8 1, ptr %9, align 1
-  br label %92
+  br label %.sink.split
 
 80:                                               ; preds = %75
   store i8 1, ptr %10, align 2
-  store i8 1, ptr %4, align 4
-  br label %92
+  br label %.sink.split
 
 81:                                               ; preds = %75, %75
   store i8 1, ptr %9, align 1
-  store i8 1, ptr %4, align 4
-  br label %92
+  br label %.sink.split
 
 82:                                               ; preds = %75, %75, %75
   %83 = add nsw i32 %77, -3
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 %84
-  store i8 1, ptr %85, align 1
-  br label %92
+  br label %.sink.split
 
 86:                                               ; preds = %75
   %87 = getelementptr inbounds i8, ptr %71, i64 20
@@ -26234,7 +26229,12 @@ define internal fastcc i24 @_ZL22havePositionRestraintsRK10gmx_mtop_t(ptr nounde
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #25
   resume { ptr, i32 } %91
 
-92:                                               ; preds = %67, %82, %81, %80, %79, %78
+.sink.split:                                      ; preds = %78, %79, %80, %81, %82
+  %.sink = phi ptr [ %85, %82 ], [ %4, %81 ], [ %4, %80 ], [ %9, %79 ], [ %10, %78 ]
+  store i8 1, ptr %.sink, align 1
+  br label %92
+
+92:                                               ; preds = %.sink.split, %67
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 2
   %93 = trunc nuw i64 %indvars.iv.next46 to i32
   %94 = icmp slt i32 %93, %51

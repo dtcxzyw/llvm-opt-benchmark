@@ -11728,12 +11728,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
 invoke.cont5.i:                                   ; preds = %invoke.cont3.i
   %1 = load i64, ptr %ref.tmp.i, align 8, !noalias !462
   %cmp.not.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.not.i.i, label %invoke.cont13.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i
-
-_ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %invoke.cont5.i
-  store i64 %1, ptr %err.i, align 8, !noalias !462
-  store i64 54, ptr %ref.tmp.i, align 8, !noalias !462
-  br label %if.end59.invoke.i
+  br i1 %cmp.not.i.i, label %invoke.cont13.i, label %if.end59.invoke.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %entry
   %2 = landingpad { ptr, i32 }
@@ -11828,12 +11823,7 @@ if.then33.i:                                      ; preds = %land.lhs.true.i
 invoke.cont37.i:                                  ; preds = %if.then33.i
   %16 = load i64, ptr %ref.tmp34.i, align 8, !noalias !462
   %cmp.not.i9.i = icmp eq i64 %16, 0
-  br i1 %cmp.not.i9.i, label %if.end44.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit20.i
-
-_ZN4absl12lts_202308026StatusD2Ev.exit20.i:       ; preds = %invoke.cont37.i
-  store i64 %16, ptr %err.i, align 8, !noalias !462
-  store i64 54, ptr %ref.tmp34.i, align 8, !noalias !462
-  br label %if.end59.invoke.i
+  br i1 %cmp.not.i9.i, label %if.end44.i, label %if.end59.invoke.i
 
 lpad20.i:                                         ; preds = %if.else.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -11857,7 +11847,11 @@ invoke.cont56.i:                                  ; preds = %if.end44.i
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.102, ptr noundef %20, ptr noundef nonnull %body_parts.i)
           to label %if.then.i87 unwind label %lpad4.i, !noalias !462
 
-if.end59.invoke.i:                                ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit20.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i
+if.end59.invoke.i:                                ; preds = %invoke.cont37.i, %invoke.cont5.i
+  %.sink = phi i64 [ %1, %invoke.cont5.i ], [ %16, %invoke.cont37.i ]
+  %ref.tmp34.i.sink = phi ptr [ %ref.tmp.i, %invoke.cont5.i ], [ %ref.tmp34.i, %invoke.cont37.i ]
+  store i64 %.sink, ptr %err.i, align 8, !noalias !462
+  store i64 54, ptr %ref.tmp34.i.sink, align 8, !noalias !462
   call void @llvm.experimental.noalias.scope.decl(metadata !468)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %body_str.i)
   br label %if.end.i

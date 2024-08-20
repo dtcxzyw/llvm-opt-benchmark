@@ -724,8 +724,8 @@ entry:
   store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @options, i64 488), align 8
   %call = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 25, ptr noundef nonnull @options)
   %cmp = icmp slt i32 %call, 0
-  %agg.tmp180.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %agg.tmp180.sink.sroa.gep216 = getelementptr inbounds i8, ptr %agg.tmp180, i64 8
+  %agg.tmp180.sink210.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp180, i64 8
+  %agg.tmp180.sink210.sroa.gep217 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1110,11 +1110,11 @@ if.then172:                                       ; preds = %invoke.cont170
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef nonnull %82)
           to label %invoke.cont174.invoke unwind label %lpad173.loopexit.split-lp
 
-invoke.cont174.invoke:                            ; preds = %if.then179, %if.then172
-  %agg.tmp180.sink.sroa.phi = phi ptr [ %agg.tmp180.sink.sroa.gep, %if.then172 ], [ %agg.tmp180.sink.sroa.gep216, %if.then179 ]
-  %agg.tmp180.sink = phi ptr [ %agg.tmp, %if.then172 ], [ %agg.tmp180, %if.then179 ]
-  %83 = load ptr, ptr %agg.tmp180.sink, align 8
-  %84 = load i32, ptr %agg.tmp180.sink.sroa.phi, align 8
+invoke.cont174.invoke:                            ; preds = %if.then172, %if.then179
+  %agg.tmp180.sink210.sroa.phi = phi ptr [ %agg.tmp180.sink210.sroa.gep, %if.then179 ], [ %agg.tmp180.sink210.sroa.gep217, %if.then172 ]
+  %agg.tmp180.sink210 = phi ptr [ %agg.tmp180, %if.then179 ], [ %agg.tmp, %if.then172 ]
+  %83 = load ptr, ptr %agg.tmp180.sink210, align 8
+  %84 = load i32, ptr %agg.tmp180.sink210.sroa.phi, align 8
   %85 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %poolFileName, ptr noundef %83, i32 noundef %84, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end185 unwind label %lpad173.loopexit.split-lp
 
@@ -1950,8 +1950,8 @@ invoke.cont:
   store ptr %cp, ptr %cp.addr, align 8
   store ptr null, ptr %data, align 8
   store ptr null, ptr %ucbuf, align 8
-  %agg.tmp.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %agg.tmp.sink.sroa.gep125 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
+  %agg.tmp.sink125.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp.sink125.sroa.gep126 = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %openFileName)
           to label %invoke.cont2 unwind label %lpad1
 
@@ -2043,10 +2043,10 @@ if.else39:                                        ; preds = %if.else
           to label %invoke.cont41.invoke unwind label %lpad5
 
 invoke.cont41.invoke:                             ; preds = %if.else39, %if.then34
-  %agg.tmp.sink.sroa.phi = phi ptr [ %agg.tmp.sink.sroa.gep, %if.then34 ], [ %agg.tmp.sink.sroa.gep125, %if.else39 ]
-  %agg.tmp.sink = phi ptr [ %agg.tmp, %if.then34 ], [ %agg.tmp40, %if.else39 ]
-  %10 = load ptr, ptr %agg.tmp.sink, align 8
-  %11 = load i32, ptr %agg.tmp.sink.sroa.phi, align 8
+  %agg.tmp.sink125.sroa.phi = phi ptr [ %agg.tmp.sink125.sroa.gep, %if.then34 ], [ %agg.tmp.sink125.sroa.gep126, %if.else39 ]
+  %agg.tmp.sink125 = phi ptr [ %agg.tmp, %if.then34 ], [ %agg.tmp40, %if.else39 ]
+  %10 = load ptr, ptr %agg.tmp.sink125, align 8
+  %11 = load i32, ptr %agg.tmp.sink125.sroa.phi, align 8
   %12 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %openFileName, ptr noundef %10, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end45 unwind label %lpad5
 

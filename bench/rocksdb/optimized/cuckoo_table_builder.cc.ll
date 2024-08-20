@@ -1037,25 +1037,25 @@ invoke.cont135:                                   ; preds = %if.end129
 
 if.else137:                                       ; preds = %if.end86
   %deleted_keys_ = getelementptr inbounds i8, ptr %this, i64 112
-  %69 = load ptr, ptr %key, align 8
-  %70 = load ptr, ptr %ikey, align 8
-  %71 = select i1 %tobool66, ptr %70, ptr %69
-  %72 = select i1 %tobool66, i64 %43, i64 %46
-  %73 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_, ptr noundef %71, i64 noundef %72)
+  %. = select i1 %tobool66, i64 %43, i64 %46
+  %ikey.val = load ptr, ptr %ikey, align 8
+  %key.val = load ptr, ptr %key, align 8
+  %69 = select i1 %tobool66, ptr %ikey.val, ptr %key.val
+  %70 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %deleted_keys_, ptr noundef %69, i64 noundef %.)
           to label %if.end158 unwind label %lpad
 
 if.end158:                                        ; preds = %if.else137, %invoke.cont135
-  %74 = load i64, ptr %num_entries_, align 8
-  %inc160 = add i64 %74, 1
+  %71 = load i64, ptr %num_entries_, align 8
+  %inc160 = add i64 %71, 1
   store i64 %inc160, ptr %num_entries_, align 8
   %smallest_user_key_163 = getelementptr inbounds i8, ptr %this, i64 944
   %call.i123 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %smallest_user_key_163) #23
   %call2.i125 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %smallest_user_key_163) #23
-  %75 = load i64, ptr %size_.i.i, align 8
-  %cmp.i127 = icmp ult i64 %75, %call2.i125
-  %..i = call i64 @llvm.umin.i64(i64 %75, i64 %call2.i125)
-  %76 = load ptr, ptr %ikey, align 8
-  %call.i128 = call i32 @memcmp(ptr noundef %76, ptr noundef %call.i123, i64 noundef %..i) #25
+  %72 = load i64, ptr %size_.i.i, align 8
+  %cmp.i127 = icmp ult i64 %72, %call2.i125
+  %..i = call i64 @llvm.umin.i64(i64 %72, i64 %call2.i125)
+  %73 = load ptr, ptr %ikey, align 8
+  %call.i128 = call i32 @memcmp(ptr noundef %73, ptr noundef %call.i123, i64 noundef %..i) #25
   %cmp6.not.i = icmp eq i32 %call.i128, 0
   %cmp167152 = icmp slt i32 %call.i128, 0
   %cmp167 = select i1 %cmp6.not.i, i1 %cmp.i127, i1 %cmp167152
@@ -1065,13 +1065,13 @@ if.else178:                                       ; preds = %if.end158
   %largest_user_key_181 = getelementptr inbounds i8, ptr %this, i64 912
   %call.i130 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %largest_user_key_181) #23
   %call2.i132 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %largest_user_key_181) #23
-  %77 = load i64, ptr %size_.i.i, align 8
-  %cmp.i135 = icmp ult i64 %77, %call2.i132
-  %..i136 = call i64 @llvm.umin.i64(i64 %77, i64 %call2.i132)
-  %78 = load ptr, ptr %ikey, align 8
-  %call.i137 = call i32 @memcmp(ptr noundef %78, ptr noundef %call.i130, i64 noundef %..i136) #25
+  %74 = load i64, ptr %size_.i.i, align 8
+  %cmp.i135 = icmp ult i64 %74, %call2.i132
+  %..i136 = call i64 @llvm.umin.i64(i64 %74, i64 %call2.i132)
+  %75 = load ptr, ptr %ikey, align 8
+  %call.i137 = call i32 @memcmp(ptr noundef %75, ptr noundef %call.i130, i64 noundef %..i136) #25
   %cmp6.not.i138 = icmp eq i32 %call.i137, 0
-  %cmp13.i139 = icmp ugt i64 %77, %call2.i132
+  %cmp13.i139 = icmp ugt i64 %74, %call2.i132
   %spec.select.i140 = zext i1 %cmp13.i139 to i32
   %call.mux.i141 = select i1 %cmp.i135, i32 -1, i32 %spec.select.i140
   %r.0.i142 = select i1 %cmp6.not.i138, i32 %call.mux.i141, i32 %call.i137
@@ -1079,43 +1079,43 @@ if.else178:                                       ; preds = %if.end158
   br i1 %cmp185, label %if.then186.invoke, label %if.end197
 
 if.then186.invoke:                                ; preds = %if.else178, %if.end158
-  %79 = phi ptr [ %smallest_user_key_163, %if.end158 ], [ %largest_user_key_181, %if.else178 ]
-  %80 = phi ptr [ %76, %if.end158 ], [ %78, %if.else178 ]
-  %81 = phi i64 [ %75, %if.end158 ], [ %77, %if.else178 ]
-  %82 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef %80, i64 noundef %81)
+  %76 = phi ptr [ %smallest_user_key_163, %if.end158 ], [ %largest_user_key_181, %if.else178 ]
+  %77 = phi ptr [ %73, %if.end158 ], [ %75, %if.else178 ]
+  %78 = phi i64 [ %72, %if.end158 ], [ %74, %if.else178 ]
+  %79 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef %77, i64 noundef %78)
           to label %if.end197 unwind label %lpad
 
 if.end197:                                        ; preds = %if.then186.invoke, %if.else178
   %use_module_hash_ = getelementptr inbounds i8, ptr %this, i64 896
-  %83 = load i8, ptr %use_module_hash_, align 8
-  %tobool198 = trunc i8 %83 to i1
+  %80 = load i8, ptr %use_module_hash_, align 8
+  %tobool198 = trunc i8 %80 to i1
   br i1 %tobool198, label %cleanup, label %if.then199
 
 if.then199:                                       ; preds = %if.end197
   %hash_table_size_ = getelementptr inbounds i8, ptr %this, i64 48
-  %84 = load i64, ptr %hash_table_size_, align 8
-  %conv200 = uitofp i64 %84 to double
-  %85 = load i64, ptr %num_entries_, align 8
-  %conv202 = uitofp i64 %85 to double
+  %81 = load i64, ptr %hash_table_size_, align 8
+  %conv200 = uitofp i64 %81 to double
+  %82 = load i64, ptr %num_entries_, align 8
+  %conv202 = uitofp i64 %82 to double
   %max_hash_table_ratio_ = getelementptr inbounds i8, ptr %this, i64 24
-  %86 = load double, ptr %max_hash_table_ratio_, align 8
-  %div = fdiv double %conv202, %86
+  %83 = load double, ptr %max_hash_table_ratio_, align 8
+  %div = fdiv double %conv202, %83
   %cmp203 = fcmp ogt double %div, %conv200
   br i1 %cmp203, label %if.then204, label %cleanup
 
 if.then204:                                       ; preds = %if.then199
-  %mul = shl i64 %84, 1
+  %mul = shl i64 %81, 1
   store i64 %mul, ptr %hash_table_size_, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end197, %if.then204, %if.then199, %_ZN7rocksdb6StatusD2Ev.exit117, %_ZN7rocksdb6StatusD2Ev.exit105, %_ZN7rocksdb6StatusD2Ev.exit70, %_ZN7rocksdb6StatusD2Ev.exit42
   %state_.i144 = getelementptr inbounds i8, ptr %pik_status, i64 8
-  %87 = load ptr, ptr %state_.i144, align 8
-  %cmp.not.i.i145 = icmp eq ptr %87, null
+  %84 = load ptr, ptr %state_.i144, align 8
+  %cmp.not.i.i145 = icmp eq ptr %84, null
   br i1 %cmp.not.i.i145, label %cleanup.cont, label %cleanup.cont.sink.split
 
 cleanup.cont.sink.split:                          ; preds = %cleanup, %_ZN7rocksdb6StatusaSEOS0_.exit
-  %.sink = phi ptr [ %9, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %87, %cleanup ]
+  %.sink = phi ptr [ %9, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %84, %cleanup ]
   call void @_ZdaPv(ptr noundef nonnull %.sink) #22
   br label %cleanup.cont
 
@@ -1125,12 +1125,12 @@ cleanup.cont:                                     ; preds = %cleanup.cont.sink.s
 ehcleanup208:                                     ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %21, %lpad ]
   %state_.i148 = getelementptr inbounds i8, ptr %pik_status, i64 8
-  %88 = load ptr, ptr %state_.i148, align 8
-  %cmp.not.i.i149 = icmp eq ptr %88, null
+  %85 = load ptr, ptr %state_.i148, align 8
+  %cmp.not.i.i149 = icmp eq ptr %85, null
   br i1 %cmp.not.i.i149, label %_ZN7rocksdb6StatusD2Ev.exit151, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i150
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i150: ; preds = %ehcleanup208
-  call void @_ZdaPv(ptr noundef nonnull %88) #22
+  call void @_ZdaPv(ptr noundef nonnull %85) #22
   br label %_ZN7rocksdb6StatusD2Ev.exit151
 
 _ZN7rocksdb6StatusD2Ev.exit151:                   ; preds = %ehcleanup208, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i150

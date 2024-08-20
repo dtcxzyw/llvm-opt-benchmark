@@ -7739,22 +7739,22 @@ define void @_ZN3awc7request13ClientRequest16prep_for_sending17h0cb2ec6af81e8b3b
   %25 = getelementptr inbounds i8, ptr %1, i64 400
   %26 = load i8, ptr %25, align 8, !range !554, !noundef !4
   %.not = icmp eq i8 %26, 7
-  %.sink32.i.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink32.i.sroa.gep145 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink32.i.sroa.gep147 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink32.i.sroa.gep148 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sink32.i.sroa.gep150 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sink32.i.sroa.gep151 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink32.i.sroa.gep153 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sink32.i.sroa.gep154 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sink32.i120.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink32.i120.sroa.gep155 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink32.i120.sroa.gep157 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink32.i120.sroa.gep158 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink32.i120.sroa.gep160 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink32.i120.sroa.gep161 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink32.i120.sroa.gep163 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink32.i120.sroa.gep164 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink.i.sroa.gep145 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink.i.sroa.gep147 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink.i.sroa.gep148 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink.i.sroa.gep150 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink.i.sroa.gep151 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink.i.sroa.gep153 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink.i.sroa.gep154 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink.i120.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink.i120.sroa.gep155 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink.i120.sroa.gep157 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink.i120.sroa.gep158 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink.i120.sroa.gep160 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink.i120.sroa.gep161 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink.i120.sroa.gep163 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink.i120.sroa.gep164 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %2
@@ -8017,7 +8017,6 @@ define void @_ZN3awc7request13ClientRequest16prep_for_sending17h0cb2ec6af81e8b3b
 
 123:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !599
-  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.63, ptr %10, align 8, !noalias !599
   br label %.invoke.i
 
 124:                                              ; preds = %.lr.ph.i
@@ -8028,20 +8027,20 @@ define void @_ZN3awc7request13ClientRequest16prep_for_sending17h0cb2ec6af81e8b3b
 
 126:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !609
-  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.63, ptr %9, align 8, !noalias !609
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %126, %123
-  %.sink32.i.sroa.phi = phi ptr [ %.sink32.i.sroa.gep, %123 ], [ %.sink32.i.sroa.gep145, %126 ]
-  %.sink32.i.sroa.phi146 = phi ptr [ %.sink32.i.sroa.gep147, %123 ], [ %.sink32.i.sroa.gep148, %126 ]
-  %.sink32.i.sroa.phi149 = phi ptr [ %.sink32.i.sroa.gep150, %123 ], [ %.sink32.i.sroa.gep151, %126 ]
-  %.sink32.i.sroa.phi152 = phi ptr [ %.sink32.i.sroa.gep153, %123 ], [ %.sink32.i.sroa.gep154, %126 ]
-  %.sink32.i = phi ptr [ %10, %123 ], [ %9, %126 ]
-  store i64 1, ptr %.sink32.i.sroa.phi, align 8, !noalias !585
-  store ptr null, ptr %.sink32.i.sroa.phi146, align 8, !noalias !585
-  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.5.llvm.10699824007728741731, ptr %.sink32.i.sroa.phi149, align 8, !noalias !585
-  store i64 0, ptr %.sink32.i.sroa.phi152, align 8, !noalias !585
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d0a30fff3a28ad1d9bfda41ec53008c.74) #23
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %123 ], [ %.sink.i.sroa.gep145, %126 ]
+  %.sink.i.sroa.phi146 = phi ptr [ %.sink.i.sroa.gep147, %123 ], [ %.sink.i.sroa.gep148, %126 ]
+  %.sink.i.sroa.phi149 = phi ptr [ %.sink.i.sroa.gep150, %123 ], [ %.sink.i.sroa.gep151, %126 ]
+  %.sink.i.sroa.phi152 = phi ptr [ %.sink.i.sroa.gep153, %123 ], [ %.sink.i.sroa.gep154, %126 ]
+  %.sink.i = phi ptr [ %10, %123 ], [ %9, %126 ]
+  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.63, ptr %.sink.i, align 8, !noalias !585
+  store i64 1, ptr %.sink.i.sroa.phi, align 8, !noalias !585
+  store ptr null, ptr %.sink.i.sroa.phi146, align 8, !noalias !585
+  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.5.llvm.10699824007728741731, ptr %.sink.i.sroa.phi149, align 8, !noalias !585
+  store i64 0, ptr %.sink.i.sroa.phi152, align 8, !noalias !585
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d0a30fff3a28ad1d9bfda41ec53008c.74) #23
           to label %.cont.i unwind label %95, !noalias !584
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -8406,7 +8405,6 @@ _ZN5alloc3str17join_generic_copy17h4da22ddfbcdf0820E.exit: ; preds = %._crit_edg
 
 251:                                              ; preds = %.lr.ph.i106
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !680
-  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.63, ptr %6, align 8, !noalias !680
   br label %.invoke.i119
 
 252:                                              ; preds = %.lr.ph.i106
@@ -8417,20 +8415,20 @@ _ZN5alloc3str17join_generic_copy17h4da22ddfbcdf0820E.exit: ; preds = %._crit_edg
 
 254:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !690
-  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.63, ptr %5, align 8, !noalias !690
   br label %.invoke.i119
 
 .invoke.i119:                                     ; preds = %254, %251
-  %.sink32.i120.sroa.phi = phi ptr [ %.sink32.i120.sroa.gep, %251 ], [ %.sink32.i120.sroa.gep155, %254 ]
-  %.sink32.i120.sroa.phi156 = phi ptr [ %.sink32.i120.sroa.gep157, %251 ], [ %.sink32.i120.sroa.gep158, %254 ]
-  %.sink32.i120.sroa.phi159 = phi ptr [ %.sink32.i120.sroa.gep160, %251 ], [ %.sink32.i120.sroa.gep161, %254 ]
-  %.sink32.i120.sroa.phi162 = phi ptr [ %.sink32.i120.sroa.gep163, %251 ], [ %.sink32.i120.sroa.gep164, %254 ]
-  %.sink32.i120 = phi ptr [ %6, %251 ], [ %5, %254 ]
-  store i64 1, ptr %.sink32.i120.sroa.phi, align 8, !noalias !666
-  store ptr null, ptr %.sink32.i120.sroa.phi156, align 8, !noalias !666
-  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.5.llvm.10699824007728741731, ptr %.sink32.i120.sroa.phi159, align 8, !noalias !666
-  store i64 0, ptr %.sink32.i120.sroa.phi162, align 8, !noalias !666
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink32.i120, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d0a30fff3a28ad1d9bfda41ec53008c.74) #23
+  %.sink.i120.sroa.phi = phi ptr [ %.sink.i120.sroa.gep, %251 ], [ %.sink.i120.sroa.gep155, %254 ]
+  %.sink.i120.sroa.phi156 = phi ptr [ %.sink.i120.sroa.gep157, %251 ], [ %.sink.i120.sroa.gep158, %254 ]
+  %.sink.i120.sroa.phi159 = phi ptr [ %.sink.i120.sroa.gep160, %251 ], [ %.sink.i120.sroa.gep161, %254 ]
+  %.sink.i120.sroa.phi162 = phi ptr [ %.sink.i120.sroa.gep163, %251 ], [ %.sink.i120.sroa.gep164, %254 ]
+  %.sink.i120 = phi ptr [ %6, %251 ], [ %5, %254 ]
+  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.63, ptr %.sink.i120, align 8, !noalias !666
+  store i64 1, ptr %.sink.i120.sroa.phi, align 8, !noalias !666
+  store ptr null, ptr %.sink.i120.sroa.phi156, align 8, !noalias !666
+  store ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.5.llvm.10699824007728741731, ptr %.sink.i120.sroa.phi159, align 8, !noalias !666
+  store i64 0, ptr %.sink.i120.sroa.phi162, align 8, !noalias !666
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink.i120, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d0a30fff3a28ad1d9bfda41ec53008c.74) #23
           to label %.cont.i121 unwind label %226, !noalias !665
 
 .cont.i121:                                       ; preds = %.invoke.i119

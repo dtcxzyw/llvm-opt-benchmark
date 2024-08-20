@@ -5203,8 +5203,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i143:        ; preds = %if.end8.sink.split.
   %msg.i.i.i144 = getelementptr inbounds i8, ptr %67, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i144) #21
   call void @_ZdlPv(ptr noundef nonnull %67) #23
-  store ptr null, ptr %__s, align 8
-  br label %cleanup51
+  br label %cleanup51.sink.split
 
 lpad:                                             ; preds = %invoke.cont, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit55
   %79 = landingpad { ptr, i32 }
@@ -5390,8 +5389,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i255:        ; preds = %if.end8.sink.split.
   %msg.i.i.i256 = getelementptr inbounds i8, ptr %87, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i256) #21
   call void @_ZdlPv(ptr noundef nonnull %87) #23
-  store ptr null, ptr %__s28, align 8
-  br label %cleanup51
+  br label %cleanup51.sink.split
 
 _ZN5arrow6StatusD2Ev.exit314:                     ; preds = %_ZN5arrow6StatusD2Ev.exit239, %_ZN5arrow6StatusD2Ev.exit239.thread
   store ptr null, ptr %agg.result, align 8
@@ -5403,10 +5401,14 @@ _ZN5arrow6StatusD2Ev.exit314:                     ; preds = %_ZN5arrow6StatusD2E
   %100 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr %100, ptr %_M_refcount.i.i.i.i.i315, align 8
-  store ptr null, ptr %out_data, align 8
+  br label %cleanup51.sink.split
+
+cleanup51.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit314, %_ZN5arrow6Status11DeleteStateEv.exit.i143, %_ZN5arrow6Status11DeleteStateEv.exit.i255
+  %__s28.sink = phi ptr [ %__s28, %_ZN5arrow6Status11DeleteStateEv.exit.i255 ], [ %__s, %_ZN5arrow6Status11DeleteStateEv.exit.i143 ], [ %out_data, %_ZN5arrow6StatusD2Ev.exit314 ]
+  store ptr null, ptr %__s28.sink, align 8
   br label %cleanup51
 
-cleanup51:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i255, %if.then41, %_ZN5arrow6Status11DeleteStateEv.exit.i143, %if.then, %_ZN5arrow6StatusD2Ev.exit314
+cleanup51:                                        ; preds = %cleanup51.sink.split, %if.then41, %if.then
   %_M_refcount.i.i316 = getelementptr inbounds i8, ptr %out_field, i64 8
   %101 = load ptr, ptr %_M_refcount.i.i316, align 8
   %cmp.not.i.i.i317 = icmp eq ptr %101, null

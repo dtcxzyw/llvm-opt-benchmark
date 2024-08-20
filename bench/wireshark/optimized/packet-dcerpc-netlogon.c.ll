@@ -6167,7 +6167,7 @@ define internal i32 @netlogon_dissect_ServerCapabilities(ptr noundef %0, i32 nou
   %21 = add i32 %20, 4
   %.0 = select i1 %or.cond, i32 %16, i32 %21
   %22 = load i32, ptr %8, align 4
-  switch i32 %22, label %30 [
+  switch i32 %22, label %31 [
     i32 1, label %.sink.split
     i32 2, label %23
   ]
@@ -6176,21 +6176,21 @@ define internal i32 @netlogon_dissect_ServerCapabilities(ptr noundef %0, i32 nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %23
-  %.sink = phi ptr [ %10, %23 ], [ %9, %14 ]
-  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.036, ptr noundef nonnull %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %.sink) #9
-  %.sink42 = load i32, ptr %.sink, align 4
-  %25 = load i32, ptr @hf_netlogon_neg_flags, align 4
-  %26 = load i32, ptr @ett_authenticate_flags, align 4
-  %27 = zext i32 %.sink42 to i64
-  %28 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %.036, ptr noundef %0, i32 noundef %.0, i32 noundef %25, i32 noundef %26, ptr noundef nonnull @netlogon_dissect_neg_options.hf_flags, i64 noundef %27, i32 noundef 1) #9
-  %29 = add i32 %.0, 4
-  br label %30
+  %.sink43 = phi ptr [ %10, %23 ], [ %9, %14 ]
+  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.036, ptr noundef nonnull %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %.sink43) #9
+  %25 = load i32, ptr %.sink43, align 4
+  %26 = load i32, ptr @hf_netlogon_neg_flags, align 4
+  %27 = load i32, ptr @ett_authenticate_flags, align 4
+  %28 = zext i32 %25 to i64
+  %29 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %.036, ptr noundef %0, i32 noundef %.0, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @netlogon_dissect_neg_options.hf_flags, i64 noundef %28, i32 noundef 1) #9
+  %30 = add i32 %.0, 4
+  br label %31
 
-30:                                               ; preds = %.sink.split, %14
-  %.1 = phi i32 [ %.0, %14 ], [ %29, %.sink.split ]
-  %31 = load ptr, ptr %7, align 8
-  %32 = sub i32 %.1, %1
-  call void @proto_item_set_len(ptr noundef %31, i32 noundef %32) #9
+31:                                               ; preds = %.sink.split, %14
+  %.1 = phi i32 [ %.0, %14 ], [ %30, %.sink.split ]
+  %32 = load ptr, ptr %7, align 8
+  %33 = sub i32 %.1, %1
+  call void @proto_item_set_len(ptr noundef %32, i32 noundef %33) #9
   ret i32 %.1
 }
 

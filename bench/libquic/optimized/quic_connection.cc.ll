@@ -1207,7 +1207,7 @@ lpad47:                                           ; preds = %invoke.cont41
           cleanup
   %104 = load ptr, ptr %agg.tmp38, align 8
   %cmp.not.i.i358 = icmp eq ptr %104, null
-  br i1 %cmp.not.i.i358, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit385, label %if.then.i.i359
+  br i1 %cmp.not.i.i358, label %ehcleanup243, label %if.then.i.i359
 
 if.then.i.i359:                                   ; preds = %lpad47
   %105 = ptrtoint ptr %104 to i64
@@ -1231,10 +1231,6 @@ if.end13.sink.split.i.i365:                       ; preds = %delete.notnull.i.i3
   %.sink.i.i367 = phi ptr [ %104, %delete.notnull.i.i368 ], [ %106, %if.then2.i.i362 ]
   %107 = load ptr, ptr %vfn6.sink.i.i366, align 8
   call void %107(ptr noundef nonnull align 8 dereferenceable(8) %.sink.i.i367) #23
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit385
-
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit385: ; preds = %if.end13.sink.split.i.i365, %lpad47
-  store ptr null, ptr %agg.tmp38, align 8
   br label %ehcleanup243
 
 lpad54:                                           ; preds = %cleanup.done.i54, %cond.false.i56, %if.then6.i53
@@ -1803,7 +1799,7 @@ ehcleanup242:                                     ; preds = %lpad54, %eh.resume.
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit639 ], [ %109, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit413 ], [ %108, %lpad54 ], [ %22, %eh.resume.i59 ]
   %183 = load ptr, ptr %ack_alarm_, align 8
   %cmp.not.i.i640 = icmp eq ptr %183, null
-  br i1 %cmp.not.i.i640, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit653, label %if.then.i.i641
+  br i1 %cmp.not.i.i640, label %ehcleanup243, label %if.then.i.i641
 
 if.then.i.i641:                                   ; preds = %ehcleanup242
   %184 = ptrtoint ptr %183 to i64
@@ -1827,14 +1823,12 @@ if.end13.sink.split.i.i647:                       ; preds = %delete.notnull.i.i6
   %.sink.i.i649 = phi ptr [ %183, %delete.notnull.i.i650 ], [ %185, %if.then2.i.i644 ]
   %186 = load ptr, ptr %vfn6.sink.i.i648, align 8
   call void %186(ptr noundef nonnull align 8 dereferenceable(24) %.sink.i.i649) #23
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit653
-
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit653: ; preds = %ehcleanup242, %if.end13.sink.split.i.i647
-  store ptr null, ptr %ack_alarm_, align 8
   br label %ehcleanup243
 
-ehcleanup243:                                     ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit653, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit385
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit653 ], [ %103, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit385 ]
+ehcleanup243:                                     ; preds = %if.end13.sink.split.i.i647, %ehcleanup242, %lpad47, %if.end13.sink.split.i.i365
+  %ack_alarm_.sink = phi ptr [ %agg.tmp38, %if.end13.sink.split.i.i365 ], [ %agg.tmp38, %lpad47 ], [ %ack_alarm_, %ehcleanup242 ], [ %ack_alarm_, %if.end13.sink.split.i.i647 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %103, %if.end13.sink.split.i.i365 ], [ %103, %lpad47 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup242 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %if.end13.sink.split.i.i647 ]
+  store ptr null, ptr %ack_alarm_.sink, align 8
   call void @_ZN3net22QuicSentEntropyManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %sent_entropy_manager_) #23
   br label %ehcleanup244
 

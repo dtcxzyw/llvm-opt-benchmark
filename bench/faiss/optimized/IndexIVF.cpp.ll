@@ -3410,18 +3410,14 @@ define void @_ZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19Sear
 
 .thread:                                          ; preds = %82
   store ptr null, ptr %24, align 8
-  br label %.thread78
+  br label %.sink.split
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds i8, ptr %9, i64 8
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %24, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread78, label %90
-
-.thread78:                                        ; preds = %.thread, %86
-  store ptr null, ptr %25, align 8
-  br label %113
+  br i1 %89, label %.sink.split, label %90
 
 90:                                               ; preds = %86
   %91 = tail call ptr @__dynamic_cast(ptr nonnull %88, ptr nonnull @_ZTIN5faiss10IDSelectorE, ptr nonnull @_ZTIN5faiss15IDSelectorRangeE, i64 0) #25
@@ -3433,11 +3429,7 @@ define void @_ZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19Sear
   %93 = getelementptr inbounds i8, ptr %91, i64 24
   %94 = load i8, ptr %93, align 8
   %95 = trunc i8 %94 to i1
-  br i1 %95, label %.thread68, label %96
-
-.thread68:                                        ; preds = %92
-  store ptr null, ptr %24, align 8
-  br label %113
+  br i1 %95, label %.sink.split, label %96
 
 96:                                               ; preds = %92
   store ptr null, ptr %25, align 8
@@ -3480,7 +3472,12 @@ define void @_ZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19Sear
   call void @__cxa_free_exception(ptr %107) #25
   br label %234
 
-113:                                              ; preds = %.thread78, %97, %.thread68
+.sink.split:                                      ; preds = %92, %86, %.thread
+  %.sink = phi ptr [ %25, %.thread ], [ %25, %86 ], [ %24, %92 ]
+  store ptr null, ptr %.sink, align 8
+  br label %113
+
+113:                                              ; preds = %.sink.split, %97
   %114 = getelementptr inbounds i8, ptr %0, i64 136
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 24
@@ -3755,9 +3752,9 @@ define void @_ZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19Sear
   ret void
 
 234:                                              ; preds = %163, %208, %216, %214, %131, %133, %109, %111, %78, %80, %56, %58
-  %.sink = phi ptr [ %20, %58 ], [ %20, %56 ], [ %22, %80 ], [ %22, %78 ], [ %26, %111 ], [ %26, %109 ], [ %27, %133 ], [ %27, %131 ], [ %33, %214 ], [ %33, %216 ], [ %33, %208 ], [ %33, %163 ]
+  %.sink81 = phi ptr [ %20, %58 ], [ %20, %56 ], [ %22, %80 ], [ %22, %78 ], [ %26, %111 ], [ %26, %109 ], [ %27, %133 ], [ %27, %131 ], [ %33, %214 ], [ %33, %216 ], [ %33, %208 ], [ %33, %163 ]
   %.pn62.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %81, %80 ], [ %79, %78 ], [ %112, %111 ], [ %110, %109 ], [ %134, %133 ], [ %132, %131 ], [ %215, %214 ], [ %.pn5973, %216 ], [ %.pn57, %208 ], [ %.pn55, %163 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink81) #25
   resume { ptr, i32 } %.pn62.pn
 
 235:                                              ; preds = %212, %203, %158, %130, %108, %77, %55

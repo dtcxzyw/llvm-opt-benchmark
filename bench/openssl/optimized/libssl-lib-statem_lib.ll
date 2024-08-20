@@ -1114,16 +1114,16 @@ if.else25:                                        ; preds = %if.end
   br i1 %tobool28.not, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.else25, %if.then22
-  %.in = phi ptr [ %cert_verify_hash_len, %if.then22 ], [ %hashlen, %if.else25 ]
-  %7 = load i64, ptr %.in, align 8
+  %hashlen.sink = phi ptr [ %cert_verify_hash_len, %if.then22 ], [ %hashlen, %if.else25 ]
+  %.pre = load i64, ptr %hashlen.sink, align 8
   store ptr %tls13tbs, ptr %hdata, align 8
-  %add = add i64 %7, 98
+  %add = add i64 %.pre, 98
   br label %if.end37
 
 if.else32:                                        ; preds = %land.lhs.true, %entry
   %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
-  %8 = load ptr, ptr %handshake_buffer, align 8
-  %call33 = tail call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 3, i64 noundef 0, ptr noundef %hdata) #11
+  %7 = load ptr, ptr %handshake_buffer, align 8
+  %call33 = tail call i64 @BIO_ctrl(ptr noundef %7, i32 noundef 3, i64 noundef 0, ptr noundef %hdata) #11
   %cmp34 = icmp slt i64 %call33, 1
   br i1 %cmp34, label %if.then35, label %if.end37
 

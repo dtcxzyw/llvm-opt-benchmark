@@ -15830,109 +15830,102 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version33getProvisionalVersionForDim
   %5 = alloca %"class.zxing::FormatErrorHandler", align 8
   %6 = and i32 %0, -2147483645
   %.not = icmp eq i32 %6, 1
-  %.sink13.sroa.gep = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink13.sroa.gep15 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink13.sroa.gep16 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink14.sroa.gep = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink14.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 16
-  br i1 %.not, label %13, label %7
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink16.sroa.gep19 = getelementptr inbounds i8, ptr %5, i64 16
+  br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %2
+  %.sink16.sroa.gep = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.2)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18FormatErrorHandlerE, i64 16), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 6, ptr %8, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
-          to label %10 unwind label %11
+          to label %.sink.split unwind label %10
 
 10:                                               ; preds = %7
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
-  br label %.sink.split
-
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   br label %common.resume
 
-13:                                               ; preds = %2
-  %14 = add nsw i32 %0, -17
-  %15 = ashr exact i32 %14, 2
+12:                                               ; preds = %2
+  %13 = add nsw i32 %0, -17
+  %14 = ashr exact i32 %13, 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  %16 = icmp slt i32 %15, 1
-  %17 = load i32, ptr @_ZN5zxing6qrcodeL10N_VERSIONSE, align 4
-  %18 = icmp slt i32 %17, %15
-  %or.cond.i = select i1 %16, i1 true, i1 %18
-  br i1 %or.cond.i, label %19, label %26
+  %15 = icmp slt i32 %14, 1
+  %16 = load i32, ptr @_ZN5zxing6qrcodeL10N_VERSIONSE, align 4
+  %17 = icmp slt i32 %16, %14
+  %or.cond.i = select i1 %15, i1 true, i1 %17
+  br i1 %or.cond.i, label %18, label %25
 
-19:                                               ; preds = %13
+18:                                               ; preds = %12
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @.str)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 3, ptr %20, align 8
-  %21 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %22 unwind label %24
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 3, ptr %19, align 8
+  %20 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %21 unwind label %23
 
-22:                                               ; preds = %19
+21:                                               ; preds = %18
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
+  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
   br label %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
 
-common.resume:                                    ; preds = %11, %40, %24
-  %.sink13.sroa.phi = phi ptr [ %.sink13.sroa.gep, %11 ], [ %.sink13.sroa.gep15, %40 ], [ %.sink13.sroa.gep16, %24 ]
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %41, %40 ], [ %25, %24 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink13.sroa.phi) #18
+common.resume:                                    ; preds = %10, %38, %23
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %10 ], [ %.sink.sroa.gep17, %38 ], [ %.sink.sroa.gep18, %23 ]
+  %.sink = phi ptr [ %4, %10 ], [ %5, %38 ], [ %3, %23 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %39, %38 ], [ %24, %23 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.sroa.phi) #18
   resume { ptr, i32 } %common.resume.op
 
-24:                                               ; preds = %19
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %18
+  %24 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %3, align 8
   br label %common.resume
 
-26:                                               ; preds = %13
-  %27 = load ptr, ptr @_ZN5zxing6qrcode7Version8VERSIONSE, align 8
-  %28 = zext nneg i32 %15 to i64
-  %29 = getelementptr %"class.zxing::Ref", ptr %27, i64 %28
-  %30 = getelementptr i8, ptr %29, i64 -8
-  %31 = load ptr, ptr %30, align 8
+25:                                               ; preds = %12
+  %26 = load ptr, ptr @_ZN5zxing6qrcode7Version8VERSIONSE, align 8
+  %27 = zext nneg i32 %14 to i64
+  %28 = getelementptr %"class.zxing::Ref", ptr %26, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -8
+  %30 = load ptr, ptr %29, align 8
   br label %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
 
-_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit: ; preds = %22, %26
-  %.0.i = phi ptr [ null, %22 ], [ %31, %26 ]
+_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit: ; preds = %21, %25
+  %.0.i = phi ptr [ null, %21 ], [ %30, %25 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(48) %1)
-  %.not11 = icmp eq i32 %35, 0
-  br i1 %.not11, label %42, label %36
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(48) %1)
+  %.not11 = icmp eq i32 %34, 0
+  br i1 %.not11, label %40, label %35
 
-36:                                               ; preds = %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
+35:                                               ; preds = %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.3)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18FormatErrorHandlerE, i64 16), ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 6, ptr %37, align 8
-  %38 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %39 unwind label %40
+  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 6, ptr %36, align 8
+  %37 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
+          to label %.sink.split unwind label %38
 
-39:                                               ; preds = %36
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
-  br label %.sink.split
-
-40:                                               ; preds = %36
-  %41 = landingpad { ptr, i32 }
+38:                                               ; preds = %35
+  %39 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
   br label %common.resume
 
-.sink.split:                                      ; preds = %10, %39
-  %.sink14.sroa.phi = phi ptr [ %.sink14.sroa.gep, %39 ], [ %.sink14.sroa.gep17, %10 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink14.sroa.phi) #18
-  br label %42
+.sink.split:                                      ; preds = %35, %7
+  %.sink16.sroa.phi = phi ptr [ %.sink16.sroa.gep, %7 ], [ %.sink16.sroa.gep19, %35 ]
+  %.sink16 = phi ptr [ %4, %7 ], [ %5, %35 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink16, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink16.sroa.phi) #18
+  br label %40
 
-42:                                               ; preds = %.sink.split, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
+40:                                               ; preds = %.sink.split, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit
   %.0 = phi ptr [ %.0.i, %_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE.exit ], [ null, %.sink.split ]
   ret ptr %.0
 }

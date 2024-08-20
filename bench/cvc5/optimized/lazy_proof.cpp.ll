@@ -1475,10 +1475,10 @@ invoke.cont206:                                   ; preds = %if.else205
   br label %invoke.cont206.invoke
 
 invoke.cont206.invoke:                            ; preds = %invoke.cont177, %invoke.cont206
-  %130 = phi ptr [ %call207, %invoke.cont206 ], [ %call175, %invoke.cont177 ]
-  %131 = phi ptr [ %129, %invoke.cont206 ], [ %75, %invoke.cont177 ]
-  %.in = phi ptr [ %pgc, %invoke.cont206 ], [ %77, %invoke.cont177 ]
-  %132 = load ptr, ptr %.in, align 8
+  %.sink = phi ptr [ %77, %invoke.cont177 ], [ %pgc, %invoke.cont206 ]
+  %130 = phi ptr [ %call175, %invoke.cont177 ], [ %call207, %invoke.cont206 ]
+  %131 = phi ptr [ %75, %invoke.cont177 ], [ %129, %invoke.cont206 ]
+  %132 = load ptr, ptr %.sink, align 8
   %133 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager10updateNodeEPNS0_9ProofNodeES3_(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef %131, ptr noundef %132)
           to label %if.end229 unwind label %lpad149
 

@@ -121194,10 +121194,10 @@ ehcleanup118:                                     ; preds = %_ZN7testing7Message
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad92, %lpad99, %ehcleanup118, %lpad90, %lpad.i.i.i177, %lpad.i.i.i164, %lpad59, %lpad66, %ehcleanup85, %lpad57, %lpad.i.i.i124, %lpad.i.i.i111, %lpad26, %lpad33, %ehcleanup52, %lpad24, %lpad.i.i.i71, %lpad.i.i.i58, %lpad2, %lpad6, %ehcleanup19, %lpad, %lpad.i.i.i33, %lpad.i.i.i
-  %statusor88.val.sink.in = phi ptr [ %statusor, %lpad.i.i.i ], [ %statusor, %lpad.i.i.i33 ], [ %statusor, %lpad ], [ %statusor, %ehcleanup19 ], [ %statusor, %lpad6 ], [ %statusor, %lpad2 ], [ %statusor22, %lpad.i.i.i58 ], [ %statusor22, %lpad.i.i.i71 ], [ %statusor22, %lpad24 ], [ %statusor22, %ehcleanup52 ], [ %statusor22, %lpad33 ], [ %statusor22, %lpad26 ], [ %statusor55, %lpad.i.i.i111 ], [ %statusor55, %lpad.i.i.i124 ], [ %statusor55, %lpad57 ], [ %statusor55, %ehcleanup85 ], [ %statusor55, %lpad66 ], [ %statusor55, %lpad59 ], [ %statusor88, %lpad.i.i.i164 ], [ %statusor88, %lpad.i.i.i177 ], [ %statusor88, %lpad90 ], [ %statusor88, %ehcleanup118 ], [ %statusor88, %lpad99 ], [ %statusor88, %lpad92 ]
+  %statusor88.sink = phi ptr [ %statusor, %lpad.i.i.i ], [ %statusor, %lpad.i.i.i33 ], [ %statusor, %lpad ], [ %statusor, %ehcleanup19 ], [ %statusor, %lpad6 ], [ %statusor, %lpad2 ], [ %statusor22, %lpad.i.i.i58 ], [ %statusor22, %lpad.i.i.i71 ], [ %statusor22, %lpad24 ], [ %statusor22, %ehcleanup52 ], [ %statusor22, %lpad33 ], [ %statusor22, %lpad26 ], [ %statusor55, %lpad.i.i.i111 ], [ %statusor55, %lpad.i.i.i124 ], [ %statusor55, %lpad57 ], [ %statusor55, %ehcleanup85 ], [ %statusor55, %lpad66 ], [ %statusor55, %lpad59 ], [ %statusor88, %lpad.i.i.i164 ], [ %statusor88, %lpad.i.i.i177 ], [ %statusor88, %lpad90 ], [ %statusor88, %ehcleanup118 ], [ %statusor88, %lpad99 ], [ %statusor88, %lpad92 ]
   %.pn12.pn.pn.pn = phi { ptr, i32 } [ %0, %lpad.i.i.i ], [ %4, %lpad.i.i.i33 ], [ %9, %lpad ], [ %.pn.pn, %ehcleanup19 ], [ %11, %lpad6 ], [ %10, %lpad2 ], [ %24, %lpad.i.i.i58 ], [ %28, %lpad.i.i.i71 ], [ %33, %lpad24 ], [ %.pn4.pn, %ehcleanup52 ], [ %35, %lpad33 ], [ %34, %lpad26 ], [ %48, %lpad.i.i.i111 ], [ %52, %lpad.i.i.i124 ], [ %57, %lpad57 ], [ %.pn8.pn, %ehcleanup85 ], [ %59, %lpad66 ], [ %58, %lpad59 ], [ %72, %lpad.i.i.i164 ], [ %76, %lpad.i.i.i177 ], [ %81, %lpad90 ], [ %.pn12.pn, %ehcleanup118 ], [ %83, %lpad99 ], [ %82, %lpad92 ]
-  %statusor88.val.sink = load i64, ptr %statusor88.val.sink.in, align 8
-  call fastcc void @_ZN4absl8StatusOrIN12_GLOBAL__N_16MyTypeEED2Ev(i64 %statusor88.val.sink) #27
+  %statusor88.val = load i64, ptr %statusor88.sink, align 8
+  call fastcc void @_ZN4absl8StatusOrIN12_GLOBAL__N_16MyTypeEED2Ev(i64 %statusor88.val) #27
   resume { ptr, i32 } %.pn12.pn.pn.pn
 }
 
@@ -121999,10 +121999,10 @@ ehcleanup100:                                     ; preds = %_ZN7testing7Message
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup74, %lpad81, %ehcleanup100, %lpad.i.i, %lpad46, %lpad, %ehcleanup18, %lpad23, %ehcleanup42
-  %statusor45.val17.sink.in = phi ptr [ %statusor, %ehcleanup42 ], [ %statusor, %lpad23 ], [ %statusor, %ehcleanup18 ], [ %statusor, %lpad ], [ %statusor45, %lpad46 ], [ %statusor45, %lpad.i.i ], [ %statusor45, %ehcleanup100 ], [ %statusor45, %lpad81 ], [ %statusor45, %ehcleanup74 ]
+  %statusor45.sink = phi ptr [ %statusor, %ehcleanup42 ], [ %statusor, %lpad23 ], [ %statusor, %ehcleanup18 ], [ %statusor, %lpad ], [ %statusor45, %lpad46 ], [ %statusor45, %lpad.i.i ], [ %statusor45, %ehcleanup100 ], [ %statusor45, %lpad81 ], [ %statusor45, %ehcleanup74 ]
   %.pn12.pn.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %ehcleanup42 ], [ %19, %lpad23 ], [ %.pn.pn.pn, %ehcleanup18 ], [ %0, %lpad ], [ %38, %lpad46 ], [ %37, %lpad.i.i ], [ %.pn12.pn, %ehcleanup100 ], [ %57, %lpad81 ], [ %.pn8.pn.pn, %ehcleanup74 ]
-  %statusor45.val17.sink = load i64, ptr %statusor45.val17.sink.in, align 8
-  call fastcc void @_ZN4absl8StatusOrIN12_GLOBAL__N_16MyTypeEED2Ev(i64 %statusor45.val17.sink) #27
+  %statusor45.val17 = load i64, ptr %statusor45.sink, align 8
+  call fastcc void @_ZN4absl8StatusOrIN12_GLOBAL__N_16MyTypeEED2Ev(i64 %statusor45.val17) #27
   resume { ptr, i32 } %.pn12.pn.pn.pn
 }
 

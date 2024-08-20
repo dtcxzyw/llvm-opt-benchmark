@@ -864,16 +864,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %if
   %.pre22 = load ptr, ptr %agg.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
   %cmp.not.i3 = icmp eq ptr %.pre22, null
-  br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4
-
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pre22) #17
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre22) #17
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4
-  store ptr null, ptr %agg.tmp, align 8
-  br label %invoke.cont12
+  br i1 %cmp.not.i3, label %invoke.cont12, label %invoke.cont12.sink.split
 
 lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
@@ -893,16 +884,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11: ; preds = %
   %.pre = load ptr, ptr %agg.tmp6, align 8
   store ptr null, ptr %ref.tmp3, align 8
   %cmp.not.i12 = icmp eq ptr %.pre, null
-  br i1 %cmp.not.i12, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit14, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i13
-
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i13: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pre) #17
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre) #17
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit14
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit14: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i13
-  store ptr null, ptr %agg.tmp6, align 8
-  br label %invoke.cont12
+  br i1 %cmp.not.i12, label %invoke.cont12, label %invoke.cont12.sink.split
 
 lpad7:                                            ; preds = %if.else
   %6 = landingpad { ptr, i32 }
@@ -910,8 +892,18 @@ lpad7:                                            ; preds = %if.else
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6) #17
   br label %ehcleanup
 
-invoke.cont12:                                    ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit14
-  %.in = phi ptr [ %3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5 ], [ %5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit14 ]
+invoke.cont12.sink.split:                         ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
+  %.pre.sink23 = phi ptr [ %.pre22, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %.pre, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ]
+  %agg.tmp.sink.ph = phi ptr [ %agg.tmp, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %agg.tmp6, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ]
+  %.in.ph = phi ptr [ %3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ]
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pre.sink23) #17
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pre.sink23) #17
+  br label %invoke.cont12
+
+invoke.cont12:                                    ; preds = %invoke.cont12.sink.split, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
+  %agg.tmp.sink = phi ptr [ %agg.tmp, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %agg.tmp6, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ], [ %agg.tmp.sink.ph, %invoke.cont12.sink.split ]
+  %.in = phi ptr [ %3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit11 ], [ %.in.ph, %invoke.cont12.sink.split ]
+  store ptr null, ptr %agg.tmp.sink, align 8
   %retval.sroa.2.0.insert.ext.i = zext i16 %0 to i32
   %retval.sroa.2.0.insert.shift.i = shl nuw i32 %retval.sroa.2.0.insert.ext.i, 16
   %retval.sroa.0.0.insert.ext.i = zext i16 %requestId to i32
@@ -1186,16 +1178,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12: ; preds = %
   store ptr null, ptr %agg.tmp8, align 8
   %21 = load ptr, ptr %agg.tmp4, align 8
   %cmp.not.i13 = icmp eq ptr %21, null
-  br i1 %cmp.not.i13, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit15, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i14
-
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i14: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #17
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %21) #17
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit15
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit15: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i14
-  store ptr null, ptr %agg.tmp4, align 8
-  br label %if.end20
+  br i1 %cmp.not.i13, label %if.end20, label %if.end20.sink.split
 
 lpad5:                                            ; preds = %cond.false34, %cond.true
   %22 = landingpad { ptr, i32 }
@@ -1308,16 +1291,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50: ; preds = %
   store ptr null, ptr %agg.tmp16, align 8
   %39 = load ptr, ptr %agg.tmp13, align 8
   %cmp.not.i51 = icmp eq ptr %39, null
-  br i1 %cmp.not.i51, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit53, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i52
-
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i52: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %39) #17
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %39) #17
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit53
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit53: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i52
-  store ptr null, ptr %agg.tmp13, align 8
-  br label %if.end20
+  br i1 %cmp.not.i51, label %if.end20, label %if.end20.sink.split
 
 lpad17:                                           ; preds = %invoke.cont14
   %40 = landingpad { ptr, i32 }
@@ -1326,7 +1300,16 @@ lpad17:                                           ; preds = %invoke.cont14
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp13) #17
   br label %ehcleanup
 
-if.end20:                                         ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit53, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit15
+if.end20.sink.split:                              ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12
+  %.sink86 = phi ptr [ %21, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12 ], [ %39, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50 ]
+  %agg.tmp13.sink.ph = phi ptr [ %agg.tmp4, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12 ], [ %agg.tmp13, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50 ]
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink86) #17
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink86) #17
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.end20.sink.split, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12
+  %agg.tmp13.sink = phi ptr [ %agg.tmp4, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit12 ], [ %agg.tmp13, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit50 ], [ %agg.tmp13.sink.ph, %if.end20.sink.split ]
+  store ptr null, ptr %agg.tmp13.sink, align 8
   %41 = load i8, ptr %hasValue.i.i5, align 8
   %tobool.i.i55 = trunc i8 %41 to i1
   br i1 %tobool.i.i55, label %invoke.cont24, label %cleanup

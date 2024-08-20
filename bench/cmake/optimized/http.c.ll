@@ -7478,8 +7478,8 @@ define dso_local i32 @Curl_http_req_make2(ptr nocapture noundef writeonly %0, pt
 16:                                               ; preds = %5
   %17 = load ptr, ptr @Curl_ccalloc, align 8
   %18 = tail call ptr %17(i64 noundef 1, i64 noundef 160) #12
-  %.not47 = icmp eq ptr %18, null
-  br i1 %.not47, label %.thread, label %19
+  %.not49 = icmp eq ptr %18, null
+  br i1 %.not49, label %.thread, label %19
 
 19:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %1, i64 %2, i1 false)
@@ -7655,8 +7655,7 @@ req_assign_url_authority.exit:                    ; preds = %29, %33, %35, %39, 
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds i8, ptr %18, i64 40
-  store ptr null, ptr %80, align 8
-  br label %97
+  br label %.sink.split.i43
 
 81:                                               ; preds = %74
   %82 = icmp eq ptr %75, null
@@ -7666,8 +7665,7 @@ req_assign_url_authority.exit:                    ; preds = %29, %33, %35, %39, 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %75, ptr %84, align 8
-  store ptr null, ptr %6, align 8
-  br label %97
+  br label %.sink.split.i43
 
 85:                                               ; preds = %81
   br i1 %76, label %86, label %88
@@ -7702,7 +7700,12 @@ req_assign_url_authority.exit:                    ; preds = %29, %33, %35, %39, 
   %.not26.i = icmp eq ptr %95, null
   br i1 %.not26.i, label %req_assign_url_path.exit, label %97
 
-97:                                               ; preds = %92, %83, %79
+.sink.split.i43:                                  ; preds = %83, %79
+  %.sink.i44 = phi ptr [ %6, %83 ], [ %80, %79 ]
+  store ptr null, ptr %.sink.i44, align 8
+  br label %97
+
+97:                                               ; preds = %.sink.split.i43, %92
   br label %req_assign_url_path.exit
 
 req_assign_url_path.exit:                         ; preds = %69, %71, %86, %90, %92, %97
@@ -7750,12 +7753,12 @@ Curl_http_req_free.exit:                          ; preds = %26, %req_assign_url
 
 .thread:                                          ; preds = %16, %102, %Curl_http_req_free.exit
   %116 = phi ptr [ null, %Curl_http_req_free.exit ], [ %18, %102 ], [ null, %16 ]
-  %.03446 = phi i32 [ %.034, %Curl_http_req_free.exit ], [ 0, %102 ], [ 27, %16 ]
+  %.03448 = phi i32 [ %.034, %Curl_http_req_free.exit ], [ 0, %102 ], [ 27, %16 ]
   store ptr %116, ptr %0, align 8
   br label %117
 
 117:                                              ; preds = %5, %.thread
-  %.0 = phi i32 [ %.03446, %.thread ], [ 43, %5 ]
+  %.0 = phi i32 [ %.03448, %.thread ], [ 43, %5 ]
   ret i32 %.0
 }
 
