@@ -4498,26 +4498,21 @@ entry:
   %h1.sroa.3.0.copyload = load i64, ptr %h1.sroa.3.0..sroa_idx, align 8
   %h2.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %h128_2, i64 8
   %h2.sroa.3.0.copyload = load i64, ptr %h2.sroa.3.0..sroa_idx, align 8
-  %cmp = icmp ugt i64 %h1.sroa.3.0.copyload, %h2.sroa.3.0.copyload
-  %conv = zext i1 %cmp to i32
-  %cmp4 = icmp ugt i64 %h2.sroa.3.0.copyload, %h1.sroa.3.0.copyload
-  %conv5.neg = sext i1 %cmp4 to i32
-  %sub = add nsw i32 %conv5.neg, %conv
-  %tobool.not = icmp eq i32 %sub, 0
-  br i1 %tobool.not, label %if.end, label %return
+  %tobool.not = icmp eq i64 %h1.sroa.3.0.copyload, %h2.sroa.3.0.copyload
+  br i1 %tobool.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %entry
+  %sub = tail call i32 @llvm.ucmp.i32.i64(i64 %h1.sroa.3.0.copyload, i64 %h2.sroa.3.0.copyload)
+  br label %return
 
 if.end:                                           ; preds = %entry
   %h2.sroa.0.0.copyload = load i64, ptr %h128_2, align 8
   %h1.sroa.0.0.copyload = load i64, ptr %h128_1, align 8
-  %cmp7 = icmp ugt i64 %h1.sroa.0.0.copyload, %h2.sroa.0.0.copyload
-  %conv8 = zext i1 %cmp7 to i32
-  %cmp11 = icmp ugt i64 %h2.sroa.0.0.copyload, %h1.sroa.0.0.copyload
-  %conv12.neg = sext i1 %cmp11 to i32
-  %sub13 = add nsw i32 %conv12.neg, %conv8
+  %sub13 = tail call i32 @llvm.ucmp.i32.i64(i64 %h1.sroa.0.0.copyload, i64 %h2.sroa.0.0.copyload)
   br label %return
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ %sub13, %if.end ], [ %sub, %entry ]
+return:                                           ; preds = %if.end, %if.then
+  %retval.0 = phi i32 [ %sub, %if.then ], [ %sub13, %if.end ]
   ret i32 %retval.0
 }
 
@@ -4897,6 +4892,9 @@ declare i64 @llvm.bswap.i64(i64) #29
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29

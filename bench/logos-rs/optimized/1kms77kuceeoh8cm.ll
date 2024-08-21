@@ -38,7 +38,7 @@ define void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTo
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %4) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %4) #10
           to label %17 unwind label %15
 
 14:                                               ; preds = %11
@@ -51,7 +51,7 @@ define void @"_ZN13logos_codegen9generator91_$LT$impl$u20$quote..to_tokens..ToTo
 15:                                               ; preds = %12
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #11
   unreachable
 
 17:                                               ; preds = %12
@@ -286,59 +286,47 @@ define { i1, i8 } @"_ZN93_$LT$logos_codegen..graph..range..Range$u20$as$u20$core
   %2 = load i8, ptr %0, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
-  %5 = icmp ugt i8 %2, %4
-  %6 = zext i1 %5 to i8
-  %7 = icmp ult i8 %2, %4
-  %.neg = sext i1 %7 to i8
-  %8 = add nsw i8 %.neg, %6
-  switch i8 %8, label %default.unreachable2 [
-    i8 -1, label %9
-    i8 0, label %11
-    i8 1, label %12
+  %5 = tail call i8 @llvm.ucmp.i8.i8(i8 %2, i8 %4)
+  switch i8 %5, label %default.unreachable [
+    i8 -1, label %6
+    i8 0, label %8
+    i8 1, label %9
   ]
 
-default.unreachable2:                             ; preds = %1
+default.unreachable:                              ; preds = %1
   unreachable
 
-9:                                                ; preds = %1
-  %10 = add i8 %2, 1
-  store i8 %10, ptr %0, align 1
-  br label %12
+6:                                                ; preds = %1
+  %7 = add i8 %2, 1
+  store i8 %7, ptr %0, align 1
+  br label %9
 
-11:                                               ; preds = %1
+8:                                                ; preds = %1
   store i8 -1, ptr %0, align 1
   store i8 0, ptr %3, align 1
-  br label %12
+  br label %9
 
-12:                                               ; preds = %1, %11, %9
-  %.sroa.0.0 = phi i1 [ true, %11 ], [ true, %9 ], [ false, %1 ]
-  %13 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
-  %14 = insertvalue { i1, i8 } %13, i8 %2, 1
-  ret { i1, i8 } %14
+9:                                                ; preds = %1, %8, %6
+  %.sroa.0.0 = phi i1 [ true, %8 ], [ true, %6 ], [ false, %1 ]
+  %10 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
+  %11 = insertvalue { i1, i8 } %10, i8 %2, 1
+  ret { i1, i8 } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define range(i8 -1, 2) i8 @"_ZN76_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hb18b116e9227db22E"(ptr nocapture readonly align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1
   %4 = load i8, ptr %1, align 1
-  %5 = icmp ugt i8 %3, %4
-  %6 = zext i1 %5 to i8
-  %7 = icmp ult i8 %3, %4
-  %.neg.i = sext i1 %7 to i8
-  %8 = add nsw i8 %.neg.i, %6
-  ret i8 %8
+  %5 = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %3, i8 %4)
+  ret i8 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define range(i8 -1, 2) i8 @"_ZN69_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..cmp..Ord$GT$3cmp17h6180c86f94c58180E"(ptr nocapture readonly align 1 %0, ptr nocapture readonly align 1 %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1
   %4 = load i8, ptr %1, align 1
-  %5 = icmp ugt i8 %3, %4
-  %6 = zext i1 %5 to i8
-  %7 = icmp ult i8 %3, %4
-  %.neg = sext i1 %7 to i8
-  %8 = add nsw i8 %.neg, %6
-  ret i8 %8
+  %5 = tail call i8 @llvm.ucmp.i8.i8(i8 %3, i8 %4)
+  ret i8 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -370,7 +358,7 @@ define { i8, i8 } @"_ZN118_$LT$logos_codegen..graph..range..Range$u20$as$u20$cor
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.37a3b4148d053cfa9d2f87adc22d9941.12) #11
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.37a3b4148d053cfa9d2f87adc22d9941.12) #12
   unreachable
 
 13:                                               ; preds = %5
@@ -460,6 +448,9 @@ declare zeroext i1 @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h5685
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr align 8, ptr align 8) unnamed_addr #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i8(i8, i8) #9
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -469,9 +460,10 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { cold }
-attributes #10 = { cold noreturn nounwind }
-attributes #11 = { noreturn }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { cold }
+attributes #11 = { cold noreturn nounwind }
+attributes #12 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

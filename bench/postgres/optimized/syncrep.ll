@@ -1209,12 +1209,8 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 2) i32 @cmp_lsn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp ugt i64 %4, %3
-  %6 = zext i1 %5 to i32
-  %7 = icmp ult i64 %4, %3
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %4, i64 %3)
+  ret i32 %5
 }
 
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1226,6 +1222,9 @@ declare void @SetLatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8

@@ -470,12 +470,8 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local range(i32 -1, 2) i32 @oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ugt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp ult i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -644,6 +640,9 @@ declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

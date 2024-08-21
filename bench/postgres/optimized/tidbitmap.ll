@@ -2087,12 +2087,8 @@ define internal range(i32 -1, 2) i32 @tbm_comparator(ptr nocapture noundef reado
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load i32, ptr %5, align 8
-  %7 = icmp ugt i32 %4, %6
-  %8 = zext i1 %7 to i32
-  %9 = icmp ult i32 %4, %6
-  %.neg.i = sext i1 %9 to i32
-  %10 = add nsw i32 %.neg.i, %8
-  ret i32 %10
+  %7 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %4, i32 %6)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3349,6 +3345,9 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

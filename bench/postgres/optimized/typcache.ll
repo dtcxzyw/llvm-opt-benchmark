@@ -4305,12 +4305,8 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 define internal range(i32 -1, 2) i32 @enum_oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ugt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp ult i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 declare ptr @bms_make_singleton(i32 noundef) local_unnamed_addr #1
@@ -4349,6 +4345,9 @@ declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

@@ -20,13 +20,13 @@ define void @"_ZN112_$LT$logos_codegen..leaf..Callback$u20$as$u20$core..convert.
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$logos_codegen..leaf..InlineCallback$GT$17hbfc6c0213298ff43E"(ptr align 8 %1) #7
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$logos_codegen..leaf..InlineCallback$GT$17hbfc6c0213298ff43E"(ptr align 8 %1) #8
           to label %8 unwind label %6
 
 6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #8
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
   unreachable
 
 8:                                                ; preds = %4
@@ -119,7 +119,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf8callback17h5b8bdc242d8f9725E(pt
   %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$logos_codegen..leaf..Leaf$GT$17h5d7175596670f8afE"(ptr nonnull align 8 %1) #7
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$logos_codegen..leaf..Leaf$GT$17h5d7175596670f8afE"(ptr nonnull align 8 %1) #8
           to label %10 unwind label %8
 
 7:                                                ; preds = %3
@@ -130,7 +130,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf8callback17h5b8bdc242d8f9725E(pt
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #8
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
   unreachable
 
 10:                                               ; preds = %5
@@ -146,7 +146,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr n
   %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$logos_codegen..leaf..Leaf$GT$17h5d7175596670f8afE"(ptr nonnull align 8 %1) #7
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$logos_codegen..leaf..Leaf$GT$17h5d7175596670f8afE"(ptr nonnull align 8 %1) #8
           to label %9 unwind label %7
 
 6:                                                ; preds = %3
@@ -157,7 +157,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr n
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #8
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
   unreachable
 
 9:                                                ; preds = %4
@@ -178,12 +178,8 @@ define range(i8 -1, 2) i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 72
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ugt i64 %4, %6
-  %8 = zext i1 %7 to i8
-  %9 = icmp ult i64 %4, %6
-  %.neg = sext i1 %9 to i8
-  %10 = add nsw i8 %.neg, %8
-  ret i8 %10
+  %7 = tail call i8 @llvm.ucmp.i8.i64(i64 %4, i64 %6)
+  ret i8 %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -326,6 +322,9 @@ declare zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr ali
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfff70eb83b071b40E"(ptr align 8, ptr align 8) unnamed_addr #0
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #7
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -333,8 +332,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { cold }
-attributes #8 = { cold noreturn nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { cold }
+attributes #9 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

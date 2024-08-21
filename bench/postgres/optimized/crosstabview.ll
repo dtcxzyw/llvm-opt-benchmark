@@ -1043,15 +1043,14 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 define internal range(i32 -1, 2) i32 @rankCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp sgt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp slt i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 declare void @dequote_downcase_identifier(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

@@ -3475,24 +3475,16 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 define dso_local range(i32 -1, 2) i32 @list_int_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = icmp sgt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp slt i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 -1, 2) i32 @list_oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = icmp ugt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp ult i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #3
@@ -3510,6 +3502,12 @@ declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8

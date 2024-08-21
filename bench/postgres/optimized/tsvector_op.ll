@@ -1220,8 +1220,8 @@ define internal fastcc ptr @tsvector_delete_by_indices(ptr nocapture noundef rea
   %15 = getelementptr i8, ptr %1, i64 %14
   %16 = load i32, ptr %13, align 4
   %17 = load i32, ptr %15, align 4
-  %.not80 = icmp eq i32 %16, %17
-  br i1 %.not80, label %23, label %18
+  %.not.i = icmp eq i32 %16, %17
+  br i1 %.not.i, label %23, label %18
 
 18:                                               ; preds = %.preheader.i
   %19 = add i64 %.031.i, 1
@@ -1265,14 +1265,14 @@ qunique.exit:                                     ; preds = %23
 .lr.ph:                                           ; preds = %27, %99
   %40 = phi i32 [ %100, %99 ], [ %38, %27 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %27 ]
-  %.07184 = phi i32 [ %.1, %99 ], [ 0, %27 ]
-  %.07283 = phi i32 [ %.173, %99 ], [ 0, %27 ]
-  %.07482 = phi i32 [ %.175, %99 ], [ 0, %27 ]
-  %41 = icmp slt i32 %.07283, %.0
+  %.07183 = phi i32 [ %.1, %99 ], [ 0, %27 ]
+  %.07282 = phi i32 [ %.173, %99 ], [ 0, %27 ]
+  %.07481 = phi i32 [ %.175, %99 ], [ 0, %27 ]
+  %41 = icmp slt i32 %.07282, %.0
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %.lr.ph
-  %43 = sext i32 %.07283 to i64
+  %43 = sext i32 %.07282 to i64
   %44 = getelementptr i32, ptr %1, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
@@ -1280,11 +1280,11 @@ qunique.exit:                                     ; preds = %23
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %42
-  %49 = add nsw i32 %.07283, 1
+  %49 = add nsw i32 %.07282, 1
   br label %99
 
 50:                                               ; preds = %42, %.lr.ph
-  %51 = sext i32 %.07184 to i64
+  %51 = sext i32 %.07183 to i64
   %52 = getelementptr i8, ptr %37, i64 %51
   %53 = getelementptr %struct.WordEntry, ptr %4, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
@@ -1297,7 +1297,7 @@ qunique.exit:                                     ; preds = %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %57, i64 %60, i1 false)
   %61 = load i32, ptr %53, align 4
   %62 = and i32 %61, 1
-  %63 = sext i32 %.07482 to i64
+  %63 = sext i32 %.07481 to i64
   %64 = getelementptr %struct.WordEntry, ptr %35, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, -2
@@ -1305,14 +1305,14 @@ qunique.exit:                                     ; preds = %23
   store i32 %67, ptr %64, align 4
   %68 = load i32, ptr %53, align 4
   %69 = and i32 %68, 4094
-  %70 = shl i32 %.07184, 12
+  %70 = shl i32 %.07183, 12
   %71 = or disjoint i32 %69, %70
   %72 = or disjoint i32 %71, %62
   store i32 %72, ptr %64, align 4
   %73 = load i32, ptr %53, align 4
   %74 = lshr i32 %73, 1
   %75 = and i32 %74, 2047
-  %76 = add i32 %75, %.07184
+  %76 = add i32 %75, %.07183
   %77 = and i32 %73, 1
   %.not = icmp eq i32 %77, 0
   br i1 %.not, label %97, label %78
@@ -1342,28 +1342,28 @@ qunique.exit:                                     ; preds = %23
 
 97:                                               ; preds = %78, %50
   %.2 = phi i32 [ %96, %78 ], [ %76, %50 ]
-  %98 = add i32 %.07482, 1
+  %98 = add i32 %.07481, 1
   %.pre = load i32, ptr %5, align 4
   br label %99
 
 99:                                               ; preds = %97, %48
   %100 = phi i32 [ %40, %48 ], [ %.pre, %97 ]
-  %.175 = phi i32 [ %.07482, %48 ], [ %98, %97 ]
-  %.173 = phi i32 [ %49, %48 ], [ %.07283, %97 ]
-  %.1 = phi i32 [ %.07184, %48 ], [ %.2, %97 ]
+  %.175 = phi i32 [ %.07481, %48 ], [ %98, %97 ]
+  %.173 = phi i32 [ %49, %48 ], [ %.07282, %97 ]
+  %.1 = phi i32 [ %.07183, %48 ], [ %.2, %97 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
   br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %99
-  %.pre86 = load i32, ptr %34, align 4
+  %.pre85 = load i32, ptr %34, align 4
   %103 = shl i32 %.1, 2
   %104 = add i32 %103, 32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %27
-  %105 = phi i32 [ %33, %27 ], [ %.pre86, %._crit_edge.loopexit ]
+  %105 = phi i32 [ %33, %27 ], [ %.pre85, %._crit_edge.loopexit ]
   %.071.lcssa = phi i32 [ 32, %27 ], [ %104, %._crit_edge.loopexit ]
   %106 = shl i32 %105, 4
   %107 = add i32 %106, %.071.lcssa
@@ -5159,12 +5159,8 @@ define dso_local i64 @tsvector_update_trigger_bycolumn(ptr nocapture noundef rea
 define internal range(i32 -1, 2) i32 @compare_int(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp sgt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp slt i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #2
@@ -6348,6 +6344,9 @@ declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

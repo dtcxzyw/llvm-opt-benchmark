@@ -78,40 +78,28 @@ define hidden zeroext i1 @"_ZN69_$LT$logos_codegen..graph..NodeId$u20$as$u20$cor
 define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..cmp..Ord$GT$3cmp17h22e13cec68574b74E"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ugt i32 %3, %4
-  %6 = zext i1 %5 to i8
-  %7 = icmp ult i32 %3, %4
-  %.neg = sext i1 %7 to i8
-  %8 = add nsw i8 %.neg, %6
-  ret i8 %8
+  %5 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
+  ret i8 %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden range(i8 -1, 2) i8 @"_ZN62_$LT$logos_codegen..graph..Merge$u20$as$u20$core..cmp..Ord$GT$3cmp17hdf9f92324ee4400eE"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ugt i32 %3, %4
-  %6 = zext i1 %5 to i8
-  %7 = icmp ult i32 %3, %4
-  %.neg = sext i1 %7 to i8
-  %8 = add nsw i8 %.neg, %6
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %19
+  %5 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
+  %6 = icmp eq i32 %3, %4
+  br i1 %6, label %7, label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp ugt i32 %12, %14
-  %16 = zext i1 %15 to i8
-  %17 = icmp ult i32 %12, %14
-  %.neg2 = sext i1 %17 to i8
-  %18 = add nsw i8 %.neg2, %16
-  br label %19
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = tail call i8 @llvm.ucmp.i8.i32(i32 %9, i32 %11)
+  br label %13
 
-19:                                               ; preds = %10, %2
-  %.sroa.0.0 = phi i8 [ %18, %10 ], [ %8, %2 ]
+13:                                               ; preds = %7, %2
+  %.sroa.0.0 = phi i8 [ %12, %7 ], [ %5, %2 ]
   ret i8 %.sroa.0.0
 }
 
@@ -126,6 +114,9 @@ declare zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

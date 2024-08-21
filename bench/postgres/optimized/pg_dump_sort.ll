@@ -1832,12 +1832,8 @@ define internal range(i32 -1, 2) i32 @int_cmp(ptr noundef %0, ptr noundef %1, pt
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %1 to i64
   %7 = trunc i64 %6 to i32
-  %8 = icmp sgt i32 %5, %7
-  %9 = zext i1 %8 to i32
-  %10 = icmp slt i32 %5, %7
-  %.neg.i = sext i1 %10 to i32
-  %11 = add nsw i32 %.neg.i, %9
-  ret i32 %11
+  %8 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %7)
+  ret i32 %8
 }
 
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
@@ -1968,6 +1964,9 @@ declare void @removeObjectDependency(ptr noundef, i32 noundef) local_unnamed_add
 declare void @addObjectDependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

@@ -234,7 +234,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_virtio_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #12
+  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #13
   ret void
 }
 
@@ -243,8 +243,8 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_iommu_info) #12
-  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @virtio_iommu_memory_region_info) #12
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_iommu_info) #13
+  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @virtio_iommu_memory_region_info) #13
   ret void
 }
 
@@ -259,9 +259,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_iommu_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
-  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #12
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_iommu_properties) #12
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
+  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #13
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_iommu_properties) #13
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_iommu, ptr %vmsd, align 8
   %categories = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -292,15 +292,15 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_iommu_device_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
-  %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #12
-  tail call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 23, i64 noundef 40) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
+  %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
+  tail call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 23, i64 noundef 40) #13
   %iommu_pcibus_by_bus_num = getelementptr inbounds i8, ptr %call.i29, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %iommu_pcibus_by_bus_num, i8 0, i64 2048, i1 false)
-  %call2 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 256, ptr noundef nonnull @virtio_iommu_handle_command) #12
+  %call2 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 256, ptr noundef nonnull @virtio_iommu_handle_command) #13
   %req_vq = getelementptr inbounds i8, ptr %call.i29, i64 520
   store ptr %call2, ptr %req_vq, align 8
-  %call3 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 256, ptr noundef null) #12
+  %call3 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 256, ptr noundef null) #13
   %event_vq = getelementptr inbounds i8, ptr %call.i29, i64 528
   store ptr %call3, ptr %event_vq, align 8
   %boot_bypass = getelementptr inbounds i8, ptr %call.i29, i64 2728
@@ -309,7 +309,7 @@ entry:
   %config = getelementptr inbounds i8, ptr %call.i29, i64 536
   %bypass = getelementptr inbounds i8, ptr %call.i29, i64 572
   store i8 %conv, ptr %bypass, align 4
-  %call4 = tail call i32 @qemu_target_page_mask() #12
+  %call4 = tail call i32 @qemu_target_page_mask() #13
   %conv5 = sext i32 %call4 to i64
   store i64 %conv5, ptr %config, align 8
   %end = getelementptr inbounds i8, ptr %call.i29, i64 552
@@ -323,8 +323,8 @@ entry:
   %or.i37 = or i64 %1, 5100273783
   store i64 %or.i37, ptr %features, align 8
   %mutex = getelementptr inbounds i8, ptr %call.i29, i64 2672
-  tail call void @qemu_rec_mutex_init(ptr noundef nonnull %mutex) #12
-  %call19 = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @g_free) #12
+  tail call void @qemu_rec_mutex_init(ptr noundef nonnull %mutex) #13
+  %call19 = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @g_free) #13
   %as_by_busptr = getelementptr inbounds i8, ptr %call.i29, i64 584
   store ptr %call19, ptr %as_by_busptr, align 8
   %primary_bus = getelementptr inbounds i8, ptr %call.i29, i64 2640
@@ -333,39 +333,39 @@ entry:
   br i1 %tobool20.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @pci_setup_iommu(ptr noundef nonnull %2, ptr noundef nonnull @virtio_iommu_ops, ptr noundef nonnull %call.i29) #12
+  tail call void @pci_setup_iommu(ptr noundef nonnull %2, ptr noundef nonnull @virtio_iommu_ops, ptr noundef nonnull %call.i29) #13
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1338, ptr noundef nonnull @__func__.virtio_iommu_device_realize, ptr noundef nonnull @.str.11) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1338, ptr noundef nonnull @__func__.virtio_iommu_device_realize, ptr noundef nonnull @.str.11) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %machine_done = getelementptr inbounds i8, ptr %call.i29, i64 2736
   store ptr @virtio_iommu_freeze_granule, ptr %machine_done, align 8
-  tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done) #12
-  tail call void @qemu_register_reset(ptr noundef nonnull @virtio_iommu_system_reset, ptr noundef nonnull %call.i29) #12
+  tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done) #13
+  tail call void @qemu_register_reset(ptr noundef nonnull @virtio_iommu_system_reset, ptr noundef nonnull %call.i29) #13
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_iommu_device_unrealize(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
-  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #12
-  tail call void @qemu_unregister_reset(ptr noundef nonnull @virtio_iommu_system_reset, ptr noundef %call.i12) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #13
+  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
+  tail call void @qemu_unregister_reset(ptr noundef nonnull @virtio_iommu_system_reset, ptr noundef %call.i12) #13
   %machine_done = getelementptr inbounds i8, ptr %call.i12, i64 2736
-  tail call void @qemu_remove_machine_init_done_notifier(ptr noundef nonnull %machine_done) #12
+  tail call void @qemu_remove_machine_init_done_notifier(ptr noundef nonnull %machine_done) #13
   %as_by_busptr = getelementptr inbounds i8, ptr %call.i12, i64 584
   %0 = load ptr, ptr %as_by_busptr, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %0) #12
+  tail call void @g_hash_table_destroy(ptr noundef %0) #13
   %domains = getelementptr inbounds i8, ptr %call.i12, i64 2664
   %1 = load ptr, ptr %domains, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @g_tree_destroy(ptr noundef nonnull %1) #12
+  tail call void @g_tree_destroy(ptr noundef nonnull %1) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -375,19 +375,19 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call void @g_tree_destroy(ptr noundef nonnull %2) #12
+  tail call void @g_tree_destroy(ptr noundef nonnull %2) #13
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
   %mutex = getelementptr inbounds i8, ptr %call.i12, i64 2672
-  tail call void @qemu_rec_mutex_destroy(ptr noundef nonnull %mutex) #12
+  tail call void @qemu_rec_mutex_destroy(ptr noundef nonnull %mutex) #13
   %req_vq = getelementptr inbounds i8, ptr %call.i12, i64 520
   %3 = load ptr, ptr %req_vq, align 8
-  tail call void @virtio_delete_queue(ptr noundef %3) #12
+  tail call void @virtio_delete_queue(ptr noundef %3) #13
   %event_vq = getelementptr inbounds i8, ptr %call.i12, i64 528
   %4 = load ptr, ptr %event_vq, align 8
-  tail call void @virtio_delete_queue(ptr noundef %4) #12
-  tail call void @virtio_cleanup(ptr noundef %call.i) #12
+  tail call void @virtio_delete_queue(ptr noundef %4) #13
+  tail call void @virtio_cleanup(ptr noundef %call.i) #13
   ret void
 }
 
@@ -395,7 +395,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
 define internal void @virtio_iommu_device_reset(ptr noundef %vdev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -416,16 +416,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #13
   br label %trace_virtio_iommu_device_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55) #13
   br label %trace_virtio_iommu_device_reset.exit
 
 trace_virtio_iommu_device_reset.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -436,7 +436,7 @@ trace_virtio_iommu_device_reset.exit:             ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_virtio_iommu_device_reset.exit
-  tail call void @g_tree_destroy(ptr noundef nonnull %6) #12
+  tail call void @g_tree_destroy(ptr noundef nonnull %6) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %trace_virtio_iommu_device_reset.exit
@@ -446,13 +446,13 @@ if.end:                                           ; preds = %if.then, %trace_vir
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @g_tree_destroy(ptr noundef nonnull %7) #12
+  tail call void @g_tree_destroy(ptr noundef nonnull %7) #13
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %call6 = tail call ptr @g_tree_new_full(ptr noundef nonnull @int_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @virtio_iommu_put_domain) #12
+  %call6 = tail call ptr @g_tree_new_full(ptr noundef nonnull @int_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @virtio_iommu_put_domain) #13
   store ptr %call6, ptr %domains, align 8
-  %call8 = tail call ptr @g_tree_new_full(ptr noundef nonnull @int_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @virtio_iommu_put_endpoint) #12
+  %call8 = tail call ptr @g_tree_new_full(ptr noundef nonnull @int_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @virtio_iommu_put_endpoint) #13
   store ptr %call8, ptr %endpoints, align 8
   ret void
 }
@@ -461,7 +461,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 define internal void @virtio_iommu_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config_data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
   %config = getelementptr inbounds i8, ptr %call.i, i64 536
   %0 = load i64, ptr %config, align 8
   store i64 %0, ptr %config_data, align 8
@@ -515,18 +515,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %17 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, i64 noundef %7, i64 noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %conv11.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, i64 noundef %7, i64 noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %conv11.i.i) #13
   br label %trace_virtio_iommu_get_config.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i64 noundef %7, i64 noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %conv12.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i64 noundef %7, i64 noundef %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %conv12.i.i) #13
   br label %trace_virtio_iommu_get_config.exit
 
 trace_virtio_iommu_get_config.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -540,7 +540,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iter.i = alloca %struct._GHashTableIter, align 8
   %iommu_pci_bus.i = alloca ptr, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
   %bypass = getelementptr inbounds i8, ptr %config_data, i64 36
   %0 = load i8, ptr %bypass, align 4
   %bypass1 = getelementptr inbounds i8, ptr %call.i, i64 572
@@ -556,7 +556,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.i.not, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then
-  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.62) #12
+  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.62) #13
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -565,7 +565,7 @@ if.else:                                          ; preds = %if.then
 
 if.then14:                                        ; preds = %if.else
   %conv7 = zext i8 %0 to i32
-  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.63, i32 noundef %conv7) #12
+  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.63, i32 noundef %conv7) #13
   br label %return
 
 if.end17:                                         ; preds = %if.else
@@ -574,13 +574,13 @@ if.end17:                                         ; preds = %if.else
   %call.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %call.val) #12
-  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %call.val) #13
+  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
-  %call.i11 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  %call.i11 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i11, 0
   br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
@@ -634,18 +634,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = call i32 @qemu_get_thread_id() #13
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %6 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i) #13
   br label %trace_virtio_iommu_set_config.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %6 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %conv12.i.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %conv12.i.i) #13
   br label %trace_virtio_iommu_set_config.exit
 
 trace_virtio_iommu_set_config.exit:               ; preds = %if.end20, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -660,7 +660,7 @@ return:                                           ; preds = %trace_virtio_iommu_
 define internal i64 @virtio_iommu_get_features(ptr noundef %vdev, i64 noundef %f, ptr nocapture readnone %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
   %features = getelementptr inbounds i8, ptr %call.i, i64 576
   %0 = load i64, ptr %features, align 8
   %or = or i64 %0, %f
@@ -684,16 +684,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %or) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %or) #13
   br label %trace_virtio_iommu_get_features.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i64 noundef %or) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i64 noundef %or) #13
   br label %trace_virtio_iommu_get_features.exit
 
 trace_virtio_iommu_get_features.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -725,18 +725,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %status to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i) #13
   br label %trace_virtio_iommu_device_status.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %status to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %conv12.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %conv12.i.i) #13
   br label %trace_virtio_iommu_device_status.exit
 
 trace_virtio_iommu_device_status.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -780,9 +780,9 @@ entry:
   %req.i = alloca %struct.virtio_iommu_req_attach, align 4
   %head = alloca %struct.virtio_iommu_req_head, align 4
   %tail = alloca %struct.virtio_iommu_req_tail, align 4
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
   store i32 0, ptr %tail, align 4
-  %call1238 = tail call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #12
+  %call1238 = tail call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #13
   %tobool.not239 = icmp eq ptr %call1238, null
   br i1 %tobool.not239, label %for.end, label %if.end.lr.ph
 
@@ -830,7 +830,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %3 = load ptr, ptr %in_sg, align 8
   %in_num = getelementptr inbounds i8, ptr %call1240, i64 16
   %4 = load i32, ptr %in_num, align 8
-  %call2 = call i64 @iov_size(ptr noundef %3, i32 noundef %4) #12
+  %call2 = call i64 @iov_size(ptr noundef %3, i32 noundef %4) #13
   %cmp = icmp ult i64 %call2, 4
   br i1 %cmp, label %if.then5, label %lor.lhs.false
 
@@ -839,14 +839,14 @@ lor.lhs.false:                                    ; preds = %if.end
   %5 = load ptr, ptr %out_sg, align 8
   %out_num = getelementptr inbounds i8, ptr %call1240, i64 12
   %6 = load i32, ptr %out_num, align 4
-  %call3 = call i64 @iov_size(ptr noundef %5, i32 noundef %6) #12
+  %call3 = call i64 @iov_size(ptr noundef %5, i32 noundef %6) #13
   %cmp4 = icmp ult i64 %call3, 4
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %vdev, ptr noundef nonnull @.str.13) #12
-  call void @virtqueue_detach_element(ptr noundef %vq, ptr noundef nonnull %call1240, i32 noundef 0) #12
-  call void @g_free(ptr noundef nonnull %call1240) #12
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %vdev, ptr noundef nonnull @.str.13) #13
+  call void @virtqueue_detach_element(ptr noundef %vq, ptr noundef nonnull %call1240, i32 noundef 0) #13
+  call void @g_free(ptr noundef nonnull %call1240) #13
   br label %for.end
 
 if.end6:                                          ; preds = %lor.lhs.false
@@ -868,7 +868,7 @@ iov_to_buf.exit.thread:                           ; preds = %land.lhs.true2.i
   br label %while.end
 
 iov_to_buf.exit:                                  ; preds = %if.end6, %land.lhs.true2.i
-  %call.i44 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %head, i64 noundef 4) #12
+  %call.i44 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %head, i64 noundef 4) #13
   %cmp10.not = icmp eq i64 %call.i44, 4
   br i1 %cmp10.not, label %while.end, label %if.then13
 
@@ -879,7 +879,7 @@ if.then13:                                        ; preds = %iov_to_buf.exit
 while.end:                                        ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
   %12 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %13 = inttoptr i64 %12 to ptr
-  call void %13(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 787) #12
+  call void %13(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 787) #13
   %14 = load i8, ptr %head, align 4
   switch i8 %14, label %sw.default [
     i8 1, label %sw.bb
@@ -905,7 +905,7 @@ virtio_iommu_iov_to_req.exit.thread.i:            ; preds = %land.lhs.true2.i.i.
   br label %cond.false.i
 
 virtio_iommu_iov_to_req.exit.i:                   ; preds = %land.lhs.true2.i.i.i, %sw.bb
-  %call.i.i.i = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i, i64 noundef 20) #12
+  %call.i.i.i = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i, i64 noundef 20) #13
   %cmp.not.i.i = icmp eq i64 %call.i.i.i, 20
   br i1 %cmp.not.i.i, label %cond.false.i, label %virtio_iommu_handle_attach.exit
 
@@ -933,15 +933,15 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #12
-  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #13
+  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #13
   %24 = load i64, ptr %_now.i.i.i.i, align 8
   %25 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i.i, i64 noundef %24, i64 noundef %25, i32 noundef %17, i32 noundef %18) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i.i, i64 noundef %24, i64 noundef %25, i32 noundef %17, i32 noundef %18) #13
   br label %trace_virtio_iommu_attach.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %17, i32 noundef %18) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %17, i32 noundef %18) #13
   br label %trace_virtio_iommu_attach.exit.i.i
 
 trace_virtio_iommu_attach.exit.i.i:               ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %cond.false.i
@@ -953,7 +953,7 @@ if.end.i.i:                                       ; preds = %trace_virtio_iommu_
   %26 = load ptr, ptr %endpoints.i.i, align 8
   %conv.i.i.i = zext i32 %18 to i64
   %27 = inttoptr i64 %conv.i.i.i to ptr
-  %call.i.i2.i = call ptr @g_tree_lookup(ptr noundef %26, ptr noundef %27) #12
+  %call.i.i2.i = call ptr @g_tree_lookup(ptr noundef %26, ptr noundef %27) #13
   %tobool.not.i.i.i = icmp eq ptr %call.i.i2.i, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.end8.i.i
 
@@ -976,11 +976,11 @@ iommu_find_iommu_pcibus.exit.thread6.i.i.i.i:     ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   %29 = load ptr, ptr %as_by_busptr.i.i.i.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i.i.i.i.i, ptr noundef %29) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i.i.i.i.i, ptr noundef %29) #13
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i.i
-  %call.i.i.i.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i.i.i.i.i) #12
+  %call.i.i.i.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i.i.i.i.i) #13
   %tobool1.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %iommu_find_iommu_pcibus.exit.thread.i.i.i.i, label %while.body.i.i.i.i.i
 
@@ -992,7 +992,7 @@ iommu_find_iommu_pcibus.exit.thread.i.i.i.i:      ; preds = %while.cond.i.i.i.i.
 while.body.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.i
   %30 = load ptr, ptr %iommu_pci_bus.i.i.i.i.i, align 8
   %31 = load ptr, ptr %30, align 8
-  %call2.i.i.i.i.i = call i32 @pci_bus_num(ptr noundef %31) #12
+  %call2.i.i.i.i.i = call i32 @pci_bus_num(ptr noundef %31) #13
   %cmp.i.i.i.i.i = icmp eq i32 %call2.i.i.i.i.i, %conv.mask.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %iommu_find_iommu_pcibus.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !7
 
@@ -1016,7 +1016,7 @@ if.then.i.i25.i.i:                                ; preds = %iommu_find_iommu_pc
 
 if.end4.i.i.i:                                    ; preds = %if.then.i.i25.i.i
   %iommu_mr.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 32
-  %call5.i.i.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #13
+  %call5.i.i.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #14
   store i32 %18, ptr %call5.i.i.i, align 8
   %iommu_mr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   store ptr %iommu_mr.i.i.i.i, ptr %iommu_mr.i.i.i, align 8
@@ -1040,21 +1040,21 @@ if.then.i.i13.i.i.i:                              ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i.i, label %if.then8.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then8.i.i.i.i.i:                               ; preds = %if.then.i.i13.i.i.i
-  %call9.i.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i, ptr noundef null) #12
-  %call10.i.i.i.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i, ptr noundef null) #13
+  %call10.i.i.i.i.i = call i32 @qemu_get_thread_id() #13
   %39 = load i64, ptr %_now.i.i.i.i.i, align 8
   %40 = load i64, ptr %tv_usec.i.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i.i.i.i, i64 noundef %39, i64 noundef %40, i32 noundef %18) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i.i.i.i, i64 noundef %39, i64 noundef %40, i32 noundef %18) #13
   br label %trace_virtio_iommu_get_endpoint.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i13.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %18) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %18) #13
   br label %trace_virtio_iommu_get_endpoint.exit.i.i.i
 
 trace_virtio_iommu_get_endpoint.exit.i.i.i:       ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %if.end4.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
   %41 = load ptr, ptr %endpoints.i.i, align 8
-  call void @g_tree_insert(ptr noundef %41, ptr noundef %27, ptr noundef nonnull %call5.i.i.i) #12
+  call void @g_tree_insert(ptr noundef %41, ptr noundef %27, ptr noundef nonnull %call5.i.i.i) #13
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %trace_virtio_iommu_get_endpoint.exit.i.i.i, %if.end.i.i
@@ -1070,7 +1070,7 @@ if.end.i28.i.i:                                   ; preds = %if.end8.i.i
   %add.ptr.i.i.i = getelementptr i8, ptr %43, i64 -32
   %mappings.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %mappings.i.i.i, align 8
-  call void @g_tree_foreach(ptr noundef %44, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %43) #12
+  call void @g_tree_foreach(ptr noundef %44, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %43) #13
   %next.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3.i, i64 24
   %45 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %45, null
@@ -1100,14 +1100,14 @@ if.then13.i.i:                                    ; preds = %virtio_iommu_detach
   %49 = load i32, ptr %42, align 8
   %conv.i.i = zext i32 %49 to i64
   %50 = inttoptr i64 %conv.i.i to ptr
-  %call14.i.i = call i32 @g_tree_remove(ptr noundef %48, ptr noundef %50) #12
+  %call14.i.i = call i32 @g_tree_remove(ptr noundef %48, ptr noundef %50) #13
   br label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.then13.i.i, %virtio_iommu_detach_endpoint_from_domain.exit.i.i, %if.end8.i.i
   %51 = load ptr, ptr %domains.i.i136, align 8
   %conv.i31.i.i = zext i32 %17 to i64
   %52 = inttoptr i64 %conv.i31.i.i to ptr
-  %call.i32.i.i = call ptr @g_tree_lookup(ptr noundef %51, ptr noundef %52) #12
+  %call.i32.i.i = call ptr @g_tree_lookup(ptr noundef %51, ptr noundef %52) #13
   %tobool.not.i33.i.i = icmp eq ptr %call.i32.i.i, null
   br i1 %tobool.not.i33.i.i, label %if.end8.i.i.i, label %if.then.i.i4.i
 
@@ -1121,15 +1121,15 @@ if.then.i.i4.i:                                   ; preds = %if.end16.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end16.i.i
   %frombool.i.i.i = trunc nuw i32 %19 to i8
-  %call9.i.i.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #13
+  %call9.i.i.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #14
   store i32 %17, ptr %call9.i.i.i, align 8
-  %call10.i.i.i = call ptr @g_tree_new_full(ptr noundef nonnull @interval_cmp, ptr noundef null, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #12
+  %call10.i.i.i = call ptr @g_tree_new_full(ptr noundef nonnull @interval_cmp, ptr noundef null, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #13
   %mappings.i35.i.i = getelementptr inbounds i8, ptr %call9.i.i.i, i64 8
   store ptr %call10.i.i.i, ptr %mappings.i35.i.i, align 8
   %bypass12.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i, i64 4
   store i8 %frombool.i.i.i, ptr %bypass12.i.i.i, align 4
   %56 = load ptr, ptr %domains.i.i136, align 8
-  call void @g_tree_insert(ptr noundef %56, ptr noundef %52, ptr noundef nonnull %call9.i.i.i) #12
+  call void @g_tree_insert(ptr noundef %56, ptr noundef %52, ptr noundef nonnull %call9.i.i.i) #13
   %endpoint_list.i.i.i = getelementptr inbounds i8, ptr %call9.i.i.i, i64 16
   store ptr null, ptr %endpoint_list.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i30.i.i)
@@ -1152,15 +1152,15 @@ if.then.i.i.i42.i.i:                              ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i43.i.i, label %if.then8.i.i.i45.i.i, label %if.else.i.i.i44.i.i
 
 if.then8.i.i.i45.i.i:                             ; preds = %if.then.i.i.i42.i.i
-  %call9.i.i.i46.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i30.i.i, ptr noundef null) #12
-  %call10.i.i.i47.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i46.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i30.i.i, ptr noundef null) #13
+  %call10.i.i.i47.i.i = call i32 @qemu_get_thread_id() #13
   %61 = load i64, ptr %_now.i.i.i30.i.i, align 8
   %62 = load i64, ptr %tv_usec.i.i.i48.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i47.i.i, i64 noundef %61, i64 noundef %62, i32 noundef %17) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i47.i.i, i64 noundef %61, i64 noundef %62, i32 noundef %17) #13
   br label %trace_virtio_iommu_get_domain.exit.i.i.i
 
 if.else.i.i.i44.i.i:                              ; preds = %if.then.i.i.i42.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %17) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %17) #13
   br label %trace_virtio_iommu_get_domain.exit.i.i.i
 
 trace_virtio_iommu_get_domain.exit.i.i.i:         ; preds = %if.else.i.i.i44.i.i, %if.then8.i.i.i45.i.i, %land.lhs.true5.i.i.i39.i.i, %if.end8.i.i.i
@@ -1193,7 +1193,7 @@ if.end33.i.i:                                     ; preds = %if.then27.i.i, %do.
   %mappings.i.i = getelementptr inbounds i8, ptr %retval.0.i34.ph.i.i, i64 8
   %65 = load ptr, ptr %mappings.i.i, align 8
   %66 = load ptr, ptr %iommu_mr.i.i, align 8
-  call void @g_tree_foreach(ptr noundef %65, ptr noundef nonnull @virtio_iommu_notify_map_cb, ptr noundef %66) #12
+  call void @g_tree_foreach(ptr noundef %65, ptr noundef nonnull @virtio_iommu_notify_map_cb, ptr noundef %66) #13
   br label %virtio_iommu_handle_attach.exit
 
 virtio_iommu_handle_attach.exit:                  ; preds = %virtio_iommu_iov_to_req.exit.i, %trace_virtio_iommu_attach.exit.i.i, %iommu_find_iommu_pcibus.exit.thread.i.i.i.i, %iommu_find_iommu_pcibus.exit.i.i.i.i, %if.then.i.i25.i.i, %if.then.i.i4.i, %if.end33.i.i
@@ -1218,7 +1218,7 @@ virtio_iommu_iov_to_req.exit.thread.i51:          ; preds = %land.lhs.true2.i.i.
   br label %cond.false.i52
 
 virtio_iommu_iov_to_req.exit.i85:                 ; preds = %land.lhs.true2.i.i.i48, %sw.bb19
-  %call.i.i.i86 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i46, i64 noundef 20) #12
+  %call.i.i.i86 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i46, i64 noundef 20) #13
   %cmp.not.i.i87 = icmp eq i64 %call.i.i.i86, 20
   br i1 %cmp.not.i.i87, label %cond.false.i52, label %virtio_iommu_handle_detach.exit
 
@@ -1245,15 +1245,15 @@ if.then.i.i.i.i78:                                ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i79, label %if.then8.i.i.i.i81, label %if.else.i.i.i.i80
 
 if.then8.i.i.i.i81:                               ; preds = %if.then.i.i.i.i78
-  %call9.i.i.i.i82 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i45, ptr noundef null) #12
-  %call10.i.i.i.i83 = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.i82 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i45, ptr noundef null) #13
+  %call10.i.i.i.i83 = call i32 @qemu_get_thread_id() #13
   %73 = load i64, ptr %_now.i.i.i.i45, align 8
   %74 = load i64, ptr %tv_usec.i.i.i.i84, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i.i83, i64 noundef %73, i64 noundef %74, i32 noundef %req.val.i, i32 noundef %req.val2.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i.i83, i64 noundef %73, i64 noundef %74, i32 noundef %req.val.i, i32 noundef %req.val2.i) #13
   br label %trace_virtio_iommu_detach.exit.i.i
 
 if.else.i.i.i.i80:                                ; preds = %if.then.i.i.i.i78
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %req.val.i, i32 noundef %req.val2.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %req.val.i, i32 noundef %req.val2.i) #13
   br label %trace_virtio_iommu_detach.exit.i.i
 
 trace_virtio_iommu_detach.exit.i.i:               ; preds = %if.else.i.i.i.i80, %if.then8.i.i.i.i81, %land.lhs.true5.i.i.i.i75, %cond.false.i52
@@ -1261,7 +1261,7 @@ trace_virtio_iommu_detach.exit.i.i:               ; preds = %if.else.i.i.i.i80, 
   %75 = load ptr, ptr %endpoints.i.i, align 8
   %conv.i.i56 = zext i32 %req.val2.i to i64
   %76 = inttoptr i64 %conv.i.i56 to ptr
-  %call3.i.i = call ptr @g_tree_lookup(ptr noundef %75, ptr noundef %76) #12
+  %call3.i.i = call ptr @g_tree_lookup(ptr noundef %75, ptr noundef %76) #13
   %tobool.not.i.i57 = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i.i57, label %virtio_iommu_handle_detach.exit, label %if.end.i.i58
 
@@ -1282,7 +1282,7 @@ if.end.i.i.i60:                                   ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i.i62 = getelementptr i8, ptr %79, i64 -32
   %mappings.i.i.i63 = getelementptr inbounds i8, ptr %77, i64 8
   %80 = load ptr, ptr %mappings.i.i.i63, align 8
-  call void @g_tree_foreach(ptr noundef %80, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %79) #12
+  call void @g_tree_foreach(ptr noundef %80, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %79) #13
   %next.i.i.i64 = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   %81 = load ptr, ptr %next.i.i.i64, align 8
   %cmp.not.i.i.i65 = icmp eq ptr %81, null
@@ -1312,7 +1312,7 @@ if.then11.i.i:                                    ; preds = %virtio_iommu_detach
   %85 = load i32, ptr %77, align 8
   %conv13.i.i = zext i32 %85 to i64
   %86 = inttoptr i64 %conv13.i.i to ptr
-  %call14.i.i74 = call i32 @g_tree_remove(ptr noundef %84, ptr noundef %86) #12
+  %call14.i.i74 = call i32 @g_tree_remove(ptr noundef %84, ptr noundef %86) #13
   br label %virtio_iommu_handle_detach.exit
 
 virtio_iommu_handle_detach.exit:                  ; preds = %virtio_iommu_iov_to_req.exit.i85, %trace_virtio_iommu_detach.exit.i.i, %if.end.i.i58, %lor.lhs.false.i.i, %virtio_iommu_detach_endpoint_from_domain.exit.i.i71, %if.then11.i.i
@@ -1337,7 +1337,7 @@ virtio_iommu_iov_to_req.exit.thread.i94:          ; preds = %land.lhs.true2.i.i.
   br label %cond.false.i95
 
 virtio_iommu_iov_to_req.exit.i120:                ; preds = %land.lhs.true2.i.i.i91, %sw.bb23
-  %call.i.i.i121 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i89, i64 noundef 36) #12
+  %call.i.i.i121 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i89, i64 noundef 36) #13
   %cmp.not.i.i122 = icmp eq i64 %call.i.i.i121, 36
   br i1 %cmp.not.i.i122, label %cond.false.i95, label %virtio_iommu_handle_map.exit
 
@@ -1354,7 +1354,7 @@ if.end.i.i99:                                     ; preds = %cond.false.i95
   %94 = load ptr, ptr %domains.i.i136, align 8
   %conv.i.i101 = zext i32 %89 to i64
   %95 = inttoptr i64 %conv.i.i101 to ptr
-  %call10.i.i = call ptr @g_tree_lookup(ptr noundef %94, ptr noundef %95) #12
+  %call10.i.i = call ptr @g_tree_lookup(ptr noundef %94, ptr noundef %95) #13
   %tobool11.not.i.i = icmp eq ptr %call10.i.i, null
   br i1 %tobool11.not.i.i, label %virtio_iommu_handle_map.exit, label %if.end13.i.i
 
@@ -1365,18 +1365,18 @@ if.end13.i.i:                                     ; preds = %if.end.i.i99
   br i1 %tobool14.i.i, label %virtio_iommu_handle_map.exit, label %if.end16.i.i102
 
 if.end16.i.i102:                                  ; preds = %if.end13.i.i
-  %call17.i.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #13
+  %call17.i.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #14
   store i64 %91, ptr %call17.i.i, align 8
   %high.i.i = getelementptr inbounds i8, ptr %call17.i.i, i64 8
   store i64 %92, ptr %high.i.i, align 8
   %mappings.i.i103 = getelementptr inbounds i8, ptr %call10.i.i, i64 8
   %97 = load ptr, ptr %mappings.i.i103, align 8
-  %call18.i.i = call ptr @g_tree_lookup(ptr noundef %97, ptr noundef nonnull %call17.i.i) #12
+  %call18.i.i = call ptr @g_tree_lookup(ptr noundef %97, ptr noundef nonnull %call17.i.i) #13
   %tobool19.not.i.i = icmp eq ptr %call18.i.i, null
   br i1 %tobool19.not.i.i, label %if.end21.i.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end16.i.i102
-  call void @g_free(ptr noundef nonnull %call17.i.i) #12
+  call void @g_free(ptr noundef nonnull %call17.i.i) #13
   br label %virtio_iommu_handle_map.exit
 
 if.end21.i.i:                                     ; preds = %if.end16.i.i102
@@ -1400,25 +1400,25 @@ if.then.i.i.i.i113:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i114, label %if.then8.i.i.i.i116, label %if.else.i.i.i.i115
 
 if.then8.i.i.i.i116:                              ; preds = %if.then.i.i.i.i113
-  %call9.i.i.i.i117 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i88, ptr noundef null) #12
-  %call10.i.i.i.i118 = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.i117 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i88, ptr noundef null) #13
+  %call10.i.i.i.i118 = call i32 @qemu_get_thread_id() #13
   %102 = load i64, ptr %_now.i.i.i.i88, align 8
   %103 = load i64, ptr %tv_usec.i.i.i.i119, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i.i.i118, i64 noundef %102, i64 noundef %103, i32 noundef %89, i64 noundef %91, i64 noundef %92, i64 noundef %90, i32 noundef %93) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i.i.i118, i64 noundef %102, i64 noundef %103, i32 noundef %89, i64 noundef %91, i64 noundef %92, i64 noundef %90, i32 noundef %93) #13
   br label %trace_virtio_iommu_map.exit.i.i
 
 if.else.i.i.i.i115:                               ; preds = %if.then.i.i.i.i113
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %89, i64 noundef %91, i64 noundef %92, i64 noundef %90, i32 noundef %93) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %89, i64 noundef %91, i64 noundef %92, i64 noundef %90, i32 noundef %93) #13
   br label %trace_virtio_iommu_map.exit.i.i
 
 trace_virtio_iommu_map.exit.i.i:                  ; preds = %if.else.i.i.i.i115, %if.then8.i.i.i.i116, %land.lhs.true5.i.i.i.i110, %if.end21.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i88)
-  %call22.i.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #13
+  %call22.i.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #14
   store i64 %90, ptr %call22.i.i, align 8
   %flags23.i.i = getelementptr inbounds i8, ptr %call22.i.i, i64 8
   store i32 %93, ptr %flags23.i.i, align 8
   %104 = load ptr, ptr %mappings.i.i103, align 8
-  call void @g_tree_insert(ptr noundef %104, ptr noundef nonnull %call17.i.i, ptr noundef nonnull %call22.i.i) #12
+  call void @g_tree_insert(ptr noundef %104, ptr noundef nonnull %call17.i.i, ptr noundef nonnull %call22.i.i) #13
   %endpoint_list.i.i107 = getelementptr inbounds i8, ptr %call10.i.i, i64 16
   %ep.028.i.i = load ptr, ptr %endpoint_list.i.i107, align 8
   %tobool25.not29.i.i = icmp eq ptr %ep.028.i.i, null
@@ -1456,7 +1456,7 @@ virtio_iommu_iov_to_req.exit.thread.i130:         ; preds = %land.lhs.true2.i.i.
   br label %cond.false.i131
 
 virtio_iommu_iov_to_req.exit.i177:                ; preds = %land.lhs.true2.i.i.i127, %sw.bb27
-  %call.i.i.i178 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i125, i64 noundef 28) #12
+  %call.i.i.i178 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i125, i64 noundef 28) #13
   %cmp.not.i.i179 = icmp eq i64 %call.i.i.i178, 28
   br i1 %cmp.not.i.i179, label %cond.false.i131, label %virtio_iommu_handle_unmap.exit
 
@@ -1487,15 +1487,15 @@ if.then.i.i.i.i170:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i171, label %if.then8.i.i.i.i173, label %if.else.i.i.i.i172
 
 if.then8.i.i.i.i173:                              ; preds = %if.then.i.i.i.i170
-  %call9.i.i.i.i174 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i124, ptr noundef null) #12
-  %call10.i.i.i.i175 = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.i174 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i124, ptr noundef null) #13
+  %call10.i.i.i.i175 = call i32 @qemu_get_thread_id() #13
   %115 = load i64, ptr %_now.i.i.i.i124, align 8
   %116 = load i64, ptr %tv_usec.i.i.i.i176, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i.i.i175, i64 noundef %115, i64 noundef %116, i32 noundef %108, i64 noundef %109, i64 noundef %110) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i.i.i175, i64 noundef %115, i64 noundef %116, i32 noundef %108, i64 noundef %109, i64 noundef %110) #13
   br label %trace_virtio_iommu_unmap.exit.i.i
 
 if.else.i.i.i.i172:                               ; preds = %if.then.i.i.i.i170
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %108, i64 noundef %109, i64 noundef %110) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %108, i64 noundef %109, i64 noundef %110) #13
   br label %trace_virtio_iommu_unmap.exit.i.i
 
 trace_virtio_iommu_unmap.exit.i.i:                ; preds = %if.else.i.i.i.i172, %if.then8.i.i.i.i173, %land.lhs.true5.i.i.i.i167, %cond.false.i131
@@ -1503,7 +1503,7 @@ trace_virtio_iommu_unmap.exit.i.i:                ; preds = %if.else.i.i.i.i172,
   %117 = load ptr, ptr %domains.i.i136, align 8
   %conv.i.i137 = zext i32 %108 to i64
   %118 = inttoptr i64 %conv.i.i137 to ptr
-  %call6.i.i = call ptr @g_tree_lookup(ptr noundef %117, ptr noundef %118) #12
+  %call6.i.i = call ptr @g_tree_lookup(ptr noundef %117, ptr noundef %118) #13
   %tobool.not.i.i138 = icmp eq ptr %call6.i.i, null
   br i1 %tobool.not.i.i138, label %virtio_iommu_unmap.exit.i, label %if.end.i.i139
 
@@ -1518,7 +1518,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i139
   store i64 %110, ptr %high.i.i141, align 8
   %mappings.i.i142 = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   %120 = load ptr, ptr %mappings.i.i142, align 8
-  %call1036.i.i = call i32 @g_tree_lookup_extended(ptr noundef %120, ptr noundef nonnull %interval.i.i, ptr noundef nonnull %iter_key.i.i, ptr noundef nonnull %iter_val.i.i) #12
+  %call1036.i.i = call i32 @g_tree_lookup_extended(ptr noundef %120, ptr noundef nonnull %interval.i.i, ptr noundef nonnull %iter_key.i.i, ptr noundef nonnull %iter_val.i.i) #13
   %tobool11.not37.i.i = icmp eq i32 %call1036.i.i, 0
   br i1 %tobool11.not37.i.i, label %virtio_iommu_unmap.exit.i, label %while.body.lr.ph.i.i
 
@@ -1585,15 +1585,15 @@ if.then.i.i.i.us.i.i:                             ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.us.i.i, label %if.then8.i.i.i.us.i.i, label %if.else.i.i.i.us.i.i
 
 if.else.i.i.i.us.i.i:                             ; preds = %if.then.i.i.i.us.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %128, i64 noundef %122, i64 noundef %123) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %128, i64 noundef %122, i64 noundef %123) #13
   br label %trace_virtio_iommu_notify_unmap.exit.i.us.i.i
 
 if.then8.i.i.i.us.i.i:                            ; preds = %if.then.i.i.i.us.i.i
-  %call9.i.i.i.us.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i123, ptr noundef null) #12
-  %call10.i.i.i.us.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.us.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i123, ptr noundef null) #13
+  %call10.i.i.i.us.i.i = call i32 @qemu_get_thread_id() #13
   %133 = load i64, ptr %_now.i.i.i.i.i123, align 8
   %134 = load i64, ptr %tv_usec.i.i.i.i.i144, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i.i.us.i.i, i64 noundef %133, i64 noundef %134, ptr noundef %128, i64 noundef %122, i64 noundef %123) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i.i.us.i.i, i64 noundef %133, i64 noundef %134, ptr noundef %128, i64 noundef %122, i64 noundef %123) #13
   br label %trace_virtio_iommu_notify_unmap.exit.i.us.i.i
 
 trace_virtio_iommu_notify_unmap.exit.i.us.i.i:    ; preds = %if.then8.i.i.i.us.i.i, %if.else.i.i.i.us.i.i, %land.lhs.true5.i.i.i.us.i.i, %if.end.i.us.i.i
@@ -1607,7 +1607,7 @@ trace_virtio_iommu_notify_unmap.exit.i.us.i.i:    ; preds = %if.then8.i.i.i.us.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i18.us.i.i, label %virtio_iommu_notify_unmap.exit.us.i.i
 
 if.then.i.i18.us.i.i:                             ; preds = %trace_virtio_iommu_notify_unmap.exit.i.us.i.i
-  call void @memory_region_notify_iommu(ptr noundef nonnull %126, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event.i.i.i) #12
+  call void @memory_region_notify_iommu(ptr noundef nonnull %126, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event.i.i.i) #13
   br label %virtio_iommu_notify_unmap.exit.us.i.i
 
 virtio_iommu_notify_unmap.exit.us.i.i:            ; preds = %if.then.i.i18.us.i.i, %trace_virtio_iommu_notify_unmap.exit.i.us.i.i, %for.body.us.i.i
@@ -1651,15 +1651,15 @@ if.then.i.i.i.i.i161:                             ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i.i162, label %if.then8.i.i.i.i.i164, label %if.else.i.i.i.i.i163
 
 if.then8.i.i.i.i.i164:                            ; preds = %if.then.i.i.i.i.i161
-  %call9.i.i.i.i.i165 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i123, ptr noundef null) #12
-  %call10.i.i.i.i.i166 = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.i.i165 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i123, ptr noundef null) #13
+  %call10.i.i.i.i.i166 = call i32 @qemu_get_thread_id() #13
   %142 = load i64, ptr %_now.i.i.i.i.i123, align 8
   %143 = load i64, ptr %tv_usec.i.i.i.i.i144, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i.i.i.i166, i64 noundef %142, i64 noundef %143, ptr noundef %137, i64 noundef %122, i64 noundef %123) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i.i.i.i166, i64 noundef %142, i64 noundef %143, ptr noundef %137, i64 noundef %122, i64 noundef %123) #13
   br label %trace_virtio_iommu_notify_unmap.exit.i.i.i
 
 if.else.i.i.i.i.i163:                             ; preds = %if.then.i.i.i.i.i161
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %137, i64 noundef %122, i64 noundef %123) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %137, i64 noundef %122, i64 noundef %123) #13
   br label %trace_virtio_iommu_notify_unmap.exit.i.i.i
 
 trace_virtio_iommu_notify_unmap.exit.i.i.i:       ; preds = %if.else.i.i.i.i.i163, %if.then8.i.i.i.i.i164, %land.lhs.true5.i.i.i.i.i158, %if.end.i.i.i148
@@ -1673,7 +1673,7 @@ trace_virtio_iommu_notify_unmap.exit.i.i.i:       ; preds = %if.else.i.i.i.i.i16
   br i1 %cmp.i.i.i.i, label %if.then.i.i18.i.i, label %while.body.i.i.i.i.preheader
 
 if.then.i.i18.i.i:                                ; preds = %trace_virtio_iommu_notify_unmap.exit.i.i.i
-  call void @memory_region_notify_iommu(ptr noundef nonnull %135, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event.i.i.i) #12
+  call void @memory_region_notify_iommu(ptr noundef nonnull %135, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event.i.i.i) #13
   br label %while.body.i.i.i.i.preheader
 
 while.body.i.i.i.i.preheader:                     ; preds = %if.then.i.i18.i.i, %trace_virtio_iommu_notify_unmap.exit.i.i.i
@@ -1681,10 +1681,10 @@ while.body.i.i.i.i.preheader:                     ; preds = %if.then.i.i18.i.i, 
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end16.i.i.i.i
   %virt_start.addr.020.i.i.i.i = phi i64 [ %add9.i.i.i.i, %if.end16.i.i.i.i ], [ %122, %while.body.i.i.i.i.preheader ]
-  %call.i.i.i.i = call i64 @dma_aligned_pow2_mask(i64 noundef %virt_start.addr.020.i.i.i.i, i64 noundef %123, i32 noundef 64) #12
+  %call.i.i.i.i = call i64 @dma_aligned_pow2_mask(i64 noundef %virt_start.addr.020.i.i.i.i, i64 noundef %123, i32 noundef 64) #13
   store i64 %call.i.i.i.i, ptr %addr_mask.i.i.i.i, align 8
   store i64 %virt_start.addr.020.i.i.i.i, ptr %iova.i.i.i.i, align 8
-  call void @memory_region_notify_iommu(ptr noundef %135, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event.i.i.i) #12
+  call void @memory_region_notify_iommu(ptr noundef %135, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event.i.i.i) #13
   %add8.i.i.i.i = add i64 %call.i.i.i.i, 1
   %add9.i.i.i.i = add i64 %add8.i.i.i.i, %virt_start.addr.020.i.i.i.i
   %144 = load i32, ptr %perm.i.i.i, align 8
@@ -1711,7 +1711,7 @@ virtio_iommu_notify_unmap.exit.i.i:               ; preds = %if.end16.i.i.i.i, %
 for.end.i.i:                                      ; preds = %virtio_iommu_notify_unmap.exit.i.i, %virtio_iommu_notify_unmap.exit.us.i.i, %if.then19.i.i
   %146 = load ptr, ptr %mappings.i.i142, align 8
   %147 = load ptr, ptr %iter_key.i.i, align 8
-  %call22.i.i154 = call i32 @g_tree_remove(ptr noundef %146, ptr noundef %147) #12
+  %call22.i.i154 = call i32 @g_tree_remove(ptr noundef %146, ptr noundef %147) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i19.i.i)
   %148 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i20.i.i = icmp ne i32 %148, 0
@@ -1732,21 +1732,21 @@ if.then.i.i26.i.i:                                ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i27.i.i, label %if.then8.i.i29.i.i, label %if.else.i.i28.i.i
 
 if.then8.i.i29.i.i:                               ; preds = %if.then.i.i26.i.i
-  %call9.i.i30.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i19.i.i, ptr noundef null) #12
-  %call10.i.i31.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i30.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i19.i.i, ptr noundef null) #13
+  %call10.i.i31.i.i = call i32 @qemu_get_thread_id() #13
   %152 = load i64, ptr %_now.i.i19.i.i, align 8
   %153 = load i64, ptr %tv_usec.i.i32.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i31.i.i, i64 noundef %152, i64 noundef %153, i32 noundef %108, i64 noundef %122, i64 noundef %123) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i31.i.i, i64 noundef %152, i64 noundef %153, i32 noundef %108, i64 noundef %122, i64 noundef %123) #13
   br label %trace_virtio_iommu_unmap_done.exit.i.i
 
 if.else.i.i28.i.i:                                ; preds = %if.then.i.i26.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %108, i64 noundef %122, i64 noundef %123) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %108, i64 noundef %122, i64 noundef %123) #13
   br label %trace_virtio_iommu_unmap_done.exit.i.i
 
 trace_virtio_iommu_unmap_done.exit.i.i:           ; preds = %if.else.i.i28.i.i, %if.then8.i.i29.i.i, %land.lhs.true5.i.i23.i.i, %for.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i19.i.i)
   %154 = load ptr, ptr %mappings.i.i142, align 8
-  %call10.i.i155 = call i32 @g_tree_lookup_extended(ptr noundef %154, ptr noundef nonnull %interval.i.i, ptr noundef nonnull %iter_key.i.i, ptr noundef nonnull %iter_val.i.i) #12
+  %call10.i.i155 = call i32 @g_tree_lookup_extended(ptr noundef %154, ptr noundef nonnull %interval.i.i, ptr noundef nonnull %iter_key.i.i, ptr noundef nonnull %iter_val.i.i) #13
   %tobool11.not.i.i156 = icmp eq i32 %call10.i.i155, 0
   br i1 %tobool11.not.i.i156, label %virtio_iommu_unmap.exit.i, label %while.body.i.i, !llvm.loop !11
 
@@ -1767,7 +1767,7 @@ sw.bb31:                                          ; preds = %while.end
   %155 = load i32, ptr %probe_size, align 8
   %conv32 = zext i32 %155 to i64
   %add = add nuw nsw i64 %conv32, 4
-  %call33 = call noalias ptr @g_malloc0(i64 noundef %add) #13
+  %call33 = call noalias ptr @g_malloc0(i64 noundef %add) #14
   %156 = load i32, ptr %probe_size, align 8
   %idx.ext = zext i32 %156 to i64
   %add.ptr = getelementptr i8, ptr %call33, i64 %idx.ext
@@ -1786,7 +1786,7 @@ virtio_iommu_iov_to_req.exit.thread.i186:         ; preds = %land.lhs.true2.i.i.
   br label %cond.false.i187
 
 virtio_iommu_iov_to_req.exit.i216:                ; preds = %land.lhs.true2.i.i.i183, %sw.bb31
-  %call.i.i.i217 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i181, i64 noundef 72) #12
+  %call.i.i.i217 = call i64 @iov_to_buf_full(ptr noundef %8, i32 noundef %7, i64 noundef 0, ptr noundef nonnull %req.i181, i64 noundef 72) #13
   %cmp.not.i.i218 = icmp eq i64 %call.i.i.i217, 72
   br i1 %cmp.not.i.i218, label %cond.false.i187, label %virtio_iommu_handle_probe.exit
 
@@ -1810,11 +1810,11 @@ iommu_find_iommu_pcibus.exit.thread6.i.i.i:       ; preds = %cond.false.i187
 
 if.then.i.i.i.i211:                               ; preds = %cond.false.i187
   %160 = load ptr, ptr %as_by_busptr.i.i.i.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i.i.i.i, ptr noundef %160) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i.i.i.i, ptr noundef %160) #13
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i213, %if.then.i.i.i.i211
-  %call.i.i.i.i212 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i.i.i.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i.i.i.i) #12
+  %call.i.i.i.i212 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i.i.i.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i.i.i.i) #13
   %tobool1.not.i.i.i.i = icmp eq i32 %call.i.i.i.i212, 0
   br i1 %tobool1.not.i.i.i.i, label %iommu_find_iommu_pcibus.exit.thread.i.i.i, label %while.body.i.i.i.i213
 
@@ -1826,7 +1826,7 @@ iommu_find_iommu_pcibus.exit.thread.i.i.i:        ; preds = %while.cond.i.i.i.i
 while.body.i.i.i.i213:                            ; preds = %while.cond.i.i.i.i
   %161 = load ptr, ptr %iommu_pci_bus.i.i.i.i, align 8
   %162 = load ptr, ptr %161, align 8
-  %call2.i.i.i.i = call i32 @pci_bus_num(ptr noundef %162) #12
+  %call2.i.i.i.i = call i32 @pci_bus_num(ptr noundef %162) #13
   %cmp.i.i.i.i214 = icmp eq i32 %call2.i.i.i.i, %conv.mask.i.i.i
   br i1 %cmp.i.i.i.i214, label %iommu_find_iommu_pcibus.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !7
 
@@ -1851,7 +1851,7 @@ if.then.i.i2.i:                                   ; preds = %iommu_find_iommu_pc
 if.end.i.i192:                                    ; preds = %if.then.i.i2.i
   %resv_regions.i.i.i = getelementptr inbounds i8, ptr %165, i64 960
   %166 = load ptr, ptr %resv_regions.i.i.i, align 16
-  %call.i.i3.i = call i32 @g_list_length(ptr noundef %166) #12
+  %call.i.i3.i = call i32 @g_list_length(ptr noundef %166) #13
   %cmp.i.i.i = icmp ugt i32 %call.i.i3.i, 21
   br i1 %cmp.i.i.i, label %virtio_iommu_handle_probe.exit, label %for.cond.preheader.i.i.i
 
@@ -1870,7 +1870,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.preheader.
   br i1 %or.cond.i.i.i, label %if.end9.i.i.i, label %if.else.i.i4.i
 
 if.else.i.i4.i:                                   ; preds = %for.body.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.10, i32 noundef 666, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_fill_resv_mem_prop) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.10, i32 noundef 666, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_fill_resv_mem_prop) #15
   unreachable
 
 if.end9.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -1885,7 +1885,7 @@ if.end9.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %range_is_empty.exit.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end9.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
 range_is_empty.exit.i.i.i.i:                      ; preds = %if.end9.i.i.i
@@ -1893,7 +1893,7 @@ range_is_empty.exit.i.i.i.i:                      ; preds = %if.end9.i.i.i
   br i1 %cmp.i.i.i.i.i194, label %if.else.i.i.i.i210, label %range_upb.exit.i.i.i
 
 if.else.i.i.i.i210:                               ; preds = %range_is_empty.exit.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #15
   unreachable
 
 range_upb.exit.i.i.i:                             ; preds = %range_is_empty.exit.i.i.i.i
@@ -1928,15 +1928,15 @@ if.then.i.i.i.i.i204:                             ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i.i205, label %if.then8.i.i.i.i.i207, label %if.else.i.i.i.i.i206
 
 if.then8.i.i.i.i.i207:                            ; preds = %if.then.i.i.i.i.i204
-  %call9.i.i.i.i.i208 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i180, ptr noundef null) #12
-  %call10.i.i.i.i.i209 = call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i.i.i208 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i.i180, ptr noundef null) #13
+  %call10.i.i.i.i.i209 = call i32 @qemu_get_thread_id() #13
   %174 = load i64, ptr %_now.i.i.i.i.i180, align 8
   %175 = load i64, ptr %tv_usec.i.i.i.i.i193, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i.i.i.i209, i64 noundef %174, i64 noundef %175, i32 noundef %req.val.i188, i32 noundef %168, i64 noundef %.val.i.i.i, i64 noundef %.val13.i.i.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i.i.i.i209, i64 noundef %174, i64 noundef %175, i32 noundef %req.val.i188, i32 noundef %168, i64 noundef %.val.i.i.i, i64 noundef %.val13.i.i.i) #13
   br label %trace_virtio_iommu_fill_resv_property.exit.i.i.i
 
 if.else.i.i.i.i.i206:                             ; preds = %if.then.i.i.i.i.i204
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %req.val.i188, i32 noundef %168, i64 noundef %.val.i.i.i, i64 noundef %.val13.i.i.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %req.val.i188, i32 noundef %168, i64 noundef %.val.i.i.i, i64 noundef %.val13.i.i.i) #13
   br label %trace_virtio_iommu_fill_resv_property.exit.i.i.i
 
 trace_virtio_iommu_fill_resv_property.exit.i.i.i: ; preds = %if.else.i.i.i.i.i206, %if.then8.i.i.i.i.i207, %land.lhs.true5.i.i.i.i.i201, %range_upb.exit.i.i.i
@@ -1965,7 +1965,7 @@ sw.default:                                       ; preds = %while.end
 sw.epilog:                                        ; preds = %sw.default, %virtio_iommu_handle_probe.exit, %virtio_iommu_handle_unmap.exit, %virtio_iommu_handle_map.exit, %virtio_iommu_handle_detach.exit, %virtio_iommu_handle_attach.exit
   %output_size.1 = phi i64 [ 4, %sw.default ], [ %add, %virtio_iommu_handle_probe.exit ], [ 4, %virtio_iommu_handle_unmap.exit ], [ 4, %virtio_iommu_handle_map.exit ], [ 4, %virtio_iommu_handle_detach.exit ], [ 4, %virtio_iommu_handle_attach.exit ]
   %buf.2 = phi ptr [ null, %sw.default ], [ %call33, %virtio_iommu_handle_probe.exit ], [ null, %virtio_iommu_handle_unmap.exit ], [ null, %virtio_iommu_handle_map.exit ], [ null, %virtio_iommu_handle_detach.exit ], [ null, %virtio_iommu_handle_attach.exit ]
-  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 815) #12
+  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 815) #13
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then13, %sw.epilog
@@ -1975,21 +1975,21 @@ iov_from_buf.exit:                                ; preds = %if.then13, %sw.epil
   %cond = select i1 %tobool43.not, ptr %tail, ptr %buf.1
   %176 = load i32, ptr %in_num, align 8
   %177 = load ptr, ptr %in_sg, align 8
-  %call.i221 = call i64 @iov_from_buf_full(ptr noundef %177, i32 noundef %176, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %output_size.0) #12
+  %call.i221 = call i64 @iov_from_buf_full(ptr noundef %177, i32 noundef %176, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %output_size.0) #13
   %cmp45 = icmp eq i64 %call.i221, %output_size.0
   br i1 %cmp45, label %if.end48, label %if.else
 
 if.else:                                          ; preds = %iov_from_buf.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10, i32 noundef 820, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_handle_command) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10, i32 noundef 820, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_handle_command) #15
   unreachable
 
 if.end48:                                         ; preds = %iov_from_buf.exit
   %conv49 = trunc i64 %output_size.0 to i32
-  call void @virtqueue_push(ptr noundef %vq, ptr noundef nonnull %call1240, i32 noundef %conv49) #12
-  call void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) #12
-  call void @g_free(ptr noundef nonnull %call1240) #12
-  call void @g_free(ptr noundef %buf.1) #12
-  %call1 = call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #12
+  call void @virtqueue_push(ptr noundef %vq, ptr noundef nonnull %call1240, i32 noundef %conv49) #13
+  call void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) #13
+  call void @g_free(ptr noundef nonnull %call1240) #13
+  call void @g_free(ptr noundef %buf.1) #13
+  %call1 = call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #13
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %for.end, label %if.end
 
@@ -2028,13 +2028,13 @@ if.then:                                          ; preds = %entry
   %add.ptr.val = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %add.ptr.val) #12
-  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %add.ptr.val) #13
+  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
-  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
@@ -2067,13 +2067,13 @@ virtio_iommu_switch_address_space_all.exit:       ; preds = %while.cond.loopexit
   %add.ptr.val7 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %iter.i8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iommu_pci_bus.i9)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i8, ptr noundef %add.ptr.val7) #12
-  %call2.i10 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i8, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i9) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i8, ptr noundef %add.ptr.val7) #13
+  %call2.i10 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i8, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i9) #13
   %tobool.not3.i11 = icmp eq i32 %call2.i10, 0
   br i1 %tobool.not3.i11, label %virtio_iommu_switch_address_space_all.exit26, label %for.body.i13
 
 while.cond.loopexit.i23:                          ; preds = %for.inc.i20
-  %call.i24 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i8, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i9) #12
+  %call.i24 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i8, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i9) #13
   %tobool.not.i25 = icmp eq i32 %call.i24, 0
   br i1 %tobool.not.i25, label %virtio_iommu_switch_address_space_all.exit26, label %for.body.i13.backedge
 
@@ -2131,16 +2131,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = call i32 @qemu_get_thread_id() #13
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i64 noundef %shl) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i64 noundef %shl) #13
   br label %trace_virtio_iommu_freeze_granule.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i64 noundef %shl) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i64 noundef %shl) #13
   br label %trace_virtio_iommu_freeze_granule.exit
 
 trace_virtio_iommu_freeze_granule.exit:           ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2178,16 +2178,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #13
   br label %trace_virtio_iommu_system_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53) #13
   br label %trace_virtio_iommu_system_reset.exit
 
 trace_virtio_iommu_system_reset.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2201,13 +2201,13 @@ trace_virtio_iommu_system_reset.exit:             ; preds = %entry, %land.lhs.tr
   %opaque.val = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %opaque.val) #12
-  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %opaque.val) #13
+  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
-  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
@@ -2276,20 +2276,20 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.10, i32 noundef 109, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_switch_address_space) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.10, i32 noundef 109, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_switch_address_space) #15
   unreachable
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %sdev, align 16
   %bus.i.i = getelementptr inbounds i8, ptr %sdev, i64 8
   %1 = load ptr, ptr %bus.i.i, align 8
-  %call.i.i = tail call i32 @pci_bus_num(ptr noundef %1) #12
+  %call.i.i = tail call i32 @pci_bus_num(ptr noundef %1) #13
   %devfn.i.i = getelementptr inbounds i8, ptr %sdev, i64 16
   %2 = load i32, ptr %devfn.i.i, align 16
   %3 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   %mutex.i = getelementptr inbounds i8, ptr %0, i64 2672
-  tail call void %4(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.10, i32 noundef 85) #12
+  tail call void %4(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.10, i32 noundef 85) #13
   %endpoints.i = getelementptr inbounds i8, ptr %0, i64 2720
   %5 = load ptr, ptr %endpoints.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
@@ -2307,7 +2307,7 @@ if.end.i:                                         ; preds = %if.end
   %7 = and i32 %or.i.i, 65535
   %conv3.i = zext nneg i32 %7 to i64
   %8 = inttoptr i64 %conv3.i to ptr
-  %call4.i = tail call ptr @g_tree_lookup(ptr noundef nonnull %5, ptr noundef %8) #12
+  %call4.i = tail call ptr @g_tree_lookup(ptr noundef nonnull %5, ptr noundef %8) #13
   %tobool5.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool5.not.i, label %if.then7.i, label %lor.lhs.false.i
 
@@ -2331,10 +2331,10 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 
 virtio_iommu_device_bypassed.exit:                ; preds = %if.then.i, %if.then7.i, %if.else.i
   %bypassed.0.i = phi i1 [ %12, %if.else.i ], [ %tobool10.i, %if.then7.i ], [ %tobool1.i, %if.then.i ]
-  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.10, i32 noundef 100) #12
+  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.10, i32 noundef 100) #13
   %lnot = xor i1 %bypassed.0.i, true
   %13 = load ptr, ptr %bus.i.i, align 8
-  %call1 = tail call i32 @pci_bus_num(ptr noundef %13) #12
+  %call1 = tail call i32 @pci_bus_num(ptr noundef %13) #13
   %14 = load i32, ptr %devfn.i.i, align 16
   %15 = trunc i32 %14 to i8
   %16 = lshr i8 %15, 3
@@ -2359,22 +2359,22 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %21 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %call1, 255
   %conv12.i.i = zext nneg i8 %16 to i32
   %conv15.i.i = zext i1 %lnot to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv5, i32 noundef %conv15.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv5, i32 noundef %conv15.i.i) #13
   br label %trace_virtio_iommu_switch_address_space.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv16.i.i = and i32 %call1, 255
   %conv17.i.i = zext nneg i8 %16 to i32
   %conv20.i.i = zext i1 %lnot to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv16.i.i, i32 noundef %conv17.i.i, i32 noundef %conv5, i32 noundef %conv20.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv16.i.i, i32 noundef %conv17.i.i, i32 noundef %conv5, i32 noundef %conv20.i.i) #13
   br label %trace_virtio_iommu_switch_address_space.exit
 
 trace_virtio_iommu_switch_address_space.exit:     ; preds = %virtio_iommu_device_bypassed.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2383,18 +2383,18 @@ trace_virtio_iommu_switch_address_space.exit:     ; preds = %virtio_iommu_device
 
 if.then8:                                         ; preds = %trace_virtio_iommu_switch_address_space.exit
   %bypass_mr = getelementptr inbounds i8, ptr %sdev, i64 688
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %bypass_mr, i1 noundef zeroext false) #12
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %bypass_mr, i1 noundef zeroext false) #13
   %iommu_mr = getelementptr inbounds i8, ptr %sdev, i64 32
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #12
-  tail call void @memory_region_set_enabled(ptr noundef %call.i, i1 noundef zeroext true) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #13
+  tail call void @memory_region_set_enabled(ptr noundef %call.i, i1 noundef zeroext true) #13
   br label %if.end14
 
 if.else10:                                        ; preds = %trace_virtio_iommu_switch_address_space.exit
   %iommu_mr11 = getelementptr inbounds i8, ptr %sdev, i64 32
-  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr11, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #12
-  tail call void @memory_region_set_enabled(ptr noundef %call.i11, i1 noundef zeroext false) #12
+  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr11, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #13
+  tail call void @memory_region_set_enabled(ptr noundef %call.i11, i1 noundef zeroext false) #13
   %bypass_mr13 = getelementptr inbounds i8, ptr %sdev, i64 688
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %bypass_mr13, i1 noundef zeroext true) #12
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %bypass_mr13, i1 noundef zeroext true) #13
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else10, %if.then8
@@ -2477,16 +2477,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end) #13
   br label %trace_virtio_iommu_notify_unmap.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end) #13
   br label %trace_virtio_iommu_notify_unmap.exit
 
 trace_virtio_iommu_notify_unmap.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2507,7 +2507,7 @@ trace_virtio_iommu_notify_unmap.exit:             ; preds = %if.end, %land.lhs.t
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %trace_virtio_iommu_notify_unmap.exit
-  tail call void @memory_region_notify_iommu(ptr noundef nonnull %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #12
+  tail call void @memory_region_notify_iommu(ptr noundef nonnull %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %trace_virtio_iommu_notify_unmap.exit
@@ -2517,10 +2517,10 @@ if.end.i:                                         ; preds = %if.then.i, %trace_v
 
 while.body.i:                                     ; preds = %if.end.i, %if.end16.i
   %virt_start.addr.020.i = phi i64 [ %add9.i, %if.end16.i ], [ %virt_start, %if.end.i ]
-  %call.i = tail call i64 @dma_aligned_pow2_mask(i64 noundef %virt_start.addr.020.i, i64 noundef %virt_end, i32 noundef 64) #12
+  %call.i = tail call i64 @dma_aligned_pow2_mask(i64 noundef %virt_start.addr.020.i, i64 noundef %virt_end, i32 noundef 64) #13
   store i64 %call.i, ptr %addr_mask.i, align 8
   store i64 %virt_start.addr.020.i, ptr %iova.i, align 8
-  tail call void @memory_region_notify_iommu(ptr noundef %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #12
+  tail call void @memory_region_notify_iommu(ptr noundef %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #13
   %add8.i = add i64 %call.i, 1
   %add9.i = add i64 %add8.i, %virt_start.addr.020.i
   %8 = load i32, ptr %perm, align 8
@@ -2613,16 +2613,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef %or) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef %or) #13
   br label %trace_virtio_iommu_notify_map.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef %or) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef %1, i64 noundef %virt_start, i64 noundef %virt_end, i64 noundef %paddr, i32 noundef %or) #13
   br label %trace_virtio_iommu_notify_map.exit
 
 trace_virtio_iommu_notify_map.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2643,7 +2643,7 @@ trace_virtio_iommu_notify_map.exit:               ; preds = %if.end, %land.lhs.t
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %trace_virtio_iommu_notify_map.exit
-  tail call void @memory_region_notify_iommu(ptr noundef nonnull %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #12
+  tail call void @memory_region_notify_iommu(ptr noundef nonnull %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %trace_virtio_iommu_notify_map.exit
@@ -2653,10 +2653,10 @@ if.end.i:                                         ; preds = %if.then.i, %trace_v
 
 while.body.i:                                     ; preds = %if.end.i, %if.end16.i
   %virt_start.addr.020.i = phi i64 [ %add9.i, %if.end16.i ], [ %virt_start, %if.end.i ]
-  %call.i = tail call i64 @dma_aligned_pow2_mask(i64 noundef %virt_start.addr.020.i, i64 noundef %virt_end, i32 noundef 64) #12
+  %call.i = tail call i64 @dma_aligned_pow2_mask(i64 noundef %virt_start.addr.020.i, i64 noundef %virt_end, i32 noundef 64) #13
   store i64 %call.i, ptr %addr_mask.i, align 8
   store i64 %virt_start.addr.020.i, ptr %iova.i, align 8
-  tail call void @memory_region_notify_iommu(ptr noundef %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #12
+  tail call void @memory_region_notify_iommu(ptr noundef %mr, i32 noundef 0, ptr noundef nonnull byval(%struct.IOMMUTLBEvent) align 8 %event) #13
   %add8.i = add i64 %call.i, 1
   %add9.i = add i64 %add8.i, %virt_start.addr.020.i
   %8 = load i32, ptr %perm12, align 8
@@ -2689,15 +2689,15 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %as_by_busptr = getelementptr inbounds i8, ptr %opaque, i64 584
   %0 = load ptr, ptr %as_by_busptr, align 8
-  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %bus) #12
+  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %bus) #13
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call noalias dereferenceable_or_null(2056) ptr @g_malloc0(i64 noundef 2056) #13
+  %call1 = tail call noalias dereferenceable_or_null(2056) ptr @g_malloc0(i64 noundef 2056) #14
   store ptr %bus, ptr %call1, align 8
   %1 = load ptr, ptr %as_by_busptr, align 8
-  %call4 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %bus, ptr noundef nonnull %call1) #12
+  %call4 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %bus, ptr noundef nonnull %call1) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2713,8 +2713,8 @@ if.then6:                                         ; preds = %if.end
   %3 = load i32, ptr @virtio_iommu_find_add_as.mr_index, align 4
   %inc = add i32 %3, 1
   store i32 %inc, ptr @virtio_iommu_find_add_as.mr_index, align 4
-  %call7 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef %3, i32 noundef %devfn) #12
-  %call8 = tail call noalias dereferenceable_or_null(992) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 992) #15
+  %call7 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef %3, i32 noundef %devfn) #13
+  %call8 = tail call noalias dereferenceable_or_null(992) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 992) #16
   store ptr %call8, ptr %arrayidx, align 8
   store ptr %opaque, ptr %call8, align 16
   %bus12 = getelementptr inbounds i8, ptr %call8, i64 8
@@ -2741,24 +2741,24 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %call7) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %call7) #13
   br label %trace_virtio_iommu_init_iommu_mr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef %call7) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef %call7) #13
   br label %trace_virtio_iommu_init_iommu_mr.exit
 
 trace_virtio_iommu_init_iommu_mr.exit:            ; preds = %if.then6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %root = getelementptr inbounds i8, ptr %call8, i64 416
-  tail call void @memory_region_init(ptr noundef nonnull %root, ptr noundef nonnull %opaque, ptr noundef %call7, i64 noundef -1) #12
+  tail call void @memory_region_init(ptr noundef nonnull %root, ptr noundef nonnull %opaque, ptr noundef %call7, i64 noundef -1) #13
   %as = getelementptr inbounds i8, ptr %call8, i64 320
-  tail call void @address_space_init(ptr noundef nonnull %as, ptr noundef nonnull %root, ptr noundef nonnull @.str) #12
+  tail call void @address_space_init(ptr noundef nonnull %as, ptr noundef nonnull %root, ptr noundef nonnull @.str) #13
   %10 = load ptr, ptr %call8, align 16
   %nr_prop_resv_regions.i = getelementptr inbounds i8, ptr %10, i64 2656
   %11 = load i32, ptr %nr_prop_resv_regions.i, align 8
@@ -2772,13 +2772,13 @@ for.body.lr.ph.i:                                 ; preds = %trace_virtio_iommu_
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %i.08.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
+  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #16
   %12 = load ptr, ptr %prop_resv_regions.i, align 8
   %idxprom.i = sext i32 %i.08.i to i64
   %arrayidx.i = getelementptr %struct.ReservedRegion, ptr %12, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, i64 24, i1 false)
   %13 = load ptr, ptr %resv_regions.i, align 16
-  %call1.i = tail call ptr @resv_region_list_insert(ptr noundef %13, ptr noundef %call.i) #12
+  %call1.i = tail call ptr @resv_region_list_insert(ptr noundef %13, ptr noundef %call.i) #13
   store ptr %call1.i, ptr %resv_regions.i, align 16
   %inc.i = add nuw i32 %i.08.i, 1
   %14 = load i32, ptr %nr_prop_resv_regions.i, align 8
@@ -2787,17 +2787,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 add_prop_resv_regions.exit:                       ; preds = %for.body.i, %trace_virtio_iommu_init_iommu_mr.exit
   %bypass_mr = getelementptr inbounds i8, ptr %call8, i64 688
-  %call15 = tail call ptr @get_system_memory() #12
-  %call16 = tail call ptr @get_system_memory() #12
-  %call17 = tail call i64 @memory_region_size(ptr noundef %call16) #12
-  tail call void @memory_region_init_alias(ptr noundef nonnull %bypass_mr, ptr noundef %opaque, ptr noundef nonnull @.str.47, ptr noundef %call15, i64 noundef 0, i64 noundef %call17) #12
+  %call15 = tail call ptr @get_system_memory() #13
+  %call16 = tail call ptr @get_system_memory() #13
+  %call17 = tail call i64 @memory_region_size(ptr noundef %call16) #13
+  tail call void @memory_region_init_alias(ptr noundef nonnull %bypass_mr, ptr noundef %opaque, ptr noundef nonnull @.str.47, ptr noundef %call15, i64 noundef 0, i64 noundef %call17) #13
   %iommu_mr = getelementptr inbounds i8, ptr %call8, i64 32
-  tail call void @memory_region_init_iommu(ptr noundef nonnull %iommu_mr, i64 noundef 288, ptr noundef nonnull @.str.46, ptr noundef %opaque, ptr noundef %call7, i64 noundef -1) #12
-  %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #12
-  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef %call.i34, i32 noundef 0) #12
-  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef nonnull %bypass_mr, i32 noundef 0) #12
+  tail call void @memory_region_init_iommu(ptr noundef nonnull %iommu_mr, i64 noundef 288, ptr noundef nonnull @.str.46, ptr noundef %opaque, ptr noundef %call7, i64 noundef -1) #13
+  %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #13
+  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef %call.i34, i32 noundef 0) #13
+  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef nonnull %bypass_mr, i32 noundef 0) #13
   tail call fastcc void @virtio_iommu_switch_address_space(ptr noundef nonnull %call8)
-  tail call void @g_free(ptr noundef %call7) #12
+  tail call void @g_free(ptr noundef %call7) #13
   br label %if.end24
 
 if.end24:                                         ; preds = %add_prop_resv_regions.exit, %if.end
@@ -2855,11 +2855,7 @@ entry:
   %conv = trunc i64 %0 to i32
   %1 = ptrtoint ptr %b to i64
   %conv1 = trunc i64 %1 to i32
-  %cmp = icmp ugt i32 %conv, %conv1
-  %conv2 = zext i1 %cmp to i32
-  %cmp3 = icmp ult i32 %conv, %conv1
-  %conv4.neg = sext i1 %cmp3 to i32
-  %sub = add nsw i32 %conv4.neg, %conv2
+  %sub = tail call i32 @llvm.ucmp.i32.i32(i32 %conv, i32 %conv1)
   ret i32 %sub
 }
 
@@ -2887,7 +2883,7 @@ land.rhs:                                         ; preds = %entry, %virtio_iomm
 if.end.i:                                         ; preds = %land.rhs
   %mappings.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %mappings.i, align 8
-  tail call void @g_tree_foreach(ptr noundef %4, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %3) #12
+  tail call void @g_tree_foreach(ptr noundef %4, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %3) #13
   %5 = load ptr, ptr %next, align 8
   %cmp.not.i = icmp eq ptr %5, null
   %le_prev14.phi.trans.insert.i = getelementptr inbounds i8, ptr %iter.07, i64 32
@@ -2915,7 +2911,7 @@ virtio_iommu_detach_endpoint_from_domain.exit:    ; preds = %land.rhs, %if.end10
 for.end:                                          ; preds = %virtio_iommu_detach_endpoint_from_domain.exit, %entry
   %mappings = getelementptr inbounds i8, ptr %data, i64 8
   %7 = load ptr, ptr %mappings, align 8
-  tail call void @g_tree_destroy(ptr noundef %7) #12
+  tail call void @g_tree_destroy(ptr noundef %7) #13
   %8 = load i32, ptr %data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2937,21 +2933,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %8) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %8) #13
   br label %trace_virtio_iommu_put_domain.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %8) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %8) #13
   br label %trace_virtio_iommu_put_domain.exit
 
 trace_virtio_iommu_put_domain.exit:               ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @g_free(ptr noundef nonnull %data) #12
+  tail call void @g_free(ptr noundef nonnull %data) #13
   ret void
 }
 
@@ -2970,7 +2966,7 @@ if.end.i:                                         ; preds = %entry
   %add.ptr.i = getelementptr i8, ptr %1, i64 -32
   %mappings.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %mappings.i, align 8
-  tail call void @g_tree_foreach(ptr noundef %2, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %1) #12
+  tail call void @g_tree_foreach(ptr noundef %2, ptr noundef nonnull @virtio_iommu_notify_unmap_cb, ptr noundef %1) #13
   %next.i = getelementptr inbounds i8, ptr %data, i64 24
   %3 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
@@ -3014,21 +3010,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %5) #13
   br label %trace_virtio_iommu_put_endpoint.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %5) #13
   br label %trace_virtio_iommu_put_endpoint.exit
 
 trace_virtio_iommu_put_endpoint.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @g_free(ptr noundef nonnull %data) #12
+  tail call void @g_free(ptr noundef nonnull %data) #13
   ret void
 }
 
@@ -3039,18 +3035,18 @@ entry:
   %iommu_pci_bus.i = alloca ptr, align 8
   %domains = getelementptr inbounds i8, ptr %opaque, i64 2664
   %0 = load ptr, ptr %domains, align 8
-  tail call void @g_tree_foreach(ptr noundef %0, ptr noundef nonnull @reconstruct_endpoints, ptr noundef %opaque) #12
+  tail call void @g_tree_foreach(ptr noundef %0, ptr noundef nonnull @reconstruct_endpoints, ptr noundef %opaque) #13
   %1 = getelementptr i8, ptr %opaque, i64 584
   %opaque.val = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %opaque.val) #12
-  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %opaque.val) #13
+  %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
-  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #12
+  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
@@ -3119,11 +3115,11 @@ iommu_find_iommu_pcibus.exit.thread6.i:           ; preds = %for.body
 
 if.then.i.i:                                      ; preds = %for.body
   %2 = load ptr, ptr %as_by_busptr.i.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i.i, ptr noundef %2) #12
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i.i, ptr noundef %2) #13
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.then.i.i
-  %call.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i.i) #12
+  %call.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i.i) #13
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %iommu_find_iommu_pcibus.exit.thread.i, label %while.body.i.i
 
@@ -3135,7 +3131,7 @@ iommu_find_iommu_pcibus.exit.thread.i:            ; preds = %while.cond.i.i
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %3 = load ptr, ptr %iommu_pci_bus.i.i, align 8
   %4 = load ptr, ptr %3, align 8
-  %call2.i.i = call i32 @pci_bus_num(ptr noundef %4) #12
+  %call2.i.i = call i32 @pci_bus_num(ptr noundef %4) #13
   %cmp.i.i = icmp eq i32 %call2.i.i, %conv.mask.i
   br i1 %cmp.i.i, label %iommu_find_iommu_pcibus.exit.i, label %while.cond.i.i, !llvm.loop !7
 
@@ -3158,7 +3154,7 @@ if.then.i:                                        ; preds = %iommu_find_iommu_pc
   br i1 %tobool3.not.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %if.then.i, %iommu_find_iommu_pcibus.exit.i, %iommu_find_iommu_pcibus.exit.thread.i
-  call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.10, i32 noundef 1472, ptr noundef nonnull @__PRETTY_FUNCTION__.reconstruct_endpoints) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.10, i32 noundef 1472, ptr noundef nonnull @__PRETTY_FUNCTION__.reconstruct_endpoints) #15
   unreachable
 
 if.end:                                           ; preds = %if.then.i
@@ -3171,7 +3167,7 @@ if.end:                                           ; preds = %if.then.i
   %9 = load i32, ptr %iter.014, align 8
   %conv = zext i32 %9 to i64
   %10 = inttoptr i64 %conv to ptr
-  call void @g_tree_insert(ptr noundef %8, ptr noundef %10, ptr noundef nonnull %iter.014) #12
+  call void @g_tree_insert(ptr noundef %8, ptr noundef %10, ptr noundef nonnull %iter.014) #13
   %next = getelementptr inbounds i8, ptr %iter.014, i64 24
   %iter.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %iter.0, null
@@ -3184,7 +3180,7 @@ for.end:                                          ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @domain_preload(ptr nocapture noundef writeonly %opaque) #0 {
 entry:
-  %call = tail call ptr @g_tree_new_full(ptr noundef nonnull @interval_cmp, ptr noundef null, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #12
+  %call = tail call ptr @g_tree_new_full(ptr noundef nonnull @interval_cmp, ptr noundef null, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #13
   %mappings = getelementptr inbounds i8, ptr %opaque, i64 8
   store ptr %call, ptr %mappings, align 8
   ret i32 0
@@ -3193,7 +3189,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_iommu_memory_region_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.27, i32 noundef 44, ptr noundef nonnull @__func__.IOMMU_MEMORY_REGION_CLASS) #12
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.27, i32 noundef 44, ptr noundef nonnull @__func__.IOMMU_MEMORY_REGION_CLASS) #13
   %translate = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @virtio_iommu_translate, ptr %translate, align 8
   %replay = getelementptr inbounds i8, ptr %call.i, i64 120
@@ -3240,7 +3236,7 @@ entry:
   %tobool.not = icmp eq i8 %3, 0
   %bus.i = getelementptr i8, ptr %mr, i64 -24
   %4 = load ptr, ptr %bus.i, align 8
-  %call.i = tail call i32 @pci_bus_num(ptr noundef %4) #12
+  %call.i = tail call i32 @pci_bus_num(ptr noundef %4) #13
   %shl.i = shl i32 %call.i, 8
   %devfn.i = getelementptr i8, ptr %mr, i64 -16
   %5 = load i32, ptr %devfn.i, align 16
@@ -3268,16 +3264,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %6, i32 noundef %conv, i64 noundef %addr, i32 noundef %flag) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %6, i32 noundef %conv, i64 noundef %addr, i32 noundef %flag) #13
   br label %trace_virtio_iommu_translate.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, ptr noundef %6, i32 noundef %conv, i64 noundef %addr, i32 noundef %flag) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, ptr noundef %6, i32 noundef %conv, i64 noundef %addr, i32 noundef %flag) #13
   br label %trace_virtio_iommu_translate.exit
 
 trace_virtio_iommu_translate.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3285,12 +3281,12 @@ trace_virtio_iommu_translate.exit:                ; preds = %entry, %land.lhs.tr
   %13 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %14 = inttoptr i64 %13 to ptr
   %mutex = getelementptr inbounds i8, ptr %0, i64 2672
-  tail call void %14(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 905) #12
+  tail call void %14(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 905) #13
   %endpoints = getelementptr inbounds i8, ptr %0, i64 2720
   %15 = load ptr, ptr %endpoints, align 8
   %conv4 = zext nneg i32 %conv to i64
   %16 = inttoptr i64 %conv4 to ptr
-  %call5 = tail call ptr @g_tree_lookup(ptr noundef %15, ptr noundef %16) #12
+  %call5 = tail call ptr @g_tree_lookup(ptr noundef %15, ptr noundef %16) #13
   %tobool15.not = icmp eq ptr %call5, null
   br i1 %tobool.not, label %if.end14, label %if.then
 
@@ -3310,14 +3306,14 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   br i1 %tobool12, label %if.else, label %if.end26
 
 if.else:                                          ; preds = %land.lhs.true9, %land.lhs.true, %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.10, i32 noundef 910, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_translate) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.10, i32 noundef 910, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_translate) #15
   unreachable
 
 if.end14:                                         ; preds = %trace_virtio_iommu_translate.exit
   br i1 %tobool15.not, label %if.then18, label %if.end26
 
 if.then18:                                        ; preds = %if.end14
-  %call20 = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_, ptr noundef nonnull @.str.92, ptr noundef nonnull @__func__.virtio_iommu_translate, i32 noundef %conv) #12
+  %call20 = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_, ptr noundef nonnull @.str.92, ptr noundef nonnull @__func__.virtio_iommu_translate, i32 noundef %conv) #13
   tail call fastcc void @virtio_iommu_report_fault(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 256, i32 noundef %conv, i64 noundef %addr)
   br label %unlock
 
@@ -3374,7 +3370,7 @@ if.then37:                                        ; preds = %if.then35
   %shr39 = lshr i32 %5, 3
   %and40 = and i32 %shr39, 31
   %and41 = and i32 %5, 7
-  %call42 = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_.93, ptr noundef nonnull @.str.94, ptr noundef nonnull @__func__.virtio_iommu_translate, i32 noundef %shr, i32 noundef %and40, i32 noundef %and41) #12
+  %call42 = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_.93, ptr noundef nonnull @.str.94, ptr noundef nonnull @__func__.virtio_iommu_translate, i32 noundef %shr, i32 noundef %and40, i32 noundef %and41) #13
   tail call fastcc void @virtio_iommu_report_fault(ptr noundef %0, i8 noundef zeroext 1, i32 noundef 256, i32 noundef %conv, i64 noundef %addr)
   br label %unlock
 
@@ -3395,12 +3391,12 @@ if.then52:                                        ; preds = %if.else48
 if.end55:                                         ; preds = %if.else48
   %mappings = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %mappings, align 8
-  %call57 = call i32 @g_tree_lookup_extended(ptr noundef %25, ptr noundef nonnull %interval, ptr noundef nonnull %mapping_key, ptr noundef nonnull %mapping_value) #12
+  %call57 = call i32 @g_tree_lookup_extended(ptr noundef %25, ptr noundef nonnull %interval, ptr noundef nonnull %mapping_key, ptr noundef nonnull %mapping_value) #13
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.then61, label %if.end66
 
 if.then61:                                        ; preds = %if.end55
-  %call63 = call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @__func__.virtio_iommu_translate, i64 noundef %addr, i32 noundef %conv) #12
+  %call63 = call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @__func__.virtio_iommu_translate, i64 noundef %addr, i32 noundef %conv) #13
   call fastcc void @virtio_iommu_report_fault(ptr noundef %0, i8 noundef zeroext 2, i32 noundef 256, i32 noundef %conv, i64 noundef %addr)
   br label %unlock
 
@@ -3441,7 +3437,7 @@ if.then88:                                        ; preds = %land.end80
   %32 = load ptr, ptr %mapping_value, align 8
   %flags90 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i32, ptr %flags90, align 8
-  %call91 = call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_.97, ptr noundef nonnull @.str.98, ptr noundef nonnull @__func__.virtio_iommu_translate, i64 noundef %addr, i32 noundef %flag, i32 noundef %33) #12
+  %call91 = call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_translate.print_once_.97, ptr noundef nonnull @.str.98, ptr noundef nonnull @__func__.virtio_iommu_translate, i64 noundef %addr, i32 noundef %flag, i32 noundef %33) #13
   %or94 = or i32 %or, 256
   call fastcc void @virtio_iommu_report_fault(ptr noundef %0, i8 noundef zeroext 2, i32 noundef %or94, i32 noundef %conv, i64 noundef %addr)
   br label %unlock
@@ -3475,16 +3471,16 @@ if.then.i.i70:                                    ; preds = %land.lhs.true5.i.i6
   br i1 %tobool7.i.i71, label %if.then8.i.i73, label %if.else.i.i72
 
 if.then8.i.i73:                                   ; preds = %if.then.i.i70
-  %call9.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #12
-  %call10.i.i75 = call i32 @qemu_get_thread_id() #12
+  %call9.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #13
+  %call10.i.i75 = call i32 @qemu_get_thread_id() #13
   %42 = load i64, ptr %_now.i.i63, align 8
   %tv_usec.i.i76 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
   %43 = load i64, ptr %tv_usec.i.i76, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i32 noundef %call10.i.i75, i64 noundef %42, i64 noundef %43, i64 noundef %addr, i64 noundef %add99, i32 noundef %conv) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i32 noundef %call10.i.i75, i64 noundef %42, i64 noundef %43, i64 noundef %addr, i64 noundef %add99, i32 noundef %conv) #13
   br label %trace_virtio_iommu_translate_out.exit
 
 if.else.i.i72:                                    ; preds = %if.then.i.i70
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i64 noundef %addr, i64 noundef %add99, i32 noundef %conv) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i64 noundef %addr, i64 noundef %add99, i32 noundef %conv) #13
   br label %trace_virtio_iommu_translate_out.exit
 
 trace_virtio_iommu_translate_out.exit:            ; preds = %if.end96, %land.lhs.true5.i.i67, %if.then8.i.i73, %if.else.i.i72
@@ -3492,7 +3488,7 @@ trace_virtio_iommu_translate_out.exit:            ; preds = %if.end96, %land.lhs
   br label %unlock
 
 unlock:                                           ; preds = %if.then37, %if.else45, %sw.bb, %sw.default, %if.then18, %trace_virtio_iommu_translate_out.exit, %if.then88, %if.then61, %if.then52
-  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 993) #12
+  call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 993) #13
   ret void
 }
 
@@ -3503,13 +3499,13 @@ entry:
   %0 = load ptr, ptr %add.ptr, align 16
   %bus.i = getelementptr i8, ptr %mr, i64 -24
   %1 = load ptr, ptr %bus.i, align 8
-  %call.i = tail call i32 @pci_bus_num(ptr noundef %1) #12
+  %call.i = tail call i32 @pci_bus_num(ptr noundef %1) #13
   %devfn.i = getelementptr i8, ptr %mr, i64 -16
   %2 = load i32, ptr %devfn.i, align 16
   %3 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   %mutex = getelementptr inbounds i8, ptr %0, i64 2672
-  tail call void %4(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 1082) #12
+  tail call void %4(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 1082) #13
   %endpoints = getelementptr inbounds i8, ptr %0, i64 2720
   %5 = load ptr, ptr %endpoints, align 8
   %tobool.not = icmp eq ptr %5, null
@@ -3521,7 +3517,7 @@ if.end:                                           ; preds = %entry
   %6 = and i32 %or.i, 65535
   %conv3 = zext nneg i32 %6 to i64
   %7 = inttoptr i64 %conv3 to ptr
-  %call4 = tail call ptr @g_tree_lookup(ptr noundef nonnull %5, ptr noundef %7) #12
+  %call4 = tail call ptr @g_tree_lookup(ptr noundef nonnull %5, ptr noundef %7) #13
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %unlock, label %lor.lhs.false
 
@@ -3534,11 +3530,11 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end8:                                          ; preds = %lor.lhs.false
   %mappings = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %mappings, align 8
-  tail call void @g_tree_foreach(ptr noundef %9, ptr noundef nonnull @virtio_iommu_remap, ptr noundef nonnull %mr) #12
+  tail call void @g_tree_foreach(ptr noundef %9, ptr noundef nonnull @virtio_iommu_remap, ptr noundef nonnull %mr) #13
   br label %unlock
 
 unlock:                                           ; preds = %if.end, %lor.lhs.false, %entry, %if.end8
-  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 1096) #12
+  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 1096) #13
   ret void
 }
 
@@ -3552,7 +3548,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1105, ptr noundef nonnull @__func__.virtio_iommu_notify_flag_changed, ptr noundef nonnull @.str.110) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1105, ptr noundef nonnull @__func__.virtio_iommu_notify_flag_changed, ptr noundef nonnull @.str.110) #13
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3582,16 +3578,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0) #13
   br label %trace_virtio_iommu_notify_flag_add.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, ptr noundef %0) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, ptr noundef %0) #13
   br label %trace_virtio_iommu_notify_flag_add.exit
 
 trace_virtio_iommu_notify_flag_add.exit:          ; preds = %if.then1, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3625,16 +3621,16 @@ if.then.i.i10:                                    ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i11, label %if.then8.i.i13, label %if.else.i.i12
 
 if.then8.i.i13:                                   ; preds = %if.then.i.i10
-  %call9.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #12
-  %call10.i.i15 = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #13
+  %call10.i.i15 = tail call i32 @qemu_get_thread_id() #13
   %12 = load i64, ptr %_now.i.i3, align 8
   %tv_usec.i.i16 = getelementptr inbounds i8, ptr %_now.i.i3, i64 8
   %13 = load i64, ptr %tv_usec.i.i16, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, i32 noundef %call10.i.i15, i64 noundef %12, i64 noundef %13, ptr noundef %7) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, i32 noundef %call10.i.i15, i64 noundef %12, i64 noundef %13, ptr noundef %7) #13
   br label %trace_virtio_iommu_notify_flag_del.exit
 
 if.else.i.i12:                                    ; preds = %if.then.i.i10
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, ptr noundef %7) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, ptr noundef %7) #13
   br label %trace_virtio_iommu_notify_flag_del.exit
 
 trace_virtio_iommu_notify_flag_del.exit:          ; preds = %if.then3, %land.lhs.true5.i.i7, %if.then8.i.i13, %if.else.i.i12
@@ -3676,16 +3672,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %2, i64 noundef %1, i64 noundef %new_mask) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %2, i64 noundef %1, i64 noundef %new_mask) #13
   br label %trace_virtio_iommu_set_page_size_mask.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, ptr noundef %2, i64 noundef %1, i64 noundef %new_mask) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, ptr noundef %2, i64 noundef %1, i64 noundef %new_mask) #13
   br label %trace_virtio_iommu_set_page_size_mask.exit
 
 trace_virtio_iommu_set_page_size_mask.exit:       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3696,7 +3692,7 @@ trace_virtio_iommu_set_page_size_mask.exit:       ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_virtio_iommu_set_page_size_mask.exit
   %9 = load ptr, ptr %name, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1137, ptr noundef nonnull @__func__.virtio_iommu_set_page_size_mask, ptr noundef nonnull @.str.115, ptr noundef %9, i64 noundef %new_mask, i64 noundef %1) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1137, ptr noundef nonnull @__func__.virtio_iommu_set_page_size_mask, ptr noundef nonnull @.str.115, ptr noundef %9, i64 noundef %new_mask, i64 noundef %1) #13
   br label %return
 
 if.end:                                           ; preds = %trace_virtio_iommu_set_page_size_mask.exit
@@ -3714,7 +3710,7 @@ if.then3:                                         ; preds = %if.end
 
 if.then6:                                         ; preds = %if.then3
   %11 = load ptr, ptr %name, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1151, ptr noundef nonnull @__func__.virtio_iommu_set_page_size_mask, ptr noundef nonnull @.str.116, ptr noundef %11, i64 noundef %shl) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1151, ptr noundef nonnull @__func__.virtio_iommu_set_page_size_mask, ptr noundef nonnull @.str.116, ptr noundef %11, i64 noundef %shl) #13
   br label %return
 
 if.end12:                                         ; preds = %if.end
@@ -3741,7 +3737,7 @@ entry:
   br i1 %tobool.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @range_inverse_array(ptr noundef %iova_ranges, ptr noundef nonnull %new_ranges, i64 noundef 0, i64 noundef -1) #12
+  call void @range_inverse_array(ptr noundef %iova_ranges, ptr noundef nonnull %new_ranges, i64 noundef 0, i64 noundef -1) #13
   %tmp1.018 = load ptr, ptr %new_ranges, align 8
   %tobool3.not19 = icmp eq ptr %tmp1.018, null
   br i1 %tobool3.not19, label %out, label %for.body
@@ -3765,7 +3761,7 @@ for.body6:                                        ; preds = %for.body, %for.inc
   br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body6
-  call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
 range_is_empty.exit.i:                            ; preds = %for.body6
@@ -3782,7 +3778,7 @@ lor.lhs.false.i:                                  ; preds = %range_is_empty.exit
   br i1 %or.cond.i.i10.i, label %range_contains_range.exit, label %if.else.i.i11.i
 
 if.else.i.i11.i:                                  ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
 range_contains_range.exit:                        ; preds = %lor.lhs.false.i
@@ -3813,14 +3809,14 @@ if.end15:                                         ; preds = %entry
 if.then17:                                        ; preds = %if.end15
   %name = getelementptr inbounds i8, ptr %mr, i64 232
   %8 = load ptr, ptr %name, align 8
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.119, ptr noundef %8) #12
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.119, ptr noundef %8) #13
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15
-  tail call void @range_inverse_array(ptr noundef %iova_ranges, ptr noundef nonnull %host_resv_ranges, i64 noundef 0, i64 noundef -1) #12
+  tail call void @range_inverse_array(ptr noundef %iova_ranges, ptr noundef nonnull %host_resv_ranges, i64 noundef 0, i64 noundef -1) #13
   %resv_regions.i = getelementptr i8, ptr %mr, i64 928
   %9 = load ptr, ptr %resv_regions.i, align 16
-  tail call void @g_list_free_full(ptr noundef %9, ptr noundef nonnull @g_free) #12
+  tail call void @g_list_free_full(ptr noundef %9, ptr noundef nonnull @g_free) #13
   store ptr null, ptr %resv_regions.i, align 16
   %l.055.i = load ptr, ptr %host_resv_ranges, align 8
   %tobool.not56.i = icmp eq ptr %l.055.i, null
@@ -3834,7 +3830,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end18
 for.body.i:                                       ; preds = %trace_virtio_iommu_host_resv_regions.exit.i, %for.body.lr.ph.i
   %l.058.i = phi ptr [ %l.055.i, %for.body.lr.ph.i ], [ %l.0.i, %trace_virtio_iommu_host_resv_regions.exit.i ]
   %i.057.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %trace_virtio_iommu_host_resv_regions.exit.i ]
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
+  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #16
   %10 = load ptr, ptr %l.058.i, align 8
   %type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 0, ptr %type.i, align 8
@@ -3848,7 +3844,7 @@ for.body.i:                                       ; preds = %trace_virtio_iommu_
   br i1 %or.cond.i.i.i.i, label %range_is_empty.exit.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
 range_is_empty.exit.i.i:                          ; preds = %for.body.i
@@ -3856,7 +3852,7 @@ range_is_empty.exit.i.i:                          ; preds = %for.body.i
   br i1 %cmp.i.i.i, label %if.else.i.i, label %range_set_bounds.exit.i
 
 if.else.i.i:                                      ; preds = %range_is_empty.exit.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #15
   unreachable
 
 range_set_bounds.exit.i:                          ; preds = %range_is_empty.exit.i.i
@@ -3864,7 +3860,7 @@ range_set_bounds.exit.i:                          ; preds = %range_is_empty.exit
   %upb2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %.val16.i, ptr %upb2.i.i, align 8
   %12 = load ptr, ptr %resv_regions.i, align 16
-  %call5.i = tail call ptr @resv_region_list_insert(ptr noundef %12, ptr noundef nonnull %call.i) #12
+  %call5.i = tail call ptr @resv_region_list_insert(ptr noundef %12, ptr noundef nonnull %call.i) #13
   store ptr %call5.i, ptr %resv_regions.i, align 16
   %13 = load ptr, ptr %name.i, align 8
   %call.val.i = load i64, ptr %call.i, align 8
@@ -3876,7 +3872,7 @@ range_set_bounds.exit.i:                          ; preds = %range_is_empty.exit
   br i1 %or.cond.i.i.i40.i, label %range_is_empty.exit.i42.i, label %if.else.i.i.i41.i
 
 if.else.i.i.i41.i:                                ; preds = %range_set_bounds.exit.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
 range_is_empty.exit.i42.i:                        ; preds = %range_set_bounds.exit.i
@@ -3884,7 +3880,7 @@ range_is_empty.exit.i42.i:                        ; preds = %range_set_bounds.ex
   br i1 %cmp.i.i43.i, label %if.else.i44.i, label %range_upb.exit54.i
 
 if.else.i44.i:                                    ; preds = %range_is_empty.exit.i42.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #15
   unreachable
 
 range_upb.exit54.i:                               ; preds = %range_is_empty.exit.i42.i
@@ -3908,15 +3904,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i15
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #13
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #13
   %18 = load i64, ptr %_now.i.i.i, align 8
   %19 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, ptr noundef %13, i32 noundef %i.057.i, i64 noundef %call.val.i, i64 noundef %call.val15.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, i32 noundef %call10.i.i.i, i64 noundef %18, i64 noundef %19, ptr noundef %13, i32 noundef %i.057.i, i64 noundef %call.val.i, i64 noundef %call.val15.i) #13
   br label %trace_virtio_iommu_host_resv_regions.exit.i
 
 if.else.i.i.i15:                                  ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, ptr noundef %13, i32 noundef %i.057.i, i64 noundef %call.val.i, i64 noundef %call.val15.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, ptr noundef %13, i32 noundef %i.057.i, i64 noundef %call.val.i, i64 noundef %call.val15.i) #13
   br label %trace_virtio_iommu_host_resv_regions.exit.i
 
 trace_virtio_iommu_host_resv_regions.exit.i:      ; preds = %if.else.i.i.i15, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %range_upb.exit54.i
@@ -3940,13 +3936,13 @@ for.body.lr.ph.i.i:                               ; preds = %for.end.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.08.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
-  %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #15
+  %call.i.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #16
   %22 = load ptr, ptr %prop_resv_regions.i.i, align 8
   %idxprom.i.i = sext i32 %i.08.i.i to i64
   %arrayidx.i.i = getelementptr %struct.ReservedRegion, ptr %22, i64 %idxprom.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, i64 24, i1 false)
   %23 = load ptr, ptr %resv_regions.i, align 16
-  %call1.i.i = tail call ptr @resv_region_list_insert(ptr noundef %23, ptr noundef %call.i.i) #12
+  %call1.i.i = tail call ptr @resv_region_list_insert(ptr noundef %23, ptr noundef %call.i.i) #13
   store ptr %call1.i.i, ptr %resv_regions.i, align 16
   %inc.i.i = add nuw i32 %i.08.i.i, 1
   %24 = load i32, ptr %nr_prop_resv_regions.i.i, align 8
@@ -3956,14 +3952,14 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 error:                                            ; preds = %for.inc
   %name22 = getelementptr inbounds i8, ptr %mr, i64 232
   %25 = load ptr, ptr %name22, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1255, ptr noundef nonnull @__func__.virtio_iommu_set_iova_ranges, ptr noundef nonnull @.str.120, ptr noundef %25) #12
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 1255, ptr noundef nonnull @__func__.virtio_iommu_set_iova_ranges, ptr noundef nonnull @.str.120, ptr noundef %25) #13
   %.pre = load ptr, ptr %new_ranges, align 8
   br label %out
 
 out:                                              ; preds = %for.inc12, %if.then, %error
   %26 = phi ptr [ %.pre, %error ], [ null, %if.then ], [ %tmp1.018, %for.inc12 ]
   %ret.0 = phi i32 [ -22, %error ], [ 0, %if.then ], [ 0, %for.inc12 ]
-  call void @g_list_free_full(ptr noundef %26, ptr noundef nonnull @g_free) #12
+  call void @g_list_free_full(ptr noundef %26, ptr noundef nonnull @g_free) #13
   br label %return
 
 return:                                           ; preds = %for.body.i.i, %for.end.i, %out
@@ -3988,12 +3984,12 @@ entry:
   store i32 %endpoint, ptr %endpoint4, align 8
   %address6 = getelementptr inbounds i8, ptr %fault, i64 16
   store i64 %address, ptr %address6, align 8
-  %call7 = tail call ptr @virtqueue_pop(ptr noundef %0, i64 noundef 56) #12
+  %call7 = tail call ptr @virtqueue_pop(ptr noundef %0, i64 noundef 56) #13
   %tobool.not = icmp eq ptr %call7, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call8 = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_report_fault.print_once_, ptr noundef nonnull @.str.101) #12
+  %call8 = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @virtio_iommu_report_fault.print_once_, ptr noundef nonnull @.str.101) #13
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4001,14 +3997,14 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %in_sg, align 8
   %in_num = getelementptr inbounds i8, ptr %call7, i64 16
   %2 = load i32, ptr %in_num, align 8
-  %call10 = tail call i64 @iov_size(ptr noundef %1, i32 noundef %2) #12
+  %call10 = tail call i64 @iov_size(ptr noundef %1, i32 noundef %2) #13
   %cmp = icmp ult i64 %call10, 24
   br i1 %cmp, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end
-  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %viommu, ptr noundef nonnull @.str.102) #12
-  tail call void @virtqueue_detach_element(ptr noundef %0, ptr noundef nonnull %call7, i32 noundef 0) #12
-  tail call void @g_free(ptr noundef nonnull %call7) #12
+  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %viommu, ptr noundef nonnull @.str.102) #13
+  tail call void @virtqueue_detach_element(ptr noundef %0, ptr noundef nonnull %call7, i32 noundef 0) #13
+  tail call void @g_free(ptr noundef nonnull %call7) #13
   br label %return
 
 if.end12:                                         ; preds = %if.end
@@ -4029,12 +4025,12 @@ iov_from_buf.exit.thread:                         ; preds = %land.lhs.true2.i
   br label %if.end18
 
 iov_from_buf.exit:                                ; preds = %if.end12, %land.lhs.true2.i
-  %call.i = call i64 @iov_from_buf_full(ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef nonnull %fault, i64 noundef 24) #12
+  %call.i = call i64 @iov_from_buf_full(ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef nonnull %fault, i64 noundef 24) #13
   %cmp16 = icmp eq i64 %call.i, 24
   br i1 %cmp16, label %if.end18, label %if.else
 
 if.else:                                          ; preds = %iov_from_buf.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.10, i32 noundef 863, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_report_fault) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.10, i32 noundef 863, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_iommu_report_fault) #15
   unreachable
 
 if.end18:                                         ; preds = %iov_from_buf.exit.thread, %iov_from_buf.exit
@@ -4058,25 +4054,25 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = call i32 @qemu_get_thread_id() #13
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %reason to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef %flags, i32 noundef %endpoint, i64 noundef %address) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef %flags, i32 noundef %endpoint, i64 noundef %address) #13
   br label %trace_virtio_iommu_report_fault.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext nneg i8 %reason to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %conv12.i.i, i32 noundef %flags, i32 noundef %endpoint, i64 noundef %address) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %conv12.i.i, i32 noundef %flags, i32 noundef %endpoint, i64 noundef %address) #13
   br label %trace_virtio_iommu_report_fault.exit
 
 trace_virtio_iommu_report_fault.exit:             ; preds = %if.end18, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  call void @virtqueue_push(ptr noundef %0, ptr noundef nonnull %call7, i32 noundef 24) #12
-  call void @virtio_notify(ptr noundef nonnull %viommu, ptr noundef %0) #12
-  call void @g_free(ptr noundef nonnull %call7) #12
+  call void @virtqueue_push(ptr noundef %0, ptr noundef nonnull %call7, i32 noundef 24) #13
+  call void @virtio_notify(ptr noundef nonnull %viommu, ptr noundef %0) #13
+  call void @g_free(ptr noundef nonnull %call7) #13
   br label %return
 
 return:                                           ; preds = %trace_virtio_iommu_report_fault.exit, %if.then11, %if.then
@@ -4113,16 +4109,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #13
   br label %trace_virtio_iommu_remap.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #13
   br label %trace_virtio_iommu_remap.exit
 
 trace_virtio_iommu_remap.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4142,11 +4138,14 @@ declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4159,11 +4158,12 @@ attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind allocsize(0,1) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

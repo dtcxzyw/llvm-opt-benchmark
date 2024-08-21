@@ -486,12 +486,8 @@ define internal range(i32 -1, 2) i32 @comparecost(ptr nocapture noundef readonly
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %4, %6
-  %8 = zext i1 %7 to i32
-  %9 = icmp slt i32 %4, %6
-  %.neg.i = sext i1 %9 to i32
-  %10 = add nsw i32 %.neg.i, %8
-  ret i32 %10
+  %7 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %4, i32 %6)
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -568,6 +564,9 @@ gtsquery_consistent.exit:                         ; preds = %1, %27, %29, %42, %
   %46 = zext i1 %.0.shrunk.i to i64
   ret i64 %46
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

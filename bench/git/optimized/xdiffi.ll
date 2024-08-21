@@ -788,16 +788,16 @@ group_init.exit37:                                ; preds = %while.body.i33, %gr
   %post_indent.i = getelementptr inbounds i8, ptr %m, i64 20
   br label %while.body
 
-while.body.loopexit:                              ; preds = %for.cond.i229
+while.body.loopexit:                              ; preds = %for.cond.i228
   br label %while.body, !llvm.loop !21
 
 while.body:                                       ; preds = %while.body.loopexit, %group_init.exit37
   %8 = phi ptr [ %4, %group_init.exit37 ], [ %112, %while.body.loopexit ]
   %9 = phi ptr [ %0, %group_init.exit37 ], [ %113, %while.body.loopexit ]
-  %g.sroa.0.0 = phi i64 [ 0, %group_init.exit37 ], [ %add.i214, %while.body.loopexit ]
-  %g.sroa.19.0 = phi i64 [ %g.sroa.19.7, %group_init.exit37 ], [ %storemerge.i217, %while.body.loopexit ]
-  %go.sroa.0.0 = phi i64 [ 0, %group_init.exit37 ], [ %add.i227, %while.body.loopexit ]
-  %go.sroa.13.0 = phi i64 [ %go.sroa.13.7, %group_init.exit37 ], [ %storemerge.i230, %while.body.loopexit ]
+  %g.sroa.0.0 = phi i64 [ 0, %group_init.exit37 ], [ %add.i213, %while.body.loopexit ]
+  %g.sroa.19.0 = phi i64 [ %g.sroa.19.7, %group_init.exit37 ], [ %storemerge.i216, %while.body.loopexit ]
+  %go.sroa.0.0 = phi i64 [ 0, %group_init.exit37 ], [ %add.i226, %while.body.loopexit ]
+  %go.sroa.13.0 = phi i64 [ %go.sroa.13.7, %group_init.exit37 ], [ %storemerge.i229, %while.body.loopexit ]
   %best_score.sroa.2.0 = phi i32 [ undef, %group_init.exit37 ], [ %best_score.sroa.2.1, %while.body.loopexit ]
   %best_score.sroa.0.0 = phi i32 [ undef, %group_init.exit37 ], [ %best_score.sroa.0.1, %while.body.loopexit ]
   %cmp = icmp eq i64 %g.sroa.19.0, %g.sroa.0.0
@@ -812,23 +812,23 @@ do.body:                                          ; preds = %while.body, %do.con
   %go.sroa.0.2 = phi i64 [ %go.sroa.0.4.lcssa, %do.cond ], [ %go.sroa.0.0, %while.body ]
   %go.sroa.13.2 = phi i64 [ %go.sroa.13.4.lcssa, %do.cond ], [ %go.sroa.13.0, %while.body ]
   %sub = sub nsw i64 %g.sroa.19.2, %g.sroa.0.2
-  %cmp.i413 = icmp sgt i64 %g.sroa.0.2, 0
-  br i1 %cmp.i413, label %land.lhs.true.i.preheader, label %while.end
+  %cmp.i412 = icmp sgt i64 %g.sroa.0.2, 0
+  br i1 %cmp.i412, label %land.lhs.true.i.preheader, label %while.end
 
 land.lhs.true.i.preheader:                        ; preds = %do.body
   %13 = load ptr, ptr %recs.i, align 8
   %14 = getelementptr ptr, ptr %13, i64 %g.sroa.0.2
-  %arrayidx.i38514 = getelementptr i8, ptr %14, i64 -8
-  %15 = load ptr, ptr %arrayidx.i38514, align 8
+  %arrayidx.i38513 = getelementptr i8, ptr %14, i64 -8
+  %15 = load ptr, ptr %arrayidx.i38513, align 8
   %16 = getelementptr ptr, ptr %13, i64 %g.sroa.19.2
-  %arrayidx4.i515 = getelementptr i8, ptr %16, i64 -8
-  %17 = load ptr, ptr %arrayidx4.i515, align 8
+  %arrayidx4.i514 = getelementptr i8, ptr %16, i64 -8
+  %17 = load ptr, ptr %arrayidx4.i514, align 8
   %18 = getelementptr i8, ptr %15, i64 24
-  %.val.i516 = load i64, ptr %18, align 8
+  %.val.i515 = load i64, ptr %18, align 8
   %19 = getelementptr i8, ptr %17, i64 24
-  %.val11.i517 = load i64, ptr %19, align 8
-  %cmp.i.not.i518 = icmp eq i64 %.val.i516, %.val11.i517
-  br i1 %cmp.i.not.i518, label %if.then.i, label %while.end
+  %.val11.i516 = load i64, ptr %19, align 8
+  %cmp.i.not.i517 = icmp eq i64 %.val.i515, %.val11.i516
+  br i1 %cmp.i.not.i517, label %if.then.i, label %while.end
 
 land.lhs.true.i:                                  ; preds = %group_previous.exit
   %20 = load ptr, ptr %recs.i, align 8
@@ -846,15 +846,15 @@ land.lhs.true.i:                                  ; preds = %group_previous.exit
   br i1 %cmp.i.not.i, label %if.then.i, label %while.end, !llvm.loop !22
 
 if.then.i:                                        ; preds = %land.lhs.true.i.preheader, %land.lhs.true.i
-  %g.sroa.0.3414521 = phi i64 [ %g.sroa.0.7.ph, %land.lhs.true.i ], [ %g.sroa.0.2, %land.lhs.true.i.preheader ]
-  %g.sroa.19.3415520 = phi i64 [ %dec9.i, %land.lhs.true.i ], [ %g.sroa.19.2, %land.lhs.true.i.preheader ]
-  %go.sroa.0.3416519 = phi i64 [ %storemerge.i, %land.lhs.true.i ], [ %go.sroa.0.2, %land.lhs.true.i.preheader ]
+  %g.sroa.0.3413520 = phi i64 [ %g.sroa.0.7.ph, %land.lhs.true.i ], [ %g.sroa.0.2, %land.lhs.true.i.preheader ]
+  %g.sroa.19.3414519 = phi i64 [ %dec9.i, %land.lhs.true.i ], [ %g.sroa.19.2, %land.lhs.true.i.preheader ]
+  %go.sroa.0.3415518 = phi i64 [ %storemerge.i, %land.lhs.true.i ], [ %go.sroa.0.2, %land.lhs.true.i.preheader ]
   %27 = phi ptr [ %29, %land.lhs.true.i ], [ %12, %land.lhs.true.i.preheader ]
-  %dec.i = add nsw i64 %g.sroa.0.3414521, -1
+  %dec.i = add nsw i64 %g.sroa.0.3413520, -1
   %arrayidx6.i = getelementptr inbounds i8, ptr %27, i64 %dec.i
   store i8 1, ptr %arrayidx6.i, align 1
   %28 = load ptr, ptr %rchg.i, align 8
-  %dec9.i = add nsw i64 %g.sroa.19.3415520, -1
+  %dec9.i = add nsw i64 %g.sroa.19.3414519, -1
   %arrayidx10.i = getelementptr inbounds i8, ptr %28, i64 %dec9.i
   store i8 0, ptr %arrayidx10.i, align 1
   %29 = load ptr, ptr %rchg.i, align 8
@@ -878,19 +878,19 @@ while.body.i41:                                   ; preds = %while.body.i41.preh
 
 while.body4:                                      ; preds = %while.body.i41, %if.then.i
   %g.sroa.0.7.ph = phi i64 [ %dec.i, %if.then.i ], [ %dec17.i, %while.body.i41 ]
-  %cmp.i42 = icmp eq i64 %go.sroa.0.3416519, 0
+  %cmp.i42 = icmp eq i64 %go.sroa.0.3415518, 0
   br i1 %cmp.i42, label %if.then7, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body4
-  %sub.i = add nsw i64 %go.sroa.0.3416519, -1
+  %sub.i = add nsw i64 %go.sroa.0.3415518, -1
   %34 = load ptr, ptr %rchg.i31, align 8
-  %invariant.gep411 = getelementptr i8, ptr %34, i64 -1
+  %invariant.gep410 = getelementptr i8, ptr %34, i64 -1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i, %if.end.i
   %storemerge.i = phi i64 [ %sub.i, %if.end.i ], [ %dec.i47, %for.cond.i ]
-  %gep412 = getelementptr i8, ptr %invariant.gep411, i64 %storemerge.i
-  %35 = load i8, ptr %gep412, align 1
+  %gep411 = getelementptr i8, ptr %invariant.gep410, i64 %storemerge.i
+  %35 = load i8, ptr %gep411, align 1
   %tobool.not.i46 = icmp eq i8 %35, 0
   %dec.i47 = add nsw i64 %storemerge.i, -1
   br i1 %tobool.not.i46, label %group_previous.exit, label %for.cond.i, !llvm.loop !24
@@ -914,21 +914,21 @@ while.end:                                        ; preds = %land.lhs.true.i, %g
   %cmp12 = icmp sgt i64 %go.sroa.13.3.lcssa, %go.sroa.0.3.lcssa
   %spec.select = select i1 %cmp12, i64 %g.sroa.19.3.lcssa, i64 -1
   %39 = load i64, ptr %nrec.i, align 8
-  %cmp.i50425 = icmp slt i64 %g.sroa.19.3.lcssa, %39
-  br i1 %cmp.i50425, label %land.lhs.true.i52.preheader, label %do.cond
+  %cmp.i50424 = icmp slt i64 %g.sroa.19.3.lcssa, %39
+  br i1 %cmp.i50424, label %land.lhs.true.i52.preheader, label %do.cond
 
 land.lhs.true.i52.preheader:                      ; preds = %while.end
   %40 = load ptr, ptr %recs.i, align 8
-  %arrayidx.i54535 = getelementptr inbounds ptr, ptr %40, i64 %g.sroa.0.3.lcssa
-  %41 = load ptr, ptr %arrayidx.i54535, align 8
-  %arrayidx3.i536 = getelementptr inbounds ptr, ptr %40, i64 %g.sroa.19.3.lcssa
-  %42 = load ptr, ptr %arrayidx3.i536, align 8
+  %arrayidx.i54534 = getelementptr inbounds ptr, ptr %40, i64 %g.sroa.0.3.lcssa
+  %41 = load ptr, ptr %arrayidx.i54534, align 8
+  %arrayidx3.i535 = getelementptr inbounds ptr, ptr %40, i64 %g.sroa.19.3.lcssa
+  %42 = load ptr, ptr %arrayidx3.i535, align 8
   %43 = getelementptr i8, ptr %41, i64 24
-  %.val.i55537 = load i64, ptr %43, align 8
+  %.val.i55536 = load i64, ptr %43, align 8
   %44 = getelementptr i8, ptr %42, i64 24
-  %.val12.i538 = load i64, ptr %44, align 8
-  %cmp.i.not.i56539 = icmp eq i64 %.val.i55537, %.val12.i538
-  br i1 %cmp.i.not.i56539, label %if.then.i57, label %do.cond
+  %.val12.i537 = load i64, ptr %44, align 8
+  %cmp.i.not.i56538 = icmp eq i64 %.val.i55536, %.val12.i537
+  br i1 %cmp.i.not.i56538, label %if.then.i57, label %do.cond
 
 land.lhs.true.i52:                                ; preds = %if.end25
   %45 = load ptr, ptr %recs.i, align 8
@@ -944,17 +944,17 @@ land.lhs.true.i52:                                ; preds = %if.end25
   br i1 %cmp.i.not.i56, label %if.then.i57, label %do.cond
 
 if.then.i57:                                      ; preds = %land.lhs.true.i52.preheader, %land.lhs.true.i52
-  %g.sroa.0.4426543 = phi i64 [ %inc.i59, %land.lhs.true.i52 ], [ %g.sroa.0.3.lcssa, %land.lhs.true.i52.preheader ]
-  %g.sroa.19.4427542 = phi i64 [ %g.sroa.19.9.ph, %land.lhs.true.i52 ], [ %g.sroa.19.3.lcssa, %land.lhs.true.i52.preheader ]
-  %go.sroa.13.4429541 = phi i64 [ %storemerge.i67, %land.lhs.true.i52 ], [ %go.sroa.13.3.lcssa, %land.lhs.true.i52.preheader ]
-  %end_matching_other.1430540 = phi i64 [ %spec.select26, %land.lhs.true.i52 ], [ %spec.select, %land.lhs.true.i52.preheader ]
+  %g.sroa.0.4425542 = phi i64 [ %inc.i59, %land.lhs.true.i52 ], [ %g.sroa.0.3.lcssa, %land.lhs.true.i52.preheader ]
+  %g.sroa.19.4426541 = phi i64 [ %g.sroa.19.9.ph, %land.lhs.true.i52 ], [ %g.sroa.19.3.lcssa, %land.lhs.true.i52.preheader ]
+  %go.sroa.13.4428540 = phi i64 [ %storemerge.i67, %land.lhs.true.i52 ], [ %go.sroa.13.3.lcssa, %land.lhs.true.i52.preheader ]
+  %end_matching_other.1429539 = phi i64 [ %spec.select26, %land.lhs.true.i52 ], [ %spec.select, %land.lhs.true.i52.preheader ]
   %50 = phi ptr [ %52, %land.lhs.true.i52 ], [ %38, %land.lhs.true.i52.preheader ]
-  %inc.i59 = add nsw i64 %g.sroa.0.4426543, 1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %50, i64 %g.sroa.0.4426543
+  %inc.i59 = add nsw i64 %g.sroa.0.4425542, 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %50, i64 %g.sroa.0.4425542
   store i8 0, ptr %arrayidx5.i, align 1
   %51 = load ptr, ptr %rchg.i, align 8
-  %inc8.i = add nsw i64 %g.sroa.19.4427542, 1
-  %arrayidx9.i = getelementptr inbounds i8, ptr %51, i64 %g.sroa.19.4427542
+  %inc8.i = add nsw i64 %g.sroa.19.4426541, 1
+  %arrayidx9.i = getelementptr inbounds i8, ptr %51, i64 %g.sroa.19.4426541
   store i8 1, ptr %arrayidx9.i, align 1
   %52 = load ptr, ptr %rchg.i, align 8
   %arrayidx1213.i = getelementptr inbounds i8, ptr %52, i64 %inc8.i
@@ -973,11 +973,11 @@ while.body.i60:                                   ; preds = %if.then.i57, %while
 if.end21:                                         ; preds = %while.body.i60, %if.then.i57
   %g.sroa.19.9.ph = phi i64 [ %inc8.i, %if.then.i57 ], [ %inc15.i, %while.body.i60 ]
   %56 = load i64, ptr %nrec.i62, align 8
-  %cmp.i63 = icmp eq i64 %go.sroa.13.4429541, %56
+  %cmp.i63 = icmp eq i64 %go.sroa.13.4428540, %56
   br i1 %cmp.i63, label %if.then24, label %if.end.i64
 
 if.end.i64:                                       ; preds = %if.end21
-  %add.i = add nsw i64 %go.sroa.13.4429541, 1
+  %add.i = add nsw i64 %go.sroa.13.4428540, 1
   %57 = load ptr, ptr %rchg.i31, align 8
   br label %for.cond.i66
 
@@ -995,7 +995,7 @@ if.then24:                                        ; preds = %if.end21
 
 if.end25:                                         ; preds = %for.cond.i66
   %cmp28 = icmp sgt i64 %storemerge.i67, %add.i
-  %spec.select26 = select i1 %cmp28, i64 %g.sroa.19.9.ph, i64 %end_matching_other.1430540
+  %spec.select26 = select i1 %cmp28, i64 %g.sroa.19.9.ph, i64 %end_matching_other.1429539
   %59 = load i64, ptr %nrec.i, align 8
   %cmp.i50 = icmp slt i64 %g.sroa.19.9.ph, %59
   br i1 %cmp.i50, label %land.lhs.true.i52, label %do.cond
@@ -1022,23 +1022,23 @@ if.else:                                          ; preds = %do.end
   br i1 %cmp40.not, label %if.else56, label %while.cond42.preheader
 
 while.cond42.preheader:                           ; preds = %if.else
-  %cmp45445 = icmp eq i64 %go.sroa.13.4.lcssa, %go.sroa.0.4.lcssa
-  br i1 %cmp45445, label %while.body46, label %next
+  %cmp45444 = icmp eq i64 %go.sroa.13.4.lcssa, %go.sroa.0.4.lcssa
+  br i1 %cmp45444, label %while.body46, label %next
 
 while.body46:                                     ; preds = %while.cond42.preheader, %group_previous.exit106
   %63 = phi ptr [ %72, %group_previous.exit106 ], [ %62, %while.cond42.preheader ]
-  %go.sroa.0.5448 = phi i64 [ %sub.i97, %group_previous.exit106 ], [ %go.sroa.0.4.lcssa, %while.cond42.preheader ]
-  %g.sroa.19.5447 = phi i64 [ %dec9.i86, %group_previous.exit106 ], [ %g.sroa.19.4.lcssa, %while.cond42.preheader ]
-  %g.sroa.0.5446 = phi i64 [ %g.sroa.0.9.ph, %group_previous.exit106 ], [ %g.sroa.0.4.lcssa, %while.cond42.preheader ]
-  %cmp.i72 = icmp sgt i64 %g.sroa.0.5446, 0
+  %go.sroa.0.5447 = phi i64 [ %sub.i97, %group_previous.exit106 ], [ %go.sroa.0.4.lcssa, %while.cond42.preheader ]
+  %g.sroa.19.5446 = phi i64 [ %dec9.i86, %group_previous.exit106 ], [ %g.sroa.19.4.lcssa, %while.cond42.preheader ]
+  %g.sroa.0.5445 = phi i64 [ %g.sroa.0.9.ph, %group_previous.exit106 ], [ %g.sroa.0.4.lcssa, %while.cond42.preheader ]
+  %cmp.i72 = icmp sgt i64 %g.sroa.0.5445, 0
   br i1 %cmp.i72, label %land.lhs.true.i74, label %if.then49
 
 land.lhs.true.i74:                                ; preds = %while.body46
   %64 = load ptr, ptr %recs.i, align 8
-  %65 = getelementptr ptr, ptr %64, i64 %g.sroa.0.5446
+  %65 = getelementptr ptr, ptr %64, i64 %g.sroa.0.5445
   %arrayidx.i76 = getelementptr i8, ptr %65, i64 -8
   %66 = load ptr, ptr %arrayidx.i76, align 8
-  %67 = getelementptr ptr, ptr %64, i64 %g.sroa.19.5447
+  %67 = getelementptr ptr, ptr %64, i64 %g.sroa.19.5446
   %arrayidx4.i78 = getelementptr i8, ptr %67, i64 -8
   %68 = load ptr, ptr %arrayidx4.i78, align 8
   %69 = getelementptr i8, ptr %66, i64 24
@@ -1049,11 +1049,11 @@ land.lhs.true.i74:                                ; preds = %while.body46
   br i1 %cmp.i.not.i81, label %if.then.i82, label %if.then49
 
 if.then.i82:                                      ; preds = %land.lhs.true.i74
-  %dec.i84 = add nsw i64 %g.sroa.0.5446, -1
+  %dec.i84 = add nsw i64 %g.sroa.0.5445, -1
   %arrayidx6.i85 = getelementptr inbounds i8, ptr %63, i64 %dec.i84
   store i8 1, ptr %arrayidx6.i85, align 1
   %71 = load ptr, ptr %rchg.i, align 8
-  %dec9.i86 = add nsw i64 %g.sroa.19.5447, -1
+  %dec9.i86 = add nsw i64 %g.sroa.19.5446, -1
   %arrayidx10.i87 = getelementptr inbounds i8, ptr %71, i64 %dec9.i86
   store i8 0, ptr %arrayidx10.i87, align 1
   %72 = load ptr, ptr %rchg.i, align 8
@@ -1064,14 +1064,14 @@ if.then.i82:                                      ; preds = %land.lhs.true.i74
   br i1 %tobool15.not13.i89, label %if.end50, label %while.body.i90.preheader
 
 while.body.i90.preheader:                         ; preds = %if.then.i82
-  %invariant.gep441 = getelementptr i8, ptr %72, i64 -1
+  %invariant.gep440 = getelementptr i8, ptr %72, i64 -1
   br label %while.body.i90
 
 while.body.i90:                                   ; preds = %while.body.i90.preheader, %while.body.i90
   %75 = phi i64 [ %dec17.i91, %while.body.i90 ], [ %dec.i84, %while.body.i90.preheader ]
   %dec17.i91 = add nsw i64 %75, -1
-  %gep442 = getelementptr i8, ptr %invariant.gep441, i64 %dec17.i91
-  %76 = load i8, ptr %gep442, align 1
+  %gep441 = getelementptr i8, ptr %invariant.gep440, i64 %dec17.i91
+  %76 = load i8, ptr %gep441, align 1
   %tobool15.not.i93 = icmp eq i8 %76, 0
   br i1 %tobool15.not.i93, label %if.end50, label %while.body.i90, !llvm.loop !23
 
@@ -1081,19 +1081,19 @@ if.then49:                                        ; preds = %land.lhs.true.i74, 
 
 if.end50:                                         ; preds = %while.body.i90, %if.then.i82
   %g.sroa.0.9.ph = phi i64 [ %dec.i84, %if.then.i82 ], [ %dec17.i91, %while.body.i90 ]
-  %cmp.i95 = icmp eq i64 %go.sroa.0.5448, 0
+  %cmp.i95 = icmp eq i64 %go.sroa.0.5447, 0
   br i1 %cmp.i95, label %if.then53, label %if.end.i96
 
 if.end.i96:                                       ; preds = %if.end50
-  %sub.i97 = add nsw i64 %go.sroa.0.5448, -1
+  %sub.i97 = add nsw i64 %go.sroa.0.5447, -1
   %77 = load ptr, ptr %rchg.i31, align 8
-  %invariant.gep443 = getelementptr i8, ptr %77, i64 -1
+  %invariant.gep442 = getelementptr i8, ptr %77, i64 -1
   br label %for.cond.i100
 
 for.cond.i100:                                    ; preds = %for.cond.i100, %if.end.i96
   %storemerge.i101 = phi i64 [ %sub.i97, %if.end.i96 ], [ %dec.i104, %for.cond.i100 ]
-  %gep444 = getelementptr i8, ptr %invariant.gep443, i64 %storemerge.i101
-  %78 = load i8, ptr %gep444, align 1
+  %gep443 = getelementptr i8, ptr %invariant.gep442, i64 %storemerge.i101
+  %78 = load i8, ptr %gep443, align 1
   %tobool.not.i103 = icmp eq i8 %78, 0
   %dec.i104 = add nsw i64 %storemerge.i101, -1
   br i1 %tobool.not.i103, label %group_previous.exit106, label %for.cond.i100, !llvm.loop !24
@@ -1113,8 +1113,8 @@ if.then58:                                        ; preds = %if.else56
   %79 = xor i64 %sub, -1
   %sub61 = add i64 %g.sroa.19.4.lcssa, %79
   %spec.select27 = tail call i64 @llvm.smax.i64(i64 %sub61, i64 %g.sroa.19.3.lcssa)
-  %cmp76.not451 = icmp sgt i64 %spec.select27, %g.sroa.19.4.lcssa
-  br i1 %cmp76.not451, label %while.cond85.preheader, label %for.body.preheader
+  %cmp76.not450 = icmp sgt i64 %spec.select27, %g.sroa.19.4.lcssa
+  br i1 %cmp76.not450, label %while.cond85.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then58
   %sub69 = add nsw i64 %g.sroa.19.4.lcssa, -100
@@ -1125,15 +1125,15 @@ while.cond85.preheader:                           ; preds = %for.inc, %if.then58
   %best_score.sroa.2.2.lcssa = phi i32 [ %best_score.sroa.2.0, %if.then58 ], [ %best_score.sroa.2.3, %for.inc ]
   %best_score.sroa.0.2.lcssa = phi i32 [ %best_score.sroa.0.0, %if.then58 ], [ %best_score.sroa.0.3, %for.inc ]
   %best_shift.0.lcssa = phi i64 [ -1, %if.then58 ], [ %best_shift.1, %for.inc ]
-  %cmp87463 = icmp sgt i64 %g.sroa.19.4.lcssa, %best_shift.0.lcssa
-  br i1 %cmp87463, label %while.body88, label %next
+  %cmp87462 = icmp sgt i64 %g.sroa.19.4.lcssa, %best_shift.0.lcssa
+  br i1 %cmp87462, label %while.body88, label %next
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %best_shift.0455 = phi i64 [ %best_shift.1, %for.inc ], [ -1, %for.body.preheader ]
-  %shift.2454 = phi i64 [ %inc, %for.inc ], [ %shift.1, %for.body.preheader ]
-  %best_score.sroa.0.2453 = phi i32 [ %best_score.sroa.0.3, %for.inc ], [ %best_score.sroa.0.0, %for.body.preheader ]
-  %best_score.sroa.2.2452 = phi i32 [ %best_score.sroa.2.3, %for.inc ], [ %best_score.sroa.2.0, %for.body.preheader ]
-  call fastcc void @measure_split(ptr noundef %xdf, i64 noundef %shift.2454, ptr noundef nonnull %m)
+  %best_shift.0454 = phi i64 [ %best_shift.1, %for.inc ], [ -1, %for.body.preheader ]
+  %shift.2453 = phi i64 [ %inc, %for.inc ], [ %shift.1, %for.body.preheader ]
+  %best_score.sroa.0.2452 = phi i32 [ %best_score.sroa.0.3, %for.inc ], [ %best_score.sroa.0.0, %for.body.preheader ]
+  %best_score.sroa.2.2451 = phi i32 [ %best_score.sroa.2.3, %for.inc ], [ %best_score.sroa.2.0, %for.body.preheader ]
+  call fastcc void @measure_split(ptr noundef %xdf, i64 noundef %shift.2453, ptr noundef nonnull %m)
   %80 = load i32, ptr %pre_indent.i, align 4
   %cmp.i107 = icmp eq i32 %80, -1
   %81 = load i32, ptr %pre_blank.i, align 4
@@ -1156,20 +1156,20 @@ if.end21.thread.i:                                ; preds = %for.body
 if.end21.i:                                       ; preds = %for.body
   %84 = load i32, ptr %post_blank8.i, align 4
   %add9.i = add nsw i32 %84, 1
-  %add11.i343 = add nsw i32 %81, %add9.i
-  %mul.i344 = mul nsw i32 %add11.i343, -30
-  %mul14.i345 = mul nsw i32 %add9.i, 6
-  %add13.i346 = add i32 %mul14.i345, %score.sroa.11.1
-  %add16.i347 = add i32 %add13.i346, %mul.i344
+  %add11.i342 = add nsw i32 %81, %add9.i
+  %mul.i343 = mul nsw i32 %add11.i342, -30
+  %mul14.i344 = mul nsw i32 %add9.i, 6
+  %add13.i345 = add i32 %mul14.i344, %score.sroa.11.1
+  %add16.i346 = add i32 %add13.i345, %mul.i343
   %85 = load i32, ptr %post_indent.i, align 4
   %cmp24.i = icmp eq i32 %85, -1
   br i1 %cmp24.i, label %score_add_split.exit, label %if.else27.i
 
 if.else27.i:                                      ; preds = %if.end21.i, %if.end21.thread.i
-  %add16.i353 = phi i32 [ %add16.i347, %if.end21.i ], [ %add16.i, %if.end21.thread.i ]
-  %add11.i351 = phi i32 [ %add11.i343, %if.end21.i ], [ %81, %if.end21.thread.i ]
+  %add16.i352 = phi i32 [ %add16.i346, %if.end21.i ], [ %add16.i, %if.end21.thread.i ]
+  %add11.i350 = phi i32 [ %add11.i342, %if.end21.i ], [ %81, %if.end21.thread.i ]
   %score.sroa.0.0 = phi i32 [ %85, %if.end21.i ], [ %83, %if.end21.thread.i ]
-  %cmp22.not36.i = icmp eq i32 %add11.i351, 0
+  %cmp22.not36.i = icmp eq i32 %add11.i350, 0
   br i1 %cmp.i107, label %score_add_split.exit, label %if.else32.i
 
 if.else32.i:                                      ; preds = %if.else27.i
@@ -1201,25 +1201,25 @@ if.else59.i:                                      ; preds = %if.else46.i
 
 if.end68.sink.split.i:                            ; preds = %if.else59.i, %if.then54.i, %if.then36.i
   %cond61.sink.i = phi i32 [ %cond61.i, %if.else59.i ], [ %cond56.i, %if.then54.i ], [ %cond38.i, %if.then36.i ]
-  %add63.i = add nsw i32 %cond61.sink.i, %add16.i353
+  %add63.i = add nsw i32 %cond61.sink.i, %add16.i352
   br label %score_add_split.exit
 
 score_add_split.exit:                             ; preds = %if.end21.i, %if.else27.i, %if.else41.i, %if.end68.sink.split.i
-  %score.sroa.11.2 = phi i32 [ %add16.i347, %if.end21.i ], [ %add16.i353, %if.else27.i ], [ %add63.i, %if.end68.sink.split.i ], [ %add16.i353, %if.else41.i ]
+  %score.sroa.11.2 = phi i32 [ %add16.i346, %if.end21.i ], [ %add16.i352, %if.else27.i ], [ %add63.i, %if.end68.sink.split.i ], [ %add16.i352, %if.else41.i ]
   %score.sroa.0.1 = phi i32 [ -1, %if.end21.i ], [ %score.sroa.0.0, %if.else27.i ], [ %score.sroa.0.0, %if.end68.sink.split.i ], [ %80, %if.else41.i ]
-  %sub77 = sub nsw i64 %shift.2454, %sub
+  %sub77 = sub nsw i64 %shift.2453, %sub
   call fastcc void @measure_split(ptr noundef %xdf, i64 noundef %sub77, ptr noundef nonnull %m)
   %87 = load i32, ptr %pre_indent.i, align 4
   %cmp.i114 = icmp eq i32 %87, -1
   %88 = load i32, ptr %pre_blank.i, align 4
   %cmp1.i166 = icmp eq i32 %88, 0
   %narrow = select i1 %cmp.i114, i1 %cmp1.i166, i1 false
-  %spec.select387 = zext i1 %narrow to i32
-  %score.sroa.11.3 = add nsw i32 %score.sroa.11.2, %spec.select387
+  %spec.select386 = zext i1 %narrow to i32
+  %score.sroa.11.3 = add nsw i32 %score.sroa.11.2, %spec.select386
   %89 = load i32, ptr %m, align 4
   %tobool.not.i116 = icmp eq i32 %89, 0
   %add4.i119 = add nsw i32 %score.sroa.11.3, 21
-  %spec.select388 = select i1 %tobool.not.i116, i32 %score.sroa.11.3, i32 %add4.i119
+  %spec.select387 = select i1 %tobool.not.i116, i32 %score.sroa.11.3, i32 %add4.i119
   %90 = load i32, ptr %indent6.i, align 4
   %cmp7.i122 = icmp eq i32 %90, -1
   br i1 %cmp7.i122, label %if.end21.i157, label %if.end21.thread.i133
@@ -1227,7 +1227,7 @@ score_add_split.exit:                             ; preds = %if.end21.i, %if.els
 if.end21.thread.i133:                             ; preds = %score_add_split.exit
   %91 = load i32, ptr %pre_blank.i, align 4
   %mul.i127 = mul nsw i32 %91, -30
-  %add16.i131 = add i32 %mul.i127, %spec.select388
+  %add16.i131 = add i32 %mul.i127, %spec.select387
   %add2333.i134 = add nsw i32 %90, %score.sroa.0.1
   br label %if.else27.i135
 
@@ -1235,22 +1235,22 @@ if.end21.i157:                                    ; preds = %score_add_split.exi
   %92 = load i32, ptr %post_blank8.i, align 4
   %add9.i163 = add nsw i32 %92, 1
   %93 = load i32, ptr %pre_blank.i, align 4
-  %add11.i126356 = add nsw i32 %93, %add9.i163
-  %mul.i127357 = mul nsw i32 %add11.i126356, -30
-  %mul14.i129358 = mul nsw i32 %add9.i163, 6
-  %add13.i130359 = add i32 %mul14.i129358, %spec.select388
-  %add16.i131360 = add i32 %add13.i130359, %mul.i127357
+  %add11.i126355 = add nsw i32 %93, %add9.i163
+  %mul.i127356 = mul nsw i32 %add11.i126355, -30
+  %mul14.i129357 = mul nsw i32 %add9.i163, 6
+  %add13.i130358 = add i32 %mul14.i129357, %spec.select387
+  %add16.i131359 = add i32 %add13.i130358, %mul.i127356
   %94 = load i32, ptr %post_indent.i, align 4
   %add23.i159 = add nsw i32 %94, %score.sroa.0.1
   %cmp24.i160 = icmp eq i32 %94, -1
   br i1 %cmp24.i160, label %score_add_split.exit170, label %if.else27.i135
 
 if.else27.i135:                                   ; preds = %if.end21.i157, %if.end21.thread.i133
-  %add16.i131363 = phi i32 [ %add16.i131360, %if.end21.i157 ], [ %add16.i131, %if.end21.thread.i133 ]
-  %add11.i126361 = phi i32 [ %add11.i126356, %if.end21.i157 ], [ %91, %if.end21.thread.i133 ]
+  %add16.i131362 = phi i32 [ %add16.i131359, %if.end21.i157 ], [ %add16.i131, %if.end21.thread.i133 ]
+  %add11.i126360 = phi i32 [ %add11.i126355, %if.end21.i157 ], [ %91, %if.end21.thread.i133 ]
   %score.sroa.0.2 = phi i32 [ %add23.i159, %if.end21.i157 ], [ %add2333.i134, %if.end21.thread.i133 ]
   %indent.035.i136 = phi i32 [ %94, %if.end21.i157 ], [ %90, %if.end21.thread.i133 ]
-  %cmp22.not36.i137 = icmp eq i32 %add11.i126361, 0
+  %cmp22.not36.i137 = icmp eq i32 %add11.i126360, 0
   br i1 %cmp.i114, label %score_add_split.exit170, label %if.else32.i139
 
 if.else32.i139:                                   ; preds = %if.else27.i135
@@ -1282,158 +1282,154 @@ if.else59.i148:                                   ; preds = %if.else46.i143
 
 if.end68.sink.split.i150:                         ; preds = %if.else59.i148, %if.then54.i153, %if.then36.i155
   %cond61.sink.i151 = phi i32 [ %cond61.i149, %if.else59.i148 ], [ %cond56.i154, %if.then54.i153 ], [ %cond38.i156, %if.then36.i155 ]
-  %add63.i152 = add nsw i32 %cond61.sink.i151, %add16.i131363
+  %add63.i152 = add nsw i32 %cond61.sink.i151, %add16.i131362
   br label %score_add_split.exit170
 
 score_add_split.exit170:                          ; preds = %if.end21.i157, %if.else27.i135, %if.else41.i141, %if.end68.sink.split.i150
-  %score.sroa.11.5 = phi i32 [ %add16.i131360, %if.end21.i157 ], [ %add16.i131363, %if.else27.i135 ], [ %add63.i152, %if.end68.sink.split.i150 ], [ %add16.i131363, %if.else41.i141 ]
+  %score.sroa.11.5 = phi i32 [ %add16.i131359, %if.end21.i157 ], [ %add16.i131362, %if.else27.i135 ], [ %add63.i152, %if.end68.sink.split.i150 ], [ %add16.i131362, %if.else41.i141 ]
   %score.sroa.0.3 = phi i32 [ %add23.i159, %if.end21.i157 ], [ %score.sroa.0.2, %if.else27.i135 ], [ %score.sroa.0.2, %if.end68.sink.split.i150 ], [ %score.sroa.0.2, %if.else41.i141 ]
-  %cmp78 = icmp eq i64 %best_shift.0455, -1
+  %cmp78 = icmp eq i64 %best_shift.0454, -1
   br i1 %cmp78, label %if.then81, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %score_add_split.exit170
-  %cmp.i171 = icmp sgt i32 %score.sroa.0.3, %best_score.sroa.0.2453
-  %conv.i = zext i1 %cmp.i171 to i32
-  %cmp4.i = icmp slt i32 %score.sroa.0.3, %best_score.sroa.0.2453
-  %conv5.neg.i = sext i1 %cmp4.i to i32
-  %sub.i172 = add nsw i32 %conv5.neg.i, %conv.i
-  %mul.i173 = mul nsw i32 %sub.i172, 60
-  %sub7.i = sub i32 %score.sroa.11.5, %best_score.sroa.2.2452
-  %add.i174 = add nsw i32 %sub7.i, %mul.i173
-  %cmp80 = icmp slt i32 %add.i174, 1
+  %sub.i171 = tail call i32 @llvm.scmp.i32.i32(i32 %score.sroa.0.3, i32 %best_score.sroa.0.2452)
+  %mul.i172 = mul nsw i32 %sub.i171, 60
+  %sub7.i = sub i32 %score.sroa.11.5, %best_score.sroa.2.2451
+  %add.i173 = add nsw i32 %sub7.i, %mul.i172
+  %cmp80 = icmp slt i32 %add.i173, 1
   br i1 %cmp80, label %if.then81, label %for.inc
 
 if.then81:                                        ; preds = %lor.lhs.false, %score_add_split.exit170
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false, %if.then81
-  %best_score.sroa.2.3 = phi i32 [ %score.sroa.11.5, %if.then81 ], [ %best_score.sroa.2.2452, %lor.lhs.false ]
-  %best_score.sroa.0.3 = phi i32 [ %score.sroa.0.3, %if.then81 ], [ %best_score.sroa.0.2453, %lor.lhs.false ]
-  %best_shift.1 = phi i64 [ %shift.2454, %if.then81 ], [ %best_shift.0455, %lor.lhs.false ]
-  %inc = add nsw i64 %shift.2454, 1
-  %cmp76.not.not = icmp slt i64 %shift.2454, %g.sroa.19.4.lcssa
+  %best_score.sroa.2.3 = phi i32 [ %score.sroa.11.5, %if.then81 ], [ %best_score.sroa.2.2451, %lor.lhs.false ]
+  %best_score.sroa.0.3 = phi i32 [ %score.sroa.0.3, %if.then81 ], [ %best_score.sroa.0.2452, %lor.lhs.false ]
+  %best_shift.1 = phi i64 [ %shift.2453, %if.then81 ], [ %best_shift.0454, %lor.lhs.false ]
+  %inc = add nsw i64 %shift.2453, 1
+  %cmp76.not.not = icmp slt i64 %shift.2453, %g.sroa.19.4.lcssa
   br i1 %cmp76.not.not, label %for.body, label %while.cond85.preheader, !llvm.loop !28
 
-while.body88:                                     ; preds = %while.cond85.preheader, %group_previous.exit209
-  %96 = phi ptr [ %105, %group_previous.exit209 ], [ %62, %while.cond85.preheader ]
-  %go.sroa.0.6466 = phi i64 [ %storemerge.i204, %group_previous.exit209 ], [ %go.sroa.0.4.lcssa, %while.cond85.preheader ]
-  %g.sroa.19.6465 = phi i64 [ %dec9.i189, %group_previous.exit209 ], [ %g.sroa.19.4.lcssa, %while.cond85.preheader ]
-  %g.sroa.0.6464 = phi i64 [ %g.sroa.0.10.ph, %group_previous.exit209 ], [ %g.sroa.0.4.lcssa, %while.cond85.preheader ]
-  %cmp.i175 = icmp sgt i64 %g.sroa.0.6464, 0
-  br i1 %cmp.i175, label %land.lhs.true.i177, label %if.then91
+while.body88:                                     ; preds = %while.cond85.preheader, %group_previous.exit208
+  %96 = phi ptr [ %105, %group_previous.exit208 ], [ %62, %while.cond85.preheader ]
+  %go.sroa.0.6465 = phi i64 [ %storemerge.i203, %group_previous.exit208 ], [ %go.sroa.0.4.lcssa, %while.cond85.preheader ]
+  %g.sroa.19.6464 = phi i64 [ %dec9.i188, %group_previous.exit208 ], [ %g.sroa.19.4.lcssa, %while.cond85.preheader ]
+  %g.sroa.0.6463 = phi i64 [ %g.sroa.0.10.ph, %group_previous.exit208 ], [ %g.sroa.0.4.lcssa, %while.cond85.preheader ]
+  %cmp.i174 = icmp sgt i64 %g.sroa.0.6463, 0
+  br i1 %cmp.i174, label %land.lhs.true.i176, label %if.then91
 
-land.lhs.true.i177:                               ; preds = %while.body88
+land.lhs.true.i176:                               ; preds = %while.body88
   %97 = load ptr, ptr %recs.i, align 8
-  %98 = getelementptr ptr, ptr %97, i64 %g.sroa.0.6464
-  %arrayidx.i179 = getelementptr i8, ptr %98, i64 -8
-  %99 = load ptr, ptr %arrayidx.i179, align 8
-  %100 = getelementptr ptr, ptr %97, i64 %g.sroa.19.6465
-  %arrayidx4.i181 = getelementptr i8, ptr %100, i64 -8
-  %101 = load ptr, ptr %arrayidx4.i181, align 8
+  %98 = getelementptr ptr, ptr %97, i64 %g.sroa.0.6463
+  %arrayidx.i178 = getelementptr i8, ptr %98, i64 -8
+  %99 = load ptr, ptr %arrayidx.i178, align 8
+  %100 = getelementptr ptr, ptr %97, i64 %g.sroa.19.6464
+  %arrayidx4.i180 = getelementptr i8, ptr %100, i64 -8
+  %101 = load ptr, ptr %arrayidx4.i180, align 8
   %102 = getelementptr i8, ptr %99, i64 24
-  %.val.i182 = load i64, ptr %102, align 8
+  %.val.i181 = load i64, ptr %102, align 8
   %103 = getelementptr i8, ptr %101, i64 24
-  %.val11.i183 = load i64, ptr %103, align 8
-  %cmp.i.not.i184 = icmp eq i64 %.val.i182, %.val11.i183
-  br i1 %cmp.i.not.i184, label %if.then.i185, label %if.then91
+  %.val11.i182 = load i64, ptr %103, align 8
+  %cmp.i.not.i183 = icmp eq i64 %.val.i181, %.val11.i182
+  br i1 %cmp.i.not.i183, label %if.then.i184, label %if.then91
 
-if.then.i185:                                     ; preds = %land.lhs.true.i177
-  %dec.i187 = add nsw i64 %g.sroa.0.6464, -1
-  %arrayidx6.i188 = getelementptr inbounds i8, ptr %96, i64 %dec.i187
-  store i8 1, ptr %arrayidx6.i188, align 1
+if.then.i184:                                     ; preds = %land.lhs.true.i176
+  %dec.i186 = add nsw i64 %g.sroa.0.6463, -1
+  %arrayidx6.i187 = getelementptr inbounds i8, ptr %96, i64 %dec.i186
+  store i8 1, ptr %arrayidx6.i187, align 1
   %104 = load ptr, ptr %rchg.i, align 8
-  %dec9.i189 = add nsw i64 %g.sroa.19.6465, -1
-  %arrayidx10.i190 = getelementptr inbounds i8, ptr %104, i64 %dec9.i189
-  store i8 0, ptr %arrayidx10.i190, align 1
+  %dec9.i188 = add nsw i64 %g.sroa.19.6464, -1
+  %arrayidx10.i189 = getelementptr inbounds i8, ptr %104, i64 %dec9.i188
+  store i8 0, ptr %arrayidx10.i189, align 1
   %105 = load ptr, ptr %rchg.i, align 8
-  %106 = getelementptr i8, ptr %105, i64 %dec.i187
-  %arrayidx1412.i191 = getelementptr i8, ptr %106, i64 -1
-  %107 = load i8, ptr %arrayidx1412.i191, align 1
-  %tobool15.not13.i192 = icmp eq i8 %107, 0
-  br i1 %tobool15.not13.i192, label %if.end92, label %while.body.i193.preheader
+  %106 = getelementptr i8, ptr %105, i64 %dec.i186
+  %arrayidx1412.i190 = getelementptr i8, ptr %106, i64 -1
+  %107 = load i8, ptr %arrayidx1412.i190, align 1
+  %tobool15.not13.i191 = icmp eq i8 %107, 0
+  br i1 %tobool15.not13.i191, label %if.end92, label %while.body.i192.preheader
 
-while.body.i193.preheader:                        ; preds = %if.then.i185
-  %invariant.gep459 = getelementptr i8, ptr %105, i64 -1
-  br label %while.body.i193
+while.body.i192.preheader:                        ; preds = %if.then.i184
+  %invariant.gep458 = getelementptr i8, ptr %105, i64 -1
+  br label %while.body.i192
 
-while.body.i193:                                  ; preds = %while.body.i193.preheader, %while.body.i193
-  %108 = phi i64 [ %dec17.i194, %while.body.i193 ], [ %dec.i187, %while.body.i193.preheader ]
-  %dec17.i194 = add nsw i64 %108, -1
-  %gep460 = getelementptr i8, ptr %invariant.gep459, i64 %dec17.i194
-  %109 = load i8, ptr %gep460, align 1
-  %tobool15.not.i196 = icmp eq i8 %109, 0
-  br i1 %tobool15.not.i196, label %if.end92, label %while.body.i193, !llvm.loop !23
+while.body.i192:                                  ; preds = %while.body.i192.preheader, %while.body.i192
+  %108 = phi i64 [ %dec17.i193, %while.body.i192 ], [ %dec.i186, %while.body.i192.preheader ]
+  %dec17.i193 = add nsw i64 %108, -1
+  %gep459 = getelementptr i8, ptr %invariant.gep458, i64 %dec17.i193
+  %109 = load i8, ptr %gep459, align 1
+  %tobool15.not.i195 = icmp eq i8 %109, 0
+  br i1 %tobool15.not.i195, label %if.end92, label %while.body.i192, !llvm.loop !23
 
-if.then91:                                        ; preds = %land.lhs.true.i177, %while.body88
+if.then91:                                        ; preds = %land.lhs.true.i176, %while.body88
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 920, ptr noundef nonnull @.str.5) #9
   unreachable
 
-if.end92:                                         ; preds = %while.body.i193, %if.then.i185
-  %g.sroa.0.10.ph = phi i64 [ %dec.i187, %if.then.i185 ], [ %dec17.i194, %while.body.i193 ]
-  %cmp.i198 = icmp eq i64 %go.sroa.0.6466, 0
-  br i1 %cmp.i198, label %if.then95, label %if.end.i199
+if.end92:                                         ; preds = %while.body.i192, %if.then.i184
+  %g.sroa.0.10.ph = phi i64 [ %dec.i186, %if.then.i184 ], [ %dec17.i193, %while.body.i192 ]
+  %cmp.i197 = icmp eq i64 %go.sroa.0.6465, 0
+  br i1 %cmp.i197, label %if.then95, label %if.end.i198
 
-if.end.i199:                                      ; preds = %if.end92
-  %sub.i200 = add nsw i64 %go.sroa.0.6466, -1
+if.end.i198:                                      ; preds = %if.end92
+  %sub.i199 = add nsw i64 %go.sroa.0.6465, -1
   %110 = load ptr, ptr %rchg.i31, align 8
-  %invariant.gep461 = getelementptr i8, ptr %110, i64 -1
-  br label %for.cond.i203
+  %invariant.gep460 = getelementptr i8, ptr %110, i64 -1
+  br label %for.cond.i202
 
-for.cond.i203:                                    ; preds = %for.cond.i203, %if.end.i199
-  %storemerge.i204 = phi i64 [ %sub.i200, %if.end.i199 ], [ %dec.i207, %for.cond.i203 ]
-  %gep462 = getelementptr i8, ptr %invariant.gep461, i64 %storemerge.i204
-  %111 = load i8, ptr %gep462, align 1
-  %tobool.not.i206 = icmp eq i8 %111, 0
-  %dec.i207 = add nsw i64 %storemerge.i204, -1
-  br i1 %tobool.not.i206, label %group_previous.exit209, label %for.cond.i203, !llvm.loop !24
+for.cond.i202:                                    ; preds = %for.cond.i202, %if.end.i198
+  %storemerge.i203 = phi i64 [ %sub.i199, %if.end.i198 ], [ %dec.i206, %for.cond.i202 ]
+  %gep461 = getelementptr i8, ptr %invariant.gep460, i64 %storemerge.i203
+  %111 = load i8, ptr %gep461, align 1
+  %tobool.not.i205 = icmp eq i8 %111, 0
+  %dec.i206 = add nsw i64 %storemerge.i203, -1
+  br i1 %tobool.not.i205, label %group_previous.exit208, label %for.cond.i202, !llvm.loop !24
 
-group_previous.exit209:                           ; preds = %for.cond.i203
-  %cmp87 = icmp sgt i64 %dec9.i189, %best_shift.0.lcssa
+group_previous.exit208:                           ; preds = %for.cond.i202
+  %cmp87 = icmp sgt i64 %dec9.i188, %best_shift.0.lcssa
   br i1 %cmp87, label %while.body88, label %next, !llvm.loop !29
 
 if.then95:                                        ; preds = %if.end92
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 922, ptr noundef nonnull @.str.6) #9
   unreachable
 
-next:                                             ; preds = %group_previous.exit106, %group_previous.exit209, %while.cond42.preheader, %while.cond85.preheader, %do.end, %if.else56, %while.body
-  %112 = phi ptr [ %8, %while.body ], [ %60, %do.end ], [ %60, %if.else56 ], [ %60, %while.cond85.preheader ], [ %60, %while.cond42.preheader ], [ %110, %group_previous.exit209 ], [ %77, %group_previous.exit106 ]
-  %113 = phi ptr [ %9, %while.body ], [ %61, %do.end ], [ %61, %if.else56 ], [ %61, %while.cond85.preheader ], [ %61, %while.cond42.preheader ], [ %105, %group_previous.exit209 ], [ %72, %group_previous.exit106 ]
-  %g.sroa.19.1 = phi i64 [ %g.sroa.0.0, %while.body ], [ %g.sroa.19.3.lcssa, %do.end ], [ %g.sroa.19.4.lcssa, %if.else56 ], [ %g.sroa.19.4.lcssa, %while.cond85.preheader ], [ %g.sroa.19.4.lcssa, %while.cond42.preheader ], [ %best_shift.0.lcssa, %group_previous.exit209 ], [ %dec9.i86, %group_previous.exit106 ]
-  %go.sroa.13.1 = phi i64 [ %go.sroa.13.0, %while.body ], [ %go.sroa.13.4.lcssa, %do.end ], [ %go.sroa.13.4.lcssa, %if.else56 ], [ %go.sroa.13.4.lcssa, %while.cond85.preheader ], [ %go.sroa.13.4.lcssa, %while.cond42.preheader ], [ %sub.i200, %group_previous.exit209 ], [ %sub.i97, %group_previous.exit106 ]
-  %best_score.sroa.2.1 = phi i32 [ %best_score.sroa.2.0, %while.body ], [ %best_score.sroa.2.0, %do.end ], [ %best_score.sroa.2.0, %if.else56 ], [ %best_score.sroa.2.2.lcssa, %while.cond85.preheader ], [ %best_score.sroa.2.0, %while.cond42.preheader ], [ %best_score.sroa.2.2.lcssa, %group_previous.exit209 ], [ %best_score.sroa.2.0, %group_previous.exit106 ]
-  %best_score.sroa.0.1 = phi i32 [ %best_score.sroa.0.0, %while.body ], [ %best_score.sroa.0.0, %do.end ], [ %best_score.sroa.0.0, %if.else56 ], [ %best_score.sroa.0.2.lcssa, %while.cond85.preheader ], [ %best_score.sroa.0.0, %while.cond42.preheader ], [ %best_score.sroa.0.2.lcssa, %group_previous.exit209 ], [ %best_score.sroa.0.0, %group_previous.exit106 ]
+next:                                             ; preds = %group_previous.exit106, %group_previous.exit208, %while.cond42.preheader, %while.cond85.preheader, %do.end, %if.else56, %while.body
+  %112 = phi ptr [ %8, %while.body ], [ %60, %do.end ], [ %60, %if.else56 ], [ %60, %while.cond85.preheader ], [ %60, %while.cond42.preheader ], [ %110, %group_previous.exit208 ], [ %77, %group_previous.exit106 ]
+  %113 = phi ptr [ %9, %while.body ], [ %61, %do.end ], [ %61, %if.else56 ], [ %61, %while.cond85.preheader ], [ %61, %while.cond42.preheader ], [ %105, %group_previous.exit208 ], [ %72, %group_previous.exit106 ]
+  %g.sroa.19.1 = phi i64 [ %g.sroa.0.0, %while.body ], [ %g.sroa.19.3.lcssa, %do.end ], [ %g.sroa.19.4.lcssa, %if.else56 ], [ %g.sroa.19.4.lcssa, %while.cond85.preheader ], [ %g.sroa.19.4.lcssa, %while.cond42.preheader ], [ %best_shift.0.lcssa, %group_previous.exit208 ], [ %dec9.i86, %group_previous.exit106 ]
+  %go.sroa.13.1 = phi i64 [ %go.sroa.13.0, %while.body ], [ %go.sroa.13.4.lcssa, %do.end ], [ %go.sroa.13.4.lcssa, %if.else56 ], [ %go.sroa.13.4.lcssa, %while.cond85.preheader ], [ %go.sroa.13.4.lcssa, %while.cond42.preheader ], [ %sub.i199, %group_previous.exit208 ], [ %sub.i97, %group_previous.exit106 ]
+  %best_score.sroa.2.1 = phi i32 [ %best_score.sroa.2.0, %while.body ], [ %best_score.sroa.2.0, %do.end ], [ %best_score.sroa.2.0, %if.else56 ], [ %best_score.sroa.2.2.lcssa, %while.cond85.preheader ], [ %best_score.sroa.2.0, %while.cond42.preheader ], [ %best_score.sroa.2.2.lcssa, %group_previous.exit208 ], [ %best_score.sroa.2.0, %group_previous.exit106 ]
+  %best_score.sroa.0.1 = phi i32 [ %best_score.sroa.0.0, %while.body ], [ %best_score.sroa.0.0, %do.end ], [ %best_score.sroa.0.0, %if.else56 ], [ %best_score.sroa.0.2.lcssa, %while.cond85.preheader ], [ %best_score.sroa.0.0, %while.cond42.preheader ], [ %best_score.sroa.0.2.lcssa, %group_previous.exit208 ], [ %best_score.sroa.0.0, %group_previous.exit106 ]
   %114 = load i64, ptr %nrec.i, align 8
-  %cmp.i212 = icmp eq i64 %g.sroa.19.1, %114
-  br i1 %cmp.i212, label %while.end109, label %if.end.i213
+  %cmp.i211 = icmp eq i64 %g.sroa.19.1, %114
+  br i1 %cmp.i211, label %while.end109, label %if.end.i212
 
-if.end.i213:                                      ; preds = %next
-  %add.i214 = add nsw i64 %g.sroa.19.1, 1
-  br label %for.cond.i216
+if.end.i212:                                      ; preds = %next
+  %add.i213 = add nsw i64 %g.sroa.19.1, 1
+  br label %for.cond.i215
 
-for.cond.i216:                                    ; preds = %for.cond.i216, %if.end.i213
-  %storemerge.i217 = phi i64 [ %add.i214, %if.end.i213 ], [ %inc.i220, %for.cond.i216 ]
-  %arrayidx.i218 = getelementptr inbounds i8, ptr %113, i64 %storemerge.i217
-  %115 = load i8, ptr %arrayidx.i218, align 1
-  %tobool.not.i219 = icmp eq i8 %115, 0
-  %inc.i220 = add nsw i64 %storemerge.i217, 1
-  br i1 %tobool.not.i219, label %if.end104, label %for.cond.i216, !llvm.loop !21
+for.cond.i215:                                    ; preds = %for.cond.i215, %if.end.i212
+  %storemerge.i216 = phi i64 [ %add.i213, %if.end.i212 ], [ %inc.i219, %for.cond.i215 ]
+  %arrayidx.i217 = getelementptr inbounds i8, ptr %113, i64 %storemerge.i216
+  %115 = load i8, ptr %arrayidx.i217, align 1
+  %tobool.not.i218 = icmp eq i8 %115, 0
+  %inc.i219 = add nsw i64 %storemerge.i216, 1
+  br i1 %tobool.not.i218, label %if.end104, label %for.cond.i215, !llvm.loop !21
 
-if.end104:                                        ; preds = %for.cond.i216
+if.end104:                                        ; preds = %for.cond.i215
   %116 = load i64, ptr %nrec.i62, align 8
-  %cmp.i225 = icmp eq i64 %go.sroa.13.1, %116
-  br i1 %cmp.i225, label %if.then107, label %if.end.i226
+  %cmp.i224 = icmp eq i64 %go.sroa.13.1, %116
+  br i1 %cmp.i224, label %if.then107, label %if.end.i225
 
-if.end.i226:                                      ; preds = %if.end104
-  %add.i227 = add nsw i64 %go.sroa.13.1, 1
-  br label %for.cond.i229
+if.end.i225:                                      ; preds = %if.end104
+  %add.i226 = add nsw i64 %go.sroa.13.1, 1
+  br label %for.cond.i228
 
-for.cond.i229:                                    ; preds = %for.cond.i229, %if.end.i226
-  %storemerge.i230 = phi i64 [ %add.i227, %if.end.i226 ], [ %inc.i233, %for.cond.i229 ]
-  %arrayidx.i231 = getelementptr inbounds i8, ptr %112, i64 %storemerge.i230
-  %117 = load i8, ptr %arrayidx.i231, align 1
-  %tobool.not.i232 = icmp eq i8 %117, 0
-  %inc.i233 = add nsw i64 %storemerge.i230, 1
-  br i1 %tobool.not.i232, label %while.body.loopexit, label %for.cond.i229, !llvm.loop !21
+for.cond.i228:                                    ; preds = %for.cond.i228, %if.end.i225
+  %storemerge.i229 = phi i64 [ %add.i226, %if.end.i225 ], [ %inc.i232, %for.cond.i228 ]
+  %arrayidx.i230 = getelementptr inbounds i8, ptr %112, i64 %storemerge.i229
+  %117 = load i8, ptr %arrayidx.i230, align 1
+  %tobool.not.i231 = icmp eq i8 %117, 0
+  %inc.i232 = add nsw i64 %storemerge.i229, 1
+  br i1 %tobool.not.i231, label %while.body.loopexit, label %for.cond.i228, !llvm.loop !21
 
 if.then107:                                       ; preds = %if.end104
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 931, ptr noundef nonnull @.str.7) #9
@@ -1441,10 +1437,10 @@ if.then107:                                       ; preds = %if.end104
 
 while.end109:                                     ; preds = %next
   %118 = load i64, ptr %nrec.i62, align 8
-  %cmp.i238 = icmp eq i64 %go.sroa.13.1, %118
-  br i1 %cmp.i238, label %if.end113, label %for.cond.i242.preheader
+  %cmp.i237 = icmp eq i64 %go.sroa.13.1, %118
+  br i1 %cmp.i237, label %if.end113, label %for.cond.i241.preheader
 
-for.cond.i242.preheader:                          ; preds = %while.end109
+for.cond.i241.preheader:                          ; preds = %while.end109
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 935, ptr noundef nonnull @.str.8) #9
   unreachable
 
@@ -2284,6 +2280,9 @@ declare ptr @xdl_get_hunk(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @xdl_blankline(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i32 @regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #6

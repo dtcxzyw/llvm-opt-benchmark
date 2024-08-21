@@ -3157,78 +3157,72 @@ land.lhs.true:                                    ; preds = %entry
   %slab.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %slab, i64 32
   %slab.val14 = load i64, ptr %4, align 8
-  %cmp.i.i = icmp ugt i64 %.val13, %slab.val14
-  %conv.i.i = zext i1 %cmp.i.i to i32
-  %cmp4.i.i = icmp ult i64 %.val13, %slab.val14
-  %conv5.neg.i.i = sext i1 %cmp4.i.i to i32
-  %sub.i.i = add nsw i32 %conv5.neg.i.i, %conv.i.i
+  %5 = ptrtoint ptr %.val12 to i64
+  %6 = ptrtoint ptr %slab.val to i64
+  %sub.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %.val13, i64 %slab.val14)
   %mul.i.i = shl nsw i32 %sub.i.i, 1
-  %cmp7.i.i = icmp ugt ptr %.val12, %slab.val
-  %conv8.i.i = zext i1 %cmp7.i.i to i32
-  %cmp11.i.i = icmp ult ptr %.val12, %slab.val
-  %conv12.neg.i.i = sext i1 %cmp11.i.i to i32
-  %sub13.i.i = add nsw i32 %conv12.neg.i.i, %conv8.i.i
-  %add.i.i = add nsw i32 %sub13.i.i, %mul.i.i
+  %sub13.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %5, i64 %6)
+  %add.i.i = add nsw i32 %mul.i.i, %sub13.i.i
   %cmp2 = icmp sgt i32 %add.i.i, 0
   br i1 %cmp2, label %if.then, label %if.else10
 
 if.then:                                          ; preds = %land.lhs.true
   %.val = load i64, ptr %0, align 8
-  %5 = and i64 %.val, 274609471488
-  %cmp5.not = icmp eq i64 %5, 0
+  %7 = and i64 %.val, 274609471488
+  %cmp5.not = icmp eq i64 %7, 0
   br i1 %cmp5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then
   %slabs_nonfull.i = getelementptr inbounds i8, ptr %bin, i64 200
   tail call void @edata_heap_insert(ptr noundef nonnull %slabs_nonfull.i, ptr noundef nonnull %0) #18
   %nonfull_slabs.i = getelementptr inbounds i8, ptr %bin, i64 184
-  %6 = load i64, ptr %nonfull_slabs.i, align 8
-  %inc.i = add i64 %6, 1
+  %8 = load i64, ptr %nonfull_slabs.i, align 8
+  %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr %nonfull_slabs.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %7 = getelementptr i8, ptr %arena, i64 78944
-  %arena.val = load i32, ptr %7, align 32
-  %8 = load i32, ptr @manual_arena_base, align 4
-  %cmp.i.i15 = icmp ult i32 %arena.val, %8
-  br i1 %cmp.i.i15, label %if.end, label %if.end.i
+  %9 = getelementptr i8, ptr %arena, i64 78944
+  %arena.val = load i32, ptr %9, align 32
+  %10 = load i32, ptr @manual_arena_base, align 4
+  %cmp.i.i = icmp ult i32 %arena.val, %10
+  br i1 %cmp.i.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
   %slabs_full.i = getelementptr inbounds i8, ptr %bin, i64 216
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %0, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %0, ptr %11, align 8
   %qre_prev.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %0, ptr %qre_prev.i.i, align 8
-  %10 = load ptr, ptr %slabs_full.i, align 8
-  %cmp.i1.i = icmp eq ptr %10, null
+  %12 = load ptr, ptr %slabs_full.i, align 8
+  %cmp.i1.i = icmp eq ptr %12, null
   br i1 %cmp.i1.i, label %edata_list_active_append.exit.i, label %do.body2.i.i
 
 do.body2.i.i:                                     ; preds = %if.end.i
-  %qre_prev5.i.i = getelementptr inbounds i8, ptr %10, i64 48
-  %11 = load ptr, ptr %qre_prev5.i.i, align 8
-  store ptr %11, ptr %9, align 8
-  %12 = load ptr, ptr %slabs_full.i, align 8
-  %qre_prev11.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  %qre_prev5.i.i = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = load ptr, ptr %qre_prev5.i.i, align 8
+  store ptr %13, ptr %11, align 8
+  %14 = load ptr, ptr %slabs_full.i, align 8
+  %qre_prev11.i.i = getelementptr inbounds i8, ptr %14, i64 48
   store ptr %0, ptr %qre_prev11.i.i, align 8
-  %13 = load ptr, ptr %qre_prev.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %qre_prev.i.i, align 8
-  %16 = load ptr, ptr %slabs_full.i, align 8
-  %qre_prev19.i.i = getelementptr inbounds i8, ptr %16, i64 48
-  %17 = load ptr, ptr %qre_prev19.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr %qre_prev.i.i, align 8
+  %15 = load ptr, ptr %qre_prev.i.i, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %qre_prev.i.i, align 8
+  %18 = load ptr, ptr %slabs_full.i, align 8
+  %qre_prev19.i.i = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = load ptr, ptr %qre_prev19.i.i, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 40
-  store ptr %0, ptr %20, align 8
-  %.pre.i.i = load ptr, ptr %9, align 8
+  store ptr %18, ptr %20, align 8
+  %21 = load ptr, ptr %qre_prev.i.i, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  store ptr %0, ptr %22, align 8
+  %.pre.i.i = load ptr, ptr %11, align 8
   br label %edata_list_active_append.exit.i
 
 edata_list_active_append.exit.i:                  ; preds = %do.body2.i.i, %if.end.i
-  %21 = phi ptr [ %.pre.i.i, %do.body2.i.i ], [ %0, %if.end.i ]
-  store ptr %21, ptr %slabs_full.i, align 8
+  %23 = phi ptr [ %.pre.i.i, %do.body2.i.i ], [ %0, %if.end.i ]
+  store ptr %23, ptr %slabs_full.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %edata_list_active_append.exit.i, %if.else, %if.then6
@@ -3236,16 +3230,16 @@ if.end:                                           ; preds = %edata_list_active_a
   br label %if.end11
 
 if.else10:                                        ; preds = %land.lhs.true, %entry
-  %slabs_nonfull.i16 = getelementptr inbounds i8, ptr %bin, i64 200
-  tail call void @edata_heap_insert(ptr noundef nonnull %slabs_nonfull.i16, ptr noundef %slab) #18
+  %slabs_nonfull.i15 = getelementptr inbounds i8, ptr %bin, i64 200
+  tail call void @edata_heap_insert(ptr noundef nonnull %slabs_nonfull.i15, ptr noundef %slab) #18
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else10, %if.end
   %.sink = phi i64 [ 184, %if.else10 ], [ 168, %if.end ]
-  %nonfull_slabs.i17 = getelementptr inbounds i8, ptr %bin, i64 %.sink
-  %22 = load i64, ptr %nonfull_slabs.i17, align 8
-  %inc.i18 = add i64 %22, 1
-  store i64 %inc.i18, ptr %nonfull_slabs.i17, align 8
+  %nonfull_slabs.i16 = getelementptr inbounds i8, ptr %bin, i64 %.sink
+  %24 = load i64, ptr %nonfull_slabs.i16, align 8
+  %inc.i17 = add i64 %24, 1
+  store i64 %inc.i17, ptr %nonfull_slabs.i16, align 8
   ret void
 }
 
@@ -7197,6 +7191,9 @@ declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17

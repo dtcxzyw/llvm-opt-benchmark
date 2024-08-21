@@ -1911,12 +1911,8 @@ list_length.exit:                                 ; preds = %2, %4
 
 list_length.exit4:                                ; preds = %list_length.exit, %9
   %12 = phi i32 [ %11, %9 ], [ 0, %list_length.exit ]
-  %13 = icmp sgt i32 %7, %12
-  %14 = zext i1 %13 to i32
-  %15 = icmp slt i32 %7, %12
-  %.neg.i = sext i1 %15 to i32
-  %16 = add nsw i32 %.neg.i, %14
-  ret i32 %16
+  %13 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %7, i32 %12)
+  ret i32 %13
 }
 
 declare i32 @list_int_cmp(ptr noundef, ptr noundef) #1
@@ -1925,88 +1921,85 @@ declare i32 @list_int_cmp(ptr noundef, ptr noundef) #1
 define internal range(i32 -1, 2) i32 @cmp_list_len_contents_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %list_length.exit.i, label %4
+  br i1 %.not.i.i, label %list_length.exit.i.thread, label %list_length.exit.i
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
-  %6 = load i32, ptr %5, align 4
-  br label %list_length.exit.i
-
-list_length.exit.i:                               ; preds = %4, %2
-  %7 = phi i32 [ %6, %4 ], [ 0, %2 ]
-  %8 = load ptr, ptr %1, align 8
-  %.not.i3.i = icmp eq ptr %8, null
+list_length.exit.i:                               ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = load ptr, ptr %1, align 8
+  %.not.i3.i = icmp eq ptr %6, null
   br i1 %.not.i3.i, label %cmp_list_len_asc.exit, label %cmp_list_len_asc.exit.thread
 
+list_length.exit.i.thread:                        ; preds = %2
+  %7 = load ptr, ptr %1, align 8
+  %.not.i3.i35 = icmp eq ptr %7, null
+  br i1 %.not.i3.i35, label %.thread, label %cmp_list_len_asc.exit.thread.thread
+
 cmp_list_len_asc.exit:                            ; preds = %list_length.exit.i
-  %.lobit = ashr i32 %7, 31
-  %isnotnull = icmp ne i32 %7, 0
-  %isnotnull.zext = zext i1 %isnotnull to i32
-  %9 = or i32 %.lobit, %isnotnull.zext
+  %8 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
   br label %.thread
 
 cmp_list_len_asc.exit.thread:                     ; preds = %list_length.exit.i
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %7, %11
-  %13 = zext i1 %12 to i32
-  %14 = icmp slt i32 %7, %11
-  %.neg.i.i35 = sext i1 %14 to i32
-  %15 = add nsw i32 %.neg.i.i35, %13
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader.split, label %.thread
+  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %10)
+  %12 = icmp eq i32 %5, %10
+  br i1 %12, label %.preheader.split.split, label %.thread
 
-.preheader.split:                                 ; preds = %cmp_list_len_asc.exit.thread
+cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.thread
+  %13 = getelementptr inbounds i8, ptr %7, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 0, i32 %14)
+  br label %.thread
+
+.preheader.split.split:                           ; preds = %cmp_list_len_asc.exit.thread
+  %16 = getelementptr inbounds i8, ptr %3, i64 4
   %17 = getelementptr inbounds i8, ptr %3, i64 16
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
-  br i1 %.not.i.i, label %.thread, label %.preheader.split.split
-
-.preheader.split.split:                           ; preds = %.preheader.split
-  %19 = getelementptr inbounds i8, ptr %8, i64 4
+  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds i8, ptr %6, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = sext i32 %22 to i64
+  %21 = load i32, ptr %16, align 4
+  %22 = sext i32 %21 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %24
+  br label %23
 
-24:                                               ; preds = %41, %.preheader.split.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.preheader.split.split ]
-  %25 = icmp slt i64 %indvars.iv, %23
-  br i1 %25, label %26, label %29
+23:                                               ; preds = %40, %.preheader.split.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader.split.split ]
+  %24 = icmp slt i64 %indvars.iv, %22
+  br i1 %24, label %25, label %28
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv
-  br label %29
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %17, align 8
+  %27 = getelementptr %union.ListCell, ptr %26, i64 %indvars.iv
+  br label %28
 
-29:                                               ; preds = %24, %26
-  %30 = phi ptr [ %28, %26 ], [ null, %24 ]
+28:                                               ; preds = %23, %25
+  %29 = phi ptr [ %27, %25 ], [ null, %23 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %31
+  br i1 %exitcond.not, label %.thread, label %30
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %18, align 8
-  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv
-  %34 = icmp ne ptr %30, null
-  %35 = icmp ne ptr %33, null
-  %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %37, label %.thread
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %18, align 8
+  %32 = getelementptr %union.ListCell, ptr %31, i64 %indvars.iv
+  %33 = icmp ne ptr %29, null
+  %34 = icmp ne ptr %32, null
+  %35 = select i1 %33, i1 %34, i1 false
+  br i1 %35, label %36, label %.thread
 
-37:                                               ; preds = %31
-  %38 = load i32, ptr %30, align 8
-  %39 = load i32, ptr %33, align 8
-  %40 = icmp sgt i32 %38, %39
-  br i1 %40, label %.thread, label %41
+36:                                               ; preds = %30
+  %37 = load i32, ptr %29, align 8
+  %38 = load i32, ptr %32, align 8
+  %39 = icmp sgt i32 %37, %38
+  br i1 %39, label %.thread, label %40
 
-41:                                               ; preds = %37
-  %42 = icmp slt i32 %38, %39
+40:                                               ; preds = %36
+  %41 = icmp slt i32 %37, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %42, label %.thread, label %24, !llvm.loop !16
+  br i1 %41, label %.thread, label %23, !llvm.loop !16
 
-.thread:                                          ; preds = %29, %31, %41, %37, %cmp_list_len_asc.exit, %.preheader.split, %cmp_list_len_asc.exit.thread
-  %.0 = phi i32 [ %15, %cmp_list_len_asc.exit.thread ], [ 0, %.preheader.split ], [ %9, %cmp_list_len_asc.exit ], [ 0, %29 ], [ 0, %31 ], [ -1, %41 ], [ 1, %37 ]
+.thread:                                          ; preds = %28, %30, %40, %36, %cmp_list_len_asc.exit.thread.thread, %cmp_list_len_asc.exit, %list_length.exit.i.thread, %cmp_list_len_asc.exit.thread
+  %.0 = phi i32 [ %11, %cmp_list_len_asc.exit.thread ], [ 0, %list_length.exit.i.thread ], [ %8, %cmp_list_len_asc.exit ], [ %15, %cmp_list_len_asc.exit.thread.thread ], [ %11, %28 ], [ %11, %30 ], [ -1, %40 ], [ 1, %36 ]
   ret i32 %.0
 }
 
@@ -3067,6 +3060,9 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
