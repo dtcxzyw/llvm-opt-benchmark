@@ -1306,13 +1306,12 @@ unRLE_obuf_to_output_SMALL.exit:                  ; preds = %85, %.backedge.i, %
   %684 = load i32, ptr %25, align 8
   %685 = add nsw i32 %.lcssa.i, -1
   store i32 %685, ptr %.phi.trans.insert1908.i, align 4
-  %686 = shl nuw i32 1, %685
-  %687 = and i32 %686, %684
-  %.not1373.i = icmp ne i32 %687, 0
-  %688 = sext i32 %.0952.i to i64
-  %689 = getelementptr inbounds [16 x i8], ptr %41, i64 0, i64 %688
-  %..i = zext i1 %.not1373.i to i8
-  store i8 %..i, ptr %689, align 1
+  %686 = sext i32 %.0952.i to i64
+  %687 = getelementptr inbounds [16 x i8], ptr %41, i64 0, i64 %686
+  %688 = lshr i32 %684, %685
+  %689 = trunc i32 %688 to i8
+  %..i = and i8 %689, 1
+  store i8 %..i, ptr %687, align 1
   %690 = add nsw i32 %.0952.i, 1
   br label %633
 

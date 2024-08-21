@@ -208,15 +208,14 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
   %31 = getelementptr inbounds i64, ptr %12, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %indvars.iv, 63
-  %34 = shl nuw i64 1, %33
-  %35 = and i64 %32, %34
-  %36 = icmp ne i64 %35, 0
+  %34 = lshr i64 %32, %33
+  %35 = trunc i64 %34 to i32
+  %36 = and i32 %35, 1
   br label %37
 
 37:                                               ; preds = %.lr.ph, %29
-  %.not45 = phi i1 [ %36, %29 ], [ false, %.lr.ph ]
-  %38 = zext i1 %.not45 to i32
-  %39 = add nuw nsw i32 %.03449, %38
+  %38 = phi i32 [ %36, %29 ], [ 0, %.lr.ph ]
+  %39 = add nuw nsw i32 %38, %.03449
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

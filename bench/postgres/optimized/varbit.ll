@@ -3318,10 +3318,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitgetbit(ptr nocapture
   %23 = getelementptr i8, ptr %18, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 1, %21
-  %27 = and i32 %26, %25
-  %.not15 = icmp ne i32 %27, 0
-  %spec.select = zext i1 %.not15 to i64
+  %26 = lshr i32 %25, %21
+  %27 = and i32 %26, 1
+  %spec.select = zext nneg i32 %27 to i64
   ret i64 %spec.select
 }
 

@@ -78,9 +78,9 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_unsigned(i32 noundef %
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = and i64 %.fr2, 8739796604171058
-  %10 = icmp ne i64 %9, 0
-  %11 = zext i1 %10 to i32
+  %9 = lshr i64 8739796604171058, %4
+  %10 = trunc i64 %9 to i32
+  %11 = and i32 %10, 1
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1
@@ -148,9 +148,9 @@ define dso_local range(i32 -128, 128) i32 @snd_pcm_format_big_endian(i32 noundef
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = and i64 %.fr2, 6767126648629928
-  %10 = icmp ne i64 %9, 0
-  %11 = zext i1 %10 to i32
+  %9 = lshr i64 6767126648629928, %4
+  %10 = trunc i64 %9 to i32
+  %11 = and i32 %10, 1
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %1

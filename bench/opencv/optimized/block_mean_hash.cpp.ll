@@ -1080,9 +1080,9 @@ _ZNSt6bitsetILm8EE9referenceaSEb.exit.i:          ; preds = %151, %_ZNSt6bitsetI
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %144
-  %148 = and i64 %.sroa.0.1.i, %136
-  %149 = icmp ne i64 %148, 0
-  %150 = zext i1 %149 to i8
+  %148 = lshr i64 %.sroa.0.1.i, %132
+  %149 = trunc i64 %148 to i8
+  %150 = and i8 %149, 1
   store i8 %150, ptr %.024.i, align 1
   br label %151
 

@@ -566,76 +566,76 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
   %4 = tail call i64 @g_strlcpy(ptr noundef %0, ptr noundef nonnull @.str.328, i64 noundef 240) #8
   br label %.loopexit
 
-.preheader:                                       ; preds = %2, %.thread.thread71
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.thread71 ], [ 0, %2 ]
-  %.059 = phi i32 [ %.170, %.thread.thread71 ], [ 0, %2 ]
-  %.04258 = phi i32 [ %.3, %.thread.thread71 ], [ -1, %2 ]
+.preheader:                                       ; preds = %2, %.thread.thread70
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.thread70 ], [ 0, %2 ]
+  %.058 = phi i32 [ %.169, %.thread.thread70 ], [ 0, %2 ]
+  %.04257 = phi i32 [ %.3, %.thread.thread70 ], [ -1, %2 ]
   %5 = shl nuw i64 1, %indvars.iv
   %6 = and i64 %5, %1
-  %.not55 = icmp eq i64 %6, 0
+  %.not48 = icmp eq i64 %6, 0
   %7 = trunc i64 %indvars.iv to i32
-  br i1 %.not55, label %12, label %8
+  br i1 %.not48, label %12, label %8
 
 8:                                                ; preds = %.preheader
   %9 = icmp eq i64 %indvars.iv, 63
-  %10 = icmp eq i32 %.04258, -1
+  %10 = icmp eq i32 %.04257, -1
   br i1 %9, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %spec.select = select i1 %10, i32 63, i32 %.04258
-  br label %.thread61
+  %spec.select = select i1 %10, i32 63, i32 %.04257
+  br label %.thread60
 
 12:                                               ; preds = %.preheader
-  %.not56 = icmp eq i32 %.04258, -1
-  br i1 %.not56, label %.thread.thread71, label %.thread61
+  %.not55 = icmp eq i32 %.04257, -1
+  br i1 %.not55, label %.thread.thread70, label %.thread60
 
-.thread61:                                        ; preds = %11, %12
-  %.14366 = phi i32 [ %.04258, %12 ], [ %spec.select, %11 ]
-  %.04465 = phi i32 [ %7, %12 ], [ 64, %11 ]
-  %13 = sub i32 %.04465, %.14366
-  %.not49 = icmp eq i32 %.059, 0
+.thread60:                                        ; preds = %11, %12
+  %.14365 = phi i32 [ %.04257, %12 ], [ %spec.select, %11 ]
+  %.04464 = phi i32 [ %7, %12 ], [ 64, %11 ]
+  %13 = sub i32 %.04464, %.14365
+  %.not49 = icmp eq i32 %.058, 0
   %14 = select i1 %.not49, ptr @.str.330, ptr @.str.329
-  %15 = sext i32 %.059 to i64
+  %15 = sext i32 %.058 to i64
   %16 = getelementptr i8, ptr %0, i64 %15
-  %17 = sub i32 240, %.059
+  %17 = sub i32 240, %.058
   %18 = sext i32 %17 to i64
   switch i32 %13, label %26 [
     i32 1, label %19
     i32 2, label %22
   ]
 
-19:                                               ; preds = %.thread61
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.331, ptr noundef nonnull %14, i32 noundef %.14366) #8
-  %21 = add i32 %20, %.059
-  br label %.thread.thread71
+19:                                               ; preds = %.thread60
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.331, ptr noundef nonnull %14, i32 noundef %.14365) #8
+  %21 = add i32 %20, %.058
+  br label %.thread.thread70
 
-22:                                               ; preds = %.thread61
-  %23 = add nuw i32 %.14366, 1
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.332, ptr noundef nonnull %14, i32 noundef %.14366, i32 noundef %23) #8
-  %25 = add i32 %24, %.059
-  br label %.thread.thread71
+22:                                               ; preds = %.thread60
+  %23 = add nuw i32 %.14365, 1
+  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.332, ptr noundef nonnull %14, i32 noundef %.14365, i32 noundef %23) #8
+  %25 = add i32 %24, %.058
+  br label %.thread.thread70
 
-26:                                               ; preds = %.thread61
-  %27 = add nsw i32 %.04465, -1
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.333, ptr noundef nonnull %14, i32 noundef %.14366, i32 noundef %27) #8
-  %29 = add i32 %28, %.059
-  br label %.thread.thread71
+26:                                               ; preds = %.thread60
+  %27 = add nsw i32 %.04464, -1
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.333, ptr noundef nonnull %14, i32 noundef %.14365, i32 noundef %27) #8
+  %29 = add i32 %28, %.058
+  br label %.thread.thread70
 
 .thread:                                          ; preds = %8
-  %spec.select76 = select i1 %10, i32 %7, i32 %.04258
-  br label %.thread.thread71
+  %spec.select75 = select i1 %10, i32 %7, i32 %.04257
+  br label %.thread.thread70
 
-.thread.thread71:                                 ; preds = %.thread, %26, %22, %19, %12
-  %.170 = phi i32 [ %.059, %12 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %.059, %.thread ]
-  %30 = phi i32 [ %7, %12 ], [ %.14366, %26 ], [ %.14366, %22 ], [ %.14366, %19 ], [ %spec.select76, %.thread ]
-  %.3 = select i1 %.not55, i32 -1, i32 %30
+.thread.thread70:                                 ; preds = %.thread, %26, %22, %19, %12
+  %.169 = phi i32 [ %.058, %12 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %.058, %.thread ]
+  %30 = phi i32 [ %7, %12 ], [ %.14365, %26 ], [ %.14365, %22 ], [ %.14365, %19 ], [ %spec.select75, %.thread ]
+  %.3 = select i1 %.not48, i32 -1, i32 %30
   %indvars.iv.next = add i64 %indvars.iv, 1
   %31 = icmp ult i64 %indvars.iv, 63
-  %32 = icmp slt i32 %.170, 240
+  %32 = icmp slt i32 %.169, 240
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %.thread.thread71, %3
+.loopexit:                                        ; preds = %.thread.thread70, %3
   ret void
 }
 
@@ -1722,23 +1722,23 @@ define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, pt
 
 16:                                               ; preds = %3, %26
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %26 ]
-  %.035 = phi i32 [ 40, %3 ], [ %.1, %26 ]
+  %.034 = phi i32 [ 40, %3 ], [ %.1, %26 ]
   %17 = load i64, ptr %4, align 8
   %18 = shl nuw i64 1, %indvars.iv
   %19 = and i64 %17, %18
-  %.not33 = icmp eq i64 %19, 0
-  br i1 %.not33, label %26, label %20
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %16
-  %21 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.035) #8
+  %21 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.034) #8
   %22 = load i32, ptr @hf_drbd_bitmap_uuid, align 4
   %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %24 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %.035, i32 noundef 8, i64 noundef %21, ptr noundef nonnull @.str.377, i32 noundef %23, i64 noundef %21) #8
-  %25 = add i32 %.035, 8
+  %24 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %.034, i32 noundef 8, i64 noundef %21, ptr noundef nonnull @.str.377, i32 noundef %23, i64 noundef %21) #8
+  %25 = add i32 %.034, 8
   br label %26
 
 26:                                               ; preds = %16, %20
-  %.1 = phi i32 [ %25, %20 ], [ %.035, %16 ]
+  %.1 = phi i32 [ %25, %20 ], [ %.034, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %27, label %16, !llvm.loop !7
@@ -1753,10 +1753,10 @@ define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, pt
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.236 = phi i32 [ %36, %.lr.ph ], [ %.1, %27 ]
+  %.235 = phi i32 [ %36, %.lr.ph ], [ %.1, %27 ]
   %34 = load i32, ptr @hf_drbd_history_uuid, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef %.236, i32 noundef 8, i32 noundef 0) #8
-  %36 = add i32 %.236, 8
+  %35 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef %.235, i32 noundef 8, i32 noundef 0) #8
+  %36 = add i32 %.235, 8
   %37 = icmp ult i32 %36, %32
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 

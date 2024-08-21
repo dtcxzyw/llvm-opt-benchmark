@@ -4907,10 +4907,9 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance10table_init17h
   %54 = getelementptr inbounds [0 x i64], ptr %53, i64 0, i64 %48
   %55 = load i64, ptr %54, align 8, !noalias !642, !noundef !4
   %56 = and i64 %43, 63
-  %57 = shl nuw i64 1, %56
-  %58 = and i64 %55, %57
-  %.not = icmp eq i64 %58, 0
-  br i1 %.not, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17habeb65851d84f8ffE.exit.thread", label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h7b714e56893b4162E.exit.thread"
+  %57 = lshr i64 %55, %56
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h7b714e56893b4162E.exit.thread", label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17habeb65851d84f8ffE.exit.thread"
 
 "_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17habeb65851d84f8ffE.exit.thread": ; preds = %38, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17habeb65851d84f8ffE.exit"
   %59 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
@@ -5531,10 +5530,9 @@ define hidden noundef i8 @_ZN16wasmtime_runtime8instance8Instance11memory_init17
   %49 = getelementptr inbounds [0 x i64], ptr %48, i64 0, i64 %42
   %50 = load i64, ptr %49, align 8, !noalias !765, !noundef !4
   %51 = and i64 %37, 63
-  %52 = shl nuw i64 1, %51
-  %53 = and i64 %50, %52
-  %.not = icmp eq i64 %53, 0
-  br i1 %.not, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8f4b12602352f993E.exit.thread"
+  %52 = lshr i64 %50, %51
+  %53 = trunc i64 %52 to i1
+  br i1 %53, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8f4b12602352f993E.exit.thread", label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread"
 
 "_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread": ; preds = %29, %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit"
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8f4b12602352f993E.exit.thread"

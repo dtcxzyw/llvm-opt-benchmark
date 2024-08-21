@@ -3697,10 +3697,9 @@ has_sweeping_pages.exit.i.i:                      ; preds = %17
   %32 = load i64, ptr %31, align 8
   %33 = and i16 %29, 63
   %34 = zext nneg i16 %33 to i64
-  %35 = shl nuw i64 1, %34
-  %36 = and i64 %32, %35
-  %.not4.i.i = icmp ne i64 %36, 0
-  %37 = zext i1 %.not4.i.i to i32
+  %35 = lshr i64 %32, %34
+  %36 = trunc i64 %35 to i32
+  %37 = and i32 %36, 1
   br label %is_live_object.exit
 
 is_live_object.exit:                              ; preds = %.lr.ph.i.i, %27, %.critedge.i.i, %has_sweeping_pages.exit.i.i, %8, %8, %8, %1
@@ -3755,15 +3754,15 @@ has_sweeping_pages.exit.i:                        ; preds = %8
   %23 = load i64, ptr %22, align 8
   %24 = and i16 %20, 63
   %25 = zext nneg i16 %24 to i64
-  %26 = shl nuw i64 1, %25
-  %27 = and i64 %23, %26
-  %.not4.i = icmp eq i64 %27, 0
-  %28 = zext i1 %.not4.i to i32
+  %26 = xor i64 %23, -1
+  %27 = lshr i64 %26, %25
+  %28 = trunc i64 %27 to i32
+  %29 = and i32 %28, 1
   br label %is_garbage_object.exit
 
 is_garbage_object.exit:                           ; preds = %.lr.ph.i, %has_sweeping_pages.exit.i, %.critedge.i, %18
-  %29 = phi i32 [ 0, %.critedge.i ], [ 0, %has_sweeping_pages.exit.i ], [ %28, %18 ], [ 0, %.lr.ph.i ]
-  ret i32 %29
+  %30 = phi i32 [ 0, %.critedge.i ], [ 0, %has_sweeping_pages.exit.i ], [ %29, %18 ], [ 0, %.lr.ph.i ]
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5147,21 +5146,21 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   %.val = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %.val, 0
   %.pre = and i64 %1, -65536
-  %.pre36 = inttoptr i64 %.pre to ptr
+  %.pre37 = inttoptr i64 %.pre to ptr
   br i1 %.not.i, label %.rgengc_check_relation.exit_crit_edge, label %8
 
 .rgengc_check_relation.exit_crit_edge:            ; preds = %6
-  %.pre38 = trunc i64 %1 to i16
-  %.pre39 = udiv i16 %.pre38, 40
-  %.pre41 = udiv i16 %.pre38, 2560
-  %.pre43 = zext nneg i16 %.pre41 to i64
-  %.pre44 = and i16 %.pre39, 63
-  %.pre46 = zext nneg i16 %.pre44 to i64
-  %.pre48 = shl nuw i64 1, %.pre46
+  %.pre39 = trunc i64 %1 to i16
+  %.pre40 = udiv i16 %.pre39, 40
+  %.pre42 = udiv i16 %.pre39, 2560
+  %.pre44 = zext nneg i16 %.pre42 to i64
+  %.pre45 = and i16 %.pre40, 63
+  %.pre47 = zext nneg i16 %.pre45 to i64
+  %.pre49 = shl nuw i64 1, %.pre47
   br label %rgengc_check_relation.exit
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %.pre36, align 65536
+  %9 = load ptr, ptr %.pre37, align 65536
   %10 = getelementptr inbounds i8, ptr %9, i64 64
   %.lhs.trunc.i.i = trunc i64 %1 to i16
   %11 = udiv i16 %.lhs.trunc.i.i, 40
@@ -5173,8 +5172,8 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   %16 = zext nneg i16 %15 to i64
   %17 = shl nuw i64 1, %16
   %18 = and i64 %14, %17
-  %.not1.i = icmp eq i64 %18, 0
-  br i1 %.not1.i, label %19, label %23
+  %.not5.i = icmp eq i64 %18, 0
+  br i1 %.not5.i, label %19, label %23
 
 19:                                               ; preds = %8
   %20 = inttoptr i64 %1 to ptr
@@ -5211,20 +5210,20 @@ define internal fastcc void @gc_mark_ptr(ptr nocapture noundef %0, i64 noundef %
   br label %rgengc_check_relation.exit
 
 rgengc_check_relation.exit:                       ; preds = %.rgengc_check_relation.exit_crit_edge, %19, %23, %36
-  %.pre-phi49 = phi i64 [ %.pre48, %.rgengc_check_relation.exit_crit_edge ], [ %17, %19 ], [ %17, %23 ], [ %17, %36 ]
-  %.zext5.i.i31.pre-phi = phi i64 [ %.pre43, %.rgengc_check_relation.exit_crit_edge ], [ %.zext5.i.i, %19 ], [ %.zext5.i.i, %23 ], [ %.zext5.i.i, %36 ]
-  %.pre-phi40 = phi i16 [ %.pre39, %.rgengc_check_relation.exit_crit_edge ], [ %11, %19 ], [ %11, %23 ], [ %11, %36 ]
-  %.lhs.trunc.i.i30.pre-phi = phi i16 [ %.pre38, %.rgengc_check_relation.exit_crit_edge ], [ %.lhs.trunc.i.i, %19 ], [ %.lhs.trunc.i.i, %23 ], [ %.lhs.trunc.i.i, %36 ]
-  %41 = load ptr, ptr %.pre36, align 65536
+  %.pre-phi50 = phi i64 [ %.pre49, %.rgengc_check_relation.exit_crit_edge ], [ %17, %19 ], [ %17, %23 ], [ %17, %36 ]
+  %.zext5.i.i31.pre-phi = phi i64 [ %.pre44, %.rgengc_check_relation.exit_crit_edge ], [ %.zext5.i.i, %19 ], [ %.zext5.i.i, %23 ], [ %.zext5.i.i, %36 ]
+  %.pre-phi41 = phi i16 [ %.pre40, %.rgengc_check_relation.exit_crit_edge ], [ %11, %19 ], [ %11, %23 ], [ %11, %36 ]
+  %.lhs.trunc.i.i30.pre-phi = phi i16 [ %.pre39, %.rgengc_check_relation.exit_crit_edge ], [ %.lhs.trunc.i.i, %19 ], [ %.lhs.trunc.i.i, %23 ], [ %.lhs.trunc.i.i, %36 ]
+  %41 = load ptr, ptr %.pre37, align 65536
   %42 = getelementptr inbounds i8, ptr %41, i64 272
   %43 = getelementptr i64, ptr %42, i64 %.zext5.i.i31.pre-phi
   %44 = load i64, ptr %43, align 8
-  %45 = and i64 %44, %.pre-phi49
-  %.not3.i = icmp eq i64 %45, 0
-  br i1 %.not3.i, label %46, label %gc_mark_set.exit.thread
+  %45 = and i64 %44, %.pre-phi50
+  %.not.i32 = icmp eq i64 %45, 0
+  br i1 %.not.i32, label %46, label %gc_mark_set.exit.thread
 
 46:                                               ; preds = %rgengc_check_relation.exit
-  %47 = or i64 %44, %.pre-phi49
+  %47 = or i64 %44, %.pre-phi50
   store i64 %47, ptr %43, align 8
   %48 = and i64 %1, 7
   %49 = icmp ne i64 %48, 0
@@ -5245,13 +5244,13 @@ rgengc_check_relation.exit:                       ; preds = %.rgengc_check_relat
   unreachable
 
 .critedge:                                        ; preds = %46, %52
-  %58 = load ptr, ptr %.pre36, align 65536
+  %58 = load ptr, ptr %.pre37, align 65536
   %59 = getelementptr inbounds i8, ptr %58, i64 64
   %60 = getelementptr [26 x i64], ptr %59, i64 0, i64 %.zext5.i.i31.pre-phi
   %61 = load i64, ptr %60, align 8
-  %62 = and i64 %61, %.pre-phi49
-  %.not.i32 = icmp eq i64 %62, 0
-  br i1 %.not.i32, label %63, label %gc_aging.exit
+  %62 = and i64 %61, %.pre-phi50
+  %.not.i33 = icmp eq i64 %62, 0
+  br i1 %.not.i33, label %63, label %gc_aging.exit
 
 63:                                               ; preds = %.critedge
   %64 = inttoptr i64 %1 to ptr
@@ -5266,7 +5265,7 @@ rgengc_check_relation.exit:                       ; preds = %.rgengc_check_relat
   %.zext4.i.i.i = zext nneg i16 %69 to i64
   %70 = getelementptr i64, ptr %68, i64 %.zext4.i.i.i
   %71 = load i64, ptr %70, align 8
-  %72 = shl nuw nsw i16 %.pre-phi40, 1
+  %72 = shl nuw nsw i16 %.pre-phi41, 1
   %73 = and i16 %72, 62
   %74 = zext nneg i16 %73 to i64
   %75 = lshr i64 %71, %74
@@ -5289,7 +5288,7 @@ rgengc_check_relation.exit:                       ; preds = %.rgengc_check_relat
   br i1 %85, label %88, label %gc_aging.exit
 
 88:                                               ; preds = %67
-  %89 = load ptr, ptr %.pre36, align 65536
+  %89 = load ptr, ptr %.pre37, align 65536
   br label %RVALUE_AGE_INC.exit.sink.split.i
 
 90:                                               ; preds = %63
@@ -5303,7 +5302,7 @@ RVALUE_AGE_INC.exit.sink.split.i:                 ; preds = %90, %88
   %94 = getelementptr inbounds i8, ptr %.sink.i, i64 480
   %95 = getelementptr i64, ptr %94, i64 %.zext5.i.i31.pre-phi
   %96 = load i64, ptr %95, align 8
-  %97 = or i64 %96, %.pre-phi49
+  %97 = or i64 %96, %.pre-phi50
   store i64 %97, ptr %95, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 1520
   %99 = load i64, ptr %98, align 8
@@ -5321,8 +5320,8 @@ gc_aging.exit:                                    ; preds = %.critedge, %67, %90
 
 104:                                              ; preds = %2
   %105 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i.i33 = icmp eq ptr %105, null
-  br i1 %.not.i.i.i33, label %106, label %reachable_objects_from_callback.exit
+  %.not.i.i.i34 = icmp eq ptr %105, null
+  br i1 %.not.i.i.i34, label %106, label %reachable_objects_from_callback.exit
 
 106:                                              ; preds = %104
   %107 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -5408,10 +5407,10 @@ define hidden void @rb_gc_mark_weak(ptr noundef %0) local_unnamed_addr #0 {
   %37 = zext nneg i16 %36 to i64
   %38 = shl nuw i64 1, %37
   %39 = and i64 %35, %38
-  %.not1.i = icmp ne i64 %39, 0
+  %.not5.i = icmp ne i64 %39, 0
   %40 = and i64 %16, 32
   %.not6.i = icmp eq i64 %40, 0
-  %or.cond = or i1 %.not6.i, %.not1.i
+  %or.cond = or i1 %.not6.i, %.not5.i
   br i1 %or.cond, label %41, label %rgengc_check_relation.exit
 
 41:                                               ; preds = %27
@@ -5548,8 +5547,8 @@ define hidden void @rb_gc_remove_weak(i64 noundef %0, ptr noundef readnone %1) l
   %19 = zext nneg i16 %18 to i64
   %20 = shl nuw i64 1, %19
   %21 = and i64 %17, %20
-  %.not12 = icmp eq i64 %21, 0
-  br i1 %.not12, label %.critedge, label %.preheader
+  %.not10 = icmp eq i64 %21, 0
+  br i1 %.not10, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %9
   %22 = getelementptr inbounds i8, ptr %5, i64 2592
@@ -5653,8 +5652,8 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %7
   %36 = add i64 %35, %30
   %37 = inttoptr i64 %30 to ptr
   %38 = inttoptr i64 %36 to ptr
-  %.not81.i.i = icmp eq ptr %37, %38
-  br i1 %.not81.i.i, label %verify_internal_consistency_i.exit.i, label %.lr.ph.i.i
+  %.not78.i.i = icmp eq ptr %37, %38
+  br i1 %.not78.i.i, label %verify_internal_consistency_i.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23
   %39 = load ptr, ptr %4, align 8
@@ -5665,8 +5664,8 @@ rb_vm_lock_enter.exit:                            ; preds = %1, %7
   br label %44
 
 44:                                               ; preds = %RVALUE_BLACK_P.exit.thread.i.i, %.lr.ph.i.i
-  %.082.i.i = phi i64 [ %30, %.lr.ph.i.i ], [ %190, %RVALUE_BLACK_P.exit.thread.i.i ]
-  %45 = inttoptr i64 %.082.i.i to ptr
+  %.079.i.i = phi i64 [ %30, %.lr.ph.i.i ], [ %190, %RVALUE_BLACK_P.exit.thread.i.i ]
+  %45 = inttoptr i64 %.079.i.i to ptr
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i32
   %48 = and i32 %47, 31
@@ -5698,7 +5697,7 @@ has_sweeping_pages.exit.i.i.i.i:                  ; preds = %51
   br i1 %54, label %.critedge.i.i.i.i, label %is_live_object.exit.thread.i.i
 
 .critedge.i.i.i.i:                                ; preds = %has_sweeping_pages.exit.i.i.i.i, %49
-  %55 = and i64 %.082.i.i, -65536
+  %55 = and i64 %.079.i.i, -65536
   %56 = inttoptr i64 %55 to ptr
   %57 = load ptr, ptr %56, align 65536
   %58 = getelementptr inbounds i8, ptr %57, i64 12
@@ -5709,7 +5708,7 @@ has_sweeping_pages.exit.i.i.i.i:                  ; preds = %51
 
 is_live_object.exit.i.i:                          ; preds = %.critedge.i.i.i.i
   %61 = getelementptr inbounds i8, ptr %57, i64 272
-  %.lhs.trunc.i.i.i.i = trunc i64 %.082.i.i to i16
+  %.lhs.trunc.i.i.i.i = trunc i64 %.079.i.i to i16
   %62 = udiv i16 %.lhs.trunc.i.i.i.i, 40
   %63 = udiv i16 %.lhs.trunc.i.i.i.i, 2560
   %.zext6.i.i.i.i = zext nneg i16 %63 to i64
@@ -5726,10 +5725,10 @@ is_live_object.exit.thread.i.i:                   ; preds = %.lr.ph.i.i.i.i, %is
   %70 = load i64, ptr %17, align 8
   %71 = add i64 %70, 1
   store i64 %71, ptr %17, align 8
-  store i64 %.082.i.i, ptr %18, align 8
-  %72 = and i64 %.082.i.i, 7
+  store i64 %.079.i.i, ptr %18, align 8
+  %72 = and i64 %.079.i.i, 7
   %73 = icmp ne i64 %72, 0
-  %74 = icmp eq i64 %.082.i.i, 0
+  %74 = icmp eq i64 %.079.i.i, 0
   %75 = or i1 %74, %73
   br i1 %75, label %gc_object_moved_p.exit.thread.i.i, label %gc_object_moved_p.exit.i.i
 
@@ -5787,7 +5786,7 @@ rb_current_ractor.exit.i.i:                       ; preds = %89, %88
   %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 592
   %95 = load ptr, ptr %94, align 8
   store ptr %3, ptr %94, align 8
-  call fastcc void @gc_mark_children(ptr noundef nonnull %80, i64 noundef %.082.i.i)
+  call fastcc void @gc_mark_children(ptr noundef nonnull %80, i64 noundef %.079.i.i)
   store ptr %95, ptr %94, align 8
   %.pre.i60.i = load ptr, ptr @ruby_single_main_ractor, align 8
   br label %96
@@ -5820,11 +5819,11 @@ rb_objspace_reachable_objects_from.exit.i:        ; preds = %98, %96
   br label %105
 
 105:                                              ; preds = %102, %99
-  %106 = and i64 %.082.i.i, -65536
+  %106 = and i64 %.079.i.i, -65536
   %107 = inttoptr i64 %106 to ptr
   %108 = load ptr, ptr %107, align 65536
   %109 = getelementptr inbounds i8, ptr %108, i64 64
-  %.lhs.trunc.i.i.i = trunc i64 %.082.i.i to i16
+  %.lhs.trunc.i.i.i = trunc i64 %.079.i.i to i16
   %110 = udiv i16 %.lhs.trunc.i.i.i, 40
   %111 = udiv i16 %.lhs.trunc.i.i.i, 2560
   %.zext5.i.i.i = zext nneg i16 %111 to i64
@@ -5834,16 +5833,16 @@ rb_objspace_reachable_objects_from.exit.i:        ; preds = %98, %96
   %115 = zext nneg i16 %114 to i64
   %116 = shl nuw i64 1, %115
   %117 = and i64 %113, %116
-  %.not77.i.i = icmp eq i64 %117, 0
-  br i1 %.not77.i.i, label %126, label %118
+  %.not53.i.i = icmp eq i64 %117, 0
+  br i1 %.not53.i.i, label %126, label %118
 
 118:                                              ; preds = %105
   %119 = getelementptr inbounds i8, ptr %108, i64 480
   %120 = getelementptr i64, ptr %119, i64 %.zext5.i.i.i
   %121 = load i64, ptr %120, align 8
   %122 = and i64 %121, %116
-  %.not78.i.i = icmp eq i64 %122, 0
-  br i1 %.not78.i.i, label %126, label %123
+  %.not54.i.i = icmp eq i64 %122, 0
+  br i1 %.not54.i.i, label %126, label %123
 
 123:                                              ; preds = %118
   %124 = load i64, ptr %20, align 8
@@ -5864,13 +5863,13 @@ rb_objspace_reachable_objects_from.exit.i:        ; preds = %98, %96
   br i1 %.not55.i.i, label %134, label %133
 
 133:                                              ; preds = %130
-  store i64 %.082.i.i, ptr %18, align 8
-  call void @rb_objspace_reachable_objects_from(i64 noundef %.082.i.i, ptr noundef nonnull @check_generation_i, ptr noundef nonnull %4)
-  %.pre84.i.i = load i16, ptr %43, align 8
+  store i64 %.079.i.i, ptr %18, align 8
+  call void @rb_objspace_reachable_objects_from(i64 noundef %.079.i.i, ptr noundef nonnull @check_generation_i, ptr noundef nonnull %4)
+  %.pre81.i.i = load i16, ptr %43, align 8
   br label %134
 
 134:                                              ; preds = %133, %130, %126
-  %135 = phi i16 [ %.pre84.i.i, %133 ], [ %127, %130 ], [ %127, %126 ]
+  %135 = phi i16 [ %.pre81.i.i, %133 ], [ %127, %130 ], [ %127, %126 ]
   %136 = and i16 %135, 2048
   %.not56.i.i = icmp eq i16 %136, 0
   br i1 %.not56.i.i, label %RVALUE_BLACK_P.exit.thread.i.i, label %137
@@ -5881,20 +5880,20 @@ rb_objspace_reachable_objects_from.exit.i:        ; preds = %98, %96
   %140 = getelementptr i64, ptr %139, i64 %.zext5.i.i.i
   %141 = load i64, ptr %140, align 8
   %142 = and i64 %141, %116
-  %.not5.i.i.i = icmp eq i64 %142, 0
-  br i1 %.not5.i.i.i, label %RVALUE_BLACK_P.exit.thread.i.i, label %RVALUE_BLACK_P.exit.i.i
+  %.not.i.i.i = icmp eq i64 %142, 0
+  br i1 %.not.i.i.i, label %RVALUE_BLACK_P.exit.thread.i.i, label %RVALUE_BLACK_P.exit.i.i
 
 RVALUE_BLACK_P.exit.i.i:                          ; preds = %137
   %143 = getelementptr inbounds i8, ptr %138, i64 688
   %144 = getelementptr i64, ptr %143, i64 %.zext5.i.i.i
   %145 = load i64, ptr %144, align 8
   %146 = and i64 %145, %116
-  %.not79.i.i = icmp eq i64 %146, 0
-  br i1 %.not79.i.i, label %147, label %RVALUE_BLACK_P.exit.thread.i.i
+  %.not57.not.i.i = icmp eq i64 %146, 0
+  br i1 %.not57.not.i.i, label %147, label %RVALUE_BLACK_P.exit.thread.i.i
 
 147:                                              ; preds = %RVALUE_BLACK_P.exit.i.i
-  store i64 %.082.i.i, ptr %18, align 8
-  call void @rb_objspace_reachable_objects_from(i64 noundef %.082.i.i, ptr noundef nonnull @check_color_i, ptr noundef nonnull %4)
+  store i64 %.079.i.i, ptr %18, align 8
+  call void @rb_objspace_reachable_objects_from(i64 noundef %.079.i.i, ptr noundef nonnull @check_color_i, ptr noundef nonnull %4)
   br label %RVALUE_BLACK_P.exit.thread.i.i
 
 is_live_object.exit.thread67.i.i:                 ; preds = %is_live_object.exit.i.i
@@ -5912,7 +5911,7 @@ is_live_object.exit.thread67.i.i:                 ; preds = %is_live_object.exit
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr @stderr, align 8
-  %156 = call fastcc nonnull ptr @obj_type_name(i64 noundef %.082.i.i)
+  %156 = call fastcc nonnull ptr @obj_type_name(i64 noundef %.079.i.i)
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.180, ptr noundef nonnull %156) #57
   %158 = load i32, ptr %12, align 8
   %159 = add i32 %158, 1
@@ -5920,9 +5919,9 @@ is_live_object.exit.thread67.i.i:                 ; preds = %is_live_object.exit
   br label %160
 
 160:                                              ; preds = %154, %149
-  %161 = and i64 %.082.i.i, 7
+  %161 = and i64 %.079.i.i, 7
   %162 = icmp ne i64 %161, 0
-  %163 = icmp eq i64 %.082.i.i, 0
+  %163 = icmp eq i64 %.079.i.i, 0
   %164 = or i1 %163, %162
   br i1 %164, label %RB_FL_TEST.exit.i.i, label %165
 
@@ -5938,7 +5937,7 @@ RB_FL_TEST.exit.i.i:                              ; preds = %165, %160
   %.025.i.i.i = phi i64 [ 0, %160 ], [ %spec.select.i.i.i, %165 ]
   %170 = icmp ne i64 %.025.i.i.i, 0
   %171 = load ptr, ptr %42, align 8
-  %172 = call i32 @rb_st_lookup(ptr noundef %171, i64 noundef %.082.i.i, ptr noundef null) #38
+  %172 = call i32 @rb_st_lookup(ptr noundef %171, i64 noundef %.079.i.i, ptr noundef null) #38
   %173 = icmp eq i32 %172, 0
   %.not48.i.i = xor i1 %170, %173
   br i1 %.not48.i.i, label %RVALUE_BLACK_P.exit.thread.i.i, label %174
@@ -5963,10 +5962,10 @@ RB_FL_TEST.exit64.thread.i.i:                     ; preds = %176, %174
 181:                                              ; preds = %RB_FL_TEST.exit64.thread.i.i, %176
   %182 = phi ptr [ @.str.183, %RB_FL_TEST.exit64.thread.i.i ], [ @.str.182, %176 ]
   %183 = load ptr, ptr %42, align 8
-  %184 = call i32 @rb_st_lookup(ptr noundef %183, i64 noundef %.082.i.i, ptr noundef null) #38
+  %184 = call i32 @rb_st_lookup(ptr noundef %183, i64 noundef %.079.i.i, ptr noundef null) #38
   %.not50.i.i = icmp eq i32 %184, 0
   %185 = select i1 %.not50.i.i, ptr @.str.185, ptr @.str.184
-  %186 = call fastcc nonnull ptr @obj_type_name(i64 noundef %.082.i.i)
+  %186 = call fastcc nonnull ptr @obj_type_name(i64 noundef %.079.i.i)
   %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.181, ptr noundef nonnull %182, ptr noundef nonnull %185, ptr noundef nonnull %186) #57
   %188 = load i32, ptr %12, align 8
   %189 = add i32 %188, 1
@@ -5974,7 +5973,7 @@ RB_FL_TEST.exit64.thread.i.i:                     ; preds = %176, %174
   br label %RVALUE_BLACK_P.exit.thread.i.i
 
 RVALUE_BLACK_P.exit.thread.i.i:                   ; preds = %181, %RB_FL_TEST.exit.i.i, %is_live_object.exit.thread67.i.i, %147, %RVALUE_BLACK_P.exit.i.i, %137, %134, %44, %44
-  %190 = add i64 %.082.i.i, %34
+  %190 = add i64 %.079.i.i, %34
   %.not.i.i4 = icmp eq i64 %190, %36
   br i1 %.not.i.i4, label %verify_internal_consistency_i.exit.loopexit.i, label %44, !llvm.loop !40
 
@@ -6203,11 +6202,11 @@ define dso_local void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %1) local_
 12:                                               ; preds = %.critedge
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #38
   %.pre = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.pre22 = load i16, ptr %8, align 8
+  %.pre24 = load i16, ptr %8, align 8
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %.critedge, %12
-  %13 = phi i16 [ %54, %.critedge ], [ %.pre22, %12 ]
+  %13 = phi i16 [ %54, %.critedge ], [ %.pre24, %12 ]
   %14 = phi ptr [ %11, %.critedge ], [ %.pre, %12 ]
   %15 = and i16 %13, 2048
   %.not = icmp eq i16 %15, 0
@@ -6243,8 +6242,8 @@ rb_vm_lock_leave.exit:                            ; preds = %.critedge, %12
   %33 = zext nneg i16 %32 to i64
   %34 = shl nuw i64 1, %33
   %35 = and i64 %31, %34
-  %.not1.i = icmp eq i64 %35, 0
-  br i1 %.not1.i, label %36, label %gc_writebarrier_generational.exit
+  %.not.i = icmp eq i64 %35, 0
+  br i1 %.not.i, label %36, label %gc_writebarrier_generational.exit
 
 36:                                               ; preds = %23
   %37 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -6319,16 +6318,16 @@ rb_vm_lock_enter_nb.exit:                         ; preds = %.lr.ph, %53
   %66 = zext nneg i16 %65 to i64
   %67 = shl nuw i64 1, %66
   %68 = and i64 %64, %67
-  %.not5.i.i = icmp eq i64 %68, 0
-  br i1 %.not5.i.i, label %gc_writebarrier_incremental.exit, label %RVALUE_BLACK_P.exit.i
+  %.not.i.i14 = icmp eq i64 %68, 0
+  br i1 %.not.i.i14, label %gc_writebarrier_incremental.exit, label %RVALUE_BLACK_P.exit.i
 
 RVALUE_BLACK_P.exit.i:                            ; preds = %56
   %69 = getelementptr inbounds i8, ptr %59, i64 688
   %70 = getelementptr i64, ptr %69, i64 %.zext5.i.i.i
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, %67
-  %.not.i = icmp eq i64 %72, 0
-  br i1 %.not.i, label %73, label %gc_writebarrier_incremental.exit
+  %.not.not.i = icmp eq i64 %72, 0
+  br i1 %.not.not.i, label %73, label %gc_writebarrier_incremental.exit
 
 73:                                               ; preds = %RVALUE_BLACK_P.exit.i
   %74 = and i64 %1, -65536
@@ -6345,36 +6344,36 @@ RVALUE_BLACK_P.exit.i:                            ; preds = %56
   %83 = zext nneg i16 %82 to i64
   %84 = shl nuw i64 1, %83
   %85 = and i64 %81, %84
-  %.not27.i = icmp eq i64 %85, 0
-  br i1 %.not27.i, label %86, label %176
+  %.not15.not.i = icmp eq i64 %85, 0
+  br i1 %.not15.not.i, label %86, label %176
 
 86:                                               ; preds = %73
   %87 = getelementptr inbounds i8, ptr %59, i64 64
   %88 = getelementptr i64, ptr %87, i64 %.zext5.i.i.i
   %89 = load i64, ptr %88, align 8
   %90 = and i64 %89, %67
-  %.not28.i = icmp eq i64 %90, 0
-  br i1 %.not28.i, label %91, label %gc_mark_from.exit.i
+  %.not18.i = icmp eq i64 %90, 0
+  br i1 %.not18.i, label %91, label %gc_mark_from.exit.i
 
 91:                                               ; preds = %86
   %92 = inttoptr i64 %0 to ptr
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %93, 32
-  %.not.i.i.i14 = icmp eq i64 %94, 0
-  %spec.select.i.i.i = select i1 %.not.i.i.i14, i64 0, i64 %0
+  %.not.i.i.i15 = icmp eq i64 %94, 0
+  %spec.select.i.i.i = select i1 %.not.i.i.i15, i64 0, i64 %0
   %95 = getelementptr inbounds i8, ptr %7, i64 1480
   store i64 %spec.select.i.i.i, ptr %95, align 8
   %.not.i9.i.i = icmp eq i64 %spec.select.i.i.i, 0
-  %.pre29.i = load ptr, ptr %75, align 65536
+  %.pre23 = load ptr, ptr %75, align 65536
   br i1 %.not.i9.i.i, label %rgengc_check_relation.exit.i.i, label %96
 
 96:                                               ; preds = %91
-  %97 = getelementptr inbounds i8, ptr %.pre29.i, i64 64
+  %97 = getelementptr inbounds i8, ptr %.pre23, i64 64
   %98 = getelementptr i64, ptr %97, i64 %.zext5.i.i21.i
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %99, %84
-  %.not1.i.i.i = icmp eq i64 %100, 0
-  br i1 %.not1.i.i.i, label %101, label %105
+  %.not5.i.i.i = icmp eq i64 %100, 0
+  br i1 %.not5.i.i.i, label %101, label %105
 
 101:                                              ; preds = %96
   %102 = inttoptr i64 %1 to ptr
@@ -6408,17 +6407,17 @@ RVALUE_BLACK_P.exit.i:                            ; preds = %56
   store i8 %121, ptr %119, align 4
   %122 = or i64 %113, %116
   store i64 %122, ptr %112, align 8
-  %.pre.i15 = load ptr, ptr %75, align 65536
+  %.pre22 = load ptr, ptr %75, align 65536
   br label %rgengc_check_relation.exit.i.i
 
 rgengc_check_relation.exit.i.i:                   ; preds = %118, %105, %101, %91
-  %123 = phi ptr [ %.pre29.i, %91 ], [ %.pre.i15, %118 ], [ %.pre29.i, %105 ], [ %.pre29.i, %101 ]
+  %123 = phi ptr [ %.pre22, %118 ], [ %.pre23, %105 ], [ %.pre23, %101 ], [ %.pre23, %91 ]
   %124 = getelementptr inbounds i8, ptr %123, i64 272
   %125 = getelementptr i64, ptr %124, i64 %.zext5.i.i21.i
   %126 = load i64, ptr %125, align 8
   %127 = and i64 %126, %84
-  %.not3.i.i.i = icmp eq i64 %127, 0
-  br i1 %.not3.i.i.i, label %128, label %gc_mark_from.exit.i
+  %.not.i12.i.i = icmp eq i64 %127, 0
+  br i1 %.not.i12.i.i, label %128, label %gc_mark_from.exit.i
 
 128:                                              ; preds = %rgengc_check_relation.exit.i.i
   %129 = or i64 %126, %84
@@ -6428,8 +6427,8 @@ rgengc_check_relation.exit.i.i:                   ; preds = %118, %105, %101, %9
   %132 = getelementptr [26 x i64], ptr %131, i64 0, i64 %.zext5.i.i21.i
   %133 = load i64, ptr %132, align 8
   %134 = and i64 %133, %84
-  %.not.i12.i.i = icmp eq i64 %134, 0
-  br i1 %.not.i12.i.i, label %135, label %gc_aging.exit.i.i
+  %.not.i13.i.i = icmp eq i64 %134, 0
+  br i1 %.not.i13.i.i, label %135, label %gc_aging.exit.i.i
 
 135:                                              ; preds = %128
   %136 = inttoptr i64 %1 to ptr
@@ -6573,8 +6572,8 @@ define dso_local void @rb_gc_writebarrier_unprotect(i64 noundef %0) local_unname
   %12 = zext nneg i16 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = and i64 %10, %13
-  %.not23 = icmp eq i64 %14, 0
-  br i1 %.not23, label %15, label %rb_vm_lock_leave.exit
+  %.not = icmp eq i64 %14, 0
+  br i1 %.not, label %15, label %rb_vm_lock_leave.exit
 
 15:                                               ; preds = %1
   %16 = load ptr, ptr @ruby_current_vm_ptr, align 8
@@ -6593,146 +6592,145 @@ rb_vm_lock_enter_nb.exit:                         ; preds = %15, %20
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 32
   %.not13 = icmp eq i64 %23, 0
-  br i1 %.not13, label %84, label %24
+  br i1 %.not13, label %85, label %24
 
 24:                                               ; preds = %rb_vm_lock_enter_nb.exit
   %25 = getelementptr inbounds i8, ptr %18, i64 16
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 2048
   %.not.i = icmp eq i16 %27, 0
-  %.pre24 = load ptr, ptr %4, align 65536
   br i1 %.not.i, label %28, label %._crit_edge.i
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.pre24, i64 896
-  %30 = getelementptr [26 x i64], ptr %29, i64 0, i64 %.zext5.i
-  %31 = load i64, ptr %30, align 8
-  %32 = and i64 %31, %13
-  %.not26.i = icmp eq i64 %32, 0
-  br i1 %.not26.i, label %._crit_edge.i, label %33
+  %29 = load ptr, ptr %4, align 65536
+  %30 = getelementptr inbounds i8, ptr %29, i64 896
+  %31 = getelementptr [26 x i64], ptr %30, i64 0, i64 %.zext5.i
+  %32 = load i64, ptr %31, align 8
+  %33 = and i64 %32, %13
+  %.not16.i = icmp eq i64 %33, 0
+  br i1 %.not16.i, label %._crit_edge.i, label %34
 
-33:                                               ; preds = %28
-  %34 = xor i64 %13, -1
-  %35 = and i64 %31, %34
-  store i64 %35, ptr %30, align 8
-  %.pre = load ptr, ptr %4, align 65536
+34:                                               ; preds = %28
+  %35 = xor i64 %13, -1
+  %36 = and i64 %32, %35
+  store i64 %36, ptr %31, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %24, %33, %28
-  %36 = phi ptr [ %.pre24, %24 ], [ %.pre, %33 ], [ %.pre24, %28 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 480
-  %38 = getelementptr i64, ptr %37, i64 %.zext5.i
-  %39 = load i64, ptr %38, align 8
-  %40 = xor i64 %13, -1
-  %41 = and i64 %39, %40
-  store i64 %41, ptr %38, align 8
-  %42 = load ptr, ptr %4, align 65536
-  %43 = getelementptr inbounds i8, ptr %42, i64 1312
-  %44 = shl nuw nsw i16 %7, 1
-  %45 = and i16 %44, 62
-  %46 = zext nneg i16 %45 to i64
-  %47 = shl nuw i64 3, %46
-  %48 = xor i64 %47, -1
-  %49 = udiv i16 %.lhs.trunc.i, 1280
-  %.zext11.i.i.i = zext nneg i16 %49 to i64
-  %50 = getelementptr i64, ptr %43, i64 %.zext11.i.i.i
-  %51 = load i64, ptr %50, align 8
-  %52 = and i64 %51, %48
-  store i64 %52, ptr %50, align 8
-  %53 = load i64, ptr %21, align 8
-  %54 = and i64 %53, -33
-  store i64 %54, ptr %21, align 8
-  %55 = load ptr, ptr %4, align 65536
-  %56 = getelementptr inbounds i8, ptr %55, i64 272
-  %57 = getelementptr i64, ptr %56, i64 %.zext5.i
-  %58 = load i64, ptr %57, align 8
-  %59 = and i64 %58, %13
-  %.not27.i = icmp eq i64 %59, 0
-  br i1 %.not27.i, label %RVALUE_DEMOTE.exit, label %60
+._crit_edge.i:                                    ; preds = %24, %34, %28
+  %37 = load ptr, ptr %4, align 65536
+  %38 = getelementptr inbounds i8, ptr %37, i64 480
+  %39 = getelementptr i64, ptr %38, i64 %.zext5.i
+  %40 = load i64, ptr %39, align 8
+  %41 = xor i64 %13, -1
+  %42 = and i64 %40, %41
+  store i64 %42, ptr %39, align 8
+  %43 = load ptr, ptr %4, align 65536
+  %44 = getelementptr inbounds i8, ptr %43, i64 1312
+  %45 = shl nuw nsw i16 %7, 1
+  %46 = and i16 %45, 62
+  %47 = zext nneg i16 %46 to i64
+  %48 = shl nuw i64 3, %47
+  %49 = xor i64 %48, -1
+  %50 = udiv i16 %.lhs.trunc.i, 1280
+  %.zext11.i.i.i = zext nneg i16 %50 to i64
+  %51 = getelementptr i64, ptr %44, i64 %.zext11.i.i.i
+  %52 = load i64, ptr %51, align 8
+  %53 = and i64 %52, %49
+  store i64 %53, ptr %51, align 8
+  %54 = load i64, ptr %21, align 8
+  %55 = and i64 %54, -33
+  store i64 %55, ptr %21, align 8
+  %56 = load ptr, ptr %4, align 65536
+  %57 = getelementptr inbounds i8, ptr %56, i64 272
+  %58 = getelementptr i64, ptr %57, i64 %.zext5.i
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %59, %13
+  %.not17.i = icmp eq i64 %60, 0
+  br i1 %.not17.i, label %RVALUE_DEMOTE.exit, label %61
 
-60:                                               ; preds = %._crit_edge.i
-  %61 = getelementptr inbounds i8, ptr %18, i64 1520
-  %62 = load i64, ptr %61, align 8
-  %63 = add i64 %62, -1
-  store i64 %63, ptr %61, align 8
-  %.pre25 = load ptr, ptr %4, align 65536
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre25, i64 272
-  %.phi.trans.insert26 = getelementptr i64, ptr %.phi.trans.insert, i64 %.zext5.i
-  %.pre27 = load i64, ptr %.phi.trans.insert26, align 8
+61:                                               ; preds = %._crit_edge.i
+  %62 = getelementptr inbounds i8, ptr %18, i64 1520
+  %63 = load i64, ptr %62, align 8
+  %64 = add i64 %63, -1
+  store i64 %64, ptr %62, align 8
+  %.pre = load ptr, ptr %4, align 65536
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 272
+  %.phi.trans.insert24 = getelementptr i64, ptr %.phi.trans.insert, i64 %.zext5.i
+  %.pre25 = load i64, ptr %.phi.trans.insert24, align 8
   br label %RVALUE_DEMOTE.exit
 
-RVALUE_DEMOTE.exit:                               ; preds = %._crit_edge.i, %60
-  %64 = phi i64 [ %58, %._crit_edge.i ], [ %.pre27, %60 ]
-  %65 = phi ptr [ %55, %._crit_edge.i ], [ %.pre25, %60 ]
-  %66 = and i64 %64, %13
-  %.not3.i = icmp eq i64 %66, 0
-  br i1 %.not3.i, label %67, label %gc_mark_set.exit
+RVALUE_DEMOTE.exit:                               ; preds = %._crit_edge.i, %61
+  %65 = phi i64 [ %59, %._crit_edge.i ], [ %.pre25, %61 ]
+  %66 = phi ptr [ %56, %._crit_edge.i ], [ %.pre, %61 ]
+  %67 = and i64 %65, %13
+  %.not.i16 = icmp eq i64 %67, 0
+  br i1 %.not.i16, label %68, label %gc_mark_set.exit
 
-67:                                               ; preds = %RVALUE_DEMOTE.exit
-  %68 = getelementptr inbounds i8, ptr %65, i64 272
-  %69 = getelementptr i64, ptr %68, i64 %.zext5.i
-  %70 = or i64 %64, %13
-  store i64 %70, ptr %69, align 8
-  %.pre28 = load ptr, ptr %4, align 65536
+68:                                               ; preds = %RVALUE_DEMOTE.exit
+  %69 = getelementptr inbounds i8, ptr %66, i64 272
+  %70 = getelementptr i64, ptr %69, i64 %.zext5.i
+  %71 = or i64 %65, %13
+  store i64 %71, ptr %70, align 8
+  %.pre26 = load ptr, ptr %4, align 65536
   br label %gc_mark_set.exit
 
-gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit, %67
-  %71 = phi ptr [ %65, %RVALUE_DEMOTE.exit ], [ %.pre28, %67 ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 480
-  %73 = getelementptr i64, ptr %72, i64 %.zext5.i
-  %74 = load i64, ptr %73, align 8
-  %75 = and i64 %74, %13
-  %.not.i17 = icmp eq i64 %75, 0
-  br i1 %.not.i17, label %76, label %gc_remember_unprotected.exit
+gc_mark_set.exit:                                 ; preds = %RVALUE_DEMOTE.exit, %68
+  %72 = phi ptr [ %66, %RVALUE_DEMOTE.exit ], [ %.pre26, %68 ]
+  %73 = getelementptr inbounds i8, ptr %72, i64 480
+  %74 = getelementptr i64, ptr %73, i64 %.zext5.i
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, %13
+  %.not.i18 = icmp eq i64 %76, 0
+  br i1 %.not.i18, label %77, label %gc_remember_unprotected.exit
 
-76:                                               ; preds = %gc_mark_set.exit
-  %77 = getelementptr inbounds i8, ptr %71, i64 12
-  %78 = load i8, ptr %77, align 4
-  %79 = or i8 %78, 4
-  store i8 %79, ptr %77, align 4
-  %80 = or i64 %74, %13
-  store i64 %80, ptr %73, align 8
-  %81 = getelementptr inbounds i8, ptr %18, i64 1504
-  %82 = load i64, ptr %81, align 8
-  %83 = add i64 %82, 1
-  store i64 %83, ptr %81, align 8
+77:                                               ; preds = %gc_mark_set.exit
+  %78 = getelementptr inbounds i8, ptr %72, i64 12
+  %79 = load i8, ptr %78, align 4
+  %80 = or i8 %79, 4
+  store i8 %80, ptr %78, align 4
+  %81 = or i64 %75, %13
+  store i64 %81, ptr %74, align 8
+  %82 = getelementptr inbounds i8, ptr %18, i64 1504
+  %83 = load i64, ptr %82, align 8
+  %84 = add i64 %83, 1
+  store i64 %84, ptr %82, align 8
   br label %gc_remember_unprotected.exit
 
-84:                                               ; preds = %rb_vm_lock_enter_nb.exit
-  %85 = load ptr, ptr %4, align 65536
-  %86 = getelementptr inbounds i8, ptr %85, i64 1312
-  %87 = shl nuw nsw i16 %7, 1
-  %88 = and i16 %87, 62
-  %89 = zext nneg i16 %88 to i64
-  %90 = shl nuw i64 3, %89
-  %91 = xor i64 %90, -1
-  %92 = udiv i16 %.lhs.trunc.i, 1280
-  %.zext11.i.i = zext nneg i16 %92 to i64
-  %93 = getelementptr i64, ptr %86, i64 %.zext11.i.i
-  %94 = load i64, ptr %93, align 8
-  %95 = and i64 %94, %91
-  store i64 %95, ptr %93, align 8
-  %96 = load i64, ptr %21, align 8
-  %97 = and i64 %96, -33
-  store i64 %97, ptr %21, align 8
+85:                                               ; preds = %rb_vm_lock_enter_nb.exit
+  %86 = load ptr, ptr %4, align 65536
+  %87 = getelementptr inbounds i8, ptr %86, i64 1312
+  %88 = shl nuw nsw i16 %7, 1
+  %89 = and i16 %88, 62
+  %90 = zext nneg i16 %89 to i64
+  %91 = shl nuw i64 3, %90
+  %92 = xor i64 %91, -1
+  %93 = udiv i16 %.lhs.trunc.i, 1280
+  %.zext11.i.i = zext nneg i16 %93 to i64
+  %94 = getelementptr i64, ptr %87, i64 %.zext11.i.i
+  %95 = load i64, ptr %94, align 8
+  %96 = and i64 %95, %92
+  store i64 %96, ptr %94, align 8
+  %97 = load i64, ptr %21, align 8
+  %98 = and i64 %97, -33
+  store i64 %98, ptr %21, align 8
   br label %gc_remember_unprotected.exit
 
-gc_remember_unprotected.exit:                     ; preds = %76, %gc_mark_set.exit, %84
-  %98 = load ptr, ptr %4, align 65536
-  %99 = getelementptr inbounds i8, ptr %98, i64 64
-  %100 = getelementptr i64, ptr %99, i64 %.zext5.i
-  %101 = load i64, ptr %100, align 8
-  %102 = or i64 %101, %13
-  store i64 %102, ptr %100, align 8
-  %103 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i20 = icmp eq ptr %103, null
-  br i1 %.not.i.i20, label %104, label %rb_vm_lock_leave.exit
+gc_remember_unprotected.exit:                     ; preds = %77, %gc_mark_set.exit, %85
+  %99 = load ptr, ptr %4, align 65536
+  %100 = getelementptr inbounds i8, ptr %99, i64 64
+  %101 = getelementptr i64, ptr %100, i64 %.zext5.i
+  %102 = load i64, ptr %101, align 8
+  %103 = or i64 %102, %13
+  store i64 %103, ptr %101, align 8
+  %104 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i21 = icmp eq ptr %104, null
+  br i1 %.not.i.i21, label %105, label %rb_vm_lock_leave.exit
 
-104:                                              ; preds = %gc_remember_unprotected.exit
+105:                                              ; preds = %gc_remember_unprotected.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #38
   br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %104, %gc_remember_unprotected.exit, %1
+rb_vm_lock_leave.exit:                            ; preds = %105, %gc_remember_unprotected.exit, %1
   ret void
 }
 
@@ -6762,16 +6760,16 @@ define hidden void @rb_gc_writebarrier_remember(i64 noundef %0) local_unnamed_ad
   %18 = zext nneg i16 %17 to i64
   %19 = shl nuw i64 1, %18
   %20 = and i64 %16, %19
-  %.not5.i = icmp eq i64 %20, 0
-  br i1 %.not5.i, label %rgengc_remember.exit, label %RVALUE_BLACK_P.exit
+  %.not.i = icmp eq i64 %20, 0
+  br i1 %.not.i, label %rgengc_remember.exit, label %RVALUE_BLACK_P.exit
 
 RVALUE_BLACK_P.exit:                              ; preds = %8
   %21 = getelementptr inbounds i8, ptr %11, i64 688
   %22 = getelementptr i64, ptr %21, i64 %.zext5.i.i
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, %19
-  %.not10 = icmp eq i64 %24, 0
-  br i1 %.not10, label %25, label %rgengc_remember.exit
+  %.not7.not = icmp eq i64 %24, 0
+  br i1 %.not7.not, label %25, label %rgengc_remember.exit
 
 25:                                               ; preds = %RVALUE_BLACK_P.exit
   tail call fastcc void @gc_grey(ptr noundef nonnull %4, i64 noundef %0)
@@ -6978,8 +6976,8 @@ define hidden void @rb_copy_wb_protected_attribute(i64 noundef %0, i64 noundef %
   %15 = zext nneg i16 %14 to i64
   %16 = shl nuw i64 1, %15
   %17 = and i64 %13, %16
-  %.not18 = icmp eq i64 %17, 0
-  br i1 %.not18, label %RVALUE_DEMOTE.exit, label %18
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %RVALUE_DEMOTE.exit, label %18
 
 18:                                               ; preds = %2
   %19 = and i64 %0, -65536
@@ -6996,8 +6994,8 @@ define hidden void @rb_copy_wb_protected_attribute(i64 noundef %0, i64 noundef %
   %28 = zext nneg i16 %27 to i64
   %29 = shl nuw i64 1, %28
   %30 = and i64 %26, %29
-  %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %31, label %RVALUE_DEMOTE.exit
+  %.not11 = icmp eq i64 %30, 0
+  br i1 %.not11, label %31, label %RVALUE_DEMOTE.exit
 
 31:                                               ; preds = %18
   %32 = inttoptr i64 %0 to ptr
@@ -7039,8 +7037,8 @@ define hidden void @rb_copy_wb_protected_attribute(i64 noundef %0, i64 noundef %
   %56 = getelementptr [26 x i64], ptr %55, i64 0, i64 %.zext5.i14
   %57 = load i64, ptr %56, align 8
   %58 = and i64 %57, %29
-  %.not26.i = icmp eq i64 %58, 0
-  br i1 %.not26.i, label %._crit_edge.i, label %59
+  %.not16.i = icmp eq i64 %58, 0
+  br i1 %.not16.i, label %._crit_edge.i, label %59
 
 59:                                               ; preds = %54
   %60 = xor i64 %29, -1
@@ -7050,7 +7048,7 @@ define hidden void @rb_copy_wb_protected_attribute(i64 noundef %0, i64 noundef %
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %50, %59, %54
-  %62 = phi ptr [ %21, %50 ], [ %.pre, %59 ], [ %21, %54 ]
+  %62 = phi ptr [ %.pre, %59 ], [ %21, %54 ], [ %21, %50 ]
   %63 = getelementptr inbounds i8, ptr %62, i64 480
   %64 = getelementptr i64, ptr %63, i64 %.zext5.i14
   %65 = load i64, ptr %64, align 8
@@ -7078,8 +7076,8 @@ define hidden void @rb_copy_wb_protected_attribute(i64 noundef %0, i64 noundef %
   %83 = getelementptr i64, ptr %82, i64 %.zext5.i14
   %84 = load i64, ptr %83, align 8
   %85 = and i64 %84, %29
-  %.not27.i = icmp eq i64 %85, 0
-  br i1 %.not27.i, label %RVALUE_DEMOTE.exit, label %86
+  %.not17.i = icmp eq i64 %85, 0
+  br i1 %.not17.i, label %RVALUE_DEMOTE.exit, label %86
 
 86:                                               ; preds = %._crit_edge.i
   %87 = getelementptr inbounds i8, ptr %5, i64 1520
@@ -7255,80 +7253,80 @@ rbimpl_intern_const.exit82:                       ; preds = %.lr.ph.i80, %rbimpl
   %40 = getelementptr i64, ptr %39, i64 %.zext5.i
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %23
-  %43 = icmp ne i64 %42, 0
-  %44 = icmp ult i64 %.1, %2
-  %or.cond49 = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond49, label %45, label %49
+  %.not44 = icmp ne i64 %42, 0
+  %43 = icmp ult i64 %.1, %2
+  %or.cond49 = select i1 %.not44, i1 %43, i1 false
+  br i1 %or.cond49, label %44, label %48
 
-45:                                               ; preds = %37
-  %46 = load i64, ptr @rb_obj_gc_flags.ID_uncollectible, align 8
-  %47 = add nuw nsw i64 %.1, 1
-  %48 = getelementptr i64, ptr %1, i64 %.1
-  store i64 %46, ptr %48, align 8
+44:                                               ; preds = %37
+  %45 = load i64, ptr @rb_obj_gc_flags.ID_uncollectible, align 8
+  %46 = add nuw nsw i64 %.1, 1
+  %47 = getelementptr i64, ptr %1, i64 %.1
+  store i64 %45, ptr %47, align 8
   %.pre = load ptr, ptr %14, align 65536
-  br label %49
+  br label %48
 
-49:                                               ; preds = %45, %37
-  %50 = phi ptr [ %.pre, %45 ], [ %38, %37 ]
-  %.2 = phi i64 [ %47, %45 ], [ %.1, %37 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 688
-  %52 = getelementptr i64, ptr %51, i64 %.zext5.i
-  %53 = load i64, ptr %52, align 8
-  %54 = and i64 %53, %23
-  %.not45 = icmp ne i64 %54, 0
-  %55 = icmp ult i64 %.2, %2
-  %or.cond50 = select i1 %.not45, i1 %55, i1 false
-  br i1 %or.cond50, label %56, label %60
+48:                                               ; preds = %44, %37
+  %49 = phi ptr [ %.pre, %44 ], [ %38, %37 ]
+  %.2 = phi i64 [ %46, %44 ], [ %.1, %37 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 688
+  %51 = getelementptr i64, ptr %50, i64 %.zext5.i
+  %52 = load i64, ptr %51, align 8
+  %53 = and i64 %52, %23
+  %.not45 = icmp ne i64 %53, 0
+  %54 = icmp ult i64 %.2, %2
+  %or.cond50 = select i1 %.not45, i1 %54, i1 false
+  br i1 %or.cond50, label %55, label %59
 
-56:                                               ; preds = %49
-  %57 = load i64, ptr @rb_obj_gc_flags.ID_marking, align 8
-  %58 = add nuw nsw i64 %.2, 1
-  %59 = getelementptr i64, ptr %1, i64 %.2
-  store i64 %57, ptr %59, align 8
+55:                                               ; preds = %48
+  %56 = load i64, ptr @rb_obj_gc_flags.ID_marking, align 8
+  %57 = add nuw nsw i64 %.2, 1
+  %58 = getelementptr i64, ptr %1, i64 %.2
+  store i64 %56, ptr %58, align 8
   %.pre97 = load ptr, ptr %14, align 65536
-  br label %60
+  br label %59
 
-60:                                               ; preds = %56, %49
-  %61 = phi ptr [ %.pre97, %56 ], [ %50, %49 ]
-  %.3 = phi i64 [ %58, %56 ], [ %.2, %49 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 272
-  %63 = getelementptr i64, ptr %62, i64 %.zext5.i
-  %64 = load i64, ptr %63, align 8
-  %65 = and i64 %64, %23
-  %.not46 = icmp ne i64 %65, 0
-  %66 = icmp ult i64 %.3, %2
-  %or.cond51 = select i1 %.not46, i1 %66, i1 false
-  br i1 %or.cond51, label %67, label %71
+59:                                               ; preds = %55, %48
+  %60 = phi ptr [ %.pre97, %55 ], [ %49, %48 ]
+  %.3 = phi i64 [ %57, %55 ], [ %.2, %48 ]
+  %61 = getelementptr inbounds i8, ptr %60, i64 272
+  %62 = getelementptr i64, ptr %61, i64 %.zext5.i
+  %63 = load i64, ptr %62, align 8
+  %64 = and i64 %63, %23
+  %.not46 = icmp ne i64 %64, 0
+  %65 = icmp ult i64 %.3, %2
+  %or.cond51 = select i1 %.not46, i1 %65, i1 false
+  br i1 %or.cond51, label %66, label %70
 
-67:                                               ; preds = %60
-  %68 = load i64, ptr @rb_obj_gc_flags.ID_marked, align 8
-  %69 = add nuw nsw i64 %.3, 1
-  %70 = getelementptr i64, ptr %1, i64 %.3
-  store i64 %68, ptr %70, align 8
+66:                                               ; preds = %59
+  %67 = load i64, ptr @rb_obj_gc_flags.ID_marked, align 8
+  %68 = add nuw nsw i64 %.3, 1
+  %69 = getelementptr i64, ptr %1, i64 %.3
+  store i64 %67, ptr %69, align 8
   %.pre98 = load ptr, ptr %14, align 65536
-  br label %71
+  br label %70
 
-71:                                               ; preds = %67, %60
-  %72 = phi ptr [ %.pre98, %67 ], [ %61, %60 ]
-  %.4 = phi i64 [ %69, %67 ], [ %.3, %60 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 1104
-  %74 = getelementptr i64, ptr %73, i64 %.zext5.i
-  %75 = load i64, ptr %74, align 8
-  %76 = and i64 %75, %23
-  %.not47 = icmp ne i64 %76, 0
-  %77 = icmp ult i64 %.4, %2
-  %or.cond52 = select i1 %.not47, i1 %77, i1 false
-  br i1 %or.cond52, label %78, label %82
+70:                                               ; preds = %66, %59
+  %71 = phi ptr [ %.pre98, %66 ], [ %60, %59 ]
+  %.4 = phi i64 [ %68, %66 ], [ %.3, %59 ]
+  %72 = getelementptr inbounds i8, ptr %71, i64 1104
+  %73 = getelementptr i64, ptr %72, i64 %.zext5.i
+  %74 = load i64, ptr %73, align 8
+  %75 = and i64 %74, %23
+  %.not47 = icmp ne i64 %75, 0
+  %76 = icmp ult i64 %.4, %2
+  %or.cond52 = select i1 %.not47, i1 %76, i1 false
+  br i1 %or.cond52, label %77, label %81
 
-78:                                               ; preds = %71
-  %79 = load i64, ptr @rb_obj_gc_flags.ID_pinned, align 8
-  %80 = add nuw nsw i64 %.4, 1
-  %81 = getelementptr i64, ptr %1, i64 %.4
-  store i64 %79, ptr %81, align 8
-  br label %82
+77:                                               ; preds = %70
+  %78 = load i64, ptr @rb_obj_gc_flags.ID_pinned, align 8
+  %79 = add nuw nsw i64 %.4, 1
+  %80 = getelementptr i64, ptr %1, i64 %.4
+  store i64 %78, ptr %80, align 8
+  br label %81
 
-82:                                               ; preds = %78, %71
-  %.5 = phi i64 [ %80, %78 ], [ %.4, %71 ]
+81:                                               ; preds = %77, %70
+  %.5 = phi i64 [ %79, %77 ], [ %.4, %70 ]
   ret i64 %.5
 }
 
@@ -7852,16 +7850,16 @@ free_empty_pages.exit:                            ; preds = %._crit_edge.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @gc_set_candidate_object_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = ptrtoint ptr %1 to i64
-  %.not13 = icmp eq ptr %0, %1
-  br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
+  %.not12 = icmp eq ptr %0, %1
+  br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %6 = ptrtoint ptr %0 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %.014 = phi i64 [ %45, %44 ], [ %6, %.lr.ph.preheader ]
-  %7 = inttoptr i64 %.014 to ptr
+  %.013 = phi i64 [ %45, %44 ], [ %6, %.lr.ph.preheader ]
+  %7 = inttoptr i64 %.013 to ptr
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 31
@@ -7872,7 +7870,7 @@ define internal noundef i32 @gc_set_candidate_object_i(ptr noundef %0, ptr nound
   ]
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i32 @rb_enc_str_coderange(i64 noundef %.014) #38
+  %12 = tail call i32 @rb_enc_str_coderange(i64 noundef %.013) #38
   %.pre = load i64, ptr %7, align 8
   br label %13
 
@@ -7883,11 +7881,11 @@ define internal noundef i32 @gc_set_candidate_object_i(ptr noundef %0, ptr nound
   br i1 %.not10, label %16, label %44
 
 16:                                               ; preds = %13
-  %17 = and i64 %.014, -65536
+  %17 = and i64 %.013, -65536
   %18 = inttoptr i64 %17 to ptr
   %19 = load ptr, ptr %18, align 65536
   %20 = getelementptr inbounds i8, ptr %19, i64 64
-  %.lhs.trunc.i = trunc i64 %.014 to i16
+  %.lhs.trunc.i = trunc i64 %.013 to i16
   %21 = udiv i16 %.lhs.trunc.i, 40
   %22 = udiv i16 %.lhs.trunc.i, 2560
   %.zext5.i = zext nneg i16 %22 to i64
@@ -7897,8 +7895,8 @@ define internal noundef i32 @gc_set_candidate_object_i(ptr noundef %0, ptr nound
   %26 = zext nneg i16 %25 to i64
   %27 = shl nuw i64 1, %26
   %28 = and i64 %24, %27
-  %.not12 = icmp eq i64 %28, 0
-  br i1 %.not12, label %29, label %44
+  %.not11 = icmp eq i64 %28, 0
+  br i1 %.not11, label %29, label %44
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds i8, ptr %19, i64 1312
@@ -7921,7 +7919,7 @@ define internal noundef i32 @gc_set_candidate_object_i(ptr noundef %0, ptr nound
   br label %44
 
 44:                                               ; preds = %.lr.ph, %.lr.ph, %29, %16, %13
-  %45 = add i64 %.014, %2
+  %45 = add i64 %.013, %2
   %.not = icmp eq i64 %45, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
@@ -13888,8 +13886,8 @@ has_sweeping_pages.exit.i.i:                      ; preds = %123
   %128 = load i8, ptr %127, align 4
   %129 = and i8 %128, 1
   %.not.i.i93 = icmp ne i8 %129, 0
-  %.not4.i.i.not = icmp eq i64 %.fr, 0
-  %or.cond = and i1 %.not.i.i93, %.not4.i.i.not
+  %.not87.not = icmp eq i64 %.fr, 0
+  %or.cond = and i1 %.not.i.i93, %.not87.not
   br i1 %or.cond, label %130, label %rb_objspace_garbage_object_p.exit.thread
 
 rb_objspace_garbage_object_p.exit.thread:         ; preds = %.lr.ph.i.i, %has_sweeping_pages.exit.i.i, %.critedge.i.i
@@ -17721,12 +17719,12 @@ rb_ec_vm_ptr.exit.i.i.i:                          ; preds = %230, %222
   %251 = load i8, ptr %250, align 4
   %252 = and i8 %251, -7
   store i8 %252, ptr %250, align 4
-  %.not33.i.i.i.i = icmp eq ptr %248, %249
-  br i1 %.not33.i.i.i.i, label %gc_ref_update.exit.i.i.i, label %.lr.ph.i.i.i.i
+  %.not30.i.i.i.i = icmp eq ptr %248, %249
+  br i1 %.not30.i.i.i.i, label %gc_ref_update.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %238, %gc_update_object_references.exit.i.i.i
-  %.034.i.i.i.i = phi i64 [ %1004, %gc_update_object_references.exit.i.i.i ], [ %240, %238 ]
-  %253 = inttoptr i64 %.034.i.i.i.i to ptr
+  %.031.i.i.i.i = phi i64 [ %1004, %gc_update_object_references.exit.i.i.i ], [ %240, %238 ]
+  %253 = inttoptr i64 %.031.i.i.i.i to ptr
   %254 = load i64, ptr %253, align 8
   %255 = trunc i64 %254 to i32
   %256 = and i32 %255, 31
@@ -17737,11 +17735,11 @@ rb_ec_vm_ptr.exit.i.i.i:                          ; preds = %230, %222
   ]
 
 257:                                              ; preds = %.lr.ph.i.i.i.i
-  %258 = and i64 %.034.i.i.i.i, -65536
+  %258 = and i64 %.031.i.i.i.i, -65536
   %259 = inttoptr i64 %258 to ptr
   %260 = load ptr, ptr %259, align 65536
   %261 = getelementptr inbounds i8, ptr %260, i64 64
-  %.lhs.trunc.i.i.i.i.i = trunc i64 %.034.i.i.i.i to i16
+  %.lhs.trunc.i.i.i.i.i = trunc i64 %.031.i.i.i.i to i16
   %262 = udiv i16 %.lhs.trunc.i.i.i.i.i, 40
   %263 = udiv i16 %.lhs.trunc.i.i.i.i.i, 2560
   %.zext5.i.i.i.i.i = zext nneg i16 %263 to i64
@@ -17751,33 +17749,33 @@ rb_ec_vm_ptr.exit.i.i.i:                          ; preds = %230, %222
   %267 = zext nneg i16 %266 to i64
   %268 = shl nuw i64 1, %267
   %269 = and i64 %265, %268
-  %.not30.i.i.i.i = icmp eq i64 %269, 0
-  %.pre35.pre.i.i.i.i = load i8, ptr %250, align 4
-  br i1 %.not30.i.i.i.i, label %272, label %270
+  %.not22.i.i.i.i = icmp eq i64 %269, 0
+  %.pre32.pre.i.i.i.i = load i8, ptr %250, align 4
+  br i1 %.not22.i.i.i.i, label %272, label %270
 
 270:                                              ; preds = %257
-  %271 = or i8 %.pre35.pre.i.i.i.i, 4
+  %271 = or i8 %.pre32.pre.i.i.i.i, 4
   store i8 %271, ptr %250, align 4
   %.pre.i.i.i.i = load ptr, ptr %259, align 65536
   br label %272
 
 272:                                              ; preds = %270, %257
-  %.pre35.i.i.i.i = phi i8 [ %271, %270 ], [ %.pre35.pre.i.i.i.i, %257 ]
+  %.pre32.i.i.i.i = phi i8 [ %271, %270 ], [ %.pre32.pre.i.i.i.i, %257 ]
   %273 = phi ptr [ %.pre.i.i.i.i, %270 ], [ %260, %257 ]
   %274 = getelementptr inbounds i8, ptr %273, i64 896
   %275 = getelementptr [26 x i64], ptr %274, i64 0, i64 %.zext5.i.i.i.i.i
   %276 = load i64, ptr %275, align 8
   %277 = and i64 %276, %268
-  %.not31.i.i.i.i = icmp eq i64 %277, 0
-  br i1 %.not31.i.i.i.i, label %280, label %278
+  %.not23.i.i.i.i = icmp eq i64 %277, 0
+  br i1 %.not23.i.i.i.i, label %280, label %278
 
 278:                                              ; preds = %272
-  %279 = or i8 %.pre35.i.i.i.i, 2
+  %279 = or i8 %.pre32.i.i.i.i, 2
   store i8 %279, ptr %250, align 4
   br label %280
 
 280:                                              ; preds = %278, %272
-  %281 = phi i8 [ %279, %278 ], [ %.pre35.i.i.i.i, %272 ]
+  %281 = phi i8 [ %279, %278 ], [ %.pre32.i.i.i.i, %272 ]
   %282 = and i8 %281, 1
   %.not24.i.i.i.i = icmp eq i8 %282, 0
   br i1 %.not24.i.i.i.i, label %.sink.split.i.i.i.i, label %283
@@ -17788,13 +17786,13 @@ rb_ec_vm_ptr.exit.i.i.i:                          ; preds = %230, %222
   %286 = getelementptr i64, ptr %285, i64 %.zext5.i.i.i.i.i
   %287 = load i64, ptr %286, align 8
   %288 = and i64 %287, %268
-  %.not32.i.i.i.i = icmp eq i64 %288, 0
-  br i1 %.not32.i.i.i.i, label %gc_update_object_references.exit.i.i.i, label %.sink.split.i.i.i.i
+  %.not25.i.i.i.i = icmp eq i64 %288, 0
+  br i1 %.not25.i.i.i.i, label %gc_update_object_references.exit.i.i.i, label %.sink.split.i.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %283, %280
-  %289 = and i64 %.034.i.i.i.i, 7
+  %289 = and i64 %.031.i.i.i.i, 7
   %290 = icmp eq i64 %289, 0
-  %291 = icmp ne i64 %.034.i.i.i.i, 0
+  %291 = icmp ne i64 %.031.i.i.i.i, 0
   %.not393.i.i.i.i = and i1 %291, %290
   %.pre423.i.i.i.i = load i64, ptr %253, align 8
   br i1 %.not393.i.i.i.i, label %292, label %RB_FL_TEST.exit.thread.i.i.i.i
@@ -17808,7 +17806,7 @@ rb_ec_vm_ptr.exit.i.i.i:                          ; preds = %230, %222
   br i1 %or.cond.i.i.i.i, label %RB_FL_TEST.exit.thread.i.i.i.i, label %296
 
 296:                                              ; preds = %292
-  call void @rb_ref_update_generic_ivar(i64 noundef %.034.i.i.i.i) #38
+  call void @rb_ref_update_generic_ivar(i64 noundef %.031.i.i.i.i) #38
   %.pre.i48.i.i.i = load i64, ptr %253, align 8
   br label %RB_FL_TEST.exit.thread.i.i.i.i
 
@@ -17975,7 +17973,7 @@ gc_object_moved_p.exit.thread.i.i.i.i.i:          ; preds = %354, %gc_object_mov
   br i1 %360, label %342, label %update_superclasses.exit.i.i.i.i, !llvm.loop !109
 
 update_superclasses.exit.i.i.i.i:                 ; preds = %gc_object_moved_p.exit.thread.i.i.i.i.i, %.preheader.i.i.i.i.i, %update_cvc_tbl.exit.i.i.i.i
-  %361 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.034.i.i.i.i) #38
+  %361 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #38
   %362 = getelementptr inbounds i8, ptr %253, i64 32
   br i1 %361, label %363, label %.preheader.i.i.i.i
 
@@ -18003,7 +18001,7 @@ update_superclasses.exit.i.i.i.i:                 ; preds = %gc_object_moved_p.e
 .preheader.i.i.i.i:                               ; preds = %update_superclasses.exit.i.i.i.i, %gc_object_moved_p.exit227.thread.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %gc_object_moved_p.exit227.thread.i.i.i.i ], [ 0, %update_superclasses.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %373 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.034.i.i.i.i) #38
+  %373 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #38
   br i1 %373, label %374, label %382
 
 374:                                              ; preds = %.preheader.i.i.i.i
@@ -18360,7 +18358,7 @@ update_m_tbl.exit256.i.i.i.i:                     ; preds = %541, %update_class_
   br label %update_cc_tbl.exit258.i.i.i.i
 
 545:                                              ; preds = %RB_FL_TEST.exit.thread.i.i.i.i
-  call void @rb_imemo_mark_and_move(i64 noundef %.034.i.i.i.i, i1 noundef zeroext true) #38
+  call void @rb_imemo_mark_and_move(i64 noundef %.031.i.i.i.i, i1 noundef zeroext true) #38
   br label %gc_update_object_references.exit.i.i.i
 
 546:                                              ; preds = %RB_FL_TEST.exit.thread.i.i.i.i
@@ -18468,20 +18466,20 @@ gc_object_moved_p.exit42.thread.i.i.i.i.i:        ; preds = %589, %gc_object_mov
   %593 = load ptr, ptr %259, align 65536
   %594 = load i16, ptr %593, align 8
   %595 = sext i16 %594 to i64
-  %596 = call i64 @rb_ary_size_as_embedded(i64 noundef %.034.i.i.i.i) #38
+  %596 = call i64 @rb_ary_size_as_embedded(i64 noundef %.031.i.i.i.i) #38
   %.not.i262.i.i.i.i = icmp ugt i64 %596, %595
   br i1 %.not.i262.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %597
 
 597:                                              ; preds = %.loopexit.i.i.i.i.i
-  %598 = call zeroext i1 @rb_ary_embeddable_p(i64 noundef %.034.i.i.i.i) #38
+  %598 = call zeroext i1 @rb_ary_embeddable_p(i64 noundef %.031.i.i.i.i) #38
   br i1 %598, label %599, label %update_cc_tbl.exit258.i.i.i.i
 
 599:                                              ; preds = %597
-  call void @rb_ary_make_embedded(i64 noundef %.034.i.i.i.i) #38
+  call void @rb_ary_make_embedded(i64 noundef %.031.i.i.i.i) #38
   br label %update_cc_tbl.exit258.i.i.i.i
 
 600:                                              ; preds = %RB_FL_TEST.exit.thread.i.i.i.i
-  %601 = call i32 @rb_hash_stlike_foreach_with_replace(i64 noundef %.034.i.i.i.i, ptr noundef nonnull @hash_foreach_replace, ptr noundef nonnull @hash_replace_ref, i64 noundef %233) #38
+  %601 = call i32 @rb_hash_stlike_foreach_with_replace(i64 noundef %.031.i.i.i.i, ptr noundef nonnull @hash_foreach_replace, ptr noundef nonnull @hash_replace_ref, i64 noundef %233) #38
   %602 = getelementptr inbounds i8, ptr %253, i64 16
   %603 = load i64, ptr %602, align 8
   %604 = and i64 %603, 7
@@ -18534,7 +18532,7 @@ gc_object_moved_p.exit266.thread.i.i.i.i:         ; preds = %627, %gc_object_mov
   %630 = load ptr, ptr %259, align 65536
   %631 = load i16, ptr %630, align 8
   %632 = sext i16 %631 to i64
-  %633 = call i64 @rb_str_size_as_embedded(i64 noundef %.034.i.i.i.i) #38
+  %633 = call i64 @rb_str_size_as_embedded(i64 noundef %.031.i.i.i.i) #38
   %.not205.i.i.i.i = icmp ugt i64 %633, %632
   br i1 %.not205.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %634
 
@@ -18545,11 +18543,11 @@ gc_object_moved_p.exit266.thread.i.i.i.i:         ; preds = %627, %gc_object_mov
   br i1 %.not.i267.i.i.i.i, label %update_cc_tbl.exit258.i.i.i.i, label %637
 
 637:                                              ; preds = %634
-  %638 = call zeroext i1 @rb_str_reembeddable_p(i64 noundef %.034.i.i.i.i) #38
+  %638 = call zeroext i1 @rb_str_reembeddable_p(i64 noundef %.031.i.i.i.i) #38
   br i1 %638, label %639, label %update_cc_tbl.exit258.i.i.i.i
 
 639:                                              ; preds = %637
-  call void @rb_str_make_embedded(i64 noundef %.034.i.i.i.i) #38
+  call void @rb_str_make_embedded(i64 noundef %.031.i.i.i.i) #38
   br label %update_cc_tbl.exit258.i.i.i.i
 
 640:                                              ; preds = %RB_FL_TEST.exit.thread.i.i.i.i
@@ -18645,7 +18643,7 @@ rb_gc_location.exit.i.i.i.i:                      ; preds = %669, %664
 
 ROBJECT_IVPTR.exit.i.i.i.i.i:                     ; preds = %681, %678
   %.0.i.i.i.i.i.i = phi ptr [ %682, %681 ], [ %680, %678 ]
-  %683 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.034.i.i.i.i) #38
+  %683 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #38
   br i1 %683, label %684, label %694
 
 684:                                              ; preds = %ROBJECT_IVPTR.exit.i.i.i.i.i
@@ -18690,7 +18688,7 @@ ROBJECT_IVPTR.exit.i.i.i.i.i:                     ; preds = %681, %678
   br i1 %.not25.i.i.i.i.i, label %708, label %ruby_xfree.exit.i.i.i.i.i
 
 708:                                              ; preds = %705
-  %709 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.034.i.i.i.i) #38
+  %709 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #38
   br i1 %709, label %710, label %714
 
 710:                                              ; preds = %708
@@ -18769,7 +18767,7 @@ ruby_xfree.exit.i.i.i.i.i:                        ; preds = %.preheader.i.i.i.i.
 
 744:                                              ; preds = %gc_object_moved_p.exit.thread.i272.i.i.i.i, %ruby_xfree.exit.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %gc_object_moved_p.exit.thread.i272.i.i.i.i ], [ 0, %ruby_xfree.exit.i.i.i.i.i ]
-  %745 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.034.i.i.i.i) #38
+  %745 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %.031.i.i.i.i) #38
   br i1 %745, label %746, label %750
 
 746:                                              ; preds = %744
@@ -19247,7 +19245,7 @@ gc_object_moved_p.exit313.i.i.i.i:                ; preds = %update_cc_tbl.exit2
   br label %gc_update_object_references.exit.i.i.i
 
 gc_update_object_references.exit.i.i.i:           ; preds = %1001, %gc_object_moved_p.exit313.i.i.i.i, %update_cc_tbl.exit258.i.i.i.i, %545, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %RB_FL_TEST.exit.thread.i.i.i.i, %283, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
-  %1004 = add i64 %.034.i.i.i.i, %245
+  %1004 = add i64 %.031.i.i.i.i, %245
   %.not.i34.i.i.i = icmp eq i64 %1004, %247
   br i1 %.not.i34.i.i.i, label %gc_ref_update.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !116
 
@@ -19935,8 +19933,8 @@ rb_darray_size.exit.i:                            ; preds = %86, %84
   %111 = zext nneg i16 %110 to i64
   %112 = shl nuw i64 1, %111
   %113 = and i64 %109, %112
-  %.not21.i = icmp eq i64 %113, 0
-  br i1 %.not21.i, label %114, label %115
+  %.not19.i = icmp eq i64 %113, 0
+  br i1 %.not19.i, label %114, label %115
 
 114:                                              ; preds = %101
   store i64 36, ptr %94, align 8
@@ -22084,22 +22082,22 @@ define internal fastcc noundef i64 @gc_move(ptr nocapture noundef readonly %0, i
   %17 = load i64, ptr %16, align 8
   %18 = and i16 %14, 63
   %19 = zext nneg i16 %18 to i64
-  %20 = shl nuw i64 1, %19
-  %21 = getelementptr inbounds i8, ptr %12, i64 64
-  %22 = getelementptr i64, ptr %21, i64 %.zext5.i
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 480
-  %25 = getelementptr i64, ptr %24, i64 %.zext5.i
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 896
-  %28 = getelementptr [26 x i64], ptr %27, i64 0, i64 %.zext5.i
-  %29 = load i64, ptr %28, align 8
+  %20 = getelementptr inbounds i8, ptr %12, i64 64
+  %21 = getelementptr i64, ptr %20, i64 %.zext5.i
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %12, i64 480
+  %24 = getelementptr i64, ptr %23, i64 %.zext5.i
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %12, i64 896
+  %27 = getelementptr [26 x i64], ptr %26, i64 0, i64 %.zext5.i
+  %28 = load i64, ptr %27, align 8
+  %29 = shl nuw i64 1, %19
   %30 = getelementptr inbounds i8, ptr %12, i64 1312
   %31 = udiv i16 %.lhs.trunc.i, 1280
   %.zext4.i = zext nneg i16 %31 to i64
   %32 = getelementptr i64, ptr %30, i64 %.zext4.i
   %33 = load i64, ptr %32, align 8
-  %34 = xor i64 %20, -1
+  %34 = xor i64 %29, -1
   %35 = and i64 %17, %34
   store i64 %35, ptr %16, align 8
   %36 = load ptr, ptr %11, align 65536
@@ -22206,80 +22204,80 @@ ruby_nonempty_memcpy.exit:                        ; preds = %98, %100
   %101 = shl nuw nsw i16 %14, 1
   %102 = and i16 %101, 62
   %103 = zext nneg i16 %102 to i64
-  %104 = and i64 %29, %20
-  %.not148 = icmp eq i64 %104, 0
-  %105 = and i64 %26, %20
-  %.not150 = icmp eq i64 %105, 0
-  %106 = and i64 %23, %20
-  %.not149 = icmp eq i64 %106, 0
-  %107 = and i64 %17, %20
-  %.not = icmp eq i64 %107, 0
+  %104 = and i64 %28, %29
+  %.not = icmp eq i64 %104, 0
   call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %3, i1 false)
-  %108 = load ptr, ptr %11, align 65536
-  %109 = getelementptr inbounds i8, ptr %108, i64 1312
-  %110 = shl nuw i64 3, %103
-  %111 = xor i64 %110, -1
-  %112 = getelementptr i64, ptr %109, i64 %.zext4.i
-  %113 = load i64, ptr %112, align 8
-  %114 = and i64 %113, %111
-  store i64 %114, ptr %112, align 8
-  %115 = load i64, ptr %9, align 8
-  %116 = and i64 %115, -33
-  store i64 %116, ptr %9, align 8
-  %117 = and i64 %2, -65536
-  %118 = inttoptr i64 %117 to ptr
-  %119 = load ptr, ptr %118, align 65536
-  %120 = getelementptr inbounds i8, ptr %119, i64 896
+  %105 = load ptr, ptr %11, align 65536
+  %106 = getelementptr inbounds i8, ptr %105, i64 1312
+  %107 = shl nuw i64 3, %103
+  %108 = xor i64 %107, -1
+  %109 = getelementptr i64, ptr %106, i64 %.zext4.i
+  %110 = load i64, ptr %109, align 8
+  %111 = and i64 %110, %108
+  store i64 %111, ptr %109, align 8
+  %112 = load i64, ptr %9, align 8
+  %113 = and i64 %112, -33
+  store i64 %113, ptr %9, align 8
+  %114 = and i64 %2, -65536
+  %115 = inttoptr i64 %114 to ptr
+  %116 = load ptr, ptr %115, align 65536
+  %117 = getelementptr inbounds i8, ptr %116, i64 896
   %.lhs.trunc116 = trunc i64 %2 to i16
-  %121 = udiv i16 %.lhs.trunc116, 40
-  %122 = udiv i16 %.lhs.trunc116, 2560
-  %.zext119 = zext nneg i16 %122 to i64
-  %123 = getelementptr [26 x i64], ptr %120, i64 0, i64 %.zext119
-  %124 = load i64, ptr %123, align 8
-  %125 = and i16 %121, 63
-  %126 = zext nneg i16 %125 to i64
-  %127 = shl nuw i64 1, %126
-  %128 = xor i64 %127, -1
-  %129 = and i64 %124, %128
-  %130 = or i64 %124, %127
-  %.sink = select i1 %.not148, i64 %129, i64 %130
-  store i64 %.sink, ptr %123, align 8
-  %131 = and i64 %2, -65536
-  %132 = inttoptr i64 %131 to ptr
-  %133 = load ptr, ptr %132, align 65536
-  %134 = getelementptr inbounds i8, ptr %133, i64 272
+  %118 = udiv i16 %.lhs.trunc116, 40
+  %119 = udiv i16 %.lhs.trunc116, 2560
+  %.zext119 = zext nneg i16 %119 to i64
+  %120 = getelementptr [26 x i64], ptr %117, i64 0, i64 %.zext119
+  %121 = load i64, ptr %120, align 8
+  %122 = and i16 %118, 63
+  %123 = zext nneg i16 %122 to i64
+  %124 = shl nuw i64 1, %123
+  %125 = xor i64 %124, -1
+  %126 = and i64 %121, %125
+  %127 = or i64 %121, %124
+  %.sink = select i1 %.not, i64 %126, i64 %127
+  store i64 %.sink, ptr %120, align 8
+  %128 = and i64 %17, %29
+  %.not98 = icmp eq i64 %128, 0
+  %129 = and i64 %2, -65536
+  %130 = inttoptr i64 %129 to ptr
+  %131 = load ptr, ptr %130, align 65536
+  %132 = getelementptr inbounds i8, ptr %131, i64 272
   %.lhs.trunc120 = trunc i64 %2 to i16
-  %135 = udiv i16 %.lhs.trunc120, 40
-  %136 = udiv i16 %.lhs.trunc120, 2560
-  %.zext123 = zext nneg i16 %136 to i64
-  %137 = getelementptr i64, ptr %134, i64 %.zext123
-  %138 = load i64, ptr %137, align 8
-  %139 = and i16 %135, 63
-  %140 = zext nneg i16 %139 to i64
-  %141 = shl nuw i64 1, %140
-  %142 = xor i64 %141, -1
-  %143 = and i64 %138, %142
-  %144 = or i64 %138, %141
-  %.sink154 = select i1 %.not, i64 %143, i64 %144
-  store i64 %.sink154, ptr %137, align 8
-  %145 = and i64 %2, -65536
-  %146 = inttoptr i64 %145 to ptr
-  %147 = load ptr, ptr %146, align 65536
-  %148 = getelementptr inbounds i8, ptr %147, i64 64
+  %133 = udiv i16 %.lhs.trunc120, 40
+  %134 = udiv i16 %.lhs.trunc120, 2560
+  %.zext123 = zext nneg i16 %134 to i64
+  %135 = getelementptr i64, ptr %132, i64 %.zext123
+  %136 = load i64, ptr %135, align 8
+  %137 = and i16 %133, 63
+  %138 = zext nneg i16 %137 to i64
+  %139 = shl nuw i64 1, %138
+  %140 = xor i64 %139, -1
+  %141 = and i64 %136, %140
+  %142 = or i64 %136, %139
+  %.sink151 = select i1 %.not98, i64 %141, i64 %142
+  store i64 %.sink151, ptr %135, align 8
+  %143 = and i64 %22, %29
+  %.not99 = icmp eq i64 %143, 0
+  %144 = and i64 %2, -65536
+  %145 = inttoptr i64 %144 to ptr
+  %146 = load ptr, ptr %145, align 65536
+  %147 = getelementptr inbounds i8, ptr %146, i64 64
   %.lhs.trunc124 = trunc i64 %2 to i16
-  %149 = udiv i16 %.lhs.trunc124, 40
-  %150 = udiv i16 %.lhs.trunc124, 2560
-  %.zext127 = zext nneg i16 %150 to i64
-  %151 = getelementptr i64, ptr %148, i64 %.zext127
-  %152 = load i64, ptr %151, align 8
-  %153 = and i16 %149, 63
-  %154 = zext nneg i16 %153 to i64
-  %155 = shl nuw i64 1, %154
-  %156 = xor i64 %155, -1
-  %157 = and i64 %152, %156
-  %158 = or i64 %152, %155
-  %.sink153 = select i1 %.not149, i64 %157, i64 %158
-  store i64 %.sink153, ptr %151, align 8
+  %148 = udiv i16 %.lhs.trunc124, 40
+  %149 = udiv i16 %.lhs.trunc124, 2560
+  %.zext127 = zext nneg i16 %149 to i64
+  %150 = getelementptr i64, ptr %147, i64 %.zext127
+  %151 = load i64, ptr %150, align 8
+  %152 = and i16 %148, 63
+  %153 = zext nneg i16 %152 to i64
+  %154 = shl nuw i64 1, %153
+  %155 = xor i64 %154, -1
+  %156 = and i64 %151, %155
+  %157 = or i64 %151, %154
+  %.sink150 = select i1 %.not99, i64 %156, i64 %157
+  store i64 %.sink150, ptr %150, align 8
+  %158 = and i64 %25, %29
+  %.not100 = icmp eq i64 %158, 0
   %159 = and i64 %2, -65536
   %160 = inttoptr i64 %159 to ptr
   %161 = load ptr, ptr %160, align 65536
@@ -22296,8 +22294,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %98, %100
   %170 = xor i64 %169, -1
   %171 = and i64 %166, %170
   %172 = or i64 %166, %169
-  %.sink155 = select i1 %.not150, i64 %171, i64 %172
-  store i64 %.sink155, ptr %165, align 8
+  %.sink152 = select i1 %.not100, i64 %171, i64 %172
+  store i64 %.sink152, ptr %165, align 8
   %173 = lshr i64 %33, %103
   %174 = load ptr, ptr %160, align 65536
   %175 = getelementptr inbounds i8, ptr %174, i64 1312
@@ -23334,8 +23332,8 @@ RB_FL_UNSET.exit:                                 ; preds = %.critedge.i, %41
   %51 = icmp ne i64 %.pre-phi, 27
   %52 = and i64 %50, 640
   %53 = icmp eq i64 %52, 512
-  %or.cond169 = and i1 %51, %53
-  br i1 %or.cond169, label %54, label %RB_FL_TEST.exit99.thread
+  %or.cond168 = and i1 %51, %53
+  br i1 %or.cond168, label %54, label %RB_FL_TEST.exit99.thread
 
 54:                                               ; preds = %RB_FL_UNSET.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -23386,8 +23384,8 @@ RB_FL_TEST.exit99.thread:                         ; preds = %45, %RB_FL_UNSET.ex
   %76 = zext nneg i16 %75 to i64
   %77 = shl nuw i64 1, %76
   %78 = and i64 %74, %77
-  %.not154 = icmp eq i64 %78, 0
-  br i1 %.not154, label %82, label %79
+  %.not85 = icmp eq i64 %78, 0
+  br i1 %.not85, label %82, label %79
 
 79:                                               ; preds = %RB_FL_TEST.exit99.thread
   %80 = xor i64 %77, -1
@@ -23886,8 +23884,8 @@ make_io_zombie.exit:                              ; preds = %280
 
 301:                                              ; preds = %82
   %302 = and i64 %83, 16384
-  %.not155 = icmp eq i64 %302, 0
-  br i1 %.not155, label %BIGNUM_DIGITS.exit, label %ruby_xfree.exit113
+  %.not154 = icmp eq i64 %302, 0
+  br i1 %.not154, label %BIGNUM_DIGITS.exit, label %ruby_xfree.exit113
 
 BIGNUM_DIGITS.exit:                               ; preds = %301
   %303 = getelementptr inbounds i8, ptr %31, i64 24
@@ -27040,8 +27038,8 @@ define internal void @check_generation_i(i64 noundef %0, ptr nocapture noundef %
   %18 = zext nneg i16 %17 to i64
   %19 = shl nuw i64 1, %18
   %20 = and i64 %16, %19
-  %.not15 = icmp eq i64 %20, 0
-  br i1 %.not15, label %21, label %47
+  %.not8 = icmp eq i64 %20, 0
+  br i1 %.not8, label %21, label %47
 
 21:                                               ; preds = %8
   %22 = and i64 %0, -65536
@@ -27058,16 +27056,16 @@ define internal void @check_generation_i(i64 noundef %0, ptr nocapture noundef %
   %31 = zext nneg i16 %30 to i64
   %32 = shl nuw i64 1, %31
   %33 = and i64 %29, %32
-  %.not16 = icmp eq i64 %33, 0
-  br i1 %.not16, label %34, label %47
+  %.not9 = icmp eq i64 %33, 0
+  br i1 %.not9, label %34, label %47
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds i8, ptr %24, i64 480
   %36 = getelementptr i64, ptr %35, i64 %.zext5.i12
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, %32
-  %.not17 = icmp eq i64 %38, 0
-  br i1 %.not17, label %39, label %47
+  %.not10 = icmp eq i64 %38, 0
+  br i1 %.not10, label %39, label %47
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr @stderr, align 8
@@ -27102,8 +27100,8 @@ define internal void @check_color_i(i64 noundef %0, ptr nocapture noundef %1) #4
   %14 = zext nneg i16 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = and i64 %15, %12
-  %.not7 = icmp eq i64 %16, 0
-  br i1 %.not7, label %17, label %38
+  %.not = icmp eq i64 %16, 0
+  br i1 %.not, label %17, label %38
 
 17:                                               ; preds = %2
   %18 = and i64 %0, -65536
@@ -27120,8 +27118,8 @@ define internal void @check_color_i(i64 noundef %0, ptr nocapture noundef %1) #4
   %27 = zext nneg i16 %26 to i64
   %28 = shl nuw i64 1, %27
   %29 = and i64 %25, %28
-  %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %30, label %38
+  %.not6.not = icmp eq i64 %29, 0
+  br i1 %.not6.not, label %30, label %38
 
 30:                                               ; preds = %17
   %31 = load ptr, ptr @stderr, align 8
@@ -28694,8 +28692,8 @@ rb_objspace_garbage_object_p.exit:                ; preds = %.critedge.i.i
   %39 = zext nneg i16 %38 to i64
   %40 = shl nuw i64 1, %39
   %41 = and i64 %37, %40
-  %.not4.i.i.not = icmp eq i64 %41, 0
-  br i1 %.not4.i.i.not, label %42, label %rb_objspace_garbage_object_p.exit.thread
+  %.not13.not = icmp eq i64 %41, 0
+  br i1 %.not13.not, label %42, label %rb_objspace_garbage_object_p.exit.thread
 
 rb_objspace_garbage_object_p.exit.thread:         ; preds = %.lr.ph.i.i, %has_sweeping_pages.exit.i.i, %.critedge.i.i, %rb_objspace_garbage_object_p.exit
   tail call void @rb_objspace_reachable_objects_from(i64 noundef %.020, ptr noundef nonnull @reachable_object_check_moved_i, ptr noundef nonnull %.pre)

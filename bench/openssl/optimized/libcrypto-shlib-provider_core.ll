@@ -2631,7 +2631,6 @@ entry:
   %div8 = lshr i64 %bitnum, 3
   %0 = trunc i64 %bitnum to i8
   %sh_prom = and i8 %0, 7
-  %shl = shl nuw i8 1, %sh_prom
   %cmp.not = icmp eq ptr %result, null
   br i1 %cmp.not, label %if.then, label %if.end
 
@@ -2660,15 +2659,15 @@ if.then11:                                        ; preds = %if.end8
   %3 = load ptr, ptr %operation_bits, align 8
   %arrayidx = getelementptr inbounds i8, ptr %3, i64 %div8
   %4 = load i8, ptr %arrayidx, align 1
-  %and149 = and i8 %4, %shl
-  %cmp15 = icmp ne i8 %and149, 0
-  %conv16 = zext i1 %cmp15 to i32
+  %5 = lshr i8 %4, %sh_prom
+  %6 = and i8 %5, 1
+  %conv16 = zext nneg i8 %6 to i32
   store i32 %conv16, ptr %result, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then11, %if.end8
-  %5 = load ptr, ptr %opbits_lock, align 8
-  %call19 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #11
+  %7 = load ptr, ptr %opbits_lock, align 8
+  %call19 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %7) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.end17, %if.then

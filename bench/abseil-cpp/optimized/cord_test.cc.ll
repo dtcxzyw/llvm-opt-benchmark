@@ -92483,18 +92483,17 @@ _ZNSt10unique_ptrIKbSt14default_deleteIS0_EE5resetEPS0_.exit: ; preds = %entry
   %_M_offset.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %_M_offset.i, align 8
   %sh_prom.i = zext nneg i32 %2 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
   %3 = load i64, ptr %1, align 8
-  %and.i.i = and i64 %shl.i, %3
-  %tobool.i.i = icmp ne i64 %and.i.i, 0
-  %frombool = zext i1 %tobool.i.i to i8
+  %4 = lshr i64 %3, %sh_prom.i
+  %5 = trunc i64 %4 to i8
+  %frombool = and i8 %5, 1
   store i8 %frombool, ptr %call3, align 1
   store ptr %call3, ptr %value_, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIKbSt14default_deleteIS0_EE5resetEPS0_.exit, %entry
-  %4 = phi ptr [ %call3, %_ZNSt10unique_ptrIKbSt14default_deleteIS0_EE5resetEPS0_.exit ], [ %0, %entry ]
-  ret ptr %4
+  %6 = phi ptr [ %call3, %_ZNSt10unique_ptrIKbSt14default_deleteIS0_EE5resetEPS0_.exit ], [ %0, %entry ]
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable

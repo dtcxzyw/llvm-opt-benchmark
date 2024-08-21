@@ -1470,238 +1470,236 @@ define dso_local i32 @cap_task_prctl(i32 noundef %0, i64 noundef %1, i64 noundef
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  switch i32 %0, label %153 [
+  switch i32 %0, label %151 [
     i32 23, label %10
-    i32 24, label %19
-    i32 28, label %33
-    i32 27, label %62
-    i32 7, label %65
-    i32 8, label %70
-    i32 47, label %88
+    i32 24, label %18
+    i32 28, label %32
+    i32 27, label %61
+    i32 7, label %64
+    i32 8, label %69
+    i32 47, label %87
   ]
 
 10:                                               ; preds = %5
   %11 = icmp ult i64 %1, 41
-  br i1 %11, label %12, label %153
+  br i1 %11, label %12, label %151
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %9, i64 72
   %14 = load i64, ptr %13, align 8
-  %15 = shl nuw nsw i64 1, %1
-  %16 = and i64 %14, %15
-  %17 = icmp ne i64 %16, 0
-  %18 = zext i1 %17 to i32
-  br label %153
+  %15 = lshr i64 %14, %1
+  %16 = trunc i64 %15 to i32
+  %17 = and i32 %16, 1
+  br label %151
 
-19:                                               ; preds = %5
-  %20 = tail call zeroext i1 @ns_capable(ptr noundef nonnull @init_user_ns, i32 noundef 8) #14
-  br i1 %20, label %21, label %153
+18:                                               ; preds = %5
+  %19 = tail call zeroext i1 @ns_capable(ptr noundef nonnull @init_user_ns, i32 noundef 8) #14
+  br i1 %19, label %20, label %151
 
-21:                                               ; preds = %19
-  %22 = icmp ult i64 %1, 41
-  br i1 %22, label %23, label %153
+20:                                               ; preds = %18
+  %21 = icmp ult i64 %1, 41
+  br i1 %21, label %22, label %151
 
-23:                                               ; preds = %21
-  %24 = tail call ptr @prepare_creds() #14
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %153, label %26
+22:                                               ; preds = %20
+  %23 = tail call ptr @prepare_creds() #14
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %151, label %25
 
-26:                                               ; preds = %23
-  %27 = shl nuw nsw i64 1, %1
-  %28 = xor i64 %27, -1
-  %29 = getelementptr inbounds i8, ptr %24, i64 72
-  %30 = load i64, ptr %29, align 8
-  %31 = and i64 %30, %28
-  store i64 %31, ptr %29, align 8
-  %32 = tail call i32 @commit_creds(ptr noundef nonnull %24) #14
-  br label %153
+25:                                               ; preds = %22
+  %26 = shl nuw nsw i64 1, %1
+  %27 = xor i64 %26, -1
+  %28 = getelementptr inbounds i8, ptr %23, i64 72
+  %29 = load i64, ptr %28, align 8
+  %30 = and i64 %29, %27
+  store i64 %30, ptr %28, align 8
+  %31 = tail call i32 @commit_creds(ptr noundef nonnull %23) #14
+  br label %151
 
-33:                                               ; preds = %5
-  %34 = getelementptr inbounds i8, ptr %9, i64 40
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, 170
-  %37 = lshr exact i32 %36, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = zext i32 %35 to i64
-  %40 = xor i64 %1, %39
-  %41 = and i64 %40, %38
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %153
+32:                                               ; preds = %5
+  %33 = getelementptr inbounds i8, ptr %9, i64 40
+  %34 = load i32, ptr %33, align 8
+  %35 = and i32 %34, 170
+  %36 = lshr exact i32 %35, 1
+  %37 = zext nneg i32 %36 to i64
+  %38 = zext i32 %34 to i64
+  %39 = xor i64 %1, %38
+  %40 = and i64 %39, %37
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %151
 
-43:                                               ; preds = %33
-  %44 = zext nneg i32 %36 to i64
-  %45 = xor i64 %1, -1
-  %46 = and i64 %44, %45
-  %47 = icmp eq i64 %46, 0
-  %48 = icmp ult i64 %1, 256
-  %49 = and i1 %48, %47
-  br i1 %49, label %50, label %153
+42:                                               ; preds = %32
+  %43 = zext nneg i32 %35 to i64
+  %44 = xor i64 %1, -1
+  %45 = and i64 %43, %44
+  %46 = icmp eq i64 %45, 0
+  %47 = icmp ult i64 %1, 256
+  %48 = and i1 %47, %46
+  br i1 %48, label %49, label %151
 
-50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %9, i64 64
-  %52 = load i64, ptr %51, align 8
-  %53 = and i64 %52, 256
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %153, label %55
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds i8, ptr %9, i64 64
+  %51 = load i64, ptr %50, align 8
+  %52 = and i64 %51, 256
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %151, label %54
 
-55:                                               ; preds = %50
-  %56 = tail call ptr @prepare_creds() #14
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %153, label %58
+54:                                               ; preds = %49
+  %55 = tail call ptr @prepare_creds() #14
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %151, label %57
 
-58:                                               ; preds = %55
-  %59 = trunc nuw nsw i64 %1 to i32
-  %60 = getelementptr inbounds i8, ptr %56, i64 40
-  store i32 %59, ptr %60, align 8
-  %61 = tail call i32 @commit_creds(ptr noundef nonnull %56) #14
-  br label %153
+57:                                               ; preds = %54
+  %58 = trunc nuw nsw i64 %1 to i32
+  %59 = getelementptr inbounds i8, ptr %55, i64 40
+  store i32 %58, ptr %59, align 8
+  %60 = tail call i32 @commit_creds(ptr noundef nonnull %55) #14
+  br label %151
 
-62:                                               ; preds = %5
-  %63 = getelementptr inbounds i8, ptr %9, i64 40
-  %64 = load i32, ptr %63, align 8
-  br label %153
+61:                                               ; preds = %5
+  %62 = getelementptr inbounds i8, ptr %9, i64 40
+  %63 = load i32, ptr %62, align 8
+  br label %151
 
-65:                                               ; preds = %5
-  %66 = getelementptr inbounds i8, ptr %9, i64 40
-  %67 = load i32, ptr %66, align 8
-  %68 = lshr i32 %67, 4
-  %69 = and i32 %68, 1
-  br label %153
+64:                                               ; preds = %5
+  %65 = getelementptr inbounds i8, ptr %9, i64 40
+  %66 = load i32, ptr %65, align 8
+  %67 = lshr i32 %66, 4
+  %68 = and i32 %67, 1
+  br label %151
 
-70:                                               ; preds = %5
-  %71 = icmp ugt i64 %1, 1
-  br i1 %71, label %153, label %72
+69:                                               ; preds = %5
+  %70 = icmp ugt i64 %1, 1
+  br i1 %70, label %151, label %71
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %9, i64 40
-  %74 = load i32, ptr %73, align 8
-  %75 = and i32 %74, 32
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %153
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds i8, ptr %9, i64 40
+  %73 = load i32, ptr %72, align 8
+  %74 = and i32 %73, 32
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %151
 
-77:                                               ; preds = %72
-  %78 = tail call ptr @prepare_creds() #14
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %153, label %80
+76:                                               ; preds = %71
+  %77 = tail call ptr @prepare_creds() #14
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %151, label %79
 
-80:                                               ; preds = %77
-  %81 = icmp eq i64 %1, 0
-  %82 = getelementptr inbounds i8, ptr %78, i64 40
-  %83 = load i32, ptr %82, align 8
-  %84 = and i32 %83, -17
-  %85 = select i1 %81, i32 0, i32 16
-  %86 = or disjoint i32 %84, %85
-  store i32 %86, ptr %82, align 8
-  %87 = tail call i32 @commit_creds(ptr noundef nonnull %78) #14
-  br label %153
+79:                                               ; preds = %76
+  %80 = icmp eq i64 %1, 0
+  %81 = getelementptr inbounds i8, ptr %77, i64 40
+  %82 = load i32, ptr %81, align 8
+  %83 = and i32 %82, -17
+  %84 = select i1 %80, i32 0, i32 16
+  %85 = or disjoint i32 %83, %84
+  store i32 %85, ptr %81, align 8
+  %86 = tail call i32 @commit_creds(ptr noundef nonnull %77) #14
+  br label %151
 
-88:                                               ; preds = %5
-  %89 = icmp eq i64 %1, 4
-  br i1 %89, label %90, label %100
+87:                                               ; preds = %5
+  %88 = icmp eq i64 %1, 4
+  br i1 %88, label %89, label %99
 
-90:                                               ; preds = %88
-  %91 = or i64 %4, %3
-  %92 = or i64 %91, %2
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %153
+89:                                               ; preds = %87
+  %90 = or i64 %4, %3
+  %91 = or i64 %90, %2
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %93, label %151
 
-94:                                               ; preds = %90
-  %95 = tail call ptr @prepare_creds() #14
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %153, label %97
+93:                                               ; preds = %89
+  %94 = tail call ptr @prepare_creds() #14
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %151, label %96
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %95, i64 80
-  store i64 0, ptr %98, align 8
-  %99 = tail call i32 @commit_creds(ptr noundef nonnull %95) #14
-  br label %153
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %94, i64 80
+  store i64 0, ptr %97, align 8
+  %98 = tail call i32 @commit_creds(ptr noundef nonnull %94) #14
+  br label %151
 
-100:                                              ; preds = %88
-  %101 = icmp ugt i64 %2, 40
-  %102 = zext i1 %101 to i64
-  %103 = or i64 %3, %102
-  %104 = or i64 %103, %4
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %106, label %153
+99:                                               ; preds = %87
+  %100 = icmp ugt i64 %2, 40
+  %101 = zext i1 %100 to i64
+  %102 = or i64 %3, %101
+  %103 = or i64 %102, %4
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %105, label %151
 
-106:                                              ; preds = %100
-  %107 = icmp eq i64 %1, 1
-  br i1 %107, label %108, label %115
+105:                                              ; preds = %99
+  %106 = icmp eq i64 %1, 1
+  br i1 %106, label %107, label %113
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %9, i64 80
-  %110 = load i64, ptr %109, align 8
-  %111 = shl nuw i64 1, %2
-  %112 = and i64 %110, %111
-  %113 = icmp ne i64 %112, 0
-  %114 = zext i1 %113 to i32
-  br label %153
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds i8, ptr %9, i64 80
+  %109 = load i64, ptr %108, align 8
+  %110 = lshr i64 %109, %2
+  %111 = trunc i64 %110 to i32
+  %112 = and i32 %111, 1
+  br label %151
 
-115:                                              ; preds = %106
-  %116 = add i64 %1, -4
-  %117 = icmp ult i64 %116, -2
-  br i1 %117, label %153, label %118
+113:                                              ; preds = %105
+  %114 = add i64 %1, -4
+  %115 = icmp ult i64 %114, -2
+  br i1 %115, label %151, label %116
 
-118:                                              ; preds = %115
-  %119 = icmp eq i64 %1, 2
-  br i1 %119, label %120, label %.thread
+116:                                              ; preds = %113
+  %117 = icmp eq i64 %1, 2
+  br i1 %117, label %118, label %.thread
 
-120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %9, i64 56
-  %122 = load i64, ptr %121, align 8
-  %123 = shl nuw i64 1, %2
-  %124 = and i64 %122, %123
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %153, label %126
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds i8, ptr %9, i64 56
+  %120 = load i64, ptr %119, align 8
+  %121 = shl nuw i64 1, %2
+  %122 = and i64 %120, %121
+  %123 = icmp eq i64 %122, 0
+  br i1 %123, label %151, label %124
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds i8, ptr %9, i64 48
-  %128 = load i64, ptr %127, align 8
-  %129 = and i64 %128, %123
-  %130 = icmp eq i64 %129, 0
-  br i1 %130, label %153, label %131
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds i8, ptr %9, i64 48
+  %126 = load i64, ptr %125, align 8
+  %127 = and i64 %126, %121
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %151, label %129
 
-131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %9, i64 40
-  %133 = load i32, ptr %132, align 8
-  %134 = and i32 %133, 64
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %153
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds i8, ptr %9, i64 40
+  %131 = load i32, ptr %130, align 8
+  %132 = and i32 %131, 64
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %151
 
-136:                                              ; preds = %131
+134:                                              ; preds = %129
+  %135 = tail call ptr @prepare_creds() #14
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %151, label %144
+
+.thread:                                          ; preds = %116
   %137 = tail call ptr @prepare_creds() #14
   %138 = icmp eq ptr %137, null
-  br i1 %138, label %153, label %146
-
-.thread:                                          ; preds = %118
-  %139 = tail call ptr @prepare_creds() #14
-  %140 = icmp eq ptr %139, null
-  br i1 %140, label %153, label %.thread6
+  br i1 %138, label %151, label %.thread6
 
 .thread6:                                         ; preds = %.thread
-  %141 = shl nuw i64 1, %2
-  %142 = xor i64 %141, -1
-  %143 = getelementptr inbounds i8, ptr %139, i64 80
-  %144 = load i64, ptr %143, align 8
-  %145 = and i64 %144, %142
-  store i64 %145, ptr %143, align 8
-  br label %150
+  %139 = shl nuw i64 1, %2
+  %140 = xor i64 %139, -1
+  %141 = getelementptr inbounds i8, ptr %137, i64 80
+  %142 = load i64, ptr %141, align 8
+  %143 = and i64 %142, %140
+  store i64 %143, ptr %141, align 8
+  br label %148
 
-146:                                              ; preds = %136
-  %147 = getelementptr inbounds i8, ptr %137, i64 80
-  %148 = load i64, ptr %147, align 8
-  %149 = or i64 %148, %123
-  store i64 %149, ptr %147, align 8
-  br label %150
+144:                                              ; preds = %134
+  %145 = getelementptr inbounds i8, ptr %135, i64 80
+  %146 = load i64, ptr %145, align 8
+  %147 = or i64 %146, %121
+  store i64 %147, ptr %145, align 8
+  br label %148
 
-150:                                              ; preds = %.thread6, %146
-  %151 = phi ptr [ %139, %.thread6 ], [ %137, %146 ]
-  %152 = tail call i32 @commit_creds(ptr noundef nonnull %151) #14
-  br label %153
+148:                                              ; preds = %.thread6, %144
+  %149 = phi ptr [ %137, %.thread6 ], [ %135, %144 ]
+  %150 = tail call i32 @commit_creds(ptr noundef nonnull %149) #14
+  br label %151
 
-153:                                              ; preds = %.thread, %150, %136, %131, %126, %120, %115, %108, %100, %97, %94, %90, %80, %77, %72, %70, %65, %62, %58, %55, %50, %43, %33, %26, %23, %21, %19, %12, %10, %5
-  %154 = phi i32 [ %99, %97 ], [ %114, %108 ], [ %152, %150 ], [ %87, %80 ], [ %69, %65 ], [ %64, %62 ], [ %61, %58 ], [ %18, %12 ], [ -22, %10 ], [ -1, %50 ], [ -1, %43 ], [ -1, %33 ], [ -12, %55 ], [ -22, %70 ], [ -1, %72 ], [ -12, %77 ], [ -22, %90 ], [ -12, %94 ], [ -22, %100 ], [ -22, %115 ], [ -1, %131 ], [ -1, %126 ], [ -1, %120 ], [ -12, %136 ], [ -38, %5 ], [ %32, %26 ], [ -1, %19 ], [ -22, %21 ], [ -12, %23 ], [ -12, %.thread ]
-  ret i32 %154
+151:                                              ; preds = %.thread, %148, %134, %129, %124, %118, %113, %107, %99, %96, %93, %89, %79, %76, %71, %69, %64, %61, %57, %54, %49, %42, %32, %25, %22, %20, %18, %12, %10, %5
+  %152 = phi i32 [ %98, %96 ], [ %112, %107 ], [ %150, %148 ], [ %86, %79 ], [ %68, %64 ], [ %63, %61 ], [ %60, %57 ], [ %17, %12 ], [ -22, %10 ], [ -1, %49 ], [ -1, %42 ], [ -1, %32 ], [ -12, %54 ], [ -22, %69 ], [ -1, %71 ], [ -12, %76 ], [ -22, %89 ], [ -12, %93 ], [ -22, %99 ], [ -22, %113 ], [ -1, %129 ], [ -1, %124 ], [ -1, %118 ], [ -12, %134 ], [ -38, %5 ], [ %31, %25 ], [ -1, %18 ], [ -22, %20 ], [ -12, %22 ], [ -12, %.thread ]
+  ret i32 %152
 }
 
 ; Function Attrs: null_pointer_is_valid

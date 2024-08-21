@@ -878,9 +878,9 @@ Abc_Clock.exit:                                   ; preds = %0, %11
   store i8 %19, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %.preheader153.preheader, label %18, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader152.preheader, label %18, !llvm.loop !21
 
-.preheader153.preheader:                          ; preds = %18
+.preheader152.preheader:                          ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %calloc.i, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
   %21 = load i8, ptr %6, align 16
   %22 = sext i8 %21 to i64
@@ -971,29 +971,29 @@ Abc_Clock.exit:                                   ; preds = %0, %11
   %107 = xor i64 %106, %103
   store i64 %107, ptr %105, align 8
   %invariant.gep = getelementptr i8, ptr %calloc.i, i64 72
-  %invariant.gep206 = getelementptr inbounds i8, ptr %7, i64 144
-  %invariant.gep208 = getelementptr i8, ptr %calloc.i, i64 48
-  %invariant.gep210 = getelementptr inbounds i8, ptr %7, i64 72
-  %invariant.gep212 = getelementptr i8, ptr %calloc.i, i64 24
+  %invariant.gep205 = getelementptr inbounds i8, ptr %7, i64 144
+  %invariant.gep207 = getelementptr i8, ptr %calloc.i, i64 48
+  %invariant.gep209 = getelementptr inbounds i8, ptr %7, i64 72
+  %invariant.gep211 = getelementptr i8, ptr %calloc.i, i64 24
   br label %108
 
-108:                                              ; preds = %.preheader153.preheader, %Abc_StatePush.exit140
-  %indvar = phi i64 [ 0, %.preheader153.preheader ], [ %indvar.next, %Abc_StatePush.exit140 ]
+108:                                              ; preds = %.preheader152.preheader, %Abc_StatePush.exit140
+  %indvar = phi i64 [ 0, %.preheader152.preheader ], [ %indvar.next, %Abc_StatePush.exit140 ]
   %109 = mul nuw nsw i64 %indvar, 72
   %gep = getelementptr i8, ptr %invariant.gep, i64 %109
   %110 = mul nuw nsw i64 %indvar, 24
-  %gep207 = getelementptr i8, ptr %invariant.gep206, i64 %110
-  %gep209 = getelementptr i8, ptr %invariant.gep208, i64 %109
-  %gep211 = getelementptr i8, ptr %invariant.gep210, i64 %110
-  %gep213 = getelementptr i8, ptr %invariant.gep212, i64 %109
-  %scevgep180 = getelementptr i8, ptr %7, i64 %110
+  %gep206 = getelementptr i8, ptr %invariant.gep205, i64 %110
+  %gep208 = getelementptr i8, ptr %invariant.gep207, i64 %109
+  %gep210 = getelementptr i8, ptr %invariant.gep209, i64 %110
+  %gep212 = getelementptr i8, ptr %invariant.gep211, i64 %109
+  %scevgep179 = getelementptr i8, ptr %7, i64 %110
   %111 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %indvar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
   br label %112
 
 112:                                              ; preds = %108, %112
-  %indvars.iv176 = phi i64 [ 0, %108 ], [ %indvars.iv.next177, %112 ]
-  %113 = getelementptr inbounds [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 0, i64 %indvar, i64 %indvars.iv176
+  %indvars.iv175 = phi i64 [ 0, %108 ], [ %indvars.iv.next176, %112 ]
+  %113 = getelementptr inbounds [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 0, i64 %indvar, i64 %indvars.iv175
   %114 = load i32, ptr %113, align 8
   %115 = add nsw i32 %114, -1
   %116 = sext i32 %115 to i64
@@ -1007,12 +1007,12 @@ Abc_Clock.exit:                                   ; preds = %0, %11
   %124 = load i8, ptr %123, align 1
   store i8 %124, ptr %117, align 1
   store i8 %118, ptr %123, align 1
-  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %exitcond179.not = icmp eq i64 %indvars.iv.next177, 9
-  br i1 %exitcond179.not, label %Abc_StatePush.exit130, label %112, !llvm.loop !22
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next176, 9
+  br i1 %exitcond178.not, label %Abc_StatePush.exit130, label %112, !llvm.loop !22
 
 Abc_StatePush.exit130:                            ; preds = %112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %gep213, ptr noundef nonnull align 8 dereferenceable(24) %scevgep180, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %gep212, ptr noundef nonnull align 8 dereferenceable(24) %scevgep179, i64 24, i1 false)
   %125 = load i8, ptr %111, align 8
   %126 = sext i8 %125 to i64
   %127 = getelementptr inbounds [24 x i32], ptr @Abc_CubeGenerateSign.Var2Cor, i64 0, i64 %126
@@ -1107,8 +1107,8 @@ Abc_StatePush.exit130:                            ; preds = %112
   br label %214
 
 214:                                              ; preds = %Abc_StatePush.exit130, %214
-  %indvars.iv181 = phi i64 [ 0, %Abc_StatePush.exit130 ], [ %indvars.iv.next182, %214 ]
-  %215 = getelementptr inbounds [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 0, i64 %indvar, i64 %indvars.iv181
+  %indvars.iv180 = phi i64 [ 0, %Abc_StatePush.exit130 ], [ %indvars.iv.next181, %214 ]
+  %215 = getelementptr inbounds [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 0, i64 %indvar, i64 %indvars.iv180
   %216 = load i32, ptr %215, align 8
   %217 = add nsw i32 %216, -1
   %218 = sext i32 %217 to i64
@@ -1122,12 +1122,12 @@ Abc_StatePush.exit130:                            ; preds = %112
   %226 = load i8, ptr %225, align 1
   store i8 %226, ptr %219, align 1
   store i8 %220, ptr %225, align 1
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next182, 9
-  br i1 %exitcond184.not, label %Abc_StatePush.exit135, label %214, !llvm.loop !23
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond183.not = icmp eq i64 %indvars.iv.next181, 9
+  br i1 %exitcond183.not, label %Abc_StatePush.exit135, label %214, !llvm.loop !23
 
 Abc_StatePush.exit135:                            ; preds = %214
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %gep209, ptr noundef nonnull align 8 dereferenceable(24) %gep211, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %gep208, ptr noundef nonnull align 8 dereferenceable(24) %gep210, i64 24, i1 false)
   %227 = load i8, ptr %213, align 8
   %228 = sext i8 %227 to i64
   %229 = getelementptr inbounds [24 x i32], ptr @Abc_CubeGenerateSign.Var2Cor, i64 0, i64 %228
@@ -1222,8 +1222,8 @@ Abc_StatePush.exit135:                            ; preds = %214
   br label %316
 
 316:                                              ; preds = %Abc_StatePush.exit135, %316
-  %indvars.iv187 = phi i64 [ 0, %Abc_StatePush.exit135 ], [ %indvars.iv.next188, %316 ]
-  %317 = getelementptr inbounds [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 0, i64 %indvar, i64 %indvars.iv187
+  %indvars.iv186 = phi i64 [ 0, %Abc_StatePush.exit135 ], [ %indvars.iv.next187, %316 ]
+  %317 = getelementptr inbounds [3 x [9 x [2 x i32]]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 0, i64 %indvar, i64 %indvars.iv186
   %318 = load i32, ptr %317, align 8
   %319 = add nsw i32 %318, -1
   %320 = sext i32 %319 to i64
@@ -1237,12 +1237,12 @@ Abc_StatePush.exit135:                            ; preds = %214
   %328 = load i8, ptr %327, align 1
   store i8 %328, ptr %321, align 1
   store i8 %322, ptr %327, align 1
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
-  %exitcond190.not = icmp eq i64 %indvars.iv.next188, 9
-  br i1 %exitcond190.not, label %Abc_StatePush.exit140, label %316, !llvm.loop !24
+  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
+  %exitcond189.not = icmp eq i64 %indvars.iv.next187, 9
+  br i1 %exitcond189.not, label %Abc_StatePush.exit140, label %316, !llvm.loop !24
 
 Abc_StatePush.exit140:                            ; preds = %316
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %gep, ptr noundef nonnull align 8 dereferenceable(24) %gep207, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %gep, ptr noundef nonnull align 8 dereferenceable(24) %gep206, i64 24, i1 false)
   %329 = load i8, ptr %315, align 8
   %330 = sext i8 %329 to i64
   %331 = getelementptr inbounds [24 x i32], ptr @Abc_CubeGenerateSign.Var2Cor, i64 0, i64 %330
@@ -1332,8 +1332,8 @@ Abc_StatePush.exit140:                            ; preds = %316
   %415 = xor i64 %414, %411
   store i64 %415, ptr %413, align 8
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond196.not = icmp eq i64 %indvar.next, 3
-  br i1 %exitcond196.not, label %416, label %108, !llvm.loop !25
+  %exitcond195.not = icmp eq i64 %indvar.next, 3
+  br i1 %exitcond195.not, label %416, label %108, !llvm.loop !25
 
 416:                                              ; preds = %Abc_StatePush.exit140
   %417 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 0, i32 noundef 1)
@@ -1386,36 +1386,36 @@ Abc_Clock.exit144:                                ; preds = %Abc_Clock.exit142, 
   br label %.preheader
 
 .preheader:                                       ; preds = %Abc_Clock.exit144, %Abc_Clock.exit151
-  %.1173 = phi i32 [ 2, %Abc_Clock.exit144 ], [ %579, %Abc_Clock.exit151 ]
-  %.0116172 = phi i32 [ 1, %Abc_Clock.exit144 ], [ %.0117171, %Abc_Clock.exit151 ]
-  %.0117171 = phi i32 [ 10, %Abc_Clock.exit144 ], [ %.2120.lcssa, %Abc_Clock.exit151 ]
-  %444 = icmp slt i32 %.0116172, %.0117171
+  %.1172 = phi i32 [ 2, %Abc_Clock.exit144 ], [ %579, %Abc_Clock.exit151 ]
+  %.0116171 = phi i32 [ 1, %Abc_Clock.exit144 ], [ %.0117170, %Abc_Clock.exit151 ]
+  %.0117170 = phi i32 [ 10, %Abc_Clock.exit144 ], [ %.2120.lcssa, %Abc_Clock.exit151 ]
+  %444 = icmp slt i32 %.0116171, %.0117170
   br i1 %444, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %445 = sext i32 %.0116172 to i64
-  %wide.trip.count = sext i32 %.0117171 to i64
+  %445 = sext i32 %.0116171 to i64
+  %wide.trip.count = sext i32 %.0117170 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %566
-  %indvars.iv201 = phi i64 [ %445, %.lr.ph.preheader ], [ %indvars.iv.next202, %566 ]
-  %.2120168 = phi i32 [ %.0117171, %.lr.ph.preheader ], [ %.4122, %566 ]
-  %.idx = mul i64 %indvars.iv201, 24
+  %indvars.iv200 = phi i64 [ %445, %.lr.ph.preheader ], [ %indvars.iv.next201, %566 ]
+  %.2120167 = phi i32 [ %.0117170, %.lr.ph.preheader ], [ %.4122, %566 ]
+  %.idx = mul i64 %indvars.iv200, 24
   %446 = getelementptr inbounds i8, ptr %calloc.i, i64 %.idx
   br label %448
 
 447:                                              ; preds = %550
-  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %exitcond200.not = icmp eq i64 %indvars.iv.next198, 9
-  br i1 %exitcond200.not, label %566, label %448, !llvm.loop !26
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %exitcond199.not = icmp eq i64 %indvars.iv.next197, 9
+  br i1 %exitcond199.not, label %566, label %448, !llvm.loop !26
 
 448:                                              ; preds = %.lr.ph, %447
-  %indvars.iv197 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next198, %447 ]
-  %.3121166 = phi i32 [ %.2120168, %.lr.ph ], [ %.4122, %447 ]
-  %449 = mul nsw i32 %.3121166, 6
+  %indvars.iv196 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next197, %447 ]
+  %.3121165 = phi i32 [ %.2120167, %.lr.ph ], [ %.4122, %447 ]
+  %449 = mul nsw i32 %.3121165, 6
   %450 = sext i32 %449 to i64
   %451 = getelementptr inbounds i32, ptr %calloc.i, i64 %450
-  %452 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %indvars.iv197
+  %452 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %indvars.iv196
   br label %453
 
 453:                                              ; preds = %453, %448
@@ -1519,17 +1519,17 @@ Abc_StatePerm.exit:                               ; preds = %453
   %544 = and i64 %480, 63
   %545 = shl nuw i64 1, %544
   %546 = and i64 %543, %545
-  %.not152 = icmp eq i64 %546, 0
-  br i1 %.not152, label %547, label %550
+  %.not = icmp eq i64 %546, 0
+  br i1 %.not, label %547, label %550
 
 547:                                              ; preds = %Abc_StatePerm.exit
   %548 = xor i64 %543, %545
   store i64 %548, ptr %542, align 8
-  %549 = add nsw i32 %.3121166, 1
+  %549 = add nsw i32 %.3121165, 1
   br label %550
 
 550:                                              ; preds = %547, %Abc_StatePerm.exit
-  %.4122 = phi i32 [ %.3121166, %Abc_StatePerm.exit ], [ %549, %547 ]
+  %.4122 = phi i32 [ %.3121165, %Abc_StatePerm.exit ], [ %549, %547 ]
   %551 = icmp eq i32 %.4122, 4194304
   br i1 %551, label %552, label %447
 
@@ -1560,13 +1560,13 @@ Abc_Clock.exit149:                                ; preds = %552, %556
   br label %585
 
 566:                                              ; preds = %447
-  %indvars.iv.next202 = add nsw i64 %indvars.iv201, 1
-  %exitcond204.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count
-  br i1 %exitcond204.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count
+  br i1 %exitcond203.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %566, %.preheader
-  %.2120.lcssa = phi i32 [ %.0117171, %.preheader ], [ %.4122, %566 ]
-  %567 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.1173, i32 noundef %.2120.lcssa)
+  %.2120.lcssa = phi i32 [ %.0117170, %.preheader ], [ %.4122, %566 ]
+  %567 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.1172, i32 noundef %.2120.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %568 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #17
   %569 = icmp slt i32 %568, 0
@@ -1588,9 +1588,9 @@ Abc_Clock.exit151:                                ; preds = %._crit_edge, %570
   %577 = sitofp i64 %576 to double
   %578 = fdiv double %577, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %578)
-  %579 = add nuw nsw i32 %.1173, 1
-  %580 = icmp ugt i32 %.1173, 99
-  %581 = icmp eq i32 %.0117171, %.2120.lcssa
+  %579 = add nuw nsw i32 %.1172, 1
+  %580 = icmp ugt i32 %.1172, 99
+  %581 = icmp eq i32 %.0117170, %.2120.lcssa
   %or.cond = or i1 %580, %581
   br i1 %or.cond, label %582, label %.preheader, !llvm.loop !28
 

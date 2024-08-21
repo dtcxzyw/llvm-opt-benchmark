@@ -7464,11 +7464,11 @@ if.end14:                                         ; preds = %if.end9
   %7 = and i32 %6, 2
   %tobool16.not = icmp ne i32 %7, 0
   %8 = load i32, ptr %errorCode, align 4
-  %cmp.i.i49 = icmp slt i32 %8, 1
-  %or.cond = select i1 %tobool16.not, i1 %cmp.i.i49, i1 false
-  br i1 %or.cond, label %if.end.i53, label %if.end21
+  %cmp.i.i48 = icmp slt i32 %8, 1
+  %or.cond = select i1 %tobool16.not, i1 %cmp.i.i48, i1 false
+  br i1 %or.cond, label %if.end.i52, label %if.end21
 
-if.end.i53:                                       ; preds = %if.end14
+if.end.i52:                                       ; preds = %if.end14
   %settings.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %settings.i, align 8
   %options.i.i = getelementptr inbounds i8, ptr %9, i64 24
@@ -7480,65 +7480,65 @@ if.end.i53:                                       ; preds = %if.end14
   %cmp.i7.not.i = icmp eq i32 %11, 0
   br i1 %cmp.i7.not.i, label %if.end5.i, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.end.i53
-  %call4.i54 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+if.then3.i:                                       ; preds = %if.end.i52
+  %call4.i53 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end5.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i:                                        ; preds = %if.then3.i, %if.end.i53
-  %call6.i55 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 65, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+if.end5.i:                                        ; preds = %if.then3.i, %if.end.i52
+  %call6.i54 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 65, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc:                                    ; preds = %if.end5.i
   %arrayidx.i = getelementptr inbounds i8, ptr @.str.5, i64 %cond.i.i
   %12 = load i8, ptr %arrayidx.i, align 1
-  %call7.i56 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %12, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call7.i55 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %12, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call6.i.noexc.if.end21_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call6.i.noexc.if.end21_crit_edge:                 ; preds = %call6.i.noexc
   %.pre = load i32, ptr %explicitlySetAttributes.i, align 8
-  %.pre391 = load i32, ptr %errorCode, align 4
+  %.pre377 = load i32, ptr %errorCode, align 4
   br label %if.end21
 
-lpad.loopexit:                                    ; preds = %for.body.i335, %call8.i.noexc344
-  %lpad.loopexit372 = landingpad { ptr, i32 }
+lpad.loopexit:                                    ; preds = %for.body.i321, %call8.i.noexc330
+  %lpad.loopexit358 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
-lpad.loopexit.split-lp.loopexit:                  ; preds = %call8.i.noexc319, %for.body.i310
-  %lpad.loopexit374 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit:                  ; preds = %call8.i.noexc305, %for.body.i296
+  %lpad.loopexit360 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i262, %call8.i.noexc271
-  %lpad.loopexit377 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i250, %call8.i.noexc259
+  %lpad.loopexit363 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %call8.i.noexc193, %for.body.i184
-  %lpad.loopexit380 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %call8.i.noexc183, %for.body.i174
+  %lpad.loopexit366 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i209, %call8.i.noexc218
-  %lpad.loopexit383 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body.i199, %call8.i.noexc208
+  %lpad.loopexit369 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont64, %if.end82, %if.end96, %invoke.cont102, %if.end113, %if.then3.i, %if.end5.i, %call6.i.noexc, %if.then3.i69, %if.end5.i70, %call6.i.noexc75, %if.then3.i94, %if.end5.i95, %call6.i.noexc100, %if.then3.i122, %if.end5.i123, %call6.i.noexc128, %if.then3.i150, %if.end5.i151, %call6.i.noexc156, %if.end53, %if.then3.i181, %if.end5.i182, %if.then3.i204, %if.end5.i205, %if.then3.i240, %if.end5.i241, %call6.i.noexc246, %if.then3.i257, %if.end5.i258, %if.then3.i288, %if.end5.i289, %call6.i.noexc294, %if.then3.i305, %if.end5.i306, %if.then3.i330, %if.end5.i331
-  %lpad.loopexit.split-lp384 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont64, %if.end82, %if.end96, %invoke.cont102, %if.end113, %if.then3.i, %if.end5.i, %call6.i.noexc, %if.then3.i66, %if.end5.i67, %call6.i.noexc72, %if.then3.i88, %if.end5.i89, %call6.i.noexc94, %if.then3.i114, %if.end5.i115, %call6.i.noexc120, %if.then3.i140, %if.end5.i141, %call6.i.noexc146, %if.end53, %if.then3.i171, %if.end5.i172, %if.then3.i194, %if.end5.i195, %if.then3.i228, %if.end5.i229, %call6.i.noexc234, %if.then3.i245, %if.end5.i246, %if.then3.i274, %if.end5.i275, %call6.i.noexc280, %if.then3.i291, %if.end5.i292, %if.then3.i316, %if.end5.i317
+  %lpad.loopexit.split-lp370 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
 if.end21:                                         ; preds = %call6.i.noexc.if.end21_crit_edge, %if.end14
-  %13 = phi i32 [ %.pre391, %call6.i.noexc.if.end21_crit_edge ], [ %8, %if.end14 ]
+  %13 = phi i32 [ %.pre377, %call6.i.noexc.if.end21_crit_edge ], [ %8, %if.end14 ]
   %14 = phi i32 [ %.pre, %call6.i.noexc.if.end21_crit_edge ], [ %6, %if.end14 ]
   %15 = and i32 %14, 4
   %tobool24.not = icmp ne i32 %15, 0
-  %cmp.i.i61 = icmp slt i32 %13, 1
-  %or.cond365 = select i1 %tobool24.not, i1 %cmp.i.i61, i1 false
-  br i1 %or.cond365, label %if.end.i66, label %if.end29
+  %cmp.i.i58 = icmp slt i32 %13, 1
+  %or.cond351 = select i1 %tobool24.not, i1 %cmp.i.i58, i1 false
+  br i1 %or.cond351, label %if.end.i63, label %if.end29
 
-if.end.i66:                                       ; preds = %if.end21
+if.end.i63:                                       ; preds = %if.end21
   %settings5.i = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load ptr, ptr %settings5.i, align 8
   %options.i3.i = getelementptr inbounds i8, ptr %16, i64 24
@@ -7549,152 +7549,152 @@ if.end.i66:                                       ; preds = %if.end21
   %cond.i6.i = select i1 %cmp2.i.i, i64 24, i64 25
   %cond3.i.i = select i1 %cmp.i5.i, i64 16, i64 %cond.i6.i
   %18 = load i32, ptr %len.i, align 8
-  %cmp.i7.not.i68 = icmp eq i32 %18, 0
-  br i1 %cmp.i7.not.i68, label %if.end5.i70, label %if.then3.i69
+  %cmp.i7.not.i65 = icmp eq i32 %18, 0
+  br i1 %cmp.i7.not.i65, label %if.end5.i67, label %if.then3.i66
 
-if.then3.i69:                                     ; preds = %if.end.i66
-  %call4.i74 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i70 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i66:                                     ; preds = %if.end.i63
+  %call4.i71 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i67 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i70:                                      ; preds = %if.then3.i69, %if.end.i66
-  %call6.i76 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 67, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc75 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i67:                                      ; preds = %if.then3.i66, %if.end.i63
+  %call6.i73 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 67, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc72 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc75:                                  ; preds = %if.end5.i70
-  %arrayidx.i72 = getelementptr inbounds i8, ptr @.str.5, i64 %cond3.i.i
-  %19 = load i8, ptr %arrayidx.i72, align 1
-  %call7.i78 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %19, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc75.if.end29_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+call6.i.noexc72:                                  ; preds = %if.end5.i67
+  %arrayidx.i69 = getelementptr inbounds i8, ptr @.str.5, i64 %cond3.i.i
+  %19 = load i8, ptr %arrayidx.i69, align 1
+  %call7.i75 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %19, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc72.if.end29_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc75.if.end29_crit_edge:               ; preds = %call6.i.noexc75
-  %.pre392 = load i32, ptr %explicitlySetAttributes.i, align 8
-  %.pre393 = load i32, ptr %errorCode, align 4
+call6.i.noexc72.if.end29_crit_edge:               ; preds = %call6.i.noexc72
+  %.pre378 = load i32, ptr %explicitlySetAttributes.i, align 8
+  %.pre379 = load i32, ptr %errorCode, align 4
   br label %if.end29
 
-if.end29:                                         ; preds = %call6.i.noexc75.if.end29_crit_edge, %if.end21
-  %20 = phi i32 [ %.pre393, %call6.i.noexc75.if.end29_crit_edge ], [ %13, %if.end21 ]
-  %21 = phi i32 [ %.pre392, %call6.i.noexc75.if.end29_crit_edge ], [ %14, %if.end21 ]
-  %and.i81 = and i32 %21, 128
-  %cmp.i82 = icmp ne i32 %and.i81, 0
-  %cmp.i.i84 = icmp slt i32 %20, 1
-  %or.cond366 = select i1 %cmp.i82, i1 %cmp.i.i84, i1 false
-  br i1 %or.cond366, label %if.end.i91, label %if.end37
+if.end29:                                         ; preds = %call6.i.noexc72.if.end29_crit_edge, %if.end21
+  %20 = phi i32 [ %.pre379, %call6.i.noexc72.if.end29_crit_edge ], [ %13, %if.end21 ]
+  %21 = phi i32 [ %.pre378, %call6.i.noexc72.if.end29_crit_edge ], [ %14, %if.end21 ]
+  %22 = and i32 %21, 128
+  %tobool32.not = icmp ne i32 %22, 0
+  %cmp.i.i79 = icmp slt i32 %20, 1
+  %or.cond352 = select i1 %tobool32.not, i1 %cmp.i.i79, i1 false
+  br i1 %or.cond352, label %if.end.i85, label %if.end37
 
-if.end.i91:                                       ; preds = %if.end29
+if.end.i85:                                       ; preds = %if.end29
   %settings14.i = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load ptr, ptr %settings14.i, align 8
-  %options.i = getelementptr inbounds i8, ptr %22, i64 24
-  %23 = load i32, ptr %options.i, align 8
-  %and.i87 = and i32 %23, 2
-  %cmp.i88 = icmp eq i32 %and.i87, 0
-  %cond.i = select i1 %cmp.i88, i64 16, i64 17
-  %24 = load i32, ptr %len.i, align 8
-  %cmp.i7.not.i93 = icmp eq i32 %24, 0
-  br i1 %cmp.i7.not.i93, label %if.end5.i95, label %if.then3.i94
+  %23 = load ptr, ptr %settings14.i, align 8
+  %options.i = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = load i32, ptr %options.i, align 8
+  %and.i = and i32 %24, 2
+  %cmp.i82 = icmp eq i32 %and.i, 0
+  %cond.i = select i1 %cmp.i82, i64 16, i64 17
+  %25 = load i32, ptr %len.i, align 8
+  %cmp.i7.not.i87 = icmp eq i32 %25, 0
+  br i1 %cmp.i7.not.i87, label %if.end5.i89, label %if.then3.i88
 
-if.then3.i94:                                     ; preds = %if.end.i91
-  %call4.i99 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i95 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i88:                                     ; preds = %if.end.i85
+  %call4.i93 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i89 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i95:                                      ; preds = %if.then3.i94, %if.end.i91
-  %call6.i101 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 68, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc100 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i89:                                      ; preds = %if.then3.i88, %if.end.i85
+  %call6.i95 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 68, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc94 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc100:                                 ; preds = %if.end5.i95
-  %arrayidx.i97 = getelementptr inbounds i8, ptr @.str.5, i64 %cond.i
-  %25 = load i8, ptr %arrayidx.i97, align 1
-  %call7.i103 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %25, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc100.if.end37_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+call6.i.noexc94:                                  ; preds = %if.end5.i89
+  %arrayidx.i91 = getelementptr inbounds i8, ptr @.str.5, i64 %cond.i
+  %26 = load i8, ptr %arrayidx.i91, align 1
+  %call7.i97 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %26, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc94.if.end37_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc100.if.end37_crit_edge:              ; preds = %call6.i.noexc100
-  %.pre394 = load i32, ptr %explicitlySetAttributes.i, align 8
-  %.pre395 = load i32, ptr %errorCode, align 4
+call6.i.noexc94.if.end37_crit_edge:               ; preds = %call6.i.noexc94
+  %.pre380 = load i32, ptr %explicitlySetAttributes.i, align 8
+  %.pre381 = load i32, ptr %errorCode, align 4
   br label %if.end37
 
-if.end37:                                         ; preds = %call6.i.noexc100.if.end37_crit_edge, %if.end29
-  %26 = phi i32 [ %.pre395, %call6.i.noexc100.if.end37_crit_edge ], [ %20, %if.end29 ]
-  %27 = phi i32 [ %.pre394, %call6.i.noexc100.if.end37_crit_edge ], [ %21, %if.end29 ]
-  %28 = and i32 %27, 8
-  %tobool40.not = icmp ne i32 %28, 0
-  %cmp.i.i109 = icmp slt i32 %26, 1
-  %or.cond367 = select i1 %tobool40.not, i1 %cmp.i.i109, i1 false
-  br i1 %or.cond367, label %if.end.i119, label %if.end45
+if.end37:                                         ; preds = %call6.i.noexc94.if.end37_crit_edge, %if.end29
+  %27 = phi i32 [ %.pre381, %call6.i.noexc94.if.end37_crit_edge ], [ %20, %if.end29 ]
+  %28 = phi i32 [ %.pre380, %call6.i.noexc94.if.end37_crit_edge ], [ %21, %if.end29 ]
+  %29 = and i32 %28, 8
+  %tobool40.not = icmp ne i32 %29, 0
+  %cmp.i.i101 = icmp slt i32 %27, 1
+  %or.cond353 = select i1 %tobool40.not, i1 %cmp.i.i101, i1 false
+  br i1 %or.cond353, label %if.end.i111, label %if.end45
 
-if.end.i119:                                      ; preds = %if.end37
-  %settings14.i112 = getelementptr inbounds i8, ptr %this, i64 16
-  %29 = load ptr, ptr %settings14.i112, align 8
-  %options.i113 = getelementptr inbounds i8, ptr %29, i64 24
-  %30 = load i32, ptr %options.i113, align 8
-  %and.i114 = and i32 %30, 1024
-  %cmp.i115 = icmp eq i32 %and.i114, 0
-  %cond.i116 = select i1 %cmp.i115, i64 16, i64 17
-  %31 = load i32, ptr %len.i, align 8
-  %cmp.i7.not.i121 = icmp eq i32 %31, 0
-  br i1 %cmp.i7.not.i121, label %if.end5.i123, label %if.then3.i122
+if.end.i111:                                      ; preds = %if.end37
+  %settings14.i104 = getelementptr inbounds i8, ptr %this, i64 16
+  %30 = load ptr, ptr %settings14.i104, align 8
+  %options.i105 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = load i32, ptr %options.i105, align 8
+  %and.i106 = and i32 %31, 1024
+  %cmp.i107 = icmp eq i32 %and.i106, 0
+  %cond.i108 = select i1 %cmp.i107, i64 16, i64 17
+  %32 = load i32, ptr %len.i, align 8
+  %cmp.i7.not.i113 = icmp eq i32 %32, 0
+  br i1 %cmp.i7.not.i113, label %if.end5.i115, label %if.then3.i114
 
-if.then3.i122:                                    ; preds = %if.end.i119
-  %call4.i127 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i123 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i114:                                    ; preds = %if.end.i111
+  %call4.i119 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i115 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i123:                                     ; preds = %if.then3.i122, %if.end.i119
-  %call6.i129 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 69, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc128 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i115:                                     ; preds = %if.then3.i114, %if.end.i111
+  %call6.i121 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 69, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc120 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc128:                                 ; preds = %if.end5.i123
-  %arrayidx.i125 = getelementptr inbounds i8, ptr @.str.5, i64 %cond.i116
-  %32 = load i8, ptr %arrayidx.i125, align 1
-  %call7.i131 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %32, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc128.if.end45_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+call6.i.noexc120:                                 ; preds = %if.end5.i115
+  %arrayidx.i117 = getelementptr inbounds i8, ptr @.str.5, i64 %cond.i108
+  %33 = load i8, ptr %arrayidx.i117, align 1
+  %call7.i123 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %33, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc120.if.end45_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc128.if.end45_crit_edge:              ; preds = %call6.i.noexc128
-  %.pre396 = load i32, ptr %explicitlySetAttributes.i, align 8
-  %.pre397 = load i32, ptr %errorCode, align 4
+call6.i.noexc120.if.end45_crit_edge:              ; preds = %call6.i.noexc120
+  %.pre382 = load i32, ptr %explicitlySetAttributes.i, align 8
+  %.pre383 = load i32, ptr %errorCode, align 4
   br label %if.end45
 
-if.end45:                                         ; preds = %call6.i.noexc128.if.end45_crit_edge, %if.end37
-  %33 = phi i32 [ %.pre397, %call6.i.noexc128.if.end45_crit_edge ], [ %26, %if.end37 ]
-  %34 = phi i32 [ %.pre396, %call6.i.noexc128.if.end45_crit_edge ], [ %27, %if.end37 ]
-  %conv.i136371 = and i32 %34, 1
-  %tobool48.not = icmp ne i32 %conv.i136371, 0
-  %cmp.i.i137 = icmp slt i32 %33, 1
-  %or.cond368 = select i1 %tobool48.not, i1 %cmp.i.i137, i1 false
-  br i1 %or.cond368, label %if.end.i147, label %if.end53
+if.end45:                                         ; preds = %call6.i.noexc120.if.end45_crit_edge, %if.end37
+  %34 = phi i32 [ %.pre383, %call6.i.noexc120.if.end45_crit_edge ], [ %27, %if.end37 ]
+  %35 = phi i32 [ %.pre382, %call6.i.noexc120.if.end45_crit_edge ], [ %28, %if.end37 ]
+  %conv.i126357 = and i32 %35, 1
+  %tobool48.not = icmp ne i32 %conv.i126357, 0
+  %cmp.i.i127 = icmp slt i32 %34, 1
+  %or.cond354 = select i1 %tobool48.not, i1 %cmp.i.i127, i1 false
+  br i1 %or.cond354, label %if.end.i137, label %if.end53
 
-if.end.i147:                                      ; preds = %if.end45
-  %settings14.i140 = getelementptr inbounds i8, ptr %this, i64 16
-  %35 = load ptr, ptr %settings14.i140, align 8
-  %options.i141 = getelementptr inbounds i8, ptr %35, i64 24
-  %36 = load i32, ptr %options.i141, align 8
-  %and.i142 = and i32 %36, 2048
-  %cmp.i143 = icmp eq i32 %and.i142, 0
-  %cond.i144 = select i1 %cmp.i143, i64 16, i64 17
-  %37 = load i32, ptr %len.i, align 8
-  %cmp.i7.not.i149 = icmp eq i32 %37, 0
-  br i1 %cmp.i7.not.i149, label %if.end5.i151, label %if.then3.i150
+if.end.i137:                                      ; preds = %if.end45
+  %settings14.i130 = getelementptr inbounds i8, ptr %this, i64 16
+  %36 = load ptr, ptr %settings14.i130, align 8
+  %options.i131 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = load i32, ptr %options.i131, align 8
+  %and.i132 = and i32 %37, 2048
+  %cmp.i133 = icmp eq i32 %and.i132, 0
+  %cond.i134 = select i1 %cmp.i133, i64 16, i64 17
+  %38 = load i32, ptr %len.i, align 8
+  %cmp.i7.not.i139 = icmp eq i32 %38, 0
+  br i1 %cmp.i7.not.i139, label %if.end5.i141, label %if.then3.i140
 
-if.then3.i150:                                    ; preds = %if.end.i147
-  %call4.i155 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i151 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i140:                                    ; preds = %if.end.i137
+  %call4.i145 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i141 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i151:                                     ; preds = %if.then3.i150, %if.end.i147
-  %call6.i157 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 70, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc156 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i141:                                     ; preds = %if.then3.i140, %if.end.i137
+  %call6.i147 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 70, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc146 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc156:                                 ; preds = %if.end5.i151
-  %arrayidx.i153 = getelementptr inbounds i8, ptr @.str.5, i64 %cond.i144
-  %38 = load i8, ptr %arrayidx.i153, align 1
-  %call7.i159 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %38, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+call6.i.noexc146:                                 ; preds = %if.end5.i141
+  %arrayidx.i143 = getelementptr inbounds i8, ptr @.str.5, i64 %cond.i134
+  %39 = load i8, ptr %arrayidx.i143, align 1
+  %call7.i149 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %39, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end53 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end53:                                         ; preds = %call6.i.noexc156, %if.end45
+if.end53:                                         ; preds = %call6.i.noexc146, %if.end45
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %collation)
           to label %invoke.cont54 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont54:                                    ; preds = %if.end53
-  %len.i161 = getelementptr inbounds i8, ptr %collation, i64 56
-  store i32 0, ptr %len.i161, align 8
-  %39 = load ptr, ptr %collation, align 8
-  store i8 0, ptr %39, align 1
+  %len.i151 = getelementptr inbounds i8, ptr %collation, i64 56
+  store i32 0, ptr %len.i151, align 8
+  %40 = load ptr, ptr %collation, align 8
+  store i8 0, ptr %40, align 1
   invoke void @_ZN6icu_7518CharStringByteSinkC1EPNS_10CharStringE(ptr noundef nonnull align 8 dereferenceable(16) %sink, ptr noundef nonnull %collation)
           to label %invoke.cont56 unwind label %lpad55
 
@@ -7703,44 +7703,44 @@ invoke.cont56:                                    ; preds = %invoke.cont54
           to label %invoke.cont59 unwind label %lpad58.loopexit.split-lp
 
 invoke.cont59:                                    ; preds = %invoke.cont56
-  %40 = load ptr, ptr %collation, align 8
-  %41 = load i32, ptr %len.i161, align 8
-  %42 = load i32, ptr %errorCode, align 4
-  %cmp.i.i163 = icmp sgt i32 %42, 0
-  %cmp.i164 = icmp eq i32 %41, 0
-  %or.cond.i = or i1 %cmp.i164, %cmp.i.i163
-  br i1 %or.cond.i, label %invoke.cont64, label %if.end.i165
+  %41 = load ptr, ptr %collation, align 8
+  %42 = load i32, ptr %len.i151, align 8
+  %43 = load i32, ptr %errorCode, align 4
+  %cmp.i.i153 = icmp sgt i32 %43, 0
+  %cmp.i154 = icmp eq i32 %42, 0
+  %or.cond.i = or i1 %cmp.i154, %cmp.i.i153
+  br i1 %or.cond.i, label %invoke.cont64, label %if.end.i155
 
-if.end.i165:                                      ; preds = %invoke.cont59
-  %43 = load i32, ptr %len.i, align 8
-  %cmp.i10.not.i = icmp eq i32 %43, 0
-  br i1 %cmp.i10.not.i, label %if.end5.i168, label %if.then3.i167
+if.end.i155:                                      ; preds = %invoke.cont59
+  %44 = load i32, ptr %len.i, align 8
+  %cmp.i10.not.i = icmp eq i32 %44, 0
+  br i1 %cmp.i10.not.i, label %if.end5.i158, label %if.then3.i157
 
-if.then3.i167:                                    ; preds = %if.end.i165
-  %call4.i171 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i168 unwind label %lpad58.loopexit.split-lp
+if.then3.i157:                                    ; preds = %if.end.i155
+  %call4.i161 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i158 unwind label %lpad58.loopexit.split-lp
 
-if.end5.i168:                                     ; preds = %if.then3.i167, %if.end.i165
-  %call6.i173 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 75, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc172 unwind label %lpad58.loopexit.split-lp
+if.end5.i158:                                     ; preds = %if.then3.i157, %if.end.i155
+  %call6.i163 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 75, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc162 unwind label %lpad58.loopexit.split-lp
 
-call6.i.noexc172:                                 ; preds = %if.end5.i168
-  %cmp712.i = icmp sgt i32 %41, 0
+call6.i.noexc162:                                 ; preds = %if.end5.i158
+  %cmp712.i = icmp sgt i32 %42, 0
   br i1 %cmp712.i, label %for.body.preheader.i, label %invoke.cont64
 
-for.body.preheader.i:                             ; preds = %call6.i.noexc172
-  %wide.trip.count.i = zext nneg i32 %41 to i64
+for.body.preheader.i:                             ; preds = %call6.i.noexc162
+  %wide.trip.count.i = zext nneg i32 %42 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %call9.i.noexc, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %call9.i.noexc ]
-  %arrayidx.i169 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.i
-  %44 = load i8, ptr %arrayidx.i169, align 1
-  %call8.i174 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %44)
+  %arrayidx.i159 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv.i
+  %45 = load i8, ptr %arrayidx.i159, align 1
+  %call8.i164 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %45)
           to label %call8.i.noexc unwind label %lpad58.loopexit
 
 call8.i.noexc:                                    ; preds = %for.body.i
-  %call9.i175 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i174, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call9.i165 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i164, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %call9.i.noexc unwind label %lpad58.loopexit
 
 call9.i.noexc:                                    ; preds = %call8.i.noexc
@@ -7748,7 +7748,7 @@ call9.i.noexc:                                    ; preds = %call8.i.noexc
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %invoke.cont64, label %for.body.i, !llvm.loop !16
 
-invoke.cont64:                                    ; preds = %call9.i.noexc, %call6.i.noexc172, %invoke.cont59
+invoke.cont64:                                    ; preds = %call9.i.noexc, %call6.i.noexc162, %invoke.cont59
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #18
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %collation) #18
   %call68 = invoke i32 @uloc_getLanguage_75(ptr noundef nonnull %resultLocale, ptr noundef nonnull %subtag, i32 noundef 100, ptr noundef nonnull %errorCode)
@@ -7756,328 +7756,328 @@ invoke.cont64:                                    ; preds = %call9.i.noexc, %cal
 
 invoke.cont67:                                    ; preds = %invoke.cont64
   %cmp69 = icmp eq i32 %call68, 0
-  %45 = load i32, ptr %errorCode, align 4
-  %cmp.i.i176 = icmp sgt i32 %45, 0
+  %46 = load i32, ptr %errorCode, align 4
+  %cmp.i.i166 = icmp sgt i32 %46, 0
   br i1 %cmp69, label %if.then70, label %if.else
 
 if.then70:                                        ; preds = %invoke.cont67
-  br i1 %cmp.i.i176, label %if.end74, label %if.end.i178
+  br i1 %cmp.i.i166, label %if.end74, label %if.end.i168
 
-if.end.i178:                                      ; preds = %if.then70
-  %46 = load i32, ptr %len.i, align 8
-  %cmp.i10.not.i180 = icmp eq i32 %46, 0
-  br i1 %cmp.i10.not.i180, label %if.end5.i182, label %if.then3.i181
+if.end.i168:                                      ; preds = %if.then70
+  %47 = load i32, ptr %len.i, align 8
+  %cmp.i10.not.i170 = icmp eq i32 %47, 0
+  br i1 %cmp.i10.not.i170, label %if.end5.i172, label %if.then3.i171
 
-if.then3.i181:                                    ; preds = %if.end.i178
-  %call4.i190 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i182 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i171:                                    ; preds = %if.end.i168
+  %call4.i180 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i172 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i182:                                     ; preds = %if.then3.i181, %if.end.i178
-  %call6.i192 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %for.body.i184 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i172:                                     ; preds = %if.then3.i171, %if.end.i168
+  %call6.i182 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %for.body.i174 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-for.body.i184:                                    ; preds = %if.end5.i182, %call9.i.noexc195
-  %indvars.iv.i185 = phi i64 [ %indvars.iv.next.i187, %call9.i.noexc195 ], [ 0, %if.end5.i182 ]
-  %arrayidx.i186 = getelementptr inbounds i8, ptr @.str.1, i64 %indvars.iv.i185
-  %47 = load i8, ptr %arrayidx.i186, align 1
-  %call8.i194 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %47)
-          to label %call8.i.noexc193 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+for.body.i174:                                    ; preds = %if.end5.i172, %call9.i.noexc185
+  %indvars.iv.i175 = phi i64 [ %indvars.iv.next.i177, %call9.i.noexc185 ], [ 0, %if.end5.i172 ]
+  %arrayidx.i176 = getelementptr inbounds i8, ptr @.str.1, i64 %indvars.iv.i175
+  %48 = load i8, ptr %arrayidx.i176, align 1
+  %call8.i184 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %48)
+          to label %call8.i.noexc183 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call8.i.noexc193:                                 ; preds = %for.body.i184
-  %call9.i196 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i194, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call9.i.noexc195 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+call8.i.noexc183:                                 ; preds = %for.body.i174
+  %call9.i186 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i184, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call9.i.noexc185 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call9.i.noexc195:                                 ; preds = %call8.i.noexc193
-  %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i185, 1
-  %exitcond.not.i188 = icmp eq i64 %indvars.iv.next.i187, 4
-  br i1 %exitcond.not.i188, label %if.end74, label %for.body.i184, !llvm.loop !16
+call9.i.noexc185:                                 ; preds = %call8.i.noexc183
+  %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i175, 1
+  %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, 4
+  br i1 %exitcond.not.i178, label %if.end74, label %for.body.i174, !llvm.loop !16
 
 lpad55:                                           ; preds = %invoke.cont54
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad58.loopexit:                                  ; preds = %for.body.i, %call8.i.noexc
-  %lpad.loopexit387 = landingpad { ptr, i32 }
+  %lpad.loopexit373 = landingpad { ptr, i32 }
           cleanup
   br label %lpad58
 
-lpad58.loopexit.split-lp:                         ; preds = %invoke.cont56, %if.then3.i167, %if.end5.i168
-  %lpad.loopexit.split-lp388 = landingpad { ptr, i32 }
+lpad58.loopexit.split-lp:                         ; preds = %invoke.cont56, %if.then3.i157, %if.end5.i158
+  %lpad.loopexit.split-lp374 = landingpad { ptr, i32 }
           cleanup
   br label %lpad58
 
 lpad58:                                           ; preds = %lpad58.loopexit.split-lp, %lpad58.loopexit
-  %lpad.phi389 = phi { ptr, i32 } [ %lpad.loopexit387, %lpad58.loopexit ], [ %lpad.loopexit.split-lp388, %lpad58.loopexit.split-lp ]
+  %lpad.phi375 = phi { ptr, i32 } [ %lpad.loopexit373, %lpad58.loopexit ], [ %lpad.loopexit.split-lp374, %lpad58.loopexit.split-lp ]
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad58, %lpad55
-  %.pn = phi { ptr, i32 } [ %lpad.phi389, %lpad58 ], [ %48, %lpad55 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi375, %lpad58 ], [ %49, %lpad55 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %collation) #18
   br label %ehcleanup116
 
 if.else:                                          ; preds = %invoke.cont67
-  br i1 %cmp.i.i176, label %if.end74, label %if.end.i201
+  br i1 %cmp.i.i166, label %if.end74, label %if.end.i191
 
-if.end.i201:                                      ; preds = %if.else
-  %49 = load i32, ptr %len.i, align 8
-  %cmp.i10.not.i203 = icmp eq i32 %49, 0
-  br i1 %cmp.i10.not.i203, label %if.end5.i205, label %if.then3.i204
+if.end.i191:                                      ; preds = %if.else
+  %50 = load i32, ptr %len.i, align 8
+  %cmp.i10.not.i193 = icmp eq i32 %50, 0
+  br i1 %cmp.i10.not.i193, label %if.end5.i195, label %if.then3.i194
 
-if.then3.i204:                                    ; preds = %if.end.i201
-  %call4.i215 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i205 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i194:                                    ; preds = %if.end.i191
+  %call4.i205 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i195 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i205:                                     ; preds = %if.then3.i204, %if.end.i201
-  %call6.i217 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc216 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i195:                                     ; preds = %if.then3.i194, %if.end.i191
+  %call6.i207 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 76, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc206 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc216:                                 ; preds = %if.end5.i205
-  %cmp712.i206 = icmp sgt i32 %call68, 0
-  br i1 %cmp712.i206, label %for.body.preheader.i207, label %if.end74
+call6.i.noexc206:                                 ; preds = %if.end5.i195
+  %cmp712.i196 = icmp sgt i32 %call68, 0
+  br i1 %cmp712.i196, label %for.body.preheader.i197, label %if.end74
 
-for.body.preheader.i207:                          ; preds = %call6.i.noexc216
-  %wide.trip.count.i208 = zext nneg i32 %call68 to i64
-  br label %for.body.i209
+for.body.preheader.i197:                          ; preds = %call6.i.noexc206
+  %wide.trip.count.i198 = zext nneg i32 %call68 to i64
+  br label %for.body.i199
 
-for.body.i209:                                    ; preds = %call9.i.noexc220, %for.body.preheader.i207
-  %indvars.iv.i210 = phi i64 [ 0, %for.body.preheader.i207 ], [ %indvars.iv.next.i212, %call9.i.noexc220 ]
-  %arrayidx.i211 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i210
-  %50 = load i8, ptr %arrayidx.i211, align 1
-  %call8.i219 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %50)
-          to label %call8.i.noexc218 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+for.body.i199:                                    ; preds = %call9.i.noexc210, %for.body.preheader.i197
+  %indvars.iv.i200 = phi i64 [ 0, %for.body.preheader.i197 ], [ %indvars.iv.next.i202, %call9.i.noexc210 ]
+  %arrayidx.i201 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i200
+  %51 = load i8, ptr %arrayidx.i201, align 1
+  %call8.i209 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %51)
+          to label %call8.i.noexc208 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call8.i.noexc218:                                 ; preds = %for.body.i209
-  %call9.i221 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i219, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call9.i.noexc220 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+call8.i.noexc208:                                 ; preds = %for.body.i199
+  %call9.i211 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i209, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call9.i.noexc210 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call9.i.noexc220:                                 ; preds = %call8.i.noexc218
-  %indvars.iv.next.i212 = add nuw nsw i64 %indvars.iv.i210, 1
-  %exitcond.not.i213 = icmp eq i64 %indvars.iv.next.i212, %wide.trip.count.i208
-  br i1 %exitcond.not.i213, label %if.end74, label %for.body.i209, !llvm.loop !16
+call9.i.noexc210:                                 ; preds = %call8.i.noexc208
+  %indvars.iv.next.i202 = add nuw nsw i64 %indvars.iv.i200, 1
+  %exitcond.not.i203 = icmp eq i64 %indvars.iv.next.i202, %wide.trip.count.i198
+  br i1 %exitcond.not.i203, label %if.end74, label %for.body.i199, !llvm.loop !16
 
-if.end74:                                         ; preds = %call9.i.noexc220, %call9.i.noexc195, %call6.i.noexc216, %if.else, %if.then70
-  %51 = load i32, ptr %explicitlySetAttributes.i, align 8
-  %52 = and i32 %51, 16
-  %tobool77.not = icmp ne i32 %52, 0
-  %53 = load i32, ptr %errorCode, align 4
-  %cmp.i.i227 = icmp slt i32 %53, 1
-  %or.cond369 = select i1 %tobool77.not, i1 %cmp.i.i227, i1 false
-  br i1 %or.cond369, label %if.end.i237, label %if.end82
+if.end74:                                         ; preds = %call9.i.noexc210, %call9.i.noexc185, %call6.i.noexc206, %if.else, %if.then70
+  %52 = load i32, ptr %explicitlySetAttributes.i, align 8
+  %53 = and i32 %52, 16
+  %tobool77.not = icmp ne i32 %53, 0
+  %54 = load i32, ptr %errorCode, align 4
+  %cmp.i.i215 = icmp slt i32 %54, 1
+  %or.cond355 = select i1 %tobool77.not, i1 %cmp.i.i215, i1 false
+  br i1 %or.cond355, label %if.end.i225, label %if.end82
 
-if.end.i237:                                      ; preds = %if.end74
-  %settings14.i230 = getelementptr inbounds i8, ptr %this, i64 16
-  %54 = load ptr, ptr %settings14.i230, align 8
-  %options.i231 = getelementptr inbounds i8, ptr %54, i64 24
-  %55 = load i32, ptr %options.i231, align 8
-  %and.i232 = and i32 %55, 1
-  %cond.i234 = or disjoint i32 %and.i232, 16
-  %56 = load i32, ptr %len.i, align 8
-  %cmp.i7.not.i239 = icmp eq i32 %56, 0
-  br i1 %cmp.i7.not.i239, label %if.end5.i241, label %if.then3.i240
+if.end.i225:                                      ; preds = %if.end74
+  %settings14.i218 = getelementptr inbounds i8, ptr %this, i64 16
+  %55 = load ptr, ptr %settings14.i218, align 8
+  %options.i219 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = load i32, ptr %options.i219, align 8
+  %and.i220 = and i32 %56, 1
+  %cond.i222 = or disjoint i32 %and.i220, 16
+  %57 = load i32, ptr %len.i, align 8
+  %cmp.i7.not.i227 = icmp eq i32 %57, 0
+  br i1 %cmp.i7.not.i227, label %if.end5.i229, label %if.then3.i228
 
-if.then3.i240:                                    ; preds = %if.end.i237
-  %call4.i245 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i241 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i228:                                    ; preds = %if.end.i225
+  %call4.i233 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i229 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i241:                                     ; preds = %if.then3.i240, %if.end.i237
-  %call6.i247 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 78, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc246 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i229:                                     ; preds = %if.then3.i228, %if.end.i225
+  %call6.i235 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 78, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc234 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc246:                                 ; preds = %if.end5.i241
-  %idxprom.i242 = zext nneg i32 %cond.i234 to i64
-  %arrayidx.i243 = getelementptr inbounds i8, ptr @.str.5, i64 %idxprom.i242
-  %57 = load i8, ptr %arrayidx.i243, align 1
-  %call7.i249 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %57, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+call6.i.noexc234:                                 ; preds = %if.end5.i229
+  %idxprom.i230 = zext nneg i32 %cond.i222 to i64
+  %arrayidx.i231 = getelementptr inbounds i8, ptr @.str.5, i64 %idxprom.i230
+  %58 = load i8, ptr %arrayidx.i231, align 1
+  %call7.i237 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %58, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end82 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end82:                                         ; preds = %call6.i.noexc246, %if.end74
+if.end82:                                         ; preds = %call6.i.noexc234, %if.end74
   %call86 = invoke i32 @uloc_getCountry_75(ptr noundef nonnull %resultLocale, ptr noundef nonnull %subtag, i32 noundef 100, ptr noundef nonnull %errorCode)
           to label %invoke.cont85 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont85:                                    ; preds = %if.end82
-  %58 = load i32, ptr %errorCode, align 4
-  %cmp.i.i251 = icmp sgt i32 %58, 0
-  %cmp.i252 = icmp eq i32 %call86, 0
-  %or.cond.i253 = or i1 %cmp.i252, %cmp.i.i251
-  br i1 %or.cond.i253, label %invoke.cont88, label %if.end.i254
+  %59 = load i32, ptr %errorCode, align 4
+  %cmp.i.i239 = icmp sgt i32 %59, 0
+  %cmp.i240 = icmp eq i32 %call86, 0
+  %or.cond.i241 = or i1 %cmp.i240, %cmp.i.i239
+  br i1 %or.cond.i241, label %invoke.cont88, label %if.end.i242
 
-if.end.i254:                                      ; preds = %invoke.cont85
-  %59 = load i32, ptr %len.i, align 8
-  %cmp.i10.not.i256 = icmp eq i32 %59, 0
-  br i1 %cmp.i10.not.i256, label %if.end5.i258, label %if.then3.i257
+if.end.i242:                                      ; preds = %invoke.cont85
+  %60 = load i32, ptr %len.i, align 8
+  %cmp.i10.not.i244 = icmp eq i32 %60, 0
+  br i1 %cmp.i10.not.i244, label %if.end5.i246, label %if.then3.i245
 
-if.then3.i257:                                    ; preds = %if.end.i254
-  %call4.i268 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i258 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i245:                                    ; preds = %if.end.i242
+  %call4.i256 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i246 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i258:                                     ; preds = %if.then3.i257, %if.end.i254
-  %call6.i270 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 82, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc269 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i246:                                     ; preds = %if.then3.i245, %if.end.i242
+  %call6.i258 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 82, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc257 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc269:                                 ; preds = %if.end5.i258
-  %cmp712.i259 = icmp sgt i32 %call86, 0
-  br i1 %cmp712.i259, label %for.body.preheader.i260, label %invoke.cont88
+call6.i.noexc257:                                 ; preds = %if.end5.i246
+  %cmp712.i247 = icmp sgt i32 %call86, 0
+  br i1 %cmp712.i247, label %for.body.preheader.i248, label %invoke.cont88
 
-for.body.preheader.i260:                          ; preds = %call6.i.noexc269
-  %wide.trip.count.i261 = zext nneg i32 %call86 to i64
-  br label %for.body.i262
+for.body.preheader.i248:                          ; preds = %call6.i.noexc257
+  %wide.trip.count.i249 = zext nneg i32 %call86 to i64
+  br label %for.body.i250
 
-for.body.i262:                                    ; preds = %call9.i.noexc273, %for.body.preheader.i260
-  %indvars.iv.i263 = phi i64 [ 0, %for.body.preheader.i260 ], [ %indvars.iv.next.i265, %call9.i.noexc273 ]
-  %arrayidx.i264 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i263
-  %60 = load i8, ptr %arrayidx.i264, align 1
-  %call8.i272 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %60)
-          to label %call8.i.noexc271 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
+for.body.i250:                                    ; preds = %call9.i.noexc261, %for.body.preheader.i248
+  %indvars.iv.i251 = phi i64 [ 0, %for.body.preheader.i248 ], [ %indvars.iv.next.i253, %call9.i.noexc261 ]
+  %arrayidx.i252 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i251
+  %61 = load i8, ptr %arrayidx.i252, align 1
+  %call8.i260 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %61)
+          to label %call8.i.noexc259 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call8.i.noexc271:                                 ; preds = %for.body.i262
-  %call9.i274 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i272, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call9.i.noexc273 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
+call8.i.noexc259:                                 ; preds = %for.body.i250
+  %call9.i262 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i260, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call9.i.noexc261 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call9.i.noexc273:                                 ; preds = %call8.i.noexc271
-  %indvars.iv.next.i265 = add nuw nsw i64 %indvars.iv.i263, 1
-  %exitcond.not.i266 = icmp eq i64 %indvars.iv.next.i265, %wide.trip.count.i261
-  br i1 %exitcond.not.i266, label %invoke.cont88, label %for.body.i262, !llvm.loop !16
+call9.i.noexc261:                                 ; preds = %call8.i.noexc259
+  %indvars.iv.next.i253 = add nuw nsw i64 %indvars.iv.i251, 1
+  %exitcond.not.i254 = icmp eq i64 %indvars.iv.next.i253, %wide.trip.count.i249
+  br i1 %exitcond.not.i254, label %invoke.cont88, label %for.body.i250, !llvm.loop !16
 
-invoke.cont88:                                    ; preds = %call9.i.noexc273, %call6.i.noexc269, %invoke.cont85
-  %61 = load i32, ptr %explicitlySetAttributes.i, align 8
-  %62 = and i32 %61, 32
-  %tobool91.not = icmp ne i32 %62, 0
-  %63 = load i32, ptr %errorCode, align 4
-  %cmp.i.i280 = icmp slt i32 %63, 1
-  %or.cond370 = select i1 %tobool91.not, i1 %cmp.i.i280, i1 false
-  br i1 %or.cond370, label %if.end.i285, label %if.end96
+invoke.cont88:                                    ; preds = %call9.i.noexc261, %call6.i.noexc257, %invoke.cont85
+  %62 = load i32, ptr %explicitlySetAttributes.i, align 8
+  %63 = and i32 %62, 32
+  %tobool91.not = icmp ne i32 %63, 0
+  %64 = load i32, ptr %errorCode, align 4
+  %cmp.i.i266 = icmp slt i32 %64, 1
+  %or.cond356 = select i1 %tobool91.not, i1 %cmp.i.i266, i1 false
+  br i1 %or.cond356, label %if.end.i271, label %if.end96
 
-if.end.i285:                                      ; preds = %invoke.cont88
+if.end.i271:                                      ; preds = %invoke.cont88
   %settings10.i = getelementptr inbounds i8, ptr %this, i64 16
-  %64 = load ptr, ptr %settings10.i, align 8
-  %options.i7.i = getelementptr inbounds i8, ptr %64, i64 24
-  %65 = load i32, ptr %options.i7.i, align 8
-  %shr.i.i.i = ashr i32 %65, 12
-  %66 = load i32, ptr %len.i, align 8
-  %cmp.i7.not.i287 = icmp eq i32 %66, 0
-  br i1 %cmp.i7.not.i287, label %if.end5.i289, label %if.then3.i288
+  %65 = load ptr, ptr %settings10.i, align 8
+  %options.i7.i = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = load i32, ptr %options.i7.i, align 8
+  %shr.i.i.i = ashr i32 %66, 12
+  %67 = load i32, ptr %len.i, align 8
+  %cmp.i7.not.i273 = icmp eq i32 %67, 0
+  br i1 %cmp.i7.not.i273, label %if.end5.i275, label %if.then3.i274
 
-if.then3.i288:                                    ; preds = %if.end.i285
-  %call4.i293 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i289 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i274:                                    ; preds = %if.end.i271
+  %call4.i279 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i275 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i289:                                     ; preds = %if.then3.i288, %if.end.i285
-  %call6.i295 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 83, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc294 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i275:                                     ; preds = %if.then3.i274, %if.end.i271
+  %call6.i281 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 83, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc280 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc294:                                 ; preds = %if.end5.i289
-  %idxprom.i290 = sext i32 %shr.i.i.i to i64
-  %arrayidx.i291 = getelementptr inbounds i8, ptr @.str.5, i64 %idxprom.i290
-  %67 = load i8, ptr %arrayidx.i291, align 1
-  %call7.i297 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %67, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+call6.i.noexc280:                                 ; preds = %if.end5.i275
+  %idxprom.i276 = sext i32 %shr.i.i.i to i64
+  %arrayidx.i277 = getelementptr inbounds i8, ptr @.str.5, i64 %idxprom.i276
+  %68 = load i8, ptr %arrayidx.i277, align 1
+  %call7.i283 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %68, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end96 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end96:                                         ; preds = %call6.i.noexc294, %invoke.cont88
+if.end96:                                         ; preds = %call6.i.noexc280, %invoke.cont88
   %call100 = invoke i32 @uloc_getVariant_75(ptr noundef nonnull %resultLocale, ptr noundef nonnull %subtag, i32 noundef 100, ptr noundef nonnull %errorCode)
           to label %invoke.cont99 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont99:                                    ; preds = %if.end96
-  %68 = load i32, ptr %errorCode, align 4
-  %cmp.i.i299 = icmp sgt i32 %68, 0
-  %cmp.i300 = icmp eq i32 %call100, 0
-  %or.cond.i301 = or i1 %cmp.i300, %cmp.i.i299
-  br i1 %or.cond.i301, label %invoke.cont102, label %if.end.i302
+  %69 = load i32, ptr %errorCode, align 4
+  %cmp.i.i285 = icmp sgt i32 %69, 0
+  %cmp.i286 = icmp eq i32 %call100, 0
+  %or.cond.i287 = or i1 %cmp.i286, %cmp.i.i285
+  br i1 %or.cond.i287, label %invoke.cont102, label %if.end.i288
 
-if.end.i302:                                      ; preds = %invoke.cont99
-  %69 = load i32, ptr %len.i, align 8
-  %cmp.i10.not.i304 = icmp eq i32 %69, 0
-  br i1 %cmp.i10.not.i304, label %if.end5.i306, label %if.then3.i305
+if.end.i288:                                      ; preds = %invoke.cont99
+  %70 = load i32, ptr %len.i, align 8
+  %cmp.i10.not.i290 = icmp eq i32 %70, 0
+  br i1 %cmp.i10.not.i290, label %if.end5.i292, label %if.then3.i291
 
-if.then3.i305:                                    ; preds = %if.end.i302
-  %call4.i316 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i306 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i291:                                    ; preds = %if.end.i288
+  %call4.i302 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i292 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i306:                                     ; preds = %if.then3.i305, %if.end.i302
-  %call6.i318 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 86, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc317 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i292:                                     ; preds = %if.then3.i291, %if.end.i288
+  %call6.i304 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 86, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc303 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc317:                                 ; preds = %if.end5.i306
-  %cmp712.i307 = icmp sgt i32 %call100, 0
-  br i1 %cmp712.i307, label %for.body.preheader.i308, label %invoke.cont102
+call6.i.noexc303:                                 ; preds = %if.end5.i292
+  %cmp712.i293 = icmp sgt i32 %call100, 0
+  br i1 %cmp712.i293, label %for.body.preheader.i294, label %invoke.cont102
 
-for.body.preheader.i308:                          ; preds = %call6.i.noexc317
-  %wide.trip.count.i309 = zext nneg i32 %call100 to i64
-  br label %for.body.i310
+for.body.preheader.i294:                          ; preds = %call6.i.noexc303
+  %wide.trip.count.i295 = zext nneg i32 %call100 to i64
+  br label %for.body.i296
 
-for.body.i310:                                    ; preds = %call9.i.noexc321, %for.body.preheader.i308
-  %indvars.iv.i311 = phi i64 [ 0, %for.body.preheader.i308 ], [ %indvars.iv.next.i313, %call9.i.noexc321 ]
-  %arrayidx.i312 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i311
-  %70 = load i8, ptr %arrayidx.i312, align 1
-  %call8.i320 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %70)
-          to label %call8.i.noexc319 unwind label %lpad.loopexit.split-lp.loopexit
+for.body.i296:                                    ; preds = %call9.i.noexc307, %for.body.preheader.i294
+  %indvars.iv.i297 = phi i64 [ 0, %for.body.preheader.i294 ], [ %indvars.iv.next.i299, %call9.i.noexc307 ]
+  %arrayidx.i298 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i297
+  %71 = load i8, ptr %arrayidx.i298, align 1
+  %call8.i306 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %71)
+          to label %call8.i.noexc305 unwind label %lpad.loopexit.split-lp.loopexit
 
-call8.i.noexc319:                                 ; preds = %for.body.i310
-  %call9.i322 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i320, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call9.i.noexc321 unwind label %lpad.loopexit.split-lp.loopexit
+call8.i.noexc305:                                 ; preds = %for.body.i296
+  %call9.i308 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i306, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call9.i.noexc307 unwind label %lpad.loopexit.split-lp.loopexit
 
-call9.i.noexc321:                                 ; preds = %call8.i.noexc319
-  %indvars.iv.next.i313 = add nuw nsw i64 %indvars.iv.i311, 1
-  %exitcond.not.i314 = icmp eq i64 %indvars.iv.next.i313, %wide.trip.count.i309
-  br i1 %exitcond.not.i314, label %invoke.cont102, label %for.body.i310, !llvm.loop !16
+call9.i.noexc307:                                 ; preds = %call8.i.noexc305
+  %indvars.iv.next.i299 = add nuw nsw i64 %indvars.iv.i297, 1
+  %exitcond.not.i300 = icmp eq i64 %indvars.iv.next.i299, %wide.trip.count.i295
+  br i1 %exitcond.not.i300, label %invoke.cont102, label %for.body.i296, !llvm.loop !16
 
-invoke.cont102:                                   ; preds = %call9.i.noexc321, %call6.i.noexc317, %invoke.cont99
+invoke.cont102:                                   ; preds = %call9.i.noexc307, %call6.i.noexc303, %invoke.cont99
   %call106 = invoke i32 @uloc_getScript_75(ptr noundef nonnull %resultLocale, ptr noundef nonnull %subtag, i32 noundef 100, ptr noundef nonnull %errorCode)
           to label %invoke.cont105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont105:                                   ; preds = %invoke.cont102
-  %71 = load i32, ptr %errorCode, align 4
-  %cmp.i.i324 = icmp sgt i32 %71, 0
-  %cmp.i325 = icmp eq i32 %call106, 0
-  %or.cond.i326 = or i1 %cmp.i325, %cmp.i.i324
-  br i1 %or.cond.i326, label %invoke.cont108, label %if.end.i327
+  %72 = load i32, ptr %errorCode, align 4
+  %cmp.i.i310 = icmp sgt i32 %72, 0
+  %cmp.i311 = icmp eq i32 %call106, 0
+  %or.cond.i312 = or i1 %cmp.i311, %cmp.i.i310
+  br i1 %or.cond.i312, label %invoke.cont108, label %if.end.i313
 
-if.end.i327:                                      ; preds = %invoke.cont105
-  %72 = load i32, ptr %len.i, align 8
-  %cmp.i10.not.i329 = icmp eq i32 %72, 0
-  br i1 %cmp.i10.not.i329, label %if.end5.i331, label %if.then3.i330
+if.end.i313:                                      ; preds = %invoke.cont105
+  %73 = load i32, ptr %len.i, align 8
+  %cmp.i10.not.i315 = icmp eq i32 %73, 0
+  br i1 %cmp.i10.not.i315, label %if.end5.i317, label %if.then3.i316
 
-if.then3.i330:                                    ; preds = %if.end.i327
-  %call4.i341 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %if.end5.i331 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.then3.i316:                                    ; preds = %if.end.i313
+  %call4.i327 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %if.end5.i317 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end5.i331:                                     ; preds = %if.then3.i330, %if.end.i327
-  %call6.i343 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 90, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call6.i.noexc342 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+if.end5.i317:                                     ; preds = %if.then3.i316, %if.end.i313
+  %call6.i329 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext 90, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call6.i.noexc328 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-call6.i.noexc342:                                 ; preds = %if.end5.i331
-  %cmp712.i332 = icmp sgt i32 %call106, 0
-  br i1 %cmp712.i332, label %for.body.preheader.i333, label %invoke.cont108thread-pre-split
+call6.i.noexc328:                                 ; preds = %if.end5.i317
+  %cmp712.i318 = icmp sgt i32 %call106, 0
+  br i1 %cmp712.i318, label %for.body.preheader.i319, label %invoke.cont108thread-pre-split
 
-for.body.preheader.i333:                          ; preds = %call6.i.noexc342
-  %wide.trip.count.i334 = zext nneg i32 %call106 to i64
-  br label %for.body.i335
+for.body.preheader.i319:                          ; preds = %call6.i.noexc328
+  %wide.trip.count.i320 = zext nneg i32 %call106 to i64
+  br label %for.body.i321
 
-for.body.i335:                                    ; preds = %call9.i.noexc346, %for.body.preheader.i333
-  %indvars.iv.i336 = phi i64 [ 0, %for.body.preheader.i333 ], [ %indvars.iv.next.i338, %call9.i.noexc346 ]
-  %arrayidx.i337 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i336
-  %73 = load i8, ptr %arrayidx.i337, align 1
-  %call8.i345 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %73)
-          to label %call8.i.noexc344 unwind label %lpad.loopexit
+for.body.i321:                                    ; preds = %call9.i.noexc332, %for.body.preheader.i319
+  %indvars.iv.i322 = phi i64 [ 0, %for.body.preheader.i319 ], [ %indvars.iv.next.i324, %call9.i.noexc332 ]
+  %arrayidx.i323 = getelementptr inbounds i8, ptr %subtag, i64 %indvars.iv.i322
+  %74 = load i8, ptr %arrayidx.i323, align 1
+  %call8.i331 = invoke signext i8 @uprv_toupper_75(i8 noundef signext %74)
+          to label %call8.i.noexc330 unwind label %lpad.loopexit
 
-call8.i.noexc344:                                 ; preds = %for.body.i335
-  %call9.i347 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i345, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-          to label %call9.i.noexc346 unwind label %lpad.loopexit
+call8.i.noexc330:                                 ; preds = %for.body.i321
+  %call9.i333 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %call8.i331, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+          to label %call9.i.noexc332 unwind label %lpad.loopexit
 
-call9.i.noexc346:                                 ; preds = %call8.i.noexc344
-  %indvars.iv.next.i338 = add nuw nsw i64 %indvars.iv.i336, 1
-  %exitcond.not.i339 = icmp eq i64 %indvars.iv.next.i338, %wide.trip.count.i334
-  br i1 %exitcond.not.i339, label %invoke.cont108thread-pre-split, label %for.body.i335, !llvm.loop !16
+call9.i.noexc332:                                 ; preds = %call8.i.noexc330
+  %indvars.iv.next.i324 = add nuw nsw i64 %indvars.iv.i322, 1
+  %exitcond.not.i325 = icmp eq i64 %indvars.iv.next.i324, %wide.trip.count.i320
+  br i1 %exitcond.not.i325, label %invoke.cont108thread-pre-split, label %for.body.i321, !llvm.loop !16
 
-invoke.cont108thread-pre-split:                   ; preds = %call9.i.noexc346, %call6.i.noexc342
+invoke.cont108thread-pre-split:                   ; preds = %call9.i.noexc332, %call6.i.noexc328
   %.pr = load i32, ptr %errorCode, align 4
   br label %invoke.cont108
 
 invoke.cont108:                                   ; preds = %invoke.cont108thread-pre-split, %invoke.cont105
-  %74 = phi i32 [ %.pr, %invoke.cont108thread-pre-split ], [ %71, %invoke.cont105 ]
-  %cmp.i349 = icmp slt i32 %74, 1
-  br i1 %cmp.i349, label %if.end113, label %cleanup
+  %75 = phi i32 [ %.pr, %invoke.cont108thread-pre-split ], [ %72, %invoke.cont105 ]
+  %cmp.i335 = icmp slt i32 %75, 1
+  br i1 %cmp.i335, label %if.end113, label %cleanup
 
 if.end113:                                        ; preds = %invoke.cont108
   %call115 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, ptr noundef %buffer, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -8089,7 +8089,7 @@ cleanup:                                          ; preds = %if.end113, %invoke.
   br label %return
 
 ehcleanup116:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %ehcleanup
-  %.pn42 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit372, %lpad.loopexit ], [ %lpad.loopexit374, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit377, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit380, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit383, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp384, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn42 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit358, %lpad.loopexit ], [ %lpad.loopexit360, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit363, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit366, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit369, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp370, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %result) #18
   resume { ptr, i32 } %.pn42
 

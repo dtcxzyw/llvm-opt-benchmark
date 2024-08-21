@@ -23211,8 +23211,8 @@ define ptr @cpu_set_to_bit_str(ptr noundef readonly %0, i32 noundef %1) local_un
   %11 = and i64 %indvars.iv, 63
   %12 = shl nuw i64 1, %11
   %13 = and i64 %10, %12
-  %.not17 = icmp eq i64 %13, 0
-  br i1 %.not17, label %.thread, label %14
+  %.not15 = icmp eq i64 %13, 0
+  br i1 %.not15, label %.thread, label %14
 
 14:                                               ; preds = %7
   tail call void @bit_set(ptr noundef %4, i64 noundef %indvars.iv) #25
@@ -27741,8 +27741,8 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
   %70 = and i64 %indvars.iv.i.i, 63
   %71 = shl nuw i64 1, %70
   %72 = and i64 %69, %71
-  %.not17.i.i = icmp eq i64 %72, 0
-  br i1 %.not17.i.i, label %.thread.i.i, label %73
+  %.not15.i.i = icmp eq i64 %72, 0
+  br i1 %.not15.i.i, label %.thread.i.i, label %73
 
 73:                                               ; preds = %66
   call void @bit_set(ptr noundef %63, i64 noundef %indvars.iv.i.i) #25
@@ -28035,8 +28035,8 @@ define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef
   %20 = and i64 %indvars.iv.i, 63
   %21 = shl nuw i64 1, %20
   %22 = and i64 %19, %21
-  %.not17.i = icmp eq i64 %22, 0
-  br i1 %.not17.i, label %.thread.i, label %23
+  %.not15.i = icmp eq i64 %22, 0
+  br i1 %.not15.i, label %.thread.i, label %23
 
 23:                                               ; preds = %16
   tail call void @bit_set(ptr noundef %13, i64 noundef %indvars.iv.i) #25

@@ -2401,17 +2401,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3ue220mixed_sensitivity_inINS_
 entry:
   %cmp4.i.i.i = icmp ne ptr %begin.coerce0, %end.coerce0
   %cmp4.i.i.i.fr = freeze i1 %cmp4.i.i.i
-  %cmp.i.i.i30 = icmp ne i64 %begin.coerce1, %end.coerce1
-  %.not.i31 = or i1 %cmp.i.i.i30, %cmp4.i.i.i.fr
-  br i1 %.not.i31, label %for.body.lr.ph, label %for.end
+  %cmp.i.i.i28 = icmp ne i64 %begin.coerce1, %end.coerce1
+  %.not.i29 = or i1 %cmp.i.i.i28, %cmp4.i.i.i.fr
+  br i1 %.not.i29, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %nocase.i.i.i.i = getelementptr inbounds i8, ptr %begin.coerce0, i64 32
   br i1 %cmp4.i.i.i.fr, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %it.sroa.6.032.us = phi i64 [ %inc.i.i.i.us, %for.inc.us ], [ %begin.coerce1, %for.body.lr.ph ]
-  %call.i.i.i.i.us = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.032.us) #20
+  %it.sroa.6.030.us = phi i64 [ %inc.i.i.i.us, %for.inc.us ], [ %begin.coerce1, %for.body.lr.ph ]
+  %call.i.i.i.i.us = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.030.us) #20
   %0 = load i8, ptr %call.i.i.i.i.us, align 1
   %1 = add i8 %0, -65
   %2 = icmp ult i8 %1, 26
@@ -2425,18 +2425,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.not.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %call.i.i.i.i9.us = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.032.us) #20
+  %call.i.i.i.i9.us = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.030.us) #20
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %inc.i.i.i.us = add i64 %it.sroa.6.032.us, 1
+  %inc.i.i.i.us = add i64 %it.sroa.6.030.us, 1
   br label %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %nc.034 = phi i1 [ %nc.1, %for.inc ], [ false, %for.body.lr.ph ]
-  %cs.033 = phi i1 [ %cs.1, %for.inc ], [ false, %for.body.lr.ph ]
-  %it.sroa.6.032 = phi i64 [ %inc.i.i.i, %for.inc ], [ %begin.coerce1, %for.body.lr.ph ]
-  %call.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.032) #20
+  %nc.032 = phi i1 [ %nc.1, %for.inc ], [ false, %for.body.lr.ph ]
+  %cs.031 = phi i1 [ %cs.1, %for.inc ], [ false, %for.body.lr.ph ]
+  %it.sroa.6.030 = phi i64 [ %inc.i.i.i, %for.inc ], [ %begin.coerce1, %for.body.lr.ph ]
+  %call.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.030) #20
   %5 = load i8, ptr %call.i.i.i.i, align 1
   %6 = add i8 %5, -65
   %7 = icmp ult i8 %6, 26
@@ -2450,33 +2450,32 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %rem.i.i.i.i.i.i.i.i.i = and i64 %it.sroa.6.032, 63
-  %shl.i.i.i.i.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i.i.i.i.i.i
-  %div1.i.i.i.i.i.i.i.i = lshr i64 %it.sroa.6.032, 6
-  %call.i.i.i.i9 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.032) #20
+  %rem.i.i.i.i.i.i.i.i.i = and i64 %it.sroa.6.030, 63
+  %div1.i.i.i.i.i.i.i.i = lshr i64 %it.sroa.6.030, 6
+  %call.i.i.i.i9 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %begin.coerce0, i64 noundef %it.sroa.6.030) #20
   %10 = load ptr, ptr %nocase.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i12 = getelementptr inbounds i64, ptr %10, i64 %div1.i.i.i.i.i.i.i.i
   %11 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i12, align 8
-  %and.i.i.i.i.i.i.i15 = and i64 %11, %shl.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.not.i.i.i.i16.not = icmp eq i64 %and.i.i.i.i.i.i.i15, 0
-  %cs.0. = select i1 %cmp.i.i.i.not.i.i.i.i16.not, i1 true, i1 %cs.033
-  %not.cmp.i.i.i.not.i.i.i.i16.not = xor i1 %cmp.i.i.i.not.i.i.i.i16.not, true
-  %.nc.0 = select i1 %not.cmp.i.i.i.not.i.i.i.i16.not, i1 true, i1 %nc.034
+  %12 = lshr i64 %11, %rem.i.i.i.i.i.i.i.i.i
+  %13 = trunc i64 %12 to i1
+  %not. = xor i1 %13, true
+  %cs.0. = select i1 %not., i1 true, i1 %cs.031
+  %.nc.0 = select i1 %13, i1 true, i1 %nc.032
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %for.body
-  %cs.1 = phi i1 [ %cs.033, %for.body ], [ %cs.0., %if.end ]
-  %nc.1 = phi i1 [ %nc.034, %for.body ], [ %.nc.0, %if.end ]
-  %inc.i.i.i = add i64 %it.sroa.6.032, 1
+  %cs.1 = phi i1 [ %cs.031, %for.body ], [ %cs.0., %if.end ]
+  %nc.1 = phi i1 [ %nc.032, %for.body ], [ %.nc.0, %if.end ]
+  %inc.i.i.i = add i64 %it.sroa.6.030, 1
   %cmp.i.i.i.not = icmp eq i64 %inc.i.i.i, %end.coerce1
   br i1 %cmp.i.i.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !58
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %12 = select i1 %cs.1, i1 %nc.1, i1 false
+  %14 = select i1 %cs.1, i1 %nc.1, i1 false
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %cs.0.lcssa = phi i1 [ false, %entry ], [ %12, %for.end.loopexit ]
+  %cs.0.lcssa = phi i1 [ false, %entry ], [ %14, %for.end.loopexit ]
   ret i1 %cs.0.lcssa
 }
 

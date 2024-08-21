@@ -6697,7 +6697,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE10processSetEv(ptr no
 
 51:                                               ; preds = %49
   invoke void @__cxa_throw(ptr %47, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #27
-          to label %101 unwind label %54
+          to label %100 unwind label %54
 
 .thread:                                          ; preds = %46
   %52 = landingpad { ptr, i32 }
@@ -6717,12 +6717,12 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE10processSetEv(ptr no
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
-  br i1 %.0, label %56, label %100
+  br i1 %.0, label %56, label %99
 
 56:                                               ; preds = %.thread13, %.thread, %54
   %.pn.pn12 = phi { ptr, i32 } [ %52, %.thread ], [ %55, %54 ], [ %53, %.thread13 ]
   call void @__cxa_free_exception(ptr %47) #23
-  br label %100
+  br label %99
 
 57:                                               ; preds = %32, %29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -6767,40 +6767,39 @@ _ZNSt13_Bit_iteratorppEv.exit.i:                  ; preds = %65, %_ZNSt13_Bit_it
   %.sroa.5.018.i = phi i32 [ %spec.select15.i, %_ZNSt13_Bit_iteratorppEv.exit.i ], [ 0, %65 ]
   %.sroa.010.017.i = phi ptr [ %spec.select.i, %_ZNSt13_Bit_iteratorppEv.exit.i ], [ %80, %65 ]
   %83 = zext nneg i32 %.sroa.5.018.i to i64
-  %84 = shl nuw i64 1, %83
-  %85 = load ptr, ptr %66, align 8
-  %86 = load i64, ptr %.sroa.010.017.i, align 8
-  %87 = and i64 %86, %84
-  %88 = icmp ne i64 %87, 0
-  %89 = zext i1 %88 to i8
-  store i8 %89, ptr %2, align 1
-  %90 = load ptr, ptr %85, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 48
-  %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %93 = add i32 %.sroa.5.018.i, 1
-  %94 = icmp eq i32 %.sroa.5.018.i, 63
-  %spec.select.idx.i = select i1 %94, i64 8, i64 0
+  %84 = load ptr, ptr %66, align 8
+  %85 = load i64, ptr %.sroa.010.017.i, align 8
+  %86 = lshr i64 %85, %83
+  %87 = trunc i64 %86 to i8
+  %88 = and i8 %87, 1
+  store i8 %88, ptr %2, align 1
+  %89 = load ptr, ptr %84, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 48
+  %91 = load ptr, ptr %90, align 8
+  call void %91(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %92 = add i32 %.sroa.5.018.i, 1
+  %93 = icmp eq i32 %.sroa.5.018.i, 63
+  %spec.select.idx.i = select i1 %93, i64 8, i64 0
   %spec.select.i = getelementptr inbounds i8, ptr %.sroa.010.017.i, i64 %spec.select.idx.i
-  %spec.select15.i = select i1 %94, i32 0, i32 %93
-  %95 = icmp ne ptr %spec.select.i, %.sroa.0.0.copyload.i.i
-  %96 = icmp ne i32 %spec.select15.i, %.sroa.2.0.copyload.i.i
-  %.not3.i.i = select i1 %95, i1 true, i1 %96
+  %spec.select15.i = select i1 %93, i32 0, i32 %92
+  %94 = icmp ne ptr %spec.select.i, %.sroa.0.0.copyload.i.i
+  %95 = icmp ne i32 %spec.select15.i, %.sroa.2.0.copyload.i.i
+  %.not3.i.i = select i1 %94, i1 true, i1 %95
   br i1 %.not3.i.i, label %_ZNSt13_Bit_iteratorppEv.exit.i, label %_ZN3gmx21OptionStorageTemplateIbE12commitValuesEv.exit
 
 _ZN3gmx21OptionStorageTemplateIbE12commitValuesEv.exit: ; preds = %_ZNSt13_Bit_iteratorppEv.exit.i, %65
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 72
-  %99 = load ptr, ptr %98, align 8
-  call void %99(ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %96 = load ptr, ptr %0, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 72
+  %98 = load ptr, ptr %97, align 8
+  call void %98(ptr noundef nonnull align 8 dereferenceable(160) %0)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   ret void
 
-100:                                              ; preds = %54, %56
+99:                                               ; preds = %54, %56
   %.pn.pn11 = phi { ptr, i32 } [ %55, %54 ], [ %.pn.pn12, %56 ]
   resume { ptr, i32 } %.pn.pn11
 
-101:                                              ; preds = %51
+100:                                              ; preds = %51
   unreachable
 }
 

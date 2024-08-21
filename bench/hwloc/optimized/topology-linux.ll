@@ -978,8 +978,8 @@ hwloc_linux_find_kernel_nr_cpus.exit:             ; preds = %3, %30
   br label %60
 
 60:                                               ; preds = %58, %.thread39
-  %.02843 = phi i32 [ 0, %58 ], [ %73, %.thread39 ]
-  %61 = zext i32 %.02843 to i64
+  %.02842 = phi i32 [ 0, %58 ], [ %73, %.thread39 ]
+  %61 = zext i32 %.02842 to i64
   %62 = lshr i64 %61, 3
   %63 = icmp ult i64 %62, %41
   br i1 %63, label %64, label %.thread39
@@ -991,15 +991,15 @@ hwloc_linux_find_kernel_nr_cpus.exit:             ; preds = %3, %30
   %68 = and i64 %61, 63
   %69 = shl nuw i64 1, %68
   %70 = and i64 %67, %69
-  %.not41 = icmp eq i64 %70, 0
-  br i1 %.not41, label %.thread39, label %71
+  %.not35 = icmp eq i64 %70, 0
+  br i1 %.not35, label %.thread39, label %71
 
 71:                                               ; preds = %64
-  %72 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02843) #26
+  %72 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02842) #26
   br label %.thread39
 
 .thread39:                                        ; preds = %60, %64, %71
-  %73 = add i32 %.02843, 1
+  %73 = add i32 %.02842, 1
   %.not34 = icmp ugt i32 %73, %59
   br i1 %.not34, label %hwloc_linux_find_kernel_nr_cpus.exit.thread.sink.split, label %60, !llvm.loop !9
 
@@ -1498,8 +1498,8 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   br label %39
 
 39:                                               ; preds = %38, %.thread
-  %.02840 = phi i32 [ 0, %38 ], [ %52, %.thread ]
-  %40 = zext i32 %.02840 to i64
+  %.02839 = phi i32 [ 0, %38 ], [ %52, %.thread ]
+  %40 = zext i32 %.02839 to i64
   %41 = lshr i64 %40, 3
   %42 = icmp ult i64 %41, %32
   br i1 %42, label %43, label %.thread
@@ -1511,15 +1511,15 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thread_cpubind(ptr nocaptu
   %47 = and i64 %40, 63
   %48 = shl nuw i64 1, %47
   %49 = and i64 %46, %48
-  %.not39 = icmp eq i64 %49, 0
-  br i1 %.not39, label %.thread, label %50
+  %.not37 = icmp eq i64 %49, 0
+  br i1 %.not37, label %.thread, label %50
 
 50:                                               ; preds = %43
-  %51 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02840) #26
+  %51 = tail call i32 @hwloc_bitmap_set(ptr noundef %2, i32 noundef %.02839) #26
   br label %.thread
 
 .thread:                                          ; preds = %39, %43, %50
-  %52 = add i32 %.02840, 1
+  %52 = add i32 %.02839, 1
   %.not36 = icmp ugt i32 %52, %27
   br i1 %.not36, label %53, label %39, !llvm.loop !12
 

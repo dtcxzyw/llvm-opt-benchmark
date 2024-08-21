@@ -30335,10 +30335,9 @@ _ZN5Yosys9ConstEval4pushEv.exit:                  ; preds = %640, %.noexc215
 
 642:                                              ; preds = %.lr.ph964
   %643 = trunc i64 %.071963 to i32
-  %644 = shl nuw i32 1, %643
-  %645 = and i32 %644, %.070966
-  %.not100 = icmp ne i32 %645, 0
-  %646 = zext i1 %.not100 to i8
+  %644 = lshr i32 %.070966, %643
+  %645 = trunc i32 %644 to i8
+  %646 = and i8 %645, 1
   invoke void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 noundef zeroext %646, i32 noundef 1)
           to label %647 unwind label %926
 

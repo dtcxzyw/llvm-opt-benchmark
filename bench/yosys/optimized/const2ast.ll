@@ -1441,11 +1441,10 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us
 
 263:                                              ; preds = %.preheader254.us
-  %264 = shl nuw i32 1, %.068286.us
-  %265 = zext i8 %214 to i32
-  %266 = and i32 %264, %265
-  %.not81.us = icmp ne i32 %266, 0
-  %267 = zext i1 %.not81.us to i8
+  %264 = zext i8 %214 to i32
+  %265 = lshr i32 %264, %.068286.us
+  %266 = trunc nuw i32 %265 to i8
+  %267 = and i8 %266, 1
   %268 = load ptr, ptr %205, align 8
   %.not.i.i168.us = icmp eq ptr %213, %268
   br i1 %.not.i.i168.us, label %272, label %269

@@ -1593,7 +1593,7 @@ define hidden noundef i32 @_ZN9G1CardSet16add_to_containerEPVPvS0_jjb(ptr nounde
     i32 0, label %10
     i32 1, label %54
     i32 2, label %58
-    i32 3, label %93
+    i32 3, label %92
   ]
 
 10:                                               ; preds = %6
@@ -1698,53 +1698,52 @@ _ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i: ; preds = %33, %_ZN18G1CardSe
   %72 = zext i32 %65 to i64
   %73 = lshr i64 %72, 6
   %74 = getelementptr inbounds i64, ptr %69, i64 %73
-  br i1 %.not.i.i17, label %82, label %75
+  br i1 %.not.i.i17, label %81, label %75
 
 75:                                               ; preds = %58
   %76 = load i64, ptr %74, align 8
   %77 = and i64 %72, 63
-  %78 = shl nuw i64 1, %77
-  %79 = and i64 %76, %78
-  %80 = icmp ne i64 %79, 0
-  %81 = zext i1 %80 to i32
+  %78 = lshr i64 %76, %77
+  %79 = trunc i64 %78 to i32
+  %80 = and i32 %79, 1
   br label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit
 
-82:                                               ; preds = %58
-  %83 = and i64 %72, 63
-  %84 = shl nuw i64 1, %83
-  %85 = load volatile i64, ptr %74, align 8
+81:                                               ; preds = %58
+  %82 = and i64 %72, 63
+  %83 = shl nuw i64 1, %82
+  %84 = load volatile i64, ptr %74, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  br label %86
+  br label %85
 
-86:                                               ; preds = %88, %82
-  %.017.i.i.i = phi i64 [ %85, %82 ], [ %89, %88 ]
-  %87 = or i64 %.017.i.i.i, %84
-  %.not.i.not.i.i = icmp eq i64 %87, %.017.i.i.i
-  br i1 %.not.i.not.i.i, label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit, label %88
+85:                                               ; preds = %87, %81
+  %.017.i.i.i = phi i64 [ %84, %81 ], [ %88, %87 ]
+  %86 = or i64 %.017.i.i.i, %83
+  %.not.i.not.i.i = icmp eq i64 %86, %.017.i.i.i
+  br i1 %.not.i.not.i.i, label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit, label %87
 
-88:                                               ; preds = %86
-  %89 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %87, i64 %.017.i.i.i, ptr nonnull %74) #19, !srcloc !12
-  %90 = icmp eq i64 %89, %.017.i.i.i
-  br i1 %90, label %91, label %86, !llvm.loop !22
+87:                                               ; preds = %85
+  %88 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %86, i64 %.017.i.i.i, ptr nonnull %74) #19, !srcloc !12
+  %89 = icmp eq i64 %88, %.017.i.i.i
+  br i1 %89, label %90, label %85, !llvm.loop !22
 
-91:                                               ; preds = %88
-  %92 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %70) #19, !srcloc !9
+90:                                               ; preds = %87
+  %91 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %70) #19, !srcloc !9
   br label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit
 
-93:                                               ; preds = %6
-  %94 = load ptr, ptr @_ZN9G1CardSet11FullCardSetE, align 8
-  %95 = icmp eq ptr %2, %94
-  br i1 %95, label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit, label %96
+92:                                               ; preds = %6
+  %93 = load ptr, ptr @_ZN9G1CardSet11FullCardSetE, align 8
+  %94 = icmp eq ptr %2, %93
+  br i1 %94, label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit, label %95
 
-96:                                               ; preds = %93
-  %97 = tail call noundef i32 @_ZN9G1CardSet11add_to_howlEPvjjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5)
+95:                                               ; preds = %92
+  %96 = tail call noundef i32 @_ZN9G1CardSet11add_to_howlEPvjjb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5)
   br label %_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit
 
 default.unreachable23:                            ; preds = %6
   unreachable
 
-_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit:   ; preds = %86, %51, %37, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %91, %75, %54, %96, %93
-  %.015 = phi i32 [ 1, %93 ], [ %97, %96 ], [ %57, %54 ], [ %81, %75 ], [ 2, %91 ], [ 0, %51 ], [ 2, %37 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 1, %86 ]
+_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j.exit:   ; preds = %85, %51, %37, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i, %90, %75, %54, %95, %92
+  %.015 = phi i32 [ 1, %92 ], [ %96, %95 ], [ %57, %54 ], [ %80, %75 ], [ 2, %90 ], [ 0, %51 ], [ 2, %37 ], [ 0, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.thread.i.i ], [ 1, %_ZN18G1CardSetInlinePtr4findEjjjj.exit.i.i ], [ 1, %85 ]
   ret i32 %.015
 }
 
@@ -2071,41 +2070,40 @@ define hidden noundef i32 @_ZN9G1CardSet13add_to_bitmapEPvj(ptr nocapture nounde
   %18 = zext i32 %11 to i64
   %19 = lshr i64 %18, 6
   %20 = getelementptr inbounds i64, ptr %15, i64 %19
-  br i1 %.not.i, label %28, label %21
+  br i1 %.not.i, label %27, label %21
 
 21:                                               ; preds = %3
   %22 = load i64, ptr %20, align 8
   %23 = and i64 %18, 63
-  %24 = shl nuw i64 1, %23
-  %25 = and i64 %22, %24
-  %26 = icmp ne i64 %25, 0
-  %27 = zext i1 %26 to i32
+  %24 = lshr i64 %22, %23
+  %25 = trunc i64 %24 to i32
+  %26 = and i32 %25, 1
   br label %_ZN15G1CardSetBitMap3addEjmm.exit
 
-28:                                               ; preds = %3
-  %29 = and i64 %18, 63
-  %30 = shl nuw i64 1, %29
-  %31 = load volatile i64, ptr %20, align 8
+27:                                               ; preds = %3
+  %28 = and i64 %18, 63
+  %29 = shl nuw i64 1, %28
+  %30 = load volatile i64, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  br label %32
+  br label %31
 
-32:                                               ; preds = %34, %28
-  %.017.i.i = phi i64 [ %31, %28 ], [ %35, %34 ]
-  %33 = or i64 %.017.i.i, %30
-  %.not.i.not.i = icmp eq i64 %33, %.017.i.i
-  br i1 %.not.i.not.i, label %_ZN15G1CardSetBitMap3addEjmm.exit, label %34
+31:                                               ; preds = %33, %27
+  %.017.i.i = phi i64 [ %30, %27 ], [ %34, %33 ]
+  %32 = or i64 %.017.i.i, %29
+  %.not.i.not.i = icmp eq i64 %32, %.017.i.i
+  br i1 %.not.i.not.i, label %_ZN15G1CardSetBitMap3addEjmm.exit, label %33
 
-34:                                               ; preds = %32
-  %35 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %33, i64 %.017.i.i, ptr nonnull %20) #19, !srcloc !12
-  %36 = icmp eq i64 %35, %.017.i.i
-  br i1 %36, label %37, label %32, !llvm.loop !22
+33:                                               ; preds = %31
+  %34 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %32, i64 %.017.i.i, ptr nonnull %20) #19, !srcloc !12
+  %35 = icmp eq i64 %34, %.017.i.i
+  br i1 %35, label %36, label %31, !llvm.loop !22
 
-37:                                               ; preds = %34
-  %38 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %16) #19, !srcloc !9
+36:                                               ; preds = %33
+  %37 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %16) #19, !srcloc !9
   br label %_ZN15G1CardSetBitMap3addEjmm.exit
 
-_ZN15G1CardSetBitMap3addEjmm.exit:                ; preds = %32, %21, %37
-  %.0.i = phi i32 [ %27, %21 ], [ 2, %37 ], [ 1, %32 ]
+_ZN15G1CardSetBitMap3addEjmm.exit:                ; preds = %31, %21, %36
+  %.0.i = phi i32 [ %26, %21 ], [ 2, %36 ], [ 1, %31 ]
   ret i32 %.0.i
 }
 

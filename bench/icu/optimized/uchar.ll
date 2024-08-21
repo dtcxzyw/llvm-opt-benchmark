@@ -480,10 +480,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 62
-  %cmp47 = icmp ne i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 62, %and44
+  %8 = trunc nuw nsw i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -674,10 +673,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 574
-  %cmp47 = icmp ne i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 574, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -907,10 +905,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 4030
-  %cmp47 = icmp ne i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 4030, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -969,10 +966,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 122880
-  %cmp47 = icmp ne i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 122880, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -1124,10 +1120,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 28672
-  %cmp47 = icmp ne i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 28672, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -1408,10 +1403,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 491521
-  %cmp47 = icmp eq i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 -491522, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -1536,10 +1530,9 @@ u_isgraphPOSIX_75.exit:                           ; preds = %cond.false13.i, %co
   %18 = load i16, ptr %arrayidx42.i, align 2
   %19 = and i16 %18, 31
   %and44.i = zext nneg i16 %19 to i32
-  %shl45.i = shl nuw i32 1, %and44.i
-  %and46.i = and i32 %shl45.i, 323585
-  %cmp47.i = icmp eq i32 %and46.i, 0
-  %conv48.i = zext i1 %cmp47.i to i8
+  %20 = lshr i32 -323586, %and44.i
+  %21 = trunc i32 %20 to i8
+  %conv48.i = and i8 %21, 1
   br label %lor.end
 
 lor.end:                                          ; preds = %cond.end39.thread17, %cond.end39.thread, %u_isgraphPOSIX_75.exit, %cond.end39
@@ -1602,10 +1595,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 323585
-  %cmp47 = icmp eq i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 -323586, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -1664,10 +1656,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 389121
-  %cmp47 = icmp eq i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 -389122, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -1726,10 +1717,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 821559296
-  %cmp47 = icmp ne i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 821559296, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 
@@ -1869,10 +1859,9 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
   %5 = load i16, ptr %arrayidx42, align 2
   %6 = and i16 %5, 31
   %and44 = zext nneg i16 %6 to i32
-  %shl45 = shl nuw i32 1, %and44
-  %and46 = and i32 %shl45, 37748798
-  %cmp47 = icmp ne i32 %and46, 0
-  %conv48 = zext i1 %cmp47 to i8
+  %7 = lshr i32 37748798, %and44
+  %8 = trunc i32 %7 to i8
+  %conv48 = and i8 %8, 1
   ret i8 %conv48
 }
 

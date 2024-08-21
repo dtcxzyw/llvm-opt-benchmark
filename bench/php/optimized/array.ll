@@ -22492,11 +22492,10 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
   %207 = getelementptr inbounds i64, ptr %145, i64 %206
   %208 = load i64, ptr %207, align 8
   %209 = and i64 %.4283, 63
-  %210 = shl nuw i64 1, %209
-  %211 = and i64 %208, %210
-  %212 = icmp eq i64 %211, 0
-  %.not251 = xor i1 %134, %212
-  br i1 %.not251, label %226, label %213
+  %210 = lshr i64 %208, %209
+  %211 = trunc i64 %210 to i1
+  %212 = xor i1 %134, %211
+  br i1 %212, label %213, label %226
 
 213:                                              ; preds = %204
   %.not252 = icmp eq ptr %.1223, null

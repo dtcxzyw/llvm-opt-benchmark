@@ -5398,35 +5398,35 @@ _is_fed_job.exit:                                 ; preds = %6
   %14 = getelementptr inbounds i8, ptr %2, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %9, %15
-  br i1 %16, label %17, label %25
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %_is_fed_job.exit
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   %19 = load i64, ptr %18, align 8
   %.not16 = icmp eq i64 %19, 0
-  br i1 %.not16, label %25, label %20
+  br i1 %.not16, label %26, label %20
 
 20:                                               ; preds = %17
   %21 = add nsw i32 %9, -1
   %22 = zext nneg i32 %21 to i64
-  %23 = shl nuw i64 1, %22
-  %24 = and i64 %19, %23
-  %.not17 = icmp eq i64 %24, 0
-  br label %25
+  %23 = xor i64 %19, -1
+  %24 = lshr i64 %23, %22
+  %25 = trunc i64 %24 to i1
+  br label %26
 
-25:                                               ; preds = %20, %17, %_is_fed_job.exit
-  %.0.ph = phi i1 [ %.not17, %20 ], [ false, %_is_fed_job.exit ], [ false, %17 ]
-  %26 = load i32, ptr %5, align 8
-  %.not19 = icmp eq i32 %26, 0
-  br i1 %.not19, label %_is_fed_job.exit.thread, label %27
+26:                                               ; preds = %20, %17, %_is_fed_job.exit
+  %.0.ph = phi i1 [ %25, %20 ], [ false, %_is_fed_job.exit ], [ false, %17 ]
+  %27 = load i32, ptr %5, align 8
+  %.not19 = icmp eq i32 %27, 0
+  br i1 %.not19, label %_is_fed_job.exit.thread, label %28
 
-27:                                               ; preds = %25
-  %.not20 = icmp ne i32 %26, %15
+28:                                               ; preds = %26
+  %.not20 = icmp ne i32 %27, %15
   %spec.select21 = select i1 %.not20, i1 true, i1 %.0.ph
   br label %_is_fed_job.exit.thread
 
-_is_fed_job.exit.thread:                          ; preds = %25, %27, %10, %13, %1
-  %.09 = phi i1 [ false, %1 ], [ false, %13 ], [ false, %10 ], [ %.0.ph, %25 ], [ %spec.select21, %27 ]
+_is_fed_job.exit.thread:                          ; preds = %26, %28, %10, %13, %1
+  %.09 = phi i1 [ false, %1 ], [ false, %13 ], [ false, %10 ], [ %.0.ph, %26 ], [ %spec.select21, %28 ]
   ret i1 %.09
 }
 

@@ -268100,11 +268100,10 @@ termCanDriveIndex.exit.thread:                    ; preds = %115, %119, %128, %1
 .lr.ph396:                                        ; preds = %.lr.ph396.preheader, %.lr.ph396
   %indvars.iv = phi i64 [ 0, %.lr.ph396.preheader ], [ %indvars.iv.next, %.lr.ph396 ]
   %.2394 = phi i32 [ %.0.lcssa, %.lr.ph396.preheader ], [ %spec.select243, %.lr.ph396 ]
-  %199 = shl nuw i64 1, %indvars.iv
-  %200 = and i64 %199, %.0210
-  %.not238 = icmp ne i64 %200, 0
-  %201 = zext i1 %.not238 to i32
-  %spec.select243 = add nsw i32 %.2394, %201
+  %199 = lshr i64 %.0210, %indvars.iv
+  %200 = trunc i64 %199 to i32
+  %201 = and i32 %200, 1
+  %spec.select243 = add nsw i32 %201, %.2394
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge397, label %.lr.ph396, !llvm.loop !1092

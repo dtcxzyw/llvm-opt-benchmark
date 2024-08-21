@@ -1305,8 +1305,8 @@ invoke.cont55:                                    ; preds = %for.cond.i.i.i.i.i.
   %44 = load i64, ptr %second.i4.i.i.i, align 8
   %45 = shl nuw i64 1, %30
   %46 = and i64 %44, %45
-  %tobool.i6.i.i.i.not = icmp eq i64 %46, 0
-  br i1 %tobool.i6.i.i.i.not, label %if.end61, label %if.then57
+  %tobool.i.i.i.i.not = icmp eq i64 %46, 0
+  br i1 %tobool.i.i.i.i.not, label %if.end61, label %if.then57
 
 if.then57:                                        ; preds = %invoke.cont55
   %call.i4890 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
@@ -1389,7 +1389,7 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %63 = load i64, ptr %second.i4.i.i.i79, align 8
   %64 = shl nuw i64 1, %49
   %65 = and i64 %63, %64
-  %tobool.i6.i.i.i80 = icmp ne i64 %65, 0
+  %tobool.i.i.i.i80 = icmp ne i64 %65, 0
   br label %cleanup
 
 lpad11:                                           ; preds = %cond.true
@@ -1601,7 +1601,7 @@ invoke.cont83:                                    ; preds = %call.i150.noexc
 
 cleanup:                                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i68, %if.end3.i.i.i.i.i.i.i.i65, %for.cond.i.i.i.i.i.i83, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i77, %if.end15.i.i.i.i.i.i52, %invoke.cont83
   %90 = phi ptr [ %.pre, %invoke.cont83 ], [ %47, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i77 ], [ %47, %if.end15.i.i.i.i.i.i52 ], [ %47, %for.cond.i.i.i.i.i.i83 ], [ %47, %if.end3.i.i.i.i.i.i.i.i65 ], [ %47, %lor.lhs.false.i.i.i.i.i.i.i.i68 ]
-  %retval.1 = phi i1 [ %tobool84, %invoke.cont83 ], [ %tobool.i6.i.i.i80, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i77 ], [ false, %if.end15.i.i.i.i.i.i52 ], [ false, %for.cond.i.i.i.i.i.i83 ], [ false, %if.end3.i.i.i.i.i.i.i.i65 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i68 ]
+  %retval.1 = phi i1 [ %tobool84, %invoke.cont83 ], [ %tobool.i.i.i.i80, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i77 ], [ false, %if.end15.i.i.i.i.i.i52 ], [ false, %for.cond.i.i.i.i.i.i83 ], [ false, %if.end3.i.i.i.i.i.i.i.i65 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i68 ]
   %bf.load.i.i154 = load i64, ptr %90, align 8
   %91 = and i64 %bf.load.i.i154, 1152920405095219200
   %cmp.not.i.i155 = icmp eq i64 %91, 1152920405095219200

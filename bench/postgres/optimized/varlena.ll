@@ -5866,10 +5866,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @byteaGetBit(ptr nocaptu
   %42 = getelementptr i8, ptr %41, i64 %37
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
-  %45 = shl nuw nsw i32 1, %39
-  %46 = and i32 %45, %44
-  %.not27 = icmp ne i32 %46, 0
-  %spec.select = zext i1 %.not27 to i64
+  %45 = lshr i32 %44, %39
+  %46 = and i32 %45, 1
+  %spec.select = zext nneg i32 %46 to i64
   ret i64 %spec.select
 }
 

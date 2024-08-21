@@ -103,13 +103,12 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %div5 = lshr i32 %script, 5
   %and = and i32 %script, 31
-  %shl = shl nuw i32 1, %and
   %idxprom = zext nneg i32 %div5 to i64
   %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
-  %and5 = and i32 %1, %shl
-  %cmp6 = icmp ne i32 %and5, 0
-  %conv = zext i1 %cmp6 to i8
+  %2 = lshr i32 %1, %and
+  %3 = trunc i32 %2 to i8
+  %conv = and i8 %3, 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end4, %if.then3
@@ -414,34 +413,34 @@ entry:
   br i1 %or.cond, label %for.body, label %return
 
 for.body:                                         ; preds = %entry, %for.inc
-  %scriptIndex.011 = phi i32 [ %inc, %for.inc ], [ %fromIndex, %entry ]
-  %status.010 = phi i32 [ %status.18, %for.inc ], [ 0, %entry ]
-  %cmp.i.i = icmp slt i32 %status.010, 1
+  %scriptIndex.012 = phi i32 [ %inc, %for.inc ], [ %fromIndex, %entry ]
+  %status.011 = phi i32 [ %status.18, %for.inc ], [ 0, %entry ]
+  %cmp.i.i = icmp slt i32 %status.011, 1
   br i1 %cmp.i.i, label %if.end.i, label %for.inc
 
 if.end.i:                                         ; preds = %for.body
-  %or.cond.i = icmp ugt i32 %scriptIndex.011, 223
+  %or.cond.i = icmp ugt i32 %scriptIndex.012, 223
   br i1 %or.cond.i, label %for.inc, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit
 
 _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit: ; preds = %if.end.i
-  %div5.i = lshr i32 %scriptIndex.011, 5
-  %and.i = and i32 %scriptIndex.011, 31
-  %shl.i = shl nuw i32 1, %and.i
+  %div5.i = lshr i32 %scriptIndex.012, 5
+  %and.i = and i32 %scriptIndex.012, 31
   %idxprom.i = zext nneg i32 %div5.i to i64
   %arrayidx.i = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %and5.i = and i32 %0, %shl.i
-  %cmp6.i.not = icmp eq i32 %and5.i, 0
-  br i1 %cmp6.i.not, label %for.inc, label %return
+  %1 = shl nuw i32 1, %and.i
+  %2 = and i32 %0, %1
+  %tobool.not = icmp eq i32 %2, 0
+  br i1 %tobool.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end.i, %for.body, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit
-  %status.18 = phi i32 [ %status.010, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit ], [ 1, %if.end.i ], [ %status.010, %for.body ]
-  %inc = add i32 %scriptIndex.011, 1
+  %status.18 = phi i32 [ %status.011, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit ], [ 1, %if.end.i ], [ %status.011, %for.body ]
+  %inc = add i32 %scriptIndex.012, 1
   %exitcond.not = icmp eq i32 %inc, 224
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
 
 return:                                           ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit, %for.inc, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ %scriptIndex.011, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit ], [ -1, %for.inc ]
+  %retval.0 = phi i32 [ -1, %entry ], [ %scriptIndex.012, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit ], [ -1, %for.inc ]
   ret i32 %retval.0
 }
 
@@ -475,19 +474,19 @@ entry:
   br label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i
 
 _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i: ; preds = %for.inc.i, %entry
-  %scriptIndex.011.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %div5.i.i = lshr i32 %scriptIndex.011.i, 5
-  %and.i.i = and i32 %scriptIndex.011.i, 31
-  %shl.i.i = shl nuw i32 1, %and.i.i
+  %scriptIndex.012.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %entry ]
+  %div5.i.i = lshr i32 %scriptIndex.012.i, 5
+  %and.i.i = and i32 %scriptIndex.012.i, 31
   %idxprom.i.i = zext nneg i32 %div5.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
-  %and5.i.i = and i32 %0, %shl.i.i
-  %cmp6.i.not.i = icmp eq i32 %and5.i.i, 0
-  br i1 %cmp6.i.not.i, label %for.inc.i, label %for.body.lr.ph
+  %1 = shl nuw i32 1, %and.i.i
+  %2 = and i32 %0, %1
+  %tobool.not.i = icmp eq i32 %2, 0
+  br i1 %tobool.not.i, label %for.inc.i, label %for.body.lr.ph
 
 for.inc.i:                                        ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i
-  %inc.i = add nuw nsw i32 %scriptIndex.011.i, 1
+  %inc.i = add nuw nsw i32 %scriptIndex.012.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 224
   br i1 %exitcond.not.i, label %for.end, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i, !llvm.loop !12
 
@@ -497,9 +496,9 @@ for.body.lr.ph:                                   ; preds = %_ZNK6icu_759ScriptS
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18, %for.body.lr.ph
-  %tobool.not29 = phi i1 [ false, %for.body.lr.ph ], [ true, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18 ]
-  %i.028 = phi i32 [ %scriptIndex.011.i, %for.body.lr.ph ], [ %scriptIndex.011.i9, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18 ]
-  br i1 %tobool.not29, label %if.then, label %if.end
+  %tobool.not27 = phi i1 [ false, %for.body.lr.ph ], [ true, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18 ]
+  %i.026 = phi i32 [ %scriptIndex.012.i, %for.body.lr.ph ], [ %scriptIndex.012.i9, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18 ]
+  br i1 %tobool.not27, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i)
@@ -509,58 +508,58 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %call3 = call ptr @uscript_getShortName_75(i32 noundef %i.028)
+  %call3 = call ptr @uscript_getShortName_75(i32 noundef %i.026)
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %call3, i32 noundef -1, i32 noundef 0)
-  %1 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i.i.i5 = icmp slt i16 %1, 0
-  %2 = ashr i16 %1, 5
-  %shr.i.i.i = sext i16 %2 to i32
-  %3 = load i32, ptr %fLength.i.i, align 4
-  %cond.i.i = select i1 %cmp.i.i.i5, i32 %3, i32 %shr.i.i.i
+  %3 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i.i.i5 = icmp slt i16 %3, 0
+  %4 = ashr i16 %3, 5
+  %shr.i.i.i = sext i16 %4 to i32
+  %5 = load i32, ptr %fLength.i.i, align 4
+  %cond.i.i = select i1 %cmp.i.i.i5, i32 %5, i32 %shr.i.i.i
   %call2.i6 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef 0, i32 noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #15
-  %or.cond.i = icmp ult i32 %i.028, 223
+  %or.cond.i = icmp ult i32 %i.026, 223
   br i1 %or.cond.i, label %for.body.i8.preheader, label %for.end
 
 for.body.i8.preheader:                            ; preds = %invoke.cont
-  %add = add nuw nsw i32 %i.028, 1
+  %add = add nuw nsw i32 %i.026, 1
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %for.body.i8.preheader, %for.inc.i12
-  %scriptIndex.011.i9 = phi i32 [ %inc.i14, %for.inc.i12 ], [ %add, %for.body.i8.preheader ]
-  %status.010.i10 = phi i32 [ %status.18.i13, %for.inc.i12 ], [ 0, %for.body.i8.preheader ]
-  %cmp.i.i.i11 = icmp slt i32 %status.010.i10, 1
+  %scriptIndex.012.i9 = phi i32 [ %inc.i14, %for.inc.i12 ], [ %add, %for.body.i8.preheader ]
+  %status.011.i10 = phi i32 [ %status.18.i13, %for.inc.i12 ], [ 0, %for.body.i8.preheader ]
+  %cmp.i.i.i11 = icmp slt i32 %status.011.i10, 1
   br i1 %cmp.i.i.i11, label %if.end.i.i16, label %for.inc.i12
 
 if.end.i.i16:                                     ; preds = %for.body.i8
-  %or.cond.i.i17 = icmp ugt i32 %scriptIndex.011.i9, 223
+  %or.cond.i.i17 = icmp ugt i32 %scriptIndex.012.i9, 223
   br i1 %or.cond.i.i17, label %for.inc.i12, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18
 
 _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18: ; preds = %if.end.i.i16
-  %div5.i.i19 = lshr i32 %scriptIndex.011.i9, 5
-  %and.i.i20 = and i32 %scriptIndex.011.i9, 31
-  %shl.i.i21 = shl nuw i32 1, %and.i.i20
-  %idxprom.i.i22 = zext nneg i32 %div5.i.i19 to i64
-  %arrayidx.i.i23 = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i.i22
-  %4 = load i32, ptr %arrayidx.i.i23, align 4
-  %and5.i.i24 = and i32 %4, %shl.i.i21
-  %cmp6.i.not.i25 = icmp eq i32 %and5.i.i24, 0
-  br i1 %cmp6.i.not.i25, label %for.inc.i12, label %for.body, !llvm.loop !14
+  %div5.i.i19 = lshr i32 %scriptIndex.012.i9, 5
+  %and.i.i20 = and i32 %scriptIndex.012.i9, 31
+  %idxprom.i.i21 = zext nneg i32 %div5.i.i19 to i64
+  %arrayidx.i.i22 = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i.i21
+  %6 = load i32, ptr %arrayidx.i.i22, align 4
+  %7 = shl nuw i32 1, %and.i.i20
+  %8 = and i32 %6, %7
+  %tobool.not.i23 = icmp eq i32 %8, 0
+  br i1 %tobool.not.i23, label %for.inc.i12, label %for.body, !llvm.loop !14
 
 for.inc.i12:                                      ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18, %if.end.i.i16, %for.body.i8
-  %status.18.i13 = phi i32 [ %status.010.i10, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18 ], [ 1, %if.end.i.i16 ], [ %status.010.i10, %for.body.i8 ]
-  %inc.i14 = add i32 %scriptIndex.011.i9, 1
+  %status.18.i13 = phi i32 [ %status.011.i10, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18 ], [ 1, %if.end.i.i16 ], [ %status.011.i10, %for.body.i8 ]
+  %inc.i14 = add i32 %scriptIndex.012.i9, 1
   %exitcond.not.i15 = icmp eq i32 %inc.i14, 224
   br i1 %exitcond.not.i15, label %for.end, label %for.body.i8, !llvm.loop !12
 
 lpad:                                             ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #15
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %9
 
 for.end:                                          ; preds = %for.inc.i, %invoke.cont, %for.inc.i12
   ret ptr %dest
@@ -979,124 +978,124 @@ if.then:                                          ; preds = %_ZNK6icu_759ScriptS
   br label %return
 
 _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i: ; preds = %_ZNK6icu_759ScriptSet12countMembersEv.exit26, %for.inc.i28
-  %scriptIndex.011.i = phi i32 [ %inc.i29, %for.inc.i28 ], [ 0, %_ZNK6icu_759ScriptSet12countMembersEv.exit26 ]
-  %div5.i.i = lshr i32 %scriptIndex.011.i, 5
-  %and.i.i = and i32 %scriptIndex.011.i, 31
-  %shl.i.i = shl nuw i32 1, %and.i.i
+  %scriptIndex.012.i = phi i32 [ %inc.i29, %for.inc.i28 ], [ 0, %_ZNK6icu_759ScriptSet12countMembersEv.exit26 ]
+  %div5.i.i = lshr i32 %scriptIndex.012.i, 5
+  %and.i.i = and i32 %scriptIndex.012.i, 31
   %idxprom.i.i = zext nneg i32 %div5.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [7 x i32], ptr %key0.coerce, i64 0, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %and5.i.i = and i32 %2, %shl.i.i
-  %cmp6.i.not.i = icmp eq i32 %and5.i.i, 0
-  br i1 %cmp6.i.not.i, label %for.inc.i28, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit
+  %3 = shl nuw i32 1, %and.i.i
+  %4 = and i32 %2, %3
+  %tobool.not.i = icmp eq i32 %4, 0
+  br i1 %tobool.not.i, label %for.inc.i28, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit
 
 for.inc.i28:                                      ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i
-  %inc.i29 = add nuw nsw i32 %scriptIndex.011.i, 1
+  %inc.i29 = add nuw nsw i32 %scriptIndex.012.i, 1
   %exitcond.not.i30 = icmp eq i32 %inc.i29, 224
   br i1 %exitcond.not.i30, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i, !llvm.loop !12
 
 _ZNK6icu_759ScriptSet10nextSetBitEi.exit:         ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i, %for.inc.i28
-  %retval.0.i = phi i32 [ %scriptIndex.011.i, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i ], [ -1, %for.inc.i28 ]
+  %retval.0.i = phi i32 [ %scriptIndex.012.i, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i ], [ -1, %for.inc.i28 ]
   br label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42
 
 _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42: ; preds = %for.inc.i35, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit
-  %scriptIndex.011.i32 = phi i32 [ %inc.i37, %for.inc.i35 ], [ 0, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit ]
-  %div5.i.i43 = lshr i32 %scriptIndex.011.i32, 5
-  %and.i.i44 = and i32 %scriptIndex.011.i32, 31
-  %shl.i.i45 = shl nuw i32 1, %and.i.i44
-  %idxprom.i.i46 = zext nneg i32 %div5.i.i43 to i64
-  %arrayidx.i.i47 = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i46
-  %3 = load i32, ptr %arrayidx.i.i47, align 4
-  %and5.i.i48 = and i32 %3, %shl.i.i45
-  %cmp6.i.not.i49 = icmp eq i32 %and5.i.i48, 0
-  br i1 %cmp6.i.not.i49, label %for.inc.i35, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit50
+  %scriptIndex.012.i32 = phi i32 [ %inc.i37, %for.inc.i35 ], [ 0, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit ]
+  %div5.i.i43 = lshr i32 %scriptIndex.012.i32, 5
+  %and.i.i44 = and i32 %scriptIndex.012.i32, 31
+  %idxprom.i.i45 = zext nneg i32 %div5.i.i43 to i64
+  %arrayidx.i.i46 = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i45
+  %5 = load i32, ptr %arrayidx.i.i46, align 4
+  %6 = shl nuw i32 1, %and.i.i44
+  %7 = and i32 %5, %6
+  %tobool.not.i47 = icmp eq i32 %7, 0
+  br i1 %tobool.not.i47, label %for.inc.i35, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48
 
 for.inc.i35:                                      ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42
-  %inc.i37 = add nuw nsw i32 %scriptIndex.011.i32, 1
+  %inc.i37 = add nuw nsw i32 %scriptIndex.012.i32, 1
   %exitcond.not.i38 = icmp eq i32 %inc.i37, 224
-  br i1 %exitcond.not.i38, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit50, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42, !llvm.loop !12
+  br i1 %exitcond.not.i38, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42, !llvm.loop !12
 
-_ZNK6icu_759ScriptSet10nextSetBitEi.exit50:       ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42, %for.inc.i35
-  %retval.0.i39 = phi i32 [ %scriptIndex.011.i32, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42 ], [ -1, %for.inc.i35 ]
-  %cmp692 = icmp eq i32 %retval.0.i, %retval.0.i39
-  %cmp793 = icmp sgt i32 %retval.0.i, 0
-  %4 = and i1 %cmp793, %cmp692
-  br i1 %4, label %while.body, label %while.end
+_ZNK6icu_759ScriptSet10nextSetBitEi.exit48:       ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42, %for.inc.i35
+  %retval.0.i39 = phi i32 [ %scriptIndex.012.i32, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42 ], [ -1, %for.inc.i35 ]
+  %cmp686 = icmp eq i32 %retval.0.i, %retval.0.i39
+  %cmp787 = icmp sgt i32 %retval.0.i, 0
+  %8 = and i1 %cmp787, %cmp686
+  br i1 %8, label %while.body, label %while.end
 
-while.body:                                       ; preds = %_ZNK6icu_759ScriptSet10nextSetBitEi.exit50, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit91
-  %i1.095 = phi i32 [ %retval.0.i51, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit91 ], [ %retval.0.i, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit50 ]
-  %add = add nuw nsw i32 %i1.095, 1
-  %or.cond.i = icmp ult i32 %i1.095, 223
-  br i1 %or.cond.i, label %for.body.i52, label %while.end
+while.body:                                       ; preds = %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85
+  %i1.089 = phi i32 [ %retval.0.i49, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85 ], [ %retval.0.i, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48 ]
+  %add = add nuw nsw i32 %i1.089, 1
+  %or.cond.i = icmp ult i32 %i1.089, 223
+  br i1 %or.cond.i, label %for.body.i50, label %while.end
 
-for.body.i52:                                     ; preds = %while.body, %for.inc.i56
-  %scriptIndex.011.i53 = phi i32 [ %inc.i58, %for.inc.i56 ], [ %add, %while.body ]
-  %status.010.i54 = phi i32 [ %status.18.i57, %for.inc.i56 ], [ 0, %while.body ]
-  %cmp.i.i.i55 = icmp slt i32 %status.010.i54, 1
-  br i1 %cmp.i.i.i55, label %if.end.i.i60, label %for.inc.i56
+for.body.i50:                                     ; preds = %while.body, %for.inc.i54
+  %scriptIndex.012.i51 = phi i32 [ %inc.i56, %for.inc.i54 ], [ %add, %while.body ]
+  %status.011.i52 = phi i32 [ %status.18.i55, %for.inc.i54 ], [ 0, %while.body ]
+  %cmp.i.i.i53 = icmp slt i32 %status.011.i52, 1
+  br i1 %cmp.i.i.i53, label %if.end.i.i58, label %for.inc.i54
 
-if.end.i.i60:                                     ; preds = %for.body.i52
-  %or.cond.i.i61 = icmp ugt i32 %scriptIndex.011.i53, 223
-  br i1 %or.cond.i.i61, label %for.inc.i56, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i62
+if.end.i.i58:                                     ; preds = %for.body.i50
+  %or.cond.i.i59 = icmp ugt i32 %scriptIndex.012.i51, 223
+  br i1 %or.cond.i.i59, label %for.inc.i54, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i60
 
-_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i62: ; preds = %if.end.i.i60
-  %div5.i.i63 = lshr i32 %scriptIndex.011.i53, 5
-  %and.i.i64 = and i32 %scriptIndex.011.i53, 31
-  %shl.i.i65 = shl nuw i32 1, %and.i.i64
-  %idxprom.i.i66 = zext nneg i32 %div5.i.i63 to i64
-  %arrayidx.i.i67 = getelementptr inbounds [7 x i32], ptr %key0.coerce, i64 0, i64 %idxprom.i.i66
-  %5 = load i32, ptr %arrayidx.i.i67, align 4
-  %and5.i.i68 = and i32 %5, %shl.i.i65
-  %cmp6.i.not.i69 = icmp eq i32 %and5.i.i68, 0
-  br i1 %cmp6.i.not.i69, label %for.inc.i56, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit70
+_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i60: ; preds = %if.end.i.i58
+  %div5.i.i61 = lshr i32 %scriptIndex.012.i51, 5
+  %and.i.i62 = and i32 %scriptIndex.012.i51, 31
+  %idxprom.i.i63 = zext nneg i32 %div5.i.i61 to i64
+  %arrayidx.i.i64 = getelementptr inbounds [7 x i32], ptr %key0.coerce, i64 0, i64 %idxprom.i.i63
+  %9 = load i32, ptr %arrayidx.i.i64, align 4
+  %10 = shl nuw i32 1, %and.i.i62
+  %11 = and i32 %9, %10
+  %tobool.not.i65 = icmp eq i32 %11, 0
+  br i1 %tobool.not.i65, label %for.inc.i54, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit66
 
-for.inc.i56:                                      ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i62, %if.end.i.i60, %for.body.i52
-  %status.18.i57 = phi i32 [ %status.010.i54, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i62 ], [ 1, %if.end.i.i60 ], [ %status.010.i54, %for.body.i52 ]
-  %inc.i58 = add i32 %scriptIndex.011.i53, 1
-  %exitcond.not.i59 = icmp eq i32 %inc.i58, 224
-  br i1 %exitcond.not.i59, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit70, label %for.body.i52, !llvm.loop !12
+for.inc.i54:                                      ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i60, %if.end.i.i58, %for.body.i50
+  %status.18.i55 = phi i32 [ %status.011.i52, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i60 ], [ 1, %if.end.i.i58 ], [ %status.011.i52, %for.body.i50 ]
+  %inc.i56 = add i32 %scriptIndex.012.i51, 1
+  %exitcond.not.i57 = icmp eq i32 %inc.i56, 224
+  br i1 %exitcond.not.i57, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit66, label %for.body.i50, !llvm.loop !12
 
-_ZNK6icu_759ScriptSet10nextSetBitEi.exit70:       ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i62, %for.inc.i56
-  %retval.0.i51 = phi i32 [ %scriptIndex.011.i53, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i62 ], [ -1, %for.inc.i56 ]
-  br label %for.body.i73
+_ZNK6icu_759ScriptSet10nextSetBitEi.exit66:       ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i60, %for.inc.i54
+  %retval.0.i49 = phi i32 [ %scriptIndex.012.i51, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i60 ], [ -1, %for.inc.i54 ]
+  br label %for.body.i69
 
-for.body.i73:                                     ; preds = %_ZNK6icu_759ScriptSet10nextSetBitEi.exit70, %for.inc.i77
-  %scriptIndex.011.i74 = phi i32 [ %inc.i79, %for.inc.i77 ], [ %add, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit70 ]
-  %status.010.i75 = phi i32 [ %status.18.i78, %for.inc.i77 ], [ 0, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit70 ]
-  %cmp.i.i.i76 = icmp slt i32 %status.010.i75, 1
-  br i1 %cmp.i.i.i76, label %if.end.i.i81, label %for.inc.i77
+for.body.i69:                                     ; preds = %_ZNK6icu_759ScriptSet10nextSetBitEi.exit66, %for.inc.i73
+  %scriptIndex.012.i70 = phi i32 [ %inc.i75, %for.inc.i73 ], [ %add, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit66 ]
+  %status.011.i71 = phi i32 [ %status.18.i74, %for.inc.i73 ], [ 0, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit66 ]
+  %cmp.i.i.i72 = icmp slt i32 %status.011.i71, 1
+  br i1 %cmp.i.i.i72, label %if.end.i.i77, label %for.inc.i73
 
-if.end.i.i81:                                     ; preds = %for.body.i73
-  %or.cond.i.i82 = icmp ugt i32 %scriptIndex.011.i74, 223
-  br i1 %or.cond.i.i82, label %for.inc.i77, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i83
+if.end.i.i77:                                     ; preds = %for.body.i69
+  %or.cond.i.i78 = icmp ugt i32 %scriptIndex.012.i70, 223
+  br i1 %or.cond.i.i78, label %for.inc.i73, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i79
 
-_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i83: ; preds = %if.end.i.i81
-  %div5.i.i84 = lshr i32 %scriptIndex.011.i74, 5
-  %and.i.i85 = and i32 %scriptIndex.011.i74, 31
-  %shl.i.i86 = shl nuw i32 1, %and.i.i85
-  %idxprom.i.i87 = zext nneg i32 %div5.i.i84 to i64
-  %arrayidx.i.i88 = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i87
-  %6 = load i32, ptr %arrayidx.i.i88, align 4
-  %and5.i.i89 = and i32 %6, %shl.i.i86
-  %cmp6.i.not.i90 = icmp eq i32 %and5.i.i89, 0
-  br i1 %cmp6.i.not.i90, label %for.inc.i77, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit91
+_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i79: ; preds = %if.end.i.i77
+  %div5.i.i80 = lshr i32 %scriptIndex.012.i70, 5
+  %and.i.i81 = and i32 %scriptIndex.012.i70, 31
+  %idxprom.i.i82 = zext nneg i32 %div5.i.i80 to i64
+  %arrayidx.i.i83 = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i82
+  %12 = load i32, ptr %arrayidx.i.i83, align 4
+  %13 = shl nuw i32 1, %and.i.i81
+  %14 = and i32 %12, %13
+  %tobool.not.i84 = icmp eq i32 %14, 0
+  br i1 %tobool.not.i84, label %for.inc.i73, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85
 
-for.inc.i77:                                      ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i83, %if.end.i.i81, %for.body.i73
-  %status.18.i78 = phi i32 [ %status.010.i75, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i83 ], [ 1, %if.end.i.i81 ], [ %status.010.i75, %for.body.i73 ]
-  %inc.i79 = add i32 %scriptIndex.011.i74, 1
-  %exitcond.not.i80 = icmp eq i32 %inc.i79, 224
-  br i1 %exitcond.not.i80, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit91, label %for.body.i73, !llvm.loop !12
+for.inc.i73:                                      ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i79, %if.end.i.i77, %for.body.i69
+  %status.18.i74 = phi i32 [ %status.011.i71, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i79 ], [ 1, %if.end.i.i77 ], [ %status.011.i71, %for.body.i69 ]
+  %inc.i75 = add i32 %scriptIndex.012.i70, 1
+  %exitcond.not.i76 = icmp eq i32 %inc.i75, 224
+  br i1 %exitcond.not.i76, label %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85, label %for.body.i69, !llvm.loop !12
 
-_ZNK6icu_759ScriptSet10nextSetBitEi.exit91:       ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i83, %for.inc.i77
-  %retval.0.i72 = phi i32 [ -1, %for.inc.i77 ], [ %scriptIndex.011.i74, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i83 ]
-  %cmp6 = icmp eq i32 %retval.0.i51, %retval.0.i72
-  %cmp7 = icmp sgt i32 %retval.0.i51, 0
-  %7 = and i1 %cmp7, %cmp6
-  br i1 %7, label %while.body, label %while.end, !llvm.loop !19
+_ZNK6icu_759ScriptSet10nextSetBitEi.exit85:       ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i79, %for.inc.i73
+  %retval.0.i68 = phi i32 [ -1, %for.inc.i73 ], [ %scriptIndex.012.i70, %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i79 ]
+  %cmp6 = icmp eq i32 %retval.0.i49, %retval.0.i68
+  %cmp7 = icmp sgt i32 %retval.0.i49, 0
+  %15 = and i1 %cmp7, %cmp6
+  br i1 %15, label %while.body, label %while.end, !llvm.loop !19
 
-while.end:                                        ; preds = %while.body, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit91, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit50
-  %i0.0.lcssa = phi i32 [ %retval.0.i, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit50 ], [ -1, %while.body ], [ %retval.0.i51, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit91 ]
-  %i1.0.lcssa = phi i32 [ %retval.0.i39, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit50 ], [ -1, %while.body ], [ %retval.0.i72, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit91 ]
+while.end:                                        ; preds = %while.body, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48
+  %i0.0.lcssa = phi i32 [ %retval.0.i, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48 ], [ -1, %while.body ], [ %retval.0.i49, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85 ]
+  %i1.0.lcssa = phi i32 [ %retval.0.i39, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48 ], [ -1, %while.body ], [ %retval.0.i68, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85 ]
   %sub5 = sub nsw i32 %i0.0.lcssa, %i1.0.lcssa
   br label %return
 

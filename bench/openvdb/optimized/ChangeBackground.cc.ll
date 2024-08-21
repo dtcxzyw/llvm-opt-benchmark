@@ -17049,91 +17049,91 @@ entry:
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i32 %0, 63
   %sh_prom.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i to i64
-  %shl.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i
-  %and2.i.i.i.i.i = and i64 %shl.i.i.i.i.i, %1
-  %2 = load i8, ptr %this, align 1
-  %.tr = trunc i8 %2 to i1
-  %3 = icmp eq i64 %and2.i.i.i.i.i, 0
-  %cmp.i = xor i1 %3, %.tr
+  %2 = lshr i64 %1, %sh_prom.i.i.i.i.i
+  %3 = trunc i64 %2 to i8
+  %4 = load i8, ptr %this, align 1
+  %5 = xor i8 %4, %3
+  %6 = and i8 %5, 1
+  %cmp.i = icmp eq i8 %6, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %mNewValue = getelementptr inbounds i8, ptr %this, i64 1
-  %4 = load i8, ptr %mNewValue, align 1
-  %tobool = trunc i8 %4 to i1
-  %5 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %7 = load i8, ptr %mNewValue, align 1
+  %tobool = trunc i8 %7 to i1
+  %8 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIbLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %mBuffer.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
-  %and.i.i.i.i.i.i = and i32 %5, 63
+  %and.i.i.i.i.i.i = and i32 %8, 63
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
   br i1 %tobool, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.then
-  %shr.i.i.i.i.i.i = lshr i32 %5, 6
+  %shr.i.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  %6 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i = or i64 %6, %shl.i.i.i.i.i.i
+  %9 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i = or i64 %9, %shl.i.i.i.i.i.i
   store i64 %or.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8
   br label %if.end10
 
 cond.false.i.i.i.i.i:                             ; preds = %if.then
   %not.i.i.i.i.i.i = xor i64 %shl.i.i.i.i.i.i, -1
-  %shr.i5.i.i.i.i.i = lshr i32 %5, 6
+  %shr.i5.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i6.i.i.i.i.i = zext nneg i32 %shr.i5.i.i.i.i.i to i64
   %arrayidx.i7.i.i.i.i.i = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i, i64 0, i64 %idxprom.i6.i.i.i.i.i
-  %7 = load i64, ptr %arrayidx.i7.i.i.i.i.i, align 8
-  %and2.i.i.i.i.i.i = and i64 %7, %not.i.i.i.i.i.i
+  %10 = load i64, ptr %arrayidx.i7.i.i.i.i.i, align 8
+  %and2.i.i.i.i.i.i = and i64 %10, %not.i.i.i.i.i.i
   store i64 %and2.i.i.i.i.i.i, ptr %arrayidx.i7.i.i.i.i.i, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %entry
-  %8 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %11 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIbLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %mBuffer.i.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 64
-  %shr.i.i.i.i.i7 = lshr i32 %8, 6
+  %shr.i.i.i.i.i7 = lshr i32 %11, 6
   %idxprom.i.i.i.i.i8 = zext nneg i32 %shr.i.i.i.i.i7 to i64
   %arrayidx.i.i.i.i.i9 = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i.i6, i64 0, i64 %idxprom.i.i.i.i.i8
-  %9 = load i64, ptr %arrayidx.i.i.i.i.i9, align 8
-  %and.i.i.i.i.i10 = and i32 %8, 63
+  %12 = load i64, ptr %arrayidx.i.i.i.i.i9, align 8
+  %and.i.i.i.i.i10 = and i32 %11, 63
   %sh_prom.i.i.i.i.i11 = zext nneg i32 %and.i.i.i.i.i10 to i64
-  %shl.i.i.i.i.i12 = shl nuw i64 1, %sh_prom.i.i.i.i.i11
-  %and2.i.i.i.i.i13 = and i64 %shl.i.i.i.i.i12, %9
-  %10 = load i8, ptr %this, align 1
-  %.tr37 = trunc i8 %10 to i1
-  %11 = icmp ne i64 %and2.i.i.i.i.i13, 0
-  %cmp.i16 = xor i1 %11, %.tr37
-  br i1 %cmp.i16, label %if.then7, label %if.end10
+  %13 = load i8, ptr %this, align 1
+  %14 = lshr i64 %12, %sh_prom.i.i.i.i.i11
+  %15 = trunc i64 %14 to i8
+  %lnot.i37 = xor i8 %13, %15
+  %16 = and i8 %lnot.i37, 1
+  %cmp.i16.not = icmp eq i8 %16, 0
+  br i1 %cmp.i16.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.else
   %mNewValue8 = getelementptr inbounds i8, ptr %this, i64 1
-  %12 = load i8, ptr %mNewValue8, align 1
-  %tobool.i17 = trunc i8 %12 to i1
-  %13 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %17 = load i8, ptr %mNewValue8, align 1
+  %tobool.i17 = trunc i8 %17 to i1
+  %18 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i20 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIbLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %mBuffer.i.i.i21 = getelementptr inbounds i8, ptr %call.i.i20, i64 64
-  %and.i.i.i.i.i.i22 = and i32 %13, 63
+  %and.i.i.i.i.i.i22 = and i32 %18, 63
   %sh_prom.i.i.i.i.i.i23 = zext nneg i32 %and.i.i.i.i.i.i22 to i64
   %shl.i.i.i.i.i.i24 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i23
   br i1 %tobool.i17, label %cond.false.i.i.i.i.i25, label %cond.true.i.i.i.i.i31
 
 cond.true.i.i.i.i.i31:                            ; preds = %if.then7
-  %shr.i.i.i.i.i.i32 = lshr i32 %13, 6
+  %shr.i.i.i.i.i.i32 = lshr i32 %18, 6
   %idxprom.i.i.i.i.i.i33 = zext nneg i32 %shr.i.i.i.i.i.i32 to i64
   %arrayidx.i.i.i.i.i.i34 = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i21, i64 0, i64 %idxprom.i.i.i.i.i.i33
-  %14 = load i64, ptr %arrayidx.i.i.i.i.i.i34, align 8
-  %or.i.i.i.i.i.i35 = or i64 %14, %shl.i.i.i.i.i.i24
+  %19 = load i64, ptr %arrayidx.i.i.i.i.i.i34, align 8
+  %or.i.i.i.i.i.i35 = or i64 %19, %shl.i.i.i.i.i.i24
   store i64 %or.i.i.i.i.i.i35, ptr %arrayidx.i.i.i.i.i.i34, align 8
   br label %if.end10
 
 cond.false.i.i.i.i.i25:                           ; preds = %if.then7
   %not.i.i.i.i.i.i26 = xor i64 %shl.i.i.i.i.i.i24, -1
-  %shr.i5.i.i.i.i.i27 = lshr i32 %13, 6
+  %shr.i5.i.i.i.i.i27 = lshr i32 %18, 6
   %idxprom.i6.i.i.i.i.i28 = zext nneg i32 %shr.i5.i.i.i.i.i27 to i64
   %arrayidx.i7.i.i.i.i.i29 = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i21, i64 0, i64 %idxprom.i6.i.i.i.i.i28
-  %15 = load i64, ptr %arrayidx.i7.i.i.i.i.i29, align 8
-  %and2.i.i.i.i.i.i30 = and i64 %15, %not.i.i.i.i.i.i26
+  %20 = load i64, ptr %arrayidx.i7.i.i.i.i.i29, align 8
+  %and2.i.i.i.i.i.i30 = and i64 %20, %not.i.i.i.i.i.i26
   store i64 %and2.i.i.i.i.i.i30, ptr %arrayidx.i7.i.i.i.i.i29, align 8
   br label %if.end10
 
@@ -78575,91 +78575,91 @@ entry:
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i32 %0, 63
   %sh_prom.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i to i64
-  %shl.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i
-  %and2.i.i.i.i.i = and i64 %shl.i.i.i.i.i, %1
-  %2 = load i8, ptr %this, align 1
-  %.tr = trunc i8 %2 to i1
-  %3 = icmp eq i64 %and2.i.i.i.i.i, 0
-  %cmp.i = xor i1 %3, %.tr
+  %2 = lshr i64 %1, %sh_prom.i.i.i.i.i
+  %3 = trunc i64 %2 to i8
+  %4 = load i8, ptr %this, align 1
+  %5 = xor i8 %4, %3
+  %6 = and i8 %5, 1
+  %cmp.i = icmp eq i8 %6, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %mNewValue = getelementptr inbounds i8, ptr %this, i64 1
-  %4 = load i8, ptr %mNewValue, align 1
-  %tobool = trunc i8 %4 to i1
-  %5 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %7 = load i8, ptr %mNewValue, align 1
+  %tobool = trunc i8 %7 to i1
+  %8 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIbLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %mBuffer.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 64
-  %and.i.i.i.i.i.i = and i32 %5, 63
+  %and.i.i.i.i.i.i = and i32 %8, 63
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
   br i1 %tobool, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.then
-  %shr.i.i.i.i.i.i = lshr i32 %5, 6
+  %shr.i.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  %6 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i = or i64 %6, %shl.i.i.i.i.i.i
+  %9 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i = or i64 %9, %shl.i.i.i.i.i.i
   store i64 %or.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8
   br label %if.end10
 
 cond.false.i.i.i.i.i:                             ; preds = %if.then
   %not.i.i.i.i.i.i = xor i64 %shl.i.i.i.i.i.i, -1
-  %shr.i5.i.i.i.i.i = lshr i32 %5, 6
+  %shr.i5.i.i.i.i.i = lshr i32 %8, 6
   %idxprom.i6.i.i.i.i.i = zext nneg i32 %shr.i5.i.i.i.i.i to i64
   %arrayidx.i7.i.i.i.i.i = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i, i64 0, i64 %idxprom.i6.i.i.i.i.i
-  %7 = load i64, ptr %arrayidx.i7.i.i.i.i.i, align 8
-  %and2.i.i.i.i.i.i = and i64 %7, %not.i.i.i.i.i.i
+  %10 = load i64, ptr %arrayidx.i7.i.i.i.i.i, align 8
+  %and2.i.i.i.i.i.i = and i64 %10, %not.i.i.i.i.i.i
   store i64 %and2.i.i.i.i.i.i, ptr %arrayidx.i7.i.i.i.i.i, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %entry
-  %8 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %11 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i.i5 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIbLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %mBuffer.i.i.i.i6 = getelementptr inbounds i8, ptr %call.i.i.i5, i64 64
-  %shr.i.i.i.i.i7 = lshr i32 %8, 6
+  %shr.i.i.i.i.i7 = lshr i32 %11, 6
   %idxprom.i.i.i.i.i8 = zext nneg i32 %shr.i.i.i.i.i7 to i64
   %arrayidx.i.i.i.i.i9 = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i.i6, i64 0, i64 %idxprom.i.i.i.i.i8
-  %9 = load i64, ptr %arrayidx.i.i.i.i.i9, align 8
-  %and.i.i.i.i.i10 = and i32 %8, 63
+  %12 = load i64, ptr %arrayidx.i.i.i.i.i9, align 8
+  %and.i.i.i.i.i10 = and i32 %11, 63
   %sh_prom.i.i.i.i.i11 = zext nneg i32 %and.i.i.i.i.i10 to i64
-  %shl.i.i.i.i.i12 = shl nuw i64 1, %sh_prom.i.i.i.i.i11
-  %and2.i.i.i.i.i13 = and i64 %shl.i.i.i.i.i12, %9
-  %10 = load i8, ptr %this, align 1
-  %.tr37 = trunc i8 %10 to i1
-  %11 = icmp ne i64 %and2.i.i.i.i.i13, 0
-  %cmp.i16 = xor i1 %11, %.tr37
-  br i1 %cmp.i16, label %if.then7, label %if.end10
+  %13 = load i8, ptr %this, align 1
+  %14 = lshr i64 %12, %sh_prom.i.i.i.i.i11
+  %15 = trunc i64 %14 to i8
+  %lnot.i37 = xor i8 %13, %15
+  %16 = and i8 %lnot.i37, 1
+  %cmp.i16.not = icmp eq i8 %16, 0
+  br i1 %cmp.i16.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.else
   %mNewValue8 = getelementptr inbounds i8, ptr %this, i64 1
-  %12 = load i8, ptr %mNewValue8, align 1
-  %tobool.i17 = trunc i8 %12 to i1
-  %13 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %17 = load i8, ptr %mNewValue8, align 1
+  %tobool.i17 = trunc i8 %17 to i1
+  %18 = load i32, ptr %mMaskIter.i.i.i, align 8
   %call.i.i20 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeIbLj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %mBuffer.i.i.i21 = getelementptr inbounds i8, ptr %call.i.i20, i64 64
-  %and.i.i.i.i.i.i22 = and i32 %13, 63
+  %and.i.i.i.i.i.i22 = and i32 %18, 63
   %sh_prom.i.i.i.i.i.i23 = zext nneg i32 %and.i.i.i.i.i.i22 to i64
   %shl.i.i.i.i.i.i24 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i23
   br i1 %tobool.i17, label %cond.false.i.i.i.i.i25, label %cond.true.i.i.i.i.i31
 
 cond.true.i.i.i.i.i31:                            ; preds = %if.then7
-  %shr.i.i.i.i.i.i32 = lshr i32 %13, 6
+  %shr.i.i.i.i.i.i32 = lshr i32 %18, 6
   %idxprom.i.i.i.i.i.i33 = zext nneg i32 %shr.i.i.i.i.i.i32 to i64
   %arrayidx.i.i.i.i.i.i34 = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i21, i64 0, i64 %idxprom.i.i.i.i.i.i33
-  %14 = load i64, ptr %arrayidx.i.i.i.i.i.i34, align 8
-  %or.i.i.i.i.i.i35 = or i64 %14, %shl.i.i.i.i.i.i24
+  %19 = load i64, ptr %arrayidx.i.i.i.i.i.i34, align 8
+  %or.i.i.i.i.i.i35 = or i64 %19, %shl.i.i.i.i.i.i24
   store i64 %or.i.i.i.i.i.i35, ptr %arrayidx.i.i.i.i.i.i34, align 8
   br label %if.end10
 
 cond.false.i.i.i.i.i25:                           ; preds = %if.then7
   %not.i.i.i.i.i.i26 = xor i64 %shl.i.i.i.i.i.i24, -1
-  %shr.i5.i.i.i.i.i27 = lshr i32 %13, 6
+  %shr.i5.i.i.i.i.i27 = lshr i32 %18, 6
   %idxprom.i6.i.i.i.i.i28 = zext nneg i32 %shr.i5.i.i.i.i.i27 to i64
   %arrayidx.i7.i.i.i.i.i29 = getelementptr inbounds [8 x i64], ptr %mBuffer.i.i.i21, i64 0, i64 %idxprom.i6.i.i.i.i.i28
-  %15 = load i64, ptr %arrayidx.i7.i.i.i.i.i29, align 8
-  %and2.i.i.i.i.i.i30 = and i64 %15, %not.i.i.i.i.i.i26
+  %20 = load i64, ptr %arrayidx.i7.i.i.i.i.i29, align 8
+  %and2.i.i.i.i.i.i30 = and i64 %20, %not.i.i.i.i.i.i26
   store i64 %and2.i.i.i.i.i.i30, ptr %arrayidx.i7.i.i.i.i.i29, align 8
   br label %if.end10
 

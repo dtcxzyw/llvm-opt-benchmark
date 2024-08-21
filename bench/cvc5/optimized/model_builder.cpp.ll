@@ -781,8 +781,8 @@ invoke.cont41:                                    ; preds = %for.cond.i.i.i.i.i.
   %56 = load i64, ptr %second.i4.i.i.i, align 8
   %57 = shl nuw i64 1, %42
   %58 = and i64 %56, %57
-  %tobool.i6.i.i.i.not = icmp eq i64 %58, 0
-  br i1 %tobool.i6.i.i.i.not, label %if.end70, label %if.then43
+  %tobool.i.i.i.i.not = icmp eq i64 %58, 0
+  br i1 %tobool.i.i.i.i.not, label %if.end70, label %if.then43
 
 if.then43:                                        ; preds = %invoke.cont41
   %59 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

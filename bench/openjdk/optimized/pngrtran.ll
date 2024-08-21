@@ -3497,8 +3497,8 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   ]
 
 34:                                               ; preds = %33
-  %.not30.i = icmp eq i32 %29, 0
-  br i1 %.not30.i, label %.thread.i, label %.lr.ph16.preheader.i
+  %.not29.i = icmp eq i32 %29, 0
+  br i1 %.not29.i, label %.thread.i, label %.lr.ph16.preheader.i
 
 .lr.ph16.preheader.i:                             ; preds = %34
   %35 = add i32 %29, 7
@@ -3519,10 +3519,9 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   %.0114.i = getelementptr inbounds i8, ptr %.pn13013.i, i64 -1
   %43 = load i8, ptr %.012012.i, align 1
   %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 1, %.015.i
-  %46 = and i32 %45, %44
-  %.not.i = icmp ne i32 %46, 0
-  %..i = zext i1 %.not.i to i8
+  %45 = lshr i32 %44, %.015.i
+  %46 = trunc nuw i32 %45 to i8
+  %..i = and i8 %46, 1
   store i8 %..i, ptr %.0114.i, align 1
   %47 = icmp eq i32 %.015.i, 7
   %48 = add nuw nsw i32 %.015.i, 1
@@ -3530,12 +3529,12 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   %.1121.i = getelementptr inbounds i8, ptr %.012012.i, i64 %.1121.idx.i
   %.1.i = select i1 %47, i32 0, i32 %48
   %49 = add nuw i32 %.010914.i, 1
-  %exitcond36.not.i = icmp eq i32 %49, %29
-  br i1 %exitcond36.not.i, label %.thread.i, label %.lr.ph16.i, !llvm.loop !107
+  %exitcond35.not.i = icmp eq i32 %49, %29
+  br i1 %exitcond35.not.i, label %.thread.i, label %.lr.ph16.i, !llvm.loop !107
 
 50:                                               ; preds = %33
-  %.not29.i = icmp eq i32 %29, 0
-  br i1 %.not29.i, label %.thread.i, label %.lr.ph11.preheader.i
+  %.not28.i = icmp eq i32 %29, 0
+  br i1 %.not28.i, label %.thread.i, label %.lr.ph11.preheader.i
 
 .lr.ph11.preheader.i:                             ; preds = %50
   %51 = shl i32 %29, 1
@@ -3567,12 +3566,12 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   %.3123.i = getelementptr inbounds i8, ptr %.21227.i, i64 %.3123.idx.i
   %.3.i = select i1 %65, i32 0, i32 %66
   %67 = add nuw i32 %.11109.i, 1
-  %exitcond35.not.i = icmp eq i32 %67, %29
-  br i1 %exitcond35.not.i, label %.thread.i, label %.lr.ph11.i, !llvm.loop !108
+  %exitcond34.not.i = icmp eq i32 %67, %29
+  br i1 %exitcond34.not.i, label %.thread.i, label %.lr.ph11.i, !llvm.loop !108
 
 68:                                               ; preds = %33
-  %.not28.i = icmp eq i32 %29, 0
-  br i1 %.not28.i, label %.thread.i, label %.lr.ph.preheader.i
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %.thread.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %68
   %69 = shl i32 %29, 2
@@ -3623,8 +3622,8 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   br i1 %.not, label %121, label %89
 
 89:                                               ; preds = %88
-  %.not32.i = icmp eq i32 %29, 0
-  br i1 %.not32.i, label %._crit_edge27.i, label %.lr.ph26.preheader.i
+  %.not31.i = icmp eq i32 %29, 0
+  br i1 %.not31.i, label %._crit_edge27.i, label %.lr.ph26.preheader.i
 
 .lr.ph26.preheader.i:                             ; preds = %89
   %90 = zext i32 %29 to i64
@@ -3673,8 +3672,8 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   %116 = getelementptr inbounds i8, ptr %.311722.i, i64 -4
   store i8 %115, ptr %111, align 1
   %117 = add nuw i32 %.311223.i, 1
-  %exitcond38.not.i = icmp eq i32 %117, %29
-  br i1 %exitcond38.not.i, label %._crit_edge27.i, label %.lr.ph26.i, !llvm.loop !110
+  %exitcond37.not.i = icmp eq i32 %117, %29
+  br i1 %exitcond37.not.i, label %._crit_edge27.i, label %.lr.ph26.i, !llvm.loop !110
 
 ._crit_edge27.i:                                  ; preds = %101, %89
   store i8 8, ptr %30, align 1
@@ -3687,8 +3686,8 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
 121:                                              ; preds = %88
   %122 = mul i32 %29, 3
   %123 = zext i32 %122 to i64
-  %.not31.i = icmp eq i32 %29, 0
-  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph20.preheader.i
+  %.not30.i = icmp eq i32 %29, 0
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph20.preheader.i
 
 .lr.ph20.preheader.i:                             ; preds = %121
   %124 = getelementptr inbounds i8, ptr %22, i64 %123
@@ -3721,8 +3720,8 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   %142 = getelementptr inbounds i8, ptr %.511918.i, i64 -3
   store i8 %141, ptr %137, align 1
   %143 = add nuw i32 %.411319.i, 1
-  %exitcond37.not.i = icmp eq i32 %143, %29
-  br i1 %exitcond37.not.i, label %._crit_edge.i, label %.lr.ph20.i, !llvm.loop !111
+  %exitcond36.not.i = icmp eq i32 %143, %29
+  br i1 %exitcond36.not.i, label %._crit_edge.i, label %.lr.ph20.i, !llvm.loop !111
 
 ._crit_edge.i:                                    ; preds = %.lr.ph20.i, %121
   store i8 8, ptr %30, align 1
@@ -3731,12 +3730,12 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %._crit_edge.i, %._crit_edge27.i
-  %.sink43.i = phi i64 [ %123, %._crit_edge.i ], [ %120, %._crit_edge27.i ]
-  %.sink42.i = phi i8 [ 2, %._crit_edge.i ], [ 6, %._crit_edge27.i ]
+  %.sink42.i = phi i64 [ %123, %._crit_edge.i ], [ %120, %._crit_edge27.i ]
+  %.sink41.i = phi i8 [ 2, %._crit_edge.i ], [ 6, %._crit_edge27.i ]
   %.sink.i = phi i8 [ 3, %._crit_edge.i ], [ 4, %._crit_edge27.i ]
   %145 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %.sink43.i, ptr %145, align 8
-  store i8 %.sink42.i, ptr %18, align 8
+  store i64 %.sink42.i, ptr %145, align 8
+  store i8 %.sink41.i, ptr %18, align 8
   %146 = getelementptr inbounds i8, ptr %1, i64 18
   store i8 %.sink.i, ptr %146, align 2
   br label %png_do_expand_palette.exit

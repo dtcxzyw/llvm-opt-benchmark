@@ -10636,12 +10636,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %pid, align 4
-  %call10.i = call ptr @__sched_cpualloc(i64 noundef 64) #22
-  %cmp11.i = icmp eq ptr %call10.i, null
-  br i1 %cmp11.i, label %if.then.i, label %if.end.i
+  %call11.i = call ptr @__sched_cpualloc(i64 noundef 64) #22
+  %cmp12.i = icmp eq ptr %call11.i, null
+  br i1 %cmp12.i, label %if.then.i, label %if.end.i
 
 while.body.i:                                     ; preds = %if.end14.i
-  %mul19.i = shl i32 %ncpus.012.i, 1
+  %mul19.i = shl i32 %ncpus.013.i, 1
   %conv.i = sext i32 %mul19.i to i64
   %sub.i = lshr exact i64 %conv.i, 3
   %call.i = call ptr @__sched_cpualloc(i64 noundef %conv.i) #22
@@ -10653,15 +10653,15 @@ if.then.i:                                        ; preds = %while.body.i, %if.e
   br label %exit
 
 if.end.i:                                         ; preds = %if.end, %while.body.i
-  %call14.i = phi ptr [ %call.i, %while.body.i ], [ %call10.i, %if.end ]
-  %sub13.i = phi i64 [ %sub.i, %while.body.i ], [ 8, %if.end ]
-  %ncpus.012.i = phi i32 [ %mul19.i, %while.body.i ], [ 64, %if.end ]
-  %call4.i = call i32 @sched_getaffinity(i32 noundef %0, i64 noundef %sub13.i, ptr noundef nonnull %call14.i) #22
+  %call15.i = phi ptr [ %call.i, %while.body.i ], [ %call11.i, %if.end ]
+  %sub14.i = phi i64 [ %sub.i, %while.body.i ], [ 8, %if.end ]
+  %ncpus.013.i = phi i32 [ %mul19.i, %while.body.i ], [ 64, %if.end ]
+  %call4.i = call i32 @sched_getaffinity(i32 noundef %0, i64 noundef %sub14.i, ptr noundef nonnull %call15.i) #22
   %cmp5.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.i, label %while.end.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  call void @__sched_cpufree(ptr noundef nonnull %call14.i) #22
+  call void @__sched_cpufree(ptr noundef nonnull %call15.i) #22
   %call9.i = tail call ptr @__errno_location() #24
   %1 = load i32, ptr %call9.i, align 4
   %cmp10.not.i = icmp eq i32 %1, 22
@@ -10673,7 +10673,7 @@ if.then12.i:                                      ; preds = %if.end8.i
   br label %exit
 
 if.end14.i:                                       ; preds = %if.end8.i
-  %cmp15.i = icmp sgt i32 %ncpus.012.i, 1073741823
+  %cmp15.i = icmp sgt i32 %ncpus.013.i, 1073741823
   br i1 %cmp15.i, label %if.then17.i, label %while.body.i
 
 if.then17.i:                                      ; preds = %if.end14.i
@@ -10687,51 +10687,51 @@ while.end.i:                                      ; preds = %if.end.i
   br i1 %cmp21.i, label %if.then47.thread.i, label %if.end24.i
 
 if.then47.thread.i:                               ; preds = %while.end.i
-  call void @__sched_cpufree(ptr noundef nonnull %call14.i) #22
+  call void @__sched_cpufree(ptr noundef nonnull %call15.i) #22
   br label %exit
 
 if.end24.i:                                       ; preds = %while.end.i
-  %call25.i = call i32 @__sched_cpucount(i64 noundef %sub13.i, ptr noundef nonnull %call14.i) #22
-  %tobool.not15.i = icmp eq i32 %call25.i, 0
-  br i1 %tobool.not15.i, label %for.end.i, label %for.body.i
+  %call25.i = call i32 @__sched_cpucount(i64 noundef %sub14.i, ptr noundef nonnull %call15.i) #22
+  %tobool.not16.i = icmp eq i32 %call25.i, 0
+  br i1 %tobool.not16.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end24.i, %for.inc.i
-  %cpu.017.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end24.i ]
-  %count.016.i = phi i32 [ %count.1.i, %for.inc.i ], [ %call25.i, %if.end24.i ]
-  %conv26.i = sext i32 %cpu.017.i to i64
+  %cpu.018.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.end24.i ]
+  %count.017.i = phi i32 [ %count.1.i, %for.inc.i ], [ %call25.i, %if.end24.i ]
+  %conv26.i = sext i32 %cpu.018.i to i64
   %div2729.i = lshr i64 %conv26.i, 3
-  %cmp28.i = icmp ult i64 %div2729.i, %sub13.i
+  %cmp28.i = icmp ult i64 %div2729.i, %sub14.i
   br i1 %cmp28.i, label %cond.end.i, label %for.inc.i
 
 cond.end.i:                                       ; preds = %for.body.i
   %div3030.i = lshr i64 %conv26.i, 6
-  %arrayidx.i = getelementptr i64, ptr %call14.i, i64 %div3030.i
+  %arrayidx.i = getelementptr i64, ptr %call15.i, i64 %div3030.i
   %4 = load i64, ptr %arrayidx.i, align 8
   %rem.i = and i64 %conv26.i, 63
-  %shl.i = shl nuw i64 1, %rem.i
-  %and.i = and i64 %4, %shl.i
-  %cmp31.not.i = icmp eq i64 %and.i, 0
-  br i1 %cmp31.not.i, label %for.inc.i, label %if.then34.i
+  %5 = shl nuw i64 1, %rem.i
+  %6 = and i64 %4, %5
+  %tobool33.not.i = icmp eq i64 %6, 0
+  br i1 %tobool33.not.i, label %for.inc.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %cond.end.i
   %call36.i = call ptr @PyLong_FromLong(i64 noundef %conv26.i) #22
-  %dec.i = add i32 %count.016.i, -1
+  %dec.i = add i32 %count.017.i, -1
   %cmp37.i = icmp eq ptr %call36.i, null
   br i1 %cmp37.i, label %if.then47.i, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then34.i
   %call41.i = call i32 @PySet_Add(ptr noundef nonnull %call20.i, ptr noundef nonnull %call36.i) #22
   %tobool42.not.i = icmp eq i32 %call41.i, 0
-  %5 = load i64, ptr %call36.i, align 8
-  %6 = and i64 %5, 2147483648
-  %cmp.i62.not.i = icmp eq i64 %6, 0
+  %7 = load i64, ptr %call36.i, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i62.not.i = icmp eq i64 %8, 0
   br i1 %tobool42.not.i, label %if.end44.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end40.i
   br i1 %cmp.i62.not.i, label %if.end.i52.i, label %if.then47.i
 
 if.end.i52.i:                                     ; preds = %if.then43.i
-  %dec.i53.i = add i64 %5, -1
+  %dec.i53.i = add i64 %7, -1
   store i64 %dec.i53.i, ptr %call36.i, align 8
   %cmp.i54.i = icmp eq i64 %dec.i53.i, 0
   br i1 %cmp.i54.i, label %if.then1.i55.i, label %if.then47.i
@@ -10744,7 +10744,7 @@ if.end44.i:                                       ; preds = %if.end40.i
   br i1 %cmp.i62.not.i, label %if.end.i.i, label %for.inc.i
 
 if.end.i.i:                                       ; preds = %if.end44.i
-  %dec.i.i = add i64 %5, -1
+  %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %call36.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc.i
@@ -10754,24 +10754,24 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i.i, %if.end.i.i, %if.end44.i, %cond.end.i, %for.body.i
-  %count.1.i = phi i32 [ %dec.i, %if.end44.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %count.016.i, %cond.end.i ], [ %count.016.i, %for.body.i ]
-  %inc.i = add i32 %cpu.017.i, 1
+  %count.1.i = phi i32 [ %dec.i, %if.end44.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %count.017.i, %cond.end.i ], [ %count.017.i, %for.body.i ]
+  %inc.i = add i32 %cpu.018.i, 1
   %tobool.not.i = icmp eq i32 %count.1.i, 0
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end24.i
-  call void @__sched_cpufree(ptr noundef nonnull %call14.i) #22
+  call void @__sched_cpufree(ptr noundef nonnull %call15.i) #22
   br label %exit
 
 if.then47.i:                                      ; preds = %if.then34.i, %if.then1.i55.i, %if.end.i52.i, %if.then43.i
-  call void @__sched_cpufree(ptr noundef nonnull %call14.i) #22
-  %7 = load i64, ptr %call20.i, align 8
-  %8 = and i64 %7, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %8, 0
+  call void @__sched_cpufree(ptr noundef nonnull %call15.i) #22
+  %9 = load i64, ptr %call20.i, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %10, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %exit
 
 if.end.i.i.i:                                     ; preds = %if.then47.i
-  %dec.i.i.i = add i64 %7, -1
+  %dec.i.i.i = add i64 %9, -1
   store i64 %dec.i.i.i, ptr %call20.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %exit

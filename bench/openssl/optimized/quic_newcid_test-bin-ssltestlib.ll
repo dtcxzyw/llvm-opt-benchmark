@@ -1885,9 +1885,9 @@ entry:
   store i64 0, ptr %tv_usec, align 8
   %call = call i32 @select(i32 noundef %add, ptr noundef nonnull %readfds, ptr noundef null, ptr noundef null, ptr noundef nonnull %timeout) #13
   %1 = load i64, ptr %arrayidx4, align 8
-  %and = and i64 %1, %shl
-  %cmp12 = icmp ne i64 %and, 0
-  %conv13 = zext i1 %cmp12 to i32
+  %2 = lshr i64 %1, %sh_prom
+  %3 = trunc i64 %2 to i32
+  %conv13 = and i32 %3, 1
   ret i32 %conv13
 }
 

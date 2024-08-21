@@ -3404,8 +3404,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6th
   %17 = load i64, ptr %second.i4.i.i.i, align 8
   %18 = shl nuw i64 1, %3
   %19 = and i64 %17, %18
-  %tobool.i6.i.i.i.not = icmp eq i64 %19, 0
-  br i1 %tobool.i6.i.i.i.not, label %if.end5, label %return
+  %tobool.i.i.i.i.not = icmp eq i64 %19, 0
+  br i1 %tobool.i.i.i.i.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory28VirtualTermSkolemAttributeIdEbEEEENT_10value_typeERKS9_.exit
   %d_quant = getelementptr inbounds i8, ptr %this, i64 16

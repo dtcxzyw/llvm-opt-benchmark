@@ -3933,11 +3933,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %16 = load i64, ptr %second.i4.i.i.i, align 8
   %17 = shl nuw i64 1, %2
   %18 = and i64 %16, %17
-  %tobool.i6.i.i.i = icmp ne i64 %18, 0
+  %tobool.i.i.i.i = icmp ne i64 %18, 0
   br label %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers21ModelBasisAttributeIdEbEEEENT_10value_typeERKSA_.exit
 
 _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers21ModelBasisAttributeIdEbEEEENT_10value_typeERKSA_.exit: ; preds = %if.end3.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i
-  %retval.0.i.i.i = phi i1 [ %tobool.i6.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i = phi i1 [ %tobool.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i.i ]
   ret i1 %retval.0.i.i.i
 }
 
@@ -6874,11 +6874,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %47 = load i64, ptr %second.i4.i.i.i, align 8
   %48 = shl nuw i64 1, %33
   %49 = and i64 %47, %48
-  %tobool.i6.i.i.i = icmp ne i64 %49, 0
+  %tobool.i.i.i.i = icmp ne i64 %49, 0
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i39, %if.end3.i.i.i.i.i.i.i.i37, %for.cond.i.i.i.i.i.i49, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i, %if.end15.i.i.i.i.i.i29
-  %retval.0.i.i.i = phi i1 [ %tobool.i6.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i29 ], [ false, %for.cond.i.i.i.i.i.i49 ], [ false, %if.end3.i.i.i.i.i.i.i.i37 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i39 ]
+  %retval.0.i.i.i = phi i1 [ %tobool.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i29 ], [ false, %for.cond.i.i.i.i.i.i49 ], [ false, %if.end3.i.i.i.i.i.i.i.i37 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i39 ]
   %bf.load.i.i56 = load i64, ptr %30, align 8
   %50 = and i64 %bf.load.i.i56, 1152920405095219200
   %cmp.not.i.i57 = icmp eq i64 %50, 1152920405095219200

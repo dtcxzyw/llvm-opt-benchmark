@@ -1307,11 +1307,10 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
 383:                                              ; preds = %378, %383
   %.0660758 = phi i32 [ 0, %378 ], [ %387, %383 ]
   %.1663757 = phi i8 [ %.0662759, %378 ], [ %spec.select722, %383 ]
-  %384 = shl nuw nsw i32 1, %.0660758
-  %385 = and i32 %384, %382
-  %.not712 = icmp ne i32 %385, 0
-  %386 = zext i1 %.not712 to i8
-  %spec.select722 = add i8 %.1663757, %386
+  %384 = lshr i32 %382, %.0660758
+  %385 = trunc nuw i32 %384 to i8
+  %386 = and i8 %385, 1
+  %spec.select722 = add i8 %386, %.1663757
   %387 = add nuw nsw i32 %.0660758, 1
   %exitcond789.not = icmp eq i32 %387, 8
   br i1 %exitcond789.not, label %388, label %383, !llvm.loop !7

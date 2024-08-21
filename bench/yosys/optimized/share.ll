@@ -126413,10 +126413,9 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit104: ; preds = %_ZN
   %.sroa.0208.4306 = phi ptr [ %.sroa.0208.12, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit115 ], [ %.sroa.0208.11, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit104 ]
   %.sroa.22.2305 = phi ptr [ %.sroa.22.10, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit115 ], [ %.sroa.22.9, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit104 ]
   %.sroa.57.2304 = phi ptr [ %.sroa.57.10, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit115 ], [ %.sroa.57.9, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit104 ]
-  %89 = shl nuw i32 1, %.037307
-  %90 = and i32 %89, %87
-  %.not46 = icmp ne i32 %90, 0
-  %91 = zext i1 %.not46 to i8
+  %89 = lshr i32 %87, %.037307
+  %90 = trunc i32 %89 to i8
+  %91 = and i8 %90, 1
   %.not.i.i105 = icmp eq ptr %.sroa.22.2305, %.sroa.57.2304
   br i1 %.not.i.i105, label %93, label %92
 
@@ -126493,10 +126492,9 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit115: ; preds = %_ZN
   %.sroa.0208.5315 = phi ptr [ %.sroa.0208.13, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit126 ], [ %.sroa.0208.12, %.lr.ph318.preheader ]
   %.sroa.22.3314 = phi ptr [ %.sroa.22.11, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit126 ], [ %.sroa.22.10, %.lr.ph318.preheader ]
   %.sroa.57.3313 = phi ptr [ %.sroa.57.11, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit126 ], [ %.sroa.57.10, %.lr.ph318.preheader ]
-  %114 = shl nuw i32 1, %.0316
-  %115 = and i32 %114, %113
-  %.not45 = icmp ne i32 %115, 0
-  %116 = zext i1 %.not45 to i8
+  %114 = lshr i32 %113, %.0316
+  %115 = trunc i32 %114 to i8
+  %116 = and i8 %115, 1
   %.not.i.i116 = icmp eq ptr %.sroa.22.3314, %.sroa.57.3313
   br i1 %.not.i.i116, label %118, label %117
 

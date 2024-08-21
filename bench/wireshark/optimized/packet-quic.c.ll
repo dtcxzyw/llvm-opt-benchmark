@@ -4537,7 +4537,7 @@ define internal fastcc ptr @quic_connection_find(ptr noundef %0, i8 noundef zero
   %23 = icmp eq i8 %1, 0
   %24 = icmp ne ptr %.1, null
   %or.cond3 = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond3, label %25, label %.loopexit108
+  br i1 %or.cond3, label %25, label %.loopexit107
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %3, align 4
@@ -4585,34 +4585,34 @@ quic_connection_equal.exit.thread:                ; preds = %29, %quic_connectio
 44:                                               ; preds = %41, %38
   %45 = load ptr, ptr %.01015.i, align 8
   %.not.i73 = icmp eq ptr %45, null
-  br i1 %.not.i73, label %.loopexit108, label %38, !llvm.loop !4
+  br i1 %.not.i73, label %.loopexit107, label %38, !llvm.loop !4
 
 quic_cids_has_match.exit:                         ; preds = %41
   %46 = getelementptr inbounds i8, ptr %.01015.i, i64 56
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %2, i64 48
   store i64 %47, ptr %48, align 8
-  br label %.loopexit108
+  br label %.loopexit107
 
-.loopexit108:                                     ; preds = %44, %quic_cids_has_match.exit, %22
+.loopexit107:                                     ; preds = %44, %quic_cids_has_match.exit, %22
   %.0 = phi ptr [ %.1, %22 ], [ %.1, %quic_cids_has_match.exit ], [ null, %44 ]
   %49 = icmp ne ptr %.0, null
   %or.cond5 = select i1 %5, i1 true, i1 %49
   br i1 %or.cond5, label %.thread97, label %50
 
-50:                                               ; preds = %.loopexit108
+50:                                               ; preds = %.loopexit107
   %51 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #15
   %.not.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i, label %.lr.ph121.preheader, label %52
+  br i1 %.not.i.i, label %.lr.ph120.preheader, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr @proto_quic, align 4
   %54 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %51, i32 noundef %53) #15
   %.not18.i = icmp eq ptr %54, null
-  br i1 %.not18.i, label %.lr.ph121.preheader, label %55
+  br i1 %.not18.i, label %.lr.ph120.preheader, label %55
 
-.lr.ph121.preheader:                              ; preds = %quic_cids_has_match.exit87.thread.loopexit.us, %quic_cids_has_match.exit87.thread, %50, %52
-  br label %.lr.ph121
+.lr.ph120.preheader:                              ; preds = %quic_cids_has_match.exit87.thread.loopexit.us, %quic_cids_has_match.exit87.thread, %50, %52
+  br label %.lr.ph120
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %54, i64 32
@@ -4660,8 +4660,8 @@ quic_cids_has_match.exit:                         ; preds = %41
   br label %.thread102.us
 
 .thread102.us:                                    ; preds = %quic_cids_has_match.exit87.thread.loopexit.us, %.lr.ph.split.us
-  %.3117.us = phi ptr [ %54, %.lr.ph.split.us ], [ %95, %quic_cids_has_match.exit87.thread.loopexit.us ]
-  %85 = getelementptr inbounds i8, ptr %.3117.us, i64 496
+  %.3116.us = phi ptr [ %54, %.lr.ph.split.us ], [ %95, %quic_cids_has_match.exit87.thread.loopexit.us ]
+  %85 = getelementptr inbounds i8, ptr %.3116.us, i64 496
   br label %86
 
 86:                                               ; preds = %92, %.thread102.us
@@ -4684,10 +4684,10 @@ quic_cids_has_match.exit:                         ; preds = %41
   br i1 %.not.i85.us, label %quic_cids_has_match.exit87.thread.loopexit.us, label %86, !llvm.loop !4
 
 quic_cids_has_match.exit87.thread.loopexit.us:    ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %.3117.us, i64 688
+  %94 = getelementptr inbounds i8, ptr %.3116.us, i64 688
   %95 = load ptr, ptr %94, align 8
   %.not63.us = icmp eq ptr %95, null
-  br i1 %.not63.us, label %.lr.ph121.preheader, label %.thread102.us, !llvm.loop !17
+  br i1 %.not63.us, label %.lr.ph120.preheader, label %.thread102.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %74, %76
   store i32 1, ptr %3, align 4
@@ -4696,8 +4696,8 @@ quic_cids_has_match.exit87.thread.loopexit.us:    ; preds = %92
   br label %98
 
 98:                                               ; preds = %.lr.ph.split, %quic_cids_has_match.exit87.thread
-  %.3117 = phi ptr [ %54, %.lr.ph.split ], [ %109, %quic_cids_has_match.exit87.thread ]
-  %99 = getelementptr inbounds i8, ptr %.3117, i64 432
+  %.3116 = phi ptr [ %54, %.lr.ph.split ], [ %109, %quic_cids_has_match.exit87.thread ]
+  %99 = getelementptr inbounds i8, ptr %.3116, i64 432
   br label %100
 
 100:                                              ; preds = %106, %98
@@ -4720,26 +4720,26 @@ quic_cids_has_match.exit87.thread.loopexit.us:    ; preds = %92
   br i1 %.not.i78, label %quic_cids_has_match.exit87.thread, label %100, !llvm.loop !4
 
 quic_cids_has_match.exit87.thread:                ; preds = %106
-  %108 = getelementptr inbounds i8, ptr %.3117, i64 688
+  %108 = getelementptr inbounds i8, ptr %.3116, i64 688
   %109 = load ptr, ptr %108, align 8
   %.not63 = icmp eq ptr %109, null
-  br i1 %.not63, label %.lr.ph121.preheader, label %98, !llvm.loop !17
+  br i1 %.not63, label %.lr.ph120.preheader, label %98, !llvm.loop !17
 
 .loopexit:                                        ; preds = %89, %103
   %.01015.i81.us.lcssa.sink = phi ptr [ %.01015.i74, %103 ], [ %.01015.i81.us, %89 ]
-  %.3114 = phi ptr [ %.3117, %103 ], [ %.3117.us, %89 ]
+  %.3113 = phi ptr [ %.3116, %103 ], [ %.3116.us, %89 ]
   %110 = getelementptr inbounds i8, ptr %.01015.i81.us.lcssa.sink, i64 56
   %111 = load i64, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %2, i64 48
   store i64 %111, ptr %112, align 8
   br label %.critedge71
 
-.lr.ph121:                                        ; preds = %.lr.ph121.preheader, %124
+.lr.ph120:                                        ; preds = %.lr.ph120.preheader, %124
   %113 = load i8, ptr %2, align 8
   %114 = icmp ugt i8 %113, 1
   br i1 %114, label %115, label %.critedge
 
-115:                                              ; preds = %.lr.ph121
+115:                                              ; preds = %.lr.ph120
   %116 = add i8 %113, -1
   store i8 %116, ptr %2, align 8
   %117 = load i32, ptr @quic_cid_lengths, align 4
@@ -4747,8 +4747,8 @@ quic_cids_has_match.exit87.thread:                ; preds = %106
   %119 = zext nneg i8 %116 to i64
   %120 = shl nuw i64 1, %119
   %121 = and i64 %120, %118
-  %.not107 = icmp eq i64 %121, 0
-  br i1 %.not107, label %124, label %122
+  %.not69 = icmp eq i64 %121, 0
+  br i1 %.not69, label %124, label %122
 
 122:                                              ; preds = %115
   %123 = tail call fastcc ptr @quic_connection_find_dcid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3)
@@ -4757,14 +4757,14 @@ quic_cids_has_match.exit87.thread:                ; preds = %106
 124:                                              ; preds = %122, %115
   %.5 = phi ptr [ %123, %122 ], [ null, %115 ]
   %.not68 = icmp eq ptr %.5, null
-  br i1 %.not68, label %.lr.ph121, label %.critedge71, !llvm.loop !18
+  br i1 %.not68, label %.lr.ph120, label %.critedge71, !llvm.loop !18
 
-.critedge:                                        ; preds = %.lr.ph121
+.critedge:                                        ; preds = %.lr.ph120
   store i8 0, ptr %2, align 8
   br label %.thread97
 
 .critedge71:                                      ; preds = %124, %.loopexit
-  %.4.lcssa = phi ptr [ %.3114, %.loopexit ], [ %.5, %124 ]
+  %.4.lcssa = phi ptr [ %.3113, %.loopexit ], [ %.5, %124 ]
   %125 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #15
   %.not.i88 = icmp eq ptr %125, null
   br i1 %.not.i88, label %quic_connection_from_conv.exit.thread, label %quic_connection_from_conv.exit
@@ -4785,8 +4785,8 @@ quic_connection_from_conv.exit.thread:            ; preds = %.critedge71, %quic_
   tail call void @conversation_add_proto_data(ptr noundef nonnull %129, i32 noundef %131, ptr noundef nonnull %.4.lcssa) #15
   br label %.thread97
 
-.thread97:                                        ; preds = %16, %18, %9, %quic_connection_equal.exit, %27, %25, %.critedge, %quic_connection_from_conv.exit.thread, %130, %quic_connection_from_conv.exit, %.loopexit108
-  %.2 = phi ptr [ %.0, %.loopexit108 ], [ %.4.lcssa, %130 ], [ %.4.lcssa, %quic_connection_from_conv.exit.thread ], [ %.4.lcssa, %quic_connection_from_conv.exit ], [ null, %.critedge ], [ %.1, %27 ], [ %.1, %quic_connection_equal.exit ], [ %.1, %25 ], [ %11, %9 ], [ null, %18 ], [ null, %16 ]
+.thread97:                                        ; preds = %16, %18, %9, %quic_connection_equal.exit, %27, %25, %.critedge, %quic_connection_from_conv.exit.thread, %130, %quic_connection_from_conv.exit, %.loopexit107
+  %.2 = phi ptr [ %.0, %.loopexit107 ], [ %.4.lcssa, %130 ], [ %.4.lcssa, %quic_connection_from_conv.exit.thread ], [ %.4.lcssa, %quic_connection_from_conv.exit ], [ null, %.critedge ], [ %.1, %27 ], [ %.1, %quic_connection_equal.exit ], [ %.1, %25 ], [ %11, %9 ], [ null, %18 ], [ null, %16 ]
   ret ptr %.2
 }
 
@@ -4825,8 +4825,8 @@ define internal fastcc ptr @quic_connection_find_dcid(ptr noundef %0, ptr nounde
   %11 = zext nneg i8 %7 to i64
   %12 = shl nuw i64 1, %11
   %13 = and i64 %12, %10
-  %.not25 = icmp eq i64 %13, 0
-  br i1 %.not25, label %63, label %14
+  %.not19 = icmp eq i64 %13, 0
+  br i1 %.not19, label %63, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr @quic_client_connections, align 8

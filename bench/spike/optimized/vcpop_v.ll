@@ -529,11 +529,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !6
@@ -559,11 +558,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !7
@@ -1118,11 +1116,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !11
@@ -1148,11 +1145,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !12
@@ -1675,11 +1671,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !16
@@ -1705,11 +1700,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !17
@@ -2234,11 +2228,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !21
@@ -2264,11 +2257,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !22
@@ -2791,11 +2783,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !26
@@ -2821,11 +2812,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !27
@@ -3350,11 +3340,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !31
@@ -3380,11 +3369,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !32
@@ -3907,11 +3895,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !36
@@ -3937,11 +3924,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !37
@@ -4466,11 +4452,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0135205 = phi i64 [ 0, %.lr.ph207 ], [ %234, %229 ]
   %.0136204 = phi i8 [ 0, %.lr.ph207 ], [ %spec.select148, %229 ]
   %230 = trunc i64 %.0135205 to i32
-  %231 = shl nuw i32 1, %230
-  %232 = and i32 %231, %228
-  %.not146 = icmp ne i32 %232, 0
-  %233 = zext i1 %.not146 to i8
-  %spec.select148 = add i8 %.0136204, %233
+  %231 = lshr i32 %228, %230
+  %232 = trunc nuw i32 %231 to i8
+  %233 = and i8 %232, 1
+  %spec.select148 = add i8 %233, %.0136204
   %234 = add nuw i64 %.0135205, 1
   %exitcond221.not = icmp eq i64 %234, %226
   br i1 %exitcond221.not, label %._crit_edge208, label %229, !llvm.loop !41
@@ -4496,11 +4481,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0132199 = phi i64 [ 0, %.lr.ph201 ], [ %246, %241 ]
   %.0133198 = phi i16 [ 0, %.lr.ph201 ], [ %spec.select149, %241 ]
   %242 = trunc i64 %.0132199 to i32
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %243, %240
-  %.not145 = icmp ne i32 %244, 0
-  %245 = zext i1 %.not145 to i16
-  %spec.select149 = add i16 %.0133198, %245
+  %243 = lshr i32 %240, %242
+  %244 = trunc nuw i32 %243 to i16
+  %245 = and i16 %244, 1
+  %spec.select149 = add i16 %245, %.0133198
   %246 = add nuw i64 %.0132199, 1
   %exitcond220.not = icmp eq i64 %246, %238
   br i1 %exitcond220.not, label %._crit_edge202, label %241, !llvm.loop !42

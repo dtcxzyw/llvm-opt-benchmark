@@ -4494,11 +4494,11 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %750 = zext i16 %749 to i32
   %751 = and i32 %733, 255
   %752 = shl nuw i32 1, %751
-  %753 = and i32 %752, %750
-  %754 = icmp ne i32 %753, 0
-  %755 = getelementptr inbounds i8, ptr %1, i64 204
-  %756 = zext i1 %754 to i8
-  store i8 %756, ptr %755, align 4
+  %753 = getelementptr inbounds i8, ptr %1, i64 204
+  %754 = lshr i32 %750, %751
+  %755 = trunc i32 %754 to i8
+  %756 = and i8 %755, 1
+  store i8 %756, ptr %753, align 4
   %757 = getelementptr i8, ptr %738, i64 49
   %758 = load i16, ptr %757, align 1
   %759 = zext i16 %758 to i32
@@ -4530,11 +4530,11 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %776 = getelementptr i8, ptr %738, i64 77
   %777 = load i16, ptr %776, align 1
   %778 = zext i16 %777 to i32
-  %779 = and i32 %752, %778
-  %780 = icmp ne i32 %779, 0
-  %781 = getelementptr inbounds i8, ptr %1, i64 201
-  %782 = zext i1 %780 to i8
-  store i8 %782, ptr %781, align 1
+  %779 = getelementptr inbounds i8, ptr %1, i64 201
+  %780 = lshr i32 %778, %751
+  %781 = trunc i32 %780 to i8
+  %782 = and i8 %781, 1
+  store i8 %782, ptr %779, align 1
   %.pr = load i16, ptr %160, align 8
   %783 = icmp ugt i16 %.pr, 232
   br i1 %783, label %784, label %.thread82.preheader
@@ -4543,9 +4543,9 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %785 = getelementptr i8, ptr %738, i64 79
   %786 = load i16, ptr %785, align 1
   %787 = zext i16 %786 to i32
-  %788 = and i32 %752, %787
-  %789 = icmp ne i32 %788, 0
-  %790 = zext i1 %789 to i8
+  %788 = lshr i32 %787, %751
+  %789 = trunc i32 %788 to i8
+  %790 = and i8 %789, 1
   store i8 %790, ptr %734, align 4
   br label %.thread82.preheader
 

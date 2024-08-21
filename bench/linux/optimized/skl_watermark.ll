@@ -8190,15 +8190,14 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr nocapture readonl
 96:                                               ; preds = %53
   %97 = zext i8 %0 to i64
   %98 = zext nneg i32 %.1648.val to i64
-  %99 = shl nuw i64 1, %98
-  %100 = and i64 %99, %97
-  %101 = icmp ne i64 %100, 0
-  %102 = zext i1 %101 to i8
+  %99 = lshr i64 %97, %98
+  %100 = trunc nuw i64 %99 to i8
+  %101 = and i8 %100, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %91, %70, %48, %96, %86, %65, %43, %18
-  %103 = phi i8 [ %102, %96 ], [ %22, %18 ], [ %47, %43 ], [ %69, %65 ], [ %90, %86 ], [ 0, %48 ], [ 0, %70 ], [ 0, %91 ], [ 0, %23 ]
-  ret i8 %103
+  %102 = phi i8 [ %101, %96 ], [ %22, %18 ], [ %47, %43 ], [ %69, %65 ], [ %90, %86 ], [ 0, %48 ], [ 0, %70 ], [ 0, %91 ], [ 0, %23 ]
+  ret i8 %102
 }
 
 ; Function Attrs: null_pointer_is_valid

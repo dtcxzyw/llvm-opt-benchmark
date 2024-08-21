@@ -213,11 +213,10 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK8PhaseIFG9test_edgeEjj(ptr nocapt
   %17 = zext nneg i32 %14 to i64
   %18 = getelementptr inbounds i64, ptr %12, i64 %17
   %19 = load i64, ptr %18, align 8
-  %20 = shl nuw i64 1, %16
-  %21 = and i64 %19, %20
-  %22 = icmp ne i64 %21, 0
-  %23 = zext i1 %22 to i32
-  ret i32 %23
+  %20 = lshr i64 %19, %16
+  %21 = trunc i64 %20 to i32
+  %22 = and i32 %21, 1
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -606,11 +605,10 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK8PhaseIFG12test_edge_sqEjj(ptr no
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds i64, ptr %19, i64 %24
   %26 = load i64, ptr %25, align 8
-  %27 = shl nuw i64 1, %23
-  %28 = and i64 %27, %26
-  %29 = icmp ne i64 %28, 0
-  %30 = zext i1 %29 to i32
-  ret i32 %30
+  %27 = lshr i64 %26, %23
+  %28 = trunc i64 %27 to i32
+  %29 = and i32 %28, 1
+  ret i32 %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

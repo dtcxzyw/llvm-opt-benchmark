@@ -3118,8 +3118,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS4_22H
   %16 = load i64, ptr %second.i4.i.i.i, align 8
   %17 = shl nuw i64 1, %2
   %18 = and i64 %16, %17
-  %tobool.i6.i.i.i.not = icmp eq i64 %18, 0
-  br i1 %tobool.i6.i.i.i.not, label %if.then, label %if.end39
+  %tobool.i.i.i.i.not = icmp eq i64 %18, 0
+  br i1 %tobool.i.i.i.i.not, label %if.then, label %if.end39
 
 if.then:                                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS4_22HasBoundVarComputedTagEbEEEENT_10value_typeERKS8_.exit
   store i8 0, ptr %hasBv, align 1
@@ -3320,11 +3320,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %50 = load i64, ptr %second.i4.i.i.i148, align 8
   %51 = shl nuw i64 1, %36
   %52 = and i64 %50, %51
-  %tobool.i6.i.i.i149 = icmp ne i64 %52, 0
+  %tobool.i.i.i.i149 = icmp ne i64 %52, 0
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i137, %if.end3.i.i.i.i.i.i.i.i134, %for.cond.i.i.i.i.i.i152, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i146, %if.end15.i.i.i.i.i.i121, %cond.end
-  %retval.0 = phi i1 [ %tobool38, %cond.end ], [ %tobool.i6.i.i.i149, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i146 ], [ false, %if.end15.i.i.i.i.i.i121 ], [ false, %for.cond.i.i.i.i.i.i152 ], [ false, %if.end3.i.i.i.i.i.i.i.i134 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i137 ]
+  %retval.0 = phi i1 [ %tobool38, %cond.end ], [ %tobool.i.i.i.i149, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i146 ], [ false, %if.end15.i.i.i.i.i.i121 ], [ false, %for.cond.i.i.i.i.i.i152 ], [ false, %if.end3.i.i.i.i.i.i.i.i134 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i137 ]
   ret i1 %retval.0
 }
 
@@ -4646,8 +4646,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS4_21H
   %16 = load i64, ptr %second.i4.i.i.i, align 8
   %17 = shl nuw i64 1, %2
   %18 = and i64 %16, %17
-  %tobool.i6.i.i.i.not = icmp eq i64 %18, 0
-  br i1 %tobool.i6.i.i.i.not, label %if.then, label %if.end24
+  %tobool.i.i.i.i.not = icmp eq i64 %18, 0
+  br i1 %tobool.i.i.i.i.not, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS4_21HasClosureComputedTagEbEEEENT_10value_typeERKS8_.exit
   store i8 0, ptr %hasC, align 1
@@ -4915,11 +4915,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %56 = load i64, ptr %second.i4.i.i.i55, align 8
   %57 = shl nuw i64 1, %42
   %58 = and i64 %56, %57
-  %tobool.i6.i.i.i56 = icmp ne i64 %58, 0
+  %tobool.i.i.i.i56 = icmp ne i64 %58, 0
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i44, %if.end3.i.i.i.i.i.i.i.i41, %for.cond.i.i.i.i.i.i59, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i53, %if.end15.i.i.i.i.i.i28, %if.end19
-  %retval.0 = phi i1 [ %tobool23, %if.end19 ], [ %tobool.i6.i.i.i56, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i53 ], [ false, %if.end15.i.i.i.i.i.i28 ], [ false, %for.cond.i.i.i.i.i.i59 ], [ false, %if.end3.i.i.i.i.i.i.i.i41 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i44 ]
+  %retval.0 = phi i1 [ %tobool23, %if.end19 ], [ %tobool.i.i.i.i56, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i53 ], [ false, %if.end15.i.i.i.i.i.i28 ], [ false, %for.cond.i.i.i.i.i.i59 ], [ false, %if.end3.i.i.i.i.i.i.i.i41 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i44 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad15, %lpad
@@ -9534,8 +9534,8 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS4_29H
   %16 = load i64, ptr %second.i4.i.i.i, align 8
   %17 = shl nuw i64 1, %2
   %18 = and i64 %16, %17
-  %tobool.i6.i.i.i.not = icmp eq i64 %18, 0
-  br i1 %tobool.i6.i.i.i.not, label %if.then, label %if.end29
+  %tobool.i.i.i.i.not = icmp eq i64 %18, 0
+  br i1 %tobool.i.i.i.i.not, label %if.then, label %if.end29
 
 if.then:                                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb0EE12getAttributeINS0_4expr9AttributeINS4_29HasAbstractSubtermComputedTagEbEEEENT_10value_typeERKS8_.exit
   store i8 0, ptr %hasAbs, align 1
@@ -9774,11 +9774,11 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %56 = load i64, ptr %second.i4.i.i.i51, align 8
   %57 = shl nuw i64 1, %42
   %58 = and i64 %56, %57
-  %tobool.i6.i.i.i52 = icmp ne i64 %58, 0
+  %tobool.i.i.i.i52 = icmp ne i64 %58, 0
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i40, %if.end3.i.i.i.i.i.i.i.i37, %for.cond.i.i.i.i.i.i55, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i49, %if.end15.i.i.i.i.i.i24, %if.end24
-  %retval.0 = phi i1 [ %tobool28, %if.end24 ], [ %tobool.i6.i.i.i52, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i49 ], [ false, %if.end15.i.i.i.i.i.i24 ], [ false, %for.cond.i.i.i.i.i.i55 ], [ false, %if.end3.i.i.i.i.i.i.i.i37 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i40 ]
+  %retval.0 = phi i1 [ %tobool28, %if.end24 ], [ %tobool.i.i.i.i52, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i49 ], [ false, %if.end15.i.i.i.i.i.i24 ], [ false, %for.cond.i.i.i.i.i.i55 ], [ false, %if.end3.i.i.i.i.i.i.i.i37 ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i40 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad21, %lpad

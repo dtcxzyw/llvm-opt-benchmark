@@ -852,16 +852,16 @@ invoke.cont21:                                    ; preds = %for.cond.i.i.i.i.i.
   %23 = load i64, ptr %second.i4.i.i.i, align 8
   %24 = shl nuw i64 1, %9
   %25 = and i64 %23, %24
-  %tobool.i6.i.i.i.not = icmp eq i64 %25, 0
-  br i1 %tobool.i6.i.i.i.not, label %cond.true26, label %if.end.lor.rhs_crit_edge
+  %tobool.i.i.i.i.not = icmp eq i64 %25, 0
+  br i1 %tobool.i.i.i.i.not, label %cond.true26, label %if.end.lor.rhs_crit_edge
 
 invoke.cont21.thread2044:                         ; preds = %if.end.i.i.i.i.i.i.i.i
   %second.i4.i.i.i2046 = getelementptr inbounds i8, ptr %15, i64 16
   %26 = load i64, ptr %second.i4.i.i.i2046, align 8
   %27 = shl nuw i64 1, %9
   %28 = and i64 %26, %27
-  %tobool.i6.i.i.i2047.not = icmp eq i64 %28, 0
-  br i1 %tobool.i6.i.i.i2047.not, label %cond.true26, label %lor.rhs
+  %tobool.i.i.i.i2047.not = icmp eq i64 %28, 0
+  br i1 %tobool.i.i.i.i2047.not, label %cond.true26, label %lor.rhs
 
 cond.true26:                                      ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %invoke.cont21.thread2044, %invoke.cont21
   call void @llvm.experimental.noalias.scope.decl(metadata !8)

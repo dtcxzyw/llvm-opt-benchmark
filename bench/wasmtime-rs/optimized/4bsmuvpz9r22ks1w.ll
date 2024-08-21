@@ -7781,12 +7781,12 @@ _ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i:
   br i1 %switch.i4.i, label %33, label %31
 
 _ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i.thread: ; preds = %19, %23, %26, %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i
-  %.0.i.i40 = phi i32 [ %.0.i.i, %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i ], [ 4, %23 ], [ 7, %26 ], [ 3, %19 ]
+  %.0.i.i41 = phi i32 [ %.0.i.i, %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i ], [ 4, %23 ], [ 7, %26 ], [ 3, %19 ]
   %.sroa.42.0.extract.shift.i = lshr i64 %0, 32
   %.sroa.42.0.extract.trunc.i = trunc nuw i64 %.sroa.42.0.extract.shift.i to i32
-  %28 = shl nuw nsw i32 1, %.0.i.i40
-  %29 = and i32 %28, %.sroa.42.0.extract.trunc.i
-  %30 = icmp ne i32 %29, 0
+  %28 = and i32 %.sroa.42.0.extract.trunc.i, 255
+  %29 = lshr i32 %28, %.0.i.i41
+  %30 = trunc i32 %29 to i1
   br label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 
 31:                                               ; preds = %27
@@ -7795,15 +7795,15 @@ _ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i.
   br i1 %switch.i5.i, label %37, label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 
 33:                                               ; preds = %27
-  %34 = shl nuw nsw i32 1, %.0.i.i
-  %35 = and i32 %34, %.sroa.5.0.extract.trunc.i
-  %36 = icmp ne i32 %35, 0
+  %34 = and i32 %.sroa.5.0.extract.trunc.i, 255
+  %35 = lshr i32 %34, %.0.i.i
+  %36 = trunc i32 %35 to i1
   br label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 
 37:                                               ; preds = %31
-  %38 = shl nuw nsw i32 1, %.0.i.i
-  %39 = and i32 %38, %.sroa.6.0.extract.trunc.i
-  %40 = icmp ne i32 %39, 0
+  %38 = and i32 %.sroa.6.0.extract.trunc.i, 255
+  %39 = lshr i32 %38, %.0.i.i
+  %40 = trunc i32 %39 to i1
   br label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 
 _ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit: ; preds = %56, %52, %50, %46, %37, %33, %31, %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i.thread, %_ZN17cranelift_codegen2ir5types4Type19log2_min_lane_count17hc65a9532e95e3948E.exit, %_ZN17cranelift_codegen2ir5types4Type15log2_lane_count17h8254fe19b9e0a240E.exit
@@ -7812,54 +7812,54 @@ _ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831f
 
 41:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type19log2_min_lane_count17hc65a9532e95e3948E.exit
   %42 = and i16 %1, 15
-  %.sroa.5.0.extract.shift.i21 = lshr i64 %0, 40
-  %.sroa.5.0.extract.trunc.i22 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i21 to i32
-  %.sroa.6.0.extract.shift.i23 = lshr i64 %0, 48
-  %.sroa.6.0.extract.trunc.i24 = trunc nuw nsw i64 %.sroa.6.0.extract.shift.i23 to i32
+  %.sroa.5.0.extract.shift.i22 = lshr i64 %0, 40
+  %.sroa.5.0.extract.trunc.i23 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i22 to i32
+  %.sroa.6.0.extract.shift.i24 = lshr i64 %0, 48
+  %.sroa.6.0.extract.trunc.i25 = trunc nuw nsw i64 %.sroa.6.0.extract.shift.i24 to i32
   %switch.tableidx = add nsw i16 %42, -6
   %43 = icmp ult i16 %switch.tableidx, 10
-  br i1 %43, label %switch.lookup, label %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i26
+  br i1 %43, label %switch.lookup, label %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i27
 
 switch.lookup:                                    ; preds = %41
   %44 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN17cranelift_codegen2ir12instructions12ValueTypeSet8contains17hbd81f61bf30cd358E, i64 0, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i26
+  br label %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i27
 
-_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i26: ; preds = %switch.lookup, %41
-  %.0.i.i27 = phi i32 [ 0, %41 ], [ %switch.load, %switch.lookup ]
-  %.off.i.i28 = add nsw i16 %42, -6
-  %switch.i.i29 = icmp ult i16 %.off.i.i28, 5
-  br i1 %switch.i.i29, label %46, label %45
+_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i27: ; preds = %switch.lookup, %41
+  %.0.i.i28 = phi i32 [ 0, %41 ], [ %switch.load, %switch.lookup ]
+  %.off.i.i29 = add nsw i16 %42, -6
+  %switch.i.i30 = icmp ult i16 %.off.i.i29, 5
+  br i1 %switch.i.i30, label %46, label %45
 
-45:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i26
-  %.off.i3.i30 = add nsw i16 %42, -11
-  %switch.i4.i31 = icmp ult i16 %.off.i3.i30, 2
-  br i1 %switch.i4.i31, label %52, label %50
+45:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i27
+  %.off.i3.i31 = add nsw i16 %42, -11
+  %switch.i4.i32 = icmp ult i16 %.off.i3.i31, 2
+  br i1 %switch.i4.i32, label %52, label %50
 
-46:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i26
-  %.sroa.42.0.extract.shift.i34 = lshr i64 %0, 32
-  %.sroa.42.0.extract.trunc.i35 = trunc nuw i64 %.sroa.42.0.extract.shift.i34 to i32
-  %47 = shl nuw nsw i32 1, %.0.i.i27
-  %48 = and i32 %47, %.sroa.42.0.extract.trunc.i35
-  %49 = icmp ne i32 %48, 0
+46:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i27
+  %.sroa.42.0.extract.shift.i35 = lshr i64 %0, 32
+  %.sroa.42.0.extract.trunc.i36 = trunc nuw i64 %.sroa.42.0.extract.shift.i35 to i32
+  %47 = and i32 %.sroa.42.0.extract.trunc.i36, 255
+  %48 = lshr i32 %47, %.0.i.i28
+  %49 = trunc i32 %48 to i1
   br label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 
 50:                                               ; preds = %45
   %51 = and i16 %1, 14
-  %switch.i5.i32 = icmp eq i16 %51, 14
-  br i1 %switch.i5.i32, label %56, label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
+  %switch.i5.i33 = icmp eq i16 %51, 14
+  br i1 %switch.i5.i33, label %56, label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 
 52:                                               ; preds = %45
-  %53 = shl nuw nsw i32 1, %.0.i.i27
-  %54 = and i32 %53, %.sroa.5.0.extract.trunc.i22
-  %55 = icmp ne i32 %54, 0
+  %53 = and i32 %.sroa.5.0.extract.trunc.i23, 255
+  %54 = lshr i32 %53, %.0.i.i28
+  %55 = trunc i32 %54 to i1
   br label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 
 56:                                               ; preds = %50
-  %57 = shl nuw nsw i32 1, %.0.i.i27
-  %58 = and i32 %57, %.sroa.6.0.extract.trunc.i24
-  %59 = icmp ne i32 %58, 0
+  %57 = and i32 %.sroa.6.0.extract.trunc.i25, 255
+  %58 = lshr i32 %57, %.0.i.i28
+  %59 = trunc i32 %58 to i1
   br label %_ZN17cranelift_codegen2ir12instructions12ValueTypeSet12is_base_type17hf935b7831fa13ce6E.exit
 }
 

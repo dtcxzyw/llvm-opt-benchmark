@@ -227,11 +227,11 @@ target_to_host_signal.exit:                       ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %target_to_host_signal.exit
   %2 = add nsw i64 %indvars.iv, -1
-  %shl.i = shl nuw i64 1, %2
   %3 = load i64, ptr %s, align 8
-  %and.i = and i64 %3, %shl.i
-  %cmp.i.not = icmp eq i64 %and.i, 0
-  br i1 %cmp.i.not, label %for.inc, label %if.then5
+  %4 = shl nuw i64 1, %2
+  %5 = and i64 %3, %4
+  %tobool.not = icmp eq i64 %5, 0
+  br i1 %tobool.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   %call6 = tail call i32 @sigaddset(ptr noundef %d, i32 noundef %conv.i) #16
@@ -270,10 +270,10 @@ target_to_host_signal.exit.i:                     ; preds = %for.inc.i, %entry
 
 if.end.i:                                         ; preds = %target_to_host_signal.exit.i
   %3 = add nsw i64 %indvars.iv.i, -1
-  %shl.i.i = shl nuw i64 1, %3
-  %and.i.i = and i64 %shl.i.i, %0
-  %cmp.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %for.inc.i, label %if.then5.i
+  %4 = shl nuw i64 1, %3
+  %5 = and i64 %4, %0
+  %tobool.not.i = icmp eq i64 %5, 0
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %call6.i = tail call i32 @sigaddset(ptr noundef %d, i32 noundef %conv.i.i) #16
@@ -346,10 +346,10 @@ target_to_host_signal.exit.i.i:                   ; preds = %for.inc.i.i, %entry
 
 if.end.i.i:                                       ; preds = %target_to_host_signal.exit.i.i
   %3 = add nsw i64 %indvars.iv.i.i, -1
-  %shl.i.i.i = shl nuw i64 1, %3
-  %and.i.i.i = and i64 %shl.i.i.i, %0
-  %cmp.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp.i.not.i.i, label %for.inc.i.i, label %if.then5.i.i
+  %4 = shl nuw i64 1, %3
+  %5 = and i64 %4, %0
+  %tobool.not.i.i = icmp eq i64 %5, 0
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %call6.i.i = tail call i32 @sigaddset(ptr noundef %sigset, i32 noundef %conv.i.i.i) #16
@@ -2335,10 +2335,10 @@ target_to_host_signal.exit.i.i:                   ; preds = %for.inc.i.i, %if.el
 
 if.end.i.i:                                       ; preds = %target_to_host_signal.exit.i.i
   %12 = add nsw i64 %indvars.iv.i.i, -1
-  %shl.i.i.i = shl nuw i64 1, %12
-  %and.i.i.i40 = and i64 %shl.i.i.i, %9
-  %cmp.i.not.i.i41 = icmp eq i64 %and.i.i.i40, 0
-  br i1 %cmp.i.not.i.i41, label %for.inc.i.i, label %if.then5.i.i
+  %13 = shl nuw i64 1, %12
+  %14 = and i64 %13, %9
+  %tobool.not.i.i = icmp eq i64 %14, 0
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %call6.i.i = call i32 @sigaddset(ptr noundef nonnull %set, i32 noundef %conv.i.i.i) #16
@@ -2351,14 +2351,14 @@ for.inc.i.i:                                      ; preds = %if.then5.i.i, %if.e
 
 target_to_host_sigset.exit:                       ; preds = %for.inc.i.i
   %sa_flags = getelementptr inbounds i8, ptr %sa.0, i64 8
-  %13 = load i64, ptr %sa_flags, align 8
-  %and = and i64 %13, 1073741824
+  %15 = load i64, ptr %sa_flags, align 8
+  %and = and i64 %15, 1073741824
   %tobool42.not = icmp eq i64 %and, 0
   br i1 %tobool42.not, label %if.then43, label %if.end46
 
 if.then43:                                        ; preds = %target_to_host_sigset.exit
-  %cmp.i42 = icmp slt i32 %call1, 1
-  br i1 %cmp.i42, label %target_to_host_signal.exit, label %if.end.i
+  %cmp.i40 = icmp slt i32 %call1, 1
+  br i1 %cmp.i40, label %target_to_host_signal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then43
   %cmp1.i = icmp ugt i32 %call1, 64
@@ -2367,8 +2367,8 @@ if.end.i:                                         ; preds = %if.then43
 if.end3.i:                                        ; preds = %if.end.i
   %idxprom.i = zext nneg i32 %call1 to i64
   %arrayidx.i = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %idxprom.i
-  %14 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %14 to i32
+  %16 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %16 to i32
   br label %target_to_host_signal.exit
 
 target_to_host_signal.exit:                       ; preds = %if.then43, %if.end.i, %if.end3.i
@@ -2382,48 +2382,48 @@ if.end46:                                         ; preds = %target_to_host_sign
   br label %host_to_target_signal.exit.i
 
 host_to_target_signal.exit.i:                     ; preds = %for.inc.i, %if.end46
-  %15 = phi i64 [ 0, %if.end46 ], [ %19, %for.inc.i ]
+  %17 = phi i64 [ 0, %if.end46 ], [ %21, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 1, %if.end46 ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %indvars.iv.i
-  %16 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %16 to i32
-  %17 = add nsw i32 %conv.i.i, -65
-  %or.cond.i = icmp ult i32 %17, -64
-  br i1 %or.cond.i, label %for.inc.i, label %if.end.i43
+  %18 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %18 to i32
+  %19 = add nsw i32 %conv.i.i, -65
+  %or.cond.i = icmp ult i32 %19, -64
+  br i1 %or.cond.i, label %for.inc.i, label %if.end.i41
 
-if.end.i43:                                       ; preds = %host_to_target_signal.exit.i
-  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %call3.i = call i32 @sigismember(ptr noundef nonnull %signal_mask, i32 noundef %18) #16
+if.end.i41:                                       ; preds = %host_to_target_signal.exit.i
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %call3.i = call i32 @sigismember(ptr noundef nonnull %signal_mask, i32 noundef %20) #16
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.end.i43
+if.then4.i:                                       ; preds = %if.end.i41
   %dec.i.i = add nuw nsw i32 %conv.i.i, 63
   %rem.i.i = and i32 %dec.i.i, 63
   %sh_prom.i.i = zext nneg i32 %rem.i.i to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %or.i.i = or i64 %15, %shl.i.i
+  %or.i.i = or i64 %17, %shl.i.i
   store i64 %or.i.i, ptr %target_old_set, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then4.i, %if.end.i43, %host_to_target_signal.exit.i
-  %19 = phi i64 [ %or.i.i, %if.then4.i ], [ %15, %if.end.i43 ], [ %15, %host_to_target_signal.exit.i ]
+for.inc.i:                                        ; preds = %if.then4.i, %if.end.i41, %host_to_target_signal.exit.i
+  %21 = phi i64 [ %or.i.i, %if.then4.i ], [ %17, %if.end.i41 ], [ %17, %host_to_target_signal.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
   br i1 %exitcond.not.i, label %host_to_target_sigset_internal.exit, label %host_to_target_signal.exit.i, !llvm.loop !5
 
 host_to_target_sigset_internal.exit:              ; preds = %for.inc.i
   %in_sigsuspend = getelementptr inbounds i8, ptr %0, i64 9160
-  %20 = load i32, ptr %in_sigsuspend, align 8
-  %tobool47.not = icmp eq i32 %20, 0
+  %22 = load i32, ptr %in_sigsuspend, align 8
+  %tobool47.not = icmp eq i32 %22, 0
   %sigsuspend_mask = getelementptr inbounds i8, ptr %0, i64 9032
   %cond = select i1 %tobool47.not, ptr %signal_mask, ptr %sigsuspend_mask
   %call50 = call i32 @sigorset(ptr noundef nonnull %signal_mask, ptr noundef nonnull %cond, ptr noundef nonnull %set) #16
   store i32 0, ptr %in_sigsuspend, align 8
   %info52 = getelementptr inbounds i8, ptr %k, i64 8
   call void @setup_rt_frame(i32 noundef %call1, ptr noundef %sa.0, ptr noundef nonnull %info52, ptr noundef nonnull %target_old_set, ptr noundef %cpu_env) #16
-  %21 = load i64, ptr %sa_flags, align 8
-  %and54 = and i64 %21, 2147483648
+  %23 = load i64, ptr %sa_flags, align 8
+  %and54 = and i64 %23, 2147483648
   %tobool55.not = icmp eq i64 %and54, 0
   br i1 %tobool55.not, label %if.end61, label %if.then56
 
@@ -2467,10 +2467,10 @@ target_to_host_signal.exit.i.i:                   ; preds = %for.inc.i.i, %if.en
 
 if.end.i.i:                                       ; preds = %target_to_host_signal.exit.i.i
   %6 = add nsw i64 %indvars.iv.i.i, -1
-  %shl.i.i.i = shl nuw i64 1, %6
-  %and.i.i.i = and i64 %shl.i.i.i, %3
-  %cmp.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp.i.not.i.i, label %for.inc.i.i, label %if.then5.i.i
+  %7 = shl nuw i64 1, %6
+  %8 = and i64 %7, %3
+  %tobool.not.i.i = icmp eq i64 %8, 0
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %call6.i.i = tail call i32 @sigaddset(ptr noundef nonnull %sigsuspend_mask, i32 noundef %conv.i.i.i) #16

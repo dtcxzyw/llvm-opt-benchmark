@@ -700,12 +700,12 @@ define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h3
   %47 = getelementptr inbounds [0 x i64], ptr %46, i64 0, i64 %43
   %48 = load i64, ptr %47, align 8, !noundef !4
   %49 = and i64 %28, 63
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %48, %50
-  %52 = icmp eq i64 %51, 0
-  %53 = or i64 %48, %50
+  %50 = lshr i64 %48, %49
+  %51 = trunc i64 %50 to i1
+  %52 = shl nuw i64 1, %49
+  %53 = or i64 %48, %52
   store i64 %53, ptr %47, align 8
-  br i1 %52, label %71, label %54
+  br i1 %51, label %54, label %71
 
 54:                                               ; preds = %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$6insert17h7cd0574d6fce5137E.exit", %25
   %55 = getelementptr inbounds i8, ptr %0, i64 56

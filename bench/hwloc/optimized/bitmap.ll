@@ -3156,11 +3156,10 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isset(ptr nocapture noundef readonly %0
   %17 = phi i64 [ %11, %6 ], [ %15, %12 ]
   %18 = and i32 %1, 63
   %19 = zext nneg i32 %18 to i64
-  %20 = shl nuw i64 1, %19
-  %21 = and i64 %17, %20
-  %22 = icmp ne i64 %21, 0
-  %23 = zext i1 %22 to i32
-  ret i32 %23
+  %20 = lshr i64 %17, %19
+  %21 = trunc i64 %20 to i32
+  %22 = and i32 %21, 1
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

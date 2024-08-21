@@ -969,7 +969,7 @@ define internal fastcc void @__rate_control_send_low(ptr nocapture noundef reado
   %18 = or i16 %17, 8192
   store i16 %18, ptr %16, align 1
   store i8 0, ptr %15, align 8
-  br label %103
+  br label %104
 
 19:                                               ; preds = %5
   %20 = load i32, ptr %3, align 8
@@ -1015,12 +1015,12 @@ define internal fastcc void @__rate_control_send_low(ptr nocapture noundef reado
   %48 = icmp eq i64 %47, %35
   br i1 %48, label %.loopexit, label %.split.us, !llvm.loop !51
 
-.split:                                           ; preds = %30, %68
-  %49 = phi i64 [ %69, %68 ], [ 0, %30 ]
+.split:                                           ; preds = %30, %69
+  %49 = phi i64 [ %70, %69 ], [ 0, %30 ]
   %50 = shl nuw i64 1, %49
   %51 = and i64 %50, %31
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %68, label %53
+  br i1 %52, label %69, label %53
 
 53:                                               ; preds = %.split
   %54 = load ptr, ptr %32, align 8
@@ -1028,7 +1028,7 @@ define internal fastcc void @__rate_control_send_low(ptr nocapture noundef reado
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, %25
   %58 = icmp eq i32 %57, %25
-  br i1 %58, label %59, label %68
+  br i1 %58, label %59, label %69
 
 59:                                               ; preds = %53
   %60 = load i32, ptr %12, align 8
@@ -1037,80 +1037,80 @@ define internal fastcc void @__rate_control_send_low(ptr nocapture noundef reado
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = and i64 %50, %64
-  %.not = icmp eq i64 %65, 0
-  br i1 %.not, label %68, label %.thread
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %69, label %.thread
 
 .thread:                                          ; preds = %59, %40
   %.us-phi = phi i64 [ %36, %40 ], [ %49, %59 ]
-  %66 = trunc i64 %.us-phi to i32
-  %67 = trunc i64 %.us-phi to i8
-  store i8 %67, ptr %26, align 8
+  %67 = trunc i64 %.us-phi to i32
+  %68 = trunc i64 %.us-phi to i8
+  store i8 %68, ptr %26, align 8
   %.pre = load i32, ptr %27, align 8
   br label %.loopexit
 
-68:                                               ; preds = %59, %53, %.split
-  %69 = add nuw nsw i64 %49, 1
-  %70 = icmp eq i64 %69, %35
-  br i1 %70, label %.loopexit, label %.split, !llvm.loop !51
+69:                                               ; preds = %59, %53, %.split
+  %70 = add nuw nsw i64 %49, 1
+  %71 = icmp eq i64 %70, %35
+  br i1 %71, label %.loopexit, label %.split, !llvm.loop !51
 
-.loopexit:                                        ; preds = %68, %46, %.thread, %24
-  %71 = phi i32 [ %.pre, %.thread ], [ %28, %24 ], [ %28, %46 ], [ %28, %68 ]
-  %72 = phi i32 [ %66, %.thread ], [ 0, %24 ], [ %28, %46 ], [ %28, %68 ]
-  %73 = icmp ne i32 %72, %71
-  %74 = load i1, ptr @__rate_control_send_low.__already_done, align 1
-  %75 = select i1 %73, i1 true, i1 %74
-  br i1 %75, label %85, label %76, !prof !14
+.loopexit:                                        ; preds = %69, %46, %.thread, %24
+  %72 = phi i32 [ %.pre, %.thread ], [ %28, %24 ], [ %28, %46 ], [ %28, %69 ]
+  %73 = phi i32 [ %67, %.thread ], [ 0, %24 ], [ %28, %46 ], [ %28, %69 ]
+  %74 = icmp ne i32 %73, %72
+  %75 = load i1, ptr @__rate_control_send_low.__already_done, align 1
+  %76 = select i1 %74, i1 true, i1 %75
+  br i1 %76, label %86, label %77, !prof !14
 
-76:                                               ; preds = %.loopexit
+77:                                               ; preds = %.loopexit
   store i1 true, ptr @__rate_control_send_low.__already_done, align 1
   tail call void asm sideeffect "2979: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2979) #14, !srcloc !52
-  %77 = icmp eq ptr %2, null
+  %78 = icmp eq ptr %2, null
   %.pre11 = load i32, ptr %12, align 8
-  br i1 %77, label %83, label %78
+  br i1 %78, label %84, label %79
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %2, i64 212
-  %80 = zext i32 %.pre11 to i64
-  %81 = getelementptr [6 x i32], ptr %79, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4
-  br label %83
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %2, i64 212
+  %81 = zext i32 %.pre11 to i64
+  %82 = getelementptr [6 x i32], ptr %80, i64 0, i64 %81
+  %83 = load i32, ptr %82, align 4
+  br label %84
 
-83:                                               ; preds = %78, %76
-  %84 = phi i32 [ %82, %78 ], [ -1, %76 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.9, ptr noundef %2, i32 noundef %84, i32 noundef %.pre11, i32 noundef %4, i32 noundef %25) #14
+84:                                               ; preds = %79, %77
+  %85 = phi i32 [ %83, %79 ], [ -1, %77 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.9, ptr noundef %2, i32 noundef %85, i32 noundef %.pre11, i32 noundef %4, i32 noundef %25) #14
   tail call void asm sideeffect "2980: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2980) #14, !srcloc !53
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 385, i32 2313, i64 12) #14, !srcloc !54
   tail call void asm sideeffect "2981: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2981b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2981) #14, !srcloc !55
   tail call void asm sideeffect "2982: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2982b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2982) #14, !srcloc !56
-  br label %85
+  br label %86
 
-85:                                               ; preds = %83, %.loopexit
-  %86 = load i32, ptr %3, align 8
-  %87 = and i32 %86, 4
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %94
+86:                                               ; preds = %84, %.loopexit
+  %87 = load i32, ptr %3, align 8
+  %88 = and i32 %87, 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %95
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %0, i64 127
-  %91 = load i8, ptr %90, align 1
-  %92 = and i8 %91, 31
-  %93 = zext nneg i8 %92 to i16
-  br label %94
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds i8, ptr %0, i64 127
+  %92 = load i8, ptr %91, align 1
+  %93 = and i8 %92, 31
+  %94 = zext nneg i8 %93 to i16
+  br label %95
 
-94:                                               ; preds = %89, %85
-  %95 = phi i16 [ %93, %89 ], [ 1, %85 ]
-  %96 = getelementptr inbounds i8, ptr %3, i64 9
-  %97 = load i16, ptr %96, align 1
-  %98 = and i16 %97, -32
-  %99 = or i16 %98, %95
-  store i16 %99, ptr %96, align 1
-  %100 = getelementptr inbounds i8, ptr %3, i64 21
-  %101 = load i8, ptr %100, align 1
-  %102 = or i8 %101, 8
-  store i8 %102, ptr %100, align 1
-  br label %103
+95:                                               ; preds = %90, %86
+  %96 = phi i16 [ %94, %90 ], [ 1, %86 ]
+  %97 = getelementptr inbounds i8, ptr %3, i64 9
+  %98 = load i16, ptr %97, align 1
+  %99 = and i16 %98, -32
+  %100 = or i16 %99, %96
+  store i16 %100, ptr %97, align 1
+  %101 = getelementptr inbounds i8, ptr %3, i64 21
+  %102 = load i8, ptr %101, align 1
+  %103 = or i8 %102, 8
+  store i8 %103, ptr %101, align 1
+  br label %104
 
-103:                                              ; preds = %94, %14
+104:                                              ; preds = %95, %14
   ret void
 }
 

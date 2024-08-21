@@ -695,7 +695,7 @@ define hidden noundef zeroext i1 @_ZN16OopMapCacheEntry11verify_maskEP13CellType
 _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit: ; preds = %32
   %.pre = load i8, ptr %9, align 8
   %35 = trunc i8 %.pre to i1
-  br i1 %35, label %78, label %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread
+  br i1 %35, label %76, label %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread
 
 _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5, %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit
   %36 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -721,7 +721,7 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.02427 = phi i32 [ %57, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %.02427 = phi i32 [ %56, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
   %41 = load i32, ptr %10, align 8
   %42 = icmp slt i32 %41, 257
   %43 = load i64, ptr %40, align 8
@@ -734,13 +734,12 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   %50 = shl nuw nsw i32 %.02427, 1
   %51 = and i32 %50, 62
   %52 = zext nneg i32 %51 to i64
-  %53 = shl nuw nsw i64 1, %52
-  %54 = and i64 %49, %53
-  %55 = icmp ne i64 %54, 0
-  %56 = zext i1 %55 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %56) #17
-  %57 = add nuw nsw i32 %.02427, 1
-  %exitcond.not = icmp eq i32 %57, %3
+  %53 = lshr i64 %49, %52
+  %54 = trunc i64 %53 to i32
+  %55 = and i32 %54, 1
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %55) #17
+  %56 = add nuw nsw i32 %.02427, 1
+  %exitcond.not = icmp eq i32 %56, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split
@@ -749,35 +748,34 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
 .critedge.thread:                                 ; preds = %._crit_edge, %.thread
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.12, i32 noundef %4) #17
-  %58 = icmp sgt i32 %4, 0
-  br i1 %58, label %.lr.ph29.split.preheader, label %._crit_edge30.thread
+  %57 = icmp sgt i32 %4, 0
+  br i1 %57, label %.lr.ph29.split.preheader, label %._crit_edge30.thread
 
 .lr.ph29.split.preheader:                         ; preds = %.critedge.thread
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds i8, ptr %0, i64 24
   br label %.lr.ph29.split
 
 .lr.ph29.split:                                   ; preds = %.lr.ph29.split.preheader, %.lr.ph29.split
-  %.02528 = phi i32 [ %77, %.lr.ph29.split ], [ 0, %.lr.ph29.split.preheader ]
-  %60 = load i32, ptr %10, align 8
-  %61 = icmp slt i32 %60, 257
-  %62 = load i64, ptr %59, align 8
-  %63 = inttoptr i64 %62 to ptr
-  %64 = select i1 %61, ptr %59, ptr %63
-  %65 = add nsw i32 %.02528, %3
-  %66 = sdiv i32 %65, 32
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i64, ptr %64, i64 %67
-  %69 = load i64, ptr %68, align 8
-  %70 = shl nsw i32 %65, 1
-  %71 = srem i32 %70, 64
-  %72 = zext nneg i32 %71 to i64
-  %73 = shl nuw i64 1, %72
-  %74 = and i64 %69, %73
-  %75 = icmp ne i64 %74, 0
-  %76 = zext i1 %75 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %76) #17
-  %77 = add nuw nsw i32 %.02528, 1
-  %exitcond33.not = icmp eq i32 %77, %4
+  %.02528 = phi i32 [ %75, %.lr.ph29.split ], [ 0, %.lr.ph29.split.preheader ]
+  %59 = load i32, ptr %10, align 8
+  %60 = icmp slt i32 %59, 257
+  %61 = load i64, ptr %58, align 8
+  %62 = inttoptr i64 %61 to ptr
+  %63 = select i1 %60, ptr %58, ptr %62
+  %64 = add nsw i32 %.02528, %3
+  %65 = sdiv i32 %64, 32
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i64, ptr %63, i64 %66
+  %68 = load i64, ptr %67, align 8
+  %69 = shl nsw i32 %64, 1
+  %70 = srem i32 %69, 64
+  %71 = zext nneg i32 %70 to i64
+  %72 = lshr i64 %68, %71
+  %73 = trunc i64 %72 to i32
+  %74 = and i32 %73, 1
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.11, i32 noundef %74) #17
+  %75 = add nuw nsw i32 %.02528, 1
+  %exitcond33.not = icmp eq i32 %75, %4
   br i1 %exitcond33.not, label %._crit_edge30, label %.lr.ph29.split, !llvm.loop !11
 
 ._crit_edge30:                                    ; preds = %.lr.ph29.split
@@ -789,9 +787,9 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
 
 .critedge:                                        ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread, %._crit_edge, %._crit_edge30.thread, %._crit_edge30
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #17
-  br label %78
+  br label %76
 
-78:                                               ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit, %.critedge
+76:                                               ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit, %.critedge
   %.0 = phi i1 [ false, %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit ], [ true, %.critedge ]
   ret i1 %.0
 }

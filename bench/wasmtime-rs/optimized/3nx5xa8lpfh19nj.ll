@@ -417,9 +417,9 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   %23 = getelementptr inbounds [0 x i64], ptr %22, i64 0, i64 %17
   %24 = load i64, ptr %23, align 8, !noalias !98, !noundef !9
   %25 = and i64 %3, 63
-  %26 = shl nuw i64 1, %25
-  %27 = and i64 %24, %26
-  %28 = icmp eq i64 %27, 0
+  %26 = lshr i64 %24, %25
+  %27 = trunc i64 %26 to i1
+  %28 = xor i1 %27, true
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !9, !noundef !9
   %31 = and i64 %3, 63
@@ -448,10 +448,10 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !9
   %11 = icmp ult i64 %8, %10
-  br i1 %11, label %13, label %22, !prof !46
+  br i1 %11, label %13, label %21, !prof !46
 
 12:                                               ; preds = %2, %13
-  %.0 = phi i1 [ %21, %13 ], [ false, %2 ]
+  %.0 = phi i1 [ %20, %13 ], [ false, %2 ]
   ret i1 %.0
 
 13:                                               ; preds = %7
@@ -460,12 +460,11 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   %16 = getelementptr inbounds [0 x i64], ptr %15, i64 0, i64 %8
   %17 = load i64, ptr %16, align 8, !noundef !9
   %18 = and i64 %3, 63
-  %19 = shl nuw i64 1, %18
-  %20 = and i64 %17, %19
-  %21 = icmp ne i64 %20, 0
+  %19 = lshr i64 %17, %18
+  %20 = trunc i64 %19 to i1
   br label %12
 
-22:                                               ; preds = %7
+21:                                               ; preds = %7
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %8, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b56912ca5fe4cf949d49ab7038ab5979.4.llvm.7332213574936156402) #26
   unreachable
 }

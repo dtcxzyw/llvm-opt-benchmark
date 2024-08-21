@@ -16556,7 +16556,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg11PerViewDataI18MLPerViewGLOption
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %64, %45, %12
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %63, %45, %12
   %lpad.loopexit.split-lp42 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -16641,9 +16641,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg11PerViewDataI18MLPerViewGLOption
   %.not4057 = icmp eq ptr %48, %49
   br i1 %.not4057, label %._crit_edge62, label %.lr.ph61
 
-.lr.ph61:                                         ; preds = %46, %59
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %59 ], [ 1, %46 ]
-  %.sroa.033.058 = phi ptr [ %60, %59 ], [ %48, %46 ]
+.lr.ph61:                                         ; preds = %46, %58
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %58 ], [ 1, %46 ]
+  %.sroa.033.058 = phi ptr [ %59, %58 ], [ %48, %46 ]
   %50 = getelementptr inbounds [6 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %indvars.iv67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   invoke void @_ZNSt6bitsetILm9EEC2IcSt11char_traitsIcESaIcEEERKNSt7__cxx1112basic_stringIT_T0_T1_EEm(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %50, i64 noundef 0)
@@ -16655,66 +16655,65 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg11PerViewDataI18MLPerViewGLOption
 
 52:                                               ; preds = %52, %.noexc
   %indvars.iv.i = phi i64 [ 0, %.noexc ], [ %indvars.iv.next.i, %52 ]
-  %53 = shl nuw nsw i64 1, %indvars.iv.i
-  %54 = and i64 %53, %51
-  %55 = icmp ne i64 %54, 0
-  %56 = sub nuw nsw i64 8, %indvars.iv.i
-  %57 = getelementptr inbounds [9 x i8], ptr %.sroa.033.058, i64 0, i64 %56
-  %58 = zext i1 %55 to i8
-  store i8 %58, ptr %57, align 1
+  %53 = sub nuw nsw i64 8, %indvars.iv.i
+  %54 = getelementptr inbounds [9 x i8], ptr %.sroa.033.058, i64 0, i64 %53
+  %55 = lshr i64 %51, %indvars.iv.i
+  %56 = trunc i64 %55 to i8
+  %57 = and i8 %56, 1
+  store i8 %57, ptr %54, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %59, label %52, !llvm.loop !216
+  br i1 %exitcond.not.i, label %58, label %52, !llvm.loop !216
 
-59:                                               ; preds = %52
+58:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %60 = getelementptr inbounds i8, ptr %.sroa.033.058, i64 9
+  %59 = getelementptr inbounds i8, ptr %.sroa.033.058, i64 9
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %61 = load ptr, ptr %21, align 8
-  %.not40 = icmp eq ptr %60, %61
+  %60 = load ptr, ptr %21, align 8
+  %.not40 = icmp eq ptr %59, %60
   br i1 %.not40, label %._crit_edge62.loopexit, label %.lr.ph61, !llvm.loop !217
 
-._crit_edge62.loopexit:                           ; preds = %59
-  %62 = and i64 %indvars.iv.next68, 4294967295
+._crit_edge62.loopexit:                           ; preds = %58
+  %61 = and i64 %indvars.iv.next68, 4294967295
   br label %._crit_edge62
 
 ._crit_edge62:                                    ; preds = %._crit_edge62.loopexit, %46
-  %.122.lcssa = phi i64 [ 1, %46 ], [ %62, %._crit_edge62.loopexit ]
-  %63 = load ptr, ptr %33, align 8
-  %.not31 = icmp eq ptr %63, null
-  br i1 %.not31, label %.loopexit44, label %64
+  %.122.lcssa = phi i64 [ 1, %46 ], [ %61, %._crit_edge62.loopexit ]
+  %62 = load ptr, ptr %33, align 8
+  %.not31 = icmp eq ptr %62, null
+  br i1 %.not31, label %.loopexit44, label %63
 
-64:                                               ; preds = %._crit_edge62
-  %65 = getelementptr inbounds [6 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %.122.lcssa
-  invoke void @_ZN18MLPerViewGLOptions11deserializeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(90) %63, ptr noundef nonnull align 8 dereferenceable(32) %65)
+63:                                               ; preds = %._crit_edge62
+  %64 = getelementptr inbounds [6 x %"class.std::__cxx11::basic_string"], ptr %4, i64 0, i64 %.122.lcssa
+  invoke void @_ZN18MLPerViewGLOptions11deserializeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(90) %62, ptr noundef nonnull align 8 dereferenceable(32) %64)
           to label %.loopexit44 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.loopexit44:                                      ; preds = %23, %._crit_edge62, %64, %14, %39
-  %.0 = phi i1 [ false, %39 ], [ false, %14 ], [ true, %64 ], [ true, %._crit_edge62 ], [ false, %23 ]
-  br label %66
+.loopexit44:                                      ; preds = %23, %._crit_edge62, %63, %14, %39
+  %.0 = phi i1 [ false, %39 ], [ false, %14 ], [ true, %63 ], [ true, %._crit_edge62 ], [ false, %23 ]
+  br label %65
 
-66:                                               ; preds = %66, %.loopexit44
-  %67 = phi ptr [ %13, %.loopexit44 ], [ %68, %66 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
-  %69 = icmp eq ptr %68, %4
-  br i1 %69, label %70, label %66
+65:                                               ; preds = %65, %.loopexit44
+  %66 = phi ptr [ %13, %.loopexit44 ], [ %67, %65 ]
+  %67 = getelementptr inbounds i8, ptr %66, i64 -32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #26
+  %68 = icmp eq ptr %67, %4
+  br i1 %68, label %69, label %65
 
-70:                                               ; preds = %66
+69:                                               ; preds = %65
   ret i1 %.0
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %43
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit41, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp42, %.loopexit.split-lp.loopexit.split-lp ]
-  br label %71
+  br label %70
 
-71:                                               ; preds = %71, %.loopexit.split-lp
-  %72 = phi ptr [ %13, %.loopexit.split-lp ], [ %73, %71 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #26
-  %74 = icmp eq ptr %73, %4
-  br i1 %74, label %75, label %71
+70:                                               ; preds = %70, %.loopexit.split-lp
+  %71 = phi ptr [ %13, %.loopexit.split-lp ], [ %72, %70 ]
+  %72 = getelementptr inbounds i8, ptr %71, i64 -32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #26
+  %73 = icmp eq ptr %72, %4
+  br i1 %73, label %74, label %70
 
-75:                                               ; preds = %71
+74:                                               ; preds = %70
   resume { ptr, i32 } %.pn
 }
 

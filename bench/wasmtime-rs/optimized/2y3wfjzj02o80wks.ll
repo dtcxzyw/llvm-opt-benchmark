@@ -577,12 +577,12 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
   %125 = getelementptr inbounds [0 x i64], ptr %124, i64 0, i64 %120
   %126 = load i64, ptr %125, align 8, !noundef !4
   %127 = and i64 %109, 63
-  %128 = shl nuw i64 1, %127
-  %129 = and i64 %126, %128
-  %130 = icmp eq i64 %129, 0
-  %131 = or i64 %126, %128
+  %128 = lshr i64 %126, %127
+  %129 = trunc i64 %128 to i1
+  %130 = shl nuw i64 1, %127
+  %131 = or i64 %126, %130
   store i64 %131, ptr %125, align 8
-  br i1 %130, label %133, label %_ZN18cranelift_frontend3ssa10SSABuilder25declare_block_predecessor17hf22514fd2b151ab2E.exit.backedge
+  br i1 %129, label %_ZN18cranelift_frontend3ssa10SSABuilder25declare_block_predecessor17hf22514fd2b151ab2E.exit.backedge, label %133
 
 _ZN18cranelift_frontend3ssa10SSABuilder25declare_block_predecessor17hf22514fd2b151ab2E.exit.backedge: ; preds = %123, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h9f0b3a58f7cc16d4E.llvm.1812094323767051342.exit.i"
   %132 = icmp eq ptr %98, %88

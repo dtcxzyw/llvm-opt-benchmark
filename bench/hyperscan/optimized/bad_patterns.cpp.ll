@@ -9752,22 +9752,21 @@ invoke.cont:                                      ; preds = %entry
   %_M_offset.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %_M_offset.i, align 8
   %sh_prom.i = zext nneg i32 %2 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
   %3 = load i64, ptr %1, align 8
-  %and.i.i = and i64 %shl.i, %3
-  %tobool.i.i = icmp ne i64 %and.i.i, 0
-  %frombool = zext i1 %tobool.i.i to i8
+  %4 = lshr i64 %3, %sh_prom.i
+  %5 = trunc i64 %4 to i8
+  %frombool = and i8 %5, 1
   store i8 %frombool, ptr %call3, align 1
   %call.i = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %call.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %invoke.cont
-  %4 = load ptr, ptr %value_, align 8
-  %isnull.i = icmp eq ptr %4, null
+  %6 = load ptr, ptr %value_, align 8
+  %isnull.i = icmp eq ptr %6, null
   br i1 %isnull.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then2.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #26
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %if.then2.i, %invoke.cont
@@ -9775,8 +9774,8 @@ if.end.i:                                         ; preds = %delete.notnull.i, %
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %entry
-  %5 = phi ptr [ %call3, %if.end.i ], [ %0, %entry ]
-  ret ptr %5
+  %7 = phi ptr [ %call3, %if.end.i ], [ %0, %entry ]
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable

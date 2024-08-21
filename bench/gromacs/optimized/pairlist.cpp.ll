@@ -4604,12 +4604,11 @@ _ZL15bitmask_is_zeroSt5arrayImLm2EE.exit.us.i:    ; preds = %991
   %1001 = load i64, ptr %1000, align 8
   %1002 = and i32 %.03965.us.i, 63
   %1003 = zext nneg i32 %1002 to i64
-  %1004 = shl nuw i64 1, %1003
-  %1005 = and i64 %1001, %1004
-  %.not62.us.i = icmp ne i64 %1005, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %1006 = zext i1 %.not62.us.i to i32
-  %spec.select.us.i = add nuw nsw i32 %.04064.us.i, %1006
+  %1004 = lshr i64 %1001, %1003
+  %1005 = trunc i64 %1004 to i32
+  %1006 = and i32 %1005, 1
+  %spec.select.us.i = add nuw nsw i32 %1006, %.04064.us.i
   %1007 = add nuw nsw i32 %.03965.us.i, 1
   %exitcond.not.i153 = icmp eq i32 %1007, %981
   br i1 %exitcond.not.i153, label %._crit_edge.us.i154, label %.preheader.us.i, !llvm.loop !74

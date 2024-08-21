@@ -48019,29 +48019,27 @@ entry:
   br i1 %cmp.not.i.i, label %for.cond.preheader.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit
 
 for.cond.preheader.i.i:                           ; preds = %entry
-  %cmp332.not.i.i = icmp eq i64 %add.i.i.i.i, 0
-  br i1 %cmp332.not.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit, label %for.body.i.i
+  %cmp334.not.i.i = icmp eq i64 %add.i.i.i.i, 0
+  br i1 %cmp334.not.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
-  %i.033.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %div.i.i.i.i.i.i.i = sdiv i64 %i.033.i.i, 64
+  %i.035.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.cond.preheader.i.i ]
+  %div.i.i.i.i.i.i.i = sdiv i64 %i.035.i.i, 64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %div.i.i.i.i.i.i.i
-  %9 = and i64 %i.033.i.i, -9223372036854775745
+  %9 = and i64 %i.035.i.i, -9223372036854775745
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %9, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i.i.i
-  %conv4.i.i.i.i.i.i.i = and i64 %i.033.i.i, 63
-  %shl.i.i.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i.i.i
+  %conv4.i.i.i.i.i.i.i = and i64 %i.035.i.i, 63
   %10 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i, %10
   %add.ptr.i.i.i.i.i24.i.i = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i.i.i.i.i
   %storemerge.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i24.i.i, i64 %storemerge.idx.i.i.i.i.i.i.i
   %11 = load i64, ptr %storemerge.i.i.i.i.i27.i.i, align 8
-  %and.i.i.i.i30.i.i = and i64 %11, %shl.i.i.i.i.i
-  %tobool.i.i.i.i31.i.i = icmp ne i64 %and.i.i.i.i30.i.i, 0
-  %12 = icmp eq i64 %and.i.i.i.i.i.i, 0
-  %cmp.i.i.i = xor i1 %12, %tobool.i.i.i.i31.i.i
-  %inc.i.i = add nuw i64 %i.033.i.i, 1
+  %12 = xor i64 %11, %10
+  %13 = shl nuw i64 1, %conv4.i.i.i.i.i.i.i
+  %14 = and i64 %12, %13
+  %cmp.i.i.i = icmp eq i64 %14, 0
+  %inc.i.i = add nuw i64 %i.035.i.i, 1
   %cmp3.i.i = icmp ult i64 %inc.i.i, %add.i.i.i.i
   %or.cond = select i1 %cmp.i.i.i, i1 %cmp3.i.i, i1 false
   br i1 %or.cond, label %for.body.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit, !llvm.loop !346
@@ -48049,9 +48047,9 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
 _ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit: ; preds = %for.body.i.i, %entry, %for.cond.preheader.i.i
   %retval.0.i.i = phi i1 [ false, %entry ], [ true, %for.cond.preheader.i.i ], [ %cmp.i.i.i, %for.body.i.i ]
   %equal_.i = getelementptr inbounds i8, ptr %fn, i64 16
-  %13 = load i8, ptr %equal_.i, align 8
-  %14 = and i8 %13, 1
-  %tobool52.i = icmp ne i8 %14, 0
+  %15 = load i8, ptr %equal_.i, align 8
+  %16 = and i8 %15, 1
+  %tobool52.i = icmp ne i8 %16, 0
   %tobool5.i = select i1 %retval.0.i.i, i1 %tobool52.i, i1 false
   %frombool.i = zext i1 %tobool5.i to i8
   store i8 %frombool.i, ptr %equal_.i, align 8

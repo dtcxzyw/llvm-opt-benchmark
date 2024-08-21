@@ -3236,7 +3236,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8XLiveMap3setEmbRb(ptr noundef
   %25 = getelementptr inbounds i64, ptr %23, i64 %24
   %26 = and i64 %1, 63
   %27 = load volatile i64, ptr %25, align 8
-  br i1 %2, label %28, label %35
+  br i1 %2, label %28, label %36
 
 28:                                               ; preds = %21
   %29 = shl nuw i64 1, %26
@@ -3246,40 +3246,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8XLiveMap3setEmbRb(ptr noundef
 30:                                               ; preds = %32, %28
   %.017.i.i.i = phi i64 [ %27, %28 ], [ %33, %32 ]
   %31 = or i64 %.017.i.i.i, %29
-  %.not.i.not.i.not.not.i.not = icmp ne i64 %31, %.017.i.i.i
-  br i1 %.not.i.not.i.not.not.i.not, label %32, label %_ZN7XBitMap16par_set_bit_pairEmbRb.exit
+  %.not.i.not.i.not.i.not = icmp ne i64 %31, %.017.i.i.i
+  br i1 %.not.i.not.i.not.i.not, label %32, label %_ZN7XBitMap28par_set_bit_pair_finalizableEmRb.exit.i
 
 32:                                               ; preds = %30
   %33 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %31, i64 %.017.i.i.i, ptr nonnull %25) #17, !srcloc !13
   %34 = icmp eq i64 %33, %.017.i.i.i
-  br i1 %34, label %_ZN7XBitMap16par_set_bit_pairEmbRb.exit, label %30, !llvm.loop !26
+  br i1 %34, label %_ZN7XBitMap28par_set_bit_pair_finalizableEmRb.exit.i, label %30, !llvm.loop !26
 
-35:                                               ; preds = %21
-  %36 = shl i64 3, %26
-  br label %37
-
-37:                                               ; preds = %39, %35
-  %.020.i.i = phi i64 [ %27, %35 ], [ %40, %39 ]
-  %38 = or i64 %.020.i.i, %36
-  %.not27.i.not.i = icmp eq i64 %38, %.020.i.i
-  br i1 %.not27.i.not.i, label %_ZN7XBitMap16par_set_bit_pairEmbRb.exit, label %39
-
-39:                                               ; preds = %37
-  %40 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %38, i64 %.020.i.i, ptr nonnull %25) #17, !srcloc !13
-  %41 = icmp eq i64 %40, %.020.i.i
-  br i1 %41, label %42, label %37, !llvm.loop !27
-
-42:                                               ; preds = %39
-  %43 = shl nuw i64 1, %26
-  %44 = and i64 %.020.i.i, %43
-  %.not.i.i = icmp eq i64 %44, 0
-  %45 = zext i1 %.not.i.i to i8
+_ZN7XBitMap28par_set_bit_pair_finalizableEmRb.exit.i: ; preds = %32, %30
+  %35 = zext i1 %.not.i.not.i.not.i.not to i8
   br label %_ZN7XBitMap16par_set_bit_pairEmbRb.exit
 
-_ZN7XBitMap16par_set_bit_pairEmbRb.exit:          ; preds = %37, %30, %32, %42
-  %storemerge.shrunk.i = phi i8 [ %45, %42 ], [ 0, %30 ], [ 1, %32 ], [ 0, %37 ]
-  %.0.i = phi i1 [ true, %42 ], [ %.not.i.not.i.not.not.i.not, %32 ], [ %.not.i.not.i.not.not.i.not, %30 ], [ false, %37 ]
-  store i8 %storemerge.shrunk.i, ptr %3, align 1
+36:                                               ; preds = %21
+  %37 = shl i64 3, %26
+  br label %38
+
+38:                                               ; preds = %40, %36
+  %.020.i.i = phi i64 [ %27, %36 ], [ %41, %40 ]
+  %39 = or i64 %.020.i.i, %37
+  %.not.i.not.i = icmp eq i64 %39, %.020.i.i
+  br i1 %.not.i.not.i, label %_ZN7XBitMap16par_set_bit_pairEmbRb.exit, label %40
+
+40:                                               ; preds = %38
+  %41 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %39, i64 %.020.i.i, ptr nonnull %25) #17, !srcloc !13
+  %42 = icmp eq i64 %41, %.020.i.i
+  br i1 %42, label %43, label %38, !llvm.loop !27
+
+43:                                               ; preds = %40
+  %44 = xor i64 %.020.i.i, -1
+  %45 = lshr i64 %44, %26
+  %46 = trunc i64 %45 to i8
+  %47 = and i8 %46, 1
+  br label %_ZN7XBitMap16par_set_bit_pairEmbRb.exit
+
+_ZN7XBitMap16par_set_bit_pairEmbRb.exit:          ; preds = %38, %_ZN7XBitMap28par_set_bit_pair_finalizableEmRb.exit.i, %43
+  %storemerge.i = phi i8 [ %35, %_ZN7XBitMap28par_set_bit_pair_finalizableEmRb.exit.i ], [ %47, %43 ], [ 0, %38 ]
+  %.0.i = phi i1 [ %.not.i.not.i.not.i.not, %_ZN7XBitMap28par_set_bit_pair_finalizableEmRb.exit.i ], [ true, %43 ], [ false, %38 ]
+  store i8 %storemerge.i, ptr %3, align 1
   ret i1 %.0.i
 }
 

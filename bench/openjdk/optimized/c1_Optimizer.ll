@@ -3784,15 +3784,15 @@ define hidden void @_ZN16NullCheckVisitor20do_ProfileReturnTypeEP17ProfileReturn
   %14 = getelementptr inbounds i64, ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %11, 63
-  %17 = shl nuw i64 1, %16
-  %18 = and i64 %17, %15
-  %.not.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %20, -2
-  %masksel.i.i = zext i1 %.not.i to i32
-  %22 = or disjoint i32 %21, %masksel.i.i
-  store i32 %22, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, -2
+  %20 = xor i64 %15, -1
+  %21 = lshr i64 %20, %16
+  %22 = trunc i64 %21 to i32
+  %masksel.i.i = and i32 %22, 1
+  %23 = or disjoint i32 %masksel.i.i, %19
+  store i32 %23, ptr %17, align 8
   ret void
 }
 
@@ -3810,15 +3810,15 @@ define hidden void @_ZN19NullCheckEliminator24handle_ProfileReturnTypeEP17Profil
   %12 = getelementptr inbounds i64, ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %9, 63
-  %15 = shl nuw i64 1, %14
-  %16 = and i64 %15, %13
-  %.not = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, -2
-  %masksel.i = zext i1 %.not to i32
-  %20 = or disjoint i32 %19, %masksel.i
-  store i32 %20, ptr %17, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, -2
+  %18 = xor i64 %13, -1
+  %19 = lshr i64 %18, %14
+  %20 = trunc i64 %19 to i32
+  %masksel.i = and i32 %20, 1
+  %21 = or disjoint i32 %masksel.i, %17
+  store i32 %21, ptr %15, align 8
   ret void
 }
 

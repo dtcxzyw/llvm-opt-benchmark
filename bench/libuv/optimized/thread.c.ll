@@ -244,16 +244,15 @@ cond.true.i:                                      ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds i64, ptr %cpuset.i, i64 %div1311.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %rem.i = and i64 %indvars.iv.i, 63
-  %shl.i = shl nuw i64 1, %rem.i
-  %and.i = and i64 %1, %shl.i
-  %cmp14.i = icmp ne i64 %and.i, 0
+  %2 = lshr i64 %1, %rem.i
+  %3 = trunc i64 %2 to i8
+  %conv15.i = and i8 %3, 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
-  %cond.i = phi i1 [ %cmp14.i, %cond.true.i ], [ false, %for.body.i ]
-  %conv18.i = zext i1 %cond.i to i8
+  %cond.i = phi i8 [ %conv15.i, %cond.true.i ], [ 0, %for.body.i ]
   %arrayidx19.i = getelementptr inbounds i8, ptr %oldmask, i64 %indvars.iv.i
-  store i8 %conv18.i, ptr %arrayidx19.i, align 1
+  store i8 %cond.i, ptr %arrayidx19.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i
   br i1 %exitcond.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i
@@ -286,8 +285,8 @@ for.body.preheader:                               ; preds = %do.body
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
-  %2 = load i8, ptr %arrayidx, align 1
-  %tobool.not = icmp ne i8 %2, 0
+  %4 = load i8, ptr %arrayidx, align 1
+  %tobool.not = icmp ne i8 %4, 0
   %cmp18 = icmp ult i64 %indvars.iv, 1024
   %or.cond = and i1 %cmp18, %tobool.not
   br i1 %or.cond, label %cond.true, label %for.inc
@@ -297,8 +296,8 @@ cond.true:                                        ; preds = %for.body
   %shl = shl nuw i64 1, %rem
   %div2015 = lshr i64 %indvars.iv, 6
   %arrayidx21 = getelementptr inbounds i64, ptr %cpuset, i64 %div2015
-  %3 = load i64, ptr %arrayidx21, align 8
-  %or = or i64 %3, %shl
+  %5 = load i64, ptr %arrayidx21, align 8
+  %or = or i64 %5, %shl
   store i64 %or, ptr %arrayidx21, align 8
   br label %for.inc
 
@@ -308,8 +307,8 @@ for.inc:                                          ; preds = %cond.true, %for.bod
   br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %do.body
-  %4 = load i64, ptr %tid, align 8
-  %call23 = call i32 @pthread_setaffinity_np(i64 noundef %4, i64 noundef 128, ptr noundef nonnull %cpuset) #11
+  %6 = load i64, ptr %tid, align 8
+  %call23 = call i32 @pthread_setaffinity_np(i64 noundef %6, i64 noundef 128, ptr noundef nonnull %cpuset) #11
   %sub = sub nsw i32 0, %call23
   br label %return
 
@@ -358,16 +357,15 @@ cond.true:                                        ; preds = %for.body
   %arrayidx = getelementptr inbounds i64, ptr %cpuset, i64 %div1311
   %1 = load i64, ptr %arrayidx, align 8
   %rem = and i64 %indvars.iv, 63
-  %shl = shl nuw i64 1, %rem
-  %and = and i64 %1, %shl
-  %cmp14 = icmp ne i64 %and, 0
+  %2 = lshr i64 %1, %rem
+  %3 = trunc i64 %2 to i8
+  %conv15 = and i8 %3, 1
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i1 [ %cmp14, %cond.true ], [ false, %for.body ]
-  %conv18 = zext i1 %cond to i8
+  %cond = phi i8 [ %conv15, %cond.true ], [ 0, %for.body ]
   %arrayidx19 = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
-  store i8 %conv18, ptr %arrayidx19, align 1
+  store i8 %cond, ptr %arrayidx19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %return, label %for.body

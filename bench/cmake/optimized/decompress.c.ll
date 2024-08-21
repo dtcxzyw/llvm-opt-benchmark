@@ -2623,14 +2623,13 @@ define dso_local noundef i32 @BZ2_decompress(ptr noundef %0) local_unnamed_addr 
   %1863 = load i32, ptr %1862, align 8
   %1864 = add nsw i32 %.lcssa1989, -1
   store i32 %1864, ptr %1858, align 4
-  %1865 = shl nuw i32 1, %1864
-  %1866 = and i32 %1863, %1865
-  %.not1871 = icmp ne i32 %1866, 0
-  %1867 = getelementptr inbounds i8, ptr %0, i64 3452
-  %1868 = sext i32 %.01403 to i64
-  %1869 = getelementptr inbounds [16 x i8], ptr %1867, i64 0, i64 %1868
-  %. = zext i1 %.not1871 to i8
-  store i8 %., ptr %1869, align 1
+  %1865 = getelementptr inbounds i8, ptr %0, i64 3452
+  %1866 = sext i32 %.01403 to i64
+  %1867 = getelementptr inbounds [16 x i8], ptr %1865, i64 0, i64 %1866
+  %1868 = lshr i32 %1863, %1864
+  %1869 = trunc i32 %1868 to i8
+  %. = and i8 %1869, 1
+  store i8 %., ptr %1867, align 1
   %1870 = add nsw i32 %.01403, 1
   br label %1760, !llvm.loop !5
 

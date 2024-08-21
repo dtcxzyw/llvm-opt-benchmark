@@ -216,10 +216,9 @@ qdev_get_prop_mask.exit:                          ; preds = %entry
   %bitnr.i = getelementptr inbounds i8, ptr %opaque, i64 24
   %3 = load i8, ptr %bitnr.i, align 8
   %conv.i = zext nneg i8 %3 to i32
-  %shl.i = shl nuw i32 1, %conv.i
-  %and = and i32 %shl.i, %2
-  %cmp = icmp ne i32 %and, 0
-  %frombool = zext i1 %cmp to i8
+  %4 = lshr i32 %2, %conv.i
+  %5 = trunc i32 %4 to i8
+  %frombool = and i8 %5, 1
   store i8 %frombool, ptr %value, align 1
   %call2 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #9
   ret void
@@ -295,10 +294,9 @@ qdev_get_prop_mask64.exit:                        ; preds = %entry
   %bitnr.i = getelementptr inbounds i8, ptr %opaque, i64 24
   %3 = load i8, ptr %bitnr.i, align 8
   %sh_prom.i = zext nneg i8 %3 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
-  %and = and i64 %shl.i, %2
-  %cmp = icmp ne i64 %and, 0
-  %frombool = zext i1 %cmp to i8
+  %4 = lshr i64 %2, %sh_prom.i
+  %5 = trunc i64 %4 to i8
+  %frombool = and i8 %5, 1
   store i8 %frombool, ptr %value, align 1
   %call2 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #9
   ret void

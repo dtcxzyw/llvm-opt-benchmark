@@ -45737,11 +45737,10 @@ default.unreachable:                              ; preds = %122, %"_ZN9hashbrow
   %.sink5.i.i.i.i.i.i.i = select i1 %789, ptr %791, ptr %765
   %792 = getelementptr inbounds i64, ptr %.sink5.i.i.i.i.i.i.i, i64 %787
   %793 = and i64 %.0.i.i.i322.i.i, 63
-  %794 = shl nuw i64 1, %793
-  %795 = load i64, ptr %792, align 8, !noalias !13902, !noundef !4
-  %796 = and i64 %795, %794
-  %.not5.i.i.i.i.i = icmp eq i64 %796, 0
-  br i1 %.not5.i.i.i.i.i, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd8f3f176fa7d195cE.exit.i.i.i", label %797
+  %794 = load i64, ptr %792, align 8, !noalias !13902, !noundef !4
+  %795 = lshr i64 %794, %793
+  %796 = trunc i64 %795 to i1
+  br i1 %796, label %797, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd8f3f176fa7d195cE.exit.i.i.i"
 
 797:                                              ; preds = %"_ZN17ra_ap_rustc_index7bit_set23GrowableBitSet$LT$T$GT$8contains17h0768017d3f1d6133E.exit.i.i.i.i.i", %782
   br label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd8f3f176fa7d195cE.exit.i.i.i"

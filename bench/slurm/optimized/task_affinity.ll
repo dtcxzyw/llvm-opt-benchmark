@@ -321,8 +321,8 @@ nodemask_isset_compat.exit.i:                     ; preds = %32, %43
   %38 = and i64 %indvars.iv.i, 63
   %39 = shl nuw i64 1, %38
   %40 = and i64 %39, %37
-  %.not.i.not.i = icmp eq i64 %40, 0
-  br i1 %.not.i.not.i, label %43, label %41
+  %.not.i = icmp eq i64 %40, 0
+  br i1 %.not.i, label %43, label %41
 
 41:                                               ; preds = %nodemask_isset_compat.exit.i
   %42 = trunc nuw nsw i64 %indvars.iv.i to i32

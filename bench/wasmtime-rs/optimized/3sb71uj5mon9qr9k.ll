@@ -3696,10 +3696,9 @@ define hidden void @_ZN3std9panicking3try7do_call17h37c8d1c576e4ee31E.llvm.70733
   %45 = getelementptr inbounds [0 x i64], ptr %44, i64 0, i64 %38
   %46 = load i64, ptr %45, align 8, !noalias !475, !noundef !4
   %47 = and i64 %33, 63
-  %48 = shl nuw i64 1, %47
-  %49 = and i64 %46, %48
-  %.not.i.i.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread.i.i.i.i.i.i", label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h36f79551f0092e0fE.exit"
+  %48 = lshr i64 %46, %47
+  %49 = trunc i64 %48 to i1
+  br i1 %49, label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h36f79551f0092e0fE.exit", label %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread.i.i.i.i.i.i"
 
 "_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$8contains17h87b63137eac85200E.exit.i.i.i.i.i.i", %29
   br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h36f79551f0092e0fE.exit"

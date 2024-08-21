@@ -32524,31 +32524,30 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorR
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext nneg i32 %10 to i64
-  %12 = shl nuw i64 1, %11
-  %13 = load i64, ptr %8, align 8
-  %14 = and i64 %12, %13
-  %15 = icmp ne i64 %14, 0
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %6, align 1
-  %17 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
-  br i1 %17, label %18, label %22
+  %12 = load i64, ptr %8, align 8
+  %13 = lshr i64 %12, %11
+  %14 = trunc i64 %13 to i8
+  %15 = and i8 %14, 1
+  store i8 %15, ptr %6, align 1
+  %16 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
+  br i1 %16, label %17, label %21
 
-18:                                               ; preds = %5
-  %19 = load ptr, ptr %2, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21
+17:                                               ; preds = %5
+  %18 = load ptr, ptr %2, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %18
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #31
-  br label %22
+20:                                               ; preds = %17
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #31
+  br label %21
 
-22:                                               ; preds = %21, %18, %5
+21:                                               ; preds = %20, %17, %5
   store ptr %6, ptr %2, align 8
   br label %_ZN7testing8internal10scoped_ptrIKbE5resetEPS2_.exit
 
-_ZN7testing8internal10scoped_ptrIKbE5resetEPS2_.exit: ; preds = %22, %1
-  %23 = phi ptr [ %6, %22 ], [ %3, %1 ]
-  ret ptr %23
+_ZN7testing8internal10scoped_ptrIKbE5resetEPS2_.exit: ; preds = %21, %1
+  %22 = phi ptr [ %6, %21 ], [ %3, %1 ]
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress uwtable

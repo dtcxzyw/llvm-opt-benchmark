@@ -51122,37 +51122,35 @@ define noundef zeroext i1 @_ZN5typst4util6bitset6BitSet8contains17hb325b963824d1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.thread, label %12
+  br i1 %.not, label %.thread, label %11
 
 7:                                                ; preds = %2
   %8 = load i64, ptr %0, align 8, !noundef !4
-  %9 = shl nuw i64 1, %1
-  %10 = and i64 %8, %9
-  %11 = icmp ne i64 %10, 0
+  %9 = lshr i64 %8, %1
+  %10 = trunc i64 %9 to i1
   br label %.thread
 
-12:                                               ; preds = %4
-  %13 = lshr i64 %1, 6
-  %14 = add nsw i64 %13, -1
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = icmp ult i64 %14, %16
-  br i1 %17, label %18, label %.thread
+11:                                               ; preds = %4
+  %12 = lshr i64 %1, 6
+  %13 = add nsw i64 %12, -1
+  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = icmp ult i64 %13, %15
+  br i1 %16, label %17, label %.thread
 
-18:                                               ; preds = %12
-  %19 = and i64 %1, 63
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
-  %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds i64, ptr %21, i64 %14
-  %23 = shl nuw i64 1, %19
-  %24 = load i64, ptr %22, align 8, !noundef !4
-  %25 = and i64 %24, %23
-  %26 = icmp ne i64 %25, 0
+17:                                               ; preds = %11
+  %18 = and i64 %1, 63
+  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds i64, ptr %20, i64 %13
+  %22 = load i64, ptr %21, align 8, !noundef !4
+  %23 = lshr i64 %22, %18
+  %24 = trunc i64 %23 to i1
   br label %.thread
 
-.thread:                                          ; preds = %12, %4, %7, %18
-  %.0.shrunk = phi i1 [ %11, %7 ], [ %26, %18 ], [ false, %4 ], [ false, %12 ]
-  ret i1 %.0.shrunk
+.thread:                                          ; preds = %11, %4, %7, %17
+  %.0 = phi i1 [ %10, %7 ], [ %24, %17 ], [ false, %4 ], [ false, %11 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -51176,8 +51174,8 @@ define noundef zeroext i1 @"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$cor
   %9 = load i64, ptr %8, align 8, !noalias !8916, !noundef !4
   %10 = shl i64 %9, 6
   %11 = add i64 %10, 64
-  %.not10 = icmp eq i64 %11, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph.split.preheader
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h19e944b287947f15E.exit"
   %12 = getelementptr inbounds i8, ptr %6, i64 16
@@ -51198,10 +51196,9 @@ define noundef zeroext i1 @"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$cor
   br i1 %17, label %18, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us
 
 18:                                               ; preds = %.lr.ph.split.us
-  %19 = shl nuw i64 1, %.sroa.01.09.us
-  %20 = and i64 %15, %19
-  %.not8.us = icmp eq i64 %20, 0
-  br i1 %.not8.us, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us, label %21
+  %19 = lshr i64 %15, %.sroa.01.09.us
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %21, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us
 
 21:                                               ; preds = %18
   %22 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h6a4bfbf11826c806E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17bb7092bb43bb22a4c4760daf7f42f8.657)
@@ -51209,8 +51206,8 @@ define noundef zeroext i1 @"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$cor
 
 _ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us: ; preds = %.lr.ph.split.us, %21, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %exitcond12.not = icmp eq i64 %16, 64
-  br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph.split.us
+  %exitcond11.not = icmp eq i64 %16, 64
+  br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread, %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us, %"_ZN4core6option15Option$LT$T$GT$6map_or17h19e944b287947f15E.exit"
   %23 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h6a2ca9c452a62c72E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
@@ -51233,20 +51230,18 @@ _ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us: ; pred
   br i1 %30, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread
 
 31:                                               ; preds = %.lr.ph.split
-  %32 = shl nuw i64 1, %.sroa.01.09
-  %33 = and i64 %14, %32
-  %.not8 = icmp eq i64 %33, 0
-  br i1 %.not8, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread, label %40
+  %32 = lshr i64 %14, %.sroa.01.09
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %40, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread
 
 _ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit: ; preds = %26
   %34 = and i64 %.sroa.01.09, 63
   %35 = load ptr, ptr %13, align 8, !noalias !8919, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds i64, ptr %35, i64 %28
-  %37 = shl nuw i64 1, %34
-  %38 = load i64, ptr %36, align 8, !noalias !8919, !noundef !4
-  %39 = and i64 %38, %37
-  %.not = icmp eq i64 %39, 0
-  br i1 %.not, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread, label %40
+  %37 = load i64, ptr %36, align 8, !noalias !8919, !noundef !4
+  %38 = lshr i64 %37, %34
+  %39 = trunc i64 %38 to i1
+  br i1 %39, label %40, label %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread
 
 40:                                               ; preds = %31, %_ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit
   %41 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h6a4bfbf11826c806E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17bb7092bb43bb22a4c4760daf7f42f8.657)

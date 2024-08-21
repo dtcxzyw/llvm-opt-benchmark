@@ -430,27 +430,36 @@ if.then25:                                        ; preds = %if.end21
 if.then.i:                                        ; preds = %if.then25
   %9 = add nsw i8 %6, -41
   %10 = icmp ult i8 %9, 2
-  br i1 %10, label %if.end44, label %if.then29
+  %lor.ext.i = zext i1 %10 to i32
+  br label %cmd_valid_while_locked.exit
 
 if.end.i:                                         ; preds = %if.then25
-  switch i8 %6, label %cmd_valid_while_locked.exit [
+  switch i8 %6, label %if.end12.i [
     i8 55, label %if.end44
     i8 16, label %if.end44
   ]
 
-cmd_valid_while_locked.exit:                      ; preds = %if.end.i
+if.end12.i:                                       ; preds = %if.end.i
   %idxprom.i = zext nneg i8 %6 to i64
   %11 = shl nuw i64 1, %idxprom.i
-  %12 = and i64 %11, 3373301674080159
-  %narrow.i.not = icmp eq i64 %12, 0
-  br i1 %narrow.i.not, label %if.then29, label %if.end44
+  %12 = and i64 %11, 63391
+  %cmp13.not.i = icmp eq i64 %12, 0
+  %13 = lshr i64 3373301674016768, %idxprom.i
+  %14 = trunc i64 %13 to i32
+  %15 = and i32 %14, 1
+  br i1 %cmp13.not.i, label %cmd_valid_while_locked.exit, label %if.end44
 
-if.then29:                                        ; preds = %if.then.i, %cmd_valid_while_locked.exit
+cmd_valid_while_locked.exit:                      ; preds = %if.end12.i, %if.then.i
+  %retval.0.i = phi i32 [ %lor.ext.i, %if.then.i ], [ %15, %if.end12.i ]
+  %tobool28.not = icmp eq i32 %retval.0.i, 0
+  br i1 %tobool28.not, label %if.then29, label %if.end44
+
+if.then29:                                        ; preds = %cmd_valid_while_locked.exit
   %or31 = or i32 %7, 4194304
   store i32 %or31, ptr %card_status22, align 4
   store i8 0, ptr %8, align 1
-  %13 = load i32, ptr @qemu_loglevel, align 4
-  %and.i44 = and i32 %13, 2048
+  %16 = load i32, ptr @qemu_loglevel, align 4
+  %and.i44 = and i32 %16, 2048
   %cmp.i45.not = icmp eq i32 %and.i44, 0
   br i1 %cmp.i45.not, label %sd_response_name.exit, label %if.then40
 
@@ -458,16 +467,16 @@ if.then40:                                        ; preds = %if.then29
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5) #18
   br label %sd_response_name.exit
 
-if.end44:                                         ; preds = %if.then.i, %if.end.i, %if.end.i, %cmd_valid_while_locked.exit, %if.end21
+if.end44:                                         ; preds = %if.end.i, %if.end.i, %if.end12.i, %cmd_valid_while_locked.exit, %if.end21
   %state = getelementptr inbounds i8, ptr %sd, i64 300
-  %14 = load i32, ptr %state, align 4
-  %switch.tableidx = add i32 %14, 1
-  %15 = icmp ult i32 %switch.tableidx, 10
-  br i1 %15, label %switch.lookup, label %sd_set_mode.exit
+  %17 = load i32, ptr %state, align 4
+  %switch.tableidx = add i32 %17, 1
+  %18 = icmp ult i32 %switch.tableidx, 10
+  br i1 %18, label %switch.lookup, label %sd_set_mode.exit
 
 switch.lookup:                                    ; preds = %if.end44
-  %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.sd_do_command, i64 0, i64 %16
+  %19 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.sd_do_command, i64 0, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %mode4.i = getelementptr inbounds i8, ptr %sd, i64 296
   store i32 %switch.load, ptr %mode4.i, align 8
@@ -475,8 +484,8 @@ switch.lookup:                                    ; preds = %if.end44
 
 sd_set_mode.exit:                                 ; preds = %if.end44, %switch.lookup
   %expecting_acmd45 = getelementptr inbounds i8, ptr %sd, i64 379
-  %17 = load i8, ptr %expecting_acmd45, align 1
-  %tobool46 = trunc i8 %17 to i1
+  %20 = load i8, ptr %expecting_acmd45, align 1
+  %tobool46 = trunc i8 %20 to i1
   br i1 %tobool46, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %sd_set_mode.exit
@@ -490,15 +499,15 @@ if.then47:                                        ; preds = %sd_set_mode.exit
   %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
-  %18 = load ptr, ptr %proto.i.i, align 8
-  %19 = load ptr, ptr %18, align 8
+  %21 = load ptr, ptr %proto.i.i, align 8
+  %22 = load ptr, ptr %21, align 8
   %call1.i = tail call ptr @sd_acmd_name(i8 noundef zeroext %req.sroa.0.0.extract.trunc.i) #18
-  %20 = load i32, ptr %state, align 4
-  %cmp.i.i = icmp eq i32 %20, -1
+  %23 = load i32, ptr %state, align 4
+  %cmp.i.i = icmp eq i32 %23, -1
   br i1 %cmp.i.i, label %sd_state_name.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then47
-  %cmp1.i.i = icmp ult i32 %20, 9
+  %cmp1.i.i = icmp ult i32 %23, 9
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -506,79 +515,79 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %conv.i.i = zext nneg i32 %20 to i64
+  %conv.i.i = zext nneg i32 %23 to i64
   %arrayidx.i.i = getelementptr [9 x ptr], ptr @sd_state_name.state_name, i64 0, i64 %conv.i.i
-  %21 = load ptr, ptr %arrayidx.i.i, align 8
+  %24 = load ptr, ptr %arrayidx.i.i, align 8
   br label %sd_state_name.exit.i
 
 sd_state_name.exit.i:                             ; preds = %if.end4.i.i, %if.then47
-  %retval.0.i.i = phi ptr [ %21, %if.end4.i.i ], [ @.str.28, %if.then47 ]
+  %retval.0.i.i = phi ptr [ %24, %if.end4.i.i ], [ @.str.28, %if.then47 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %22 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %22, 0
-  %23 = load i16, ptr @_TRACE_SDCARD_APP_COMMAND_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %23, 0
+  %25 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %25, 0
+  %26 = load i16, ptr @_TRACE_SDCARD_APP_COMMAND_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %26, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_sdcard_app_command.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %sd_state_name.exit.i
-  %24 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %24, 32768
+  %27 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %27, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_sdcard_app_command.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %25 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %25 to i1
+  %28 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %28 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
-  %26 = load i64, ptr %_now.i.i.i, align 8
+  %29 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %27 = load i64, ptr %tv_usec.i.i.i, align 8
-  %28 = trunc i64 %.coerce.sroa.0.0.copyload to i32
-  %conv11.i.i.i = and i32 %28, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i.i, i64 noundef %26, i64 noundef %27, ptr noundef %19, ptr noundef %call1.i, i32 noundef %conv11.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #18
+  %30 = load i64, ptr %tv_usec.i.i.i, align 8
+  %31 = trunc i64 %.coerce.sroa.0.0.copyload to i32
+  %conv11.i.i.i = and i32 %31, 255
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i.i, i64 noundef %29, i64 noundef %30, ptr noundef %22, ptr noundef %call1.i, i32 noundef %conv11.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #18
   br label %trace_sdcard_app_command.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %29 = trunc i64 %.coerce.sroa.0.0.copyload to i32
-  %conv12.i.i.i = and i32 %29, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %19, ptr noundef %call1.i, i32 noundef %conv12.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #18
+  %32 = trunc i64 %.coerce.sroa.0.0.copyload to i32
+  %conv12.i.i.i = and i32 %32, 255
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %22, ptr noundef %call1.i, i32 noundef %conv12.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #18
   br label %trace_sdcard_app_command.exit.i
 
 trace_sdcard_app_command.exit.i:                  ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sd_state_name.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %30 = load i32, ptr %card_status22, align 4
-  %or.i = or i32 %30, 32
+  %33 = load i32, ptr %card_status22, align 4
+  %or.i = or i32 %33, 32
   store i32 %or.i, ptr %card_status22, align 4
   %call.i.i62.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
   %call1.i.i63.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i62.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i64.i = getelementptr inbounds i8, ptr %call1.i.i63.i, i64 264
-  %31 = load ptr, ptr %proto.i64.i, align 8
-  %acmd.i = getelementptr inbounds i8, ptr %31, i64 520
+  %34 = load ptr, ptr %proto.i64.i, align 8
+  %acmd.i = getelementptr inbounds i8, ptr %34, i64 520
   %idxprom.i47 = and i64 %.coerce.sroa.0.0.copyload, 255
   %arrayidx.i = getelementptr [64 x ptr], ptr %acmd.i, i64 0, i64 %idxprom.i47
-  %32 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i = icmp eq ptr %32, null
+  %35 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not.i = icmp eq ptr %35, null
   br i1 %tobool.not.i, label %if.end.i50, label %if.then.i48
 
 if.then.i48:                                      ; preds = %trace_sdcard_app_command.exit.i
   %call.i.i65.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
   %call1.i.i66.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i65.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i67.i = getelementptr inbounds i8, ptr %call1.i.i66.i, i64 264
-  %33 = load ptr, ptr %proto.i67.i, align 8
-  %acmd7.i = getelementptr inbounds i8, ptr %33, i64 520
+  %36 = load ptr, ptr %proto.i67.i, align 8
+  %acmd7.i = getelementptr inbounds i8, ptr %36, i64 520
   %arrayidx10.i = getelementptr [64 x ptr], ptr %acmd7.i, i64 0, i64 %idxprom.i47
-  %34 = load ptr, ptr %arrayidx10.i, align 8
-  %call11.i = tail call i32 %34(ptr noundef nonnull %sd, i64 %.coerce.sroa.0.0.copyload, i8 %.coerce.sroa.2.0.copyload) #18
+  %37 = load ptr, ptr %arrayidx10.i, align 8
+  %call11.i = tail call i32 %37(ptr noundef nonnull %sd, i64 %.coerce.sroa.0.0.copyload, i8 %.coerce.sroa.2.0.copyload) #18
   br label %if.end52
 
 if.end.i50:                                       ; preds = %trace_sdcard_app_command.exit.i
-  %35 = trunc i64 %.coerce.sroa.0.0.copyload to i32
-  %conv.i = and i32 %35, 255
+  %38 = trunc i64 %.coerce.sroa.0.0.copyload to i32
+  %conv.i = and i32 %38, 255
   switch i8 %req.sroa.0.0.extract.trunc.i, label %sw.default96.i [
     i8 6, label %sw.bb.i
     i8 13, label %sw.bb25.i
@@ -601,23 +610,23 @@ if.end.i50:                                       ; preds = %trace_sdcard_app_co
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i50
-  %36 = load i32, ptr %state, align 4
-  %cond5.i = icmp eq i32 %36, 4
+  %39 = load i32, ptr %state, align 4
+  %cond5.i = icmp eq i32 %39, 4
   br i1 %cond5.i, label %sw.bb14.i, label %do.body100.i
 
 sw.bb14.i:                                        ; preds = %sw.bb.i
   %sd_status.i = getelementptr inbounds i8, ptr %sd, i64 216
-  %37 = load i8, ptr %sd_status.i, align 8
-  %38 = and i8 %37, 63
+  %40 = load i8, ptr %sd_status.i, align 8
+  %41 = and i8 %40, 63
   %req.sroa.1052.0.extract.trunc.tr.i = trunc i64 %req.sroa.1052.0.extract.shift.i to i8
-  %39 = shl i8 %req.sroa.1052.0.extract.trunc.tr.i, 6
-  %conv24.i = or disjoint i8 %38, %39
+  %42 = shl i8 %req.sroa.1052.0.extract.trunc.tr.i, 6
+  %conv24.i = or disjoint i8 %41, %42
   store i8 %conv24.i, ptr %sd_status.i, align 8
-  br label %send_response.thread86
+  br label %send_response.thread85
 
 sw.bb25.i:                                        ; preds = %if.end.i50
-  %40 = load i32, ptr %state, align 4
-  %cond4.i = icmp eq i32 %40, 4
+  %43 = load i32, ptr %state, align 4
+  %cond4.i = icmp eq i32 %43, 4
   br i1 %cond4.i, label %sw.bb27.i, label %do.body100.i
 
 sw.bb27.i:                                        ; preds = %sw.bb25.i
@@ -626,39 +635,39 @@ sw.bb27.i:                                        ; preds = %sw.bb25.i
   store i64 0, ptr %data_start.i, align 8
   %data_offset.i = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset.i, align 8
-  br label %send_response.thread86
+  br label %send_response.thread85
 
 sw.bb31.i:                                        ; preds = %if.end.i50
-  %41 = load i32, ptr %state, align 4
-  %cond3.i = icmp eq i32 %41, 4
+  %44 = load i32, ptr %state, align 4
+  %cond3.i = icmp eq i32 %44, 4
   br i1 %cond3.i, label %sw.bb33.i, label %do.body100.i
 
 sw.bb33.i:                                        ; preds = %sw.bb31.i
   %blk_written.i = getelementptr inbounds i8, ptr %sd, i64 380
-  %42 = load i32, ptr %blk_written.i, align 4
+  %45 = load i32, ptr %blk_written.i, align 4
   %data.i = getelementptr inbounds i8, ptr %sd, i64 396
-  store i32 %42, ptr %data.i, align 4
+  store i32 %45, ptr %data.i, align 4
   store i32 5, ptr %state, align 4
   %data_start35.i = getelementptr inbounds i8, ptr %sd, i64 384
   store i64 0, ptr %data_start35.i, align 8
   %data_offset36.i = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset36.i, align 8
-  br label %send_response.thread86
+  br label %send_response.thread85
 
 sw.bb39.i:                                        ; preds = %if.end.i50
-  %43 = load i32, ptr %state, align 4
-  %cond2.i = icmp eq i32 %43, 4
-  br i1 %cond2.i, label %send_response.thread86, label %do.body100.i
+  %46 = load i32, ptr %state, align 4
+  %cond2.i = icmp eq i32 %46, 4
+  br i1 %cond2.i, label %send_response.thread85, label %do.body100.i
 
 sw.bb44.i:                                        ; preds = %if.end.i50
-  %44 = load i32, ptr %state, align 4
-  %cmp.not.i = icmp eq i32 %44, 0
+  %47 = load i32, ptr %state, align 4
+  %cmp.not.i = icmp eq i32 %47, 0
   br i1 %cmp.not.i, label %if.end48.i, label %do.body100.i
 
 if.end48.i:                                       ; preds = %sw.bb44.i
   %ocr.i = getelementptr inbounds i8, ptr %sd, i64 164
-  %45 = load i32, ptr %ocr.i, align 4
-  %tobool50.not.i = icmp sgt i32 %45, -1
+  %48 = load i32, ptr %ocr.i, align 4
+  %tobool50.not.i = icmp sgt i32 %48, -1
   %and53.i = and i32 %req.sroa.1052.0.extract.trunc.i, 16777215
   br i1 %tobool50.not.i, label %if.then51.i, label %if.end64.i
 
@@ -668,44 +677,44 @@ if.then51.i:                                      ; preds = %if.end48.i
 
 if.then56.i:                                      ; preds = %if.then51.i
   %ocr_power_timer.i = getelementptr inbounds i8, ptr %sd, i64 928
-  %46 = load ptr, ptr %ocr_power_timer.i, align 8
-  tail call void @timer_del(ptr noundef %46) #18
+  %49 = load ptr, ptr %ocr_power_timer.i, align 8
+  tail call void @timer_del(ptr noundef %49) #18
   tail call void @sd_ocr_powerup(ptr noundef nonnull %sd)
   br label %if.end64.i
 
 if.else.i:                                        ; preds = %if.then51.i
   tail call fastcc void @trace_sdcard_inquiry_cmd41()
   %ocr_power_timer57.i = getelementptr inbounds i8, ptr %sd, i64 928
-  %47 = load ptr, ptr %ocr_power_timer57.i, align 8
-  %call58.i = tail call zeroext i1 @timer_pending(ptr noundef %47) #18
+  %50 = load ptr, ptr %ocr_power_timer57.i, align 8
+  %call58.i = tail call zeroext i1 @timer_pending(ptr noundef %50) #18
   br i1 %call58.i, label %if.end64.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.else.i
-  %48 = load ptr, ptr %ocr_power_timer57.i, align 8
+  %51 = load ptr, ptr %ocr_power_timer57.i, align 8
   %call61.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %add.i = add i64 %call61.i, 500000
-  tail call void @timer_mod_ns(ptr noundef %48, i64 noundef %add.i) #18
+  tail call void @timer_mod_ns(ptr noundef %51, i64 noundef %add.i) #18
   br label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.then59.i, %if.else.i, %if.then56.i, %if.end48.i
   %and67.pre-phi.i = phi i32 [ %and53.i, %if.then56.i ], [ 0, %if.then59.i ], [ 0, %if.else.i ], [ %and53.i, %if.end48.i ]
-  %49 = load i32, ptr %ocr.i, align 4
-  %and.i.i = and i32 %49, %and67.pre-phi.i
+  %52 = load i32, ptr %ocr.i, align 4
+  %and.i.i = and i32 %52, %and67.pre-phi.i
   %tobool69.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool69.not.i, label %send_response.thread97, label %if.then70.i
+  br i1 %tobool69.not.i, label %send_response.thread96, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.end64.i
   store i32 1, ptr %state, align 4
-  br label %send_response.thread97
+  br label %send_response.thread96
 
 sw.bb73.i:                                        ; preds = %if.end.i50
-  %50 = load i32, ptr %state, align 4
-  %cond1.i = icmp eq i32 %50, 4
-  br i1 %cond1.i, label %send_response.thread86, label %do.body100.i
+  %53 = load i32, ptr %state, align 4
+  %cond1.i = icmp eq i32 %53, 4
+  br i1 %cond1.i, label %send_response.thread85, label %do.body100.i
 
 sw.bb78.i:                                        ; preds = %if.end.i50
-  %51 = load i32, ptr %state, align 4
-  %cond.i = icmp eq i32 %51, 4
+  %54 = load i32, ptr %state, align 4
+  %cond.i = icmp eq i32 %54, 4
   br i1 %cond.i, label %sw.bb80.i, label %do.body100.i
 
 sw.bb80.i:                                        ; preds = %sw.bb78.i
@@ -714,11 +723,11 @@ sw.bb80.i:                                        ; preds = %sw.bb78.i
   store i64 0, ptr %data_start82.i, align 8
   %data_offset83.i = getelementptr inbounds i8, ptr %sd, i64 392
   store i32 0, ptr %data_offset83.i, align 8
-  br label %send_response.thread86
+  br label %send_response.thread85
 
 do.body.i:                                        ; preds = %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50, %if.end.i50
-  %52 = load i32, ptr @qemu_loglevel, align 4
-  %and.i71.i = and i32 %52, 1024
+  %55 = load i32, ptr @qemu_loglevel, align 4
+  %and.i71.i = and i32 %55, 1024
   %cmp.i72.not.i = icmp eq i32 %and.i71.i, 0
   br i1 %cmp.i72.not.i, label %if.then55, label %if.then55.sink.split
 
@@ -727,8 +736,8 @@ sw.default96.i:                                   ; preds = %if.end.i50
   br label %if.end52
 
 do.body100.i:                                     ; preds = %sw.bb78.i, %sw.bb73.i, %sw.bb44.i, %sw.bb39.i, %sw.bb31.i, %sw.bb25.i, %sw.bb.i
-  %53 = load i32, ptr @qemu_loglevel, align 4
-  %and.i73.i = and i32 %53, 2048
+  %56 = load i32, ptr @qemu_loglevel, align 4
+  %and.i73.i = and i32 %56, 2048
   %cmp.i74.not.i = icmp eq i32 %and.i73.i, 0
   br i1 %cmp.i74.not.i, label %if.then55, label %if.then55.sink.split
 
@@ -750,40 +759,40 @@ if.then55.sink.split:                             ; preds = %do.body100.i, %do.b
   br label %if.then55
 
 if.then55:                                        ; preds = %if.then55.sink.split, %do.body100.i, %do.body.i, %if.end52
-  %54 = load i32, ptr %card_status22, align 4
-  %or57 = or i32 %54, 4194304
+  %57 = load i32, ptr %card_status22, align 4
+  %or57 = or i32 %57, 4194304
   store i32 %or57, ptr %card_status22, align 4
   br label %sd_response_name.exit
 
-send_response.thread86:                           ; preds = %sw.bb73.i, %sw.bb39.i, %sw.bb14.i, %sw.bb27.i, %sw.bb33.i, %sw.bb80.i
-  %55 = load i8, ptr %req, align 4
-  %current_cmd88 = getelementptr inbounds i8, ptr %sd, i64 378
-  store i8 %55, ptr %current_cmd88, align 2
-  %56 = load i32, ptr %card_status22, align 4
-  %and6189 = and i32 %56, -3585
-  %shl90 = shl i32 %14, 9
-  %or6391 = or i32 %and6189, %shl90
-  store i32 %or6391, ptr %card_status22, align 4
+send_response.thread85:                           ; preds = %sw.bb73.i, %sw.bb39.i, %sw.bb14.i, %sw.bb27.i, %sw.bb33.i, %sw.bb80.i
+  %58 = load i8, ptr %req, align 4
+  %current_cmd87 = getelementptr inbounds i8, ptr %sd, i64 378
+  store i8 %58, ptr %current_cmd87, align 2
+  %59 = load i32, ptr %card_status22, align 4
+  %and6188 = and i32 %59, -3585
+  %shl89 = shl i32 %17, 9
+  %or6390 = or i32 %and6188, %shl89
+  store i32 %or6390, ptr %card_status22, align 4
   br label %if.end.i59
 
-send_response.thread97:                           ; preds = %if.end64.i, %if.then70.i
-  %57 = load i8, ptr %req, align 4
-  %current_cmd99 = getelementptr inbounds i8, ptr %sd, i64 378
-  store i8 %57, ptr %current_cmd99, align 2
-  %58 = load i32, ptr %card_status22, align 4
-  %and61100 = and i32 %58, -3585
-  %shl101 = shl i32 %14, 9
-  %or63102 = or i32 %and61100, %shl101
-  store i32 %or63102, ptr %card_status22, align 4
+send_response.thread96:                           ; preds = %if.end64.i, %if.then70.i
+  %60 = load i8, ptr %req, align 4
+  %current_cmd98 = getelementptr inbounds i8, ptr %sd, i64 378
+  store i8 %60, ptr %current_cmd98, align 2
+  %61 = load i32, ptr %card_status22, align 4
+  %and6199 = and i32 %61, -3585
+  %shl100 = shl i32 %17, 9
+  %or63101 = or i32 %and6199, %shl100
+  store i32 %or63101, ptr %card_status22, align 4
   br label %sw.bb68
 
 send_response:                                    ; preds = %if.end52
-  %59 = load i8, ptr %req, align 4
+  %62 = load i8, ptr %req, align 4
   %current_cmd = getelementptr inbounds i8, ptr %sd, i64 378
-  store i8 %59, ptr %current_cmd, align 2
-  %60 = load i32, ptr %card_status22, align 4
-  %and61 = and i32 %60, -3585
-  %shl = shl i32 %14, 9
+  store i8 %62, ptr %current_cmd, align 2
+  %63 = load i32, ptr %card_status22, align 4
+  %and61 = and i32 %63, -3585
+  %shl = shl i32 %17, 9
   %or63 = or i32 %and61, %shl
   store i32 %or63, ptr %card_status22, align 4
   switch i32 %rtype.1, label %do.body72 [
@@ -812,11 +821,11 @@ sw.bb66:                                          ; preds = %send_response
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %response, ptr noundef nonnull align 8 dereferenceable(16) %csd, i64 16, i1 false)
   br label %if.end7.i
 
-sw.bb68:                                          ; preds = %send_response.sw.bb68_crit_edge, %send_response.thread97
-  %sd.val42 = phi i32 [ %sd.val42.pre, %send_response.sw.bb68_crit_edge ], [ %49, %send_response.thread97 ]
+sw.bb68:                                          ; preds = %send_response.sw.bb68_crit_edge, %send_response.thread96
+  %sd.val42 = phi i32 [ %sd.val42.pre, %send_response.sw.bb68_crit_edge ], [ %52, %send_response.thread96 ]
   %and.i53 = and i32 %sd.val42, -503316736
-  %61 = tail call i32 @llvm.bswap.i32(i32 %and.i53)
-  store i32 %61, ptr %response, align 1
+  %64 = tail call i32 @llvm.bswap.i32(i32 %and.i53)
+  store i32 %64, ptr %response, align 1
   br label %if.end7.i
 
 sw.bb69:                                          ; preds = %send_response
@@ -831,101 +840,101 @@ sw.bb69:                                          ; preds = %send_response
   %and8.i = and i32 %or63, -524329
   store i32 %and8.i, ptr %card_status22, align 4
   %rca.i = getelementptr inbounds i8, ptr %sd, i64 208
-  %62 = load i16, ptr %rca.i, align 8
-  %63 = tail call i16 @llvm.bswap.i16(i16 %62)
-  store i16 %63, ptr %response, align 1
+  %65 = load i16, ptr %rca.i, align 8
+  %66 = tail call i16 @llvm.bswap.i16(i16 %65)
+  store i16 %66, ptr %response, align 1
   %add.ptr9.i = getelementptr i8, ptr %response, i64 2
-  %64 = tail call i16 @llvm.bswap.i16(i16 %conv.i57)
-  store i16 %64, ptr %add.ptr9.i, align 1
+  %67 = tail call i16 @llvm.bswap.i16(i16 %conv.i57)
+  store i16 %67, ptr %add.ptr9.i, align 1
   br label %if.end7.i
 
 sw.bb70:                                          ; preds = %send_response
-  %65 = getelementptr i8, ptr %sd, i64 304
-  %sd.val43 = load i32, ptr %65, align 8
-  %66 = tail call i32 @llvm.bswap.i32(i32 %sd.val43)
-  store i32 %66, ptr %response, align 1
+  %68 = getelementptr i8, ptr %sd, i64 304
+  %sd.val43 = load i32, ptr %68, align 8
+  %69 = tail call i32 @llvm.bswap.i32(i32 %sd.val43)
+  store i32 %69, ptr %response, align 1
   br label %if.end7.i
 
 do.body72:                                        ; preds = %send_response
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 1833, ptr noundef nonnull @__func__.sd_do_command, ptr noundef null) #19
   unreachable
 
-if.end.i59:                                       ; preds = %send_response, %send_response, %send_response.thread86
-  %67 = phi i32 [ %or6391, %send_response.thread86 ], [ %or63, %send_response ], [ %or63, %send_response ]
-  %rtype.17093 = phi i32 [ 1, %send_response.thread86 ], [ %rtype.1, %send_response ], [ %rtype.1, %send_response ]
-  %rtype.17093.fr = freeze i32 %rtype.17093
-  %68 = tail call i32 @llvm.bswap.i32(i32 %67)
-  store i32 %68, ptr %response, align 1
-  %69 = load i32, ptr %card_status22, align 4
-  %and.i52 = and i32 %69, 46555095
+if.end.i59:                                       ; preds = %send_response, %send_response, %send_response.thread85
+  %70 = phi i32 [ %or6390, %send_response.thread85 ], [ %or63, %send_response ], [ %or63, %send_response ]
+  %rtype.16992 = phi i32 [ 1, %send_response.thread85 ], [ %rtype.1, %send_response ], [ %rtype.1, %send_response ]
+  %rtype.16992.fr = freeze i32 %rtype.16992
+  %71 = tail call i32 @llvm.bswap.i32(i32 %70)
+  store i32 %71, ptr %response, align 1
+  %72 = load i32, ptr %card_status22, align 4
+  %and.i52 = and i32 %72, 46555095
   store i32 %and.i52, ptr %card_status22, align 4
-  %cmp1.i = icmp eq i32 %rtype.17093.fr, -1
-  br i1 %cmp1.i, label %if.end7.i, label %70
+  %cmp1.i = icmp eq i32 %rtype.16992.fr, -1
+  br i1 %cmp1.i, label %if.end7.i, label %73
 
-70:                                               ; preds = %if.end.i59
-  %cmp4.i = icmp ult i32 %rtype.17093.fr, 8
+73:                                               ; preds = %if.end.i59
+  %cmp4.i = icmp ult i32 %rtype.16992.fr, 8
   br i1 %cmp4.i, label %if.end7.i, label %if.else.i60
 
-if.else.i60:                                      ; preds = %70
+if.else.i60:                                      ; preds = %73
   tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.6, i32 noundef 218, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_response_name) #19
   unreachable
 
-if.end7.i:                                        ; preds = %if.end.i59, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb66, %sw.bb65, %send_response, %70
-  %71 = phi i32 [ %rtype.17093.fr, %70 ], [ 7, %sw.bb70 ], [ 6, %sw.bb69 ], [ 4, %sw.bb68 ], [ 3, %sw.bb66 ], [ 2, %sw.bb65 ], [ %rtype.1, %send_response ], [ 1, %if.end.i59 ]
-  %rsplen.0.ph109112 = phi i32 [ 4, %70 ], [ 4, %sw.bb70 ], [ 4, %sw.bb69 ], [ 4, %sw.bb68 ], [ 16, %sw.bb66 ], [ 16, %sw.bb65 ], [ %rtype.1, %send_response ], [ 4, %if.end.i59 ]
-  %conv.i61 = zext nneg i32 %71 to i64
+if.end7.i:                                        ; preds = %if.end.i59, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb66, %sw.bb65, %send_response, %73
+  %74 = phi i32 [ %rtype.16992.fr, %73 ], [ 7, %sw.bb70 ], [ 6, %sw.bb69 ], [ 4, %sw.bb68 ], [ 3, %sw.bb66 ], [ 2, %sw.bb65 ], [ %rtype.1, %send_response ], [ 1, %if.end.i59 ]
+  %rsplen.0.ph108111 = phi i32 [ 4, %73 ], [ 4, %sw.bb70 ], [ 4, %sw.bb69 ], [ 4, %sw.bb68 ], [ 16, %sw.bb66 ], [ 16, %sw.bb65 ], [ %rtype.1, %send_response ], [ 4, %if.end.i59 ]
+  %conv.i61 = zext nneg i32 %74 to i64
   %arrayidx.i62 = getelementptr [8 x ptr], ptr @sd_response_name.response_name, i64 0, i64 %conv.i61
-  %72 = load ptr, ptr %arrayidx.i62, align 8
+  %75 = load ptr, ptr %arrayidx.i62, align 8
   br label %sd_response_name.exit
 
 sd_response_name.exit:                            ; preds = %if.then40, %if.then29, %if.then55, %if.end7.i
-  %cmp.i5884 = phi i1 [ false, %if.end7.i ], [ true, %if.then55 ], [ true, %if.then29 ], [ true, %if.then40 ]
-  %rsplen.082 = phi i32 [ %rsplen.0.ph109112, %if.end7.i ], [ 0, %if.then55 ], [ 0, %if.then29 ], [ 0, %if.then40 ]
-  %retval.0.i63 = phi ptr [ %72, %if.end7.i ], [ @.str.74, %if.then55 ], [ @.str.74, %if.then29 ], [ @.str.74, %if.then40 ]
+  %cmp.i5883 = phi i1 [ false, %if.end7.i ], [ true, %if.then55 ], [ true, %if.then29 ], [ true, %if.then40 ]
+  %rsplen.081 = phi i32 [ %rsplen.0.ph108111, %if.end7.i ], [ 0, %if.then55 ], [ 0, %if.then29 ], [ 0, %if.then40 ]
+  %retval.0.i63 = phi ptr [ %75, %if.end7.i ], [ @.str.74, %if.then55 ], [ @.str.74, %if.then29 ], [ @.str.74, %if.then40 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %73 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %73, 0
-  %74 = load i16, ptr @_TRACE_SDCARD_RESPONSE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %74, 0
+  %76 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %76, 0
+  %77 = load i16, ptr @_TRACE_SDCARD_RESPONSE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %77, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_sdcard_response.exit
 
 land.lhs.true5.i.i:                               ; preds = %sd_response_name.exit
-  %75 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %75, 32768
+  %78 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %78, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_sdcard_response.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %76 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %76 to i1
+  %79 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %79 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i64
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
   %call10.i.i = tail call i32 @qemu_get_thread_id() #18
-  %77 = load i64, ptr %_now.i.i, align 8
+  %80 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %78 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %77, i64 noundef %78, ptr noundef %retval.0.i63, i32 noundef %rsplen.082) #18
+  %81 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %80, i64 noundef %81, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #18
   br label %trace_sdcard_response.exit
 
 if.else.i.i64:                                    ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef %retval.0.i63, i32 noundef %rsplen.082) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #18
   br label %trace_sdcard_response.exit
 
 trace_sdcard_response.exit:                       ; preds = %sd_response_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  br i1 %cmp.i5884, label %return, label %if.then77
+  br i1 %cmp.i5883, label %return, label %if.then77
 
 if.then77:                                        ; preds = %trace_sdcard_response.exit
-  %79 = load i32, ptr %card_status22, align 4
-  %and79 = and i32 %79, -12590593
+  %82 = load i32, ptr %card_status22, align 4
+  %and79 = and i32 %82, -12590593
   store i32 %and79, ptr %card_status22, align 4
   br label %return
 
 return:                                           ; preds = %trace_sdcard_response.exit, %if.then77, %entry, %lor.lhs.false, %lor.lhs.false2
-  %retval.0 = phi i32 [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %rsplen.082, %if.then77 ], [ %rsplen.082, %trace_sdcard_response.exit ]
+  %retval.0 = phi i32 [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %rsplen.081, %if.then77 ], [ %rsplen.081, %trace_sdcard_response.exit ]
   ret i32 %retval.0
 }
 

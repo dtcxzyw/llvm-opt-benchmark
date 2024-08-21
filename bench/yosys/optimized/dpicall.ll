@@ -733,10 +733,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 335:                                              ; preds = %335, %328
   %indvars.iv151 = phi i64 [ 0, %328 ], [ %indvars.iv.next152, %335 ]
   %336 = getelementptr inbounds i8, ptr %331, i64 %indvars.iv151
-  %337 = shl nuw i64 1, %indvars.iv151
-  %338 = and i64 %337, %330
-  %.not127 = icmp ne i64 %338, 0
-  %339 = zext i1 %.not127 to i8
+  %337 = lshr i64 %330, %indvars.iv151
+  %338 = trunc i64 %337 to i8
+  %339 = and i8 %338, 1
   store i8 %339, ptr %336, align 1
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next152, 64

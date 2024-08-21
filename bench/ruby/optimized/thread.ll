@@ -9041,7 +9041,7 @@ define dso_local void @rb_fd_clr(i32 noundef %0, ptr nocapture noundef nonnull r
 define dso_local range(i32 0, 2) i32 @rb_fd_isset(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #21 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp slt i32 %0, %3
-  br i1 %.not, label %4, label %17
+  br i1 %.not, label %4, label %16
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9052,14 +9052,13 @@ define dso_local range(i32 0, 2) i32 @rb_fd_isset(i32 noundef %0, ptr nocapture 
   %10 = load i64, ptr %9, align 8
   %11 = srem i32 %0, 64
   %12 = zext nneg i32 %11 to i64
-  %13 = shl nuw i64 1, %12
-  %14 = and i64 %10, %13
-  %15 = icmp ne i64 %14, 0
-  %16 = zext i1 %15 to i32
-  br label %17
+  %13 = lshr i64 %10, %12
+  %14 = trunc i64 %13 to i32
+  %15 = and i32 %14, 1
+  br label %16
 
-17:                                               ; preds = %2, %4
-  %.0 = phi i32 [ %16, %4 ], [ 0, %2 ]
+16:                                               ; preds = %2, %4
+  %.0 = phi i32 [ %15, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 

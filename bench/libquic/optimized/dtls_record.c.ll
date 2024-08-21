@@ -16,23 +16,23 @@ entry:
   %sequence = alloca [8 x i8], align 1
   %body = alloca %struct.cbs_st, align 8
   %plaintext_len = alloca i64, align 8
-  call void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %in, i64 noundef %in_len) #5
-  %call = call i32 @CBS_get_u8(ptr noundef nonnull %cbs, ptr noundef nonnull %type) #5
+  call void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %in, i64 noundef %in_len) #4
+  %call = call i32 @CBS_get_u8(ptr noundef nonnull %cbs, ptr noundef nonnull %type) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @CBS_get_u16(ptr noundef nonnull %cbs, ptr noundef nonnull %version) #5
+  %call1 = call i32 @CBS_get_u16(ptr noundef nonnull %cbs, ptr noundef nonnull %version) #4
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBS_copy_bytes(ptr noundef nonnull %cbs, ptr noundef nonnull %sequence, i64 noundef 8) #5
+  %call4 = call i32 @CBS_copy_bytes(ptr noundef nonnull %cbs, ptr noundef nonnull %sequence, i64 noundef 8) #4
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %cbs, ptr noundef nonnull %body) #5
+  %call7 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %cbs, ptr noundef nonnull %body) #4
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then, label %lor.lhs.false9
 
@@ -60,7 +60,7 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false9
   br i1 %cmp16.not.old, label %lor.lhs.false18, label %if.then
 
 lor.lhs.false18:                                  ; preds = %land.lhs.true, %lor.lhs.false14
-  %call19 = call i64 @CBS_len(ptr noundef nonnull %body) #5
+  %call19 = call i64 @CBS_len(ptr noundef nonnull %body) #4
   %cmp20 = icmp ugt i64 %call19, 16704
   br i1 %cmp20, label %if.then, label %if.end
 
@@ -77,7 +77,7 @@ if.end:                                           ; preds = %lor.lhs.false18
 if.then24:                                        ; preds = %if.end
   %msg_callback_arg = getelementptr inbounds i8, ptr %ssl, i64 104
   %4 = load ptr, ptr %msg_callback_arg, align 8
-  call void %3(i32 noundef 0, i32 noundef 0, i32 noundef 256, ptr noundef %in, i64 noundef 13, ptr noundef nonnull %ssl, ptr noundef %4) #5
+  call void %3(i32 noundef 0, i32 noundef 0, i32 noundef 256, ptr noundef %in, i64 noundef 13, ptr noundef nonnull %ssl, ptr noundef %4) #4
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end
@@ -94,58 +94,83 @@ if.end26:                                         ; preds = %if.then24, %if.end
   %8 = load i16, ptr %r_epoch, align 8
   %conv33 = zext i16 %8 to i32
   %cmp34.not = icmp eq i32 %or, %conv33
-  br i1 %cmp34.not, label %lor.lhs.false36, label %if.then41
+  br i1 %cmp34.not, label %for.body.i.i, label %if.then41
 
-lor.lhs.false36:                                  ; preds = %if.end26
+for.body.i.i:                                     ; preds = %if.end26, %for.body.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end26 ]
+  %ret.05.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %if.end26 ]
+  %shl.i.i = shl i64 %ret.05.i.i, 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %sequence, i64 %indvars.iv.i.i
+  %9 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %9 to i64
+  %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
+  br i1 %exitcond.not.i.i, label %to_u64_be.exit.i, label %for.body.i.i, !llvm.loop !7
+
+to_u64_be.exit.i:                                 ; preds = %for.body.i.i
   %bitmap = getelementptr inbounds i8, ptr %7, i64 280
-  %call39 = call fastcc i32 @dtls1_bitmap_should_discard(ptr noundef nonnull %bitmap, ptr noundef nonnull %sequence)
-  %tobool40.not = icmp eq i32 %call39, 0
+  %max_seq_num.i = getelementptr inbounds i8, ptr %7, i64 288
+  %10 = load i64, ptr %max_seq_num.i, align 8
+  %cmp.i = icmp ugt i64 %or.i.i, %10
+  br i1 %cmp.i, label %if.end43, label %if.end.i
+
+if.end.i:                                         ; preds = %to_u64_be.exit.i
+  %sub.i = sub nuw i64 %10, %or.i.i
+  %cmp2.i = icmp ugt i64 %sub.i, 63
+  br i1 %cmp2.i, label %if.then41, label %dtls1_bitmap_should_discard.exit
+
+dtls1_bitmap_should_discard.exit:                 ; preds = %if.end.i
+  %11 = load i64, ptr %bitmap, align 8
+  %12 = shl nuw i64 1, %sub.i
+  %13 = and i64 %11, %12
+  %tobool40.not = icmp eq i64 %13, 0
   br i1 %tobool40.not, label %if.end43, label %if.then41
 
-if.then41:                                        ; preds = %lor.lhs.false36, %if.end26
-  %call42 = call i64 @CBS_len(ptr noundef nonnull %cbs) #5
+if.then41:                                        ; preds = %if.end.i, %dtls1_bitmap_should_discard.exit, %if.end26
+  %call42 = call i64 @CBS_len(ptr noundef nonnull %cbs) #4
   %sub = sub i64 %in_len, %call42
   store i64 %sub, ptr %out_consumed, align 8
   br label %return
 
-if.end43:                                         ; preds = %lor.lhs.false36
-  %9 = load ptr, ptr %s3, align 8
-  %aead_read_ctx = getelementptr inbounds i8, ptr %9, i64 264
-  %10 = load ptr, ptr %aead_read_ctx, align 8
-  %11 = load i8, ptr %type, align 1
-  %12 = load i16, ptr %version, align 2
-  %call46 = call ptr @CBS_data(ptr noundef nonnull %body) #5
-  %call47 = call i64 @CBS_len(ptr noundef nonnull %body) #5
-  %call48 = call i32 @SSL_AEAD_CTX_open(ptr noundef %10, ptr noundef %out, ptr noundef nonnull %plaintext_len, i64 noundef %max_out, i8 noundef zeroext %11, i16 noundef zeroext %12, ptr noundef nonnull %sequence, ptr noundef %call46, i64 noundef %call47) #5
+if.end43:                                         ; preds = %to_u64_be.exit.i, %dtls1_bitmap_should_discard.exit
+  %14 = load ptr, ptr %s3, align 8
+  %aead_read_ctx = getelementptr inbounds i8, ptr %14, i64 264
+  %15 = load ptr, ptr %aead_read_ctx, align 8
+  %16 = load i8, ptr %type, align 1
+  %17 = load i16, ptr %version, align 2
+  %call46 = call ptr @CBS_data(ptr noundef nonnull %body) #4
+  %call47 = call i64 @CBS_len(ptr noundef nonnull %body) #4
+  %call48 = call i32 @SSL_AEAD_CTX_open(ptr noundef %15, ptr noundef %out, ptr noundef nonnull %plaintext_len, i64 noundef %max_out, i8 noundef zeroext %16, i16 noundef zeroext %17, ptr noundef nonnull %sequence, ptr noundef %call46, i64 noundef %call47) #4
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.then50, label %if.end53
 
 if.then50:                                        ; preds = %if.end43
-  call void @ERR_clear_error() #5
-  %call51 = call i64 @CBS_len(ptr noundef nonnull %cbs) #5
+  call void @ERR_clear_error() #4
+  %call51 = call i64 @CBS_len(ptr noundef nonnull %cbs) #4
   %sub52 = sub i64 %in_len, %call51
   store i64 %sub52, ptr %out_consumed, align 8
   br label %return
 
 if.end53:                                         ; preds = %if.end43
-  %13 = load i64, ptr %plaintext_len, align 8
-  %cmp54 = icmp ugt i64 %13, 16384
+  %18 = load i64, ptr %plaintext_len, align 8
+  %cmp54 = icmp ugt i64 %18, 16384
   br i1 %cmp54, label %if.then56, label %if.end57
 
 if.then56:                                        ; preds = %if.end53
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 136, ptr noundef nonnull @.str, i32 noundef 232) #5
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 136, ptr noundef nonnull @.str, i32 noundef 232) #4
   store i8 22, ptr %out_alert, align 1
   br label %return
 
 if.end57:                                         ; preds = %if.end53
-  %14 = load ptr, ptr %d1, align 8
-  %bitmap59 = getelementptr inbounds i8, ptr %14, i64 280
+  %19 = load ptr, ptr %d1, align 8
+  %bitmap59 = getelementptr inbounds i8, ptr %19, i64 280
   call fastcc void @dtls1_bitmap_record(ptr noundef nonnull %bitmap59, ptr noundef nonnull %sequence)
-  %15 = load i8, ptr %type, align 1
-  store i8 %15, ptr %out_type, align 1
-  %16 = load i64, ptr %plaintext_len, align 8
-  store i64 %16, ptr %out_len, align 8
-  %call61 = call i64 @CBS_len(ptr noundef nonnull %cbs) #5
+  %20 = load i8, ptr %type, align 1
+  store i8 %20, ptr %out_type, align 1
+  %21 = load i64, ptr %plaintext_len, align 8
+  store i64 %21, ptr %out_len, align 8
+  %call61 = call i64 @CBS_len(ptr noundef nonnull %cbs) #4
   %sub62 = sub i64 %in_len, %call61
   store i64 %sub62, ptr %out_consumed, align 8
   br label %return
@@ -167,47 +192,6 @@ declare i32 @CBS_get_u16_length_prefixed(ptr noundef, ptr noundef) local_unnamed
 
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @dtls1_bitmap_should_discard(ptr nocapture noundef readonly %bitmap, ptr nocapture noundef readonly %seq_num) unnamed_addr #2 {
-entry:
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i, %entry
-  %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %ret.05.i = phi i64 [ 0, %entry ], [ %or.i, %for.body.i ]
-  %shl.i = shl i64 %ret.05.i, 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %seq_num, i64 %indvars.iv.i
-  %0 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %0 to i64
-  %or.i = or disjoint i64 %shl.i, %conv.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %to_u64_be.exit, label %for.body.i, !llvm.loop !7
-
-to_u64_be.exit:                                   ; preds = %for.body.i
-  %max_seq_num = getelementptr inbounds i8, ptr %bitmap, i64 8
-  %1 = load i64, ptr %max_seq_num, align 8
-  %cmp = icmp ugt i64 %or.i, %1
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %to_u64_be.exit
-  %sub = sub nuw i64 %1, %or.i
-  %cmp2 = icmp ugt i64 %sub, 63
-  br i1 %cmp2, label %return, label %lor.rhs
-
-lor.rhs:                                          ; preds = %if.end
-  %2 = load i64, ptr %bitmap, align 8
-  %shl = shl nuw i64 1, %sub
-  %and = and i64 %2, %shl
-  %tobool = icmp ne i64 %and, 0
-  %3 = zext i1 %tobool to i32
-  br label %return
-
-return:                                           ; preds = %if.end, %lor.rhs, %to_u64_be.exit
-  %retval.0 = phi i32 [ 0, %to_u64_be.exit ], [ 1, %if.end ], [ %3, %lor.rhs ]
-  ret i32 %retval.0
-}
-
 declare i32 @SSL_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
@@ -217,7 +201,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dtls1_bitmap_record(ptr nocapture noundef %bitmap, ptr nocapture noundef readonly %seq_num) unnamed_addr #3 {
+define internal fastcc void @dtls1_bitmap_record(ptr nocapture noundef %bitmap, ptr nocapture noundef readonly %seq_num) unnamed_addr #2 {
 entry:
   br label %for.body.i
 
@@ -295,7 +279,7 @@ entry:
   br i1 %cmp7, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 265) #5
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 265) #4
   br label %return
 
 if.end10:                                         ; preds = %entry
@@ -307,7 +291,7 @@ if.end10:                                         ; preds = %entry
   br i1 %or.cond, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end10
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 189, ptr noundef nonnull @.str, i32 noundef 271) #5
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 189, ptr noundef nonnull @.str, i32 noundef 271) #4
   br label %return
 
 if.end17:                                         ; preds = %if.end10
@@ -343,12 +327,12 @@ cond.end:                                         ; preds = %if.end17, %cond.tru
   %arrayidx36 = getelementptr inbounds i8, ptr %seq.0, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx35, ptr noundef nonnull align 1 dereferenceable(6) %arrayidx36, i64 6, i1 false)
   %sub38 = add i64 %max_out, -13
-  %call = call i32 @SSL_AEAD_CTX_seal(ptr noundef %aead.0, ptr noundef nonnull %add.ptr, ptr noundef nonnull %ciphertext_len, i64 noundef %sub38, i8 noundef zeroext %type, i16 noundef zeroext %cond, ptr noundef nonnull %arrayidx30, ptr noundef %in, i64 noundef %in_len) #5
+  %call = call i32 @SSL_AEAD_CTX_seal(ptr noundef %aead.0, ptr noundef nonnull %add.ptr, ptr noundef nonnull %ciphertext_len, i64 noundef %sub38, i8 noundef zeroext %type, i16 noundef zeroext %cond, ptr noundef nonnull %arrayidx30, ptr noundef %in, i64 noundef %in_len) #4
   %tobool40.not = icmp eq i32 %call, 0
   br i1 %tobool40.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.end
-  %call42 = call i32 @ssl_record_sequence_update(ptr noundef nonnull %arrayidx36, i64 noundef 6) #5
+  %call42 = call i32 @ssl_record_sequence_update(ptr noundef nonnull %arrayidx36, i64 noundef 6) #4
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return, label %if.end45
 
@@ -358,7 +342,7 @@ if.end45:                                         ; preds = %lor.lhs.false
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end45
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 69, ptr noundef nonnull @.str, i32 noundef 294) #5
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 69, ptr noundef nonnull @.str, i32 noundef 294) #4
   br label %return
 
 if.end49:                                         ; preds = %if.end45
@@ -379,7 +363,7 @@ if.end49:                                         ; preds = %if.end45
 if.then57:                                        ; preds = %if.end49
   %msg_callback_arg = getelementptr inbounds i8, ptr %ssl, i64 104
   %10 = load ptr, ptr %msg_callback_arg, align 8
-  call void %9(i32 noundef 1, i32 noundef 0, i32 noundef 256, ptr noundef nonnull %out, i64 noundef 13, ptr noundef nonnull %ssl, ptr noundef %10) #5
+  call void %9(i32 noundef 1, i32 noundef 0, i32 noundef 256, ptr noundef nonnull %out, i64 noundef 13, ptr noundef nonnull %ssl, ptr noundef %10) #4
   br label %return
 
 return:                                           ; preds = %if.end49, %if.then57, %cond.end, %lor.lhs.false, %if.then48, %if.then16, %if.then9
@@ -388,7 +372,7 @@ return:                                           ; preds = %if.end49, %if.then5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 declare i32 @SSL_AEAD_CTX_seal(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -396,10 +380,9 @@ declare i32 @ssl_record_sequence_update(ptr noundef, i64 noundef) local_unnamed_
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

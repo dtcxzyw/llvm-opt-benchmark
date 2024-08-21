@@ -21673,10 +21673,9 @@ entry:
   %0 = load i64, ptr %arrayidx, align 8
   %rem.i.i = and i32 %bit, 63
   %sh_prom.i = zext nneg i32 %rem.i.i to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
-  %and = and i64 %0, %shl.i
-  %cmp = icmp ne i64 %and, 0
-  %conv = zext i1 %cmp to i32
+  %1 = lshr i64 %0, %sh_prom.i
+  %2 = trunc i64 %1 to i32
+  %conv = and i32 %2, 1
   ret i32 %conv
 }
 

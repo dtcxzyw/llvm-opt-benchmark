@@ -4570,7 +4570,7 @@ define internal fastcc void @_ZN5YosysL9big2constERK10BigIntegerii(ptr dead_on_u
 
 _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   invoke void @_ZN5Yosys5RTLIL5ConstC1Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0, i32 noundef %2)
-          to label %23 unwind label %49
+          to label %23 unwind label %50
 
 23:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
   br i1 %.not.i.i, label %.loopexit, label %24
@@ -4587,11 +4587,11 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
 .lr.ph:                                           ; preds = %.preheader25
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %56
+  br label %57
 
 29:                                               ; preds = %24
   invoke void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
-          to label %.preheader unwind label %51
+          to label %.preheader unwind label %52
 
 .preheader:                                       ; preds = %29
   %30 = icmp sgt i32 %2, 0
@@ -4620,62 +4620,61 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
 41:                                               ; preds = %36, %32
   %42 = phi i64 [ %40, %36 ], [ 0, %32 ]
   %43 = and i64 %indvars.iv32, 63
-  %44 = shl nuw i64 1, %43
-  %45 = and i64 %42, %44
-  %.not = icmp eq i64 %45, 0
-  %46 = zext i1 %.not to i8
-  %47 = load ptr, ptr %31, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv32
-  store i8 %46, ptr %48, align 1
+  %44 = xor i64 %42, -1
+  %45 = lshr i64 %44, %43
+  %46 = trunc i64 %45 to i8
+  %47 = and i8 %46, 1
+  %48 = load ptr, ptr %31, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 %indvars.iv32
+  store i8 %47, ptr %49, align 1
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
   br i1 %exitcond36.not, label %.loopexit, label %32, !llvm.loop !44
 
-49:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
-51:                                               ; preds = %29
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %29
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %.not.i.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %55
+  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %.not.i.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %56
 
-55:                                               ; preds = %51
-  call void @_ZdlPv(ptr noundef nonnull %54) #18
+56:                                               ; preds = %52
+  call void @_ZdlPv(ptr noundef nonnull %55) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
-56:                                               ; preds = %.lr.ph, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %57 = trunc nuw nsw i64 %indvars.iv to i32
-  %58 = lshr i32 %57, 6
-  %.not.i.i22 = icmp ult i32 %58, %11
-  br i1 %.not.i.i22, label %59, label %63
+57:                                               ; preds = %.lr.ph, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
+  %59 = lshr i32 %58, 6
+  %.not.i.i22 = icmp ult i32 %59, %11
+  br i1 %.not.i.i22, label %60, label %64
 
-59:                                               ; preds = %56
-  %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds i64, ptr %14, i64 %60
-  %62 = load i64, ptr %61, align 8
-  br label %63
+60:                                               ; preds = %57
+  %61 = zext nneg i32 %59 to i64
+  %62 = getelementptr inbounds i64, ptr %14, i64 %61
+  %63 = load i64, ptr %62, align 8
+  br label %64
 
-63:                                               ; preds = %59, %56
-  %64 = phi i64 [ %62, %59 ], [ 0, %56 ]
-  %65 = and i64 %indvars.iv, 63
-  %66 = shl nuw i64 1, %65
-  %67 = and i64 %64, %66
-  %68 = icmp ne i64 %67, 0
-  %69 = zext i1 %68 to i8
+64:                                               ; preds = %60, %57
+  %65 = phi i64 [ %63, %60 ], [ 0, %57 ]
+  %66 = and i64 %indvars.iv, 63
+  %67 = lshr i64 %65, %66
+  %68 = trunc i64 %67 to i8
+  %69 = and i8 %68, 1
   %70 = load ptr, ptr %28, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 %indvars.iv
   store i8 %69, ptr %71, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !45
 
-.loopexit:                                        ; preds = %63, %41, %.preheader25, %.preheader, %23
+.loopexit:                                        ; preds = %64, %41, %.preheader25, %.preheader, %23
   %72 = load ptr, ptr %15, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %_ZN11BigUnsignedD2Ev.exit, label %74
@@ -4684,8 +4683,8 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   call void @_ZdaPv(ptr noundef nonnull %72) #18
   br label %_ZN11BigUnsignedD2Ev.exit
 
-_ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %55, %51, %49
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %52, %55 ]
+_ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %56, %52, %50
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %53, %52 ], [ %53, %56 ]
   %75 = load ptr, ptr %15, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %_ZN11BigUnsignedD2Ev.exit24, label %77

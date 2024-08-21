@@ -886,9 +886,9 @@ define void @_ZN7mitsuba6Thread17set_core_affinityEi(ptr nocapture noundef nonnu
   br label %20
 
 20:                                               ; preds = %17, %51
-  %.0120 = phi i32 [ %19, %17 ], [ %52, %51 ]
-  %.096119 = phi i32 [ 0, %17 ], [ %53, %51 ]
-  %21 = sext i32 %.0120 to i64
+  %.0119 = phi i32 [ %19, %17 ], [ %52, %51 ]
+  %.096118 = phi i32 [ 0, %17 ], [ %53, %51 ]
+  %21 = sext i32 %.0119 to i64
   %22 = add nsw i64 %21, 63
   %23 = lshr i64 %22, 3
   %24 = and i64 %23, 2305843009213693944
@@ -957,13 +957,13 @@ common.resume:                                    ; preds = %120, %85, %41
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
-  %52 = shl nsw i32 %.0120, 1
-  %53 = add nuw nsw i32 %.096119, 1
+  %52 = shl nsw i32 %.0119, 1
+  %53 = add nuw nsw i32 %.096118, 1
   %exitcond.not = icmp eq i32 %53, 10
   br i1 %exitcond.not, label %54, label %20, !llvm.loop !5
 
 54:                                               ; preds = %51, %43, %49
-  %.0.lcssa = phi i32 [ %52, %51 ], [ %.0120, %43 ], [ %.0120, %49 ]
+  %.0.lcssa = phi i32 [ %52, %51 ], [ %.0119, %43 ], [ %.0119, %49 ]
   %55 = icmp sgt i32 %.0.lcssa, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
 
@@ -985,8 +985,8 @@ common.resume:                                    ; preds = %120, %85, %41
   %64 = and i64 %indvars.iv, 63
   %65 = shl nuw i64 1, %64
   %66 = and i64 %63, %65
-  %.not116 = icmp eq i64 %66, 0
-  br i1 %.not116, label %.thread, label %67
+  %.not105 = icmp eq i64 %66, 0
+  br i1 %.not105, label %.thread, label %67
 
 67:                                               ; preds = %60
   %68 = add nsw i32 %57, 1
@@ -996,8 +996,8 @@ common.resume:                                    ; preds = %120, %85, %41
 .thread:                                          ; preds = %56, %67, %60
   %70 = phi i32 [ %57, %56 ], [ %68, %67 ], [ %57, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond131.not, label %._crit_edge, label %56, !llvm.loop !7
+  %exitcond130.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond130.not, label %._crit_edge, label %56, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.thread, %54
   %.lcssa = phi i32 [ 0, %54 ], [ %70, %.thread ]

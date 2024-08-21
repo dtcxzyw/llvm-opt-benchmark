@@ -34095,10 +34095,9 @@ emit_do_imm32.exit.thread.i:                      ; preds = %50, %44
   %94 = add i64 %93, 10
   store i64 %94, ptr %92, align 8
   %95 = zext nneg i32 %70 to i64
-  %96 = shl nuw nsw i64 1, %95
-  %97 = and i64 %96, 57886
-  %.not11.i.i = icmp eq i64 %97, 0
-  %98 = zext i1 %.not11.i.i to i8
+  %96 = lshr i64 -57888, %95
+  %97 = trunc i64 %96 to i8
+  %98 = and i8 %97, 1
   %99 = or disjoint i8 %98, 72
   store i8 %99, ptr %91, align 1
   %100 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %95
@@ -52574,10 +52573,9 @@ define internal fastcc i32 @emit_mov(ptr nocapture noundef %0, i32 noundef %1, i
   %45 = add i64 %44, 10
   store i64 %45, ptr %43, align 8
   %46 = sext i32 %1 to i64
-  %47 = shl nuw i64 1, %46
-  %48 = and i64 %47, 57887
-  %.not11.i = icmp eq i64 %48, 0
-  %49 = zext i1 %.not11.i to i8
+  %47 = lshr i64 -57888, %46
+  %48 = trunc i64 %47 to i8
+  %49 = and i8 %48, 1
   %50 = or disjoint i8 %49, 72
   store i8 %50, ptr %42, align 1
   %51 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %46
@@ -53444,10 +53442,9 @@ define internal fastcc noundef i32 @emit_load_imm64(ptr nocapture noundef %0, i3
   %27 = add i64 %26, 10
   store i64 %27, ptr %25, align 8
   %28 = sext i32 %1 to i64
-  %29 = shl nuw i64 1, %28
-  %30 = and i64 %29, 57887
-  %.not11 = icmp eq i64 %30, 0
-  %31 = zext i1 %.not11 to i8
+  %29 = lshr i64 -57888, %28
+  %30 = trunc i64 %29 to i8
+  %31 = and i8 %30, 1
   %32 = or disjoint i8 %31, 72
   store i8 %32, ptr %24, align 1
   %33 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %28
@@ -54235,10 +54232,9 @@ emit_do_imm32.exit.thread:                        ; preds = %47, %53
   %95 = add i64 %94, 10
   store i64 %95, ptr %93, align 8
   %96 = zext nneg i32 %71 to i64
-  %97 = shl nuw nsw i64 1, %96
-  %98 = and i64 %97, 57886
-  %.not11.i = icmp eq i64 %98, 0
-  %99 = zext i1 %.not11.i to i8
+  %97 = lshr i64 -57888, %96
+  %98 = trunc i64 %97 to i8
+  %99 = and i8 %98, 1
   %100 = or disjoint i8 %99, 72
   store i8 %100, ptr %92, align 1
   %101 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %96
@@ -55011,10 +55007,9 @@ emit_do_imm32.exit.thread:                        ; preds = %47, %53
   %95 = add i64 %94, 10
   store i64 %95, ptr %93, align 8
   %96 = zext nneg i32 %71 to i64
-  %97 = shl nuw nsw i64 1, %96
-  %98 = and i64 %97, 57886
-  %.not11.i = icmp eq i64 %98, 0
-  %99 = zext i1 %.not11.i to i8
+  %97 = lshr i64 -57888, %96
+  %98 = trunc i64 %97 to i8
+  %99 = and i8 %98, 1
   %100 = or disjoint i8 %99, 72
   store i8 %100, ptr %92, align 1
   %101 = getelementptr inbounds [17 x i8], ptr @reg_lmap, i64 0, i64 %96
@@ -58500,10 +58495,9 @@ get_jump_code.exit:                               ; preds = %6, %switch.lookup
   %37 = getelementptr inbounds i8, ptr %.0.i73.ph, i64 4
   store i8 -62, ptr %37, align 1
   %38 = zext nneg i32 %2 to i64
-  %39 = shl nuw i64 1, %38
-  %40 = and i64 %39, 57887
-  %.not71 = icmp eq i64 %40, 0
-  %41 = zext i1 %.not71 to i8
+  %39 = lshr i64 -57888, %38
+  %40 = trunc i64 %39 to i8
+  %41 = and i8 %40, 1
   %42 = or disjoint i8 %41, 64
   %43 = getelementptr inbounds i8, ptr %.0.i73.ph, i64 5
   store i8 %42, ptr %43, align 1
