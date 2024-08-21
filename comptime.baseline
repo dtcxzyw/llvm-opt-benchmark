@@ -15057,7 +15057,7 @@ luajit/lj_lex_dyn.ll 726792085
 luajit/lj_lib.ll 166621357
 luajit/lj_lib_dyn.ll 166563927
 luajit/lj_load.ll 83743405
-luajit/lj_load_dyn.ll 83681196
+luajit/lj_load_dyn.ll 83764989
 luajit/lj_mcode.ll 99703043
 luajit/lj_mcode_dyn.ll 99652952
 luajit/lj_meta.ll 306703286
