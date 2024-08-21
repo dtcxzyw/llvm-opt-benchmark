@@ -17521,7 +17521,7 @@ nuttx/lib_nanosleep.c.ll 35961640
 nuttx/lib_nftw.c.ll 92022273
 nuttx/lib_openat.c.ll 40348074
 nuttx/lib_pathconf.c.ll 39516219
-nuttx/lib_popcount.c.ll 34566974
+nuttx/lib_popcount.c.ll 34532396
 nuttx/lib_popcountl.c.ll 34657182
 nuttx/lib_popcountll.c.ll 34691312
 nuttx/lib_posix_memalign.c.ll 36058315
@@ -21025,7 +21025,7 @@ openjdk/buildOopMap.ll 580301572
 openjdk/bytecode.ll 277809985
 openjdk/bytecodeAssembler.ll 420155696
 openjdk/bytecodeInfo.ll 480310871
-openjdk/bytecodeStream.ll 53146175
+openjdk/bytecodeStream.ll 53093014
 openjdk/bytecodeTracer.ll 886224966
 openjdk/bytecodeUtils.ll 803833767
 openjdk/bytecodes.ll 259529901
@@ -29191,7 +29191,7 @@ qemu/stubs_sysbus.c.ll 33686715
 qemu/stubs_target-get-monitor-def.c.ll 34042985
 qemu/stubs_target-monitor-defs.c.ll 33690725
 qemu/stubs_trace-control.c.ll 43383444
-qemu/stubs_usb-dev-stub.c.ll 36458546
+qemu/stubs_usb-dev-stub.c.ll 36422071
 qemu/stubs_uuid.c.ll 35045708
 qemu/stubs_vmstate.c.ll 35700987
 qemu/stubs_xen-hw-stub.c.ll 38880795
@@ -30535,7 +30535,7 @@ rust-analyzer-rs/1yigtuxmiuvrwpzt.ll 6290122634
 rust-analyzer-rs/1ynkfxfr8tm9bvwl.ll 36105135
 rust-analyzer-rs/1z656ncqic0spld2.ll 1015574594
 rust-analyzer-rs/1zrunwbtbuh9iz4m.ll 1075416240
-rust-analyzer-rs/2025sm42y7i6frv5.ll 20183489042
+rust-analyzer-rs/2025sm42y7i6frv5.ll 20163301518
 rust-analyzer-rs/202uzsghjvp73kcw.ll 10797979117
 rust-analyzer-rs/206pid2yjlj5ool2.ll 3336389612
 rust-analyzer-rs/20n4mfub9828lc66.ll 1128913081
@@ -34111,7 +34111,7 @@ wasmtime-rs/2kevz0g5e1myujwd.ll 5658879275
 wasmtime-rs/2kiv2liqloy18n3k.ll 39373759
 wasmtime-rs/2kmqe6nq7an3rlxz.ll 49498225
 wasmtime-rs/2l5y8gqrluvyvdk1.ll 207129259
-wasmtime-rs/2lqobas9l4yte1u8.ll 54947123
+wasmtime-rs/2lqobas9l4yte1u8.ll 54892175
 wasmtime-rs/2ly4gzztxx8hlwxv.ll 15266046444
 wasmtime-rs/2lz954crgst412nx.ll 1694821334
 wasmtime-rs/2m43maj3yw81hik9.ll 43219754
