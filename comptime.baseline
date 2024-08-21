@@ -340,7 +340,7 @@ abc/cuddLevelQ.c.ll 117593850
 abc/cuddLinear.c.ll 400765071
 abc/cuddLiteral.c.ll 74790860
 abc/cuddMatMult.c.ll 187736704
-abc/cuddPriority.c.ll 552359304
+abc/cuddPriority.c.ll 551806279
 abc/cuddRead.c.ll 205889699
 abc/cuddRef.c.ll 212167997
 abc/cuddReorder.c.ll 637027251
@@ -11482,7 +11482,7 @@ jq/st.ll 221634342
 jq/unicode.ll 1125834580
 jq/unicode_fold1_key.ll 52390322
 jq/unicode_fold2_key.ll 40881019
-jq/unicode_fold3_key.ll 42158513
+jq/unicode_fold3_key.ll 42116190
 jq/unicode_unfold_key.ll 84162342
 jq/utf16_be.ll 86303654
 jq/utf16_le.ll 86486133
@@ -24278,7 +24278,7 @@ openssl/evp_pkey_dparams_test-bin-evp_pkey_dparams_test.ll 64555069
 openssl/evp_pkey_provided_test-bin-evp_pkey_provided_test.ll 633678273
 openssl/evp_test-bin-evp_test.ll 1522027719
 openssl/evp_xof_test-bin-evp_xof_test.ll 133675902
-openssl/exdatatest-bin-exdatatest.ll 117868060
+openssl/exdatatest-bin-exdatatest.ll 117749780
 openssl/exptest-bin-exptest.ll 149361471
 openssl/ext_internal_test-bin-ext_internal_test.ll 45774780
 openssl/fatalerrtest-bin-fatalerrtest.ll 56840901
@@ -27887,7 +27887,7 @@ proj/putp3.cpp.ll 53431416
 proj/putp4p.cpp.ll 56047682
 proj/putp5.cpp.ll 55140304
 proj/putp6.cpp.ll 66540167
-proj/qsc.cpp.ll 123510158
+proj/qsc.cpp.ll 123386232
 proj/qsfn.cpp.ll 37665346
 proj/release.cpp.ll 33691314
 proj/robin.cpp.ll 77451482
@@ -33747,7 +33747,7 @@ verilator/V3LinkLValue.cpp.ll 471464381
 verilator/V3LinkLevel.cpp.ll 1610397260
 verilator/V3LinkParse.cpp.ll 2240712120
 verilator/V3LinkResolve.cpp.ll 1307163150
-verilator/V3Localize.cpp.ll 1375165303
+verilator/V3Localize.cpp.ll 1373789451
 verilator/V3MergeCond.cpp.ll 2307872686
 verilator/V3Name.cpp.ll 3037678079
 verilator/V3Number.cpp.ll 4652398650
