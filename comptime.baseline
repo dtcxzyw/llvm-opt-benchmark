@@ -7898,7 +7898,7 @@ graphviz/cluster.c.ll 385880105
 graphviz/clusteredges.c.ll 166370914
 graphviz/clustering.c.ll 207710260
 graphviz/color_palette.c.ll 1001348637
-graphviz/colorutil.c.ll 90349611
+graphviz/colorutil.c.ll 90440099
 graphviz/colxlate.c.ll 452846939
 graphviz/comp.c.ll 92994649
 graphviz/compile.c.ll 910426604
