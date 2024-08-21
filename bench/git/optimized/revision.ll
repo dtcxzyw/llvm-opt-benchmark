@@ -2783,7 +2783,7 @@ if.then70:                                        ; preds = %land.lhs.true
   %bf.load74 = load i64, ptr %no_walk73, align 8
   %bf.clear75 = and i64 %bf.load74, -17
   store i64 %bf.clear75, ptr %no_walk73, align 8
-  br label %return
+  br label %if.end1200
 
 sub_0:                                            ; preds = %if.else61
   %11 = zext i8 %7 to i32
@@ -2858,7 +2858,7 @@ if.then96:                                        ; preds = %do.body.i
   %bf.load100 = load i64, ptr %no_walk99, align 8
   %bf.clear101 = and i64 %bf.load100, -17
   store i64 %bf.clear101, ptr %no_walk99, align 8
-  br label %return
+  br label %if.end1200
 
 if.else103:                                       ; preds = %do.cond.i
   %call104 = call i32 @parse_long_opt(ptr noundef nonnull @.str.73, ptr noundef nonnull %argv, ptr noundef nonnull %optarg) #25
@@ -2954,7 +2954,7 @@ if.then145:                                       ; preds = %if.else142
   %bf.load146 = load i64, ptr %first_parent_only, align 8
   %bf.set148 = or i64 %bf.load146, 274877906944
   store i64 %bf.set148, ptr %first_parent_only, align 8
-  br label %return
+  br label %if.end1200
 
 if.else149:                                       ; preds = %if.else142
   %call150 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(28) @.str.81) #26
@@ -2966,7 +2966,7 @@ if.then152:                                       ; preds = %if.else149
   %bf.load153 = load i64, ptr %exclude_first_parent_only, align 8
   %bf.set155 = or i64 %bf.load153, 549755813888
   store i64 %bf.set155, ptr %exclude_first_parent_only, align 8
-  br label %return
+  br label %if.end1200
 
 if.else156:                                       ; preds = %if.else149
   %call157 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.82) #26
@@ -2983,7 +2983,7 @@ if.then159:                                       ; preds = %if.else156
   %bf.set162 = and i64 %bf.load160, -206158954625
   %bf.set171 = or disjoint i64 %bf.set162, 206158954496
   store i64 %bf.set171, ptr %ancestry_path, align 8
-  br label %return
+  br label %if.end1200
 
 do.body.i245:                                     ; preds = %do.body.i245.preheader, %do.cond.i249
   %str.addr.0.i246 = phi ptr [ %incdec.ptr.i250, %do.cond.i249 ], [ %0, %do.body.i245.preheader ]
@@ -3045,7 +3045,7 @@ if.then198:                                       ; preds = %if.end193
 if.end201:                                        ; preds = %if.end193
   %ancestry_path_bottoms = getelementptr inbounds i8, ptr %revs, i64 2912
   %call202 = call ptr @commit_list_insert(ptr noundef nonnull %call196, ptr noundef nonnull %ancestry_path_bottoms) #25
-  br label %return
+  br label %if.end1200
 
 sub_0402:                                         ; preds = %do.cond.i249
   %39 = load i8, ptr %0, align 1
@@ -3080,7 +3080,7 @@ lor.lhs.false206:                                 ; preds = %if.else203.tail
 if.then209:                                       ; preds = %lor.lhs.false206, %if.else203.tail
   %reflog_info = getelementptr inbounds i8, ptr %revs, i64 2672
   call void @init_reflog_walk(ptr noundef nonnull %reflog_info) #25
-  br label %return
+  br label %if.end1200
 
 if.else210:                                       ; preds = %lor.lhs.false206
   %call211 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.86) #26
@@ -3112,7 +3112,7 @@ if.then224:                                       ; preds = %if.else221
   %bf.load225 = load i32, ptr %show_merge, align 4
   %bf.set227 = or i32 %bf.load225, 4
   store i32 %bf.set227, ptr %show_merge, align 4
-  br label %return
+  br label %if.end1200
 
 if.else228:                                       ; preds = %if.else221
   %call229 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.89) #26
@@ -3126,7 +3126,7 @@ if.then231:                                       ; preds = %if.else228
   %bf.load232 = load i64, ptr %topo_order, align 8
   %bf.set234 = or i64 %bf.load232, 512
   store i64 %bf.set234, ptr %topo_order, align 8
-  br label %return
+  br label %if.end1200
 
 if.else235:                                       ; preds = %if.else228
   %call236 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.90) #26
@@ -3139,7 +3139,7 @@ if.then238:                                       ; preds = %if.else235
   %bf.set248 = and i64 %bf.load239, -268961409
   %bf.set256 = or disjoint i64 %bf.set248, 268961280
   store i64 %bf.set256, ptr %simplify_merges, align 8
-  br label %return
+  br label %if.end1200
 
 if.else257:                                       ; preds = %if.else235
   %call258 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.91) #26
@@ -3152,7 +3152,7 @@ if.then260:                                       ; preds = %if.else257
   %bf.set272 = and i64 %bf.load262, -268963465
   %bf.set286 = or disjoint i64 %bf.set272, 268963336
   store i64 %bf.set286, ptr %simplify_merges261, align 8
-  br label %return
+  br label %if.end1200
 
 if.else287:                                       ; preds = %if.else257
   %call288 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.92) #26
@@ -3166,7 +3166,7 @@ if.then290:                                       ; preds = %if.else287
   %bf.load293 = load i64, ptr %topo_order292, align 8
   %bf.set295 = or i64 %bf.load293, 512
   store i64 %bf.set295, ptr %topo_order292, align 8
-  br label %return
+  br label %if.end1200
 
 if.else296:                                       ; preds = %if.else287
   %call297 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.93) #26
@@ -3180,7 +3180,7 @@ if.then299:                                       ; preds = %if.else296
   %bf.load302 = load i64, ptr %topo_order301, align 8
   %bf.set304 = or i64 %bf.load302, 512
   store i64 %bf.set304, ptr %topo_order301, align 8
-  br label %return
+  br label %if.end1200
 
 if.else305:                                       ; preds = %if.else296
   %call306 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.94) #26
@@ -3198,7 +3198,7 @@ if.then308:                                       ; preds = %if.else305
   %bf.load310 = load i64, ptr %topo_order309, align 8
   %bf.set312 = or i64 %bf.load310, 512
   store i64 %bf.set312, ptr %topo_order309, align 8
-  br label %return
+  br label %if.end1200
 
 do.body.i255:                                     ; preds = %do.body.i255.preheader, %do.cond.i259
   %str.addr.0.i256 = phi ptr [ %incdec.ptr.i260, %do.cond.i259 ], [ %0, %do.body.i255.preheader ]
@@ -3232,7 +3232,7 @@ if.end321:                                        ; preds = %if.then315
   %bf.load323 = load i64, ptr %topo_order322, align 8
   %bf.set325 = or i64 %bf.load323, 512
   store i64 %bf.set325, ptr %topo_order322, align 8
-  br label %return
+  br label %if.end1200
 
 if.else326:                                       ; preds = %do.cond.i259
   %call327 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.19) #26
@@ -3244,7 +3244,7 @@ if.then329:                                       ; preds = %if.else326
   %bf.load331 = load i64, ptr %rewrite_parents330, align 8
   %bf.set336 = or i64 %bf.load331, 805306368
   store i64 %bf.set336, ptr %rewrite_parents330, align 8
-  br label %return
+  br label %if.end1200
 
 if.else337:                                       ; preds = %if.else326
   %call338 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.97) #26
@@ -3256,7 +3256,7 @@ if.then340:                                       ; preds = %if.else337
   %bf.load341 = load i64, ptr %dense, align 8
   %bf.set343 = or i64 %bf.load341, 4
   store i64 %bf.set343, ptr %dense, align 8
-  br label %return
+  br label %if.end1200
 
 if.else344:                                       ; preds = %if.else337
   %call345 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.98) #26
@@ -3268,7 +3268,7 @@ if.then347:                                       ; preds = %if.else344
   %bf.load349 = load i64, ptr %dense348, align 8
   %bf.clear350 = and i64 %bf.load349, -5
   store i64 %bf.clear350, ptr %dense348, align 8
-  br label %return
+  br label %if.end1200
 
 if.else352:                                       ; preds = %if.else344
   %call353 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.99) #26
@@ -3280,7 +3280,7 @@ if.then355:                                       ; preds = %if.else352
   %bf.load356 = load i64, ptr %tree_blobs_in_commit_order, align 8
   %bf.set358 = or i64 %bf.load356, 2199023255552
   store i64 %bf.set358, ptr %tree_blobs_in_commit_order, align 8
-  br label %return
+  br label %if.end1200
 
 if.else359:                                       ; preds = %if.else352
   %call360 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.100) #26
@@ -3292,7 +3292,7 @@ if.then362:                                       ; preds = %if.else359
   %bf.load363 = load i64, ptr %remove_empty_trees, align 8
   %bf.set365 = or i64 %bf.load363, 64
   store i64 %bf.set365, ptr %remove_empty_trees, align 8
-  br label %return
+  br label %if.end1200
 
 if.else366:                                       ; preds = %if.else359
   %call367 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.101) #26
@@ -3302,7 +3302,7 @@ if.else366:                                       ; preds = %if.else359
 if.then369:                                       ; preds = %if.else366
   %min_parents = getelementptr inbounds i8, ptr %revs, i64 1440
   store i32 2, ptr %min_parents, align 8
-  br label %return
+  br label %if.end1200
 
 if.else370:                                       ; preds = %if.else366
   %call371 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.102) #26
@@ -3316,7 +3316,7 @@ do.body.i265.preheader:                           ; preds = %if.else370
 if.then373:                                       ; preds = %if.else370
   %max_parents = getelementptr inbounds i8, ptr %revs, i64 1444
   store i32 1, ptr %max_parents, align 4
-  br label %return
+  br label %if.end1200
 
 do.body.i265:                                     ; preds = %do.body.i265.preheader, %do.cond.i269
   %str.addr.0.i266 = phi ptr [ %incdec.ptr.i270, %do.cond.i269 ], [ %0, %do.body.i265.preheader ]
@@ -3338,7 +3338,7 @@ if.then376:                                       ; preds = %do.body.i265
   %call377 = call fastcc i32 @parse_count(ptr noundef %scevgep485)
   %min_parents378 = getelementptr inbounds i8, ptr %revs, i64 1440
   store i32 %call377, ptr %min_parents378, align 8
-  br label %return
+  br label %if.end1200
 
 if.else379:                                       ; preds = %do.cond.i269
   %call380 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.104) #26
@@ -3348,7 +3348,7 @@ if.else379:                                       ; preds = %do.cond.i269
 if.then382:                                       ; preds = %if.else379
   %min_parents383 = getelementptr inbounds i8, ptr %revs, i64 1440
   store i32 0, ptr %min_parents383, align 8
-  br label %return
+  br label %if.end1200
 
 do.body.i275:                                     ; preds = %if.else379, %do.cond.i279
   %str.addr.0.i276 = phi ptr [ %incdec.ptr.i280, %do.cond.i279 ], [ %0, %if.else379 ]
@@ -3370,7 +3370,7 @@ if.then386:                                       ; preds = %do.body.i275
   %call387 = call fastcc i32 @parse_count(ptr noundef %scevgep485)
   %max_parents388 = getelementptr inbounds i8, ptr %revs, i64 1444
   store i32 %call387, ptr %max_parents388, align 4
-  br label %return
+  br label %if.end1200
 
 if.else389:                                       ; preds = %do.cond.i279
   %call390 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.106) #26
@@ -3380,7 +3380,7 @@ if.else389:                                       ; preds = %do.cond.i279
 if.then392:                                       ; preds = %if.else389
   %max_parents393 = getelementptr inbounds i8, ptr %revs, i64 1444
   store i32 -1, ptr %max_parents393, align 4
-  br label %return
+  br label %if.end1200
 
 if.else394:                                       ; preds = %if.else389
   %call395 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.107) #26
@@ -3393,7 +3393,7 @@ if.then397:                                       ; preds = %if.else394
   %bf.clear399 = and i64 %bf.load398, -12582913
   %bf.set400 = or disjoint i64 %bf.clear399, 4194304
   store i64 %bf.set400, ptr %boundary, align 8
-  br label %return
+  br label %if.end1200
 
 if.else401:                                       ; preds = %if.else394
   %call402 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.108) #26
@@ -3405,7 +3405,7 @@ if.then404:                                       ; preds = %if.else401
   %bf.load405 = load i64, ptr %left_right, align 8
   %bf.set407 = or i64 %bf.load405, 33554432
   store i64 %bf.set407, ptr %left_right, align 8
-  br label %return
+  br label %if.end1200
 
 if.else408:                                       ; preds = %if.else401
   %call409 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.109) #26
@@ -3427,7 +3427,7 @@ if.then415:                                       ; preds = %if.then411
 if.end417:                                        ; preds = %if.then411
   %bf.set420 = or i64 %bf.load412, 67108864
   store i64 %bf.set420, ptr %right_only, align 8
-  br label %return
+  br label %if.end1200
 
 if.else421:                                       ; preds = %if.else408
   %call422 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.111) #26
@@ -3449,7 +3449,7 @@ if.then431:                                       ; preds = %if.then424
 if.end433:                                        ; preds = %if.then424
   %bf.set437 = or i64 %bf.load426, 134217728
   store i64 %bf.set437, ptr %left_only425, align 8
-  br label %return
+  br label %if.end1200
 
 if.else438:                                       ; preds = %if.else421
   %call439 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.112) #26
@@ -3473,7 +3473,7 @@ if.end450:                                        ; preds = %if.then441
   store i32 1, ptr %max_parents458, align 4
   %bf.set462 = or i64 %bf.load443, 17314611200
   store i64 %bf.set462, ptr %left_only442, align 8
-  br label %return
+  br label %if.end1200
 
 if.else463:                                       ; preds = %if.else438
   %call464 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.113) #26
@@ -3485,7 +3485,7 @@ if.then466:                                       ; preds = %if.else463
   %bf.load467 = load i64, ptr %count, align 8
   %bf.set469 = or i64 %bf.load467, 16777216
   store i64 %bf.set469, ptr %count, align 8
-  br label %return
+  br label %if.end1200
 
 if.else470:                                       ; preds = %if.else463
   %call471 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.114) #26
@@ -3507,7 +3507,7 @@ if.then479:                                       ; preds = %if.then473
 if.end481:                                        ; preds = %if.then473
   %bf.set489 = or i64 %bf.load474, 17180393472
   store i64 %bf.set489, ptr %cherry_pick, align 8
-  br label %return
+  br label %if.end1200
 
 if.else490:                                       ; preds = %if.else470
   %call491 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.115) #26
@@ -3529,7 +3529,7 @@ if.then500:                                       ; preds = %if.then493
 if.end502:                                        ; preds = %if.then493
   %bf.set510 = or i64 %bf.load495, 8590458880
   store i64 %bf.set510, ptr %cherry_mark494, align 8
-  br label %return
+  br label %if.end1200
 
 if.else511:                                       ; preds = %if.else490
   %call512 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.116) #26
@@ -3541,7 +3541,7 @@ if.then514:                                       ; preds = %if.else511
   %bf.load515 = load i64, ptr %tag_objects, align 8
   %bf.set523 = or i64 %bf.load515, 57344
   store i64 %bf.set523, ptr %tag_objects, align 8
-  br label %return
+  br label %if.end1200
 
 if.else524:                                       ; preds = %if.else511
   %call525 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.117) #26
@@ -3553,7 +3553,7 @@ if.then527:                                       ; preds = %if.else524
   %bf.load529 = load i64, ptr %tag_objects528, align 8
   %bf.set542 = or i64 %bf.load529, 188416
   store i64 %bf.set542, ptr %tag_objects528, align 8
-  br label %return
+  br label %if.end1200
 
 if.else543:                                       ; preds = %if.else524
   %call544 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.118) #26
@@ -3565,7 +3565,7 @@ if.then546:                                       ; preds = %if.else543
   %bf.load548 = load i64, ptr %tag_objects547, align 8
   %bf.set565 = or i64 %bf.load548, 450560
   store i64 %bf.set565, ptr %tag_objects547, align 8
-  br label %return
+  br label %if.end1200
 
 if.else566:                                       ; preds = %if.else543
   %call567 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.119) #26
@@ -3580,7 +3580,7 @@ if.then569:                                       ; preds = %if.else566
   %repo585 = getelementptr inbounds i8, ptr %revs, i64 24
   %62 = load ptr, ptr %repo585, align 8
   call void @disable_commit_graph(ptr noundef %62) #25
-  br label %return
+  br label %if.end1200
 
 if.else586:                                       ; preds = %if.else566
   %call587 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.120) #26
@@ -3592,7 +3592,7 @@ if.then589:                                       ; preds = %if.else586
   %bf.load590 = load i64, ptr %unpacked, align 8
   %bf.set592 = or i64 %bf.load590, 1048576
   store i64 %bf.set592, ptr %unpacked, align 8
-  br label %return
+  br label %if.end1200
 
 if.else593:                                       ; preds = %if.else586
   %call594 = call i32 @starts_with(ptr noundef %0, ptr noundef nonnull @.str.121) #25
@@ -3622,7 +3622,7 @@ if.then601:                                       ; preds = %if.else598
   %63 = load i32, ptr %keep_pack_cache_flags, align 8
   %or606 = or i32 %63, 3
   store i32 %or606, ptr %keep_pack_cache_flags, align 8
-  br label %return
+  br label %if.end1200
 
 do.body.i285:                                     ; preds = %do.body.i285.preheader, %do.cond.i289
   %str.addr.0.i286 = phi ptr [ %incdec.ptr.i290, %do.cond.i289 ], [ %0, %do.body.i285.preheader ]
@@ -3658,14 +3658,14 @@ if.then616:                                       ; preds = %if.then609
 if.end619:                                        ; preds = %if.then616, %if.then609
   %call620 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep489, ptr noundef nonnull dereferenceable(8) @.str.126) #26
   %tobool621.not = icmp eq i32 %call620, 0
-  br i1 %tobool621.not, label %if.then622, label %return
+  br i1 %tobool621.not, label %if.then622, label %if.end1200
 
 if.then622:                                       ; preds = %if.end619
   %keep_pack_cache_flags623 = getelementptr inbounds i8, ptr %revs, i64 2968
   %67 = load i32, ptr %keep_pack_cache_flags623, align 8
   %or624 = or i32 %67, 1
   store i32 %or624, ptr %keep_pack_cache_flags623, align 8
-  br label %return
+  br label %if.end1200
 
 sub_0406:                                         ; preds = %do.cond.i289
   %68 = load i8, ptr %0, align 1
@@ -3699,7 +3699,7 @@ if.then629:                                       ; preds = %if.else626.tail
   store i64 %bf.set632, ptr %diff, align 8
   %flags = getelementptr inbounds i8, ptr %revs, i64 1576
   store i32 1, ptr %flags, align 8
-  br label %return
+  br label %if.end1200
 
 sub_0410:                                         ; preds = %if.else626.tail
   br i1 %.not452, label %sub_1411, label %if.else633.tail
@@ -3731,7 +3731,7 @@ if.then636:                                       ; preds = %if.else633.tail
   store i32 1, ptr %flags642, align 8
   %tree_in_recursive = getelementptr inbounds i8, ptr %revs, i64 1580
   store i32 1, ptr %tree_in_recursive, align 4
-  br label %return
+  br label %if.end1200
 
 if.else646:                                       ; preds = %if.else633.tail
   %call647 = call i32 @diff_merges_parse_opts(ptr noundef %revs, ptr noundef nonnull %argv) #25
@@ -3768,7 +3768,7 @@ if.then653:                                       ; preds = %if.else650.tail
   %bf.load654 = load i64, ptr %verbose_header, align 8
   %bf.set656 = or i64 %bf.load654, 562949953421312
   store i64 %bf.set656, ptr %verbose_header, align 8
-  br label %return
+  br label %if.end1200
 
 if.else657:                                       ; preds = %if.else650.tail
   %call658 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.130) #26
@@ -3789,7 +3789,7 @@ if.then660:                                       ; preds = %if.else657
   %bf.set667 = or i32 %bf.load665, 64
   store i32 %bf.set667, ptr %pretty_given, align 4
   call void @get_commit_format(ptr noundef null, ptr noundef %revs) #25
-  br label %return
+  br label %if.end1200
 
 do.body.i295:                                     ; preds = %do.body.i295.preheader, %do.cond.i299
   %str.addr.0.i296 = phi ptr [ %incdec.ptr.i300, %do.cond.i299 ], [ %0, %do.body.i295.preheader ]
@@ -3832,7 +3832,7 @@ if.then674:                                       ; preds = %do.body.i295, %do.b
   %bf.set682 = or i32 %bf.load680, 64
   store i32 %bf.set682, ptr %pretty_given679, align 4
   call void @get_commit_format(ptr noundef %scevgep491, ptr noundef %revs) #25
-  br label %return
+  br label %if.end1200
 
 if.else683:                                       ; preds = %do.cond.i309
   %call684 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.133) #26
@@ -3842,7 +3842,7 @@ if.else683:                                       ; preds = %do.cond.i309
 if.then686:                                       ; preds = %if.else683
   %expand_tabs_in_log = getelementptr inbounds i8, ptr %revs, i64 320
   store i32 8, ptr %expand_tabs_in_log, align 8
-  br label %return
+  br label %if.end1200
 
 if.else687:                                       ; preds = %if.else683
   %call688 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.134) #26
@@ -3852,7 +3852,7 @@ if.else687:                                       ; preds = %if.else683
 if.then690:                                       ; preds = %if.else687
   %expand_tabs_in_log691 = getelementptr inbounds i8, ptr %revs, i64 320
   store i32 0, ptr %expand_tabs_in_log691, align 8
-  br label %return
+  br label %if.end1200
 
 do.body.i315:                                     ; preds = %if.else687, %do.cond.i319
   %str.addr.0.i316 = phi ptr [ %incdec.ptr.i320, %do.cond.i319 ], [ %0, %if.else687 ]
@@ -3884,7 +3884,7 @@ if.then701:                                       ; preds = %if.then694
 if.end702:                                        ; preds = %if.then694
   %expand_tabs_in_log703 = getelementptr inbounds i8, ptr %revs, i64 320
   store i32 %101, ptr %expand_tabs_in_log703, align 8
-  br label %return
+  br label %if.end1200
 
 if.else704:                                       ; preds = %do.cond.i319
   %call705 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.136) #26
@@ -3904,7 +3904,7 @@ if.then710:                                       ; preds = %lor.lhs.false707, %
   %bf.load711 = load i32, ptr %show_notes_given, align 4
   %bf.set713 = or i32 %bf.load711, 8
   store i32 %bf.set713, ptr %show_notes_given, align 4
-  br label %return
+  br label %if.end1200
 
 if.else714:                                       ; preds = %lor.lhs.false707
   %call715 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.138) #26
@@ -3916,7 +3916,7 @@ if.then717:                                       ; preds = %if.else714
   %bf.load718 = load i32, ptr %show_signature, align 4
   %bf.set720 = or i32 %bf.load718, 32
   store i32 %bf.set720, ptr %show_signature, align 4
-  br label %return
+  br label %if.end1200
 
 if.else721:                                       ; preds = %if.else714
   %call722 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.139) #26
@@ -3928,7 +3928,7 @@ if.then724:                                       ; preds = %if.else721
   %bf.load726 = load i32, ptr %show_signature725, align 4
   %bf.clear727 = and i32 %bf.load726, -33
   store i32 %bf.clear727, ptr %show_signature725, align 4
-  br label %return
+  br label %if.end1200
 
 if.else729:                                       ; preds = %if.else721
   %call730 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.10) #26
@@ -3946,7 +3946,7 @@ if.then732:                                       ; preds = %if.else729
   %bf.load733 = load i32, ptr %track_linear, align 4
   %bf.set738 = or i32 %bf.load733, 786432
   store i32 %bf.set738, ptr %track_linear, align 4
-  br label %return
+  br label %if.end1200
 
 do.body.i325:                                     ; preds = %do.body.i325.preheader, %do.cond.i329
   %str.addr.0.i326 = phi ptr [ %incdec.ptr.i330, %do.cond.i329 ], [ %0, %do.body.i325.preheader ]
@@ -3972,7 +3972,7 @@ if.then741:                                       ; preds = %do.body.i325
   %bf.load745 = load i32, ptr %track_linear744, align 4
   %bf.set751 = or i32 %bf.load745, 786432
   store i32 %bf.set751, ptr %track_linear744, align 4
-  br label %return
+  br label %if.end1200
 
 if.else752:                                       ; preds = %do.cond.i329
   %call753 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @.str.142) #26
@@ -3988,7 +3988,7 @@ if.then755:                                       ; preds = %if.else752
   %bf.load756 = load i32, ptr %show_notes_by_default, align 4
   %bf.set758 = or i32 %bf.load756, 16
   store i32 %bf.set758, ptr %show_notes_by_default, align 4
-  br label %return
+  br label %if.end1200
 
 do.body.i335:                                     ; preds = %do.body.i335.preheader, %do.cond.i339
   %str.addr.0.i336 = phi ptr [ %incdec.ptr.i340, %do.cond.i339 ], [ %0, %do.body.i335.preheader ]
@@ -4050,7 +4050,7 @@ if.end775:                                        ; preds = %if.then772, %land.l
   %bf.load779 = load i32, ptr %show_notes_given778, align 4
   %bf.set781 = or i32 %bf.load779, 8
   store i32 %bf.set781, ptr %show_notes_given778, align 4
-  br label %return
+  br label %if.end1200
 
 if.else782:                                       ; preds = %do.cond.i349
   %call783 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.145) #26
@@ -4065,7 +4065,7 @@ if.then785:                                       ; preds = %if.else782
   %bf.load789 = load i32, ptr %show_notes_given788, align 4
   %bf.set791 = or i32 %bf.load789, 8
   store i32 %bf.set791, ptr %show_notes_given788, align 4
-  br label %return
+  br label %if.end1200
 
 if.else792:                                       ; preds = %if.else782
   %call793 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.146) #26
@@ -4079,7 +4079,7 @@ if.then795:                                       ; preds = %if.else792
   store i32 %bf.set799, ptr %show_notes_given796, align 4
   %notes_opt800 = getelementptr inbounds i8, ptr %revs, i64 2752
   store i32 1, ptr %notes_opt800, align 8
-  br label %return
+  br label %if.end1200
 
 if.else802:                                       ; preds = %if.else792
   %call803 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.147) #26
@@ -4089,7 +4089,7 @@ if.else802:                                       ; preds = %if.else792
 if.then805:                                       ; preds = %if.else802
   %notes_opt806 = getelementptr inbounds i8, ptr %revs, i64 2752
   store i32 0, ptr %notes_opt806, align 8
-  br label %return
+  br label %if.end1200
 
 if.else808:                                       ; preds = %if.else802
   %call809 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.148) #26
@@ -4106,7 +4106,7 @@ if.then811:                                       ; preds = %if.else808
   %bf.load817 = load i32, ptr %pretty_given816, align 4
   %bf.set822 = or i32 %bf.load817, 192
   store i32 %bf.set822, ptr %pretty_given816, align 4
-  br label %return
+  br label %if.end1200
 
 if.else823:                                       ; preds = %if.else808
   %call824 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.11) #26
@@ -4119,7 +4119,7 @@ if.then826:                                       ; preds = %if.else823
   call void @graph_clear(ptr noundef %110) #25
   %call827 = call ptr @graph_init(ptr noundef %revs) #25
   store ptr %call827, ptr %graph, align 8
-  br label %return
+  br label %if.end1200
 
 if.else829:                                       ; preds = %if.else823
   %call830 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.150) #26
@@ -4131,7 +4131,7 @@ if.then832:                                       ; preds = %if.else829
   %111 = load ptr, ptr %graph833, align 8
   call void @graph_clear(ptr noundef %111) #25
   store ptr null, ptr %graph833, align 8
-  br label %return
+  br label %if.end1200
 
 if.else835:                                       ; preds = %if.else829
   %call836 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(23) @.str.151) #26
@@ -4143,7 +4143,7 @@ if.then838:                                       ; preds = %if.else835
   %bf.load839 = load i32, ptr %encode_email_headers, align 4
   %bf.set841 = or i32 %bf.load839, 32768
   store i32 %bf.set841, ptr %encode_email_headers, align 4
-  br label %return
+  br label %if.end1200
 
 if.else842:                                       ; preds = %if.else835
   %call843 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.152) #26
@@ -4155,7 +4155,7 @@ if.then845:                                       ; preds = %if.else842
   %bf.load847 = load i32, ptr %encode_email_headers846, align 4
   %bf.clear848 = and i32 %bf.load847, -32769
   store i32 %bf.clear848, ptr %encode_email_headers846, align 4
-  br label %return
+  br label %if.end1200
 
 if.else850:                                       ; preds = %if.else842
   %call851 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.153) #26
@@ -4167,7 +4167,7 @@ if.then853:                                       ; preds = %if.else850
   %bf.load854 = load i64, ptr %show_root_diff, align 8
   %bf.set856 = or i64 %bf.load854, 70368744177664
   store i64 %bf.set856, ptr %show_root_diff, align 8
-  br label %return
+  br label %if.end1200
 
 if.else857:                                       ; preds = %if.else850
   %call858 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.154) #26
@@ -4179,7 +4179,7 @@ if.then860:                                       ; preds = %if.else857
   %bf.load861 = load i64, ptr %no_commit_id, align 8
   %bf.set863 = or i64 %bf.load861, 281474976710656
   store i64 %bf.set863, ptr %no_commit_id, align 8
-  br label %return
+  br label %if.end1200
 
 if.else864:                                       ; preds = %if.else857
   %call865 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.155) #26
@@ -4191,7 +4191,7 @@ if.then867:                                       ; preds = %if.else864
   %bf.load868 = load i64, ptr %always_show_header, align 8
   %bf.set870 = or i64 %bf.load868, 1125899906842624
   store i64 %bf.set870, ptr %always_show_header, align 8
-  br label %return
+  br label %if.end1200
 
 if.else871:                                       ; preds = %if.else864
   %call872 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.156) #26
@@ -4201,7 +4201,7 @@ if.else871:                                       ; preds = %if.else864
 if.then874:                                       ; preds = %if.else871
   %abbrev = getelementptr inbounds i8, ptr %revs, i64 328
   store i32 0, ptr %abbrev, align 8
-  br label %return
+  br label %if.end1200
 
 if.else875:                                       ; preds = %if.else871
   %call876 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.157) #26
@@ -4212,7 +4212,7 @@ if.then878:                                       ; preds = %if.else875
   %112 = load i32, ptr @default_abbrev, align 4
   %abbrev879 = getelementptr inbounds i8, ptr %revs, i64 328
   store i32 %112, ptr %abbrev879, align 8
-  br label %return
+  br label %if.end1200
 
 do.body.i355:                                     ; preds = %if.else875, %do.cond.i359
   %str.addr.0.i356 = phi ptr [ %incdec.ptr.i360, %do.cond.i359 ], [ %0, %if.else875 ]
@@ -4241,15 +4241,15 @@ if.then882:                                       ; preds = %do.body.i355
 
 if.then889:                                       ; preds = %if.then882
   store i32 %115, ptr %abbrev885, align 8
-  br label %return
+  br label %if.end1200
 
 if.else891:                                       ; preds = %if.then882
   %cmp893 = icmp ugt i32 %conv884, %conv
-  br i1 %cmp893, label %if.then895, label %return
+  br i1 %cmp893, label %if.then895, label %if.end1200
 
 if.then895:                                       ; preds = %if.else891
   store i32 %conv, ptr %abbrev885, align 8
-  br label %return
+  br label %if.end1200
 
 if.else899:                                       ; preds = %do.cond.i359
   %call900 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.159) #26
@@ -4261,7 +4261,7 @@ if.then902:                                       ; preds = %if.else899
   %bf.load904 = load i32, ptr %abbrev_commit903, align 4
   %bf.set909 = or i32 %bf.load904, 384
   store i32 %bf.set909, ptr %abbrev_commit903, align 4
-  br label %return
+  br label %if.end1200
 
 if.else910:                                       ; preds = %if.else899
   %call911 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.160) #26
@@ -4273,7 +4273,7 @@ if.then913:                                       ; preds = %if.else910
   %bf.load915 = load i32, ptr %abbrev_commit914, align 4
   %bf.clear916 = and i32 %bf.load915, -129
   store i32 %bf.clear916, ptr %abbrev_commit914, align 4
-  br label %return
+  br label %if.end1200
 
 if.else918:                                       ; preds = %if.else910
   %call919 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.161) #26
@@ -4285,7 +4285,7 @@ if.then921:                                       ; preds = %if.else918
   %bf.load923 = load i64, ptr %diff922, align 8
   %bf.set928 = or i64 %bf.load923, 52776558133248
   store i64 %bf.set928, ptr %diff922, align 8
-  br label %return
+  br label %if.end1200
 
 if.else929:                                       ; preds = %if.else918
   %call930 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.162) #26
@@ -4297,7 +4297,7 @@ if.then932:                                       ; preds = %if.else929
   %bf.load933 = load i64, ptr %show_pulls, align 8
   %bf.set935 = or i64 %bf.load933, 256
   store i64 %bf.set935, ptr %show_pulls, align 8
-  br label %return
+  br label %if.end1200
 
 if.else936:                                       ; preds = %if.else929
   %call937 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.163) #26
@@ -4309,7 +4309,7 @@ if.then939:                                       ; preds = %if.else936
   %bf.load941 = load i64, ptr %simplify_history940, align 8
   %bf.clear942 = and i64 %bf.load941, -129
   store i64 %bf.clear942, ptr %simplify_history940, align 8
-  br label %return
+  br label %if.end1200
 
 if.else944:                                       ; preds = %if.else936
   %call945 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.164) #26
@@ -4323,7 +4323,7 @@ if.then947:                                       ; preds = %if.else944
   %bf.load948 = load i32, ptr %date_mode_explicit, align 4
   %bf.set950 = or i32 %bf.load948, 4096
   store i32 %bf.set950, ptr %date_mode_explicit, align 4
-  br label %return
+  br label %if.end1200
 
 if.else951:                                       ; preds = %if.else944
   %call952 = call i32 @parse_long_opt(ptr noundef nonnull @.str.165, ptr noundef nonnull %argv, ptr noundef nonnull %optarg) #25
@@ -4348,7 +4348,7 @@ if.else960:                                       ; preds = %if.else951
 if.then963:                                       ; preds = %if.else960
   %show_log_size = getelementptr inbounds i8, ptr %revs, i64 504
   store i32 1, ptr %show_log_size, align 8
-  br label %return
+  br label %if.end1200
 
 if.else964:                                       ; preds = %if.else960
   %call965 = call i32 @parse_long_opt(ptr noundef nonnull @.str.167, ptr noundef nonnull %argv, ptr noundef nonnull %optarg) #25
@@ -4402,7 +4402,7 @@ if.else980:                                       ; preds = %if.else976
 if.then983:                                       ; preds = %if.else980
   %pattern_type_option = getelementptr inbounds i8, ptr %revs, i64 664
   store i32 1, ptr %pattern_type_option, align 8
-  br label %return
+  br label %if.end1200
 
 if.else984:                                       ; preds = %if.else980
   %call985 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.172) #26
@@ -4437,7 +4437,7 @@ lor.lhs.false987.tail:                            ; preds = %sub_0418, %sub_1419
 if.then990:                                       ; preds = %lor.lhs.false987.tail, %if.else984
   %pattern_type_option992 = getelementptr inbounds i8, ptr %revs, i64 664
   store i32 2, ptr %pattern_type_option992, align 8
-  br label %return
+  br label %if.end1200
 
 if.else993:                                       ; preds = %lor.lhs.false987.tail
   %call994 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.174) #26
@@ -4472,7 +4472,7 @@ if.then999:                                       ; preds = %lor.lhs.false996.ta
   %138 = load i32, ptr %pickaxe_opts, align 8
   %or1002 = or i32 %138, 32
   store i32 %or1002, ptr %pickaxe_opts, align 8
-  br label %return
+  br label %if.end1200
 
 if.else1003:                                      ; preds = %lor.lhs.false996.tail
   %call1004 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.176) #26
@@ -4480,41 +4480,34 @@ if.else1003:                                      ; preds = %lor.lhs.false996.ta
   br i1 %tobool1005.not, label %if.then1009, label %sub_0426
 
 sub_0426:                                         ; preds = %if.else1003
-  %.not462 = icmp eq i8 %121, 45
-  br i1 %.not462, label %sub_1427, label %if.else1012.thread511
+  br i1 %.not458, label %sub_1427, label %if.else1012
 
 sub_1427:                                         ; preds = %sub_0426
   %139 = getelementptr inbounds i8, ptr %0, i64 1
   %140 = load i8, ptr %139, align 1
   %.not463 = icmp eq i8 %140, 70
-  br i1 %.not463, label %lor.lhs.false1006.tail, label %if.else1012
+  br i1 %.not463, label %sub_2428, label %if.else1012
 
-lor.lhs.false1006.tail:                           ; preds = %sub_1427
+sub_2428:                                         ; preds = %sub_1427
   %141 = load i8, ptr %scevgep, align 1
   %142 = icmp eq i8 %141, 0
-  br i1 %142, label %if.then1009, label %if.else1012.thread
+  br i1 %142, label %if.then1009, label %if.else1012
 
-if.then1009:                                      ; preds = %lor.lhs.false1006.tail, %if.else1003
+if.then1009:                                      ; preds = %sub_2428, %if.else1003
   %pattern_type_option1011 = getelementptr inbounds i8, ptr %revs, i64 664
   store i32 3, ptr %pattern_type_option1011, align 8
-  br label %return
+  br label %if.end1200
 
-if.else1012:                                      ; preds = %sub_1427
+if.else1012:                                      ; preds = %sub_0426, %sub_1427, %sub_2428
   %call1013 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.178) #26
   %tobool1014.not = icmp eq i32 %call1013, 0
-  br i1 %tobool1014.not, label %if.then1018, label %sub_1431
+  br i1 %tobool1014.not, label %if.then1018, label %sub_0430
 
-if.else1012.thread511:                            ; preds = %sub_0426
-  %call1013512 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.178) #26
-  %tobool1014.not513 = icmp eq i32 %call1013512, 0
-  br i1 %tobool1014.not513, label %if.then1018, label %if.else1021
+sub_0430:                                         ; preds = %if.else1012
+  %.not464 = icmp eq i8 %121, 45
+  br i1 %.not464, label %sub_1431, label %if.else1021
 
-if.else1012.thread:                               ; preds = %lor.lhs.false1006.tail
-  %call1013508 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.178) #26
-  %tobool1014.not509 = icmp eq i32 %call1013508, 0
-  br i1 %tobool1014.not509, label %if.then1018, label %sub_1431
-
-sub_1431:                                         ; preds = %if.else1012, %if.else1012.thread
+sub_1431:                                         ; preds = %sub_0430
   %143 = getelementptr inbounds i8, ptr %0, i64 1
   %144 = load i8, ptr %143, align 1
   %.not465 = icmp eq i8 %144, 80
@@ -4525,12 +4518,12 @@ lor.lhs.false1015.tail:                           ; preds = %sub_1431
   %146 = icmp eq i8 %145, 0
   br i1 %146, label %if.then1018, label %if.else1021
 
-if.then1018:                                      ; preds = %if.else1012.thread511, %if.else1012.thread, %lor.lhs.false1015.tail, %if.else1012
+if.then1018:                                      ; preds = %lor.lhs.false1015.tail, %if.else1012
   %pattern_type_option1020 = getelementptr inbounds i8, ptr %revs, i64 664
   store i32 4, ptr %pattern_type_option1020, align 8
-  br label %return
+  br label %if.end1200
 
-if.else1021:                                      ; preds = %if.else1012.thread511, %sub_1431, %lor.lhs.false1015.tail
+if.else1021:                                      ; preds = %sub_1431, %sub_0430, %lor.lhs.false1015.tail
   %call1022 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.180) #26
   %tobool1023.not = icmp eq i32 %call1022, 0
   br i1 %tobool1023.not, label %if.then1024, label %if.else1026
@@ -4538,7 +4531,7 @@ if.else1021:                                      ; preds = %if.else1012.thread5
 if.then1024:                                      ; preds = %if.else1021
   %all_match = getelementptr inbounds i8, ptr %revs, i64 604
   store i32 1, ptr %all_match, align 4
-  br label %return
+  br label %if.end1200
 
 if.else1026:                                      ; preds = %if.else1021
   %call1027 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.181) #26
@@ -4548,7 +4541,7 @@ if.else1026:                                      ; preds = %if.else1021
 if.then1029:                                      ; preds = %if.else1026
   %no_body_match = getelementptr inbounds i8, ptr %revs, i64 608
   store i32 1, ptr %no_body_match, align 8
-  br label %return
+  br label %if.end1200
 
 if.else1031:                                      ; preds = %if.else1026
   %call1032 = call i32 @parse_long_opt(ptr noundef nonnull @.str.182, ptr noundef nonnull %argv, ptr noundef nonnull %optarg) #25
@@ -4580,7 +4573,7 @@ if.then1044:                                      ; preds = %if.else1041
   %bf.load1045 = load i64, ptr %reverse, align 8
   %bf.set1051 = xor i64 %bf.load1045, 2147483648
   store i64 %bf.set1051, ptr %reverse, align 8
-  br label %return
+  br label %if.end1200
 
 if.else1052:                                      ; preds = %if.else1041
   %call1053 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.20) #26
@@ -4594,7 +4587,7 @@ if.then1055:                                      ; preds = %if.else1052
   %bf.load1057 = load i64, ptr %limited1056, align 8
   %bf.set1059 = or i64 %bf.load1057, 524288
   store i64 %bf.set1059, ptr %limited1056, align 8
-  br label %return
+  br label %if.end1200
 
 if.else1060:                                      ; preds = %if.else1052
   %call1061 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.185) #26
@@ -4606,7 +4599,7 @@ if.then1063:                                      ; preds = %if.else1060
   %bf.load1064 = load i64, ptr %ignore_missing, align 8
   %bf.set1066 = or i64 %bf.load1064, 1
   store i64 %bf.set1066, ptr %ignore_missing, align 8
-  br label %return
+  br label %if.end1200
 
 if.else1067:                                      ; preds = %if.else1060
   %tobool1068.not = icmp eq ptr %opt, null
@@ -4638,7 +4631,7 @@ if.end1081:                                       ; preds = %if.then1078
   %bf.load1082 = load i64, ptr %exclude_promisor_objects, align 8
   %bf.set1084 = or i64 %bf.load1082, 8796093022208
   store i64 %bf.set1084, ptr %exclude_promisor_objects, align 8
-  br label %return
+  br label %if.end1200
 
 if.else1085:                                      ; preds = %land.lhs.true1075, %land.lhs.true1069, %if.else1067
   %diffopt1086 = getelementptr inbounds i8, ptr %revs, i64 1472
@@ -4657,8 +4650,11 @@ if.then1089:                                      ; preds = %if.else1085
   store ptr %0, ptr %arrayidx1092, align 8
   br label %return
 
-return:                                           ; preds = %if.then70, %if.then96, %if.then145, %if.then159, %if.then209, %if.then224, %if.then238, %if.then290, %if.then308, %if.then329, %if.then347, %if.then362, %if.then373, %if.then382, %if.then392, %if.then404, %if.end433, %if.then466, %if.end502, %if.then527, %if.then569, %if.then622, %if.end619, %if.then636, %if.then653, %if.then674, %if.then690, %if.then710, %if.then724, %if.then741, %if.end775, %if.then795, %if.then811, %if.then832, %if.then845, %if.then860, %if.then874, %if.else891, %if.then895, %if.then889, %if.then913, %if.then932, %if.then947, %if.then963, %if.then990, %if.then1009, %if.then1024, %if.then1055, %if.end1081, %if.then1063, %if.then1044, %if.then1029, %if.then1018, %if.then999, %if.then983, %if.then939, %if.then921, %if.then902, %if.then878, %if.then867, %if.then853, %if.then838, %if.then826, %if.then805, %if.then785, %if.then755, %if.then732, %if.then717, %if.end702, %if.then686, %if.then660, %if.then629, %if.then601, %if.then589, %if.then546, %if.then514, %if.end481, %if.end450, %if.end417, %if.then397, %if.then386, %if.then376, %if.then369, %if.then355, %if.then340, %if.end321, %if.then299, %if.then260, %if.then231, %if.end201, %if.then152, %if.else1085, %if.then1089, %if.else646, %if.end1040, %if.then979, %if.then975, %if.then971, %if.then967, %if.then954, %if.end219, %if.then216, %if.then198, %if.then190, %if.then139, %if.then133, %if.then128, %if.then122, %if.then117, %if.then111, %if.then106, %if.end86, %if.then83, %if.then59, %if.then55, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ %call53, %if.then55 ], [ %call57, %if.then59 ], [ %call104, %if.then106 ], [ %call109, %if.then111 ], [ %call115, %if.then117 ], [ %call120, %if.then122 ], [ %call126, %if.then128 ], [ %call131, %if.then133 ], [ %call137, %if.then139 ], [ -1, %if.then190 ], [ -1, %if.then198 ], [ %call952, %if.then954 ], [ %call965, %if.then967 ], [ %call969, %if.then971 ], [ %call973, %if.then975 ], [ %call977, %if.then979 ], [ %call1032, %if.end1040 ], [ -1, %if.then216 ], [ 2, %if.end219 ], [ -1, %if.then83 ], [ 2, %if.end86 ], [ %call647, %if.else646 ], [ 0, %if.then1089 ], [ %call1087, %if.else1085 ], [ 1, %if.then152 ], [ 1, %if.end201 ], [ 1, %if.then231 ], [ 1, %if.then260 ], [ 1, %if.then299 ], [ 1, %if.end321 ], [ 1, %if.then340 ], [ 1, %if.then355 ], [ 1, %if.then369 ], [ 1, %if.then376 ], [ 1, %if.then386 ], [ 1, %if.then397 ], [ 1, %if.end417 ], [ 1, %if.end450 ], [ 1, %if.end481 ], [ 1, %if.then514 ], [ 1, %if.then546 ], [ 1, %if.then589 ], [ 1, %if.then601 ], [ 1, %if.then629 ], [ 1, %if.then660 ], [ 1, %if.then686 ], [ 1, %if.end702 ], [ 1, %if.then717 ], [ 1, %if.then732 ], [ 1, %if.then755 ], [ 1, %if.then785 ], [ 1, %if.then805 ], [ 1, %if.then826 ], [ 1, %if.then838 ], [ 1, %if.then853 ], [ 1, %if.then867 ], [ 1, %if.then878 ], [ 1, %if.then902 ], [ 1, %if.then921 ], [ 1, %if.then939 ], [ 1, %if.then983 ], [ 1, %if.then999 ], [ 1, %if.then1018 ], [ 1, %if.then1029 ], [ 1, %if.then1044 ], [ 1, %if.then1063 ], [ 1, %if.end1081 ], [ 1, %if.then1055 ], [ 1, %if.then1024 ], [ 1, %if.then1009 ], [ 1, %if.then990 ], [ 1, %if.then963 ], [ 1, %if.then947 ], [ 1, %if.then932 ], [ 1, %if.then913 ], [ 1, %if.then889 ], [ 1, %if.then895 ], [ 1, %if.else891 ], [ 1, %if.then874 ], [ 1, %if.then860 ], [ 1, %if.then845 ], [ 1, %if.then832 ], [ 1, %if.then811 ], [ 1, %if.then795 ], [ 1, %if.end775 ], [ 1, %if.then741 ], [ 1, %if.then724 ], [ 1, %if.then710 ], [ 1, %if.then690 ], [ 1, %if.then674 ], [ 1, %if.then653 ], [ 1, %if.then636 ], [ 1, %if.end619 ], [ 1, %if.then622 ], [ 1, %if.then569 ], [ 1, %if.then527 ], [ 1, %if.end502 ], [ 1, %if.then466 ], [ 1, %if.end433 ], [ 1, %if.then404 ], [ 1, %if.then392 ], [ 1, %if.then382 ], [ 1, %if.then373 ], [ 1, %if.then362 ], [ 1, %if.then347 ], [ 1, %if.then329 ], [ 1, %if.then308 ], [ 1, %if.then290 ], [ 1, %if.then238 ], [ 1, %if.then224 ], [ 1, %if.then209 ], [ 1, %if.then159 ], [ 1, %if.then145 ], [ 1, %if.then96 ], [ 1, %if.then70 ]
+if.end1200:                                       ; preds = %if.then152, %if.end201, %if.then231, %if.then260, %if.then299, %if.end321, %if.then340, %if.then355, %if.then369, %if.then376, %if.then386, %if.then397, %if.end417, %if.end450, %if.end481, %if.then514, %if.then546, %if.then589, %if.then601, %if.then629, %if.then660, %if.then686, %if.end702, %if.then717, %if.then732, %if.then755, %if.then785, %if.then805, %if.then826, %if.then838, %if.then853, %if.then867, %if.then878, %if.then902, %if.then921, %if.then939, %if.then983, %if.then999, %if.then1018, %if.then1029, %if.then1044, %if.then1063, %if.end1081, %if.then1055, %if.then1024, %if.then1009, %if.then990, %if.then963, %if.then947, %if.then932, %if.then913, %if.then889, %if.then895, %if.else891, %if.then874, %if.then860, %if.then845, %if.then832, %if.then811, %if.then795, %if.end775, %if.then741, %if.then724, %if.then710, %if.then690, %if.then674, %if.then653, %if.then636, %if.end619, %if.then622, %if.then569, %if.then527, %if.end502, %if.then466, %if.end433, %if.then404, %if.then392, %if.then382, %if.then373, %if.then362, %if.then347, %if.then329, %if.then308, %if.then290, %if.then238, %if.then224, %if.then209, %if.then159, %if.then145, %if.then96, %if.then70
+  br label %return
+
+return:                                           ; preds = %if.else1085, %if.then1089, %if.else646, %if.end1200, %if.end1040, %if.then979, %if.then975, %if.then971, %if.then967, %if.then954, %if.end219, %if.then216, %if.then198, %if.then190, %if.then139, %if.then133, %if.then128, %if.then122, %if.then117, %if.then111, %if.then106, %if.end86, %if.then83, %if.then59, %if.then55, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ %call53, %if.then55 ], [ %call57, %if.then59 ], [ 1, %if.end1200 ], [ %call104, %if.then106 ], [ %call109, %if.then111 ], [ %call115, %if.then117 ], [ %call120, %if.then122 ], [ %call126, %if.then128 ], [ %call131, %if.then133 ], [ %call137, %if.then139 ], [ -1, %if.then190 ], [ -1, %if.then198 ], [ %call952, %if.then954 ], [ %call965, %if.then967 ], [ %call969, %if.then971 ], [ %call973, %if.then975 ], [ %call977, %if.then979 ], [ %call1032, %if.end1040 ], [ -1, %if.then216 ], [ 2, %if.end219 ], [ -1, %if.then83 ], [ 2, %if.end86 ], [ %call647, %if.else646 ], [ 0, %if.then1089 ], [ %call1087, %if.else1085 ]
   ret i32 %retval.0
 }
 

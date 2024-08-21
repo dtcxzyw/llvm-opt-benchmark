@@ -91466,17 +91466,17 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   call void @llvm.experimental.noalias.scope.decl(metadata !23410)
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   store ptr %32, ptr %14, align 8, !alias.scope !23412, !noalias !23413
-  %.sroa.0.0.copyload192.i.i.i = load i64, ptr %31, align 8, !noalias !23415
-  %.not.i.i.i = icmp eq i64 %.sroa.0.0.copyload192.i.i.i, -9223372036854775808
+  %.sroa.0.0.copyload191.i.i.i = load i64, ptr %31, align 8, !noalias !23415
+  %.not.i.i.i = icmp eq i64 %.sroa.0.0.copyload191.i.i.i, -9223372036854775808
   br i1 %.not.i.i.i, label %.loopexit, label %33
 
 33:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c5feb66b875f22aE.exit.i.i.i"
-  %.sroa.8.0..sroa_idx193.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx193.i.i.i, i64 16, i1 false), !noalias !23416
+  %.sroa.8.0..sroa_idx192.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx192.i.i.i, i64 16, i1 false), !noalias !23416
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !23416
   store ptr %12, ptr %8, align 8, !noalias !23416
   store ptr %.sroa.7.0121.i.i.i, ptr %21, align 8, !noalias !23416
-  store i64 %.sroa.0.0.copyload192.i.i.i, ptr %22, align 8, !noalias !23416
+  store i64 %.sroa.0.0.copyload191.i.i.i, ptr %22, align 8, !noalias !23416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.i.i.i, i64 16, i1 false), !noalias !23416
   call void @llvm.experimental.noalias.scope.decl(metadata !23417)
   %.val10.i.i.i.i = load ptr, ptr %24, align 8, !alias.scope !23417, !noalias !23416, !nonnull !4, !noundef !4
@@ -92836,8 +92836,8 @@ _ZN4core3cmp9PartialEq2ne17h061c547cdb712716E.llvm.16978709814855407318.exit.bac
 
 687:                                              ; preds = %681
   %.not.i.i174.old.i.i.i.i.i = icmp ne i8 %660, %662
-  %or.cond51.not.i.i.i.i.i = or i1 %.not.i.i174.old.i.i.i.i.i, %685
-  br i1 %or.cond51.not.i.i.i.i.i, label %.thread.i.i.i.i, label %693
+  %or.cond233.not.i.i.i.i.i = or i1 %.not.i.i174.old.i.i.i.i.i, %685
+  br i1 %or.cond233.not.i.i.i.i.i, label %.thread.i.i.i.i, label %693
 
 688:                                              ; preds = %686
   %689 = getelementptr inbounds i8, ptr %172, i64 375

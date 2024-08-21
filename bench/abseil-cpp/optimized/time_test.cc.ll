@@ -17997,7 +17997,7 @@ _ZN7testing7MessageD2Ev.exit1248:                 ; preds = %invoke.cont1018, %_
 lpad1010:                                         ; preds = %if.else1008
   %398 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1022
 
 lpad1013:                                         ; preds = %invoke.cont1014
   %399 = landingpad { ptr, i32 }
@@ -18025,7 +18025,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1253:                 ; preds = %ehcleanup1020, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1250
   store ptr null, ptr %ref.tmp1009, align 8
-  br label %eh.resume
+  br label %ehcleanup1022
 
 if.end1021:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1236, %_ZN7testing7MessageD2Ev.exit1248
   %message_.i1254 = getelementptr inbounds i8, ptr %gtest_ar991, i64 8
@@ -18068,6 +18068,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %405 = load i8, ptr %gtest_ar1023, align 8
   %tobool.i1270 = trunc i8 %405 to i1
   br i1 %tobool.i1270, label %if.end1056, label %if.else1043
+
+ehcleanup1022:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1253, %lpad1010
+  %.pn133.pn = phi { ptr, i32 } [ %.pn133, %_ZN7testing7MessageD2Ev.exit1253 ], [ %398, %lpad1010 ]
+  br label %eh.resume
 
 if.else1043:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1269
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1044)
@@ -18112,7 +18116,7 @@ _ZN7testing7MessageD2Ev.exit1281:                 ; preds = %invoke.cont1053, %_
 lpad1045:                                         ; preds = %if.else1043
   %409 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1057
 
 lpad1048:                                         ; preds = %invoke.cont1049
   %410 = landingpad { ptr, i32 }
@@ -18140,7 +18144,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1286:                 ; preds = %ehcleanup1055, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1283
   store ptr null, ptr %ref.tmp1044, align 8
-  br label %eh.resume
+  br label %ehcleanup1057
 
 if.end1056:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1269, %_ZN7testing7MessageD2Ev.exit1281
   %message_.i1287 = getelementptr inbounds i8, ptr %gtest_ar1023, i64 8
@@ -18183,6 +18187,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %416 = load i8, ptr %gtest_ar1058, align 8
   %tobool.i1303 = trunc i8 %416 to i1
   br i1 %tobool.i1303, label %if.end1088, label %if.else1075
+
+ehcleanup1057:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1286, %lpad1045
+  %.pn136.pn = phi { ptr, i32 } [ %.pn136, %_ZN7testing7MessageD2Ev.exit1286 ], [ %409, %lpad1045 ]
+  br label %eh.resume
 
 if.else1075:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1302
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1076)
@@ -18227,7 +18235,7 @@ _ZN7testing7MessageD2Ev.exit1314:                 ; preds = %invoke.cont1085, %_
 lpad1077:                                         ; preds = %if.else1075
   %420 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1089
 
 lpad1080:                                         ; preds = %invoke.cont1081
   %421 = landingpad { ptr, i32 }
@@ -18255,7 +18263,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1319:                 ; preds = %ehcleanup1087, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1316
   store ptr null, ptr %ref.tmp1076, align 8
-  br label %eh.resume
+  br label %ehcleanup1089
 
 if.end1088:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1302, %_ZN7testing7MessageD2Ev.exit1314
   %message_.i1320 = getelementptr inbounds i8, ptr %gtest_ar1058, i64 8
@@ -18298,6 +18306,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %427 = load i8, ptr %gtest_ar1090, align 8
   %tobool.i1336 = trunc i8 %427 to i1
   br i1 %tobool.i1336, label %if.end1123, label %if.else1110
+
+ehcleanup1089:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1319, %lpad1077
+  %.pn139.pn = phi { ptr, i32 } [ %.pn139, %_ZN7testing7MessageD2Ev.exit1319 ], [ %420, %lpad1077 ]
+  br label %eh.resume
 
 if.else1110:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1335
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1111)
@@ -18342,7 +18354,7 @@ _ZN7testing7MessageD2Ev.exit1347:                 ; preds = %invoke.cont1120, %_
 lpad1112:                                         ; preds = %if.else1110
   %431 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1124
 
 lpad1115:                                         ; preds = %invoke.cont1116
   %432 = landingpad { ptr, i32 }
@@ -18370,7 +18382,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1352:                 ; preds = %ehcleanup1122, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1349
   store ptr null, ptr %ref.tmp1111, align 8
-  br label %eh.resume
+  br label %ehcleanup1124
 
 if.end1123:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1335, %_ZN7testing7MessageD2Ev.exit1347
   %message_.i1353 = getelementptr inbounds i8, ptr %gtest_ar1090, i64 8
@@ -18413,6 +18425,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %438 = load i8, ptr %gtest_ar1125, align 8
   %tobool.i1369 = trunc i8 %438 to i1
   br i1 %tobool.i1369, label %if.end1155, label %if.else1142
+
+ehcleanup1124:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1352, %lpad1112
+  %.pn142.pn = phi { ptr, i32 } [ %.pn142, %_ZN7testing7MessageD2Ev.exit1352 ], [ %431, %lpad1112 ]
+  br label %eh.resume
 
 if.else1142:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1368
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1143)
@@ -18457,7 +18473,7 @@ _ZN7testing7MessageD2Ev.exit1380:                 ; preds = %invoke.cont1152, %_
 lpad1144:                                         ; preds = %if.else1142
   %442 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1156
 
 lpad1147:                                         ; preds = %invoke.cont1148
   %443 = landingpad { ptr, i32 }
@@ -18485,7 +18501,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1385:                 ; preds = %ehcleanup1154, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1382
   store ptr null, ptr %ref.tmp1143, align 8
-  br label %eh.resume
+  br label %ehcleanup1156
 
 if.end1155:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1368, %_ZN7testing7MessageD2Ev.exit1380
   %message_.i1386 = getelementptr inbounds i8, ptr %gtest_ar1125, i64 8
@@ -18528,6 +18544,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %449 = load i8, ptr %gtest_ar1157, align 8
   %tobool.i1402 = trunc i8 %449 to i1
   br i1 %tobool.i1402, label %if.end1187, label %if.else1174
+
+ehcleanup1156:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1385, %lpad1144
+  %.pn145.pn = phi { ptr, i32 } [ %.pn145, %_ZN7testing7MessageD2Ev.exit1385 ], [ %442, %lpad1144 ]
+  br label %eh.resume
 
 if.else1174:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1401
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1175)
@@ -18572,7 +18592,7 @@ _ZN7testing7MessageD2Ev.exit1413:                 ; preds = %invoke.cont1184, %_
 lpad1176:                                         ; preds = %if.else1174
   %453 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1188
 
 lpad1179:                                         ; preds = %invoke.cont1180
   %454 = landingpad { ptr, i32 }
@@ -18600,7 +18620,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1418:                 ; preds = %ehcleanup1186, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1415
   store ptr null, ptr %ref.tmp1175, align 8
-  br label %eh.resume
+  br label %ehcleanup1188
 
 if.end1187:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1401, %_ZN7testing7MessageD2Ev.exit1413
   %message_.i1419 = getelementptr inbounds i8, ptr %gtest_ar1157, i64 8
@@ -18643,6 +18663,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %460 = load i8, ptr %gtest_ar1189, align 8
   %tobool.i1435 = trunc i8 %460 to i1
   br i1 %tobool.i1435, label %if.end1219, label %if.else1206
+
+ehcleanup1188:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1418, %lpad1176
+  %.pn148.pn = phi { ptr, i32 } [ %.pn148, %_ZN7testing7MessageD2Ev.exit1418 ], [ %453, %lpad1176 ]
+  br label %eh.resume
 
 if.else1206:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1434
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1207)
@@ -18687,7 +18711,7 @@ _ZN7testing7MessageD2Ev.exit1446:                 ; preds = %invoke.cont1216, %_
 lpad1208:                                         ; preds = %if.else1206
   %464 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1220
 
 lpad1211:                                         ; preds = %invoke.cont1212
   %465 = landingpad { ptr, i32 }
@@ -18715,7 +18739,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1451:                 ; preds = %ehcleanup1218, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1448
   store ptr null, ptr %ref.tmp1207, align 8
-  br label %eh.resume
+  br label %ehcleanup1220
 
 if.end1219:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1434, %_ZN7testing7MessageD2Ev.exit1446
   %message_.i1452 = getelementptr inbounds i8, ptr %gtest_ar1189, i64 8
@@ -18758,6 +18782,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %471 = load i8, ptr %gtest_ar1221, align 8
   %tobool.i1468 = trunc i8 %471 to i1
   br i1 %tobool.i1468, label %if.end1251, label %if.else1238
+
+ehcleanup1220:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1451, %lpad1208
+  %.pn151.pn = phi { ptr, i32 } [ %.pn151, %_ZN7testing7MessageD2Ev.exit1451 ], [ %464, %lpad1208 ]
+  br label %eh.resume
 
 if.else1238:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1467
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1239)
@@ -18802,7 +18830,7 @@ _ZN7testing7MessageD2Ev.exit1479:                 ; preds = %invoke.cont1248, %_
 lpad1240:                                         ; preds = %if.else1238
   %475 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1252
 
 lpad1243:                                         ; preds = %invoke.cont1244
   %476 = landingpad { ptr, i32 }
@@ -18830,7 +18858,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1484:                 ; preds = %ehcleanup1250, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1481
   store ptr null, ptr %ref.tmp1239, align 8
-  br label %eh.resume
+  br label %ehcleanup1252
 
 if.end1251:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1467, %_ZN7testing7MessageD2Ev.exit1479
   %message_.i1485 = getelementptr inbounds i8, ptr %gtest_ar1221, i64 8
@@ -18873,6 +18901,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %482 = load i8, ptr %gtest_ar1253, align 8
   %tobool.i1501 = trunc i8 %482 to i1
   br i1 %tobool.i1501, label %if.end1283, label %if.else1270
+
+ehcleanup1252:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1484, %lpad1240
+  %.pn154.pn = phi { ptr, i32 } [ %.pn154, %_ZN7testing7MessageD2Ev.exit1484 ], [ %475, %lpad1240 ]
+  br label %eh.resume
 
 if.else1270:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1500
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1271)
@@ -18917,7 +18949,7 @@ _ZN7testing7MessageD2Ev.exit1512:                 ; preds = %invoke.cont1280, %_
 lpad1272:                                         ; preds = %if.else1270
   %486 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1284
 
 lpad1275:                                         ; preds = %invoke.cont1276
   %487 = landingpad { ptr, i32 }
@@ -18945,7 +18977,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1517:                 ; preds = %ehcleanup1282, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1514
   store ptr null, ptr %ref.tmp1271, align 8
-  br label %eh.resume
+  br label %ehcleanup1284
 
 if.end1283:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1500, %_ZN7testing7MessageD2Ev.exit1512
   %message_.i1518 = getelementptr inbounds i8, ptr %gtest_ar1253, i64 8
@@ -18988,6 +19020,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %493 = load i8, ptr %gtest_ar1285, align 8
   %tobool.i1534 = trunc i8 %493 to i1
   br i1 %tobool.i1534, label %if.end1315, label %if.else1302
+
+ehcleanup1284:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1517, %lpad1272
+  %.pn157.pn = phi { ptr, i32 } [ %.pn157, %_ZN7testing7MessageD2Ev.exit1517 ], [ %486, %lpad1272 ]
+  br label %eh.resume
 
 if.else1302:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1533
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1303)
@@ -19032,7 +19068,7 @@ _ZN7testing7MessageD2Ev.exit1545:                 ; preds = %invoke.cont1312, %_
 lpad1304:                                         ; preds = %if.else1302
   %497 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1316
 
 lpad1307:                                         ; preds = %invoke.cont1308
   %498 = landingpad { ptr, i32 }
@@ -19060,7 +19096,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1550:                 ; preds = %ehcleanup1314, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1547
   store ptr null, ptr %ref.tmp1303, align 8
-  br label %eh.resume
+  br label %ehcleanup1316
 
 if.end1315:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1533, %_ZN7testing7MessageD2Ev.exit1545
   %message_.i1551 = getelementptr inbounds i8, ptr %gtest_ar1285, i64 8
@@ -19103,6 +19139,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %504 = load i8, ptr %gtest_ar1317, align 8
   %tobool.i1567 = trunc i8 %504 to i1
   br i1 %tobool.i1567, label %if.end1347, label %if.else1334
+
+ehcleanup1316:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1550, %lpad1304
+  %.pn160.pn = phi { ptr, i32 } [ %.pn160, %_ZN7testing7MessageD2Ev.exit1550 ], [ %497, %lpad1304 ]
+  br label %eh.resume
 
 if.else1334:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1566
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1335)
@@ -19147,7 +19187,7 @@ _ZN7testing7MessageD2Ev.exit1578:                 ; preds = %invoke.cont1344, %_
 lpad1336:                                         ; preds = %if.else1334
   %508 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1348
 
 lpad1339:                                         ; preds = %invoke.cont1340
   %509 = landingpad { ptr, i32 }
@@ -19175,7 +19215,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1583:                 ; preds = %ehcleanup1346, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1580
   store ptr null, ptr %ref.tmp1335, align 8
-  br label %eh.resume
+  br label %ehcleanup1348
 
 if.end1347:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1566, %_ZN7testing7MessageD2Ev.exit1578
   %message_.i1584 = getelementptr inbounds i8, ptr %gtest_ar1317, i64 8
@@ -19218,6 +19258,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %515 = load i8, ptr %gtest_ar1349, align 8
   %tobool.i1600 = trunc i8 %515 to i1
   br i1 %tobool.i1600, label %if.end1379, label %if.else1366
+
+ehcleanup1348:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1583, %lpad1336
+  %.pn163.pn = phi { ptr, i32 } [ %.pn163, %_ZN7testing7MessageD2Ev.exit1583 ], [ %508, %lpad1336 ]
+  br label %eh.resume
 
 if.else1366:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1599
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1367)
@@ -19262,7 +19306,7 @@ _ZN7testing7MessageD2Ev.exit1611:                 ; preds = %invoke.cont1376, %_
 lpad1368:                                         ; preds = %if.else1366
   %519 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1380
 
 lpad1371:                                         ; preds = %invoke.cont1372
   %520 = landingpad { ptr, i32 }
@@ -19290,7 +19334,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1616:                 ; preds = %ehcleanup1378, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1613
   store ptr null, ptr %ref.tmp1367, align 8
-  br label %eh.resume
+  br label %ehcleanup1380
 
 if.end1379:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1599, %_ZN7testing7MessageD2Ev.exit1611
   %message_.i1617 = getelementptr inbounds i8, ptr %gtest_ar1349, i64 8
@@ -19333,6 +19377,10 @@ _ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integra
   %526 = load i8, ptr %gtest_ar1381, align 8
   %tobool.i1633 = trunc i8 %526 to i1
   br i1 %tobool.i1633, label %if.end1411, label %if.else1398
+
+ehcleanup1380:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1616, %lpad1368
+  %.pn166.pn = phi { ptr, i32 } [ %.pn166, %_ZN7testing7MessageD2Ev.exit1616 ], [ %519, %lpad1368 ]
+  br label %eh.resume
 
 if.else1398:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1632
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1399)
@@ -19377,7 +19425,7 @@ _ZN7testing7MessageD2Ev.exit1644:                 ; preds = %invoke.cont1408, %_
 lpad1400:                                         ; preds = %if.else1398
   %530 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1412
 
 lpad1403:                                         ; preds = %invoke.cont1404
   %531 = landingpad { ptr, i32 }
@@ -19405,7 +19453,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1649:                 ; preds = %ehcleanup1410, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1646
   store ptr null, ptr %ref.tmp1399, align 8
-  br label %eh.resume
+  br label %ehcleanup1412
 
 if.end1411:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIilTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1632, %_ZN7testing7MessageD2Ev.exit1644
   %message_.i1650 = getelementptr inbounds i8, ptr %gtest_ar1381, i64 8
@@ -19601,6 +19649,10 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %tobool.i1725 = trunc i8 %539 to i1
   br i1 %tobool.i1725, label %if.end1594, label %if.else1581
 
+ehcleanup1412:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1649, %lpad1400
+  %.pn169.pn = phi { ptr, i32 } [ %.pn169, %_ZN7testing7MessageD2Ev.exit1649 ], [ %530, %lpad1400 ]
+  br label %eh.resume
+
 if.else1581:                                      ; preds = %for.body
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1582)
           to label %invoke.cont1584 unwind label %lpad1583
@@ -19643,7 +19695,7 @@ _ZN7testing7MessageD2Ev.exit1736:                 ; preds = %invoke.cont1591, %_
 lpad1583:                                         ; preds = %if.else1581
   %543 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1595
 
 lpad1586:                                         ; preds = %invoke.cont1587
   %544 = landingpad { ptr, i32 }
@@ -19671,7 +19723,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1741:                 ; preds = %ehcleanup1593, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1738
   store ptr null, ptr %ref.tmp1582, align 8
-  br label %eh.resume
+  br label %ehcleanup1595
 
 if.end1594:                                       ; preds = %for.body, %_ZN7testing7MessageD2Ev.exit1736
   %548 = load ptr, ptr %message_.i.i1726, align 8
@@ -19688,6 +19740,10 @@ _ZN7testing15AssertionResultD2Ev.exit1745:        ; preds = %if.end1594, %_ZNKSt
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx2062, 32
   %cmp.not = icmp eq i64 %__begin1.0.add, 320
   br i1 %cmp.not, label %for.end, label %for.body
+
+ehcleanup1595:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1741, %lpad1583
+  %.pn196.pn = phi { ptr, i32 } [ %.pn196, %_ZN7testing7MessageD2Ev.exit1741 ], [ %543, %lpad1583 ]
+  br label %eh.resume
 
 for.end:                                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit1745
   store i64 1, ptr %from_ts, align 16
@@ -19844,7 +19900,7 @@ _ZN7testing7MessageD2Ev.exit1766:                 ; preds = %invoke.cont1761, %_
 lpad1753:                                         ; preds = %if.else1751
   %553 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1765
 
 lpad1756:                                         ; preds = %invoke.cont1757
   %554 = landingpad { ptr, i32 }
@@ -19872,7 +19928,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1771:                 ; preds = %ehcleanup1763, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1768
   store ptr null, ptr %ref.tmp1752, align 8
-  br label %eh.resume
+  br label %ehcleanup1765
 
 if.end1764:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIN4absl4TimeES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_.exit, %_ZN7testing7MessageD2Ev.exit1766
   %558 = load ptr, ptr %message_.i.i1756, align 8
@@ -19889,6 +19945,10 @@ _ZN7testing15AssertionResultD2Ev.exit1775:        ; preds = %if.end1764, %_ZNKSt
   %__begin11732.0.add = add nuw nsw i64 %__begin11732.0.idx2063, 32
   %cmp1738.not = icmp eq i64 %__begin11732.0.add, 288
   br i1 %cmp1738.not, label %for.end1768, label %for.body1739
+
+ehcleanup1765:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1771, %lpad1753
+  %.pn193.pn = phi { ptr, i32 } [ %.pn193, %_ZN7testing7MessageD2Ev.exit1771 ], [ %553, %lpad1753 ]
+  br label %eh.resume
 
 for.end1768:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit1775
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i1776)
@@ -20123,7 +20183,7 @@ _ZN7testing7MessageD2Ev.exit1867:                 ; preds = %invoke.cont1960, %_
 lpad1952:                                         ; preds = %if.else1950
   %566 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup1964
 
 lpad1955:                                         ; preds = %invoke.cont1956
   %567 = landingpad { ptr, i32 }
@@ -20151,7 +20211,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1872:                 ; preds = %ehcleanup1962, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1869
   store ptr null, ptr %ref.tmp1951, align 8
-  br label %eh.resume
+  br label %ehcleanup1964
 
 if.end1963:                                       ; preds = %for.body1937, %_ZN7testing7MessageD2Ev.exit1867
   %571 = load ptr, ptr %message_.i.i1857, align 8
@@ -20168,6 +20228,10 @@ _ZN7testing15AssertionResultD2Ev.exit1876:        ; preds = %if.end1963, %_ZNKSt
   %__begin11930.0.add = add nuw nsw i64 %__begin11930.0.idx2064, 32
   %cmp1936.not = icmp eq i64 %__begin11930.0.add, 320
   br i1 %cmp1936.not, label %for.end1967, label %for.body1937
+
+ehcleanup1964:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1872, %lpad1952
+  %.pn190.pn = phi { ptr, i32 } [ %.pn190, %_ZN7testing7MessageD2Ev.exit1872 ], [ %566, %lpad1952 ]
+  br label %eh.resume
 
 for.end1967:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit1876
   store i64 1, ptr %from_tv, align 16
@@ -20324,7 +20388,7 @@ _ZN7testing7MessageD2Ev.exit1907:                 ; preds = %invoke.cont2133, %_
 lpad2125:                                         ; preds = %if.else2123
   %576 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup2137
 
 lpad2128:                                         ; preds = %invoke.cont2129
   %577 = landingpad { ptr, i32 }
@@ -20352,7 +20416,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1912:                 ; preds = %ehcleanup2135, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1909
   store ptr null, ptr %ref.tmp2124, align 8
-  br label %eh.resume
+  br label %ehcleanup2137
 
 if.end2136:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIN4absl4TimeES4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSE_RKS6_RKS7_.exit1895, %_ZN7testing7MessageD2Ev.exit1907
   %581 = load ptr, ptr %message_.i.i1897, align 8
@@ -20369,6 +20433,10 @@ _ZN7testing15AssertionResultD2Ev.exit1916:        ; preds = %if.end2136, %_ZNKSt
   %__begin12104.0.add = add nuw nsw i64 %__begin12104.0.idx2065, 32
   %cmp2110.not = icmp eq i64 %__begin12104.0.add, 288
   br i1 %cmp2110.not, label %for.end2140, label %for.body2111
+
+ehcleanup2137:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1912, %lpad2125
+  %.pn187.pn = phi { ptr, i32 } [ %.pn187, %_ZN7testing7MessageD2Ev.exit1912 ], [ %576, %lpad2125 ]
+  br label %eh.resume
 
 for.end2140:                                      ; preds = %_ZN7testing15AssertionResultD2Ev.exit1916
   store i64 -9223372036854775807, ptr %min_plus_1, align 8
@@ -20433,7 +20501,7 @@ _ZN7testing7MessageD2Ev.exit1931:                 ; preds = %invoke.cont2160, %_
 lpad2152:                                         ; preds = %if.else2150
   %586 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup2164
 
 lpad2155:                                         ; preds = %invoke.cont2156
   %587 = landingpad { ptr, i32 }
@@ -20461,7 +20529,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1936:                 ; preds = %ehcleanup2162, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1933
   store ptr null, ptr %ref.tmp2151, align 8
-  br label %eh.resume
+  br label %ehcleanup2164
 
 if.end2163:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit, %_ZN7testing7MessageD2Ev.exit1931
   %message_.i1937 = getelementptr inbounds i8, ptr %gtest_ar2141, i64 8
@@ -20503,6 +20571,10 @@ _ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integra
   %593 = load i8, ptr %gtest_ar2165, align 8
   %tobool.i1952 = trunc i8 %593 to i1
   br i1 %tobool.i1952, label %if.end2199, label %if.else2186
+
+ehcleanup2164:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1936, %lpad2152
+  %.pn172.pn = phi { ptr, i32 } [ %.pn172, %_ZN7testing7MessageD2Ev.exit1936 ], [ %586, %lpad2152 ]
+  br label %eh.resume
 
 if.else2186:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1951
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2187)
@@ -20547,7 +20619,7 @@ _ZN7testing7MessageD2Ev.exit1963:                 ; preds = %invoke.cont2196, %_
 lpad2188:                                         ; preds = %if.else2186
   %597 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup2200
 
 lpad2191:                                         ; preds = %invoke.cont2192
   %598 = landingpad { ptr, i32 }
@@ -20575,7 +20647,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit1968:                 ; preds = %ehcleanup2198, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1965
   store ptr null, ptr %ref.tmp2187, align 8
-  br label %eh.resume
+  br label %ehcleanup2200
 
 if.end2199:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1951, %_ZN7testing7MessageD2Ev.exit1963
   %message_.i1969 = getelementptr inbounds i8, ptr %gtest_ar2165, i64 8
@@ -20617,6 +20689,10 @@ _ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integra
   %604 = load i8, ptr %gtest_ar2201, align 8
   %tobool.i1984 = trunc i8 %604 to i1
   br i1 %tobool.i1984, label %if.end2236, label %if.else2223
+
+ehcleanup2200:                                    ; preds = %_ZN7testing7MessageD2Ev.exit1968, %lpad2188
+  %.pn175.pn = phi { ptr, i32 } [ %.pn175, %_ZN7testing7MessageD2Ev.exit1968 ], [ %597, %lpad2188 ]
+  br label %eh.resume
 
 if.else2223:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1983
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2224)
@@ -20661,7 +20737,7 @@ _ZN7testing7MessageD2Ev.exit1995:                 ; preds = %invoke.cont2233, %_
 lpad2225:                                         ; preds = %if.else2223
   %608 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup2237
 
 lpad2228:                                         ; preds = %invoke.cont2229
   %609 = landingpad { ptr, i32 }
@@ -20689,7 +20765,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit2000:                 ; preds = %ehcleanup2235, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1997
   store ptr null, ptr %ref.tmp2224, align 8
-  br label %eh.resume
+  br label %ehcleanup2237
 
 if.end2236:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit1983, %_ZN7testing7MessageD2Ev.exit1995
   %message_.i2001 = getelementptr inbounds i8, ptr %gtest_ar2201, i64 8
@@ -20722,6 +20798,10 @@ _ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integra
   %614 = load i8, ptr %gtest_ar2238, align 8
   %tobool.i2009 = trunc i8 %614 to i1
   br i1 %tobool.i2009, label %if.end2263, label %if.else2250
+
+ehcleanup2237:                                    ; preds = %_ZN7testing7MessageD2Ev.exit2000, %lpad2225
+  %.pn178.pn = phi { ptr, i32 } [ %.pn178, %_ZN7testing7MessageD2Ev.exit2000 ], [ %608, %lpad2225 ]
+  br label %eh.resume
 
 if.else2250:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit2008
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2251)
@@ -20766,7 +20846,7 @@ _ZN7testing7MessageD2Ev.exit2020:                 ; preds = %invoke.cont2260, %_
 lpad2252:                                         ; preds = %if.else2250
   %618 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup2264
 
 lpad2255:                                         ; preds = %invoke.cont2256
   %619 = landingpad { ptr, i32 }
@@ -20794,7 +20874,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit2025:                 ; preds = %ehcleanup2262, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i2022
   store ptr null, ptr %ref.tmp2251, align 8
-  br label %eh.resume
+  br label %ehcleanup2264
 
 if.end2263:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit2008, %_ZN7testing7MessageD2Ev.exit2020
   %message_.i2026 = getelementptr inbounds i8, ptr %gtest_ar2238, i64 8
@@ -20835,6 +20915,10 @@ _ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integra
   %624 = load i8, ptr %gtest_ar2265, align 8
   %tobool.i2041 = trunc i8 %624 to i1
   br i1 %tobool.i2041, label %if.end2300, label %if.else2287
+
+ehcleanup2264:                                    ; preds = %_ZN7testing7MessageD2Ev.exit2025, %lpad2252
+  %.pn181.pn = phi { ptr, i32 } [ %.pn181, %_ZN7testing7MessageD2Ev.exit2025 ], [ %618, %lpad2252 ]
+  br label %eh.resume
 
 if.else2287:                                      ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit2040
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2288)
@@ -20879,7 +20963,7 @@ _ZN7testing7MessageD2Ev.exit2052:                 ; preds = %invoke.cont2297, %_
 lpad2289:                                         ; preds = %if.else2287
   %628 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup2301
 
 lpad2292:                                         ; preds = %invoke.cont2293
   %629 = landingpad { ptr, i32 }
@@ -20907,7 +20991,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 
 _ZN7testing7MessageD2Ev.exit2057:                 ; preds = %ehcleanup2299, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i2054
   store ptr null, ptr %ref.tmp2288, align 8
-  br label %eh.resume
+  br label %ehcleanup2301
 
 if.end2300:                                       ; preds = %_ZN7testing8internal8EqHelper7CompareIllTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit2040, %_ZN7testing7MessageD2Ev.exit2052
   %message_.i2058 = getelementptr inbounds i8, ptr %gtest_ar2265, i64 8
@@ -20923,9 +21007,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit2061:        ; preds = %if.end2300, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i2060
   ret void
 
-eh.resume:                                        ; preds = %lpad2289, %_ZN7testing7MessageD2Ev.exit2057, %lpad2252, %_ZN7testing7MessageD2Ev.exit2025, %lpad2225, %_ZN7testing7MessageD2Ev.exit2000, %lpad2188, %_ZN7testing7MessageD2Ev.exit1968, %lpad2152, %_ZN7testing7MessageD2Ev.exit1936, %lpad2125, %_ZN7testing7MessageD2Ev.exit1912, %lpad1952, %_ZN7testing7MessageD2Ev.exit1872, %lpad1753, %_ZN7testing7MessageD2Ev.exit1771, %lpad1583, %_ZN7testing7MessageD2Ev.exit1741, %lpad1400, %_ZN7testing7MessageD2Ev.exit1649, %lpad1368, %_ZN7testing7MessageD2Ev.exit1616, %lpad1336, %_ZN7testing7MessageD2Ev.exit1583, %lpad1304, %_ZN7testing7MessageD2Ev.exit1550, %lpad1272, %_ZN7testing7MessageD2Ev.exit1517, %lpad1240, %_ZN7testing7MessageD2Ev.exit1484, %lpad1208, %_ZN7testing7MessageD2Ev.exit1451, %lpad1176, %_ZN7testing7MessageD2Ev.exit1418, %lpad1144, %_ZN7testing7MessageD2Ev.exit1385, %lpad1112, %_ZN7testing7MessageD2Ev.exit1352, %lpad1077, %_ZN7testing7MessageD2Ev.exit1319, %lpad1045, %_ZN7testing7MessageD2Ev.exit1286, %lpad1010, %_ZN7testing7MessageD2Ev.exit1253, %lpad978, %_ZN7testing7MessageD2Ev.exit1220, %lpad943, %_ZN7testing7MessageD2Ev.exit1179, %lpad911, %_ZN7testing7MessageD2Ev.exit1146, %lpad876, %_ZN7testing7MessageD2Ev.exit1113, %lpad851, %_ZN7testing7MessageD2Ev.exit1087, %lpad826, %_ZN7testing7MessageD2Ev.exit1061, %lpad801, %_ZN7testing7MessageD2Ev.exit1035, %lpad776, %_ZN7testing7MessageD2Ev.exit1009, %lpad751, %_ZN7testing7MessageD2Ev.exit983, %lpad726, %_ZN7testing7MessageD2Ev.exit957, %lpad701, %_ZN7testing7MessageD2Ev.exit931, %lpad676, %_ZN7testing7MessageD2Ev.exit905, %lpad651, %_ZN7testing7MessageD2Ev.exit879, %lpad626, %_ZN7testing7MessageD2Ev.exit853, %lpad601, %_ZN7testing7MessageD2Ev.exit827, %lpad576, %_ZN7testing7MessageD2Ev.exit801, %lpad551, %_ZN7testing7MessageD2Ev.exit775, %lpad526, %_ZN7testing7MessageD2Ev.exit749, %lpad501, %_ZN7testing7MessageD2Ev.exit723, %lpad476, %_ZN7testing7MessageD2Ev.exit697, %lpad451, %_ZN7testing7MessageD2Ev.exit671, %lpad426, %_ZN7testing7MessageD2Ev.exit645, %lpad401, %_ZN7testing7MessageD2Ev.exit619, %lpad376, %_ZN7testing7MessageD2Ev.exit593, %lpad351, %_ZN7testing7MessageD2Ev.exit567, %lpad326, %_ZN7testing7MessageD2Ev.exit541, %lpad301, %_ZN7testing7MessageD2Ev.exit515, %lpad276, %_ZN7testing7MessageD2Ev.exit489, %lpad251, %_ZN7testing7MessageD2Ev.exit463, %lpad226, %_ZN7testing7MessageD2Ev.exit437, %lpad201, %_ZN7testing7MessageD2Ev.exit411, %lpad176, %_ZN7testing7MessageD2Ev.exit385, %lpad151, %_ZN7testing7MessageD2Ev.exit359, %lpad126, %_ZN7testing7MessageD2Ev.exit333, %lpad101, %_ZN7testing7MessageD2Ev.exit307, %lpad76, %_ZN7testing7MessageD2Ev.exit281, %lpad51, %_ZN7testing7MessageD2Ev.exit255, %lpad26, %_ZN7testing7MessageD2Ev.exit229, %lpad, %_ZN7testing7MessageD2Ev.exit206
-  %gtest_ar2265.sink = phi ptr [ %gtest_ar, %_ZN7testing7MessageD2Ev.exit206 ], [ %gtest_ar, %lpad ], [ %gtest_ar14, %_ZN7testing7MessageD2Ev.exit229 ], [ %gtest_ar14, %lpad26 ], [ %gtest_ar39, %_ZN7testing7MessageD2Ev.exit255 ], [ %gtest_ar39, %lpad51 ], [ %gtest_ar64, %_ZN7testing7MessageD2Ev.exit281 ], [ %gtest_ar64, %lpad76 ], [ %gtest_ar89, %_ZN7testing7MessageD2Ev.exit307 ], [ %gtest_ar89, %lpad101 ], [ %gtest_ar114, %_ZN7testing7MessageD2Ev.exit333 ], [ %gtest_ar114, %lpad126 ], [ %gtest_ar139, %_ZN7testing7MessageD2Ev.exit359 ], [ %gtest_ar139, %lpad151 ], [ %gtest_ar164, %_ZN7testing7MessageD2Ev.exit385 ], [ %gtest_ar164, %lpad176 ], [ %gtest_ar189, %_ZN7testing7MessageD2Ev.exit411 ], [ %gtest_ar189, %lpad201 ], [ %gtest_ar214, %_ZN7testing7MessageD2Ev.exit437 ], [ %gtest_ar214, %lpad226 ], [ %gtest_ar239, %_ZN7testing7MessageD2Ev.exit463 ], [ %gtest_ar239, %lpad251 ], [ %gtest_ar264, %_ZN7testing7MessageD2Ev.exit489 ], [ %gtest_ar264, %lpad276 ], [ %gtest_ar289, %_ZN7testing7MessageD2Ev.exit515 ], [ %gtest_ar289, %lpad301 ], [ %gtest_ar314, %_ZN7testing7MessageD2Ev.exit541 ], [ %gtest_ar314, %lpad326 ], [ %gtest_ar339, %_ZN7testing7MessageD2Ev.exit567 ], [ %gtest_ar339, %lpad351 ], [ %gtest_ar364, %_ZN7testing7MessageD2Ev.exit593 ], [ %gtest_ar364, %lpad376 ], [ %gtest_ar389, %_ZN7testing7MessageD2Ev.exit619 ], [ %gtest_ar389, %lpad401 ], [ %gtest_ar414, %_ZN7testing7MessageD2Ev.exit645 ], [ %gtest_ar414, %lpad426 ], [ %gtest_ar439, %_ZN7testing7MessageD2Ev.exit671 ], [ %gtest_ar439, %lpad451 ], [ %gtest_ar464, %_ZN7testing7MessageD2Ev.exit697 ], [ %gtest_ar464, %lpad476 ], [ %gtest_ar489, %_ZN7testing7MessageD2Ev.exit723 ], [ %gtest_ar489, %lpad501 ], [ %gtest_ar514, %_ZN7testing7MessageD2Ev.exit749 ], [ %gtest_ar514, %lpad526 ], [ %gtest_ar539, %_ZN7testing7MessageD2Ev.exit775 ], [ %gtest_ar539, %lpad551 ], [ %gtest_ar564, %_ZN7testing7MessageD2Ev.exit801 ], [ %gtest_ar564, %lpad576 ], [ %gtest_ar589, %_ZN7testing7MessageD2Ev.exit827 ], [ %gtest_ar589, %lpad601 ], [ %gtest_ar614, %_ZN7testing7MessageD2Ev.exit853 ], [ %gtest_ar614, %lpad626 ], [ %gtest_ar639, %_ZN7testing7MessageD2Ev.exit879 ], [ %gtest_ar639, %lpad651 ], [ %gtest_ar664, %_ZN7testing7MessageD2Ev.exit905 ], [ %gtest_ar664, %lpad676 ], [ %gtest_ar689, %_ZN7testing7MessageD2Ev.exit931 ], [ %gtest_ar689, %lpad701 ], [ %gtest_ar714, %_ZN7testing7MessageD2Ev.exit957 ], [ %gtest_ar714, %lpad726 ], [ %gtest_ar739, %_ZN7testing7MessageD2Ev.exit983 ], [ %gtest_ar739, %lpad751 ], [ %gtest_ar764, %_ZN7testing7MessageD2Ev.exit1009 ], [ %gtest_ar764, %lpad776 ], [ %gtest_ar789, %_ZN7testing7MessageD2Ev.exit1035 ], [ %gtest_ar789, %lpad801 ], [ %gtest_ar814, %_ZN7testing7MessageD2Ev.exit1061 ], [ %gtest_ar814, %lpad826 ], [ %gtest_ar839, %_ZN7testing7MessageD2Ev.exit1087 ], [ %gtest_ar839, %lpad851 ], [ %gtest_ar864, %_ZN7testing7MessageD2Ev.exit1113 ], [ %gtest_ar864, %lpad876 ], [ %gtest_ar889, %_ZN7testing7MessageD2Ev.exit1146 ], [ %gtest_ar889, %lpad911 ], [ %gtest_ar924, %_ZN7testing7MessageD2Ev.exit1179 ], [ %gtest_ar924, %lpad943 ], [ %gtest_ar956, %_ZN7testing7MessageD2Ev.exit1220 ], [ %gtest_ar956, %lpad978 ], [ %gtest_ar991, %_ZN7testing7MessageD2Ev.exit1253 ], [ %gtest_ar991, %lpad1010 ], [ %gtest_ar1023, %_ZN7testing7MessageD2Ev.exit1286 ], [ %gtest_ar1023, %lpad1045 ], [ %gtest_ar1058, %_ZN7testing7MessageD2Ev.exit1319 ], [ %gtest_ar1058, %lpad1077 ], [ %gtest_ar1090, %_ZN7testing7MessageD2Ev.exit1352 ], [ %gtest_ar1090, %lpad1112 ], [ %gtest_ar1125, %_ZN7testing7MessageD2Ev.exit1385 ], [ %gtest_ar1125, %lpad1144 ], [ %gtest_ar1157, %_ZN7testing7MessageD2Ev.exit1418 ], [ %gtest_ar1157, %lpad1176 ], [ %gtest_ar1189, %_ZN7testing7MessageD2Ev.exit1451 ], [ %gtest_ar1189, %lpad1208 ], [ %gtest_ar1221, %_ZN7testing7MessageD2Ev.exit1484 ], [ %gtest_ar1221, %lpad1240 ], [ %gtest_ar1253, %_ZN7testing7MessageD2Ev.exit1517 ], [ %gtest_ar1253, %lpad1272 ], [ %gtest_ar1285, %_ZN7testing7MessageD2Ev.exit1550 ], [ %gtest_ar1285, %lpad1304 ], [ %gtest_ar1317, %_ZN7testing7MessageD2Ev.exit1583 ], [ %gtest_ar1317, %lpad1336 ], [ %gtest_ar1349, %_ZN7testing7MessageD2Ev.exit1616 ], [ %gtest_ar1349, %lpad1368 ], [ %gtest_ar1381, %_ZN7testing7MessageD2Ev.exit1649 ], [ %gtest_ar1381, %lpad1400 ], [ %gtest_ar1570, %_ZN7testing7MessageD2Ev.exit1741 ], [ %gtest_ar1570, %lpad1583 ], [ %gtest_ar1741, %_ZN7testing7MessageD2Ev.exit1771 ], [ %gtest_ar1741, %lpad1753 ], [ %gtest_ar1939, %_ZN7testing7MessageD2Ev.exit1872 ], [ %gtest_ar1939, %lpad1952 ], [ %gtest_ar2113, %_ZN7testing7MessageD2Ev.exit1912 ], [ %gtest_ar2113, %lpad2125 ], [ %gtest_ar2141, %_ZN7testing7MessageD2Ev.exit1936 ], [ %gtest_ar2141, %lpad2152 ], [ %gtest_ar2165, %_ZN7testing7MessageD2Ev.exit1968 ], [ %gtest_ar2165, %lpad2188 ], [ %gtest_ar2201, %_ZN7testing7MessageD2Ev.exit2000 ], [ %gtest_ar2201, %lpad2225 ], [ %gtest_ar2238, %_ZN7testing7MessageD2Ev.exit2025 ], [ %gtest_ar2238, %lpad2252 ], [ %gtest_ar2265, %_ZN7testing7MessageD2Ev.exit2057 ], [ %gtest_ar2265, %lpad2289 ]
-  %.pn196.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit206 ], [ %4, %lpad ], [ %.pn19, %_ZN7testing7MessageD2Ev.exit229 ], [ %14, %lpad26 ], [ %.pn22, %_ZN7testing7MessageD2Ev.exit255 ], [ %24, %lpad51 ], [ %.pn25, %_ZN7testing7MessageD2Ev.exit281 ], [ %34, %lpad76 ], [ %.pn28, %_ZN7testing7MessageD2Ev.exit307 ], [ %44, %lpad101 ], [ %.pn31, %_ZN7testing7MessageD2Ev.exit333 ], [ %54, %lpad126 ], [ %.pn34, %_ZN7testing7MessageD2Ev.exit359 ], [ %64, %lpad151 ], [ %.pn37, %_ZN7testing7MessageD2Ev.exit385 ], [ %74, %lpad176 ], [ %.pn40, %_ZN7testing7MessageD2Ev.exit411 ], [ %84, %lpad201 ], [ %.pn43, %_ZN7testing7MessageD2Ev.exit437 ], [ %94, %lpad226 ], [ %.pn46, %_ZN7testing7MessageD2Ev.exit463 ], [ %104, %lpad251 ], [ %.pn49, %_ZN7testing7MessageD2Ev.exit489 ], [ %114, %lpad276 ], [ %.pn52, %_ZN7testing7MessageD2Ev.exit515 ], [ %124, %lpad301 ], [ %.pn55, %_ZN7testing7MessageD2Ev.exit541 ], [ %134, %lpad326 ], [ %.pn58, %_ZN7testing7MessageD2Ev.exit567 ], [ %144, %lpad351 ], [ %.pn61, %_ZN7testing7MessageD2Ev.exit593 ], [ %154, %lpad376 ], [ %.pn64, %_ZN7testing7MessageD2Ev.exit619 ], [ %164, %lpad401 ], [ %.pn67, %_ZN7testing7MessageD2Ev.exit645 ], [ %174, %lpad426 ], [ %.pn70, %_ZN7testing7MessageD2Ev.exit671 ], [ %184, %lpad451 ], [ %.pn73, %_ZN7testing7MessageD2Ev.exit697 ], [ %194, %lpad476 ], [ %.pn76, %_ZN7testing7MessageD2Ev.exit723 ], [ %204, %lpad501 ], [ %.pn79, %_ZN7testing7MessageD2Ev.exit749 ], [ %214, %lpad526 ], [ %.pn82, %_ZN7testing7MessageD2Ev.exit775 ], [ %224, %lpad551 ], [ %.pn85, %_ZN7testing7MessageD2Ev.exit801 ], [ %234, %lpad576 ], [ %.pn88, %_ZN7testing7MessageD2Ev.exit827 ], [ %244, %lpad601 ], [ %.pn91, %_ZN7testing7MessageD2Ev.exit853 ], [ %254, %lpad626 ], [ %.pn94, %_ZN7testing7MessageD2Ev.exit879 ], [ %264, %lpad651 ], [ %.pn97, %_ZN7testing7MessageD2Ev.exit905 ], [ %274, %lpad676 ], [ %.pn100, %_ZN7testing7MessageD2Ev.exit931 ], [ %284, %lpad701 ], [ %.pn103, %_ZN7testing7MessageD2Ev.exit957 ], [ %294, %lpad726 ], [ %.pn106, %_ZN7testing7MessageD2Ev.exit983 ], [ %304, %lpad751 ], [ %.pn109, %_ZN7testing7MessageD2Ev.exit1009 ], [ %314, %lpad776 ], [ %.pn112, %_ZN7testing7MessageD2Ev.exit1035 ], [ %324, %lpad801 ], [ %.pn115, %_ZN7testing7MessageD2Ev.exit1061 ], [ %334, %lpad826 ], [ %.pn118, %_ZN7testing7MessageD2Ev.exit1087 ], [ %344, %lpad851 ], [ %.pn121, %_ZN7testing7MessageD2Ev.exit1113 ], [ %354, %lpad876 ], [ %.pn124, %_ZN7testing7MessageD2Ev.exit1146 ], [ %365, %lpad911 ], [ %.pn127, %_ZN7testing7MessageD2Ev.exit1179 ], [ %376, %lpad943 ], [ %.pn130, %_ZN7testing7MessageD2Ev.exit1220 ], [ %387, %lpad978 ], [ %.pn133, %_ZN7testing7MessageD2Ev.exit1253 ], [ %398, %lpad1010 ], [ %.pn136, %_ZN7testing7MessageD2Ev.exit1286 ], [ %409, %lpad1045 ], [ %.pn139, %_ZN7testing7MessageD2Ev.exit1319 ], [ %420, %lpad1077 ], [ %.pn142, %_ZN7testing7MessageD2Ev.exit1352 ], [ %431, %lpad1112 ], [ %.pn145, %_ZN7testing7MessageD2Ev.exit1385 ], [ %442, %lpad1144 ], [ %.pn148, %_ZN7testing7MessageD2Ev.exit1418 ], [ %453, %lpad1176 ], [ %.pn151, %_ZN7testing7MessageD2Ev.exit1451 ], [ %464, %lpad1208 ], [ %.pn154, %_ZN7testing7MessageD2Ev.exit1484 ], [ %475, %lpad1240 ], [ %.pn157, %_ZN7testing7MessageD2Ev.exit1517 ], [ %486, %lpad1272 ], [ %.pn160, %_ZN7testing7MessageD2Ev.exit1550 ], [ %497, %lpad1304 ], [ %.pn163, %_ZN7testing7MessageD2Ev.exit1583 ], [ %508, %lpad1336 ], [ %.pn166, %_ZN7testing7MessageD2Ev.exit1616 ], [ %519, %lpad1368 ], [ %.pn169, %_ZN7testing7MessageD2Ev.exit1649 ], [ %530, %lpad1400 ], [ %.pn196, %_ZN7testing7MessageD2Ev.exit1741 ], [ %543, %lpad1583 ], [ %.pn193, %_ZN7testing7MessageD2Ev.exit1771 ], [ %553, %lpad1753 ], [ %.pn190, %_ZN7testing7MessageD2Ev.exit1872 ], [ %566, %lpad1952 ], [ %.pn187, %_ZN7testing7MessageD2Ev.exit1912 ], [ %576, %lpad2125 ], [ %.pn172, %_ZN7testing7MessageD2Ev.exit1936 ], [ %586, %lpad2152 ], [ %.pn175, %_ZN7testing7MessageD2Ev.exit1968 ], [ %597, %lpad2188 ], [ %.pn178, %_ZN7testing7MessageD2Ev.exit2000 ], [ %608, %lpad2225 ], [ %.pn181, %_ZN7testing7MessageD2Ev.exit2025 ], [ %618, %lpad2252 ], [ %.pn184, %_ZN7testing7MessageD2Ev.exit2057 ], [ %628, %lpad2289 ]
+ehcleanup2301:                                    ; preds = %_ZN7testing7MessageD2Ev.exit2057, %lpad2289
+  %.pn184.pn = phi { ptr, i32 } [ %.pn184, %_ZN7testing7MessageD2Ev.exit2057 ], [ %628, %lpad2289 ]
+  br label %eh.resume
+
+eh.resume:                                        ; preds = %lpad978, %_ZN7testing7MessageD2Ev.exit1220, %lpad943, %_ZN7testing7MessageD2Ev.exit1179, %lpad911, %_ZN7testing7MessageD2Ev.exit1146, %lpad876, %_ZN7testing7MessageD2Ev.exit1113, %lpad851, %_ZN7testing7MessageD2Ev.exit1087, %lpad826, %_ZN7testing7MessageD2Ev.exit1061, %lpad801, %_ZN7testing7MessageD2Ev.exit1035, %lpad776, %_ZN7testing7MessageD2Ev.exit1009, %lpad751, %_ZN7testing7MessageD2Ev.exit983, %lpad726, %_ZN7testing7MessageD2Ev.exit957, %lpad701, %_ZN7testing7MessageD2Ev.exit931, %lpad676, %_ZN7testing7MessageD2Ev.exit905, %lpad651, %_ZN7testing7MessageD2Ev.exit879, %lpad626, %_ZN7testing7MessageD2Ev.exit853, %lpad601, %_ZN7testing7MessageD2Ev.exit827, %lpad576, %_ZN7testing7MessageD2Ev.exit801, %lpad551, %_ZN7testing7MessageD2Ev.exit775, %lpad526, %_ZN7testing7MessageD2Ev.exit749, %lpad501, %_ZN7testing7MessageD2Ev.exit723, %lpad476, %_ZN7testing7MessageD2Ev.exit697, %lpad451, %_ZN7testing7MessageD2Ev.exit671, %lpad426, %_ZN7testing7MessageD2Ev.exit645, %lpad401, %_ZN7testing7MessageD2Ev.exit619, %lpad376, %_ZN7testing7MessageD2Ev.exit593, %lpad351, %_ZN7testing7MessageD2Ev.exit567, %lpad326, %_ZN7testing7MessageD2Ev.exit541, %lpad301, %_ZN7testing7MessageD2Ev.exit515, %lpad276, %_ZN7testing7MessageD2Ev.exit489, %lpad251, %_ZN7testing7MessageD2Ev.exit463, %lpad226, %_ZN7testing7MessageD2Ev.exit437, %lpad201, %_ZN7testing7MessageD2Ev.exit411, %lpad176, %_ZN7testing7MessageD2Ev.exit385, %lpad151, %_ZN7testing7MessageD2Ev.exit359, %lpad126, %_ZN7testing7MessageD2Ev.exit333, %lpad101, %_ZN7testing7MessageD2Ev.exit307, %lpad76, %_ZN7testing7MessageD2Ev.exit281, %lpad51, %_ZN7testing7MessageD2Ev.exit255, %lpad26, %_ZN7testing7MessageD2Ev.exit229, %lpad, %_ZN7testing7MessageD2Ev.exit206, %ehcleanup2301, %ehcleanup2264, %ehcleanup2237, %ehcleanup2200, %ehcleanup2164, %ehcleanup2137, %ehcleanup1964, %ehcleanup1765, %ehcleanup1595, %ehcleanup1412, %ehcleanup1380, %ehcleanup1348, %ehcleanup1316, %ehcleanup1284, %ehcleanup1252, %ehcleanup1220, %ehcleanup1188, %ehcleanup1156, %ehcleanup1124, %ehcleanup1089, %ehcleanup1057, %ehcleanup1022
+  %gtest_ar2265.sink = phi ptr [ %gtest_ar2265, %ehcleanup2301 ], [ %gtest_ar2238, %ehcleanup2264 ], [ %gtest_ar2201, %ehcleanup2237 ], [ %gtest_ar2165, %ehcleanup2200 ], [ %gtest_ar2141, %ehcleanup2164 ], [ %gtest_ar2113, %ehcleanup2137 ], [ %gtest_ar1939, %ehcleanup1964 ], [ %gtest_ar1741, %ehcleanup1765 ], [ %gtest_ar1570, %ehcleanup1595 ], [ %gtest_ar1381, %ehcleanup1412 ], [ %gtest_ar1349, %ehcleanup1380 ], [ %gtest_ar1317, %ehcleanup1348 ], [ %gtest_ar1285, %ehcleanup1316 ], [ %gtest_ar1253, %ehcleanup1284 ], [ %gtest_ar1221, %ehcleanup1252 ], [ %gtest_ar1189, %ehcleanup1220 ], [ %gtest_ar1157, %ehcleanup1188 ], [ %gtest_ar1125, %ehcleanup1156 ], [ %gtest_ar1090, %ehcleanup1124 ], [ %gtest_ar1058, %ehcleanup1089 ], [ %gtest_ar1023, %ehcleanup1057 ], [ %gtest_ar991, %ehcleanup1022 ], [ %gtest_ar, %_ZN7testing7MessageD2Ev.exit206 ], [ %gtest_ar, %lpad ], [ %gtest_ar14, %_ZN7testing7MessageD2Ev.exit229 ], [ %gtest_ar14, %lpad26 ], [ %gtest_ar39, %_ZN7testing7MessageD2Ev.exit255 ], [ %gtest_ar39, %lpad51 ], [ %gtest_ar64, %_ZN7testing7MessageD2Ev.exit281 ], [ %gtest_ar64, %lpad76 ], [ %gtest_ar89, %_ZN7testing7MessageD2Ev.exit307 ], [ %gtest_ar89, %lpad101 ], [ %gtest_ar114, %_ZN7testing7MessageD2Ev.exit333 ], [ %gtest_ar114, %lpad126 ], [ %gtest_ar139, %_ZN7testing7MessageD2Ev.exit359 ], [ %gtest_ar139, %lpad151 ], [ %gtest_ar164, %_ZN7testing7MessageD2Ev.exit385 ], [ %gtest_ar164, %lpad176 ], [ %gtest_ar189, %_ZN7testing7MessageD2Ev.exit411 ], [ %gtest_ar189, %lpad201 ], [ %gtest_ar214, %_ZN7testing7MessageD2Ev.exit437 ], [ %gtest_ar214, %lpad226 ], [ %gtest_ar239, %_ZN7testing7MessageD2Ev.exit463 ], [ %gtest_ar239, %lpad251 ], [ %gtest_ar264, %_ZN7testing7MessageD2Ev.exit489 ], [ %gtest_ar264, %lpad276 ], [ %gtest_ar289, %_ZN7testing7MessageD2Ev.exit515 ], [ %gtest_ar289, %lpad301 ], [ %gtest_ar314, %_ZN7testing7MessageD2Ev.exit541 ], [ %gtest_ar314, %lpad326 ], [ %gtest_ar339, %_ZN7testing7MessageD2Ev.exit567 ], [ %gtest_ar339, %lpad351 ], [ %gtest_ar364, %_ZN7testing7MessageD2Ev.exit593 ], [ %gtest_ar364, %lpad376 ], [ %gtest_ar389, %_ZN7testing7MessageD2Ev.exit619 ], [ %gtest_ar389, %lpad401 ], [ %gtest_ar414, %_ZN7testing7MessageD2Ev.exit645 ], [ %gtest_ar414, %lpad426 ], [ %gtest_ar439, %_ZN7testing7MessageD2Ev.exit671 ], [ %gtest_ar439, %lpad451 ], [ %gtest_ar464, %_ZN7testing7MessageD2Ev.exit697 ], [ %gtest_ar464, %lpad476 ], [ %gtest_ar489, %_ZN7testing7MessageD2Ev.exit723 ], [ %gtest_ar489, %lpad501 ], [ %gtest_ar514, %_ZN7testing7MessageD2Ev.exit749 ], [ %gtest_ar514, %lpad526 ], [ %gtest_ar539, %_ZN7testing7MessageD2Ev.exit775 ], [ %gtest_ar539, %lpad551 ], [ %gtest_ar564, %_ZN7testing7MessageD2Ev.exit801 ], [ %gtest_ar564, %lpad576 ], [ %gtest_ar589, %_ZN7testing7MessageD2Ev.exit827 ], [ %gtest_ar589, %lpad601 ], [ %gtest_ar614, %_ZN7testing7MessageD2Ev.exit853 ], [ %gtest_ar614, %lpad626 ], [ %gtest_ar639, %_ZN7testing7MessageD2Ev.exit879 ], [ %gtest_ar639, %lpad651 ], [ %gtest_ar664, %_ZN7testing7MessageD2Ev.exit905 ], [ %gtest_ar664, %lpad676 ], [ %gtest_ar689, %_ZN7testing7MessageD2Ev.exit931 ], [ %gtest_ar689, %lpad701 ], [ %gtest_ar714, %_ZN7testing7MessageD2Ev.exit957 ], [ %gtest_ar714, %lpad726 ], [ %gtest_ar739, %_ZN7testing7MessageD2Ev.exit983 ], [ %gtest_ar739, %lpad751 ], [ %gtest_ar764, %_ZN7testing7MessageD2Ev.exit1009 ], [ %gtest_ar764, %lpad776 ], [ %gtest_ar789, %_ZN7testing7MessageD2Ev.exit1035 ], [ %gtest_ar789, %lpad801 ], [ %gtest_ar814, %_ZN7testing7MessageD2Ev.exit1061 ], [ %gtest_ar814, %lpad826 ], [ %gtest_ar839, %_ZN7testing7MessageD2Ev.exit1087 ], [ %gtest_ar839, %lpad851 ], [ %gtest_ar864, %_ZN7testing7MessageD2Ev.exit1113 ], [ %gtest_ar864, %lpad876 ], [ %gtest_ar889, %_ZN7testing7MessageD2Ev.exit1146 ], [ %gtest_ar889, %lpad911 ], [ %gtest_ar924, %_ZN7testing7MessageD2Ev.exit1179 ], [ %gtest_ar924, %lpad943 ], [ %gtest_ar956, %_ZN7testing7MessageD2Ev.exit1220 ], [ %gtest_ar956, %lpad978 ]
+  %.pn196.pn.pn = phi { ptr, i32 } [ %.pn184.pn, %ehcleanup2301 ], [ %.pn181.pn, %ehcleanup2264 ], [ %.pn178.pn, %ehcleanup2237 ], [ %.pn175.pn, %ehcleanup2200 ], [ %.pn172.pn, %ehcleanup2164 ], [ %.pn187.pn, %ehcleanup2137 ], [ %.pn190.pn, %ehcleanup1964 ], [ %.pn193.pn, %ehcleanup1765 ], [ %.pn196.pn, %ehcleanup1595 ], [ %.pn169.pn, %ehcleanup1412 ], [ %.pn166.pn, %ehcleanup1380 ], [ %.pn163.pn, %ehcleanup1348 ], [ %.pn160.pn, %ehcleanup1316 ], [ %.pn157.pn, %ehcleanup1284 ], [ %.pn154.pn, %ehcleanup1252 ], [ %.pn151.pn, %ehcleanup1220 ], [ %.pn148.pn, %ehcleanup1188 ], [ %.pn145.pn, %ehcleanup1156 ], [ %.pn142.pn, %ehcleanup1124 ], [ %.pn139.pn, %ehcleanup1089 ], [ %.pn136.pn, %ehcleanup1057 ], [ %.pn133.pn, %ehcleanup1022 ], [ %.pn, %_ZN7testing7MessageD2Ev.exit206 ], [ %4, %lpad ], [ %.pn19, %_ZN7testing7MessageD2Ev.exit229 ], [ %14, %lpad26 ], [ %.pn22, %_ZN7testing7MessageD2Ev.exit255 ], [ %24, %lpad51 ], [ %.pn25, %_ZN7testing7MessageD2Ev.exit281 ], [ %34, %lpad76 ], [ %.pn28, %_ZN7testing7MessageD2Ev.exit307 ], [ %44, %lpad101 ], [ %.pn31, %_ZN7testing7MessageD2Ev.exit333 ], [ %54, %lpad126 ], [ %.pn34, %_ZN7testing7MessageD2Ev.exit359 ], [ %64, %lpad151 ], [ %.pn37, %_ZN7testing7MessageD2Ev.exit385 ], [ %74, %lpad176 ], [ %.pn40, %_ZN7testing7MessageD2Ev.exit411 ], [ %84, %lpad201 ], [ %.pn43, %_ZN7testing7MessageD2Ev.exit437 ], [ %94, %lpad226 ], [ %.pn46, %_ZN7testing7MessageD2Ev.exit463 ], [ %104, %lpad251 ], [ %.pn49, %_ZN7testing7MessageD2Ev.exit489 ], [ %114, %lpad276 ], [ %.pn52, %_ZN7testing7MessageD2Ev.exit515 ], [ %124, %lpad301 ], [ %.pn55, %_ZN7testing7MessageD2Ev.exit541 ], [ %134, %lpad326 ], [ %.pn58, %_ZN7testing7MessageD2Ev.exit567 ], [ %144, %lpad351 ], [ %.pn61, %_ZN7testing7MessageD2Ev.exit593 ], [ %154, %lpad376 ], [ %.pn64, %_ZN7testing7MessageD2Ev.exit619 ], [ %164, %lpad401 ], [ %.pn67, %_ZN7testing7MessageD2Ev.exit645 ], [ %174, %lpad426 ], [ %.pn70, %_ZN7testing7MessageD2Ev.exit671 ], [ %184, %lpad451 ], [ %.pn73, %_ZN7testing7MessageD2Ev.exit697 ], [ %194, %lpad476 ], [ %.pn76, %_ZN7testing7MessageD2Ev.exit723 ], [ %204, %lpad501 ], [ %.pn79, %_ZN7testing7MessageD2Ev.exit749 ], [ %214, %lpad526 ], [ %.pn82, %_ZN7testing7MessageD2Ev.exit775 ], [ %224, %lpad551 ], [ %.pn85, %_ZN7testing7MessageD2Ev.exit801 ], [ %234, %lpad576 ], [ %.pn88, %_ZN7testing7MessageD2Ev.exit827 ], [ %244, %lpad601 ], [ %.pn91, %_ZN7testing7MessageD2Ev.exit853 ], [ %254, %lpad626 ], [ %.pn94, %_ZN7testing7MessageD2Ev.exit879 ], [ %264, %lpad651 ], [ %.pn97, %_ZN7testing7MessageD2Ev.exit905 ], [ %274, %lpad676 ], [ %.pn100, %_ZN7testing7MessageD2Ev.exit931 ], [ %284, %lpad701 ], [ %.pn103, %_ZN7testing7MessageD2Ev.exit957 ], [ %294, %lpad726 ], [ %.pn106, %_ZN7testing7MessageD2Ev.exit983 ], [ %304, %lpad751 ], [ %.pn109, %_ZN7testing7MessageD2Ev.exit1009 ], [ %314, %lpad776 ], [ %.pn112, %_ZN7testing7MessageD2Ev.exit1035 ], [ %324, %lpad801 ], [ %.pn115, %_ZN7testing7MessageD2Ev.exit1061 ], [ %334, %lpad826 ], [ %.pn118, %_ZN7testing7MessageD2Ev.exit1087 ], [ %344, %lpad851 ], [ %.pn121, %_ZN7testing7MessageD2Ev.exit1113 ], [ %354, %lpad876 ], [ %.pn124, %_ZN7testing7MessageD2Ev.exit1146 ], [ %365, %lpad911 ], [ %.pn127, %_ZN7testing7MessageD2Ev.exit1179 ], [ %376, %lpad943 ], [ %.pn130, %_ZN7testing7MessageD2Ev.exit1220 ], [ %387, %lpad978 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar2265.sink) #25
   resume { ptr, i32 } %.pn196.pn.pn
 }

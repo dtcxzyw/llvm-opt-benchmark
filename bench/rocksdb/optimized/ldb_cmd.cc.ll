@@ -67939,9 +67939,9 @@ lpad.i:                                           ; preds = %call.i.noexc.i, %en
           cleanup
   br label %common.resume
 
-common.resume:                                    ; preds = %lpad.i.i640, %lpad.i635, %lpad.i1158, %lpad.i627, %lpad.i.i624, %lpad.i619, %lpad.i1148, %lpad.i611, %lpad.i.i608, %lpad.i603, %lpad.i.i600, %lpad.i595, %lpad.i.i592, %lpad.i587, %lpad.i1138, %lpad.i579, %lpad.i.i576, %lpad.i571, %lpad.i.i568, %lpad.i563, %lpad.i1128, %lpad.i555, %lpad.i1118, %lpad.i547, %lpad.i1108, %lpad.i539, %lpad.i1098, %lpad.i531, %lpad.i1088, %lpad.i523, %lpad.i1078, %lpad.i515, %lpad.i1068, %lpad.i507, %lpad.i1058, %lpad.i499, %lpad.i1048, %lpad.i491, %lpad.i1038, %lpad.i483, %lpad.i.i480, %lpad.i475, %lpad.i.i472, %lpad.i467, %lpad.i.i464, %lpad.i459, %lpad.i1028, %lpad.i451, %lpad.i1018, %lpad.i443, %lpad.i1008, %lpad.i435, %lpad.i998, %lpad.i427, %lpad.i988, %lpad.i419, %lpad.i978, %lpad.i411, %lpad.i968, %lpad.i403, %lpad.i958, %lpad.i395, %lpad.i948, %lpad.i387, %lpad.i938, %lpad.i379, %lpad.i928, %lpad.i371, %lpad.i918, %lpad.i363, %lpad.i908, %lpad.i355, %lpad.i898, %lpad.i347, %lpad.i888, %lpad.i339, %lpad.i878, %lpad.i331, %lpad.i.i328, %lpad.i323, %lpad.i.i320, %lpad.i315, %lpad.i.i312, %lpad.i307, %lpad.i.i304, %lpad.i299, %lpad.i.i296, %lpad.i291, %lpad.i.i288, %lpad.i283, %lpad.i.i280, %lpad.i275, %lpad.i.i272, %lpad.i267, %lpad.i.i264, %lpad.i259, %lpad.i868, %lpad.i251, %lpad.i858, %lpad.i243, %lpad.i.i240, %lpad.i235, %lpad.i848, %lpad.i227, %lpad.i.i224, %lpad.i219, %lpad.i838, %lpad.i211, %lpad.i.i208, %lpad.i203, %lpad.i.i200, %lpad.i195, %lpad.i828, %lpad.i187, %lpad.i818, %lpad.i179, %lpad.i.i176, %lpad.i171, %lpad.i.i168, %lpad.i163, %lpad.i808, %lpad.i155, %lpad.i798, %lpad.i147, %lpad.i788, %lpad.i139, %lpad.i778, %lpad.i131, %lpad.i768, %lpad.i123, %lpad.i.i120, %lpad.i115, %lpad.i.i112, %lpad.i107, %lpad.i.i104, %lpad.i99, %lpad.i758, %lpad.i91, %lpad.i748, %lpad.i83, %lpad.i738, %lpad.i75, %lpad.i728, %lpad.i67, %lpad.i718, %lpad.i59, %lpad.i708, %lpad.i51, %lpad.i698, %lpad.i43, %lpad.i688, %lpad.i35, %lpad.i678, %lpad.i27, %lpad.i668, %lpad.i19, %lpad.i658, %lpad.i11, %lpad.i648, %lpad.i3, %lpad.i641, %lpad.i
-  %ref.tmp.i633.sink = phi ptr [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i, %lpad.i641 ], [ %ref.tmp.i1, %lpad.i3 ], [ %ref.tmp.i1, %lpad.i648 ], [ %ref.tmp.i9, %lpad.i11 ], [ %ref.tmp.i9, %lpad.i658 ], [ %ref.tmp.i17, %lpad.i19 ], [ %ref.tmp.i17, %lpad.i668 ], [ %ref.tmp.i25, %lpad.i27 ], [ %ref.tmp.i25, %lpad.i678 ], [ %ref.tmp.i33, %lpad.i35 ], [ %ref.tmp.i33, %lpad.i688 ], [ %ref.tmp.i41, %lpad.i43 ], [ %ref.tmp.i41, %lpad.i698 ], [ %ref.tmp.i49, %lpad.i51 ], [ %ref.tmp.i49, %lpad.i708 ], [ %ref.tmp.i57, %lpad.i59 ], [ %ref.tmp.i57, %lpad.i718 ], [ %ref.tmp.i65, %lpad.i67 ], [ %ref.tmp.i65, %lpad.i728 ], [ %ref.tmp.i73, %lpad.i75 ], [ %ref.tmp.i73, %lpad.i738 ], [ %ref.tmp.i81, %lpad.i83 ], [ %ref.tmp.i81, %lpad.i748 ], [ %ref.tmp.i89, %lpad.i91 ], [ %ref.tmp.i89, %lpad.i758 ], [ %ref.tmp.i97, %lpad.i99 ], [ %ref.tmp.i97, %lpad.i.i104 ], [ %ref.tmp.i105, %lpad.i107 ], [ %ref.tmp.i105, %lpad.i.i112 ], [ %ref.tmp.i113, %lpad.i115 ], [ %ref.tmp.i113, %lpad.i.i120 ], [ %ref.tmp.i121, %lpad.i123 ], [ %ref.tmp.i121, %lpad.i768 ], [ %ref.tmp.i129, %lpad.i131 ], [ %ref.tmp.i129, %lpad.i778 ], [ %ref.tmp.i137, %lpad.i139 ], [ %ref.tmp.i137, %lpad.i788 ], [ %ref.tmp.i145, %lpad.i147 ], [ %ref.tmp.i145, %lpad.i798 ], [ %ref.tmp.i153, %lpad.i155 ], [ %ref.tmp.i153, %lpad.i808 ], [ %ref.tmp.i161, %lpad.i163 ], [ %ref.tmp.i161, %lpad.i.i168 ], [ %ref.tmp.i169, %lpad.i171 ], [ %ref.tmp.i169, %lpad.i.i176 ], [ %ref.tmp.i177, %lpad.i179 ], [ %ref.tmp.i177, %lpad.i818 ], [ %ref.tmp.i185, %lpad.i187 ], [ %ref.tmp.i185, %lpad.i828 ], [ %ref.tmp.i193, %lpad.i195 ], [ %ref.tmp.i193, %lpad.i.i200 ], [ %ref.tmp.i201, %lpad.i203 ], [ %ref.tmp.i201, %lpad.i.i208 ], [ %ref.tmp.i209, %lpad.i211 ], [ %ref.tmp.i209, %lpad.i838 ], [ %ref.tmp.i217, %lpad.i219 ], [ %ref.tmp.i217, %lpad.i.i224 ], [ %ref.tmp.i225, %lpad.i227 ], [ %ref.tmp.i225, %lpad.i848 ], [ %ref.tmp.i233, %lpad.i235 ], [ %ref.tmp.i233, %lpad.i.i240 ], [ %ref.tmp.i241, %lpad.i243 ], [ %ref.tmp.i241, %lpad.i858 ], [ %ref.tmp.i249, %lpad.i251 ], [ %ref.tmp.i249, %lpad.i868 ], [ %ref.tmp.i257, %lpad.i259 ], [ %ref.tmp.i257, %lpad.i.i264 ], [ %ref.tmp.i265, %lpad.i267 ], [ %ref.tmp.i265, %lpad.i.i272 ], [ %ref.tmp.i273, %lpad.i275 ], [ %ref.tmp.i273, %lpad.i.i280 ], [ %ref.tmp.i281, %lpad.i283 ], [ %ref.tmp.i281, %lpad.i.i288 ], [ %ref.tmp.i289, %lpad.i291 ], [ %ref.tmp.i289, %lpad.i.i296 ], [ %ref.tmp.i297, %lpad.i299 ], [ %ref.tmp.i297, %lpad.i.i304 ], [ %ref.tmp.i305, %lpad.i307 ], [ %ref.tmp.i305, %lpad.i.i312 ], [ %ref.tmp.i313, %lpad.i315 ], [ %ref.tmp.i313, %lpad.i.i320 ], [ %ref.tmp.i321, %lpad.i323 ], [ %ref.tmp.i321, %lpad.i.i328 ], [ %ref.tmp.i329, %lpad.i331 ], [ %ref.tmp.i329, %lpad.i878 ], [ %ref.tmp.i337, %lpad.i339 ], [ %ref.tmp.i337, %lpad.i888 ], [ %ref.tmp.i345, %lpad.i347 ], [ %ref.tmp.i345, %lpad.i898 ], [ %ref.tmp.i353, %lpad.i355 ], [ %ref.tmp.i353, %lpad.i908 ], [ %ref.tmp.i361, %lpad.i363 ], [ %ref.tmp.i361, %lpad.i918 ], [ %ref.tmp.i369, %lpad.i371 ], [ %ref.tmp.i369, %lpad.i928 ], [ %ref.tmp.i377, %lpad.i379 ], [ %ref.tmp.i377, %lpad.i938 ], [ %ref.tmp.i385, %lpad.i387 ], [ %ref.tmp.i385, %lpad.i948 ], [ %ref.tmp.i393, %lpad.i395 ], [ %ref.tmp.i393, %lpad.i958 ], [ %ref.tmp.i401, %lpad.i403 ], [ %ref.tmp.i401, %lpad.i968 ], [ %ref.tmp.i409, %lpad.i411 ], [ %ref.tmp.i409, %lpad.i978 ], [ %ref.tmp.i417, %lpad.i419 ], [ %ref.tmp.i417, %lpad.i988 ], [ %ref.tmp.i425, %lpad.i427 ], [ %ref.tmp.i425, %lpad.i998 ], [ %ref.tmp.i433, %lpad.i435 ], [ %ref.tmp.i433, %lpad.i1008 ], [ %ref.tmp.i441, %lpad.i443 ], [ %ref.tmp.i441, %lpad.i1018 ], [ %ref.tmp.i449, %lpad.i451 ], [ %ref.tmp.i449, %lpad.i1028 ], [ %ref.tmp.i457, %lpad.i459 ], [ %ref.tmp.i457, %lpad.i.i464 ], [ %ref.tmp.i465, %lpad.i467 ], [ %ref.tmp.i465, %lpad.i.i472 ], [ %ref.tmp.i473, %lpad.i475 ], [ %ref.tmp.i473, %lpad.i.i480 ], [ %ref.tmp.i481, %lpad.i483 ], [ %ref.tmp.i481, %lpad.i1038 ], [ %ref.tmp.i489, %lpad.i491 ], [ %ref.tmp.i489, %lpad.i1048 ], [ %ref.tmp.i497, %lpad.i499 ], [ %ref.tmp.i497, %lpad.i1058 ], [ %ref.tmp.i505, %lpad.i507 ], [ %ref.tmp.i505, %lpad.i1068 ], [ %ref.tmp.i513, %lpad.i515 ], [ %ref.tmp.i513, %lpad.i1078 ], [ %ref.tmp.i521, %lpad.i523 ], [ %ref.tmp.i521, %lpad.i1088 ], [ %ref.tmp.i529, %lpad.i531 ], [ %ref.tmp.i529, %lpad.i1098 ], [ %ref.tmp.i537, %lpad.i539 ], [ %ref.tmp.i537, %lpad.i1108 ], [ %ref.tmp.i545, %lpad.i547 ], [ %ref.tmp.i545, %lpad.i1118 ], [ %ref.tmp.i553, %lpad.i555 ], [ %ref.tmp.i553, %lpad.i1128 ], [ %ref.tmp.i561, %lpad.i563 ], [ %ref.tmp.i561, %lpad.i.i568 ], [ %ref.tmp.i569, %lpad.i571 ], [ %ref.tmp.i569, %lpad.i.i576 ], [ %ref.tmp.i577, %lpad.i579 ], [ %ref.tmp.i577, %lpad.i1138 ], [ %ref.tmp.i585, %lpad.i587 ], [ %ref.tmp.i585, %lpad.i.i592 ], [ %ref.tmp.i593, %lpad.i595 ], [ %ref.tmp.i593, %lpad.i.i600 ], [ %ref.tmp.i601, %lpad.i603 ], [ %ref.tmp.i601, %lpad.i.i608 ], [ %ref.tmp.i609, %lpad.i611 ], [ %ref.tmp.i609, %lpad.i1148 ], [ %ref.tmp.i617, %lpad.i619 ], [ %ref.tmp.i617, %lpad.i.i624 ], [ %ref.tmp.i625, %lpad.i627 ], [ %ref.tmp.i625, %lpad.i1158 ], [ %ref.tmp.i633, %lpad.i635 ], [ %ref.tmp.i633, %lpad.i.i640 ]
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %4, %lpad.i641 ], [ %10, %lpad.i3 ], [ %9, %lpad.i648 ], [ %15, %lpad.i11 ], [ %14, %lpad.i658 ], [ %20, %lpad.i19 ], [ %19, %lpad.i668 ], [ %25, %lpad.i27 ], [ %24, %lpad.i678 ], [ %30, %lpad.i35 ], [ %29, %lpad.i688 ], [ %35, %lpad.i43 ], [ %34, %lpad.i698 ], [ %40, %lpad.i51 ], [ %39, %lpad.i708 ], [ %45, %lpad.i59 ], [ %44, %lpad.i718 ], [ %50, %lpad.i67 ], [ %49, %lpad.i728 ], [ %55, %lpad.i75 ], [ %54, %lpad.i738 ], [ %60, %lpad.i83 ], [ %59, %lpad.i748 ], [ %65, %lpad.i91 ], [ %64, %lpad.i758 ], [ %68, %lpad.i99 ], [ %67, %lpad.i.i104 ], [ %71, %lpad.i107 ], [ %70, %lpad.i.i112 ], [ %74, %lpad.i115 ], [ %73, %lpad.i.i120 ], [ %79, %lpad.i123 ], [ %78, %lpad.i768 ], [ %84, %lpad.i131 ], [ %83, %lpad.i778 ], [ %89, %lpad.i139 ], [ %88, %lpad.i788 ], [ %94, %lpad.i147 ], [ %93, %lpad.i798 ], [ %99, %lpad.i155 ], [ %98, %lpad.i808 ], [ %102, %lpad.i163 ], [ %101, %lpad.i.i168 ], [ %105, %lpad.i171 ], [ %104, %lpad.i.i176 ], [ %110, %lpad.i179 ], [ %109, %lpad.i818 ], [ %115, %lpad.i187 ], [ %114, %lpad.i828 ], [ %118, %lpad.i195 ], [ %117, %lpad.i.i200 ], [ %121, %lpad.i203 ], [ %120, %lpad.i.i208 ], [ %126, %lpad.i211 ], [ %125, %lpad.i838 ], [ %129, %lpad.i219 ], [ %128, %lpad.i.i224 ], [ %134, %lpad.i227 ], [ %133, %lpad.i848 ], [ %137, %lpad.i235 ], [ %136, %lpad.i.i240 ], [ %142, %lpad.i243 ], [ %141, %lpad.i858 ], [ %147, %lpad.i251 ], [ %146, %lpad.i868 ], [ %150, %lpad.i259 ], [ %149, %lpad.i.i264 ], [ %153, %lpad.i267 ], [ %152, %lpad.i.i272 ], [ %156, %lpad.i275 ], [ %155, %lpad.i.i280 ], [ %159, %lpad.i283 ], [ %158, %lpad.i.i288 ], [ %162, %lpad.i291 ], [ %161, %lpad.i.i296 ], [ %165, %lpad.i299 ], [ %164, %lpad.i.i304 ], [ %168, %lpad.i307 ], [ %167, %lpad.i.i312 ], [ %171, %lpad.i315 ], [ %170, %lpad.i.i320 ], [ %174, %lpad.i323 ], [ %173, %lpad.i.i328 ], [ %179, %lpad.i331 ], [ %178, %lpad.i878 ], [ %184, %lpad.i339 ], [ %183, %lpad.i888 ], [ %189, %lpad.i347 ], [ %188, %lpad.i898 ], [ %194, %lpad.i355 ], [ %193, %lpad.i908 ], [ %199, %lpad.i363 ], [ %198, %lpad.i918 ], [ %204, %lpad.i371 ], [ %203, %lpad.i928 ], [ %209, %lpad.i379 ], [ %208, %lpad.i938 ], [ %214, %lpad.i387 ], [ %213, %lpad.i948 ], [ %219, %lpad.i395 ], [ %218, %lpad.i958 ], [ %224, %lpad.i403 ], [ %223, %lpad.i968 ], [ %229, %lpad.i411 ], [ %228, %lpad.i978 ], [ %234, %lpad.i419 ], [ %233, %lpad.i988 ], [ %239, %lpad.i427 ], [ %238, %lpad.i998 ], [ %244, %lpad.i435 ], [ %243, %lpad.i1008 ], [ %249, %lpad.i443 ], [ %248, %lpad.i1018 ], [ %254, %lpad.i451 ], [ %253, %lpad.i1028 ], [ %257, %lpad.i459 ], [ %256, %lpad.i.i464 ], [ %260, %lpad.i467 ], [ %259, %lpad.i.i472 ], [ %263, %lpad.i475 ], [ %262, %lpad.i.i480 ], [ %268, %lpad.i483 ], [ %267, %lpad.i1038 ], [ %273, %lpad.i491 ], [ %272, %lpad.i1048 ], [ %278, %lpad.i499 ], [ %277, %lpad.i1058 ], [ %283, %lpad.i507 ], [ %282, %lpad.i1068 ], [ %288, %lpad.i515 ], [ %287, %lpad.i1078 ], [ %293, %lpad.i523 ], [ %292, %lpad.i1088 ], [ %298, %lpad.i531 ], [ %297, %lpad.i1098 ], [ %303, %lpad.i539 ], [ %302, %lpad.i1108 ], [ %308, %lpad.i547 ], [ %307, %lpad.i1118 ], [ %313, %lpad.i555 ], [ %312, %lpad.i1128 ], [ %316, %lpad.i563 ], [ %315, %lpad.i.i568 ], [ %319, %lpad.i571 ], [ %318, %lpad.i.i576 ], [ %324, %lpad.i579 ], [ %323, %lpad.i1138 ], [ %327, %lpad.i587 ], [ %326, %lpad.i.i592 ], [ %330, %lpad.i595 ], [ %329, %lpad.i.i600 ], [ %333, %lpad.i603 ], [ %332, %lpad.i.i608 ], [ %338, %lpad.i611 ], [ %337, %lpad.i1148 ], [ %341, %lpad.i619 ], [ %340, %lpad.i.i624 ], [ %346, %lpad.i627 ], [ %345, %lpad.i1158 ], [ %349, %lpad.i635 ], [ %348, %lpad.i.i640 ]
+common.resume:                                    ; preds = %lpad.i788, %lpad.i139, %lpad.i778, %lpad.i131, %lpad.i768, %lpad.i123, %lpad.i.i120, %lpad.i115, %lpad.i.i112, %lpad.i107, %lpad.i.i104, %lpad.i99, %lpad.i758, %lpad.i91, %lpad.i748, %lpad.i83, %lpad.i738, %lpad.i75, %lpad.i728, %lpad.i67, %lpad.i718, %lpad.i59, %lpad.i708, %lpad.i51, %lpad.i698, %lpad.i43, %lpad.i688, %lpad.i35, %lpad.i678, %lpad.i27, %lpad.i668, %lpad.i19, %lpad.i658, %lpad.i11, %lpad.i648, %lpad.i3, %lpad.i641, %lpad.i, %lpad.body.i636, %lpad.body.i628, %lpad.body.i620, %lpad.body.i612, %lpad.body.i604, %lpad.body.i596, %lpad.body.i588, %lpad.body.i580, %lpad.body.i572, %lpad.body.i564, %lpad.body.i556, %lpad.body.i548, %lpad.body.i540, %lpad.body.i532, %lpad.body.i524, %lpad.body.i516, %lpad.body.i508, %lpad.body.i500, %lpad.body.i492, %lpad.body.i484, %lpad.body.i476, %lpad.body.i468, %lpad.body.i460, %lpad.body.i452, %lpad.body.i444, %lpad.body.i436, %lpad.body.i428, %lpad.body.i420, %lpad.body.i412, %lpad.body.i404, %lpad.body.i396, %lpad.body.i388, %lpad.body.i380, %lpad.body.i372, %lpad.body.i364, %lpad.body.i356, %lpad.body.i348, %lpad.body.i340, %lpad.body.i332, %lpad.body.i324, %lpad.body.i316, %lpad.body.i308, %lpad.body.i300, %lpad.body.i292, %lpad.body.i284, %lpad.body.i276, %lpad.body.i268, %lpad.body.i260, %lpad.body.i252, %lpad.body.i244, %lpad.body.i236, %lpad.body.i228, %lpad.body.i220, %lpad.body.i212, %lpad.body.i204, %lpad.body.i196, %lpad.body.i188, %lpad.body.i180, %lpad.body.i172, %lpad.body.i164, %lpad.body.i156, %lpad.body.i148
+  %ref.tmp.i633.sink = phi ptr [ %ref.tmp.i633, %lpad.body.i636 ], [ %ref.tmp.i625, %lpad.body.i628 ], [ %ref.tmp.i617, %lpad.body.i620 ], [ %ref.tmp.i609, %lpad.body.i612 ], [ %ref.tmp.i601, %lpad.body.i604 ], [ %ref.tmp.i593, %lpad.body.i596 ], [ %ref.tmp.i585, %lpad.body.i588 ], [ %ref.tmp.i577, %lpad.body.i580 ], [ %ref.tmp.i569, %lpad.body.i572 ], [ %ref.tmp.i561, %lpad.body.i564 ], [ %ref.tmp.i553, %lpad.body.i556 ], [ %ref.tmp.i545, %lpad.body.i548 ], [ %ref.tmp.i537, %lpad.body.i540 ], [ %ref.tmp.i529, %lpad.body.i532 ], [ %ref.tmp.i521, %lpad.body.i524 ], [ %ref.tmp.i513, %lpad.body.i516 ], [ %ref.tmp.i505, %lpad.body.i508 ], [ %ref.tmp.i497, %lpad.body.i500 ], [ %ref.tmp.i489, %lpad.body.i492 ], [ %ref.tmp.i481, %lpad.body.i484 ], [ %ref.tmp.i473, %lpad.body.i476 ], [ %ref.tmp.i465, %lpad.body.i468 ], [ %ref.tmp.i457, %lpad.body.i460 ], [ %ref.tmp.i449, %lpad.body.i452 ], [ %ref.tmp.i441, %lpad.body.i444 ], [ %ref.tmp.i433, %lpad.body.i436 ], [ %ref.tmp.i425, %lpad.body.i428 ], [ %ref.tmp.i417, %lpad.body.i420 ], [ %ref.tmp.i409, %lpad.body.i412 ], [ %ref.tmp.i401, %lpad.body.i404 ], [ %ref.tmp.i393, %lpad.body.i396 ], [ %ref.tmp.i385, %lpad.body.i388 ], [ %ref.tmp.i377, %lpad.body.i380 ], [ %ref.tmp.i369, %lpad.body.i372 ], [ %ref.tmp.i361, %lpad.body.i364 ], [ %ref.tmp.i353, %lpad.body.i356 ], [ %ref.tmp.i345, %lpad.body.i348 ], [ %ref.tmp.i337, %lpad.body.i340 ], [ %ref.tmp.i329, %lpad.body.i332 ], [ %ref.tmp.i321, %lpad.body.i324 ], [ %ref.tmp.i313, %lpad.body.i316 ], [ %ref.tmp.i305, %lpad.body.i308 ], [ %ref.tmp.i297, %lpad.body.i300 ], [ %ref.tmp.i289, %lpad.body.i292 ], [ %ref.tmp.i281, %lpad.body.i284 ], [ %ref.tmp.i273, %lpad.body.i276 ], [ %ref.tmp.i265, %lpad.body.i268 ], [ %ref.tmp.i257, %lpad.body.i260 ], [ %ref.tmp.i249, %lpad.body.i252 ], [ %ref.tmp.i241, %lpad.body.i244 ], [ %ref.tmp.i233, %lpad.body.i236 ], [ %ref.tmp.i225, %lpad.body.i228 ], [ %ref.tmp.i217, %lpad.body.i220 ], [ %ref.tmp.i209, %lpad.body.i212 ], [ %ref.tmp.i201, %lpad.body.i204 ], [ %ref.tmp.i193, %lpad.body.i196 ], [ %ref.tmp.i185, %lpad.body.i188 ], [ %ref.tmp.i177, %lpad.body.i180 ], [ %ref.tmp.i169, %lpad.body.i172 ], [ %ref.tmp.i161, %lpad.body.i164 ], [ %ref.tmp.i153, %lpad.body.i156 ], [ %ref.tmp.i145, %lpad.body.i148 ], [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i, %lpad.i641 ], [ %ref.tmp.i1, %lpad.i3 ], [ %ref.tmp.i1, %lpad.i648 ], [ %ref.tmp.i9, %lpad.i11 ], [ %ref.tmp.i9, %lpad.i658 ], [ %ref.tmp.i17, %lpad.i19 ], [ %ref.tmp.i17, %lpad.i668 ], [ %ref.tmp.i25, %lpad.i27 ], [ %ref.tmp.i25, %lpad.i678 ], [ %ref.tmp.i33, %lpad.i35 ], [ %ref.tmp.i33, %lpad.i688 ], [ %ref.tmp.i41, %lpad.i43 ], [ %ref.tmp.i41, %lpad.i698 ], [ %ref.tmp.i49, %lpad.i51 ], [ %ref.tmp.i49, %lpad.i708 ], [ %ref.tmp.i57, %lpad.i59 ], [ %ref.tmp.i57, %lpad.i718 ], [ %ref.tmp.i65, %lpad.i67 ], [ %ref.tmp.i65, %lpad.i728 ], [ %ref.tmp.i73, %lpad.i75 ], [ %ref.tmp.i73, %lpad.i738 ], [ %ref.tmp.i81, %lpad.i83 ], [ %ref.tmp.i81, %lpad.i748 ], [ %ref.tmp.i89, %lpad.i91 ], [ %ref.tmp.i89, %lpad.i758 ], [ %ref.tmp.i97, %lpad.i99 ], [ %ref.tmp.i97, %lpad.i.i104 ], [ %ref.tmp.i105, %lpad.i107 ], [ %ref.tmp.i105, %lpad.i.i112 ], [ %ref.tmp.i113, %lpad.i115 ], [ %ref.tmp.i113, %lpad.i.i120 ], [ %ref.tmp.i121, %lpad.i123 ], [ %ref.tmp.i121, %lpad.i768 ], [ %ref.tmp.i129, %lpad.i131 ], [ %ref.tmp.i129, %lpad.i778 ], [ %ref.tmp.i137, %lpad.i139 ], [ %ref.tmp.i137, %lpad.i788 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i637, %lpad.body.i636 ], [ %eh.lpad-body.i629, %lpad.body.i628 ], [ %eh.lpad-body.i621, %lpad.body.i620 ], [ %eh.lpad-body.i613, %lpad.body.i612 ], [ %eh.lpad-body.i605, %lpad.body.i604 ], [ %eh.lpad-body.i597, %lpad.body.i596 ], [ %eh.lpad-body.i589, %lpad.body.i588 ], [ %eh.lpad-body.i581, %lpad.body.i580 ], [ %eh.lpad-body.i573, %lpad.body.i572 ], [ %eh.lpad-body.i565, %lpad.body.i564 ], [ %eh.lpad-body.i557, %lpad.body.i556 ], [ %eh.lpad-body.i549, %lpad.body.i548 ], [ %eh.lpad-body.i541, %lpad.body.i540 ], [ %eh.lpad-body.i533, %lpad.body.i532 ], [ %eh.lpad-body.i525, %lpad.body.i524 ], [ %eh.lpad-body.i517, %lpad.body.i516 ], [ %eh.lpad-body.i509, %lpad.body.i508 ], [ %eh.lpad-body.i501, %lpad.body.i500 ], [ %eh.lpad-body.i493, %lpad.body.i492 ], [ %eh.lpad-body.i485, %lpad.body.i484 ], [ %eh.lpad-body.i477, %lpad.body.i476 ], [ %eh.lpad-body.i469, %lpad.body.i468 ], [ %eh.lpad-body.i461, %lpad.body.i460 ], [ %eh.lpad-body.i453, %lpad.body.i452 ], [ %eh.lpad-body.i445, %lpad.body.i444 ], [ %eh.lpad-body.i437, %lpad.body.i436 ], [ %eh.lpad-body.i429, %lpad.body.i428 ], [ %eh.lpad-body.i421, %lpad.body.i420 ], [ %eh.lpad-body.i413, %lpad.body.i412 ], [ %eh.lpad-body.i405, %lpad.body.i404 ], [ %eh.lpad-body.i397, %lpad.body.i396 ], [ %eh.lpad-body.i389, %lpad.body.i388 ], [ %eh.lpad-body.i381, %lpad.body.i380 ], [ %eh.lpad-body.i373, %lpad.body.i372 ], [ %eh.lpad-body.i365, %lpad.body.i364 ], [ %eh.lpad-body.i357, %lpad.body.i356 ], [ %eh.lpad-body.i349, %lpad.body.i348 ], [ %eh.lpad-body.i341, %lpad.body.i340 ], [ %eh.lpad-body.i333, %lpad.body.i332 ], [ %eh.lpad-body.i325, %lpad.body.i324 ], [ %eh.lpad-body.i317, %lpad.body.i316 ], [ %eh.lpad-body.i309, %lpad.body.i308 ], [ %eh.lpad-body.i301, %lpad.body.i300 ], [ %eh.lpad-body.i293, %lpad.body.i292 ], [ %eh.lpad-body.i285, %lpad.body.i284 ], [ %eh.lpad-body.i277, %lpad.body.i276 ], [ %eh.lpad-body.i269, %lpad.body.i268 ], [ %eh.lpad-body.i261, %lpad.body.i260 ], [ %eh.lpad-body.i253, %lpad.body.i252 ], [ %eh.lpad-body.i245, %lpad.body.i244 ], [ %eh.lpad-body.i237, %lpad.body.i236 ], [ %eh.lpad-body.i229, %lpad.body.i228 ], [ %eh.lpad-body.i221, %lpad.body.i220 ], [ %eh.lpad-body.i213, %lpad.body.i212 ], [ %eh.lpad-body.i205, %lpad.body.i204 ], [ %eh.lpad-body.i197, %lpad.body.i196 ], [ %eh.lpad-body.i189, %lpad.body.i188 ], [ %eh.lpad-body.i181, %lpad.body.i180 ], [ %eh.lpad-body.i173, %lpad.body.i172 ], [ %eh.lpad-body.i165, %lpad.body.i164 ], [ %eh.lpad-body.i157, %lpad.body.i156 ], [ %eh.lpad-body.i149, %lpad.body.i148 ], [ %5, %lpad.i ], [ %4, %lpad.i641 ], [ %10, %lpad.i3 ], [ %9, %lpad.i648 ], [ %15, %lpad.i11 ], [ %14, %lpad.i658 ], [ %20, %lpad.i19 ], [ %19, %lpad.i668 ], [ %25, %lpad.i27 ], [ %24, %lpad.i678 ], [ %30, %lpad.i35 ], [ %29, %lpad.i688 ], [ %35, %lpad.i43 ], [ %34, %lpad.i698 ], [ %40, %lpad.i51 ], [ %39, %lpad.i708 ], [ %45, %lpad.i59 ], [ %44, %lpad.i718 ], [ %50, %lpad.i67 ], [ %49, %lpad.i728 ], [ %55, %lpad.i75 ], [ %54, %lpad.i738 ], [ %60, %lpad.i83 ], [ %59, %lpad.i748 ], [ %65, %lpad.i91 ], [ %64, %lpad.i758 ], [ %68, %lpad.i99 ], [ %67, %lpad.i.i104 ], [ %71, %lpad.i107 ], [ %70, %lpad.i.i112 ], [ %74, %lpad.i115 ], [ %73, %lpad.i.i120 ], [ %79, %lpad.i123 ], [ %78, %lpad.i768 ], [ %84, %lpad.i131 ], [ %83, %lpad.i778 ], [ %89, %lpad.i139 ], [ %88, %lpad.i788 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i633.sink) #29
   resume { ptr, i32 } %common.resume.op
 
@@ -68806,11 +68806,15 @@ lpad.i798:                                        ; preds = %invoke.cont.i799, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i793) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand14ARG_BLOOM_BITSB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i148
 
 lpad.i147:                                        ; preds = %call.i.noexc.i150, %__cxx_global_var_init.37.exit
   %94 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i148
+
+lpad.body.i148:                                   ; preds = %lpad.i147, %lpad.i798
+  %eh.lpad-body.i149 = phi { ptr, i32 } [ %94, %lpad.i147 ], [ %93, %lpad.i798 ]
   br label %common.resume
 
 __cxx_global_var_init.39.exit:                    ; preds = %invoke.cont.i799
@@ -68855,11 +68859,15 @@ lpad.i808:                                        ; preds = %invoke.cont.i809, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i803) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand18ARG_FIX_PREFIX_LENB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i156
 
 lpad.i155:                                        ; preds = %call.i.noexc.i158, %__cxx_global_var_init.39.exit
   %99 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i156
+
+lpad.body.i156:                                   ; preds = %lpad.i155, %lpad.i808
+  %eh.lpad-body.i157 = phi { ptr, i32 } [ %99, %lpad.i155 ], [ %98, %lpad.i808 ]
   br label %common.resume
 
 __cxx_global_var_init.41.exit:                    ; preds = %invoke.cont.i809
@@ -68884,11 +68892,15 @@ lpad.i.i168:                                      ; preds = %.noexc.i167
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand20ARG_COMPRESSION_TYPEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i164
 
 lpad.i163:                                        ; preds = %call.i.noexc.i166, %__cxx_global_var_init.41.exit
   %102 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i164
+
+lpad.body.i164:                                   ; preds = %lpad.i163, %lpad.i.i168
+  %eh.lpad-body.i165 = phi { ptr, i32 } [ %102, %lpad.i163 ], [ %101, %lpad.i.i168 ]
   br label %common.resume
 
 __cxx_global_var_init.43.exit:                    ; preds = %.noexc.i167
@@ -68912,11 +68924,15 @@ lpad.i.i176:                                      ; preds = %.noexc.i175
   %104 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand30ARG_COMPRESSION_MAX_DICT_BYTESB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i172
 
 lpad.i171:                                        ; preds = %call.i.noexc.i174, %__cxx_global_var_init.43.exit
   %105 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i172
+
+lpad.body.i172:                                   ; preds = %lpad.i171, %lpad.i.i176
+  %eh.lpad-body.i173 = phi { ptr, i32 } [ %105, %lpad.i171 ], [ %104, %lpad.i.i176 ]
   br label %common.resume
 
 __cxx_global_var_init.45.exit:                    ; preds = %.noexc.i175
@@ -68960,11 +68976,15 @@ lpad.i818:                                        ; preds = %invoke.cont.i819, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i813) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand14ARG_BLOCK_SIZEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i180
 
 lpad.i179:                                        ; preds = %call.i.noexc.i182, %__cxx_global_var_init.45.exit
   %110 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i180
+
+lpad.body.i180:                                   ; preds = %lpad.i179, %lpad.i818
+  %eh.lpad-body.i181 = phi { ptr, i32 } [ %110, %lpad.i179 ], [ %109, %lpad.i818 ]
   br label %common.resume
 
 __cxx_global_var_init.47.exit:                    ; preds = %invoke.cont.i819
@@ -69009,11 +69029,15 @@ lpad.i828:                                        ; preds = %invoke.cont.i829, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i823) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand19ARG_AUTO_COMPACTIONB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i188
 
 lpad.i187:                                        ; preds = %call.i.noexc.i190, %__cxx_global_var_init.47.exit
   %115 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i188
+
+lpad.body.i188:                                   ; preds = %lpad.i187, %lpad.i828
+  %eh.lpad-body.i189 = phi { ptr, i32 } [ %115, %lpad.i187 ], [ %114, %lpad.i828 ]
   br label %common.resume
 
 __cxx_global_var_init.49.exit:                    ; preds = %invoke.cont.i829
@@ -69038,11 +69062,15 @@ lpad.i.i200:                                      ; preds = %.noexc.i199
   %117 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand24ARG_DB_WRITE_BUFFER_SIZEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i196
 
 lpad.i195:                                        ; preds = %call.i.noexc.i198, %__cxx_global_var_init.49.exit
   %118 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i196
+
+lpad.body.i196:                                   ; preds = %lpad.i195, %lpad.i.i200
+  %eh.lpad-body.i197 = phi { ptr, i32 } [ %118, %lpad.i195 ], [ %117, %lpad.i.i200 ]
   br label %common.resume
 
 __cxx_global_var_init.51.exit:                    ; preds = %.noexc.i199
@@ -69066,11 +69094,15 @@ lpad.i.i208:                                      ; preds = %.noexc.i207
   %120 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand21ARG_WRITE_BUFFER_SIZEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i204
 
 lpad.i203:                                        ; preds = %call.i.noexc.i206, %__cxx_global_var_init.51.exit
   %121 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i204
+
+lpad.body.i204:                                   ; preds = %lpad.i203, %lpad.i.i208
+  %eh.lpad-body.i205 = phi { ptr, i32 } [ %121, %lpad.i203 ], [ %120, %lpad.i.i208 ]
   br label %common.resume
 
 __cxx_global_var_init.53.exit:                    ; preds = %.noexc.i207
@@ -69114,11 +69146,15 @@ lpad.i838:                                        ; preds = %invoke.cont.i839, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i833) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand13ARG_FILE_SIZEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i212
 
 lpad.i211:                                        ; preds = %call.i.noexc.i214, %__cxx_global_var_init.53.exit
   %126 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i212
+
+lpad.body.i212:                                   ; preds = %lpad.i211, %lpad.i838
+  %eh.lpad-body.i213 = phi { ptr, i32 } [ %126, %lpad.i211 ], [ %125, %lpad.i838 ]
   br label %common.resume
 
 __cxx_global_var_init.55.exit:                    ; preds = %invoke.cont.i839
@@ -69143,11 +69179,15 @@ lpad.i.i224:                                      ; preds = %.noexc.i223
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand21ARG_CREATE_IF_MISSINGB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i220
 
 lpad.i219:                                        ; preds = %call.i.noexc.i222, %__cxx_global_var_init.55.exit
   %129 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i220
+
+lpad.body.i220:                                   ; preds = %lpad.i219, %lpad.i.i224
+  %eh.lpad-body.i221 = phi { ptr, i32 } [ %129, %lpad.i219 ], [ %128, %lpad.i.i224 ]
   br label %common.resume
 
 __cxx_global_var_init.57.exit:                    ; preds = %.noexc.i223
@@ -69191,11 +69231,15 @@ lpad.i848:                                        ; preds = %invoke.cont.i849, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i843) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand12ARG_NO_VALUEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i228
 
 lpad.i227:                                        ; preds = %call.i.noexc.i230, %__cxx_global_var_init.57.exit
   %134 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i228
+
+lpad.body.i228:                                   ; preds = %lpad.i227, %lpad.i848
+  %eh.lpad-body.i229 = phi { ptr, i32 } [ %134, %lpad.i227 ], [ %133, %lpad.i848 ]
   br label %common.resume
 
 __cxx_global_var_init.59.exit:                    ; preds = %invoke.cont.i849
@@ -69220,11 +69264,15 @@ lpad.i.i240:                                      ; preds = %.noexc.i239
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand21ARG_ENABLE_BLOB_FILESB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i236
 
 lpad.i235:                                        ; preds = %call.i.noexc.i238, %__cxx_global_var_init.59.exit
   %137 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i236
+
+lpad.body.i236:                                   ; preds = %lpad.i235, %lpad.i.i240
+  %eh.lpad-body.i237 = phi { ptr, i32 } [ %137, %lpad.i235 ], [ %136, %lpad.i.i240 ]
   br label %common.resume
 
 __cxx_global_var_init.61.exit:                    ; preds = %.noexc.i239
@@ -69268,11 +69316,15 @@ lpad.i858:                                        ; preds = %invoke.cont.i859, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i853) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand17ARG_MIN_BLOB_SIZEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i244
 
 lpad.i243:                                        ; preds = %call.i.noexc.i246, %__cxx_global_var_init.61.exit
   %142 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i244
+
+lpad.body.i244:                                   ; preds = %lpad.i243, %lpad.i858
+  %eh.lpad-body.i245 = phi { ptr, i32 } [ %142, %lpad.i243 ], [ %141, %lpad.i858 ]
   br label %common.resume
 
 __cxx_global_var_init.63.exit:                    ; preds = %invoke.cont.i859
@@ -69317,11 +69369,15 @@ lpad.i868:                                        ; preds = %invoke.cont.i869, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i863) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand18ARG_BLOB_FILE_SIZEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i252
 
 lpad.i251:                                        ; preds = %call.i.noexc.i254, %__cxx_global_var_init.63.exit
   %147 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i252
+
+lpad.body.i252:                                   ; preds = %lpad.i251, %lpad.i868
+  %eh.lpad-body.i253 = phi { ptr, i32 } [ %147, %lpad.i251 ], [ %146, %lpad.i868 ]
   br label %common.resume
 
 __cxx_global_var_init.65.exit:                    ; preds = %invoke.cont.i869
@@ -69346,11 +69402,15 @@ lpad.i.i264:                                      ; preds = %.noexc.i263
   %149 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand25ARG_BLOB_COMPRESSION_TYPEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i260
 
 lpad.i259:                                        ; preds = %call.i.noexc.i262, %__cxx_global_var_init.65.exit
   %150 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i260
+
+lpad.body.i260:                                   ; preds = %lpad.i259, %lpad.i.i264
+  %eh.lpad-body.i261 = phi { ptr, i32 } [ %150, %lpad.i259 ], [ %149, %lpad.i.i264 ]
   br label %common.resume
 
 __cxx_global_var_init.67.exit:                    ; preds = %.noexc.i263
@@ -69374,11 +69434,15 @@ lpad.i.i272:                                      ; preds = %.noexc.i271
   %152 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand34ARG_ENABLE_BLOB_GARBAGE_COLLECTIONB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i268
 
 lpad.i267:                                        ; preds = %call.i.noexc.i270, %__cxx_global_var_init.67.exit
   %153 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i268
+
+lpad.body.i268:                                   ; preds = %lpad.i267, %lpad.i.i272
+  %eh.lpad-body.i269 = phi { ptr, i32 } [ %153, %lpad.i267 ], [ %152, %lpad.i.i272 ]
   br label %common.resume
 
 __cxx_global_var_init.69.exit:                    ; preds = %.noexc.i271
@@ -69402,11 +69466,15 @@ lpad.i.i280:                                      ; preds = %.noexc.i279
   %155 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand38ARG_BLOB_GARBAGE_COLLECTION_AGE_CUTOFFB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i276
 
 lpad.i275:                                        ; preds = %call.i.noexc.i278, %__cxx_global_var_init.69.exit
   %156 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i276
+
+lpad.body.i276:                                   ; preds = %lpad.i275, %lpad.i.i280
+  %eh.lpad-body.i277 = phi { ptr, i32 } [ %156, %lpad.i275 ], [ %155, %lpad.i.i280 ]
   br label %common.resume
 
 __cxx_global_var_init.71.exit:                    ; preds = %.noexc.i279
@@ -69430,11 +69498,15 @@ lpad.i.i288:                                      ; preds = %.noexc.i287
   %158 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand43ARG_BLOB_GARBAGE_COLLECTION_FORCE_THRESHOLDB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i284
 
 lpad.i283:                                        ; preds = %call.i.noexc.i286, %__cxx_global_var_init.71.exit
   %159 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i284
+
+lpad.body.i284:                                   ; preds = %lpad.i283, %lpad.i.i288
+  %eh.lpad-body.i285 = phi { ptr, i32 } [ %159, %lpad.i283 ], [ %158, %lpad.i.i288 ]
   br label %common.resume
 
 __cxx_global_var_init.73.exit:                    ; preds = %.noexc.i287
@@ -69458,11 +69530,15 @@ lpad.i.i296:                                      ; preds = %.noexc.i295
   %161 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand34ARG_BLOB_COMPACTION_READAHEAD_SIZEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i292
 
 lpad.i291:                                        ; preds = %call.i.noexc.i294, %__cxx_global_var_init.73.exit
   %162 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i292
+
+lpad.body.i292:                                   ; preds = %lpad.i291, %lpad.i.i296
+  %eh.lpad-body.i293 = phi { ptr, i32 } [ %162, %lpad.i291 ], [ %161, %lpad.i.i296 ]
   br label %common.resume
 
 __cxx_global_var_init.75.exit:                    ; preds = %.noexc.i295
@@ -69486,11 +69562,15 @@ lpad.i.i304:                                      ; preds = %.noexc.i303
   %164 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand28ARG_BLOB_FILE_STARTING_LEVELB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i300
 
 lpad.i299:                                        ; preds = %call.i.noexc.i302, %__cxx_global_var_init.75.exit
   %165 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i300
+
+lpad.body.i300:                                   ; preds = %lpad.i299, %lpad.i.i304
+  %eh.lpad-body.i301 = phi { ptr, i32 } [ %165, %lpad.i299 ], [ %164, %lpad.i.i304 ]
   br label %common.resume
 
 __cxx_global_var_init.77.exit:                    ; preds = %.noexc.i303
@@ -69514,11 +69594,15 @@ lpad.i.i312:                                      ; preds = %.noexc.i311
   %167 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand26ARG_PREPOPULATE_BLOB_CACHEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i308
 
 lpad.i307:                                        ; preds = %call.i.noexc.i310, %__cxx_global_var_init.77.exit
   %168 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i308
+
+lpad.body.i308:                                   ; preds = %lpad.i307, %lpad.i.i312
+  %eh.lpad-body.i309 = phi { ptr, i32 } [ %168, %lpad.i307 ], [ %167, %lpad.i.i312 ]
   br label %common.resume
 
 __cxx_global_var_init.79.exit:                    ; preds = %.noexc.i311
@@ -69542,11 +69626,15 @@ lpad.i.i320:                                      ; preds = %.noexc.i319
   %170 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand21ARG_DECODE_BLOB_INDEXB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i316
 
 lpad.i315:                                        ; preds = %call.i.noexc.i318, %__cxx_global_var_init.79.exit
   %171 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i316
+
+lpad.body.i316:                                   ; preds = %lpad.i315, %lpad.i.i320
+  %eh.lpad-body.i317 = phi { ptr, i32 } [ %171, %lpad.i315 ], [ %170, %lpad.i.i320 ]
   br label %common.resume
 
 __cxx_global_var_init.81.exit:                    ; preds = %.noexc.i319
@@ -69570,11 +69658,15 @@ lpad.i.i328:                                      ; preds = %.noexc.i327
   %173 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb10LDBCommand27ARG_DUMP_UNCOMPRESSED_BLOBSB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i324
 
 lpad.i323:                                        ; preds = %call.i.noexc.i326, %__cxx_global_var_init.81.exit
   %174 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i324
+
+lpad.body.i324:                                   ; preds = %lpad.i323, %lpad.i.i328
+  %eh.lpad-body.i325 = phi { ptr, i32 } [ %174, %lpad.i323 ], [ %173, %lpad.i.i328 ]
   br label %common.resume
 
 __cxx_global_var_init.83.exit:                    ; preds = %.noexc.i327
@@ -69618,11 +69710,15 @@ lpad.i878:                                        ; preds = %invoke.cont.i879, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i873) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb15DBLoaderCommand15ARG_DISABLE_WALB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i332
 
 lpad.i331:                                        ; preds = %call.i.noexc.i334, %__cxx_global_var_init.83.exit
   %179 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i332
+
+lpad.body.i332:                                   ; preds = %lpad.i331, %lpad.i878
+  %eh.lpad-body.i333 = phi { ptr, i32 } [ %179, %lpad.i331 ], [ %178, %lpad.i878 ]
   br label %common.resume
 
 __cxx_global_var_init.128.exit:                   ; preds = %invoke.cont.i879
@@ -69667,11 +69763,15 @@ lpad.i888:                                        ; preds = %invoke.cont.i889, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i883) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb15DBLoaderCommand13ARG_BULK_LOADB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i340
 
 lpad.i339:                                        ; preds = %call.i.noexc.i342, %__cxx_global_var_init.128.exit
   %184 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i340
+
+lpad.body.i340:                                   ; preds = %lpad.i339, %lpad.i888
+  %eh.lpad-body.i341 = phi { ptr, i32 } [ %184, %lpad.i339 ], [ %183, %lpad.i888 ]
   br label %common.resume
 
 __cxx_global_var_init.130.exit:                   ; preds = %invoke.cont.i889
@@ -69716,11 +69816,15 @@ lpad.i898:                                        ; preds = %invoke.cont.i899, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i893) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb15DBLoaderCommand11ARG_COMPACTB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i348
 
 lpad.i347:                                        ; preds = %call.i.noexc.i350, %__cxx_global_var_init.130.exit
   %189 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i348
+
+lpad.body.i348:                                   ; preds = %lpad.i347, %lpad.i898
+  %eh.lpad-body.i349 = phi { ptr, i32 } [ %189, %lpad.i347 ], [ %188, %lpad.i898 ]
   br label %common.resume
 
 __cxx_global_var_init.132.exit:                   ; preds = %invoke.cont.i899
@@ -69765,11 +69869,15 @@ lpad.i908:                                        ; preds = %invoke.cont.i909, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i903) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19ManifestDumpCommand11ARG_VERBOSEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i356
 
 lpad.i355:                                        ; preds = %call.i.noexc.i358, %__cxx_global_var_init.132.exit
   %194 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i356
+
+lpad.body.i356:                                   ; preds = %lpad.i355, %lpad.i908
+  %eh.lpad-body.i357 = phi { ptr, i32 } [ %194, %lpad.i355 ], [ %193, %lpad.i908 ]
   br label %common.resume
 
 __cxx_global_var_init.142.exit:                   ; preds = %invoke.cont.i909
@@ -69814,11 +69922,15 @@ lpad.i918:                                        ; preds = %invoke.cont.i919, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i913) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19ManifestDumpCommand8ARG_JSONB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i364
 
 lpad.i363:                                        ; preds = %call.i.noexc.i366, %__cxx_global_var_init.142.exit
   %199 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i364
+
+lpad.body.i364:                                   ; preds = %lpad.i363, %lpad.i918
+  %eh.lpad-body.i365 = phi { ptr, i32 } [ %199, %lpad.i363 ], [ %198, %lpad.i918 ]
   br label %common.resume
 
 __cxx_global_var_init.144.exit:                   ; preds = %invoke.cont.i919
@@ -69863,11 +69975,15 @@ lpad.i928:                                        ; preds = %invoke.cont.i929, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i923) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19ManifestDumpCommand8ARG_PATHB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i372
 
 lpad.i371:                                        ; preds = %call.i.noexc.i374, %__cxx_global_var_init.144.exit
   %204 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i372
+
+lpad.body.i372:                                   ; preds = %lpad.i371, %lpad.i928
+  %eh.lpad-body.i373 = phi { ptr, i32 } [ %204, %lpad.i371 ], [ %203, %lpad.i928 ]
   br label %common.resume
 
 __cxx_global_var_init.146.exit:                   ; preds = %invoke.cont.i929
@@ -69912,11 +70028,15 @@ lpad.i938:                                        ; preds = %invoke.cont.i939, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i933) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb23FileChecksumDumpCommand8ARG_PATHB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i380
 
 lpad.i379:                                        ; preds = %call.i.noexc.i382, %__cxx_global_var_init.146.exit
   %209 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i380
+
+lpad.body.i380:                                   ; preds = %lpad.i379, %lpad.i938
+  %eh.lpad-body.i381 = phi { ptr, i32 } [ %209, %lpad.i379 ], [ %208, %lpad.i938 ]
   br label %common.resume
 
 __cxx_global_var_init.156.exit:                   ; preds = %invoke.cont.i939
@@ -69961,11 +70081,15 @@ lpad.i948:                                        ; preds = %invoke.cont.i949, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i943) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19InternalDumpCommand14ARG_COUNT_ONLYB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i388
 
 lpad.i387:                                        ; preds = %call.i.noexc.i390, %__cxx_global_var_init.156.exit
   %214 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i388
+
+lpad.body.i388:                                   ; preds = %lpad.i387, %lpad.i948
+  %eh.lpad-body.i389 = phi { ptr, i32 } [ %214, %lpad.i387 ], [ %213, %lpad.i948 ]
   br label %common.resume
 
 __cxx_global_var_init.179.exit:                   ; preds = %invoke.cont.i949
@@ -70010,11 +70134,15 @@ lpad.i958:                                        ; preds = %invoke.cont.i959, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i953) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19InternalDumpCommand15ARG_COUNT_DELIMB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i396
 
 lpad.i395:                                        ; preds = %call.i.noexc.i398, %__cxx_global_var_init.179.exit
   %219 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i396
+
+lpad.body.i396:                                   ; preds = %lpad.i395, %lpad.i958
+  %eh.lpad-body.i397 = phi { ptr, i32 } [ %219, %lpad.i395 ], [ %218, %lpad.i958 ]
   br label %common.resume
 
 __cxx_global_var_init.181.exit:                   ; preds = %invoke.cont.i959
@@ -70059,11 +70187,15 @@ lpad.i968:                                        ; preds = %invoke.cont.i969, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i963) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19InternalDumpCommand9ARG_STATSB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i404
 
 lpad.i403:                                        ; preds = %call.i.noexc.i406, %__cxx_global_var_init.181.exit
   %224 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i404
+
+lpad.body.i404:                                   ; preds = %lpad.i403, %lpad.i968
+  %eh.lpad-body.i405 = phi { ptr, i32 } [ %224, %lpad.i403 ], [ %223, %lpad.i968 ]
   br label %common.resume
 
 __cxx_global_var_init.183.exit:                   ; preds = %invoke.cont.i969
@@ -70108,11 +70240,15 @@ lpad.i978:                                        ; preds = %invoke.cont.i979, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i973) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19InternalDumpCommand17ARG_INPUT_KEY_HEXB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i412
 
 lpad.i411:                                        ; preds = %call.i.noexc.i414, %__cxx_global_var_init.183.exit
   %229 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i412
+
+lpad.body.i412:                                   ; preds = %lpad.i411, %lpad.i978
+  %eh.lpad-body.i413 = phi { ptr, i32 } [ %229, %lpad.i411 ], [ %228, %lpad.i978 ]
   br label %common.resume
 
 __cxx_global_var_init.185.exit:                   ; preds = %invoke.cont.i979
@@ -70157,11 +70293,15 @@ lpad.i988:                                        ; preds = %invoke.cont.i989, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i983) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb15DBDumperCommand14ARG_COUNT_ONLYB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i420
 
 lpad.i419:                                        ; preds = %call.i.noexc.i422, %__cxx_global_var_init.185.exit
   %234 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i420
+
+lpad.body.i420:                                   ; preds = %lpad.i419, %lpad.i988
+  %eh.lpad-body.i421 = phi { ptr, i32 } [ %234, %lpad.i419 ], [ %233, %lpad.i988 ]
   br label %common.resume
 
 __cxx_global_var_init.195.exit:                   ; preds = %invoke.cont.i989
@@ -70206,11 +70346,15 @@ lpad.i998:                                        ; preds = %invoke.cont.i999, %
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i993) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb15DBDumperCommand15ARG_COUNT_DELIMB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i428
 
 lpad.i427:                                        ; preds = %call.i.noexc.i430, %__cxx_global_var_init.195.exit
   %239 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i428
+
+lpad.body.i428:                                   ; preds = %lpad.i427, %lpad.i998
+  %eh.lpad-body.i429 = phi { ptr, i32 } [ %239, %lpad.i427 ], [ %238, %lpad.i998 ]
   br label %common.resume
 
 __cxx_global_var_init.196.exit:                   ; preds = %invoke.cont.i999
@@ -70255,11 +70399,15 @@ lpad.i1008:                                       ; preds = %invoke.cont.i1009, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1003) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb15DBDumperCommand9ARG_STATSB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i436
 
 lpad.i435:                                        ; preds = %call.i.noexc.i438, %__cxx_global_var_init.196.exit
   %244 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i436
+
+lpad.body.i436:                                   ; preds = %lpad.i435, %lpad.i1008
+  %eh.lpad-body.i437 = phi { ptr, i32 } [ %244, %lpad.i435 ], [ %243, %lpad.i1008 ]
   br label %common.resume
 
 __cxx_global_var_init.197.exit:                   ; preds = %invoke.cont.i1009
@@ -70304,11 +70452,15 @@ lpad.i1018:                                       ; preds = %invoke.cont.i1019, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1013) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb15DBDumperCommand14ARG_TTL_BUCKETB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i444
 
 lpad.i443:                                        ; preds = %call.i.noexc.i446, %__cxx_global_var_init.197.exit
   %249 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i444
+
+lpad.body.i444:                                   ; preds = %lpad.i443, %lpad.i1018
+  %eh.lpad-body.i445 = phi { ptr, i32 } [ %249, %lpad.i443 ], [ %248, %lpad.i1018 ]
   br label %common.resume
 
 __cxx_global_var_init.198.exit:                   ; preds = %invoke.cont.i1019
@@ -70353,11 +70505,15 @@ lpad.i1028:                                       ; preds = %invoke.cont.i1029, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1023) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb21ReduceDBLevelsCommand14ARG_NEW_LEVELSB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i452
 
 lpad.i451:                                        ; preds = %call.i.noexc.i454, %__cxx_global_var_init.198.exit
   %254 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i452
+
+lpad.body.i452:                                   ; preds = %lpad.i451, %lpad.i1028
+  %eh.lpad-body.i453 = phi { ptr, i32 } [ %254, %lpad.i451 ], [ %253, %lpad.i1028 ]
   br label %common.resume
 
 __cxx_global_var_init.213.exit:                   ; preds = %invoke.cont.i1029
@@ -70382,11 +70538,15 @@ lpad.i.i464:                                      ; preds = %.noexc.i463
   %256 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb21ReduceDBLevelsCommand20ARG_PRINT_OLD_LEVELSB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i460
 
 lpad.i459:                                        ; preds = %call.i.noexc.i462, %__cxx_global_var_init.213.exit
   %257 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i460
+
+lpad.body.i460:                                   ; preds = %lpad.i459, %lpad.i.i464
+  %eh.lpad-body.i461 = phi { ptr, i32 } [ %257, %lpad.i459 ], [ %256, %lpad.i.i464 ]
   br label %common.resume
 
 __cxx_global_var_init.215.exit:                   ; preds = %.noexc.i463
@@ -70410,11 +70570,15 @@ lpad.i.i472:                                      ; preds = %.noexc.i471
   %259 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb28ChangeCompactionStyleCommand24ARG_OLD_COMPACTION_STYLEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i468
 
 lpad.i467:                                        ; preds = %call.i.noexc.i470, %__cxx_global_var_init.215.exit
   %260 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i468
+
+lpad.body.i468:                                   ; preds = %lpad.i467, %lpad.i.i472
+  %eh.lpad-body.i469 = phi { ptr, i32 } [ %260, %lpad.i467 ], [ %259, %lpad.i.i472 ]
   br label %common.resume
 
 __cxx_global_var_init.226.exit:                   ; preds = %.noexc.i471
@@ -70438,11 +70602,15 @@ lpad.i.i480:                                      ; preds = %.noexc.i479
   %262 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb28ChangeCompactionStyleCommand24ARG_NEW_COMPACTION_STYLEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i476
 
 lpad.i475:                                        ; preds = %call.i.noexc.i478, %__cxx_global_var_init.226.exit
   %263 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i476
+
+lpad.body.i476:                                   ; preds = %lpad.i475, %lpad.i.i480
+  %eh.lpad-body.i477 = phi { ptr, i32 } [ %263, %lpad.i475 ], [ %262, %lpad.i.i480 ]
   br label %common.resume
 
 __cxx_global_var_init.228.exit:                   ; preds = %.noexc.i479
@@ -70486,11 +70654,15 @@ lpad.i1038:                                       ; preds = %invoke.cont.i1039, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1033) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb16WALDumperCommand12ARG_WAL_FILEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i484
 
 lpad.i483:                                        ; preds = %call.i.noexc.i486, %__cxx_global_var_init.228.exit
   %268 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i484
+
+lpad.body.i484:                                   ; preds = %lpad.i483, %lpad.i1038
+  %eh.lpad-body.i485 = phi { ptr, i32 } [ %268, %lpad.i483 ], [ %267, %lpad.i1038 ]
   br label %common.resume
 
 __cxx_global_var_init.249.exit:                   ; preds = %invoke.cont.i1039
@@ -70535,11 +70707,15 @@ lpad.i1048:                                       ; preds = %invoke.cont.i1049, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1043) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb16WALDumperCommand19ARG_WRITE_COMMITTEDB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i492
 
 lpad.i491:                                        ; preds = %call.i.noexc.i494, %__cxx_global_var_init.249.exit
   %273 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i492
+
+lpad.body.i492:                                   ; preds = %lpad.i491, %lpad.i1048
+  %eh.lpad-body.i493 = phi { ptr, i32 } [ %273, %lpad.i491 ], [ %272, %lpad.i1048 ]
   br label %common.resume
 
 __cxx_global_var_init.251.exit:                   ; preds = %invoke.cont.i1049
@@ -70584,11 +70760,15 @@ lpad.i1058:                                       ; preds = %invoke.cont.i1059, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1053) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb16WALDumperCommand15ARG_PRINT_VALUEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i500
 
 lpad.i499:                                        ; preds = %call.i.noexc.i502, %__cxx_global_var_init.251.exit
   %278 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i500
+
+lpad.body.i500:                                   ; preds = %lpad.i499, %lpad.i1058
+  %eh.lpad-body.i501 = phi { ptr, i32 } [ %278, %lpad.i499 ], [ %277, %lpad.i1058 ]
   br label %common.resume
 
 __cxx_global_var_init.253.exit:                   ; preds = %invoke.cont.i1059
@@ -70633,11 +70813,15 @@ lpad.i1068:                                       ; preds = %invoke.cont.i1069, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1063) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb16WALDumperCommand16ARG_PRINT_HEADERB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i508
 
 lpad.i507:                                        ; preds = %call.i.noexc.i510, %__cxx_global_var_init.253.exit
   %283 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i508
+
+lpad.body.i508:                                   ; preds = %lpad.i507, %lpad.i1068
+  %eh.lpad-body.i509 = phi { ptr, i32 } [ %283, %lpad.i507 ], [ %282, %lpad.i1068 ]
   br label %common.resume
 
 __cxx_global_var_init.255.exit:                   ; preds = %invoke.cont.i1069
@@ -70682,11 +70866,15 @@ lpad.i1078:                                       ; preds = %invoke.cont.i1079, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1073) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb17CheckPointCommand18ARG_CHECKPOINT_DIRB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i516
 
 lpad.i515:                                        ; preds = %call.i.noexc.i518, %__cxx_global_var_init.255.exit
   %288 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i516
+
+lpad.body.i516:                                   ; preds = %lpad.i515, %lpad.i1078
+  %eh.lpad-body.i517 = phi { ptr, i32 } [ %288, %lpad.i515 ], [ %287, %lpad.i1078 ]
   br label %common.resume
 
 __cxx_global_var_init.301.exit:                   ; preds = %invoke.cont.i1079
@@ -70731,11 +70919,15 @@ lpad.i1088:                                       ; preds = %invoke.cont.i1089, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1083) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb13RepairCommand11ARG_VERBOSEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i524
 
 lpad.i523:                                        ; preds = %call.i.noexc.i526, %__cxx_global_var_init.301.exit
   %293 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i524
+
+lpad.body.i524:                                   ; preds = %lpad.i523, %lpad.i1088
+  %eh.lpad-body.i525 = phi { ptr, i32 } [ %293, %lpad.i523 ], [ %292, %lpad.i1088 ]
   br label %common.resume
 
 __cxx_global_var_init.303.exit:                   ; preds = %invoke.cont.i1089
@@ -70780,11 +70972,15 @@ lpad.i1098:                                       ; preds = %invoke.cont.i1099, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1093) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19BackupEngineCommand15ARG_NUM_THREADSB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i532
 
 lpad.i531:                                        ; preds = %call.i.noexc.i534, %__cxx_global_var_init.303.exit
   %298 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i532
+
+lpad.body.i532:                                   ; preds = %lpad.i531, %lpad.i1098
+  %eh.lpad-body.i533 = phi { ptr, i32 } [ %298, %lpad.i531 ], [ %297, %lpad.i1098 ]
   br label %common.resume
 
 __cxx_global_var_init.304.exit:                   ; preds = %invoke.cont.i1099
@@ -70829,11 +71025,15 @@ lpad.i1108:                                       ; preds = %invoke.cont.i1109, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1103) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19BackupEngineCommand18ARG_BACKUP_ENV_URIB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i540
 
 lpad.i539:                                        ; preds = %call.i.noexc.i542, %__cxx_global_var_init.304.exit
   %303 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i540
+
+lpad.body.i540:                                   ; preds = %lpad.i539, %lpad.i1108
+  %eh.lpad-body.i541 = phi { ptr, i32 } [ %303, %lpad.i539 ], [ %302, %lpad.i1108 ]
   br label %common.resume
 
 __cxx_global_var_init.306.exit:                   ; preds = %invoke.cont.i1109
@@ -70878,11 +71078,15 @@ lpad.i1118:                                       ; preds = %invoke.cont.i1119, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1113) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19BackupEngineCommand17ARG_BACKUP_FS_URIB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i548
 
 lpad.i547:                                        ; preds = %call.i.noexc.i550, %__cxx_global_var_init.306.exit
   %308 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i548
+
+lpad.body.i548:                                   ; preds = %lpad.i547, %lpad.i1118
+  %eh.lpad-body.i549 = phi { ptr, i32 } [ %308, %lpad.i547 ], [ %307, %lpad.i1118 ]
   br label %common.resume
 
 __cxx_global_var_init.308.exit:                   ; preds = %invoke.cont.i1119
@@ -70927,11 +71131,15 @@ lpad.i1128:                                       ; preds = %invoke.cont.i1129, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1123) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19BackupEngineCommand14ARG_BACKUP_DIRB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i556
 
 lpad.i555:                                        ; preds = %call.i.noexc.i558, %__cxx_global_var_init.308.exit
   %313 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i556
+
+lpad.body.i556:                                   ; preds = %lpad.i555, %lpad.i1128
+  %eh.lpad-body.i557 = phi { ptr, i32 } [ %313, %lpad.i555 ], [ %312, %lpad.i1128 ]
   br label %common.resume
 
 __cxx_global_var_init.310.exit:                   ; preds = %invoke.cont.i1129
@@ -70956,11 +71164,15 @@ lpad.i.i568:                                      ; preds = %.noexc.i567
   %315 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb19BackupEngineCommand20ARG_STDERR_LOG_LEVELB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i564
 
 lpad.i563:                                        ; preds = %call.i.noexc.i566, %__cxx_global_var_init.310.exit
   %316 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i564
+
+lpad.body.i564:                                   ; preds = %lpad.i563, %lpad.i.i568
+  %eh.lpad-body.i565 = phi { ptr, i32 } [ %316, %lpad.i563 ], [ %315, %lpad.i.i568 ]
   br label %common.resume
 
 __cxx_global_var_init.312.exit:                   ; preds = %.noexc.i567
@@ -70984,11 +71196,15 @@ lpad.i.i576:                                      ; preds = %.noexc.i575
   %318 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb32DBLiveFilesMetadataDumperCommand20ARG_SORT_BY_FILENAMEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i572
 
 lpad.i571:                                        ; preds = %call.i.noexc.i574, %__cxx_global_var_init.312.exit
   %319 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i572
+
+lpad.body.i572:                                   ; preds = %lpad.i571, %lpad.i.i576
+  %eh.lpad-body.i573 = phi { ptr, i32 } [ %319, %lpad.i571 ], [ %318, %lpad.i.i576 ]
   br label %common.resume
 
 __cxx_global_var_init.335.exit:                   ; preds = %.noexc.i575
@@ -71032,11 +71248,15 @@ lpad.i1138:                                       ; preds = %invoke.cont.i1139, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1133) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb29IngestExternalSstFilesCommand14ARG_MOVE_FILESB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i580
 
 lpad.i579:                                        ; preds = %call.i.noexc.i582, %__cxx_global_var_init.335.exit
   %324 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i580
+
+lpad.body.i580:                                   ; preds = %lpad.i579, %lpad.i1138
+  %eh.lpad-body.i581 = phi { ptr, i32 } [ %324, %lpad.i579 ], [ %323, %lpad.i1138 ]
   br label %common.resume
 
 __cxx_global_var_init.354.exit:                   ; preds = %invoke.cont.i1139
@@ -71061,11 +71281,15 @@ lpad.i.i592:                                      ; preds = %.noexc.i591
   %326 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb29IngestExternalSstFilesCommand24ARG_SNAPSHOT_CONSISTENCYB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i588
 
 lpad.i587:                                        ; preds = %call.i.noexc.i590, %__cxx_global_var_init.354.exit
   %327 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i588
+
+lpad.body.i588:                                   ; preds = %lpad.i587, %lpad.i.i592
+  %eh.lpad-body.i589 = phi { ptr, i32 } [ %327, %lpad.i587 ], [ %326, %lpad.i.i592 ]
   br label %common.resume
 
 __cxx_global_var_init.356.exit:                   ; preds = %.noexc.i591
@@ -71089,11 +71313,15 @@ lpad.i.i600:                                      ; preds = %.noexc.i599
   %329 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb29IngestExternalSstFilesCommand22ARG_ALLOW_GLOBAL_SEQNOB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i596
 
 lpad.i595:                                        ; preds = %call.i.noexc.i598, %__cxx_global_var_init.356.exit
   %330 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i596
+
+lpad.body.i596:                                   ; preds = %lpad.i595, %lpad.i.i600
+  %eh.lpad-body.i597 = phi { ptr, i32 } [ %330, %lpad.i595 ], [ %329, %lpad.i.i600 ]
   br label %common.resume
 
 __cxx_global_var_init.358.exit:                   ; preds = %.noexc.i599
@@ -71117,11 +71345,15 @@ lpad.i.i608:                                      ; preds = %.noexc.i607
   %332 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb29IngestExternalSstFilesCommand24ARG_ALLOW_BLOCKING_FLUSHB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i604
 
 lpad.i603:                                        ; preds = %call.i.noexc.i606, %__cxx_global_var_init.358.exit
   %333 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i604
+
+lpad.body.i604:                                   ; preds = %lpad.i603, %lpad.i.i608
+  %eh.lpad-body.i605 = phi { ptr, i32 } [ %333, %lpad.i603 ], [ %332, %lpad.i.i608 ]
   br label %common.resume
 
 __cxx_global_var_init.360.exit:                   ; preds = %.noexc.i607
@@ -71165,11 +71397,15 @@ lpad.i1148:                                       ; preds = %invoke.cont.i1149, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1143) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb29IngestExternalSstFilesCommand17ARG_INGEST_BEHINDB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i612
 
 lpad.i611:                                        ; preds = %call.i.noexc.i614, %__cxx_global_var_init.360.exit
   %338 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i612
+
+lpad.body.i612:                                   ; preds = %lpad.i611, %lpad.i1148
+  %eh.lpad-body.i613 = phi { ptr, i32 } [ %338, %lpad.i611 ], [ %337, %lpad.i1148 ]
   br label %common.resume
 
 __cxx_global_var_init.362.exit:                   ; preds = %invoke.cont.i1149
@@ -71194,11 +71430,15 @@ lpad.i.i624:                                      ; preds = %.noexc.i623
   %340 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb29IngestExternalSstFilesCommand22ARG_WRITE_GLOBAL_SEQNOB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i620
 
 lpad.i619:                                        ; preds = %call.i.noexc.i622, %__cxx_global_var_init.362.exit
   %341 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i620
+
+lpad.body.i620:                                   ; preds = %lpad.i619, %lpad.i.i624
+  %eh.lpad-body.i621 = phi { ptr, i32 } [ %341, %lpad.i619 ], [ %340, %lpad.i.i624 ]
   br label %common.resume
 
 __cxx_global_var_init.364.exit:                   ; preds = %.noexc.i623
@@ -71242,11 +71482,15 @@ lpad.i1158:                                       ; preds = %invoke.cont.i1159, 
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i1153) #29
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb21UpdateManifestCommand11ARG_VERBOSEB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i628
 
 lpad.i627:                                        ; preds = %call.i.noexc.i630, %__cxx_global_var_init.364.exit
   %346 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i628
+
+lpad.body.i628:                                   ; preds = %lpad.i627, %lpad.i1158
+  %eh.lpad-body.i629 = phi { ptr, i32 } [ %346, %lpad.i627 ], [ %345, %lpad.i1158 ]
   br label %common.resume
 
 __cxx_global_var_init.379.exit:                   ; preds = %invoke.cont.i1159
@@ -71271,11 +71515,15 @@ lpad.i.i640:                                      ; preds = %.noexc.i639
   %348 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7rocksdb21UpdateManifestCommand23ARG_UPDATE_TEMPERATURESB5cxx11E) #29
-  br label %common.resume
+  br label %lpad.body.i636
 
 lpad.i635:                                        ; preds = %call.i.noexc.i638, %__cxx_global_var_init.379.exit
   %349 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad.body.i636
+
+lpad.body.i636:                                   ; preds = %lpad.i635, %lpad.i.i640
+  %eh.lpad-body.i637 = phi { ptr, i32 } [ %349, %lpad.i635 ], [ %348, %lpad.i.i640 ]
   br label %common.resume
 
 __cxx_global_var_init.380.exit:                   ; preds = %.noexc.i639

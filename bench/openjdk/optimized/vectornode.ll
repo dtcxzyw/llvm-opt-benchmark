@@ -370,14 +370,15 @@ $_ZN10VectorNodeC2EP4NodeS1_S1_S1_PK8TypeVect = comdat any
 @switch.table._ZN10VectorNode6opcodeEi9BasicType = private unnamed_addr constant [7 x i32] [i32 356, i32 357, i32 0, i32 0, i32 356, i32 357, i32 358], align 4
 @switch.table._ZN10VectorNode6opcodeEi9BasicType.2 = private unnamed_addr constant [7 x i32] [i32 366, i32 367, i32 0, i32 0, i32 366, i32 367, i32 368], align 4
 @switch.table._ZN10VectorNode6opcodeEi9BasicType.3 = private unnamed_addr constant [6 x i32] [i32 373, i32 0, i32 0, i32 372, i32 373, i32 374], align 4
-@switch.table._ZN10VectorNode6opcodeEi9BasicType.4 = private unnamed_addr constant [7 x i32] [i32 401, i32 402, i32 0, i32 0, i32 401, i32 402, i32 403], align 4
-@switch.table._ZN10VectorNode6opcodeEi9BasicType.5 = private unnamed_addr constant [7 x i32] [i32 409, i32 410, i32 0, i32 0, i32 405, i32 406, i32 407], align 4
-@switch.table._ZN10VectorNode6opcodeEi9BasicType.6 = private unnamed_addr constant [7 x i32] [i32 409, i32 410, i32 0, i32 0, i32 0, i32 0, i32 411], align 4
+@switch.table._ZN10VectorNode6opcodeEi9BasicType.4 = private unnamed_addr constant [7 x i32] [i32 0, i32 0, i32 0, i32 0, i32 387, i32 388, i32 389], align 4
+@switch.table._ZN10VectorNode6opcodeEi9BasicType.5 = private unnamed_addr constant [7 x i32] [i32 401, i32 402, i32 0, i32 0, i32 401, i32 402, i32 403], align 4
+@switch.table._ZN10VectorNode6opcodeEi9BasicType.6 = private unnamed_addr constant [7 x i32] [i32 409, i32 410, i32 0, i32 0, i32 405, i32 406, i32 407], align 4
+@switch.table._ZN10VectorNode6opcodeEi9BasicType.7 = private unnamed_addr constant [7 x i32] [i32 409, i32 410, i32 0, i32 0, i32 0, i32 0, i32 411], align 4
 @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType = private unnamed_addr constant [8 x i32] [i32 28, i32 28, i32 0, i32 0, i32 28, i32 28, i32 28, i32 29], align 4
-@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.7 = private unnamed_addr constant [8 x i32] [i32 262, i32 262, i32 0, i32 0, i32 262, i32 262, i32 262, i32 263], align 4
-@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.8 = private unnamed_addr constant [8 x i32] [i32 353, i32 353, i32 0, i32 0, i32 353, i32 353, i32 353, i32 354], align 4
-@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.9 = private unnamed_addr constant [6 x i32] [i32 226, i32 227, i32 224, i32 224, i32 224, i32 225], align 4
-@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.10 = private unnamed_addr constant [6 x i32] [i32 212, i32 211, i32 209, i32 209, i32 209, i32 210], align 4
+@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.8 = private unnamed_addr constant [8 x i32] [i32 262, i32 262, i32 0, i32 0, i32 262, i32 262, i32 262, i32 263], align 4
+@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.9 = private unnamed_addr constant [8 x i32] [i32 353, i32 353, i32 0, i32 0, i32 353, i32 353, i32 353, i32 354], align 4
+@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.10 = private unnamed_addr constant [6 x i32] [i32 226, i32 227, i32 224, i32 224, i32 224, i32 225], align 4
+@switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.11 = private unnamed_addr constant [6 x i32] [i32 212, i32 211, i32 209, i32 209, i32 209, i32 210], align 4
 @switch.table._ZN11ExtractNode6opcodeE9BasicType = private unnamed_addr constant [8 x i32] [i32 457, i32 458, i32 462, i32 463, i32 456, i32 459, i32 460, i32 461], align 4
 @switch.table._ZN14VectorCastNode11implementedEij9BasicTypeS0_ = private unnamed_addr constant [6 x i32] [i32 487, i32 488, i32 483, i32 484, i32 485, i32 486], align 4
 
@@ -400,7 +401,7 @@ define hidden noundef i32 @_ZN10VectorNode6opcodeEi9BasicType(i32 noundef %0, i8
     i32 173, label %39
     i32 71, label %42
     i32 70, label %45
-    i32 35, label %185
+    i32 35, label %186
     i32 157, label %48
     i32 156, label %51
     i32 19, label %54
@@ -476,180 +477,180 @@ define hidden noundef i32 @_ZN10VectorNode6opcodeEi9BasicType(i32 noundef %0, i8
 3:                                                ; preds = %2
   %switch.tableidx = add i8 %1, -4
   %4 = icmp ult i8 %switch.tableidx, 7
-  br i1 %4, label %switch.lookup, label %185
+  br i1 %4, label %switch.lookup, label %186
 
 5:                                                ; preds = %2
   %6 = icmp eq i8 %1, 11
   %7 = select i1 %6, i32 360, i32 0
-  br label %185
+  br label %186
 
 8:                                                ; preds = %2
   %9 = icmp eq i8 %1, 6
   %10 = select i1 %9, i32 362, i32 0
-  br label %185
+  br label %186
 
 11:                                               ; preds = %2
   %12 = icmp eq i8 %1, 7
   %13 = select i1 %12, i32 364, i32 0
-  br label %185
+  br label %186
 
 14:                                               ; preds = %2
   %switch.tableidx73 = add i8 %1, -4
   %15 = icmp ult i8 %switch.tableidx73, 7
-  br i1 %15, label %switch.lookup72, label %185
+  br i1 %15, label %switch.lookup72, label %186
 
 16:                                               ; preds = %2
   %17 = icmp eq i8 %1, 11
   %18 = select i1 %17, i32 369, i32 0
-  br label %185
+  br label %186
 
 19:                                               ; preds = %2
   %20 = icmp eq i8 %1, 6
   %21 = select i1 %20, i32 370, i32 0
-  br label %185
+  br label %186
 
 22:                                               ; preds = %2
   %23 = icmp eq i8 %1, 7
   %24 = select i1 %23, i32 371, i32 0
-  br label %185
+  br label %186
 
 25:                                               ; preds = %2
   %switch.tableidx77 = add i8 %1, -5
   %26 = icmp ult i8 %switch.tableidx77, 6
-  br i1 %26, label %switch.lookup76, label %185
+  br i1 %26, label %switch.lookup76, label %186
 
 27:                                               ; preds = %2
   %28 = icmp eq i8 %1, 11
   %29 = select i1 %28, i32 376, i32 0
-  br label %185
+  br label %186
 
 30:                                               ; preds = %2
   %31 = icmp eq i8 %1, 6
   %32 = select i1 %31, i32 378, i32 0
-  br label %185
+  br label %186
 
 33:                                               ; preds = %2
   %34 = icmp eq i8 %1, 7
   %35 = select i1 %34, i32 380, i32 0
-  br label %185
+  br label %186
 
 36:                                               ; preds = %2
   %37 = icmp eq i8 %1, 7
   %38 = select i1 %37, i32 383, i32 0
-  br label %185
+  br label %186
 
 39:                                               ; preds = %2
   %40 = icmp eq i8 %1, 6
   %41 = select i1 %40, i32 384, i32 0
-  br label %185
+  br label %186
 
 42:                                               ; preds = %2
   %43 = icmp eq i8 %1, 6
   %44 = select i1 %43, i32 475, i32 0
-  br label %185
+  br label %186
 
 45:                                               ; preds = %2
   %46 = icmp eq i8 %1, 7
   %47 = select i1 %46, i32 475, i32 0
-  br label %185
+  br label %186
 
 48:                                               ; preds = %2
   %49 = icmp eq i8 %1, 6
   %50 = select i1 %49, i32 385, i32 0
-  br label %185
+  br label %186
 
 51:                                               ; preds = %2
   %52 = icmp eq i8 %1, 7
   %53 = select i1 %52, i32 386, i32 0
-  br label %185
+  br label %186
 
 54:                                               ; preds = %2
-  %switch.tableidx81 = add i8 %1, -8
-  %55 = icmp ult i8 %switch.tableidx81, 3
-  br i1 %55, label %switch.lookup80, label %185
+  %switch.tableidx81 = add i8 %1, -4
+  %55 = icmp ult i8 %switch.tableidx81, 7
+  br i1 %55, label %switch.lookup80, label %186
 
 56:                                               ; preds = %2
   %57 = icmp eq i8 %1, 11
   %58 = select i1 %57, i32 390, i32 0
-  br label %185
+  br label %186
 
 59:                                               ; preds = %2
   %.off61 = add i8 %1, -8
   %switch62 = icmp ult i8 %.off61, 3
   %spec.select = select i1 %switch62, i32 419, i32 0
-  br label %185
+  br label %186
 
 60:                                               ; preds = %2
   %61 = icmp eq i8 %1, 11
   %62 = select i1 %61, i32 419, i32 0
-  br label %185
+  br label %186
 
 63:                                               ; preds = %2
   %64 = icmp eq i8 %1, 6
   %65 = select i1 %64, i32 419, i32 0
-  br label %185
+  br label %186
 
 66:                                               ; preds = %2
   %67 = icmp eq i8 %1, 7
   %68 = select i1 %67, i32 419, i32 0
-  br label %185
+  br label %186
 
 69:                                               ; preds = %2
   %.off63 = add i8 %1, -8
   %switch64 = icmp ult i8 %.off63, 3
   %spec.select65 = select i1 %switch64, i32 420, i32 0
-  br label %185
+  br label %186
 
 70:                                               ; preds = %2
   %71 = icmp eq i8 %1, 11
   %72 = select i1 %71, i32 420, i32 0
-  br label %185
+  br label %186
 
 73:                                               ; preds = %2
   %74 = icmp eq i8 %1, 6
   %75 = select i1 %74, i32 420, i32 0
-  br label %185
+  br label %186
 
 76:                                               ; preds = %2
   %77 = icmp eq i8 %1, 7
   %78 = select i1 %77, i32 420, i32 0
-  br label %185
+  br label %186
 
 79:                                               ; preds = %2
   %80 = icmp eq i8 %1, 6
   %81 = select i1 %80, i32 391, i32 0
-  br label %185
+  br label %186
 
 82:                                               ; preds = %2
   %83 = icmp eq i8 %1, 7
   %84 = select i1 %83, i32 392, i32 0
-  br label %185
+  br label %186
 
 85:                                               ; preds = %2
   %.off = add i8 %1, -8
   %switch = icmp ult i8 %.off, 3
   %. = select i1 %switch, i32 393, i32 0
-  br label %185
+  br label %186
 
 86:                                               ; preds = %2
   %87 = icmp eq i8 %1, 11
   %88 = select i1 %87, i32 394, i32 0
-  br label %185
+  br label %186
 
 89:                                               ; preds = %2
   %90 = icmp eq i8 %1, 6
   %91 = select i1 %90, i32 395, i32 0
-  br label %185
+  br label %186
 
 92:                                               ; preds = %2
   %93 = icmp eq i8 %1, 7
   %94 = select i1 %93, i32 396, i32 0
-  br label %185
+  br label %186
 
 95:                                               ; preds = %2
   %96 = icmp eq i8 %1, 7
   %97 = select i1 %96, i32 294, i32 0
-  br label %185
+  br label %186
 
 98:                                               ; preds = %2
   %99 = add i8 %1, -4
@@ -659,7 +660,7 @@ define hidden noundef i32 @_ZN10VectorNode6opcodeEi9BasicType(i32 noundef %0, i8
   %101 = icmp eq i8 %100, 10
   %spec.select.i = or i1 %101, %switch.selectcmp.i.i
   %102 = select i1 %spec.select.i, i32 297, i32 0
-  br label %185
+  br label %186
 
 103:                                              ; preds = %2
   %104 = add i8 %1, -4
@@ -669,33 +670,33 @@ define hidden noundef i32 @_ZN10VectorNode6opcodeEi9BasicType(i32 noundef %0, i8
   %106 = icmp eq i8 %105, 10
   %spec.select.i68 = or i1 %106, %switch.selectcmp.i.i67
   %107 = select i1 %spec.select.i68, i32 299, i32 0
-  br label %185
+  br label %186
 
 108:                                              ; preds = %2
   %109 = icmp eq i8 %1, 6
   %110 = select i1 %109, i32 398, i32 0
-  br label %185
+  br label %186
 
 111:                                              ; preds = %2
   %112 = icmp eq i8 %1, 7
   %113 = select i1 %112, i32 397, i32 0
-  br label %185
+  br label %186
 
 114:                                              ; preds = %2
   %115 = icmp eq i8 %1, 10
   %116 = select i1 %115, i32 453, i32 0
-  br label %185
+  br label %186
 
 117:                                              ; preds = %2
   %118 = icmp eq i8 %1, 11
   %119 = select i1 %118, i32 454, i32 0
-  br label %185
+  br label %186
 
 120:                                              ; preds = %2
-  br label %185
+  br label %186
 
 121:                                              ; preds = %2
-  br label %185
+  br label %186
 
 122:                                              ; preds = %2, %2
   %123 = add i8 %1, -4
@@ -705,154 +706,155 @@ define hidden noundef i32 @_ZN10VectorNode6opcodeEi9BasicType(i32 noundef %0, i8
   %125 = icmp eq i8 %124, 10
   %spec.select.i71 = or i1 %125, %switch.selectcmp.i.i70
   %126 = select i1 %spec.select.i71, i32 290, i32 0
-  br label %185
+  br label %186
 
 127:                                              ; preds = %2, %2
   %128 = icmp eq i8 %1, 9
   %129 = icmp eq i8 %1, 5
   %130 = or i1 %128, %129
   %131 = select i1 %130, i32 41, i32 0
-  br label %185
+  br label %186
 
 132:                                              ; preds = %2
   %133 = and i8 %1, -3
   %134 = icmp eq i8 %133, 8
   %135 = select i1 %134, i32 41, i32 0
-  br label %185
+  br label %186
 
 136:                                              ; preds = %2
   %137 = icmp eq i8 %1, 11
   %138 = select i1 %137, i32 41, i32 0
-  br label %185
+  br label %186
 
 139:                                              ; preds = %2
   %140 = and i8 %1, -2
   %141 = icmp eq i8 %140, 10
   %142 = select i1 %141, i32 67, i32 0
-  br label %185
+  br label %186
 
 143:                                              ; preds = %2
   %144 = and i8 %1, -2
   %145 = icmp eq i8 %144, 10
   %146 = select i1 %145, i32 68, i32 0
-  br label %185
+  br label %186
 
 147:                                              ; preds = %2
-  %switch.tableidx83 = add i8 %1, -4
-  %148 = icmp ult i8 %switch.tableidx83, 7
-  br i1 %148, label %switch.lookup82, label %185
+  %switch.tableidx85 = add i8 %1, -4
+  %148 = icmp ult i8 %switch.tableidx85, 7
+  br i1 %148, label %switch.lookup84, label %186
 
 149:                                              ; preds = %2
   %150 = icmp eq i8 %1, 11
   %151 = select i1 %150, i32 404, i32 0
-  br label %185
+  br label %186
 
 152:                                              ; preds = %2
-  %switch.tableidx87 = add i8 %1, -4
-  %153 = icmp ult i8 %switch.tableidx87, 7
-  br i1 %153, label %switch.lookup86, label %185
+  %switch.tableidx89 = add i8 %1, -4
+  %153 = icmp ult i8 %switch.tableidx89, 7
+  br i1 %153, label %switch.lookup88, label %186
 
 154:                                              ; preds = %2
   %155 = icmp eq i8 %1, 11
   %156 = select i1 %155, i32 408, i32 0
-  br label %185
+  br label %186
 
 157:                                              ; preds = %2
   %158 = icmp eq i8 %1, 8
   %159 = select i1 %158, i32 409, i32 0
-  br label %185
+  br label %186
 
 160:                                              ; preds = %2
   %161 = icmp eq i8 %1, 9
   %162 = select i1 %161, i32 410, i32 0
-  br label %185
+  br label %186
 
 163:                                              ; preds = %2
-  %switch.tableidx91 = add i8 %1, -4
-  %164 = icmp ult i8 %switch.tableidx91, 7
-  br i1 %164, label %switch.lookup90, label %185
+  %switch.tableidx93 = add i8 %1, -4
+  %164 = icmp ult i8 %switch.tableidx93, 7
+  br i1 %164, label %switch.lookup92, label %186
 
 165:                                              ; preds = %2
   %166 = icmp eq i8 %1, 11
   %167 = select i1 %166, i32 412, i32 0
-  br label %185
+  br label %186
 
 168:                                              ; preds = %2, %2
-  br label %185
+  br label %186
 
 169:                                              ; preds = %2, %2
-  br label %185
+  br label %186
 
 170:                                              ; preds = %2, %2
-  br label %185
+  br label %186
 
 171:                                              ; preds = %2, %2, %2, %2, %2, %2, %2, %2
-  br label %185
+  br label %186
 
 172:                                              ; preds = %2, %2, %2, %2, %2, %2
-  br label %185
+  br label %186
 
 173:                                              ; preds = %2
-  br label %185
+  br label %186
 
 174:                                              ; preds = %2, %2
-  br label %185
+  br label %186
 
 175:                                              ; preds = %2, %2
-  br label %185
+  br label %186
 
 176:                                              ; preds = %2
-  br label %185
+  br label %186
 
 177:                                              ; preds = %2
-  br label %185
+  br label %186
 
 178:                                              ; preds = %2
-  br label %185
+  br label %186
 
 switch.lookup:                                    ; preds = %3
   %179 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType, i64 0, i64 %179
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %185
+  br label %186
 
 switch.lookup72:                                  ; preds = %14
   %180 = zext nneg i8 %switch.tableidx73 to i64
   %switch.gep74 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.2, i64 0, i64 %180
   %switch.load75 = load i32, ptr %switch.gep74, align 4
-  br label %185
+  br label %186
 
 switch.lookup76:                                  ; preds = %25
   %181 = zext nneg i8 %switch.tableidx77 to i64
   %switch.gep78 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.3, i64 0, i64 %181
   %switch.load79 = load i32, ptr %switch.gep78, align 4
-  br label %185
+  br label %186
 
 switch.lookup80:                                  ; preds = %54
-  %switch.idx.cast = zext nneg i8 %switch.tableidx81 to i32
-  %switch.offset = add nuw nsw i32 %switch.idx.cast, 387
-  br label %185
+  %182 = zext nneg i8 %switch.tableidx81 to i64
+  %switch.gep82 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.4, i64 0, i64 %182
+  %switch.load83 = load i32, ptr %switch.gep82, align 4
+  br label %186
 
-switch.lookup82:                                  ; preds = %147
-  %182 = zext nneg i8 %switch.tableidx83 to i64
-  %switch.gep84 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.4, i64 0, i64 %182
-  %switch.load85 = load i32, ptr %switch.gep84, align 4
-  br label %185
+switch.lookup84:                                  ; preds = %147
+  %183 = zext nneg i8 %switch.tableidx85 to i64
+  %switch.gep86 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.5, i64 0, i64 %183
+  %switch.load87 = load i32, ptr %switch.gep86, align 4
+  br label %186
 
-switch.lookup86:                                  ; preds = %152
-  %183 = zext nneg i8 %switch.tableidx87 to i64
-  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.5, i64 0, i64 %183
-  %switch.load89 = load i32, ptr %switch.gep88, align 4
-  br label %185
+switch.lookup88:                                  ; preds = %152
+  %184 = zext nneg i8 %switch.tableidx89 to i64
+  %switch.gep90 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.6, i64 0, i64 %184
+  %switch.load91 = load i32, ptr %switch.gep90, align 4
+  br label %186
 
-switch.lookup90:                                  ; preds = %163
-  %184 = zext nneg i8 %switch.tableidx91 to i64
-  %switch.gep92 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.6, i64 0, i64 %184
-  %switch.load93 = load i32, ptr %switch.gep92, align 4
-  br label %185
+switch.lookup92:                                  ; preds = %163
+  %185 = zext nneg i8 %switch.tableidx93 to i64
+  %switch.gep94 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.7, i64 0, i64 %185
+  %switch.load95 = load i32, ptr %switch.gep94, align 4
+  br label %186
 
-185:                                              ; preds = %163, %switch.lookup90, %152, %switch.lookup86, %147, %switch.lookup82, %switch.lookup80, %54, %switch.lookup76, %25, %14, %switch.lookup72, %3, %switch.lookup, %69, %59, %85, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
-  %.0 = phi i32 [ 0, %178 ], [ 317, %177 ], [ 316, %176 ], [ 152, %175 ], [ 149, %174 ], [ 382, %173 ], [ 429, %172 ], [ 426, %171 ], [ 417, %170 ], [ 415, %169 ], [ 413, %168 ], [ %167, %165 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %151, %149 ], [ %146, %143 ], [ %142, %139 ], [ %138, %136 ], [ %135, %132 ], [ %131, %127 ], [ %126, %122 ], [ 279, %121 ], [ 278, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %58, %56 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 0, %25 ], [ 472, %2 ], [ 0, %54 ], [ %., %85 ], [ %spec.select, %59 ], [ %spec.select65, %69 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load75, %switch.lookup72 ], [ 0, %14 ], [ %switch.load79, %switch.lookup76 ], [ %switch.offset, %switch.lookup80 ], [ %switch.load85, %switch.lookup82 ], [ 0, %147 ], [ %switch.load89, %switch.lookup86 ], [ 0, %152 ], [ %switch.load93, %switch.lookup90 ], [ 0, %163 ]
+186:                                              ; preds = %163, %switch.lookup92, %152, %switch.lookup88, %147, %switch.lookup84, %54, %switch.lookup80, %switch.lookup76, %25, %14, %switch.lookup72, %3, %switch.lookup, %69, %59, %85, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
+  %.0 = phi i32 [ 0, %178 ], [ 317, %177 ], [ 316, %176 ], [ 152, %175 ], [ 149, %174 ], [ 382, %173 ], [ 429, %172 ], [ 426, %171 ], [ 417, %170 ], [ 415, %169 ], [ 413, %168 ], [ %167, %165 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %151, %149 ], [ %146, %143 ], [ %142, %139 ], [ %138, %136 ], [ %135, %132 ], [ %131, %127 ], [ %126, %122 ], [ 279, %121 ], [ 278, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %58, %56 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 0, %25 ], [ 472, %2 ], [ %., %85 ], [ %spec.select, %59 ], [ %spec.select65, %69 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load75, %switch.lookup72 ], [ 0, %14 ], [ %switch.load79, %switch.lookup76 ], [ %switch.load83, %switch.lookup80 ], [ 0, %54 ], [ %switch.load87, %switch.lookup84 ], [ 0, %147 ], [ %switch.load91, %switch.lookup88 ], [ 0, %152 ], [ %switch.load95, %switch.lookup92 ], [ 0, %163 ]
   ret i32 %.0
 }
 
@@ -924,25 +926,25 @@ switch.lookup:                                    ; preds = %6
 
 switch.lookup7:                                   ; preds = %8
   %18 = zext nneg i8 %switch.tableidx8 to i64
-  %switch.gep9 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.7, i64 0, i64 %18
+  %switch.gep9 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.8, i64 0, i64 %18
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   br label %22
 
 switch.lookup11:                                  ; preds = %10
   %19 = zext nneg i8 %switch.tableidx12 to i64
-  %switch.gep13 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.8, i64 0, i64 %19
+  %switch.gep13 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.9, i64 0, i64 %19
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %22
 
 switch.lookup15:                                  ; preds = %12
   %20 = zext nneg i8 %switch.tableidx16 to i64
-  %switch.gep17 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.9, i64 0, i64 %20
+  %switch.gep17 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.10, i64 0, i64 %20
   %switch.load18 = load i32, ptr %switch.gep17, align 4
   br label %22
 
 switch.lookup19:                                  ; preds = %14
   %21 = zext nneg i8 %switch.tableidx20 to i64
-  %switch.gep21 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.10, i64 0, i64 %21
+  %switch.gep21 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN10VectorNode13scalar_opcodeEi9BasicType.11, i64 0, i64 %21
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %22
 
@@ -11976,8 +11978,8 @@ define hidden noundef ptr @_ZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp ne i32 %22, 3
-  %.not139 = icmp eq ptr %20, null
-  %.not = or i1 %.not139, %23
+  %.not138 = icmp eq ptr %20, null
+  %.not = or i1 %.not138, %23
   br i1 %.not, label %35, label %24
 
 24:                                               ; preds = %"_ZZN10VectorNode24degenerate_vector_rotateEP4NodeS1_bi9BasicTypeP8PhaseGVNENK3$_0clEv.exit"
@@ -12240,11 +12242,11 @@ _ZN10VectorNode6opcodeEi9BasicType.exit:          ; preds = %163, %163, %166, %1
 169:                                              ; preds = %_ZN10VectorNode6opcodeEi9BasicType.exit
   br label %_ZN10VectorNode6opcodeEi9BasicType.exit103
 
-_ZN10VectorNode6opcodeEi9BasicType.exit103:       ; preds = %163, %169, %168, %_ZN10VectorNode6opcodeEi9BasicType.exit, %_ZN10VectorNode6opcodeEi9BasicType.exit, %159
-  %.084 = phi i32 [ 360, %159 ], [ 0, %169 ], [ 357, %168 ], [ 356, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ 356, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ 358, %163 ]
-  %.083 = phi ptr [ %161, %159 ], [ %164, %169 ], [ %164, %168 ], [ %164, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %164, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %164, %163 ]
-  %.082 = phi ptr [ %162, %159 ], [ %165, %169 ], [ %165, %168 ], [ %165, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %165, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %165, %163 ]
-  %.081 = phi i32 [ 369, %159 ], [ %.0.i101, %169 ], [ %.0.i101, %168 ], [ %.0.i101, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %.0.i101, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ 368, %163 ]
+_ZN10VectorNode6opcodeEi9BasicType.exit103:       ; preds = %_ZN10VectorNode6opcodeEi9BasicType.exit, %_ZN10VectorNode6opcodeEi9BasicType.exit, %163, %169, %168, %159
+  %.084 = phi i32 [ 360, %159 ], [ 0, %169 ], [ 357, %168 ], [ 358, %163 ], [ 356, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ 356, %_ZN10VectorNode6opcodeEi9BasicType.exit ]
+  %.083 = phi ptr [ %161, %159 ], [ %164, %169 ], [ %164, %168 ], [ %164, %163 ], [ %164, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %164, %_ZN10VectorNode6opcodeEi9BasicType.exit ]
+  %.082 = phi ptr [ %162, %159 ], [ %165, %169 ], [ %165, %168 ], [ %165, %163 ], [ %165, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %165, %_ZN10VectorNode6opcodeEi9BasicType.exit ]
+  %.081 = phi i32 [ 369, %159 ], [ %.0.i101, %169 ], [ %.0.i101, %168 ], [ 368, %163 ], [ %.0.i101, %_ZN10VectorNode6opcodeEi9BasicType.exit ], [ %.0.i101, %_ZN10VectorNode6opcodeEi9BasicType.exit ]
   %170 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %.083, i32 noundef %3, ptr noundef %158, i1 noundef zeroext false)
   %171 = load ptr, ptr %5, align 8
   %172 = load ptr, ptr %171, align 8
@@ -12302,15 +12304,15 @@ _ZN4NodenwEm.exit123:                             ; preds = %193, %195
   %208 = load ptr, ptr %207, align 8
   %209 = tail call noundef ptr %208(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %206) #8
   %spec.select = select i1 %2, ptr %209, ptr %201
-  %spec.select138 = select i1 %2, ptr %201, ptr %209
+  %spec.select137 = select i1 %2, ptr %201, ptr %209
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %304
 
 210:                                              ; preds = %153, %30
   %.0132.ph = phi ptr [ %32, %30 ], [ %130, %153 ]
   %.0131.ph = phi ptr [ %34, %30 ], [ %156, %153 ]
-  %spec.select143 = select i1 %2, ptr %.0131.ph, ptr %.0132.ph
-  %spec.select138144 = select i1 %2, ptr %.0132.ph, ptr %.0131.ph
+  %spec.select142 = select i1 %2, ptr %.0131.ph, ptr %.0132.ph
+  %spec.select137143 = select i1 %2, ptr %.0132.ph, ptr %.0131.ph
   %211 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 1808
@@ -12353,26 +12355,26 @@ _ZN4NodenwEm.exit107:                             ; preds = %226, %228
   %234 = getelementptr inbounds i8, ptr %.0.i.i.i106, i64 8
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 8
-  store ptr %spec.select138144, ptr %236, align 8
-  %.not.i.i.i108 = icmp eq ptr %spec.select138144, null
+  store ptr %spec.select137143, ptr %236, align 8
+  %.not.i.i.i108 = icmp eq ptr %spec.select137143, null
   br i1 %.not.i.i.i108, label %_ZN14LShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %237
 
 237:                                              ; preds = %231
-  %238 = getelementptr inbounds i8, ptr %spec.select138144, i64 16
+  %238 = getelementptr inbounds i8, ptr %spec.select137143, i64 16
   %239 = load ptr, ptr %238, align 8
   %240 = icmp eq ptr %239, null
   br i1 %240, label %_ZN14LShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %241
 
 241:                                              ; preds = %237
-  %242 = getelementptr inbounds i8, ptr %spec.select138144, i64 32
+  %242 = getelementptr inbounds i8, ptr %spec.select137143, i64 32
   %243 = load i32, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %spec.select138144, i64 36
+  %244 = getelementptr inbounds i8, ptr %spec.select137143, i64 36
   %245 = load i32, ptr %244, align 4
   %246 = icmp eq i32 %243, %245
   br i1 %246, label %247, label %248
 
 247:                                              ; preds = %241
-  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select138144, i32 noundef %243) #8
+  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select137143, i32 noundef %243) #8
   %.pre.i.i.i.i109 = load ptr, ptr %238, align 8
   %.pre2.i.i.i.i110 = load i32, ptr %242, align 8
   br label %248
@@ -12436,26 +12438,26 @@ _ZN4NodenwEm.exit113:                             ; preds = %272, %274
   %280 = getelementptr inbounds i8, ptr %.0.i.i.i112, i64 8
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 8
-  store ptr %spec.select143, ptr %282, align 8
-  %.not.i.i.i114 = icmp eq ptr %spec.select143, null
+  store ptr %spec.select142, ptr %282, align 8
+  %.not.i.i.i114 = icmp eq ptr %spec.select142, null
   br i1 %.not.i.i.i114, label %_ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %283
 
 283:                                              ; preds = %277
-  %284 = getelementptr inbounds i8, ptr %spec.select143, i64 16
+  %284 = getelementptr inbounds i8, ptr %spec.select142, i64 16
   %285 = load ptr, ptr %284, align 8
   %286 = icmp eq ptr %285, null
   br i1 %286, label %_ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit, label %287
 
 287:                                              ; preds = %283
-  %288 = getelementptr inbounds i8, ptr %spec.select143, i64 32
+  %288 = getelementptr inbounds i8, ptr %spec.select142, i64 32
   %289 = load i32, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %spec.select143, i64 36
+  %290 = getelementptr inbounds i8, ptr %spec.select142, i64 36
   %291 = load i32, ptr %290, align 4
   %292 = icmp eq i32 %289, %291
   br i1 %292, label %293, label %294
 
 293:                                              ; preds = %287
-  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select143, i32 noundef %289) #8
+  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %spec.select142, i32 noundef %289) #8
   %.pre.i.i.i.i115 = load ptr, ptr %284, align 8
   %.pre2.i.i.i.i116 = load i32, ptr %288, align 8
   br label %294
@@ -12481,10 +12483,10 @@ _ZN14RShiftCntVNodeC2EP4NodePK8TypeVect.exit:     ; preds = %277, %283, %294
   br label %304
 
 304:                                              ; preds = %._crit_edge, %300
-  %.080145 = phi i1 [ true, %._crit_edge ], [ false, %300 ]
+  %.080144 = phi i1 [ true, %._crit_edge ], [ false, %300 ]
   %.pre-phi = phi ptr [ %.pre, %._crit_edge ], [ %211, %300 ]
   %.2134 = phi ptr [ %spec.select, %._crit_edge ], [ %303, %300 ]
-  %.2 = phi ptr [ %spec.select138, %._crit_edge ], [ %257, %300 ]
+  %.2 = phi ptr [ %spec.select137, %._crit_edge ], [ %257, %300 ]
   %305 = load ptr, ptr %.pre-phi, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 1808
   %307 = load ptr, ptr %306, align 8
@@ -12533,7 +12535,7 @@ _ZN4NodenwEm.exit119:                             ; preds = %319, %321
   unreachable
 
 _ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit: ; preds = %324
-  %334 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %327, ptr noundef %0, ptr noundef %.2, ptr noundef %326, i1 noundef zeroext false, i1 noundef zeroext %.080145)
+  %334 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %327, ptr noundef %0, ptr noundef %.2, ptr noundef %326, i1 noundef zeroext false, i1 noundef zeroext %.080144)
   %335 = load ptr, ptr %5, align 8
   %336 = load ptr, ptr %335, align 8
   %337 = tail call noundef ptr %336(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %334) #8
@@ -12553,7 +12555,7 @@ _ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit: ; preds = %324
   unreachable
 
 _ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit120: ; preds = %_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb.exit
-  %347 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %340, ptr noundef %0, ptr noundef %.2134, ptr noundef %339, i1 noundef zeroext false, i1 noundef zeroext %.080145)
+  %347 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %340, ptr noundef %0, ptr noundef %.2134, ptr noundef %339, i1 noundef zeroext false, i1 noundef zeroext %.080144)
   %348 = load ptr, ptr %5, align 8
   %349 = load ptr, ptr %348, align 8
   %350 = tail call noundef ptr %349(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %347) #8

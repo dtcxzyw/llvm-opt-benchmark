@@ -12284,595 +12284,598 @@ entry:
   %__dict__.i = getelementptr inbounds i8, ptr %state, i64 1112
   store ptr %call.i, ptr %__dict__.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %return, label %if.end.i
+  br i1 %cmp.i, label %init_identifiers.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.296) #6
   %__doc__.i = getelementptr inbounds i8, ptr %state, i64 1120
   store ptr %call1.i, ptr %__doc__.i, align 8
   %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %return, label %if.end4.i
+  br i1 %cmp2.i, label %init_identifiers.exit.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.297) #6
   %__match_args__.i = getelementptr inbounds i8, ptr %state, i64 1128
   store ptr %call5.i, ptr %__match_args__.i, align 8
   %cmp6.i = icmp eq ptr %call5.i, null
-  br i1 %cmp6.i, label %return, label %if.end8.i
+  br i1 %cmp6.i, label %init_identifiers.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i
   %call9.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.298) #6
   %__module__.i = getelementptr inbounds i8, ptr %state, i64 1136
   store ptr %call9.i, ptr %__module__.i, align 8
   %cmp10.i = icmp eq ptr %call9.i, null
-  br i1 %cmp10.i, label %return, label %if.end12.i
+  br i1 %cmp10.i, label %init_identifiers.exit.thread, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
   %call13.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.299) #6
   %_attributes.i = getelementptr inbounds i8, ptr %state, i64 1144
   store ptr %call13.i, ptr %_attributes.i, align 8
   %cmp14.i = icmp eq ptr %call13.i, null
-  br i1 %cmp14.i, label %return, label %if.end16.i
+  br i1 %cmp14.i, label %init_identifiers.exit.thread, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end12.i
   %call17.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.300) #6
   %_fields.i = getelementptr inbounds i8, ptr %state, i64 1152
   store ptr %call17.i, ptr %_fields.i, align 8
   %cmp18.i = icmp eq ptr %call17.i, null
-  br i1 %cmp18.i, label %return, label %if.end20.i
+  br i1 %cmp18.i, label %init_identifiers.exit.thread, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
   %call21.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.301) #6
   %annotation.i = getelementptr inbounds i8, ptr %state, i64 1168
   store ptr %call21.i, ptr %annotation.i, align 8
   %cmp22.i = icmp eq ptr %call21.i, null
-  br i1 %cmp22.i, label %return, label %if.end24.i
+  br i1 %cmp22.i, label %init_identifiers.exit.thread, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end20.i
   %call25.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.187) #6
   %arg.i = getelementptr inbounds i8, ptr %state, i64 1176
   store ptr %call25.i, ptr %arg.i, align 8
   %cmp26.i = icmp eq ptr %call25.i, null
-  br i1 %cmp26.i, label %return, label %if.end28.i
+  br i1 %cmp26.i, label %init_identifiers.exit.thread, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end24.i
   %call29.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.302) #6
   %args.i = getelementptr inbounds i8, ptr %state, i64 1192
   store ptr %call29.i, ptr %args.i, align 8
   %cmp30.i = icmp eq ptr %call29.i, null
-  br i1 %cmp30.i, label %return, label %if.end32.i
+  br i1 %cmp30.i, label %init_identifiers.exit.thread, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end28.i
   %call33.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.303) #6
   %argtypes.i = getelementptr inbounds i8, ptr %state, i64 1200
   store ptr %call33.i, ptr %argtypes.i, align 8
   %cmp34.i = icmp eq ptr %call33.i, null
-  br i1 %cmp34.i, label %return, label %if.end36.i
+  br i1 %cmp34.i, label %init_identifiers.exit.thread, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end32.i
   %call37.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.304) #6
   %asname.i = getelementptr inbounds i8, ptr %state, i64 1216
   store ptr %call37.i, ptr %asname.i, align 8
   %cmp38.i = icmp eq ptr %call37.i, null
-  br i1 %cmp38.i, label %return, label %if.end40.i
+  br i1 %cmp38.i, label %init_identifiers.exit.thread, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end36.i
   %call41.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.305) #6
   %ast.i = getelementptr inbounds i8, ptr %state, i64 1224
   store ptr %call41.i, ptr %ast.i, align 8
   %cmp42.i = icmp eq ptr %call41.i, null
-  br i1 %cmp42.i, label %return, label %if.end44.i
+  br i1 %cmp42.i, label %init_identifiers.exit.thread, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end40.i
   %call45.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.306) #6
   %attr.i = getelementptr inbounds i8, ptr %state, i64 1232
   store ptr %call45.i, ptr %attr.i, align 8
   %cmp46.i = icmp eq ptr %call45.i, null
-  br i1 %cmp46.i, label %return, label %if.end48.i
+  br i1 %cmp46.i, label %init_identifiers.exit.thread, label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.end44.i
   %call49.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.307) #6
   %bases.i = getelementptr inbounds i8, ptr %state, i64 1240
   store ptr %call49.i, ptr %bases.i, align 8
   %cmp50.i = icmp eq ptr %call49.i, null
-  br i1 %cmp50.i, label %return, label %if.end52.i
+  br i1 %cmp50.i, label %init_identifiers.exit.thread, label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.end48.i
   %call53.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.308) #6
   %body.i = getelementptr inbounds i8, ptr %state, i64 1248
   store ptr %call53.i, ptr %body.i, align 8
   %cmp54.i = icmp eq ptr %call53.i, null
-  br i1 %cmp54.i, label %return, label %if.end56.i
+  br i1 %cmp54.i, label %init_identifiers.exit.thread, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end52.i
   %call57.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.309) #6
   %bound.i = getelementptr inbounds i8, ptr %state, i64 1264
   store ptr %call57.i, ptr %bound.i, align 8
   %cmp58.i = icmp eq ptr %call57.i, null
-  br i1 %cmp58.i, label %return, label %if.end60.i
+  br i1 %cmp58.i, label %init_identifiers.exit.thread, label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.end56.i
   %call61.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.310) #6
   %cases.i = getelementptr inbounds i8, ptr %state, i64 1272
   store ptr %call61.i, ptr %cases.i, align 8
   %cmp62.i = icmp eq ptr %call61.i, null
-  br i1 %cmp62.i, label %return, label %if.end64.i
+  br i1 %cmp62.i, label %init_identifiers.exit.thread, label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.end60.i
   %call65.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.311) #6
   %cause.i = getelementptr inbounds i8, ptr %state, i64 1280
   store ptr %call65.i, ptr %cause.i, align 8
   %cmp66.i = icmp eq ptr %call65.i, null
-  br i1 %cmp66.i, label %return, label %if.end68.i
+  br i1 %cmp66.i, label %init_identifiers.exit.thread, label %if.end68.i
 
 if.end68.i:                                       ; preds = %if.end64.i
   %call69.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.312) #6
   %cls.i = getelementptr inbounds i8, ptr %state, i64 1288
   store ptr %call69.i, ptr %cls.i, align 8
   %cmp70.i = icmp eq ptr %call69.i, null
-  br i1 %cmp70.i, label %return, label %if.end72.i
+  br i1 %cmp70.i, label %init_identifiers.exit.thread, label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.end68.i
   %call73.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.313) #6
   %col_offset.i = getelementptr inbounds i8, ptr %state, i64 1304
   store ptr %call73.i, ptr %col_offset.i, align 8
   %cmp74.i = icmp eq ptr %call73.i, null
-  br i1 %cmp74.i, label %return, label %if.end76.i
+  br i1 %cmp74.i, label %init_identifiers.exit.thread, label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.end72.i
   %call77.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.314) #6
   %comparators.i = getelementptr inbounds i8, ptr %state, i64 1312
   store ptr %call77.i, ptr %comparators.i, align 8
   %cmp78.i = icmp eq ptr %call77.i, null
-  br i1 %cmp78.i, label %return, label %if.end80.i
+  br i1 %cmp78.i, label %init_identifiers.exit.thread, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.end76.i
   %call81.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.315) #6
   %context_expr.i = getelementptr inbounds i8, ptr %state, i64 1328
   store ptr %call81.i, ptr %context_expr.i, align 8
   %cmp82.i = icmp eq ptr %call81.i, null
-  br i1 %cmp82.i, label %return, label %if.end84.i
+  br i1 %cmp82.i, label %init_identifiers.exit.thread, label %if.end84.i
 
 if.end84.i:                                       ; preds = %if.end80.i
   %call85.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.316) #6
   %conversion.i = getelementptr inbounds i8, ptr %state, i64 1336
   store ptr %call85.i, ptr %conversion.i, align 8
   %cmp86.i = icmp eq ptr %call85.i, null
-  br i1 %cmp86.i, label %return, label %if.end88.i
+  br i1 %cmp86.i, label %init_identifiers.exit.thread, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.end84.i
   %call89.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.317) #6
   %ctx.i = getelementptr inbounds i8, ptr %state, i64 1344
   store ptr %call89.i, ptr %ctx.i, align 8
   %cmp90.i = icmp eq ptr %call89.i, null
-  br i1 %cmp90.i, label %return, label %if.end92.i
+  br i1 %cmp90.i, label %init_identifiers.exit.thread, label %if.end92.i
 
 if.end92.i:                                       ; preds = %if.end88.i
   %call93.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.318) #6
   %decorator_list.i = getelementptr inbounds i8, ptr %state, i64 1352
   store ptr %call93.i, ptr %decorator_list.i, align 8
   %cmp94.i = icmp eq ptr %call93.i, null
-  br i1 %cmp94.i, label %return, label %if.end96.i
+  br i1 %cmp94.i, label %init_identifiers.exit.thread, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.end92.i
   %call97.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.319) #6
   %defaults.i = getelementptr inbounds i8, ptr %state, i64 1360
   store ptr %call97.i, ptr %defaults.i, align 8
   %cmp98.i = icmp eq ptr %call97.i, null
-  br i1 %cmp98.i, label %return, label %if.end100.i
+  br i1 %cmp98.i, label %init_identifiers.exit.thread, label %if.end100.i
 
 if.end100.i:                                      ; preds = %if.end96.i
   %call101.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.320) #6
   %elt.i = getelementptr inbounds i8, ptr %state, i64 1368
   store ptr %call101.i, ptr %elt.i, align 8
   %cmp102.i = icmp eq ptr %call101.i, null
-  br i1 %cmp102.i, label %return, label %if.end104.i
+  br i1 %cmp102.i, label %init_identifiers.exit.thread, label %if.end104.i
 
 if.end104.i:                                      ; preds = %if.end100.i
   %call105.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.321) #6
   %elts.i = getelementptr inbounds i8, ptr %state, i64 1376
   store ptr %call105.i, ptr %elts.i, align 8
   %cmp106.i = icmp eq ptr %call105.i, null
-  br i1 %cmp106.i, label %return, label %if.end108.i
+  br i1 %cmp106.i, label %init_identifiers.exit.thread, label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.end104.i
   %call109.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.322) #6
   %end_col_offset.i = getelementptr inbounds i8, ptr %state, i64 1384
   store ptr %call109.i, ptr %end_col_offset.i, align 8
   %cmp110.i = icmp eq ptr %call109.i, null
-  br i1 %cmp110.i, label %return, label %if.end112.i
+  br i1 %cmp110.i, label %init_identifiers.exit.thread, label %if.end112.i
 
 if.end112.i:                                      ; preds = %if.end108.i
   %call113.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.323) #6
   %end_lineno.i = getelementptr inbounds i8, ptr %state, i64 1392
   store ptr %call113.i, ptr %end_lineno.i, align 8
   %cmp114.i = icmp eq ptr %call113.i, null
-  br i1 %cmp114.i, label %return, label %if.end116.i
+  br i1 %cmp114.i, label %init_identifiers.exit.thread, label %if.end116.i
 
 if.end116.i:                                      ; preds = %if.end112.i
   %call117.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.324) #6
   %exc.i = getelementptr inbounds i8, ptr %state, i64 1400
   store ptr %call117.i, ptr %exc.i, align 8
   %cmp118.i = icmp eq ptr %call117.i, null
-  br i1 %cmp118.i, label %return, label %if.end120.i
+  br i1 %cmp118.i, label %init_identifiers.exit.thread, label %if.end120.i
 
 if.end120.i:                                      ; preds = %if.end116.i
   %call121.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.325) #6
   %finalbody.i = getelementptr inbounds i8, ptr %state, i64 1432
   store ptr %call121.i, ptr %finalbody.i, align 8
   %cmp122.i = icmp eq ptr %call121.i, null
-  br i1 %cmp122.i, label %return, label %if.end124.i
+  br i1 %cmp122.i, label %init_identifiers.exit.thread, label %if.end124.i
 
 if.end124.i:                                      ; preds = %if.end120.i
   %call125.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.326) #6
   %format_spec.i = getelementptr inbounds i8, ptr %state, i64 1440
   store ptr %call125.i, ptr %format_spec.i, align 8
   %cmp126.i = icmp eq ptr %call125.i, null
-  br i1 %cmp126.i, label %return, label %if.end128.i
+  br i1 %cmp126.i, label %init_identifiers.exit.thread, label %if.end128.i
 
 if.end128.i:                                      ; preds = %if.end124.i
   %call129.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.327) #6
   %func.i = getelementptr inbounds i8, ptr %state, i64 1448
   store ptr %call129.i, ptr %func.i, align 8
   %cmp130.i = icmp eq ptr %call129.i, null
-  br i1 %cmp130.i, label %return, label %if.end132.i
+  br i1 %cmp130.i, label %init_identifiers.exit.thread, label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.end128.i
   %call133.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.328) #6
   %generators.i = getelementptr inbounds i8, ptr %state, i64 1456
   store ptr %call133.i, ptr %generators.i, align 8
   %cmp134.i = icmp eq ptr %call133.i, null
-  br i1 %cmp134.i, label %return, label %if.end136.i
+  br i1 %cmp134.i, label %init_identifiers.exit.thread, label %if.end136.i
 
 if.end136.i:                                      ; preds = %if.end132.i
   %call137.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.329) #6
   %guard.i = getelementptr inbounds i8, ptr %state, i64 1464
   store ptr %call137.i, ptr %guard.i, align 8
   %cmp138.i = icmp eq ptr %call137.i, null
-  br i1 %cmp138.i, label %return, label %if.end140.i
+  br i1 %cmp138.i, label %init_identifiers.exit.thread, label %if.end140.i
 
 if.end140.i:                                      ; preds = %if.end136.i
   %call141.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.330) #6
   %handlers.i = getelementptr inbounds i8, ptr %state, i64 1472
   store ptr %call141.i, ptr %handlers.i, align 8
   %cmp142.i = icmp eq ptr %call141.i, null
-  br i1 %cmp142.i, label %return, label %if.end144.i
+  br i1 %cmp142.i, label %init_identifiers.exit.thread, label %if.end144.i
 
 if.end144.i:                                      ; preds = %if.end140.i
   %call145.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.331) #6
   %id.i = getelementptr inbounds i8, ptr %state, i64 1480
   store ptr %call145.i, ptr %id.i, align 8
   %cmp146.i = icmp eq ptr %call145.i, null
-  br i1 %cmp146.i, label %return, label %if.end148.i
+  br i1 %cmp146.i, label %init_identifiers.exit.thread, label %if.end148.i
 
 if.end148.i:                                      ; preds = %if.end144.i
   %call149.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.332) #6
   %ifs.i = getelementptr inbounds i8, ptr %state, i64 1488
   store ptr %call149.i, ptr %ifs.i, align 8
   %cmp150.i = icmp eq ptr %call149.i, null
-  br i1 %cmp150.i, label %return, label %if.end152.i
+  br i1 %cmp150.i, label %init_identifiers.exit.thread, label %if.end152.i
 
 if.end152.i:                                      ; preds = %if.end148.i
   %call153.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.333) #6
   %is_async.i = getelementptr inbounds i8, ptr %state, i64 1496
   store ptr %call153.i, ptr %is_async.i, align 8
   %cmp154.i = icmp eq ptr %call153.i, null
-  br i1 %cmp154.i, label %return, label %if.end156.i
+  br i1 %cmp154.i, label %init_identifiers.exit.thread, label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.end152.i
   %call157.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.334) #6
   %items.i = getelementptr inbounds i8, ptr %state, i64 1504
   store ptr %call157.i, ptr %items.i, align 8
   %cmp158.i = icmp eq ptr %call157.i, null
-  br i1 %cmp158.i, label %return, label %if.end160.i
+  br i1 %cmp158.i, label %init_identifiers.exit.thread, label %if.end160.i
 
 if.end160.i:                                      ; preds = %if.end156.i
   %call161.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.335) #6
   %iter.i = getelementptr inbounds i8, ptr %state, i64 1512
   store ptr %call161.i, ptr %iter.i, align 8
   %cmp162.i = icmp eq ptr %call161.i, null
-  br i1 %cmp162.i, label %return, label %if.end164.i
+  br i1 %cmp162.i, label %init_identifiers.exit.thread, label %if.end164.i
 
 if.end164.i:                                      ; preds = %if.end160.i
   %call165.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.336) #6
   %key.i = getelementptr inbounds i8, ptr %state, i64 1520
   store ptr %call165.i, ptr %key.i, align 8
   %cmp166.i = icmp eq ptr %call165.i, null
-  br i1 %cmp166.i, label %return, label %if.end168.i
+  br i1 %cmp166.i, label %init_identifiers.exit.thread, label %if.end168.i
 
 if.end168.i:                                      ; preds = %if.end164.i
   %call169.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.337) #6
   %keys.i = getelementptr inbounds i8, ptr %state, i64 1528
   store ptr %call169.i, ptr %keys.i, align 8
   %cmp170.i = icmp eq ptr %call169.i, null
-  br i1 %cmp170.i, label %return, label %if.end172.i
+  br i1 %cmp170.i, label %init_identifiers.exit.thread, label %if.end172.i
 
 if.end172.i:                                      ; preds = %if.end168.i
   %call173.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.338) #6
   %keywords.i = getelementptr inbounds i8, ptr %state, i64 1544
   store ptr %call173.i, ptr %keywords.i, align 8
   %cmp174.i = icmp eq ptr %call173.i, null
-  br i1 %cmp174.i, label %return, label %if.end176.i
+  br i1 %cmp174.i, label %init_identifiers.exit.thread, label %if.end176.i
 
 if.end176.i:                                      ; preds = %if.end172.i
   %call177.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.339) #6
   %kind.i = getelementptr inbounds i8, ptr %state, i64 1552
   store ptr %call177.i, ptr %kind.i, align 8
   %cmp178.i = icmp eq ptr %call177.i, null
-  br i1 %cmp178.i, label %return, label %if.end180.i
+  br i1 %cmp178.i, label %init_identifiers.exit.thread, label %if.end180.i
 
 if.end180.i:                                      ; preds = %if.end176.i
   %call181.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.340) #6
   %kw_defaults.i = getelementptr inbounds i8, ptr %state, i64 1560
   store ptr %call181.i, ptr %kw_defaults.i, align 8
   %cmp182.i = icmp eq ptr %call181.i, null
-  br i1 %cmp182.i, label %return, label %if.end184.i
+  br i1 %cmp182.i, label %init_identifiers.exit.thread, label %if.end184.i
 
 if.end184.i:                                      ; preds = %if.end180.i
   %call185.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.341) #6
   %kwarg.i = getelementptr inbounds i8, ptr %state, i64 1568
   store ptr %call185.i, ptr %kwarg.i, align 8
   %cmp186.i = icmp eq ptr %call185.i, null
-  br i1 %cmp186.i, label %return, label %if.end188.i
+  br i1 %cmp186.i, label %init_identifiers.exit.thread, label %if.end188.i
 
 if.end188.i:                                      ; preds = %if.end184.i
   %call189.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.342) #6
   %kwd_attrs.i = getelementptr inbounds i8, ptr %state, i64 1576
   store ptr %call189.i, ptr %kwd_attrs.i, align 8
   %cmp190.i = icmp eq ptr %call189.i, null
-  br i1 %cmp190.i, label %return, label %if.end192.i
+  br i1 %cmp190.i, label %init_identifiers.exit.thread, label %if.end192.i
 
 if.end192.i:                                      ; preds = %if.end188.i
   %call193.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.343) #6
   %kwd_patterns.i = getelementptr inbounds i8, ptr %state, i64 1584
   store ptr %call193.i, ptr %kwd_patterns.i, align 8
   %cmp194.i = icmp eq ptr %call193.i, null
-  br i1 %cmp194.i, label %return, label %if.end196.i
+  br i1 %cmp194.i, label %init_identifiers.exit.thread, label %if.end196.i
 
 if.end196.i:                                      ; preds = %if.end192.i
   %call197.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.344) #6
   %kwonlyargs.i = getelementptr inbounds i8, ptr %state, i64 1592
   store ptr %call197.i, ptr %kwonlyargs.i, align 8
   %cmp198.i = icmp eq ptr %call197.i, null
-  br i1 %cmp198.i, label %return, label %if.end200.i
+  br i1 %cmp198.i, label %init_identifiers.exit.thread, label %if.end200.i
 
 if.end200.i:                                      ; preds = %if.end196.i
   %call201.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.345) #6
   %left.i = getelementptr inbounds i8, ptr %state, i64 1600
   store ptr %call201.i, ptr %left.i, align 8
   %cmp202.i = icmp eq ptr %call201.i, null
-  br i1 %cmp202.i, label %return, label %if.end204.i
+  br i1 %cmp202.i, label %init_identifiers.exit.thread, label %if.end204.i
 
 if.end204.i:                                      ; preds = %if.end200.i
   %call205.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.346) #6
   %level.i = getelementptr inbounds i8, ptr %state, i64 1608
   store ptr %call205.i, ptr %level.i, align 8
   %cmp206.i = icmp eq ptr %call205.i, null
-  br i1 %cmp206.i, label %return, label %if.end208.i
+  br i1 %cmp206.i, label %init_identifiers.exit.thread, label %if.end208.i
 
 if.end208.i:                                      ; preds = %if.end204.i
   %call209.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.347) #6
   %lineno.i = getelementptr inbounds i8, ptr %state, i64 1616
   store ptr %call209.i, ptr %lineno.i, align 8
   %cmp210.i = icmp eq ptr %call209.i, null
-  br i1 %cmp210.i, label %return, label %if.end212.i
+  br i1 %cmp210.i, label %init_identifiers.exit.thread, label %if.end212.i
 
 if.end212.i:                                      ; preds = %if.end208.i
   %call213.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.348) #6
   %lower.i = getelementptr inbounds i8, ptr %state, i64 1624
   store ptr %call213.i, ptr %lower.i, align 8
   %cmp214.i = icmp eq ptr %call213.i, null
-  br i1 %cmp214.i, label %return, label %if.end216.i
+  br i1 %cmp214.i, label %init_identifiers.exit.thread, label %if.end216.i
 
 if.end216.i:                                      ; preds = %if.end212.i
   %call217.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.349) #6
   %module.i = getelementptr inbounds i8, ptr %state, i64 1648
   store ptr %call217.i, ptr %module.i, align 8
   %cmp218.i = icmp eq ptr %call217.i, null
-  br i1 %cmp218.i, label %return, label %if.end220.i
+  br i1 %cmp218.i, label %init_identifiers.exit.thread, label %if.end220.i
 
 if.end220.i:                                      ; preds = %if.end216.i
   %call221.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.350) #6
   %msg.i = getelementptr inbounds i8, ptr %state, i64 1656
   store ptr %call221.i, ptr %msg.i, align 8
   %cmp222.i = icmp eq ptr %call221.i, null
-  br i1 %cmp222.i, label %return, label %if.end224.i
+  br i1 %cmp222.i, label %init_identifiers.exit.thread, label %if.end224.i
 
 if.end224.i:                                      ; preds = %if.end220.i
   %call225.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.351) #6
   %name.i = getelementptr inbounds i8, ptr %state, i64 1664
   store ptr %call225.i, ptr %name.i, align 8
   %cmp226.i = icmp eq ptr %call225.i, null
-  br i1 %cmp226.i, label %return, label %if.end228.i
+  br i1 %cmp226.i, label %init_identifiers.exit.thread, label %if.end228.i
 
 if.end228.i:                                      ; preds = %if.end224.i
   %call229.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.352) #6
   %names.i = getelementptr inbounds i8, ptr %state, i64 1672
   store ptr %call229.i, ptr %names.i, align 8
   %cmp230.i = icmp eq ptr %call229.i, null
-  br i1 %cmp230.i, label %return, label %if.end232.i
+  br i1 %cmp230.i, label %init_identifiers.exit.thread, label %if.end232.i
 
 if.end232.i:                                      ; preds = %if.end228.i
   %call233.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.353) #6
   %op.i = getelementptr inbounds i8, ptr %state, i64 1680
   store ptr %call233.i, ptr %op.i, align 8
   %cmp234.i = icmp eq ptr %call233.i, null
-  br i1 %cmp234.i, label %return, label %if.end236.i
+  br i1 %cmp234.i, label %init_identifiers.exit.thread, label %if.end236.i
 
 if.end236.i:                                      ; preds = %if.end232.i
   %call237.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.354) #6
   %operand.i = getelementptr inbounds i8, ptr %state, i64 1688
   store ptr %call237.i, ptr %operand.i, align 8
   %cmp238.i = icmp eq ptr %call237.i, null
-  br i1 %cmp238.i, label %return, label %if.end240.i
+  br i1 %cmp238.i, label %init_identifiers.exit.thread, label %if.end240.i
 
 if.end240.i:                                      ; preds = %if.end236.i
   %call241.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.355) #6
   %ops.i = getelementptr inbounds i8, ptr %state, i64 1704
   store ptr %call241.i, ptr %ops.i, align 8
   %cmp242.i = icmp eq ptr %call241.i, null
-  br i1 %cmp242.i, label %return, label %if.end244.i
+  br i1 %cmp242.i, label %init_identifiers.exit.thread, label %if.end244.i
 
 if.end244.i:                                      ; preds = %if.end240.i
   %call245.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.356) #6
   %optional_vars.i = getelementptr inbounds i8, ptr %state, i64 1712
   store ptr %call245.i, ptr %optional_vars.i, align 8
   %cmp246.i = icmp eq ptr %call245.i, null
-  br i1 %cmp246.i, label %return, label %if.end248.i
+  br i1 %cmp246.i, label %init_identifiers.exit.thread, label %if.end248.i
 
 if.end248.i:                                      ; preds = %if.end244.i
   %call249.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.357) #6
   %orelse.i = getelementptr inbounds i8, ptr %state, i64 1720
   store ptr %call249.i, ptr %orelse.i, align 8
   %cmp250.i = icmp eq ptr %call249.i, null
-  br i1 %cmp250.i, label %return, label %if.end252.i
+  br i1 %cmp250.i, label %init_identifiers.exit.thread, label %if.end252.i
 
 if.end252.i:                                      ; preds = %if.end248.i
   %call253.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.192) #6
   %pattern.i = getelementptr inbounds i8, ptr %state, i64 1728
   store ptr %call253.i, ptr %pattern.i, align 8
   %cmp254.i = icmp eq ptr %call253.i, null
-  br i1 %cmp254.i, label %return, label %if.end256.i
+  br i1 %cmp254.i, label %init_identifiers.exit.thread, label %if.end256.i
 
 if.end256.i:                                      ; preds = %if.end252.i
   %call257.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.358) #6
   %patterns.i = getelementptr inbounds i8, ptr %state, i64 1744
   store ptr %call257.i, ptr %patterns.i, align 8
   %cmp258.i = icmp eq ptr %call257.i, null
-  br i1 %cmp258.i, label %return, label %if.end260.i
+  br i1 %cmp258.i, label %init_identifiers.exit.thread, label %if.end260.i
 
 if.end260.i:                                      ; preds = %if.end256.i
   %call261.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.359) #6
   %posonlyargs.i = getelementptr inbounds i8, ptr %state, i64 1752
   store ptr %call261.i, ptr %posonlyargs.i, align 8
   %cmp262.i = icmp eq ptr %call261.i, null
-  br i1 %cmp262.i, label %return, label %if.end264.i
+  br i1 %cmp262.i, label %init_identifiers.exit.thread, label %if.end264.i
 
 if.end264.i:                                      ; preds = %if.end260.i
   %call265.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.360) #6
   %rest.i = getelementptr inbounds i8, ptr %state, i64 1760
   store ptr %call265.i, ptr %rest.i, align 8
   %cmp266.i = icmp eq ptr %call265.i, null
-  br i1 %cmp266.i, label %return, label %if.end268.i
+  br i1 %cmp266.i, label %init_identifiers.exit.thread, label %if.end268.i
 
 if.end268.i:                                      ; preds = %if.end264.i
   %call269.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.361) #6
   %returns.i = getelementptr inbounds i8, ptr %state, i64 1768
   store ptr %call269.i, ptr %returns.i, align 8
   %cmp270.i = icmp eq ptr %call269.i, null
-  br i1 %cmp270.i, label %return, label %if.end272.i
+  br i1 %cmp270.i, label %init_identifiers.exit.thread, label %if.end272.i
 
 if.end272.i:                                      ; preds = %if.end268.i
   %call273.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.362) #6
   %right.i = getelementptr inbounds i8, ptr %state, i64 1776
   store ptr %call273.i, ptr %right.i, align 8
   %cmp274.i = icmp eq ptr %call273.i, null
-  br i1 %cmp274.i, label %return, label %if.end276.i
+  br i1 %cmp274.i, label %init_identifiers.exit.thread, label %if.end276.i
 
 if.end276.i:                                      ; preds = %if.end272.i
   %call277.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.363) #6
   %simple.i = getelementptr inbounds i8, ptr %state, i64 1784
   store ptr %call277.i, ptr %simple.i, align 8
   %cmp278.i = icmp eq ptr %call277.i, null
-  br i1 %cmp278.i, label %return, label %if.end280.i
+  br i1 %cmp278.i, label %init_identifiers.exit.thread, label %if.end280.i
 
 if.end280.i:                                      ; preds = %if.end276.i
   %call281.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.364) #6
   %slice.i = getelementptr inbounds i8, ptr %state, i64 1792
   store ptr %call281.i, ptr %slice.i, align 8
   %cmp282.i = icmp eq ptr %call281.i, null
-  br i1 %cmp282.i, label %return, label %if.end284.i
+  br i1 %cmp282.i, label %init_identifiers.exit.thread, label %if.end284.i
 
 if.end284.i:                                      ; preds = %if.end280.i
   %call285.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.365) #6
   %step.i = getelementptr inbounds i8, ptr %state, i64 1800
   store ptr %call285.i, ptr %step.i, align 8
   %cmp286.i = icmp eq ptr %call285.i, null
-  br i1 %cmp286.i, label %return, label %if.end288.i
+  br i1 %cmp286.i, label %init_identifiers.exit.thread, label %if.end288.i
 
 if.end288.i:                                      ; preds = %if.end284.i
   %call289.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.366) #6
   %subject.i = getelementptr inbounds i8, ptr %state, i64 1816
   store ptr %call289.i, ptr %subject.i, align 8
   %cmp290.i = icmp eq ptr %call289.i, null
-  br i1 %cmp290.i, label %return, label %if.end292.i
+  br i1 %cmp290.i, label %init_identifiers.exit.thread, label %if.end292.i
 
 if.end292.i:                                      ; preds = %if.end288.i
   %call293.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.367) #6
   %tag.i = getelementptr inbounds i8, ptr %state, i64 1824
   store ptr %call293.i, ptr %tag.i, align 8
   %cmp294.i = icmp eq ptr %call293.i, null
-  br i1 %cmp294.i, label %return, label %if.end296.i
+  br i1 %cmp294.i, label %init_identifiers.exit.thread, label %if.end296.i
 
 if.end296.i:                                      ; preds = %if.end292.i
   %call297.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.368) #6
   %target.i = getelementptr inbounds i8, ptr %state, i64 1832
   store ptr %call297.i, ptr %target.i, align 8
   %cmp298.i = icmp eq ptr %call297.i, null
-  br i1 %cmp298.i, label %return, label %if.end300.i
+  br i1 %cmp298.i, label %init_identifiers.exit.thread, label %if.end300.i
 
 if.end300.i:                                      ; preds = %if.end296.i
   %call301.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.369) #6
   %targets.i = getelementptr inbounds i8, ptr %state, i64 1840
   store ptr %call301.i, ptr %targets.i, align 8
   %cmp302.i = icmp eq ptr %call301.i, null
-  br i1 %cmp302.i, label %return, label %if.end304.i
+  br i1 %cmp302.i, label %init_identifiers.exit.thread, label %if.end304.i
 
 if.end304.i:                                      ; preds = %if.end300.i
   %call305.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.370) #6
   %test.i = getelementptr inbounds i8, ptr %state, i64 1848
   store ptr %call305.i, ptr %test.i, align 8
   %cmp306.i = icmp eq ptr %call305.i, null
-  br i1 %cmp306.i, label %return, label %if.end308.i
+  br i1 %cmp306.i, label %init_identifiers.exit.thread, label %if.end308.i
 
 if.end308.i:                                      ; preds = %if.end304.i
   %call309.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.371) #6
   %type.i = getelementptr inbounds i8, ptr %state, i64 1856
   store ptr %call309.i, ptr %type.i, align 8
   %cmp310.i = icmp eq ptr %call309.i, null
-  br i1 %cmp310.i, label %return, label %if.end312.i
+  br i1 %cmp310.i, label %init_identifiers.exit.thread, label %if.end312.i
 
 if.end312.i:                                      ; preds = %if.end308.i
   %call313.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.372) #6
   %type_comment.i = getelementptr inbounds i8, ptr %state, i64 1864
   store ptr %call313.i, ptr %type_comment.i, align 8
   %cmp314.i = icmp eq ptr %call313.i, null
-  br i1 %cmp314.i, label %return, label %if.end316.i
+  br i1 %cmp314.i, label %init_identifiers.exit.thread, label %if.end316.i
 
 if.end316.i:                                      ; preds = %if.end312.i
   %call317.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.373) #6
   %type_ignores.i = getelementptr inbounds i8, ptr %state, i64 1880
   store ptr %call317.i, ptr %type_ignores.i, align 8
   %cmp318.i = icmp eq ptr %call317.i, null
-  br i1 %cmp318.i, label %return, label %if.end320.i
+  br i1 %cmp318.i, label %init_identifiers.exit.thread, label %if.end320.i
 
 if.end320.i:                                      ; preds = %if.end316.i
   %call321.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.374) #6
   %type_params.i = getelementptr inbounds i8, ptr %state, i64 1896
   store ptr %call321.i, ptr %type_params.i, align 8
   %cmp322.i = icmp eq ptr %call321.i, null
-  br i1 %cmp322.i, label %return, label %if.end324.i
+  br i1 %cmp322.i, label %init_identifiers.exit.thread, label %if.end324.i
 
 if.end324.i:                                      ; preds = %if.end320.i
   %call325.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.375) #6
   %upper.i = getelementptr inbounds i8, ptr %state, i64 1912
   store ptr %call325.i, ptr %upper.i, align 8
   %cmp326.i = icmp eq ptr %call325.i, null
-  br i1 %cmp326.i, label %return, label %if.end328.i
+  br i1 %cmp326.i, label %init_identifiers.exit.thread, label %if.end328.i
 
 if.end328.i:                                      ; preds = %if.end324.i
   %call329.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.376) #6
   %value.i = getelementptr inbounds i8, ptr %state, i64 1920
   store ptr %call329.i, ptr %value.i, align 8
   %cmp330.i = icmp eq ptr %call329.i, null
-  br i1 %cmp330.i, label %return, label %if.end332.i
+  br i1 %cmp330.i, label %init_identifiers.exit.thread, label %if.end332.i
 
 if.end332.i:                                      ; preds = %if.end328.i
   %call333.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.377) #6
   %values.i = getelementptr inbounds i8, ptr %state, i64 1928
   store ptr %call333.i, ptr %values.i, align 8
   %cmp334.i = icmp eq ptr %call333.i, null
-  br i1 %cmp334.i, label %return, label %init_identifiers.exit
+  br i1 %cmp334.i, label %init_identifiers.exit.thread, label %init_identifiers.exit
+
+init_identifiers.exit.thread:                     ; preds = %entry, %if.end.i, %if.end4.i, %if.end8.i, %if.end12.i, %if.end16.i, %if.end20.i, %if.end24.i, %if.end28.i, %if.end32.i, %if.end36.i, %if.end40.i, %if.end44.i, %if.end48.i, %if.end52.i, %if.end56.i, %if.end60.i, %if.end64.i, %if.end68.i, %if.end72.i, %if.end76.i, %if.end80.i, %if.end84.i, %if.end88.i, %if.end92.i, %if.end96.i, %if.end100.i, %if.end104.i, %if.end108.i, %if.end112.i, %if.end116.i, %if.end120.i, %if.end124.i, %if.end128.i, %if.end132.i, %if.end136.i, %if.end140.i, %if.end144.i, %if.end148.i, %if.end152.i, %if.end156.i, %if.end160.i, %if.end164.i, %if.end168.i, %if.end172.i, %if.end176.i, %if.end180.i, %if.end184.i, %if.end188.i, %if.end192.i, %if.end196.i, %if.end200.i, %if.end204.i, %if.end208.i, %if.end212.i, %if.end216.i, %if.end220.i, %if.end224.i, %if.end228.i, %if.end232.i, %if.end236.i, %if.end240.i, %if.end244.i, %if.end248.i, %if.end252.i, %if.end256.i, %if.end260.i, %if.end264.i, %if.end268.i, %if.end272.i, %if.end276.i, %if.end280.i, %if.end284.i, %if.end288.i, %if.end292.i, %if.end296.i, %if.end300.i, %if.end304.i, %if.end308.i, %if.end312.i, %if.end316.i, %if.end320.i, %if.end324.i, %if.end328.i, %if.end332.i
+  br label %return
 
 init_identifiers.exit:                            ; preds = %if.end332.i
   %call337.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.378) #6
@@ -12891,7 +12894,7 @@ if.end:                                           ; preds = %init_identifiers.ex
 if.end4:                                          ; preds = %if.end
   %call.i730 = tail call ptr @PyTuple_New(i64 noundef 0) #6
   %tobool.not.i = icmp eq ptr %call.i730, null
-  br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %add_ast_fields.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end4
   %0 = load ptr, ptr %AST_type, align 8
@@ -12915,13 +12918,13 @@ if.then.i.i:                                      ; preds = %lor.lhs.false6.i, %
   %3 = load i64, ptr %call.i730, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %4, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %return
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %add_ast_fields.exit.thread
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %3, -1
   store i64 %dec.i.i.i, ptr %call.i730, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %add_ast_fields.exit.thread768, label %return
+  br i1 %cmp.i.i.i, label %add_ast_fields.exit.thread768, label %add_ast_fields.exit.thread
 
 add_ast_fields.exit.thread768:                    ; preds = %if.end.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i730) #6
@@ -12938,6 +12941,9 @@ if.end.i.i:                                       ; preds = %if.end.i733
   store i64 %dec.i.i, ptr %call.i730, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %add_ast_fields.exit, label %if.end8
+
+add_ast_fields.exit.thread:                       ; preds = %if.end4, %if.then.i.i, %if.end.i.i.i
+  br label %return
 
 add_ast_fields.exit:                              ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i730) #6
@@ -14628,8 +14634,8 @@ if.end1300:                                       ; preds = %if.end1294
   store i32 0, ptr %recursion_limit, align 4
   br label %return
 
-return:                                           ; preds = %if.end14, %if.end.i.i.i, %if.then.i.i, %if.end4, %if.end332.i, %if.end328.i, %if.end324.i, %if.end320.i, %if.end316.i, %if.end312.i, %if.end308.i, %if.end304.i, %if.end300.i, %if.end296.i, %if.end292.i, %if.end288.i, %if.end284.i, %if.end280.i, %if.end276.i, %if.end272.i, %if.end268.i, %if.end264.i, %if.end260.i, %if.end256.i, %if.end252.i, %if.end248.i, %if.end244.i, %if.end240.i, %if.end236.i, %if.end232.i, %if.end228.i, %if.end224.i, %if.end220.i, %if.end216.i, %if.end212.i, %if.end208.i, %if.end204.i, %if.end200.i, %if.end196.i, %if.end192.i, %if.end188.i, %if.end184.i, %if.end180.i, %if.end176.i, %if.end172.i, %if.end168.i, %if.end164.i, %if.end160.i, %if.end156.i, %if.end152.i, %if.end148.i, %if.end144.i, %if.end140.i, %if.end136.i, %if.end132.i, %if.end128.i, %if.end124.i, %if.end120.i, %if.end116.i, %if.end112.i, %if.end108.i, %if.end104.i, %if.end100.i, %if.end96.i, %if.end92.i, %if.end88.i, %if.end84.i, %if.end80.i, %if.end76.i, %if.end72.i, %if.end68.i, %if.end64.i, %if.end60.i, %if.end56.i, %if.end52.i, %if.end48.i, %if.end44.i, %if.end40.i, %if.end36.i, %if.end32.i, %if.end28.i, %if.end24.i, %if.end20.i, %if.end16.i, %if.end12.i, %if.end8.i, %if.end4.i, %if.end.i, %entry, %make_type.exit.thread, %add_ast_fields.exit.thread768, %if.end1294, %if.end1288, %if.end1283, %if.end1277, %if.end1272, %if.end1266, %if.end1260, %if.end1255, %if.end1249, %if.end1243, %if.end1237, %if.end1232, %if.end1226, %if.end1220, %if.end1214, %if.end1208, %if.end1203, %if.end1197, %if.end1191, %if.end1185, %if.end1179, %if.end1174, %if.end1168, %if.end1163, %if.end1158, %if.end1152, %if.end1147, %if.end1142, %if.end1136, %if.end1130, %if.end1124, %if.end1119, %if.end1114, %if.end1108, %if.end1102, %if.end1096, %if.end1091, %if.end1086, %if.end1080, %if.end1074, %if.end1068, %if.end1062, %if.end1057, %if.end1052, %if.end1046, %if.end1041, %if.end1036, %if.end1031, %if.end1025, %if.end1020, %if.end1015, %if.end1009, %if.end1003, %if.end997, %if.end992, %if.end986, %if.end981, %if.end975, %if.end969, %if.end963, %if.end957, %if.end951, %if.end945, %if.end939, %if.end933, %if.end927, %if.end921, %if.end915, %if.end909, %if.end903, %if.end897, %if.end891, %if.end885, %if.end879, %if.end873, %if.end867, %if.end861, %if.end855, %if.end850, %if.end844, %if.end838, %if.end832, %if.end826, %if.end820, %if.end814, %if.end808, %if.end802, %if.end796, %if.end791, %if.end785, %if.end779, %if.end773, %if.end767, %if.end761, %if.end755, %if.end749, %if.end743, %if.end737, %if.end731, %if.end725, %if.end719, %if.end713, %if.end707, %if.end701, %if.end695, %if.end689, %if.end683, %if.end677, %if.end671, %if.end665, %if.end659, %if.end653, %if.end647, %if.end641, %if.end635, %if.end629, %if.end624, %if.end618, %if.end612, %if.end606, %if.end600, %if.end594, %if.end589, %if.end583, %if.end577, %if.end571, %if.end565, %if.end559, %if.end553, %if.end547, %if.end542, %if.end536, %if.end531, %if.end526, %if.end521, %if.end515, %if.end509, %if.end503, %if.end497, %if.end491, %if.end485, %if.end479, %if.end474, %if.end468, %if.end462, %if.end457, %if.end451, %if.end445, %if.end439, %if.end433, %if.end427, %if.end421, %if.end415, %if.end409, %if.end403, %if.end397, %if.end391, %if.end385, %if.end379, %if.end373, %if.end367, %if.end361, %if.end355, %if.end349, %if.end343, %if.end337, %if.end331, %if.end326, %if.end320, %if.end314, %if.end308, %if.end302, %if.end296, %if.end290, %if.end284, %if.end279, %if.end274, %if.end268, %if.end262, %if.end257, %if.end251, %if.end245, %if.end239, %if.end234, %if.end229, %if.end223, %if.end217, %if.end211, %if.end205, %if.end199, %if.end193, %if.end187, %if.end181, %if.end175, %if.end169, %if.end163, %if.end157, %if.end151, %if.end145, %if.end139, %if.end133, %if.end127, %if.end121, %if.end115, %if.end110, %if.end104, %if.end98, %if.end92, %if.end86, %if.end80, %if.end75, %if.end70, %if.end64, %if.end59, %if.end54, %if.end49, %if.end43, %if.end37, %if.end31, %if.end25, %if.end19, %add_attributes.exit, %make_type.exit, %if.end, %init_identifiers.exit, %if.end1300
-  %retval.0 = phi i32 [ 0, %if.end1300 ], [ -1, %init_identifiers.exit ], [ -1, %if.end ], [ -1, %make_type.exit ], [ -1, %add_attributes.exit ], [ -1, %if.end19 ], [ -1, %if.end25 ], [ -1, %if.end31 ], [ -1, %if.end37 ], [ -1, %if.end43 ], [ -1, %if.end49 ], [ -1, %if.end54 ], [ -1, %if.end59 ], [ -1, %if.end64 ], [ -1, %if.end70 ], [ -1, %if.end75 ], [ -1, %if.end80 ], [ -1, %if.end86 ], [ -1, %if.end92 ], [ -1, %if.end98 ], [ -1, %if.end104 ], [ -1, %if.end110 ], [ -1, %if.end115 ], [ -1, %if.end121 ], [ -1, %if.end127 ], [ -1, %if.end133 ], [ -1, %if.end139 ], [ -1, %if.end145 ], [ -1, %if.end151 ], [ -1, %if.end157 ], [ -1, %if.end163 ], [ -1, %if.end169 ], [ -1, %if.end175 ], [ -1, %if.end181 ], [ -1, %if.end187 ], [ -1, %if.end193 ], [ -1, %if.end199 ], [ -1, %if.end205 ], [ -1, %if.end211 ], [ -1, %if.end217 ], [ -1, %if.end223 ], [ -1, %if.end229 ], [ -1, %if.end234 ], [ -1, %if.end239 ], [ -1, %if.end245 ], [ -1, %if.end251 ], [ -1, %if.end257 ], [ -1, %if.end262 ], [ -1, %if.end268 ], [ -1, %if.end274 ], [ -1, %if.end279 ], [ -1, %if.end284 ], [ -1, %if.end290 ], [ -1, %if.end296 ], [ -1, %if.end302 ], [ -1, %if.end308 ], [ -1, %if.end314 ], [ -1, %if.end320 ], [ -1, %if.end326 ], [ -1, %if.end331 ], [ -1, %if.end337 ], [ -1, %if.end343 ], [ -1, %if.end349 ], [ -1, %if.end355 ], [ -1, %if.end361 ], [ -1, %if.end367 ], [ -1, %if.end373 ], [ -1, %if.end379 ], [ -1, %if.end385 ], [ -1, %if.end391 ], [ -1, %if.end397 ], [ -1, %if.end403 ], [ -1, %if.end409 ], [ -1, %if.end415 ], [ -1, %if.end421 ], [ -1, %if.end427 ], [ -1, %if.end433 ], [ -1, %if.end439 ], [ -1, %if.end445 ], [ -1, %if.end451 ], [ -1, %if.end457 ], [ -1, %if.end462 ], [ -1, %if.end468 ], [ -1, %if.end474 ], [ -1, %if.end479 ], [ -1, %if.end485 ], [ -1, %if.end491 ], [ -1, %if.end497 ], [ -1, %if.end503 ], [ -1, %if.end509 ], [ -1, %if.end515 ], [ -1, %if.end521 ], [ -1, %if.end526 ], [ -1, %if.end531 ], [ -1, %if.end536 ], [ -1, %if.end542 ], [ -1, %if.end547 ], [ -1, %if.end553 ], [ -1, %if.end559 ], [ -1, %if.end565 ], [ -1, %if.end571 ], [ -1, %if.end577 ], [ -1, %if.end583 ], [ -1, %if.end589 ], [ -1, %if.end594 ], [ -1, %if.end600 ], [ -1, %if.end606 ], [ -1, %if.end612 ], [ -1, %if.end618 ], [ -1, %if.end624 ], [ -1, %if.end629 ], [ -1, %if.end635 ], [ -1, %if.end641 ], [ -1, %if.end647 ], [ -1, %if.end653 ], [ -1, %if.end659 ], [ -1, %if.end665 ], [ -1, %if.end671 ], [ -1, %if.end677 ], [ -1, %if.end683 ], [ -1, %if.end689 ], [ -1, %if.end695 ], [ -1, %if.end701 ], [ -1, %if.end707 ], [ -1, %if.end713 ], [ -1, %if.end719 ], [ -1, %if.end725 ], [ -1, %if.end731 ], [ -1, %if.end737 ], [ -1, %if.end743 ], [ -1, %if.end749 ], [ -1, %if.end755 ], [ -1, %if.end761 ], [ -1, %if.end767 ], [ -1, %if.end773 ], [ -1, %if.end779 ], [ -1, %if.end785 ], [ -1, %if.end791 ], [ -1, %if.end796 ], [ -1, %if.end802 ], [ -1, %if.end808 ], [ -1, %if.end814 ], [ -1, %if.end820 ], [ -1, %if.end826 ], [ -1, %if.end832 ], [ -1, %if.end838 ], [ -1, %if.end844 ], [ -1, %if.end850 ], [ -1, %if.end855 ], [ -1, %if.end861 ], [ -1, %if.end867 ], [ -1, %if.end873 ], [ -1, %if.end879 ], [ -1, %if.end885 ], [ -1, %if.end891 ], [ -1, %if.end897 ], [ -1, %if.end903 ], [ -1, %if.end909 ], [ -1, %if.end915 ], [ -1, %if.end921 ], [ -1, %if.end927 ], [ -1, %if.end933 ], [ -1, %if.end939 ], [ -1, %if.end945 ], [ -1, %if.end951 ], [ -1, %if.end957 ], [ -1, %if.end963 ], [ -1, %if.end969 ], [ -1, %if.end975 ], [ -1, %if.end981 ], [ -1, %if.end986 ], [ -1, %if.end992 ], [ -1, %if.end997 ], [ -1, %if.end1003 ], [ -1, %if.end1009 ], [ -1, %if.end1015 ], [ -1, %if.end1020 ], [ -1, %if.end1025 ], [ -1, %if.end1031 ], [ -1, %if.end1036 ], [ -1, %if.end1041 ], [ -1, %if.end1046 ], [ -1, %if.end1052 ], [ -1, %if.end1057 ], [ -1, %if.end1062 ], [ -1, %if.end1068 ], [ -1, %if.end1074 ], [ -1, %if.end1080 ], [ -1, %if.end1086 ], [ -1, %if.end1091 ], [ -1, %if.end1096 ], [ -1, %if.end1102 ], [ -1, %if.end1108 ], [ -1, %if.end1114 ], [ -1, %if.end1119 ], [ -1, %if.end1124 ], [ -1, %if.end1130 ], [ -1, %if.end1136 ], [ -1, %if.end1142 ], [ -1, %if.end1147 ], [ -1, %if.end1152 ], [ -1, %if.end1158 ], [ -1, %if.end1163 ], [ -1, %if.end1168 ], [ -1, %if.end1174 ], [ -1, %if.end1179 ], [ -1, %if.end1185 ], [ -1, %if.end1191 ], [ -1, %if.end1197 ], [ -1, %if.end1203 ], [ -1, %if.end1208 ], [ -1, %if.end1214 ], [ -1, %if.end1220 ], [ -1, %if.end1226 ], [ -1, %if.end1232 ], [ -1, %if.end1237 ], [ -1, %if.end1243 ], [ -1, %if.end1249 ], [ -1, %if.end1255 ], [ -1, %if.end1260 ], [ -1, %if.end1266 ], [ -1, %if.end1272 ], [ -1, %if.end1277 ], [ -1, %if.end1283 ], [ -1, %if.end1288 ], [ -1, %if.end1294 ], [ -1, %add_ast_fields.exit.thread768 ], [ -1, %make_type.exit.thread ], [ -1, %entry ], [ -1, %if.end.i ], [ -1, %if.end4.i ], [ -1, %if.end8.i ], [ -1, %if.end12.i ], [ -1, %if.end16.i ], [ -1, %if.end20.i ], [ -1, %if.end24.i ], [ -1, %if.end28.i ], [ -1, %if.end32.i ], [ -1, %if.end36.i ], [ -1, %if.end40.i ], [ -1, %if.end44.i ], [ -1, %if.end48.i ], [ -1, %if.end52.i ], [ -1, %if.end56.i ], [ -1, %if.end60.i ], [ -1, %if.end64.i ], [ -1, %if.end68.i ], [ -1, %if.end72.i ], [ -1, %if.end76.i ], [ -1, %if.end80.i ], [ -1, %if.end84.i ], [ -1, %if.end88.i ], [ -1, %if.end92.i ], [ -1, %if.end96.i ], [ -1, %if.end100.i ], [ -1, %if.end104.i ], [ -1, %if.end108.i ], [ -1, %if.end112.i ], [ -1, %if.end116.i ], [ -1, %if.end120.i ], [ -1, %if.end124.i ], [ -1, %if.end128.i ], [ -1, %if.end132.i ], [ -1, %if.end136.i ], [ -1, %if.end140.i ], [ -1, %if.end144.i ], [ -1, %if.end148.i ], [ -1, %if.end152.i ], [ -1, %if.end156.i ], [ -1, %if.end160.i ], [ -1, %if.end164.i ], [ -1, %if.end168.i ], [ -1, %if.end172.i ], [ -1, %if.end176.i ], [ -1, %if.end180.i ], [ -1, %if.end184.i ], [ -1, %if.end188.i ], [ -1, %if.end192.i ], [ -1, %if.end196.i ], [ -1, %if.end200.i ], [ -1, %if.end204.i ], [ -1, %if.end208.i ], [ -1, %if.end212.i ], [ -1, %if.end216.i ], [ -1, %if.end220.i ], [ -1, %if.end224.i ], [ -1, %if.end228.i ], [ -1, %if.end232.i ], [ -1, %if.end236.i ], [ -1, %if.end240.i ], [ -1, %if.end244.i ], [ -1, %if.end248.i ], [ -1, %if.end252.i ], [ -1, %if.end256.i ], [ -1, %if.end260.i ], [ -1, %if.end264.i ], [ -1, %if.end268.i ], [ -1, %if.end272.i ], [ -1, %if.end276.i ], [ -1, %if.end280.i ], [ -1, %if.end284.i ], [ -1, %if.end288.i ], [ -1, %if.end292.i ], [ -1, %if.end296.i ], [ -1, %if.end300.i ], [ -1, %if.end304.i ], [ -1, %if.end308.i ], [ -1, %if.end312.i ], [ -1, %if.end316.i ], [ -1, %if.end320.i ], [ -1, %if.end324.i ], [ -1, %if.end328.i ], [ -1, %if.end332.i ], [ -1, %if.end4 ], [ -1, %if.then.i.i ], [ -1, %if.end.i.i.i ], [ -1, %if.end14 ]
+return:                                           ; preds = %if.end14, %make_type.exit.thread, %add_ast_fields.exit.thread768, %add_ast_fields.exit.thread, %init_identifiers.exit.thread, %if.end1294, %if.end1288, %if.end1283, %if.end1277, %if.end1272, %if.end1266, %if.end1260, %if.end1255, %if.end1249, %if.end1243, %if.end1237, %if.end1232, %if.end1226, %if.end1220, %if.end1214, %if.end1208, %if.end1203, %if.end1197, %if.end1191, %if.end1185, %if.end1179, %if.end1174, %if.end1168, %if.end1163, %if.end1158, %if.end1152, %if.end1147, %if.end1142, %if.end1136, %if.end1130, %if.end1124, %if.end1119, %if.end1114, %if.end1108, %if.end1102, %if.end1096, %if.end1091, %if.end1086, %if.end1080, %if.end1074, %if.end1068, %if.end1062, %if.end1057, %if.end1052, %if.end1046, %if.end1041, %if.end1036, %if.end1031, %if.end1025, %if.end1020, %if.end1015, %if.end1009, %if.end1003, %if.end997, %if.end992, %if.end986, %if.end981, %if.end975, %if.end969, %if.end963, %if.end957, %if.end951, %if.end945, %if.end939, %if.end933, %if.end927, %if.end921, %if.end915, %if.end909, %if.end903, %if.end897, %if.end891, %if.end885, %if.end879, %if.end873, %if.end867, %if.end861, %if.end855, %if.end850, %if.end844, %if.end838, %if.end832, %if.end826, %if.end820, %if.end814, %if.end808, %if.end802, %if.end796, %if.end791, %if.end785, %if.end779, %if.end773, %if.end767, %if.end761, %if.end755, %if.end749, %if.end743, %if.end737, %if.end731, %if.end725, %if.end719, %if.end713, %if.end707, %if.end701, %if.end695, %if.end689, %if.end683, %if.end677, %if.end671, %if.end665, %if.end659, %if.end653, %if.end647, %if.end641, %if.end635, %if.end629, %if.end624, %if.end618, %if.end612, %if.end606, %if.end600, %if.end594, %if.end589, %if.end583, %if.end577, %if.end571, %if.end565, %if.end559, %if.end553, %if.end547, %if.end542, %if.end536, %if.end531, %if.end526, %if.end521, %if.end515, %if.end509, %if.end503, %if.end497, %if.end491, %if.end485, %if.end479, %if.end474, %if.end468, %if.end462, %if.end457, %if.end451, %if.end445, %if.end439, %if.end433, %if.end427, %if.end421, %if.end415, %if.end409, %if.end403, %if.end397, %if.end391, %if.end385, %if.end379, %if.end373, %if.end367, %if.end361, %if.end355, %if.end349, %if.end343, %if.end337, %if.end331, %if.end326, %if.end320, %if.end314, %if.end308, %if.end302, %if.end296, %if.end290, %if.end284, %if.end279, %if.end274, %if.end268, %if.end262, %if.end257, %if.end251, %if.end245, %if.end239, %if.end234, %if.end229, %if.end223, %if.end217, %if.end211, %if.end205, %if.end199, %if.end193, %if.end187, %if.end181, %if.end175, %if.end169, %if.end163, %if.end157, %if.end151, %if.end145, %if.end139, %if.end133, %if.end127, %if.end121, %if.end115, %if.end110, %if.end104, %if.end98, %if.end92, %if.end86, %if.end80, %if.end75, %if.end70, %if.end64, %if.end59, %if.end54, %if.end49, %if.end43, %if.end37, %if.end31, %if.end25, %if.end19, %add_attributes.exit, %make_type.exit, %if.end, %init_identifiers.exit, %if.end1300
+  %retval.0 = phi i32 [ 0, %if.end1300 ], [ -1, %init_identifiers.exit ], [ -1, %if.end ], [ -1, %make_type.exit ], [ -1, %add_attributes.exit ], [ -1, %if.end19 ], [ -1, %if.end25 ], [ -1, %if.end31 ], [ -1, %if.end37 ], [ -1, %if.end43 ], [ -1, %if.end49 ], [ -1, %if.end54 ], [ -1, %if.end59 ], [ -1, %if.end64 ], [ -1, %if.end70 ], [ -1, %if.end75 ], [ -1, %if.end80 ], [ -1, %if.end86 ], [ -1, %if.end92 ], [ -1, %if.end98 ], [ -1, %if.end104 ], [ -1, %if.end110 ], [ -1, %if.end115 ], [ -1, %if.end121 ], [ -1, %if.end127 ], [ -1, %if.end133 ], [ -1, %if.end139 ], [ -1, %if.end145 ], [ -1, %if.end151 ], [ -1, %if.end157 ], [ -1, %if.end163 ], [ -1, %if.end169 ], [ -1, %if.end175 ], [ -1, %if.end181 ], [ -1, %if.end187 ], [ -1, %if.end193 ], [ -1, %if.end199 ], [ -1, %if.end205 ], [ -1, %if.end211 ], [ -1, %if.end217 ], [ -1, %if.end223 ], [ -1, %if.end229 ], [ -1, %if.end234 ], [ -1, %if.end239 ], [ -1, %if.end245 ], [ -1, %if.end251 ], [ -1, %if.end257 ], [ -1, %if.end262 ], [ -1, %if.end268 ], [ -1, %if.end274 ], [ -1, %if.end279 ], [ -1, %if.end284 ], [ -1, %if.end290 ], [ -1, %if.end296 ], [ -1, %if.end302 ], [ -1, %if.end308 ], [ -1, %if.end314 ], [ -1, %if.end320 ], [ -1, %if.end326 ], [ -1, %if.end331 ], [ -1, %if.end337 ], [ -1, %if.end343 ], [ -1, %if.end349 ], [ -1, %if.end355 ], [ -1, %if.end361 ], [ -1, %if.end367 ], [ -1, %if.end373 ], [ -1, %if.end379 ], [ -1, %if.end385 ], [ -1, %if.end391 ], [ -1, %if.end397 ], [ -1, %if.end403 ], [ -1, %if.end409 ], [ -1, %if.end415 ], [ -1, %if.end421 ], [ -1, %if.end427 ], [ -1, %if.end433 ], [ -1, %if.end439 ], [ -1, %if.end445 ], [ -1, %if.end451 ], [ -1, %if.end457 ], [ -1, %if.end462 ], [ -1, %if.end468 ], [ -1, %if.end474 ], [ -1, %if.end479 ], [ -1, %if.end485 ], [ -1, %if.end491 ], [ -1, %if.end497 ], [ -1, %if.end503 ], [ -1, %if.end509 ], [ -1, %if.end515 ], [ -1, %if.end521 ], [ -1, %if.end526 ], [ -1, %if.end531 ], [ -1, %if.end536 ], [ -1, %if.end542 ], [ -1, %if.end547 ], [ -1, %if.end553 ], [ -1, %if.end559 ], [ -1, %if.end565 ], [ -1, %if.end571 ], [ -1, %if.end577 ], [ -1, %if.end583 ], [ -1, %if.end589 ], [ -1, %if.end594 ], [ -1, %if.end600 ], [ -1, %if.end606 ], [ -1, %if.end612 ], [ -1, %if.end618 ], [ -1, %if.end624 ], [ -1, %if.end629 ], [ -1, %if.end635 ], [ -1, %if.end641 ], [ -1, %if.end647 ], [ -1, %if.end653 ], [ -1, %if.end659 ], [ -1, %if.end665 ], [ -1, %if.end671 ], [ -1, %if.end677 ], [ -1, %if.end683 ], [ -1, %if.end689 ], [ -1, %if.end695 ], [ -1, %if.end701 ], [ -1, %if.end707 ], [ -1, %if.end713 ], [ -1, %if.end719 ], [ -1, %if.end725 ], [ -1, %if.end731 ], [ -1, %if.end737 ], [ -1, %if.end743 ], [ -1, %if.end749 ], [ -1, %if.end755 ], [ -1, %if.end761 ], [ -1, %if.end767 ], [ -1, %if.end773 ], [ -1, %if.end779 ], [ -1, %if.end785 ], [ -1, %if.end791 ], [ -1, %if.end796 ], [ -1, %if.end802 ], [ -1, %if.end808 ], [ -1, %if.end814 ], [ -1, %if.end820 ], [ -1, %if.end826 ], [ -1, %if.end832 ], [ -1, %if.end838 ], [ -1, %if.end844 ], [ -1, %if.end850 ], [ -1, %if.end855 ], [ -1, %if.end861 ], [ -1, %if.end867 ], [ -1, %if.end873 ], [ -1, %if.end879 ], [ -1, %if.end885 ], [ -1, %if.end891 ], [ -1, %if.end897 ], [ -1, %if.end903 ], [ -1, %if.end909 ], [ -1, %if.end915 ], [ -1, %if.end921 ], [ -1, %if.end927 ], [ -1, %if.end933 ], [ -1, %if.end939 ], [ -1, %if.end945 ], [ -1, %if.end951 ], [ -1, %if.end957 ], [ -1, %if.end963 ], [ -1, %if.end969 ], [ -1, %if.end975 ], [ -1, %if.end981 ], [ -1, %if.end986 ], [ -1, %if.end992 ], [ -1, %if.end997 ], [ -1, %if.end1003 ], [ -1, %if.end1009 ], [ -1, %if.end1015 ], [ -1, %if.end1020 ], [ -1, %if.end1025 ], [ -1, %if.end1031 ], [ -1, %if.end1036 ], [ -1, %if.end1041 ], [ -1, %if.end1046 ], [ -1, %if.end1052 ], [ -1, %if.end1057 ], [ -1, %if.end1062 ], [ -1, %if.end1068 ], [ -1, %if.end1074 ], [ -1, %if.end1080 ], [ -1, %if.end1086 ], [ -1, %if.end1091 ], [ -1, %if.end1096 ], [ -1, %if.end1102 ], [ -1, %if.end1108 ], [ -1, %if.end1114 ], [ -1, %if.end1119 ], [ -1, %if.end1124 ], [ -1, %if.end1130 ], [ -1, %if.end1136 ], [ -1, %if.end1142 ], [ -1, %if.end1147 ], [ -1, %if.end1152 ], [ -1, %if.end1158 ], [ -1, %if.end1163 ], [ -1, %if.end1168 ], [ -1, %if.end1174 ], [ -1, %if.end1179 ], [ -1, %if.end1185 ], [ -1, %if.end1191 ], [ -1, %if.end1197 ], [ -1, %if.end1203 ], [ -1, %if.end1208 ], [ -1, %if.end1214 ], [ -1, %if.end1220 ], [ -1, %if.end1226 ], [ -1, %if.end1232 ], [ -1, %if.end1237 ], [ -1, %if.end1243 ], [ -1, %if.end1249 ], [ -1, %if.end1255 ], [ -1, %if.end1260 ], [ -1, %if.end1266 ], [ -1, %if.end1272 ], [ -1, %if.end1277 ], [ -1, %if.end1283 ], [ -1, %if.end1288 ], [ -1, %if.end1294 ], [ -1, %init_identifiers.exit.thread ], [ -1, %add_ast_fields.exit.thread ], [ -1, %add_ast_fields.exit.thread768 ], [ -1, %make_type.exit.thread ], [ -1, %if.end14 ]
   ret i32 %retval.0
 }
 
@@ -33270,26 +33276,29 @@ if.end3913:                                       ; preds = %if.end3902
 failed:                                           ; preds = %Py_DECREF.exit3932, %_Py_NewRef.exit2143, %Py_DECREF.exit3950, %_Py_NewRef.exit2126, %Py_DECREF.exit3986, %_Py_NewRef.exit2107, %Py_DECREF.exit4022, %_Py_NewRef.exit2088, %Py_DECREF.exit4121, %_Py_NewRef.exit2037, %Py_DECREF.exit4103, %_Py_NewRef.exit2046, %Py_DECREF.exit4085, %_Py_NewRef.exit2055, %Py_DECREF.exit4067, %_Py_NewRef.exit2064, %Py_DECREF.exit4193, %_Py_NewRef.exit1997, %Py_DECREF.exit4175, %_Py_NewRef.exit2006, %Py_DECREF.exit4157, %_Py_NewRef.exit2015, %Py_DECREF.exit4139, %_Py_NewRef.exit2024, %Py_DECREF.exit4247, %_Py_NewRef.exit1980, %Py_DECREF.exit4310, %_Py_NewRef.exit1948, %Py_DECREF.exit4292, %_Py_NewRef.exit1957, %Py_DECREF.exit4364, %_Py_NewRef.exit1924, %Py_DECREF.exit4346, %_Py_NewRef.exit1933, %Py_DECREF.exit4400, %_Py_NewRef.exit1906, %Py_DECREF.exit4382, %_Py_NewRef.exit1915, %Py_DECREF.exit4445, %_Py_NewRef.exit1886, %Py_DECREF.exit4427, %_Py_NewRef.exit1895, %Py_DECREF.exit4508, %_Py_NewRef.exit1864, %Py_DECREF.exit4490, %_Py_NewRef.exit1873, %Py_DECREF.exit4580, %_Py_NewRef.exit1840, %Py_DECREF.exit4562, %_Py_NewRef.exit1849, %Py_DECREF.exit4697, %_Py_NewRef.exit1811, %Py_DECREF.exit4751, %_Py_NewRef.exit1796, %Py_DECREF.exit4769, %_Py_NewRef.exit1779, %Py_DECREF.exit4877, %_Py_NewRef.exit1730, %Py_DECREF.exit4859, %_Py_NewRef.exit1739, %Py_DECREF.exit4841, %_Py_NewRef.exit1748, %Py_DECREF.exit4823, %_Py_NewRef.exit1757, %Py_DECREF.exit4805, %_Py_NewRef.exit1766, %Py_DECREF.exit4976, %_Py_NewRef.exit1697, %Py_DECREF.exit4958, %_Py_NewRef.exit1706, %Py_DECREF.exit4904, %_Py_NewRef.exit1719, %Py_DECREF.exit5084, %_Py_NewRef.exit, %Py_DECREF.exit5066, %_Py_NewRef.exit1671, %Py_DECREF.exit5012, %_Py_NewRef.exit1684, %_PyAST_Continue.exit.thread, %_PyAST_Break.exit.thread, %_PyAST_Pass.exit.thread, %_PyAST_Nonlocal.exit.thread, %_PyAST_Global.exit.thread, %_PyAST_ImportFrom.exit.thread, %_PyAST_Import.exit.thread, %_PyAST_TryStar.exit.thread, %_PyAST_Try.exit.thread, %_PyAST_Raise.exit.thread, %_PyAST_AsyncWith.exit.thread, %_PyAST_With.exit.thread, %_PyAST_Delete.exit.thread, %_PyAST_Return.exit.thread, %obj2ast_int.exit.thread, %if.end3875, %if.end3863, %if.else3858, %if.end3801, %if.end3729, %if.end3682, %if.else3677, %if.end3623, %if.end3588, %if.else3583, %if.end3517, %if.end3483, %if.end3471, %if.else3466, %if.end3437, %if.else3432, %if.end3375, %if.end3315, %if.end3255, %if.end3195, %if.end3120, %if.end3060, %if.end3000, %if.end2940, %if.end2892, %if.else2887, %if.end2858, %if.else2853, %do.end2825, %if.end2788, %if.end2753, %if.else2748, %if.end2717, %if.else2712, %if.end2658, %if.end2598, %if.end2549, %if.else2544, %if.end2490, %if.end2430, %do.end2394, %if.end2357, %if.end2297, %if.end2262, %if.else2257, %do.end2235, %if.end2198, %if.end2138, %if.end2103, %if.else2098, %if.end2077, %if.end2065, %if.else2060, %if.end2006, %if.end1946, %if.end1911, %if.else1906, %if.end1886, %if.else1881, %if.end1857, %if.end1845, %if.else1840, %if.end1786, %if.end1726, %if.end1691, %if.else1686, %if.end1666, %if.else1661, %if.end1639, %if.end1627, %if.else1622, %if.end1602, %if.else1597, %if.end1568, %if.else1563, %if.end1543, %if.else1538, %if.end1517, %if.end1505, %if.else1500, %if.end1480, %if.else1475, %if.end1455, %if.else1450, %if.end1430, %if.end1418, %if.else1413, %if.end1368, %if.end1333, %if.else1328, %if.end1306, %if.end1294, %if.else1289, %if.end1260, %if.else1255, %if.end1210, %if.end1136, %if.end1090, %if.else1085, %do.end1057, %if.end1020, %if.end960, %if.end900, %if.end840, %if.end780, %if.end745, %if.else740, %do.end717, %if.end680, %if.end645, %if.else640, %if.end611, %if.else606, %if.end552, %if.end492, %if.end457, %if.else452, %if.end432, %if.else427, %do.end401, %if.end364, %if.end329, %if.else324, %if.end295, %if.else290, %if.end236, %if.end186, %if.end153, %if.else148, %if.end128, %if.else123, %if.end97, %if.else92, %if.end63, %if.else58, %if.end30, %if.else25, %_Py_EnterRecursiveCall.exit, %if.end3913, %if.then3825, %if.then3797, %if.then3753, %if.then3725, %if.then3647, %if.then3619, %if.then3541, %if.then3513, %if.then3399, %if.then3371, %if.then3339, %if.then3311, %if.then3279, %if.then3251, %if.then3219, %if.then3191, %if.then3144, %if.then3116, %if.then3084, %if.then3056, %if.then3024, %if.then2996, %if.then2964, %if.then2936, %if.then2812, %if.then2784, %if.then2682, %if.then2654, %if.then2622, %if.then2594, %if.then2514, %if.then2486, %if.then2454, %if.then2426, %if.then2381, %if.then2353, %if.then2321, %if.then2293, %if.then2222, %if.then2194, %if.then2162, %if.then2134, %if.then2030, %if.then2002, %if.then1970, %if.then1942, %if.then1810, %if.then1782, %if.then1750, %if.then1722, %if.then1392, %if.then1364, %if.then1234, %if.then1206, %if.then1160, %if.then1132, %if.then1044, %if.then1016, %if.then984, %if.then956, %if.then924, %if.then896, %if.then864, %if.then836, %if.then804, %if.then776, %if.then704, %if.then676, %if.then576, %if.then548, %if.then516, %if.then488, %if.then388, %if.then360, %if.then260, %if.then232, %if.then204, %if.then182
   %1464 = load ptr, ptr %tmp, align 8
   %cmp.not.i = icmp eq ptr %1464, null
-  br i1 %cmp.not.i, label %return, label %if.then.i2173
+  br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i2173
 
 if.then.i2173:                                    ; preds = %failed
   %1465 = load i64, ptr %1464, align 8
   %1466 = and i64 %1465, 2147483648
   %cmp.i2.not.i = icmp eq i64 %1466, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i2175, label %return
+  br i1 %cmp.i2.not.i, label %if.end.i.i2175, label %Py_XDECREF.exit
 
 if.end.i.i2175:                                   ; preds = %if.then.i2173
   %dec.i.i = add i64 %1465, -1
   store i64 %dec.i.i, ptr %1464, align 8
   %cmp.i.i2176 = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i2176, label %if.then1.i.i, label %return
+  br i1 %cmp.i.i2176, label %if.then1.i.i, label %Py_XDECREF.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i2175
   call void @_Py_Dealloc(ptr noundef nonnull %1464) #6
+  br label %Py_XDECREF.exit
+
+Py_XDECREF.exit:                                  ; preds = %failed, %if.then.i2173, %if.end.i.i2175, %if.then1.i.i
   br label %return
 
-return:                                           ; preds = %if.then1.i.i, %if.end.i.i2175, %if.then.i2173, %failed, %_PyAST_Continue.exit, %_PyAST_Break.exit, %_PyAST_Pass.exit, %_PyAST_Nonlocal.exit, %_PyAST_Global.exit, %_PyAST_ImportFrom.exit, %_PyAST_Import.exit, %_PyAST_TryStar.exit, %_PyAST_Try.exit, %_PyAST_Raise.exit, %_PyAST_AsyncWith.exit, %_PyAST_With.exit, %_PyAST_Delete.exit, %_PyAST_Return.exit, %if.end3902, %if.end3891, %if.end3880, %if.end3875, %if.then3849, %if.end3843, %if.then3785, %if.then3777, %if.end3771, %if.then3713, %if.then3705, %if.end3699, %do.end3660, %if.then3607, %if.end3600, %if.then3565, %if.end3559, %if.then3501, %if.then3494, %if.end3488, %if.end3483, %if.end3449, %if.then3423, %if.end3417, %if.then3359, %do.end3352, %if.then3299, %do.end3292, %if.then3239, %do.end3232, %if.then3179, %if.then3168, %if.end3162, %if.then3104, %do.end3097, %if.then3044, %do.end3037, %if.then2984, %do.end2977, %if.then2924, %if.then2915, %if.end2909, %if.end2870, %if.then2836, %if.end2830, %do.end2825, %if.then2772, %if.end2765, %if.then2740, %if.end2734, %do.end2695, %if.then2642, %do.end2635, %if.then2582, %if.then2572, %if.end2566, %do.end2527, %if.then2474, %do.end2467, %if.then2414, %if.then2405, %if.end2399, %do.end2394, %if.then2341, %do.end2334, %if.then2281, %if.end2274, %if.then2246, %if.end2240, %do.end2235, %if.then2182, %do.end2175, %if.then2122, %if.end2115, %if.then2088, %if.end2082, %if.end2077, %do.end2043, %if.then1990, %do.end1983, %if.then1930, %if.end1923, %if.end1898, %if.then1868, %if.end1862, %if.end1857, %do.end1823, %if.then1770, %do.end1763, %if.then1710, %if.end1703, %if.end1678, %if.then1650, %if.end1644, %if.end1639, %if.end1614, %if.end1580, %if.end1555, %if.then1528, %if.end1522, %if.end1517, %if.end1492, %if.end1467, %if.then1441, %if.end1435, %if.end1430, %do.end1405, %if.then1352, %if.end1345, %if.then1317, %if.end1311, %if.end1306, %if.end1272, %do.end1247, %if.then1194, %if.then1184, %if.end1178, %if.then1120, %if.then1113, %if.end1107, %if.then1068, %if.end1062, %do.end1057, %if.then1004, %do.end997, %if.then944, %do.end937, %if.then884, %do.end877, %if.then824, %do.end817, %if.then764, %if.end757, %if.then728, %if.end722, %do.end717, %if.then664, %if.end657, %if.end623, %do.end589, %if.then536, %do.end529, %if.then476, %if.end469, %if.end444, %if.then412, %if.end406, %do.end401, %if.then348, %if.end341, %if.end307, %do.end273, %if.then220, %do.end213, %if.then172, %if.end165, %if.end140, %if.then115, %if.end109, %if.end75, %if.end42, %if.end17, %if.end, %if.then3857, %if.then3431, %if.then2747, %if.then2256, %if.then2097, %if.then1905, %if.then1880, %if.then1685, %if.then1660, %if.then1621, %if.then1562, %if.then1537, %if.then1499, %if.then1474, %if.then1449, %if.then1412, %if.then1327, %if.then1254, %if.then739, %if.then451, %if.then426, %if.then147, %if.then122, %if.then24, %if.then6, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ -1, %if.then6 ], [ -1, %if.then24 ], [ -1, %if.then122 ], [ -1, %if.then147 ], [ -1, %if.then426 ], [ -1, %if.then451 ], [ -1, %if.then739 ], [ -1, %if.then1254 ], [ -1, %if.then1327 ], [ -1, %if.then1412 ], [ -1, %if.then1449 ], [ -1, %if.then1474 ], [ -1, %if.then1499 ], [ -1, %if.then1537 ], [ -1, %if.then1562 ], [ -1, %if.then1621 ], [ -1, %if.then1660 ], [ -1, %if.then1685 ], [ -1, %if.then1880 ], [ -1, %if.then1905 ], [ -1, %if.then2097 ], [ -1, %if.then2256 ], [ -1, %if.then2747 ], [ -1, %if.then3431 ], [ -1, %if.then3857 ], [ -1, %if.end ], [ -1, %if.end17 ], [ -1, %if.end42 ], [ -1, %if.end75 ], [ %call110, %if.end109 ], [ -1, %if.then115 ], [ -1, %if.end140 ], [ -1, %if.end165 ], [ -1, %if.then172 ], [ -1, %do.end213 ], [ -1, %if.then220 ], [ -1, %do.end273 ], [ -1, %if.end307 ], [ -1, %if.end341 ], [ -1, %if.then348 ], [ 0, %do.end401 ], [ %call407, %if.end406 ], [ -1, %if.then412 ], [ -1, %if.end444 ], [ -1, %if.end469 ], [ -1, %if.then476 ], [ -1, %do.end529 ], [ -1, %if.then536 ], [ -1, %do.end589 ], [ -1, %if.end623 ], [ -1, %if.end657 ], [ -1, %if.then664 ], [ 0, %do.end717 ], [ %call723, %if.end722 ], [ -1, %if.then728 ], [ -1, %if.end757 ], [ -1, %if.then764 ], [ -1, %do.end817 ], [ -1, %if.then824 ], [ -1, %do.end877 ], [ -1, %if.then884 ], [ -1, %do.end937 ], [ -1, %if.then944 ], [ -1, %do.end997 ], [ -1, %if.then1004 ], [ 0, %do.end1057 ], [ %call1063, %if.end1062 ], [ -1, %if.then1068 ], [ 0, %_PyAST_Return.exit ], [ %call1108, %if.end1107 ], [ -1, %if.then1113 ], [ -1, %if.then1120 ], [ 0, %_PyAST_Delete.exit ], [ %call1179, %if.end1178 ], [ -1, %if.then1184 ], [ -1, %if.then1194 ], [ -1, %do.end1247 ], [ -1, %if.end1272 ], [ 0, %if.end1306 ], [ %call1312, %if.end1311 ], [ -1, %if.then1317 ], [ -1, %if.end1345 ], [ -1, %if.then1352 ], [ -1, %do.end1405 ], [ 0, %if.end1430 ], [ %call1436, %if.end1435 ], [ -1, %if.then1441 ], [ -1, %if.end1467 ], [ -1, %if.end1492 ], [ 0, %if.end1517 ], [ %call1523, %if.end1522 ], [ -1, %if.then1528 ], [ -1, %if.end1555 ], [ -1, %if.end1580 ], [ -1, %if.end1614 ], [ 0, %if.end1639 ], [ %call1645, %if.end1644 ], [ -1, %if.then1650 ], [ -1, %if.end1678 ], [ -1, %if.end1703 ], [ -1, %if.then1710 ], [ -1, %do.end1763 ], [ -1, %if.then1770 ], [ -1, %do.end1823 ], [ 0, %if.end1857 ], [ %call1863, %if.end1862 ], [ -1, %if.then1868 ], [ -1, %if.end1898 ], [ -1, %if.end1923 ], [ -1, %if.then1930 ], [ -1, %do.end1983 ], [ -1, %if.then1990 ], [ -1, %do.end2043 ], [ 0, %if.end2077 ], [ %call2083, %if.end2082 ], [ -1, %if.then2088 ], [ -1, %if.end2115 ], [ -1, %if.then2122 ], [ -1, %do.end2175 ], [ -1, %if.then2182 ], [ 0, %do.end2235 ], [ %call2241, %if.end2240 ], [ -1, %if.then2246 ], [ -1, %if.end2274 ], [ -1, %if.then2281 ], [ -1, %do.end2334 ], [ -1, %if.then2341 ], [ 0, %do.end2394 ], [ %call2400, %if.end2399 ], [ -1, %if.then2405 ], [ -1, %if.then2414 ], [ -1, %do.end2467 ], [ -1, %if.then2474 ], [ -1, %do.end2527 ], [ 0, %_PyAST_With.exit ], [ %call2567, %if.end2566 ], [ -1, %if.then2572 ], [ -1, %if.then2582 ], [ -1, %do.end2635 ], [ -1, %if.then2642 ], [ -1, %do.end2695 ], [ 0, %_PyAST_AsyncWith.exit ], [ %call2735, %if.end2734 ], [ -1, %if.then2740 ], [ -1, %if.end2765 ], [ -1, %if.then2772 ], [ 0, %do.end2825 ], [ %call2831, %if.end2830 ], [ -1, %if.then2836 ], [ -1, %if.end2870 ], [ 0, %_PyAST_Raise.exit ], [ %call2910, %if.end2909 ], [ -1, %if.then2915 ], [ -1, %if.then2924 ], [ -1, %do.end2977 ], [ -1, %if.then2984 ], [ -1, %do.end3037 ], [ -1, %if.then3044 ], [ -1, %do.end3097 ], [ -1, %if.then3104 ], [ 0, %_PyAST_Try.exit ], [ %call3163, %if.end3162 ], [ -1, %if.then3168 ], [ -1, %if.then3179 ], [ -1, %do.end3232 ], [ -1, %if.then3239 ], [ -1, %do.end3292 ], [ -1, %if.then3299 ], [ -1, %do.end3352 ], [ -1, %if.then3359 ], [ 0, %_PyAST_TryStar.exit ], [ %call3418, %if.end3417 ], [ -1, %if.then3423 ], [ -1, %if.end3449 ], [ 0, %if.end3483 ], [ %call3489, %if.end3488 ], [ -1, %if.then3494 ], [ -1, %if.then3501 ], [ 0, %_PyAST_Import.exit ], [ %call3560, %if.end3559 ], [ -1, %if.then3565 ], [ -1, %if.end3600 ], [ -1, %if.then3607 ], [ -1, %do.end3660 ], [ 0, %_PyAST_ImportFrom.exit ], [ %call3700, %if.end3699 ], [ -1, %if.then3705 ], [ -1, %if.then3713 ], [ 0, %_PyAST_Global.exit ], [ %call3772, %if.end3771 ], [ -1, %if.then3777 ], [ -1, %if.then3785 ], [ 0, %_PyAST_Nonlocal.exit ], [ %call3844, %if.end3843 ], [ -1, %if.then3849 ], [ 0, %if.end3875 ], [ %call3881, %if.end3880 ], [ 0, %_PyAST_Pass.exit ], [ %call3892, %if.end3891 ], [ 0, %_PyAST_Break.exit ], [ %call3903, %if.end3902 ], [ 0, %_PyAST_Continue.exit ], [ -1, %failed ], [ -1, %if.then.i2173 ], [ -1, %if.end.i.i2175 ], [ -1, %if.then1.i.i ]
+return:                                           ; preds = %_PyAST_Continue.exit, %_PyAST_Break.exit, %_PyAST_Pass.exit, %_PyAST_Nonlocal.exit, %_PyAST_Global.exit, %_PyAST_ImportFrom.exit, %_PyAST_Import.exit, %_PyAST_TryStar.exit, %_PyAST_Try.exit, %_PyAST_Raise.exit, %_PyAST_AsyncWith.exit, %_PyAST_With.exit, %_PyAST_Delete.exit, %_PyAST_Return.exit, %if.end3902, %if.end3891, %if.end3880, %if.end3875, %if.then3849, %if.end3843, %if.then3785, %if.then3777, %if.end3771, %if.then3713, %if.then3705, %if.end3699, %do.end3660, %if.then3607, %if.end3600, %if.then3565, %if.end3559, %if.then3501, %if.then3494, %if.end3488, %if.end3483, %if.end3449, %if.then3423, %if.end3417, %if.then3359, %do.end3352, %if.then3299, %do.end3292, %if.then3239, %do.end3232, %if.then3179, %if.then3168, %if.end3162, %if.then3104, %do.end3097, %if.then3044, %do.end3037, %if.then2984, %do.end2977, %if.then2924, %if.then2915, %if.end2909, %if.end2870, %if.then2836, %if.end2830, %do.end2825, %if.then2772, %if.end2765, %if.then2740, %if.end2734, %do.end2695, %if.then2642, %do.end2635, %if.then2582, %if.then2572, %if.end2566, %do.end2527, %if.then2474, %do.end2467, %if.then2414, %if.then2405, %if.end2399, %do.end2394, %if.then2341, %do.end2334, %if.then2281, %if.end2274, %if.then2246, %if.end2240, %do.end2235, %if.then2182, %do.end2175, %if.then2122, %if.end2115, %if.then2088, %if.end2082, %if.end2077, %do.end2043, %if.then1990, %do.end1983, %if.then1930, %if.end1923, %if.end1898, %if.then1868, %if.end1862, %if.end1857, %do.end1823, %if.then1770, %do.end1763, %if.then1710, %if.end1703, %if.end1678, %if.then1650, %if.end1644, %if.end1639, %if.end1614, %if.end1580, %if.end1555, %if.then1528, %if.end1522, %if.end1517, %if.end1492, %if.end1467, %if.then1441, %if.end1435, %if.end1430, %do.end1405, %if.then1352, %if.end1345, %if.then1317, %if.end1311, %if.end1306, %if.end1272, %do.end1247, %if.then1194, %if.then1184, %if.end1178, %if.then1120, %if.then1113, %if.end1107, %if.then1068, %if.end1062, %do.end1057, %if.then1004, %do.end997, %if.then944, %do.end937, %if.then884, %do.end877, %if.then824, %do.end817, %if.then764, %if.end757, %if.then728, %if.end722, %do.end717, %if.then664, %if.end657, %if.end623, %do.end589, %if.then536, %do.end529, %if.then476, %if.end469, %if.end444, %if.then412, %if.end406, %do.end401, %if.then348, %if.end341, %if.end307, %do.end273, %if.then220, %do.end213, %if.then172, %if.end165, %if.end140, %if.then115, %if.end109, %if.end75, %if.end42, %if.end17, %if.end, %Py_XDECREF.exit, %if.then3857, %if.then3431, %if.then2747, %if.then2256, %if.then2097, %if.then1905, %if.then1880, %if.then1685, %if.then1660, %if.then1621, %if.then1562, %if.then1537, %if.then1499, %if.then1474, %if.then1449, %if.then1412, %if.then1327, %if.then1254, %if.then739, %if.then451, %if.then426, %if.then147, %if.then122, %if.then24, %if.then6, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ -1, %if.then6 ], [ -1, %Py_XDECREF.exit ], [ -1, %if.then24 ], [ -1, %if.then122 ], [ -1, %if.then147 ], [ -1, %if.then426 ], [ -1, %if.then451 ], [ -1, %if.then739 ], [ -1, %if.then1254 ], [ -1, %if.then1327 ], [ -1, %if.then1412 ], [ -1, %if.then1449 ], [ -1, %if.then1474 ], [ -1, %if.then1499 ], [ -1, %if.then1537 ], [ -1, %if.then1562 ], [ -1, %if.then1621 ], [ -1, %if.then1660 ], [ -1, %if.then1685 ], [ -1, %if.then1880 ], [ -1, %if.then1905 ], [ -1, %if.then2097 ], [ -1, %if.then2256 ], [ -1, %if.then2747 ], [ -1, %if.then3431 ], [ -1, %if.then3857 ], [ -1, %if.end ], [ -1, %if.end17 ], [ -1, %if.end42 ], [ -1, %if.end75 ], [ %call110, %if.end109 ], [ -1, %if.then115 ], [ -1, %if.end140 ], [ -1, %if.end165 ], [ -1, %if.then172 ], [ -1, %do.end213 ], [ -1, %if.then220 ], [ -1, %do.end273 ], [ -1, %if.end307 ], [ -1, %if.end341 ], [ -1, %if.then348 ], [ 0, %do.end401 ], [ %call407, %if.end406 ], [ -1, %if.then412 ], [ -1, %if.end444 ], [ -1, %if.end469 ], [ -1, %if.then476 ], [ -1, %do.end529 ], [ -1, %if.then536 ], [ -1, %do.end589 ], [ -1, %if.end623 ], [ -1, %if.end657 ], [ -1, %if.then664 ], [ 0, %do.end717 ], [ %call723, %if.end722 ], [ -1, %if.then728 ], [ -1, %if.end757 ], [ -1, %if.then764 ], [ -1, %do.end817 ], [ -1, %if.then824 ], [ -1, %do.end877 ], [ -1, %if.then884 ], [ -1, %do.end937 ], [ -1, %if.then944 ], [ -1, %do.end997 ], [ -1, %if.then1004 ], [ 0, %do.end1057 ], [ %call1063, %if.end1062 ], [ -1, %if.then1068 ], [ 0, %_PyAST_Return.exit ], [ %call1108, %if.end1107 ], [ -1, %if.then1113 ], [ -1, %if.then1120 ], [ 0, %_PyAST_Delete.exit ], [ %call1179, %if.end1178 ], [ -1, %if.then1184 ], [ -1, %if.then1194 ], [ -1, %do.end1247 ], [ -1, %if.end1272 ], [ 0, %if.end1306 ], [ %call1312, %if.end1311 ], [ -1, %if.then1317 ], [ -1, %if.end1345 ], [ -1, %if.then1352 ], [ -1, %do.end1405 ], [ 0, %if.end1430 ], [ %call1436, %if.end1435 ], [ -1, %if.then1441 ], [ -1, %if.end1467 ], [ -1, %if.end1492 ], [ 0, %if.end1517 ], [ %call1523, %if.end1522 ], [ -1, %if.then1528 ], [ -1, %if.end1555 ], [ -1, %if.end1580 ], [ -1, %if.end1614 ], [ 0, %if.end1639 ], [ %call1645, %if.end1644 ], [ -1, %if.then1650 ], [ -1, %if.end1678 ], [ -1, %if.end1703 ], [ -1, %if.then1710 ], [ -1, %do.end1763 ], [ -1, %if.then1770 ], [ -1, %do.end1823 ], [ 0, %if.end1857 ], [ %call1863, %if.end1862 ], [ -1, %if.then1868 ], [ -1, %if.end1898 ], [ -1, %if.end1923 ], [ -1, %if.then1930 ], [ -1, %do.end1983 ], [ -1, %if.then1990 ], [ -1, %do.end2043 ], [ 0, %if.end2077 ], [ %call2083, %if.end2082 ], [ -1, %if.then2088 ], [ -1, %if.end2115 ], [ -1, %if.then2122 ], [ -1, %do.end2175 ], [ -1, %if.then2182 ], [ 0, %do.end2235 ], [ %call2241, %if.end2240 ], [ -1, %if.then2246 ], [ -1, %if.end2274 ], [ -1, %if.then2281 ], [ -1, %do.end2334 ], [ -1, %if.then2341 ], [ 0, %do.end2394 ], [ %call2400, %if.end2399 ], [ -1, %if.then2405 ], [ -1, %if.then2414 ], [ -1, %do.end2467 ], [ -1, %if.then2474 ], [ -1, %do.end2527 ], [ 0, %_PyAST_With.exit ], [ %call2567, %if.end2566 ], [ -1, %if.then2572 ], [ -1, %if.then2582 ], [ -1, %do.end2635 ], [ -1, %if.then2642 ], [ -1, %do.end2695 ], [ 0, %_PyAST_AsyncWith.exit ], [ %call2735, %if.end2734 ], [ -1, %if.then2740 ], [ -1, %if.end2765 ], [ -1, %if.then2772 ], [ 0, %do.end2825 ], [ %call2831, %if.end2830 ], [ -1, %if.then2836 ], [ -1, %if.end2870 ], [ 0, %_PyAST_Raise.exit ], [ %call2910, %if.end2909 ], [ -1, %if.then2915 ], [ -1, %if.then2924 ], [ -1, %do.end2977 ], [ -1, %if.then2984 ], [ -1, %do.end3037 ], [ -1, %if.then3044 ], [ -1, %do.end3097 ], [ -1, %if.then3104 ], [ 0, %_PyAST_Try.exit ], [ %call3163, %if.end3162 ], [ -1, %if.then3168 ], [ -1, %if.then3179 ], [ -1, %do.end3232 ], [ -1, %if.then3239 ], [ -1, %do.end3292 ], [ -1, %if.then3299 ], [ -1, %do.end3352 ], [ -1, %if.then3359 ], [ 0, %_PyAST_TryStar.exit ], [ %call3418, %if.end3417 ], [ -1, %if.then3423 ], [ -1, %if.end3449 ], [ 0, %if.end3483 ], [ %call3489, %if.end3488 ], [ -1, %if.then3494 ], [ -1, %if.then3501 ], [ 0, %_PyAST_Import.exit ], [ %call3560, %if.end3559 ], [ -1, %if.then3565 ], [ -1, %if.end3600 ], [ -1, %if.then3607 ], [ -1, %do.end3660 ], [ 0, %_PyAST_ImportFrom.exit ], [ %call3700, %if.end3699 ], [ -1, %if.then3705 ], [ -1, %if.then3713 ], [ 0, %_PyAST_Global.exit ], [ %call3772, %if.end3771 ], [ -1, %if.then3777 ], [ -1, %if.then3785 ], [ 0, %_PyAST_Nonlocal.exit ], [ %call3844, %if.end3843 ], [ -1, %if.then3849 ], [ 0, %if.end3875 ], [ %call3881, %if.end3880 ], [ 0, %_PyAST_Pass.exit ], [ %call3892, %if.end3891 ], [ 0, %_PyAST_Break.exit ], [ %call3903, %if.end3902 ], [ 0, %_PyAST_Continue.exit ]
   ret i32 %retval.0
 }
 
@@ -39091,26 +39100,29 @@ if.end2451:                                       ; preds = %if.end2338
 failed:                                           ; preds = %Py_DECREF.exit2524, %_Py_NewRef.exit1281, %Py_DECREF.exit2551, %_Py_NewRef.exit1270, %Py_DECREF.exit2686, %_Py_NewRef.exit1224, %Py_DECREF.exit2758, %_Py_NewRef.exit1200, %Py_DECREF.exit2740, %_Py_NewRef.exit1209, %Py_DECREF.exit2803, %_Py_NewRef.exit1180, %Py_DECREF.exit2785, %_Py_NewRef.exit1189, %Py_DECREF.exit2866, %_Py_NewRef.exit1155, %Py_DECREF.exit2893, %_Py_NewRef.exit1144, %Py_DECREF.exit2929, %_Py_NewRef.exit1131, %Py_DECREF.exit2956, %_Py_NewRef.exit1120, %Py_DECREF.exit2983, %_Py_NewRef.exit1105, %Py_DECREF.exit3019, %_Py_NewRef.exit1085, %Py_DECREF.exit3001, %_Py_NewRef.exit1094, %Py_DECREF.exit3145, %_Py_NewRef.exit, %_PyAST_Slice.exit.thread, %obj2ast_constant.exit, %_PyAST_JoinedStr.exit.thread, %_PyAST_Yield.exit.thread, %_PyAST_Set.exit.thread, %_PyAST_Dict.exit.thread, %obj2ast_int.exit.thread, %if.end2434, %if.else2429, %if.end2400, %if.else2395, %if.end2366, %if.else2361, %if.end2333, %if.end2321, %if.else2316, %if.end2271, %if.end2235, %if.end2223, %if.else2218, %if.end2173, %if.end2137, %if.end2125, %if.else2120, %if.end2100, %if.else2095, %if.end2075, %if.end2063, %if.else2058, %if.end2038, %if.else2033, %if.end2012, %if.end2000, %if.else1995, %if.end1975, %if.else1970, %if.end1950, %if.else1945, %if.end1924, %if.end1912, %if.else1907, %if.end1887, %if.else1882, %if.end1862, %if.else1857, %if.end1837, %if.end1825, %if.else1820, %if.else1786, %if.end1729, %if.end1694, %if.end1682, %if.else1677, %if.end1648, %if.else1643, %if.end1623, %if.else1618, %do.end1598, %if.end1561, %if.end1501, %if.end1466, %if.else1461, %do.end1441, %if.end1404, %if.end1344, %if.end1309, %if.else1304, %if.end1284, %if.end1272, %if.else1267, %if.end1235, %if.else1230, %if.end1201, %if.end1189, %if.else1184, %do.end1164, %if.end1127, %if.end1092, %if.else1087, %do.end1066, %if.end1029, %if.end994, %if.else989, %if.end969, %if.else964, %do.end943, %if.end906, %if.end871, %if.else866, %do.end845, %if.end808, %if.end773, %if.else768, %if.end712, %if.end641, %if.end581, %if.end546, %if.end534, %if.else529, %if.end509, %if.else504, %if.end484, %if.else479, %if.end459, %if.end447, %if.else442, %if.end422, %if.else417, %if.end398, %if.end386, %if.else381, %if.end361, %if.else356, %if.end336, %if.end324, %if.else319, %if.end299, %if.else294, %if.end274, %if.else269, %if.end249, %if.end237, %if.else232, %if.end212, %if.else207, %do.end188, %if.end161, %if.end128, %if.else123, %if.end97, %if.else92, %if.end63, %if.else58, %if.end30, %if.else25, %_Py_EnterRecursiveCall.exit, %if.end2451, %if.then2295, %if.then2267, %if.then2197, %if.then2169, %if.then1753, %if.then1725, %if.then1585, %if.then1557, %if.then1525, %if.then1497, %if.then1428, %if.then1400, %if.then1368, %if.then1340, %if.then1151, %if.then1123, %if.then1053, %if.then1025, %if.then930, %if.then902, %if.then832, %if.then804, %if.then736, %if.then708, %if.then665, %if.then637, %if.then605, %if.then577, %if.then179, %if.then157
   %940 = load ptr, ptr %tmp, align 8
   %cmp.not.i = icmp eq ptr %940, null
-  br i1 %cmp.not.i, label %return, label %if.then.i1296
+  br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i1296
 
 if.then.i1296:                                    ; preds = %failed
   %941 = load i64, ptr %940, align 8
   %942 = and i64 %941, 2147483648
   %cmp.i2.not.i = icmp eq i64 %942, 0
-  br i1 %cmp.i2.not.i, label %if.end.i.i1298, label %return
+  br i1 %cmp.i2.not.i, label %if.end.i.i1298, label %Py_XDECREF.exit
 
 if.end.i.i1298:                                   ; preds = %if.then.i1296
   %dec.i.i = add i64 %941, -1
   store i64 %dec.i.i, ptr %940, align 8
   %cmp.i.i1299 = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i1299, label %if.then1.i.i, label %return
+  br i1 %cmp.i.i1299, label %if.then1.i.i, label %Py_XDECREF.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i1298
   call void @_Py_Dealloc(ptr noundef nonnull %940) #6
+  br label %Py_XDECREF.exit
+
+Py_XDECREF.exit:                                  ; preds = %failed, %if.then.i1296, %if.end.i.i1298, %if.then1.i.i
   br label %return
 
-return:                                           ; preds = %if.then1.i.i, %if.end.i.i1298, %if.then.i1296, %failed, %_PyAST_Slice.exit, %_PyAST_JoinedStr.exit, %_PyAST_Yield.exit, %_PyAST_Set.exit, %_PyAST_Dict.exit, %if.end2412, %if.end2378, %if.then2344, %if.end2338, %if.end2333, %do.end2308, %if.then2255, %if.then2246, %if.end2240, %if.end2235, %do.end2210, %if.then2157, %if.then2148, %if.end2142, %if.end2137, %if.end2112, %if.then2086, %if.end2080, %if.end2075, %if.end2050, %if.then2023, %if.end2017, %if.end2012, %if.end1987, %if.end1962, %if.then1935, %if.end1929, %if.end1924, %if.end1899, %if.end1874, %if.then1848, %if.end1842, %if.end1837, %if.end1803, %if.then1777, %if.end1771, %if.then1713, %if.then1705, %if.end1699, %if.end1694, %if.end1660, %if.end1635, %if.then1609, %if.end1603, %do.end1598, %if.then1545, %do.end1538, %if.then1485, %if.end1478, %if.then1452, %if.end1446, %do.end1441, %if.then1388, %do.end1381, %if.then1328, %if.end1321, %if.then1295, %if.end1289, %if.end1284, %if.then1258, %if.end1252, %if.then1212, %if.end1206, %if.end1201, %if.then1175, %if.end1169, %do.end1164, %if.then1111, %if.end1104, %if.then1077, %if.end1071, %do.end1066, %if.then1013, %if.end1006, %if.end981, %if.then954, %if.end948, %do.end943, %if.then890, %if.end883, %if.then856, %if.end850, %do.end845, %if.then792, %if.end785, %if.then760, %if.end754, %if.then696, %if.then689, %if.end683, %if.then625, %do.end618, %if.then565, %if.then557, %if.end551, %if.end546, %if.end521, %if.end496, %if.then470, %if.end464, %if.end459, %if.end434, %if.then409, %if.end403, %if.end398, %if.end373, %if.then347, %if.end341, %if.end336, %if.end311, %if.end286, %if.then260, %if.end254, %if.end249, %if.end224, %if.then199, %if.end193, %do.end188, %if.then147, %if.end140, %if.then115, %if.end109, %if.end75, %if.end42, %if.end17, %if.end, %if.then2315, %if.then2217, %if.then2119, %if.then2094, %if.then2057, %if.then2032, %if.then1994, %if.then1969, %if.then1944, %if.then1906, %if.then1881, %if.then1856, %if.then1785, %if.then1642, %if.then1617, %if.then1460, %if.then1303, %if.then1266, %if.then1183, %if.then1086, %if.then988, %if.then963, %if.then865, %if.then767, %if.then528, %if.then503, %if.then478, %if.then441, %if.then416, %if.then380, %if.then355, %if.then318, %if.then293, %if.then268, %if.then231, %if.then206, %if.then122, %if.then24, %if.then6, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ -1, %if.then6 ], [ -1, %if.then24 ], [ -1, %if.then122 ], [ -1, %if.then206 ], [ -1, %if.then231 ], [ -1, %if.then268 ], [ -1, %if.then293 ], [ -1, %if.then318 ], [ -1, %if.then355 ], [ -1, %if.then380 ], [ -1, %if.then416 ], [ -1, %if.then441 ], [ -1, %if.then478 ], [ -1, %if.then503 ], [ -1, %if.then528 ], [ -1, %if.then767 ], [ -1, %if.then865 ], [ -1, %if.then963 ], [ -1, %if.then988 ], [ -1, %if.then1086 ], [ -1, %if.then1183 ], [ -1, %if.then1266 ], [ -1, %if.then1303 ], [ -1, %if.then1460 ], [ -1, %if.then1617 ], [ -1, %if.then1642 ], [ -1, %if.then1785 ], [ -1, %if.then1856 ], [ -1, %if.then1881 ], [ -1, %if.then1906 ], [ -1, %if.then1944 ], [ -1, %if.then1969 ], [ -1, %if.then1994 ], [ -1, %if.then2032 ], [ -1, %if.then2057 ], [ -1, %if.then2094 ], [ -1, %if.then2119 ], [ -1, %if.then2217 ], [ -1, %if.then2315 ], [ -1, %if.end ], [ -1, %if.end17 ], [ -1, %if.end42 ], [ -1, %if.end75 ], [ %call110, %if.end109 ], [ -1, %if.then115 ], [ -1, %if.end140 ], [ -1, %if.then147 ], [ 0, %do.end188 ], [ %call194, %if.end193 ], [ -1, %if.then199 ], [ -1, %if.end224 ], [ 0, %if.end249 ], [ %call255, %if.end254 ], [ -1, %if.then260 ], [ -1, %if.end286 ], [ -1, %if.end311 ], [ 0, %if.end336 ], [ %call342, %if.end341 ], [ -1, %if.then347 ], [ -1, %if.end373 ], [ 0, %if.end398 ], [ %call404, %if.end403 ], [ -1, %if.then409 ], [ -1, %if.end434 ], [ 0, %if.end459 ], [ %call465, %if.end464 ], [ -1, %if.then470 ], [ -1, %if.end496 ], [ -1, %if.end521 ], [ 0, %if.end546 ], [ %call552, %if.end551 ], [ -1, %if.then557 ], [ -1, %if.then565 ], [ -1, %do.end618 ], [ -1, %if.then625 ], [ 0, %_PyAST_Dict.exit ], [ %call684, %if.end683 ], [ -1, %if.then689 ], [ -1, %if.then696 ], [ 0, %_PyAST_Set.exit ], [ %call755, %if.end754 ], [ -1, %if.then760 ], [ -1, %if.end785 ], [ -1, %if.then792 ], [ 0, %do.end845 ], [ %call851, %if.end850 ], [ -1, %if.then856 ], [ -1, %if.end883 ], [ -1, %if.then890 ], [ 0, %do.end943 ], [ %call949, %if.end948 ], [ -1, %if.then954 ], [ -1, %if.end981 ], [ -1, %if.end1006 ], [ -1, %if.then1013 ], [ 0, %do.end1066 ], [ %call1072, %if.end1071 ], [ -1, %if.then1077 ], [ -1, %if.end1104 ], [ -1, %if.then1111 ], [ 0, %do.end1164 ], [ %call1170, %if.end1169 ], [ -1, %if.then1175 ], [ 0, %if.end1201 ], [ %call1207, %if.end1206 ], [ -1, %if.then1212 ], [ 0, %_PyAST_Yield.exit ], [ %call1253, %if.end1252 ], [ -1, %if.then1258 ], [ 0, %if.end1284 ], [ %call1290, %if.end1289 ], [ -1, %if.then1295 ], [ -1, %if.end1321 ], [ -1, %if.then1328 ], [ -1, %do.end1381 ], [ -1, %if.then1388 ], [ 0, %do.end1441 ], [ %call1447, %if.end1446 ], [ -1, %if.then1452 ], [ -1, %if.end1478 ], [ -1, %if.then1485 ], [ -1, %do.end1538 ], [ -1, %if.then1545 ], [ 0, %do.end1598 ], [ %call1604, %if.end1603 ], [ -1, %if.then1609 ], [ -1, %if.end1635 ], [ -1, %if.end1660 ], [ 0, %if.end1694 ], [ %call1700, %if.end1699 ], [ -1, %if.then1705 ], [ -1, %if.then1713 ], [ 0, %_PyAST_JoinedStr.exit ], [ %call1772, %if.end1771 ], [ -1, %if.then1777 ], [ -1, %if.end1803 ], [ 0, %if.end1837 ], [ %call1843, %if.end1842 ], [ -1, %if.then1848 ], [ -1, %if.end1874 ], [ -1, %if.end1899 ], [ 0, %if.end1924 ], [ %call1930, %if.end1929 ], [ -1, %if.then1935 ], [ -1, %if.end1962 ], [ -1, %if.end1987 ], [ 0, %if.end2012 ], [ %call2018, %if.end2017 ], [ -1, %if.then2023 ], [ -1, %if.end2050 ], [ 0, %if.end2075 ], [ %call2081, %if.end2080 ], [ -1, %if.then2086 ], [ -1, %if.end2112 ], [ 0, %if.end2137 ], [ %call2143, %if.end2142 ], [ -1, %if.then2148 ], [ -1, %if.then2157 ], [ -1, %do.end2210 ], [ 0, %if.end2235 ], [ %call2241, %if.end2240 ], [ -1, %if.then2246 ], [ -1, %if.then2255 ], [ -1, %do.end2308 ], [ 0, %if.end2333 ], [ %call2339, %if.end2338 ], [ -1, %if.then2344 ], [ -1, %if.end2378 ], [ -1, %if.end2412 ], [ 0, %_PyAST_Slice.exit ], [ -1, %failed ], [ -1, %if.then.i1296 ], [ -1, %if.end.i.i1298 ], [ -1, %if.then1.i.i ]
+return:                                           ; preds = %_PyAST_Slice.exit, %_PyAST_JoinedStr.exit, %_PyAST_Yield.exit, %_PyAST_Set.exit, %_PyAST_Dict.exit, %if.end2412, %if.end2378, %if.then2344, %if.end2338, %if.end2333, %do.end2308, %if.then2255, %if.then2246, %if.end2240, %if.end2235, %do.end2210, %if.then2157, %if.then2148, %if.end2142, %if.end2137, %if.end2112, %if.then2086, %if.end2080, %if.end2075, %if.end2050, %if.then2023, %if.end2017, %if.end2012, %if.end1987, %if.end1962, %if.then1935, %if.end1929, %if.end1924, %if.end1899, %if.end1874, %if.then1848, %if.end1842, %if.end1837, %if.end1803, %if.then1777, %if.end1771, %if.then1713, %if.then1705, %if.end1699, %if.end1694, %if.end1660, %if.end1635, %if.then1609, %if.end1603, %do.end1598, %if.then1545, %do.end1538, %if.then1485, %if.end1478, %if.then1452, %if.end1446, %do.end1441, %if.then1388, %do.end1381, %if.then1328, %if.end1321, %if.then1295, %if.end1289, %if.end1284, %if.then1258, %if.end1252, %if.then1212, %if.end1206, %if.end1201, %if.then1175, %if.end1169, %do.end1164, %if.then1111, %if.end1104, %if.then1077, %if.end1071, %do.end1066, %if.then1013, %if.end1006, %if.end981, %if.then954, %if.end948, %do.end943, %if.then890, %if.end883, %if.then856, %if.end850, %do.end845, %if.then792, %if.end785, %if.then760, %if.end754, %if.then696, %if.then689, %if.end683, %if.then625, %do.end618, %if.then565, %if.then557, %if.end551, %if.end546, %if.end521, %if.end496, %if.then470, %if.end464, %if.end459, %if.end434, %if.then409, %if.end403, %if.end398, %if.end373, %if.then347, %if.end341, %if.end336, %if.end311, %if.end286, %if.then260, %if.end254, %if.end249, %if.end224, %if.then199, %if.end193, %do.end188, %if.then147, %if.end140, %if.then115, %if.end109, %if.end75, %if.end42, %if.end17, %if.end, %Py_XDECREF.exit, %if.then2315, %if.then2217, %if.then2119, %if.then2094, %if.then2057, %if.then2032, %if.then1994, %if.then1969, %if.then1944, %if.then1906, %if.then1881, %if.then1856, %if.then1785, %if.then1642, %if.then1617, %if.then1460, %if.then1303, %if.then1266, %if.then1183, %if.then1086, %if.then988, %if.then963, %if.then865, %if.then767, %if.then528, %if.then503, %if.then478, %if.then441, %if.then416, %if.then380, %if.then355, %if.then318, %if.then293, %if.then268, %if.then231, %if.then206, %if.then122, %if.then24, %if.then6, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ -1, %if.then6 ], [ -1, %Py_XDECREF.exit ], [ -1, %if.then24 ], [ -1, %if.then122 ], [ -1, %if.then206 ], [ -1, %if.then231 ], [ -1, %if.then268 ], [ -1, %if.then293 ], [ -1, %if.then318 ], [ -1, %if.then355 ], [ -1, %if.then380 ], [ -1, %if.then416 ], [ -1, %if.then441 ], [ -1, %if.then478 ], [ -1, %if.then503 ], [ -1, %if.then528 ], [ -1, %if.then767 ], [ -1, %if.then865 ], [ -1, %if.then963 ], [ -1, %if.then988 ], [ -1, %if.then1086 ], [ -1, %if.then1183 ], [ -1, %if.then1266 ], [ -1, %if.then1303 ], [ -1, %if.then1460 ], [ -1, %if.then1617 ], [ -1, %if.then1642 ], [ -1, %if.then1785 ], [ -1, %if.then1856 ], [ -1, %if.then1881 ], [ -1, %if.then1906 ], [ -1, %if.then1944 ], [ -1, %if.then1969 ], [ -1, %if.then1994 ], [ -1, %if.then2032 ], [ -1, %if.then2057 ], [ -1, %if.then2094 ], [ -1, %if.then2119 ], [ -1, %if.then2217 ], [ -1, %if.then2315 ], [ -1, %if.end ], [ -1, %if.end17 ], [ -1, %if.end42 ], [ -1, %if.end75 ], [ %call110, %if.end109 ], [ -1, %if.then115 ], [ -1, %if.end140 ], [ -1, %if.then147 ], [ 0, %do.end188 ], [ %call194, %if.end193 ], [ -1, %if.then199 ], [ -1, %if.end224 ], [ 0, %if.end249 ], [ %call255, %if.end254 ], [ -1, %if.then260 ], [ -1, %if.end286 ], [ -1, %if.end311 ], [ 0, %if.end336 ], [ %call342, %if.end341 ], [ -1, %if.then347 ], [ -1, %if.end373 ], [ 0, %if.end398 ], [ %call404, %if.end403 ], [ -1, %if.then409 ], [ -1, %if.end434 ], [ 0, %if.end459 ], [ %call465, %if.end464 ], [ -1, %if.then470 ], [ -1, %if.end496 ], [ -1, %if.end521 ], [ 0, %if.end546 ], [ %call552, %if.end551 ], [ -1, %if.then557 ], [ -1, %if.then565 ], [ -1, %do.end618 ], [ -1, %if.then625 ], [ 0, %_PyAST_Dict.exit ], [ %call684, %if.end683 ], [ -1, %if.then689 ], [ -1, %if.then696 ], [ 0, %_PyAST_Set.exit ], [ %call755, %if.end754 ], [ -1, %if.then760 ], [ -1, %if.end785 ], [ -1, %if.then792 ], [ 0, %do.end845 ], [ %call851, %if.end850 ], [ -1, %if.then856 ], [ -1, %if.end883 ], [ -1, %if.then890 ], [ 0, %do.end943 ], [ %call949, %if.end948 ], [ -1, %if.then954 ], [ -1, %if.end981 ], [ -1, %if.end1006 ], [ -1, %if.then1013 ], [ 0, %do.end1066 ], [ %call1072, %if.end1071 ], [ -1, %if.then1077 ], [ -1, %if.end1104 ], [ -1, %if.then1111 ], [ 0, %do.end1164 ], [ %call1170, %if.end1169 ], [ -1, %if.then1175 ], [ 0, %if.end1201 ], [ %call1207, %if.end1206 ], [ -1, %if.then1212 ], [ 0, %_PyAST_Yield.exit ], [ %call1253, %if.end1252 ], [ -1, %if.then1258 ], [ 0, %if.end1284 ], [ %call1290, %if.end1289 ], [ -1, %if.then1295 ], [ -1, %if.end1321 ], [ -1, %if.then1328 ], [ -1, %do.end1381 ], [ -1, %if.then1388 ], [ 0, %do.end1441 ], [ %call1447, %if.end1446 ], [ -1, %if.then1452 ], [ -1, %if.end1478 ], [ -1, %if.then1485 ], [ -1, %do.end1538 ], [ -1, %if.then1545 ], [ 0, %do.end1598 ], [ %call1604, %if.end1603 ], [ -1, %if.then1609 ], [ -1, %if.end1635 ], [ -1, %if.end1660 ], [ 0, %if.end1694 ], [ %call1700, %if.end1699 ], [ -1, %if.then1705 ], [ -1, %if.then1713 ], [ 0, %_PyAST_JoinedStr.exit ], [ %call1772, %if.end1771 ], [ -1, %if.then1777 ], [ -1, %if.end1803 ], [ 0, %if.end1837 ], [ %call1843, %if.end1842 ], [ -1, %if.then1848 ], [ -1, %if.end1874 ], [ -1, %if.end1899 ], [ 0, %if.end1924 ], [ %call1930, %if.end1929 ], [ -1, %if.then1935 ], [ -1, %if.end1962 ], [ -1, %if.end1987 ], [ 0, %if.end2012 ], [ %call2018, %if.end2017 ], [ -1, %if.then2023 ], [ -1, %if.end2050 ], [ 0, %if.end2075 ], [ %call2081, %if.end2080 ], [ -1, %if.then2086 ], [ -1, %if.end2112 ], [ 0, %if.end2137 ], [ %call2143, %if.end2142 ], [ -1, %if.then2148 ], [ -1, %if.then2157 ], [ -1, %do.end2210 ], [ 0, %if.end2235 ], [ %call2241, %if.end2240 ], [ -1, %if.then2246 ], [ -1, %if.then2255 ], [ -1, %do.end2308 ], [ 0, %if.end2333 ], [ %call2339, %if.end2338 ], [ -1, %if.then2344 ], [ -1, %if.end2378 ], [ -1, %if.end2412 ], [ 0, %_PyAST_Slice.exit ]
   ret i32 %retval.0
 }
 

@@ -3494,7 +3494,7 @@ get_type_length.exit:                             ; preds = %10, %31, %34, %35, 
 
 .preheader113:                                    ; preds = %163
   %.not162 = icmp eq i32 %48, 0
-  br i1 %.not162, label %.thread98, label %.lr.ph139
+  br i1 %.not162, label %.thread98.loopexit114, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %.preheader113, %get_type_length.exit1646
   %.01480138 = phi i32 [ %193, %get_type_length.exit1646 ], [ %.022.i, %.preheader113 ]
@@ -3560,7 +3560,7 @@ get_type_length.exit1646:                         ; preds = %.lr.ph139, %169, %1
   %193 = add i32 %186, %.022.i1644
   %194 = sub i32 %193, %.022.i
   %195 = icmp slt i32 %194, %48
-  br i1 %195, label %.lr.ph139, label %.thread98, !llvm.loop !23
+  br i1 %195, label %.lr.ph139, label %.thread98.loopexit114, !llvm.loop !23
 
 196:                                              ; preds = %get_type_length.exit
   %cond7 = icmp eq i32 %4, 785
@@ -4667,7 +4667,7 @@ get_type_length.exit1671:                         ; preds = %709, %719, %722, %7
 
 .preheader117:                                    ; preds = %845
   %.not160 = icmp eq i32 %48, 0
-  br i1 %.not160, label %.thread98, label %.lr.ph134
+  br i1 %.not160, label %.thread98.loopexit118, label %.lr.ph134
 
 846:                                              ; preds = %845
   %847 = load ptr, ptr %12, align 8
@@ -4754,7 +4754,7 @@ get_type_length.exit1676:                         ; preds = %.lr.ph134, %865, %8
   %889 = add i32 %882, %.022.i1674
   %890 = sub i32 %889, %.022.i
   %891 = icmp slt i32 %890, %48
-  br i1 %891, label %.lr.ph134, label %.thread98, !llvm.loop !25
+  br i1 %891, label %.lr.ph134, label %.thread98.loopexit118, !llvm.loop !25
 
 892:                                              ; preds = %get_type_length.exit
   switch i32 %4, label %1703 [
@@ -4914,11 +4914,11 @@ get_type_length.exit1676:                         ; preds = %.lr.ph134, %865, %8
 
 .preheader121:                                    ; preds = %986
   %.not158 = icmp eq i32 %48, 0
-  br i1 %.not158, label %.thread98, label %.lr.ph
+  br i1 %.not158, label %.thread98.loopexit122, label %.lr.ph
 
 .preheader119:                                    ; preds = %986
   %.not159 = icmp eq i32 %48, 0
-  br i1 %.not159, label %.thread98, label %.lr.ph132
+  br i1 %.not159, label %.thread98.loopexit120, label %.lr.ph132
 
 987:                                              ; preds = %986
   %988 = load ptr, ptr %12, align 8
@@ -5157,7 +5157,7 @@ get_type_length.exit1691:                         ; preds = %get_type_length.exi
   %1118 = add i32 %1114, %.022.i1689
   %1119 = sub i32 %1118, %.022.i
   %1120 = icmp slt i32 %1119, %48
-  br i1 %1120, label %1121, label %.thread98
+  br i1 %1120, label %1121, label %.thread98.loopexit120
 
 1121:                                             ; preds = %get_type_length.exit1691
   %1122 = add i32 %.11490130, 1
@@ -5330,7 +5330,7 @@ get_type_length.exit1706:                         ; preds = %get_type_length.exi
   %1200 = add i32 %1194, %.022.i1704
   %1201 = sub i32 %1200, %.022.i
   %1202 = icmp slt i32 %1201, %48
-  br i1 %1202, label %1203, label %.thread98.loopexit177
+  br i1 %1202, label %1203, label %.thread98.loopexit122.loopexit
 
 1203:                                             ; preds = %get_type_length.exit1706
   %1204 = add i32 %.21491128, 1
@@ -6109,19 +6109,19 @@ get_type_length.exit1706:                         ; preds = %get_type_length.exi
 
 .preheader110:                                    ; preds = %1703
   %.not164 = icmp eq i32 %48, 0
-  br i1 %.not164, label %.thread98, label %.lr.ph145
+  br i1 %.not164, label %.thread98.loopexit111, label %.lr.ph145
 
 .preheader108:                                    ; preds = %1703
   %.not165 = icmp eq i32 %48, 0
-  br i1 %.not165, label %.thread98, label %.lr.ph148
+  br i1 %.not165, label %.thread98.loopexit109, label %.lr.ph148
 
 .preheader106:                                    ; preds = %1703
   %.not166 = icmp eq i32 %48, 0
-  br i1 %.not166, label %.thread98, label %.lr.ph150
+  br i1 %.not166, label %.thread98.loopexit107, label %.lr.ph150
 
 .preheader:                                       ; preds = %1703
   %.not167 = icmp eq i32 %48, 0
-  br i1 %.not167, label %.thread98, label %.lr.ph152
+  br i1 %.not167, label %.thread98.loopexit, label %.lr.ph152
 
 1704:                                             ; preds = %1703
   %1705 = load ptr, ptr %12, align 8
@@ -6193,7 +6193,7 @@ get_type_length.exit1711:                         ; preds = %.lr.ph152, %1714, %
   %1735 = add i32 %1731, %.022.i1709
   %1736 = sub i32 %1735, %.022.i
   %1737 = icmp slt i32 %1736, %48
-  br i1 %1737, label %1738, label %.thread98
+  br i1 %1737, label %1738, label %.thread98.loopexit
 
 1738:                                             ; preds = %get_type_length.exit1711
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.1009) #8
@@ -6283,7 +6283,7 @@ get_type_length.exit1716:                         ; preds = %.lr.ph150, %1755, %
   %1776 = add i32 %1772, %.022.i1714
   %1777 = sub i32 %1776, %.022.i
   %1778 = icmp slt i32 %1777, %48
-  br i1 %1778, label %1779, label %.thread98
+  br i1 %1778, label %1779, label %.thread98.loopexit107
 
 1779:                                             ; preds = %get_type_length.exit1716
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.962) #8
@@ -6483,7 +6483,7 @@ get_type_length.exit1731:                         ; preds = %get_type_length.exi
   %1873 = add i32 %1867, %.022.i1729
   %1874 = sub i32 %1873, %.022.i
   %1875 = icmp slt i32 %1874, %48
-  br i1 %1875, label %1876, label %.thread98.loopexit170
+  br i1 %1875, label %1876, label %.thread98.loopexit109.loopexit
 
 1876:                                             ; preds = %get_type_length.exit1731
   %1877 = add i32 %.31492146, 1
@@ -6690,7 +6690,7 @@ get_type_length.exit1746:                         ; preds = %get_type_length.exi
   %1973 = add i32 %1965, %.022.i1744
   %1974 = sub i32 %1973, %.022.i
   %1975 = icmp slt i32 %1974, %48
-  br i1 %1975, label %1976, label %.thread98
+  br i1 %1975, label %1976, label %.thread98.loopexit111
 
 1976:                                             ; preds = %get_type_length.exit1746
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.962) #8
@@ -6727,7 +6727,7 @@ get_type_length.exit1746:                         ; preds = %get_type_length.exi
 1996:                                             ; preds = %1703
   store i32 1, ptr %17, align 4
   %.not163 = icmp eq i32 %48, 0
-  br i1 %.not163, label %.thread98, label %.lr.ph142
+  br i1 %.not163, label %.thread98.loopexit112, label %.lr.ph142
 
 .lr.ph142:                                        ; preds = %1996, %get_type_length.exit1756
   %.9141 = phi i32 [ %2046, %get_type_length.exit1756 ], [ %.022.i, %1996 ]
@@ -6847,7 +6847,7 @@ get_type_length.exit1756:                         ; preds = %get_type_length.exi
   %2047 = add i32 %.11488140, 1
   %2048 = sub i32 %2046, %.022.i
   %2049 = icmp slt i32 %2048, %48
-  br i1 %2049, label %.lr.ph142, label %.thread98, !llvm.loop !26
+  br i1 %2049, label %.lr.ph142, label %.thread98.loopexit112, !llvm.loop !26
 
 2050:                                             ; preds = %1703
   %2051 = load ptr, ptr %12, align 8
@@ -7026,16 +7026,43 @@ get_int_by_size.exit:                             ; preds = %2085, %2086, %2089,
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.1026) #8
   br label %.thread98
 
-.thread98.loopexit170:                            ; preds = %get_type_length.exit1731
+.thread98.loopexit:                               ; preds = %get_type_length.exit1711, %.preheader
+  br label %.thread98
+
+.thread98.loopexit107:                            ; preds = %get_type_length.exit1716, %.preheader106
+  br label %.thread98
+
+.thread98.loopexit109.loopexit:                   ; preds = %get_type_length.exit1731
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.1015) #8
+  br label %.thread98.loopexit109
+
+.thread98.loopexit109:                            ; preds = %.thread98.loopexit109.loopexit, %.preheader108
   br label %.thread98
 
-.thread98.loopexit177:                            ; preds = %get_type_length.exit1706
+.thread98.loopexit111:                            ; preds = %get_type_length.exit1746, %.preheader110
+  br label %.thread98
+
+.thread98.loopexit112:                            ; preds = %get_type_length.exit1756, %1996
+  br label %.thread98
+
+.thread98.loopexit114:                            ; preds = %get_type_length.exit1646, %.preheader113
+  br label %.thread98
+
+.thread98.loopexit118:                            ; preds = %get_type_length.exit1676, %.preheader117
+  br label %.thread98
+
+.thread98.loopexit120:                            ; preds = %get_type_length.exit1691, %.preheader119
+  br label %.thread98
+
+.thread98.loopexit122.loopexit:                   ; preds = %get_type_length.exit1706
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef nonnull @.str.969) #8
+  br label %.thread98.loopexit122
+
+.thread98.loopexit122:                            ; preds = %.thread98.loopexit122.loopexit, %.preheader121
   br label %.thread98
 
-.thread98:                                        ; preds = %get_type_length.exit1691, %get_type_length.exit1676, %745, %get_type_length.exit1646, %get_type_length.exit1756, %get_type_length.exit1746, %get_type_length.exit1716, %get_type_length.exit1711, %.thread98.loopexit177, %.thread98.loopexit170, %.preheader121, %.preheader119, %.preheader117, %.preheader115, %.preheader113, %1996, %.preheader110, %.preheader108, %.preheader106, %.preheader, %50, %72, %84, %79, %86, %96, %102, %110, %137, %197, %205, %255, %307, %314, %321, %334, %335, %350, %377, %383, %389, %395, %402, %415, %417, %430, %431, %437, %463, %484, %497, %498, %519, %525, %531, %537, %544, %550, %557, %563, %749, %756, %786, %793, %799, %806, %813, %820, %825, %831, %838, %846, %859, %893, %899, %906, %943, %950, %987, %997, %1007, %1024, %1031, %1037, %1205, %1211, %1217, %1223, %1233, %1239, %1245, %1251, %1257, %1264, %1277, %1278, %1304, %1355, %1441, %1447, %1460, %1461, %1491, %1480, %1492, %1536, %1542, %1548, %1554, %1560, %1566, %1572, %1578, %1584, %1590, %1596, %1602, %1608, %1614, %1620, %1626, %1632, %1638, %1645, %1651, %1661, %1667, %1688, %1693, %1698, %1704, %1739, %1744, %1748, %1878, %1883, %1978, %1984, %1990, %2050, %2056, %2062, %2068, %2069, %get_uint_by_size.exit, %get_int_by_size.exit, %2097, %2101, %2110, %._crit_edge
-  %.0147896102 = phi i32 [ %27, %2068 ], [ %27, %2069 ], [ %27, %get_uint_by_size.exit ], [ %27, %get_int_by_size.exit ], [ %27, %2097 ], [ %27, %2101 ], [ %27, %2110 ], [ %27, %._crit_edge ], [ %27, %1704 ], [ %27, %1739 ], [ %27, %1744 ], [ %27, %1748 ], [ %27, %1878 ], [ %27, %1883 ], [ %27, %1978 ], [ %27, %1984 ], [ %27, %1990 ], [ %27, %2050 ], [ %27, %2056 ], [ %27, %2062 ], [ %27, %50 ], [ %27, %72 ], [ %27, %84 ], [ %27, %79 ], [ %27, %86 ], [ %27, %96 ], [ %27, %102 ], [ %27, %110 ], [ %27, %137 ], [ %27, %197 ], [ %27, %205 ], [ %27, %255 ], [ %27, %307 ], [ %27, %314 ], [ %27, %321 ], [ %27, %334 ], [ %27, %335 ], [ %27, %350 ], [ %27, %377 ], [ %27, %383 ], [ %27, %389 ], [ %27, %395 ], [ %27, %402 ], [ %27, %415 ], [ %27, %417 ], [ %27, %430 ], [ %27, %431 ], [ %27, %437 ], [ %27, %463 ], [ %27, %484 ], [ %27, %497 ], [ %27, %498 ], [ %27, %519 ], [ %27, %525 ], [ %27, %531 ], [ %27, %537 ], [ %27, %544 ], [ %27, %550 ], [ %27, %557 ], [ %27, %563 ], [ %27, %749 ], [ %27, %756 ], [ %27, %786 ], [ %27, %793 ], [ %27, %799 ], [ %27, %806 ], [ %27, %813 ], [ %27, %820 ], [ %27, %825 ], [ %27, %831 ], [ %27, %838 ], [ %27, %846 ], [ %27, %859 ], [ %27, %893 ], [ %27, %899 ], [ %27, %906 ], [ %27, %943 ], [ %27, %950 ], [ %27, %987 ], [ %27, %997 ], [ %27, %1007 ], [ %27, %1024 ], [ %27, %1031 ], [ %27, %1037 ], [ %27, %1205 ], [ %27, %1211 ], [ %27, %1217 ], [ %27, %1223 ], [ %27, %1233 ], [ %27, %1239 ], [ %27, %1245 ], [ %27, %1251 ], [ %27, %1257 ], [ %27, %1264 ], [ %27, %1277 ], [ %27, %1278 ], [ %27, %1304 ], [ %27, %1355 ], [ %27, %1441 ], [ %27, %1447 ], [ %27, %1460 ], [ %27, %1461 ], [ %27, %1491 ], [ %27, %1480 ], [ %27, %1492 ], [ %27, %1536 ], [ %27, %1542 ], [ %27, %1548 ], [ %27, %1554 ], [ %27, %1560 ], [ %27, %1566 ], [ %27, %1572 ], [ %27, %1578 ], [ %27, %1584 ], [ %27, %1590 ], [ %27, %1596 ], [ %27, %1602 ], [ %27, %1608 ], [ %27, %1614 ], [ %27, %1620 ], [ %27, %1626 ], [ %27, %1632 ], [ %27, %1638 ], [ %27, %1645 ], [ %27, %1651 ], [ %27, %1661 ], [ %27, %1667 ], [ %27, %1688 ], [ %27, %1693 ], [ %27, %1698 ], [ %27, %.preheader ], [ %27, %.preheader106 ], [ %27, %.preheader108 ], [ %27, %.preheader110 ], [ %27, %1996 ], [ %27, %.preheader113 ], [ %27, %.preheader115 ], [ %27, %.preheader117 ], [ %27, %.preheader119 ], [ %27, %.preheader121 ], [ %27, %.thread98.loopexit170 ], [ %27, %.thread98.loopexit177 ], [ %27, %get_type_length.exit1711 ], [ %27, %get_type_length.exit1716 ], [ %27, %get_type_length.exit1746 ], [ %27, %get_type_length.exit1756 ], [ %27, %get_type_length.exit1646 ], [ %.2, %745 ], [ %27, %get_type_length.exit1676 ], [ %27, %get_type_length.exit1691 ]
+.thread98:                                        ; preds = %745, %.preheader115, %.thread98.loopexit122, %.thread98.loopexit120, %.thread98.loopexit118, %.thread98.loopexit114, %.thread98.loopexit112, %.thread98.loopexit111, %.thread98.loopexit109, %.thread98.loopexit107, %.thread98.loopexit, %50, %72, %84, %79, %86, %96, %102, %110, %137, %197, %205, %255, %307, %314, %321, %334, %335, %350, %377, %383, %389, %395, %402, %415, %417, %430, %431, %437, %463, %484, %497, %498, %519, %525, %531, %537, %544, %550, %557, %563, %749, %756, %786, %793, %799, %806, %813, %820, %825, %831, %838, %846, %859, %893, %899, %906, %943, %950, %987, %997, %1007, %1024, %1031, %1037, %1205, %1211, %1217, %1223, %1233, %1239, %1245, %1251, %1257, %1264, %1277, %1278, %1304, %1355, %1441, %1447, %1460, %1461, %1491, %1480, %1492, %1536, %1542, %1548, %1554, %1560, %1566, %1572, %1578, %1584, %1590, %1596, %1602, %1608, %1614, %1620, %1626, %1632, %1638, %1645, %1651, %1661, %1667, %1688, %1693, %1698, %1704, %1739, %1744, %1748, %1878, %1883, %1978, %1984, %1990, %2050, %2056, %2062, %2068, %2069, %get_uint_by_size.exit, %get_int_by_size.exit, %2097, %2101, %2110, %._crit_edge
+  %.0147896102 = phi i32 [ %27, %2068 ], [ %27, %2069 ], [ %27, %get_uint_by_size.exit ], [ %27, %get_int_by_size.exit ], [ %27, %2097 ], [ %27, %2101 ], [ %27, %2110 ], [ %27, %._crit_edge ], [ %27, %1704 ], [ %27, %1739 ], [ %27, %1744 ], [ %27, %1748 ], [ %27, %1878 ], [ %27, %1883 ], [ %27, %1978 ], [ %27, %1984 ], [ %27, %1990 ], [ %27, %2050 ], [ %27, %2056 ], [ %27, %2062 ], [ %27, %50 ], [ %27, %72 ], [ %27, %84 ], [ %27, %79 ], [ %27, %86 ], [ %27, %96 ], [ %27, %102 ], [ %27, %110 ], [ %27, %137 ], [ %27, %197 ], [ %27, %205 ], [ %27, %255 ], [ %27, %307 ], [ %27, %314 ], [ %27, %321 ], [ %27, %334 ], [ %27, %335 ], [ %27, %350 ], [ %27, %377 ], [ %27, %383 ], [ %27, %389 ], [ %27, %395 ], [ %27, %402 ], [ %27, %415 ], [ %27, %417 ], [ %27, %430 ], [ %27, %431 ], [ %27, %437 ], [ %27, %463 ], [ %27, %484 ], [ %27, %497 ], [ %27, %498 ], [ %27, %519 ], [ %27, %525 ], [ %27, %531 ], [ %27, %537 ], [ %27, %544 ], [ %27, %550 ], [ %27, %557 ], [ %27, %563 ], [ %27, %749 ], [ %27, %756 ], [ %27, %786 ], [ %27, %793 ], [ %27, %799 ], [ %27, %806 ], [ %27, %813 ], [ %27, %820 ], [ %27, %825 ], [ %27, %831 ], [ %27, %838 ], [ %27, %846 ], [ %27, %859 ], [ %27, %893 ], [ %27, %899 ], [ %27, %906 ], [ %27, %943 ], [ %27, %950 ], [ %27, %987 ], [ %27, %997 ], [ %27, %1007 ], [ %27, %1024 ], [ %27, %1031 ], [ %27, %1037 ], [ %27, %1205 ], [ %27, %1211 ], [ %27, %1217 ], [ %27, %1223 ], [ %27, %1233 ], [ %27, %1239 ], [ %27, %1245 ], [ %27, %1251 ], [ %27, %1257 ], [ %27, %1264 ], [ %27, %1277 ], [ %27, %1278 ], [ %27, %1304 ], [ %27, %1355 ], [ %27, %1441 ], [ %27, %1447 ], [ %27, %1460 ], [ %27, %1461 ], [ %27, %1491 ], [ %27, %1480 ], [ %27, %1492 ], [ %27, %1536 ], [ %27, %1542 ], [ %27, %1548 ], [ %27, %1554 ], [ %27, %1560 ], [ %27, %1566 ], [ %27, %1572 ], [ %27, %1578 ], [ %27, %1584 ], [ %27, %1590 ], [ %27, %1596 ], [ %27, %1602 ], [ %27, %1608 ], [ %27, %1614 ], [ %27, %1620 ], [ %27, %1626 ], [ %27, %1632 ], [ %27, %1638 ], [ %27, %1645 ], [ %27, %1651 ], [ %27, %1661 ], [ %27, %1667 ], [ %27, %1688 ], [ %27, %1693 ], [ %27, %1698 ], [ %27, %.thread98.loopexit ], [ %27, %.thread98.loopexit107 ], [ %27, %.thread98.loopexit109 ], [ %27, %.thread98.loopexit111 ], [ %27, %.thread98.loopexit112 ], [ %27, %.thread98.loopexit114 ], [ %27, %.thread98.loopexit118 ], [ %27, %.thread98.loopexit120 ], [ %27, %.thread98.loopexit122 ], [ %27, %.preheader115 ], [ %.2, %745 ]
   %2136 = sub i32 %.0147896102, %3
   ret i32 %2136
 }

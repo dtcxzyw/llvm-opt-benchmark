@@ -33360,7 +33360,7 @@ define void @_ZN21ExtraMeshFilterPlugin11applyFilterB5cxx11EPK7QActionRK17RichPa
   %eh.lpad-body = phi { ptr, i32 } [ %4652, %4651 ], [ %356, %359 ], [ %356, %355 ], [ %366, %369 ], [ %366, %365 ], [ %3353, %3356 ], [ %3353, %3352 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit3620, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp3621, %.loopexit.split-lp.loopexit.split-lp ]
   %348 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %349 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 350:                                              ; preds = %347, %347, %347, %347
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %47)
@@ -33520,7 +33520,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
 
 411:                                              ; preds = %409
   invoke void @__cxa_throw(ptr nonnull %407, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %413
+          to label %5422 unwind label %413
 
 .thread:                                          ; preds = %406
   %412 = landingpad { ptr, i32 }
@@ -33533,14 +33533,14 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #26
   %.1 = extractvalue { ptr, i32 } %414, 0
   %.1888 = extractvalue { ptr, i32 } %414, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 415:                                              ; preds = %.thread3362, %.thread
   %.pn3554 = phi { ptr, i32 } [ %412, %.thread ], [ %410, %.thread3362 ]
   %.13360 = extractvalue { ptr, i32 } %.pn3554, 0
   %.18883361 = extractvalue { ptr, i32 } %.pn3554, 1
   call void @__cxa_free_exception(ptr %407) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 416:                                              ; preds = %404
   %417 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.181, i32 noundef 8)
@@ -33699,7 +33699,7 @@ _ZN7QStringD2Ev.exit1186:                         ; preds = %436, %_ZN9QtPrivate
   %453 = extractvalue { ptr, i32 } %452, 0
   %454 = extractvalue { ptr, i32 } %452, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 455:                                              ; preds = %426
   %456 = landingpad { ptr, i32 }
@@ -33707,7 +33707,7 @@ _ZN7QStringD2Ev.exit1186:                         ; preds = %436, %_ZN9QtPrivate
   %457 = extractvalue { ptr, i32 } %456, 0
   %458 = extractvalue { ptr, i32 } %456, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 459:                                              ; preds = %434
   %460 = landingpad { ptr, i32 }
@@ -33715,7 +33715,7 @@ _ZN7QStringD2Ev.exit1186:                         ; preds = %436, %_ZN9QtPrivate
   %461 = extractvalue { ptr, i32 } %460, 0
   %462 = extractvalue { ptr, i32 } %460, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 463:                                              ; preds = %450
   %464 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.245, i32 noundef 10)
@@ -33761,7 +33761,7 @@ _ZN7QStringD2Ev.exit1194:                         ; preds = %467, %_ZN9QtPrivate
   %474 = extractvalue { ptr, i32 } %473, 0
   %475 = extractvalue { ptr, i32 } %473, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 476:                                              ; preds = %_ZN7QStringD2Ev.exit1194
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %45)
@@ -33881,7 +33881,7 @@ _ZN7QStringD2Ev.exit1210:                         ; preds = %490, %_ZN9QtPrivate
   %497 = extractvalue { ptr, i32 } %496, 0
   %498 = extractvalue { ptr, i32 } %496, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 499:                                              ; preds = %_ZN7QStringD2Ev.exit1210
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %.sroa.23297.4..sroa_idx4048, i8 0, i64 72, i1 false)
@@ -33982,7 +33982,7 @@ _ZN3vcg3tri13RefineOddEvenI6CMeshONS0_19OddPointLoopGenericIS2_NS0_13LS3Projecti
 
 518:                                              ; preds = %516
   invoke void @__cxa_throw(ptr nonnull %514, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %520
+          to label %5422 unwind label %520
 
 .thread3366:                                      ; preds = %513
   %519 = landingpad { ptr, i32 }
@@ -33995,14 +33995,14 @@ _ZN3vcg3tri13RefineOddEvenI6CMeshONS0_19OddPointLoopGenericIS2_NS0_13LS3Projecti
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %56) #26
   %.2 = extractvalue { ptr, i32 } %521, 0
   %.2889 = extractvalue { ptr, i32 } %521, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 522:                                              ; preds = %.thread3373, %.thread3366
   %.pn3552 = phi { ptr, i32 } [ %519, %.thread3366 ], [ %517, %.thread3373 ]
   %.23371 = extractvalue { ptr, i32 } %.pn3552, 0
   %.28893372 = extractvalue { ptr, i32 } %.pn3552, 1
   call void @__cxa_free_exception(ptr %514) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 523:                                              ; preds = %511
   invoke void @_ZN3vcg3tri5CleanI6CMeshOE20OrientCoherentlyMeshERS2_RbS5_(ptr noundef nonnull align 8 dereferenceable(1196) %340, ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %55)
@@ -34098,7 +34098,7 @@ _ZN7QStringD2Ev.exit1223:                         ; preds = %529, %_ZN9QtPrivate
   call void @_ZNSt13unordered_setIN3vcg3tri10ClusteringI6CMeshONS1_16AverageColorCellIS3_EEE9SimpleTriES7_St8equal_toIS7_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %541) #26
   %555 = extractvalue { ptr, i32 } %554, 0
   %556 = extractvalue { ptr, i32 } %554, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 557:                                              ; preds = %_ZN7QStringD2Ev.exit1223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
@@ -34121,7 +34121,7 @@ _ZN7QStringD2Ev.exit1223:                         ; preds = %529, %_ZN9QtPrivate
   %565 = extractvalue { ptr, i32 } %564, 0
   %566 = extractvalue { ptr, i32 } %564, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 567:                                              ; preds = %574, %573, %572, %571, %562, %561
   %568 = landingpad { ptr, i32 }
@@ -34129,7 +34129,7 @@ _ZN7QStringD2Ev.exit1223:                         ; preds = %529, %_ZN9QtPrivate
   %569 = extractvalue { ptr, i32 } %568, 0
   %570 = extractvalue { ptr, i32 } %568, 1
   call void @_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %58) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 571:                                              ; preds = %557
   invoke void @_ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEE7AddMeshERS2_(ptr noundef nonnull align 8 dereferenceable(200) %58, ptr noundef nonnull align 8 dereferenceable(1196) %340)
@@ -34274,7 +34274,7 @@ _ZN7QStringD2Ev.exit1242:                         ; preds = %604, %_ZN9QtPrivate
   %612 = extractvalue { ptr, i32 } %611, 0
   %613 = extractvalue { ptr, i32 } %611, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 614:                                              ; preds = %602
   %615 = landingpad { ptr, i32 }
@@ -34282,7 +34282,7 @@ _ZN7QStringD2Ev.exit1242:                         ; preds = %604, %_ZN9QtPrivate
   %616 = extractvalue { ptr, i32 } %615, 0
   %617 = extractvalue { ptr, i32 } %615, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 618:                                              ; preds = %_ZN7QStringD2Ev.exit1242
   %619 = invoke noundef zeroext i1 @_ZN3vcg3tri5CleanI6CMeshOE17FlipNormalOutsideERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %340)
@@ -34352,7 +34352,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1246: ; preds = %_ZN9QtPrivate8RefC
   %639 = extractvalue { ptr, i32 } %638, 0
   %640 = extractvalue { ptr, i32 } %638, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 641:                                              ; preds = %347
   %642 = load atomic i8, ptr @_ZGVZN3vcg8Matrix44IfE8IdentityEvE3tmp acquire, align 8
@@ -34414,7 +34414,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1256: ; preds = %_ZN9QtPrivate8RefC
   %659 = extractvalue { ptr, i32 } %658, 0
   %660 = extractvalue { ptr, i32 } %658, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 661:                                              ; preds = %347
   %662 = load atomic i8, ptr @_ZGVZN3vcg8Matrix44IfE8IdentityEvE3tmp acquire, align 8
@@ -34517,7 +34517,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1274: ; preds = %_ZN9QtPrivate8RefC
   %.3 = extractvalue { ptr, i32 } %.pn1135, 0
   %.3890 = extractvalue { ptr, i32 } %.pn1135, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 690:                                              ; preds = %347
   %691 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.288, i32 noundef 15)
@@ -34688,7 +34688,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1306: ; preds = %_ZN9QtPrivate8RefC
   %.4 = extractvalue { ptr, i32 } %.pn1130.pn.pn.pn, 0
   %.4891 = extractvalue { ptr, i32 } %.pn1130.pn.pn.pn, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 736:                                              ; preds = %347
   %737 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.294, i32 noundef 12)
@@ -35078,7 +35078,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %850 = extractvalue { ptr, i32 } %849, 0
   %851 = extractvalue { ptr, i32 } %849, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 852:                                              ; preds = %746
   %853 = landingpad { ptr, i32 }
@@ -35086,7 +35086,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %854 = extractvalue { ptr, i32 } %853, 0
   %855 = extractvalue { ptr, i32 } %853, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 856:                                              ; preds = %754
   %857 = landingpad { ptr, i32 }
@@ -35094,7 +35094,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %858 = extractvalue { ptr, i32 } %857, 0
   %859 = extractvalue { ptr, i32 } %857, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 860:                                              ; preds = %762
   %861 = landingpad { ptr, i32 }
@@ -35102,7 +35102,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %862 = extractvalue { ptr, i32 } %861, 0
   %863 = extractvalue { ptr, i32 } %861, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %73) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 864:                                              ; preds = %770
   %865 = landingpad { ptr, i32 }
@@ -35110,7 +35110,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %866 = extractvalue { ptr, i32 } %865, 0
   %867 = extractvalue { ptr, i32 } %865, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 868:                                              ; preds = %778
   %869 = landingpad { ptr, i32 }
@@ -35118,7 +35118,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %870 = extractvalue { ptr, i32 } %869, 0
   %871 = extractvalue { ptr, i32 } %869, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 872:                                              ; preds = %786
   %873 = landingpad { ptr, i32 }
@@ -35126,7 +35126,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %874 = extractvalue { ptr, i32 } %873, 0
   %875 = extractvalue { ptr, i32 } %873, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 876:                                              ; preds = %794
   %877 = landingpad { ptr, i32 }
@@ -35134,7 +35134,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %878 = extractvalue { ptr, i32 } %877, 0
   %879 = extractvalue { ptr, i32 } %877, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %77) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 880:                                              ; preds = %802
   %881 = landingpad { ptr, i32 }
@@ -35142,7 +35142,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %835
   %882 = extractvalue { ptr, i32 } %881, 0
   %883 = extractvalue { ptr, i32 } %881, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %78) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 884:                                              ; preds = %892, %890, %846, %839
   %885 = landingpad { ptr, i32 }
@@ -35297,7 +35297,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1408: ; preds = %_ZN9QtPrivate8RefC
   %.pn1126.pn.pn = phi { ptr, i32 } [ %.pn1126.pn, %925 ], [ %885, %884 ]
   %.8 = extractvalue { ptr, i32 } %.pn1126.pn.pn, 0
   %.8895 = extractvalue { ptr, i32 } %.pn1126.pn.pn, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 927:                                              ; preds = %347
   invoke void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 96)
@@ -35397,7 +35397,7 @@ _ZN7QStringD2Ev.exit1429:                         ; preds = %941, %_ZN9QtPrivate
   %959 = extractvalue { ptr, i32 } %958, 0
   %960 = extractvalue { ptr, i32 } %958, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 961:                                              ; preds = %939
   %962 = landingpad { ptr, i32 }
@@ -35405,7 +35405,7 @@ _ZN7QStringD2Ev.exit1429:                         ; preds = %941, %_ZN9QtPrivate
   %963 = extractvalue { ptr, i32 } %962, 0
   %964 = extractvalue { ptr, i32 } %962, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 965:                                              ; preds = %952
   %966 = landingpad { ptr, i32 }
@@ -35413,7 +35413,7 @@ _ZN7QStringD2Ev.exit1429:                         ; preds = %941, %_ZN9QtPrivate
   %967 = extractvalue { ptr, i32 } %966, 0
   %968 = extractvalue { ptr, i32 } %966, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %89) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 969:                                              ; preds = %954, %_ZN7QStringD2Ev.exit1429
   %.0959 = phi i32 [ %956, %954 ], [ %932, %_ZN7QStringD2Ev.exit1429 ]
@@ -35875,7 +35875,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1115 = extractvalue { ptr, i32 } %1114, 0
   %1116 = extractvalue { ptr, i32 } %1114, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1117:                                             ; preds = %1004
   %1118 = landingpad { ptr, i32 }
@@ -35883,7 +35883,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1119 = extractvalue { ptr, i32 } %1118, 0
   %1120 = extractvalue { ptr, i32 } %1118, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %92) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1121:                                             ; preds = %1015
   %1122 = landingpad { ptr, i32 }
@@ -35891,7 +35891,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1123 = extractvalue { ptr, i32 } %1122, 0
   %1124 = extractvalue { ptr, i32 } %1122, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1125:                                             ; preds = %1025
   %1126 = landingpad { ptr, i32 }
@@ -35899,7 +35899,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1127 = extractvalue { ptr, i32 } %1126, 0
   %1128 = extractvalue { ptr, i32 } %1126, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1129:                                             ; preds = %1035
   %1130 = landingpad { ptr, i32 }
@@ -35907,7 +35907,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1131 = extractvalue { ptr, i32 } %1130, 0
   %1132 = extractvalue { ptr, i32 } %1130, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %95) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1133:                                             ; preds = %1045
   %1134 = landingpad { ptr, i32 }
@@ -35915,7 +35915,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1135 = extractvalue { ptr, i32 } %1134, 0
   %1136 = extractvalue { ptr, i32 } %1134, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1137:                                             ; preds = %1055
   %1138 = landingpad { ptr, i32 }
@@ -35923,7 +35923,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1139 = extractvalue { ptr, i32 } %1138, 0
   %1140 = extractvalue { ptr, i32 } %1138, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1141:                                             ; preds = %1065
   %1142 = landingpad { ptr, i32 }
@@ -35931,7 +35931,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1143 = extractvalue { ptr, i32 } %1142, 0
   %1144 = extractvalue { ptr, i32 } %1142, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1145:                                             ; preds = %1075
   %1146 = landingpad { ptr, i32 }
@@ -35939,7 +35939,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1147 = extractvalue { ptr, i32 } %1146, 0
   %1148 = extractvalue { ptr, i32 } %1146, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %99) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1149:                                             ; preds = %1085
   %1150 = landingpad { ptr, i32 }
@@ -35947,7 +35947,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1151 = extractvalue { ptr, i32 } %1150, 0
   %1152 = extractvalue { ptr, i32 } %1150, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %100) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1153:                                             ; preds = %1098
   %1154 = landingpad { ptr, i32 }
@@ -35955,7 +35955,7 @@ _ZN7QStringD2Ev.exit1519:                         ; preds = %1100, %_ZN9QtPrivat
   %1155 = extractvalue { ptr, i32 } %1154, 0
   %1156 = extractvalue { ptr, i32 } %1154, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1157:                                             ; preds = %1108, %1107
   %1158 = invoke noundef i32 @_ZN3vcg3tri5CleanI6CMeshOE21RemoveDuplicateVertexERS2_b(ptr noundef nonnull align 8 dereferenceable(1196) %340, i1 noundef zeroext true)
@@ -36283,7 +36283,7 @@ _ZN3vcg3tri5CleanI6CMeshOE29HasConsistentPerWedgeTexCoordERS2_.exit: ; preds = %
 
 1309:                                             ; preds = %1307
   invoke void @__cxa_throw(ptr nonnull %1305, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %1311
+          to label %5422 unwind label %1311
 
 .thread3378:                                      ; preds = %_ZN3vcg3tri5CleanI6CMeshOE29HasConsistentPerWedgeTexCoordERS2_.exit
   %1310 = landingpad { ptr, i32 }
@@ -36296,14 +36296,14 @@ _ZN3vcg3tri5CleanI6CMeshOE29HasConsistentPerWedgeTexCoordERS2_.exit: ; preds = %
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %105) #26
   %.11 = extractvalue { ptr, i32 } %1312, 0
   %.11898 = extractvalue { ptr, i32 } %1312, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1313:                                             ; preds = %.thread3385, %.thread3378
   %.pn3550 = phi { ptr, i32 } [ %1310, %.thread3378 ], [ %1308, %.thread3385 ]
   %.113383 = extractvalue { ptr, i32 } %.pn3550, 0
   %.118983384 = extractvalue { ptr, i32 } %.pn3550, 1
   call void @__cxa_free_exception(ptr %1305) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 .loopexit3557:                                    ; preds = %1303, %.noexc1544
   %1314 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.145, i32 noundef 13)
@@ -36395,7 +36395,7 @@ _ZN7QStringD2Ev.exit1562:                         ; preds = %1325, %_ZN9QtPrivat
   %1343 = extractvalue { ptr, i32 } %1342, 0
   %1344 = extractvalue { ptr, i32 } %1342, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %106) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1345:                                             ; preds = %1323
   %1346 = landingpad { ptr, i32 }
@@ -36403,7 +36403,7 @@ _ZN7QStringD2Ev.exit1562:                         ; preds = %1325, %_ZN9QtPrivat
   %1347 = extractvalue { ptr, i32 } %1346, 0
   %1348 = extractvalue { ptr, i32 } %1346, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %107) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1349:                                             ; preds = %1336
   %1350 = landingpad { ptr, i32 }
@@ -36411,7 +36411,7 @@ _ZN7QStringD2Ev.exit1562:                         ; preds = %1325, %_ZN9QtPrivat
   %1351 = extractvalue { ptr, i32 } %1350, 0
   %1352 = extractvalue { ptr, i32 } %1350, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1353:                                             ; preds = %_ZN7QStringD2Ev.exit1562, %1338
   %.0962 = phi i32 [ %1340, %1338 ], [ %1316, %_ZN7QStringD2Ev.exit1562 ]
@@ -36937,7 +36937,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1548 = extractvalue { ptr, i32 } %1547, 0
   %1549 = extractvalue { ptr, i32 } %1547, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1550:                                             ; preds = %1380
   %1551 = landingpad { ptr, i32 }
@@ -36945,7 +36945,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1552 = extractvalue { ptr, i32 } %1551, 0
   %1553 = extractvalue { ptr, i32 } %1551, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %111) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1554:                                             ; preds = %1389
   %1555 = landingpad { ptr, i32 }
@@ -36953,7 +36953,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1556 = extractvalue { ptr, i32 } %1555, 0
   %1557 = extractvalue { ptr, i32 } %1555, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %112) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1558:                                             ; preds = %1399
   %1559 = landingpad { ptr, i32 }
@@ -36961,7 +36961,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1560 = extractvalue { ptr, i32 } %1559, 0
   %1561 = extractvalue { ptr, i32 } %1559, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %113) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1562:                                             ; preds = %1410
   %1563 = landingpad { ptr, i32 }
@@ -36969,7 +36969,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1564 = extractvalue { ptr, i32 } %1563, 0
   %1565 = extractvalue { ptr, i32 } %1563, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1566:                                             ; preds = %1420
   %1567 = landingpad { ptr, i32 }
@@ -36977,7 +36977,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1568 = extractvalue { ptr, i32 } %1567, 0
   %1569 = extractvalue { ptr, i32 } %1567, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %115) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1570:                                             ; preds = %1430
   %1571 = landingpad { ptr, i32 }
@@ -36985,7 +36985,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1572 = extractvalue { ptr, i32 } %1571, 0
   %1573 = extractvalue { ptr, i32 } %1571, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %116) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1574:                                             ; preds = %1440
   %1575 = landingpad { ptr, i32 }
@@ -36993,7 +36993,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i1666:         ; preds = %1540, %1529, %.lr.p
   %1576 = extractvalue { ptr, i32 } %1575, 0
   %1577 = extractvalue { ptr, i32 } %1575, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %117) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1578:                                             ; preds = %347
   invoke void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 409712)
@@ -37792,7 +37792,7 @@ _ZN7QStringD2Ev.exit1784:                         ; preds = %1794, %_ZN9QtPrivat
 
 1888:                                             ; preds = %1886
   invoke void @__cxa_throw(ptr nonnull %1881, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %1892
+          to label %5422 unwind label %1892
 
 1889:                                             ; preds = %1870
   %1890 = landingpad { ptr, i32 }
@@ -37820,7 +37820,7 @@ _ZN7QStringD2Ev.exit1784:                         ; preds = %1794, %_ZN9QtPrivat
   %.14 = extractvalue { ptr, i32 } %.pn1118.pn, 0
   %.14901 = extractvalue { ptr, i32 } %.pn1118.pn, 1
   invoke void @__cxa_end_catch()
-          to label %1903 unwind label %5418
+          to label %1903 unwind label %5419
 
 1896:                                             ; preds = %_ZN7QStringD2Ev.exit1784
   invoke void @_ZN9MeshModel19updateBoxAndNormalsEv(ptr noundef nonnull align 8 dereferenceable(1288) %340)
@@ -37859,7 +37859,7 @@ _ZN3vcg3tri18IsotropicRemeshingI6CMeshOE6ParamsD2Ev.exit: ; preds = %_ZNSt6vecto
   %.12899 = phi i32 [ %.13900, %1903 ], [ %1803, %1800 ]
   %.12 = phi ptr [ %.13, %1903 ], [ %1802, %1800 ]
   call void @_ZN6CMeshOD1Ev(ptr noundef nonnull align 8 dereferenceable(1196) %118) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 1905:                                             ; preds = %347
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 24, i1 false)
@@ -37900,7 +37900,7 @@ _ZN3vcg3tri18IsotropicRemeshingI6CMeshOE6ParamsD2Ev.exit: ; preds = %_ZNSt6vecto
 
 1923:                                             ; preds = %1921
   invoke void @__cxa_throw(ptr nonnull %1919, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %1925
+          to label %5422 unwind label %1925
 
 .loopexit3558:                                    ; preds = %1986
   %lpad.loopexit3560 = landingpad { ptr, i32 }
@@ -39060,6 +39060,9 @@ _ZN7QStringD2Ev.exit1885:                         ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZdlPv(ptr noundef nonnull %2355) #35
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
 
+_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888: ; preds = %2354, %2356
+  br label %5412
+
 2357:                                             ; preds = %347
   %2358 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.331, i32 noundef 7)
           to label %2359 unwind label %2366
@@ -39636,7 +39639,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1977: ; preds = %_ZN9QtPrivate8RefC
   %.pn1098.pn = phi { ptr, i32 } [ %.pn1098, %2570 ], [ %2367, %2366 ], [ %2453, %2452 ], [ %2451, %2450 ], [ %2449, %2448 ], [ %2418, %2417 ], [ %2389, %2388 ], [ %2378, %2377 ], [ %2369, %2368 ]
   %.26 = extractvalue { ptr, i32 } %.pn1098.pn, 0
   %.26913 = extractvalue { ptr, i32 } %.pn1098.pn, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 2572:                                             ; preds = %347
   %2573 = getelementptr inbounds i8, ptr %182, i64 4
@@ -40340,7 +40343,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit2009: ; preds = %.loopexit3583, %.
   %.pn1096 = phi { ptr, i32 } [ %.pn1094, %2838 ], [ %2644, %2643 ], [ %lpad.phi3571, %.loopexit.split-lp3568 ], [ %lpad.phi3571, %2646 ], [ %lpad.loopexit3585, %.loopexit3583 ], [ %lpad.loopexit3589, %.loopexit.split-lp3584.loopexit ], [ %lpad.loopexit.split-lp3590, %.loopexit.split-lp3584.loopexit.split-lp ]
   %.28 = extractvalue { ptr, i32 } %.pn1096, 0
   %.28915 = extractvalue { ptr, i32 } %.pn1096, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 2839:                                             ; preds = %347
   %2840 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.369, i32 noundef 5)
@@ -40719,7 +40722,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2109: ; preds = %_ZN9QtPrivate8RefC
   %.pn1091.pn = phi { ptr, i32 } [ %.pn1091, %2973 ], [ %2873, %2872 ], [ %2908, %2907 ], [ %2943, %2942 ], [ %2881, %2880 ], [ %2879, %2878 ], [ %2877, %2876 ], [ %2875, %2874 ]
   %.30 = extractvalue { ptr, i32 } %.pn1091.pn, 0
   %.30917 = extractvalue { ptr, i32 } %.pn1091.pn, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 2975:                                             ; preds = %347
   %2976 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.285, i32 noundef 9)
@@ -41297,7 +41300,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2218: ; preds = %_ZN9QtPrivate8RefC
   %.pn1087.pn.pn = phi { ptr, i32 } [ %.pn1087, %3151 ], [ %2986, %2985 ], [ %3083, %3082 ], [ %3066, %3065 ], [ %3055, %3054 ], [ %3037, %3036 ], [ %3035, %3034 ], [ %3033, %3032 ], [ %3031, %3030 ], [ %2988, %2987 ]
   %.32 = extractvalue { ptr, i32 } %.pn1087.pn.pn, 0
   %.32919 = extractvalue { ptr, i32 } %.pn1087.pn.pn, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3153:                                             ; preds = %347
   %3154 = getelementptr inbounds i8, ptr %234, i64 4
@@ -41759,7 +41762,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2282: ; preds = %_ZN9QtPrivate8RefC
   %.pn1084.pn = phi { ptr, i32 } [ %.pn1084, %3295 ], [ %3172, %3171 ], [ %3272, %3271 ], [ %3270, %3269 ], [ %3252, %3251 ], [ %3250, %3249 ], [ %3232, %3231 ], [ %3230, %3229 ], [ %3212, %3211 ], [ %3210, %3209 ], [ %3194, %3193 ], [ %3192, %3191 ], [ %3176, %3175 ], [ %3174, %3173 ]
   %.35 = extractvalue { ptr, i32 } %.pn1084.pn, 0
   %.35922 = extractvalue { ptr, i32 } %.pn1084.pn, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3297:                                             ; preds = %347
   %3298 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.403, i32 noundef 1)
@@ -41909,7 +41912,7 @@ _ZN7QStringD2Ev.exit2319:                         ; preds = %3325, %_ZN9QtPrivat
   %3333 = extractvalue { ptr, i32 } %3332, 0
   %3334 = extractvalue { ptr, i32 } %3332, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %249) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3335:                                             ; preds = %3307
   %3336 = landingpad { ptr, i32 }
@@ -41917,7 +41920,7 @@ _ZN7QStringD2Ev.exit2319:                         ; preds = %3325, %_ZN9QtPrivat
   %3337 = extractvalue { ptr, i32 } %3336, 0
   %3338 = extractvalue { ptr, i32 } %3336, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %250) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3339:                                             ; preds = %3315
   %3340 = landingpad { ptr, i32 }
@@ -41925,7 +41928,7 @@ _ZN7QStringD2Ev.exit2319:                         ; preds = %3325, %_ZN9QtPrivat
   %3341 = extractvalue { ptr, i32 } %3340, 0
   %3342 = extractvalue { ptr, i32 } %3340, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %251) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3343:                                             ; preds = %3323
   %3344 = landingpad { ptr, i32 }
@@ -41933,7 +41936,7 @@ _ZN7QStringD2Ev.exit2319:                         ; preds = %3325, %_ZN9QtPrivat
   %3345 = extractvalue { ptr, i32 } %3344, 0
   %3346 = extractvalue { ptr, i32 } %3344, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %252) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3347:                                             ; preds = %347
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
@@ -42005,7 +42008,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2328: ; preds = %_ZN9QtPrivate8RefC
   %3369 = extractvalue { ptr, i32 } %3368, 0
   %3370 = extractvalue { ptr, i32 } %3368, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %254) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3371:                                             ; preds = %347
   %3372 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.139, i32 noundef 5)
@@ -42076,7 +42079,7 @@ _ZN7QStringD2Ev.exit2341:                         ; preds = %3375, %_ZN9QtPrivat
 
 3391:                                             ; preds = %3389
   invoke void @__cxa_throw(ptr nonnull %3387, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %3397
+          to label %5422 unwind label %3397
 
 3392:                                             ; preds = %3373
   %3393 = landingpad { ptr, i32 }
@@ -42084,7 +42087,7 @@ _ZN7QStringD2Ev.exit2341:                         ; preds = %3375, %_ZN9QtPrivat
   %3394 = extractvalue { ptr, i32 } %3393, 0
   %3395 = extractvalue { ptr, i32 } %3393, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %255) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 .thread3402:                                      ; preds = %3386
   %3396 = landingpad { ptr, i32 }
@@ -42097,14 +42100,14 @@ _ZN7QStringD2Ev.exit2341:                         ; preds = %3375, %_ZN9QtPrivat
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %256) #26
   %.37 = extractvalue { ptr, i32 } %3398, 0
   %.37924 = extractvalue { ptr, i32 } %3398, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3399:                                             ; preds = %.thread3409, %.thread3402
   %.pn3544 = phi { ptr, i32 } [ %3396, %.thread3402 ], [ %3390, %.thread3409 ]
   %.373407 = extractvalue { ptr, i32 } %.pn3544, 0
   %.379243408 = extractvalue { ptr, i32 } %.pn3544, 1
   call void @__cxa_free_exception(ptr %3387) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3400:                                             ; preds = %3384
   %3401 = getelementptr inbounds i8, ptr %340, i64 8
@@ -42210,7 +42213,7 @@ _ZN7QStringD2Ev.exit2361:                         ; preds = %3429, %_ZN9QtPrivat
   %3444 = extractvalue { ptr, i32 } %3443, 0
   %3445 = extractvalue { ptr, i32 } %3443, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %257) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3446:                                             ; preds = %3437, %_ZN7QStringD2Ev.exit2361
   %3447 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.133, i32 noundef 6)
@@ -42258,7 +42261,7 @@ _ZN7QStringD2Ev.exit2369:                         ; preds = %3450, %_ZN9QtPrivat
   %3457 = extractvalue { ptr, i32 } %3456, 0
   %3458 = extractvalue { ptr, i32 } %3456, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %259) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3459:                                             ; preds = %_ZN7QStringD2Ev.exit2369
   invoke void @_ZN3vcg3tri15UpdateCurvatureI6CMeshOE19PrincipalDirectionsERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %340)
@@ -42328,7 +42331,7 @@ _ZN7QStringD2Ev.exit2377:                         ; preds = %3468, %_ZN9QtPrivat
   %3475 = extractvalue { ptr, i32 } %3474, 0
   %3476 = extractvalue { ptr, i32 } %3474, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %260) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3477:                                             ; preds = %_ZN7QStringD2Ev.exit2377
   invoke void @_ZN3vcg3tri13UpdateQualityI6CMeshOE26VertexMeanFromCurvatureDirERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %340)
@@ -42808,7 +42811,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %3651, %_ZNK19MeshLa
   %3655 = extractvalue { ptr, i32 } %lpad.phi3596, 0
   %3656 = extractvalue { ptr, i32 } %lpad.phi3596, 1
   call void @_ZN3vcg9HistogramIfED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %261) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3657:                                             ; preds = %347
   invoke void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 262144)
@@ -42840,7 +42843,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %3651, %_ZNK19MeshLa
 
 3667:                                             ; preds = %3665
   invoke void @__cxa_throw(ptr nonnull %3663, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %3669
+          to label %5422 unwind label %3669
 
 .thread3425:                                      ; preds = %3662
   %3668 = landingpad { ptr, i32 }
@@ -42853,14 +42856,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %3651, %_ZNK19MeshLa
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %262) #26
   %.38 = extractvalue { ptr, i32 } %3670, 0
   %.38925 = extractvalue { ptr, i32 } %3670, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3671:                                             ; preds = %.thread3432, %.thread3425
   %.pn3542 = phi { ptr, i32 } [ %3668, %.thread3425 ], [ %3666, %.thread3432 ]
   %.383430 = extractvalue { ptr, i32 } %.pn3542, 0
   %.389253431 = extractvalue { ptr, i32 } %.pn3542, 1
   call void @__cxa_free_exception(ptr %3663) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3672:                                             ; preds = %3660
   %3673 = getelementptr inbounds i8, ptr %340, i64 304
@@ -43069,7 +43072,7 @@ _ZN7QStringD2Ev.exit2499:                         ; preds = %3724, %_ZN9QtPrivat
   %3733 = extractvalue { ptr, i32 } %3732, 0
   %3734 = extractvalue { ptr, i32 } %3732, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %263) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3735:                                             ; preds = %3690
   %3736 = landingpad { ptr, i32 }
@@ -43077,7 +43080,7 @@ _ZN7QStringD2Ev.exit2499:                         ; preds = %3724, %_ZN9QtPrivat
   %3737 = extractvalue { ptr, i32 } %3736, 0
   %3738 = extractvalue { ptr, i32 } %3736, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %264) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3739:                                             ; preds = %3698
   %3740 = landingpad { ptr, i32 }
@@ -43085,7 +43088,7 @@ _ZN7QStringD2Ev.exit2499:                         ; preds = %3724, %_ZN9QtPrivat
   %3741 = extractvalue { ptr, i32 } %3740, 0
   %3742 = extractvalue { ptr, i32 } %3740, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %265) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3743:                                             ; preds = %3706
   %3744 = landingpad { ptr, i32 }
@@ -43093,7 +43096,7 @@ _ZN7QStringD2Ev.exit2499:                         ; preds = %3724, %_ZN9QtPrivat
   %3745 = extractvalue { ptr, i32 } %3744, 0
   %3746 = extractvalue { ptr, i32 } %3744, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %266) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3747:                                             ; preds = %3714
   %3748 = landingpad { ptr, i32 }
@@ -43101,7 +43104,7 @@ _ZN7QStringD2Ev.exit2499:                         ; preds = %3724, %_ZN9QtPrivat
   %3749 = extractvalue { ptr, i32 } %3748, 0
   %3750 = extractvalue { ptr, i32 } %3748, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %267) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3751:                                             ; preds = %3722
   %3752 = landingpad { ptr, i32 }
@@ -43109,7 +43112,7 @@ _ZN7QStringD2Ev.exit2499:                         ; preds = %3724, %_ZN9QtPrivat
   %3753 = extractvalue { ptr, i32 } %3752, 0
   %3754 = extractvalue { ptr, i32 } %3752, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %268) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3755:                                             ; preds = %_ZN7QStringD2Ev.exit2499
   %3756 = invoke noundef i32 @_ZN3vcg3tri4HoleI6CMeshOE14EarCuttingFillINS0_16MinimumWeightEarIS2_EEEEiRS2_ibPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(1196) %340, i32 noundef %3683, i1 noundef zeroext %3691, ptr noundef %6)
@@ -43278,7 +43281,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceClearERS2_.exit: ; preds = %_ZN3vcg3tr
   %.39926 = extractvalue { ptr, i32 } %.pn1076, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %271) #26
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %269) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3820:                                             ; preds = %3782
   %3821 = landingpad { ptr, i32 }
@@ -43297,7 +43300,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceClearERS2_.exit: ; preds = %_ZN3vcg3tr
   %.40927 = extractvalue { ptr, i32 } %.pn1078, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %274) #26
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %272) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3825:                                             ; preds = %.lr.ph3718, %3813
   %3826 = phi ptr [ %3808, %.lr.ph3718 ], [ %.pre3862, %3813 ]
@@ -43429,7 +43432,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceClearERS2_.exit: ; preds = %_ZN3vcg3tr
   %3893 = extractvalue { ptr, i32 } %3892, 0
   %3894 = extractvalue { ptr, i32 } %3892, 1
   call void @_ZN3vcg3tri18IsotropicRemeshingI6CMeshOE6ParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %275) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3895:                                             ; preds = %3889
   call void @_ZN3vcg3tri18IsotropicRemeshingI6CMeshOE6ParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %275) #26
@@ -43623,7 +43626,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %3959, %3957, %3955,
   %3962 = extractvalue { ptr, i32 } %3961, 0
   %3963 = extractvalue { ptr, i32 } %3961, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %276) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3964:                                             ; preds = %3906
   %3965 = landingpad { ptr, i32 }
@@ -43631,7 +43634,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %3959, %3957, %3955,
   %3966 = extractvalue { ptr, i32 } %3965, 0
   %3967 = extractvalue { ptr, i32 } %3965, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %277) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3968:                                             ; preds = %3914
   %3969 = landingpad { ptr, i32 }
@@ -43639,14 +43642,14 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %3959, %3957, %3955,
   %3970 = extractvalue { ptr, i32 } %3969, 0
   %3971 = extractvalue { ptr, i32 } %3969, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %278) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 3972:                                             ; preds = %.lr.ph.preheader.i.i.i.i.i, %3928
   %3973 = landingpad { ptr, i32 }
           cleanup
   %3974 = extractvalue { ptr, i32 } %3973, 0
   %3975 = extractvalue { ptr, i32 } %3973, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 .loopexit.split-lp3601.loopexit:                  ; preds = %4098
   %lpad.loopexit3609 = landingpad { ptr, i32 }
@@ -44341,11 +44344,14 @@ _ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i: ; preds = %4304, %.lr.ph.i.i.
 
 _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i.i, %.body2561
   %.not.i.i.i2573 = icmp eq ptr %4301, null
-  br i1 %.not.i.i.i2573, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888, label %4306
+  br i1 %.not.i.i.i2573, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit, label %4306
 
 4306:                                             ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %4301) #35
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit
+
+_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i, %4306
+  br label %5412
 
 4307:                                             ; preds = %347
   %4308 = getelementptr inbounds i8, ptr %340, i64 304
@@ -44399,7 +44405,7 @@ _ZN3vcg3tri15BitQuadCreationI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE13Is
 
 4328:                                             ; preds = %4327
   invoke void @__cxa_throw(ptr nonnull %4324, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %4333
+          to label %5422 unwind label %4333
 
 .thread3437:                                      ; preds = %_ZN3vcg3tri15BitQuadCreationI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE13IsTriQuadOnlyERKS2_.exit
   %4329 = landingpad { ptr, i32 }
@@ -44435,13 +44441,13 @@ _ZN3vcg3tri15BitQuadCreationI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE13Is
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %287) #26
   %.44 = extractvalue { ptr, i32 } %.pn1066, 0
   %.44931 = extractvalue { ptr, i32 } %.pn1066, 1
-  br i1 %.31003, label %4336, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br i1 %.31003, label %4336, label %5412
 
 4336:                                             ; preds = %.thread3444, %.thread3437, %4335
   %.449313443 = phi i32 [ %.449313441, %.thread3437 ], [ %.44931, %4335 ], [ %.449313448, %.thread3444 ]
   %.443442 = phi ptr [ %.443440, %.thread3437 ], [ %.44, %4335 ], [ %.443447, %.thread3444 ]
   call void @__cxa_free_exception(ptr %4324) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 .loopexit3618:                                    ; preds = %4322, %4307
   invoke void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 327680)
@@ -44499,7 +44505,7 @@ _ZN3vcg3tri15BitQuadCreationI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE13Is
 
 4358:                                             ; preds = %4357
   invoke void @__cxa_throw(ptr nonnull %4354, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %4363
+          to label %5422 unwind label %4363
 
 .thread3450:                                      ; preds = %_ZN3vcg3tri15BitQuadCreationI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE13IsTriQuadOnlyERKS2_.exit2589
   %4359 = landingpad { ptr, i32 }
@@ -44535,13 +44541,13 @@ _ZN3vcg3tri15BitQuadCreationI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE13Is
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %290) #26
   %.47 = extractvalue { ptr, i32 } %.pn1062, 0
   %.47934 = extractvalue { ptr, i32 } %.pn1062, 1
-  br i1 %.31007, label %4366, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br i1 %.31007, label %4366, label %5412
 
 4366:                                             ; preds = %.thread3457, %.thread3450, %4365
   %.479343456 = phi i32 [ %.479343454, %.thread3450 ], [ %.47934, %4365 ], [ %.479343461, %.thread3457 ]
   %.473455 = phi ptr [ %.473453, %.thread3450 ], [ %.47, %4365 ], [ %.473460, %.thread3457 ]
   call void @__cxa_free_exception(ptr %4354) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 .loopexit3619:                                    ; preds = %4352, %4337
   invoke void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 327680)
@@ -44753,7 +44759,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE30PerVertexFromCurrentFaceNormalERS2_.exit2618
   %.50 = extractvalue { ptr, i32 } %.pn1060, 0
   %.50937 = extractvalue { ptr, i32 } %.pn1060, 1
   call void @_ZN3vcg3tri7TriMeshISt6vectorI7PVertexSaIS3_EES2_I5PEdgeSaIS6_EES2_I5PFaceSaIS9_EENS0_14DummyContainerESC_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %291) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4441:                                             ; preds = %347
   invoke void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 327680)
@@ -44785,7 +44791,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE30PerVertexFromCurrentFaceNormalERS2_.exit2618
 
 4451:                                             ; preds = %4449
   invoke void @__cxa_throw(ptr nonnull %4447, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %4453
+          to label %5422 unwind label %4453
 
 .thread3462:                                      ; preds = %4446
   %4452 = landingpad { ptr, i32 }
@@ -44798,14 +44804,14 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE30PerVertexFromCurrentFaceNormalERS2_.exit2618
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %293) #26
   %.51 = extractvalue { ptr, i32 } %4454, 0
   %.51938 = extractvalue { ptr, i32 } %4454, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4455:                                             ; preds = %.thread3469, %.thread3462
   %.pn3533 = phi { ptr, i32 } [ %4452, %.thread3462 ], [ %4450, %.thread3469 ]
   %.513467 = extractvalue { ptr, i32 } %.pn3533, 0
   %.519383468 = extractvalue { ptr, i32 } %.pn3533, 1
   call void @__cxa_free_exception(ptr %4447) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4456:                                             ; preds = %4444
   %4457 = invoke noundef zeroext i1 @_ZN3vcg3tri15BitQuadCreationI6CMeshONS0_21GeometricInterpolatorI8CVertexOEEE18MakeTriEvenBySplitERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %340)
@@ -44890,7 +44896,7 @@ _ZN7QStringD2Ev.exit2629:                         ; preds = %4471, %_ZN9QtPrivat
   %4478 = extractvalue { ptr, i32 } %4477, 0
   %4479 = extractvalue { ptr, i32 } %4477, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %294) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4480:                                             ; preds = %347
   %4481 = getelementptr inbounds i8, ptr %340, i64 304
@@ -45004,7 +45010,7 @@ _ZN7QStringD2Ev.exit2648:                         ; preds = %4504, %_ZN9QtPrivat
   %4515 = extractvalue { ptr, i32 } %4514, 0
   %4516 = extractvalue { ptr, i32 } %4514, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %295) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4517:                                             ; preds = %4502
   %4518 = landingpad { ptr, i32 }
@@ -45012,7 +45018,7 @@ _ZN7QStringD2Ev.exit2648:                         ; preds = %4504, %_ZN9QtPrivat
   %4519 = extractvalue { ptr, i32 } %4518, 0
   %4520 = extractvalue { ptr, i32 } %4518, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %296) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4521:                                             ; preds = %347
   %4522 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.289, i32 noundef 0)
@@ -45092,7 +45098,7 @@ _ZN7QStringD2Ev.exit2664:                         ; preds = %_ZN7QStringD2Ev.exi
   %.52 = extractvalue { ptr, i32 } %.pn1056, 0
   %.52939 = extractvalue { ptr, i32 } %.pn1056, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %297) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4541:                                             ; preds = %347
   %4542 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.423, i32 noundef 10)
@@ -45138,7 +45144,7 @@ _ZN7QStringD2Ev.exit2672:                         ; preds = %4545, %_ZN9QtPrivat
   %4552 = extractvalue { ptr, i32 } %4551, 0
   %4553 = extractvalue { ptr, i32 } %4551, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %299) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4554:                                             ; preds = %_ZN7QStringD2Ev.exit2672
   %4555 = invoke noundef zeroext i1 @_ZNK9MeshModel11hasDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 2)
@@ -45211,7 +45217,7 @@ _ZN7QStringD2Ev.exit2680:                         ; preds = %4567, %_ZN9QtPrivat
   %4574 = extractvalue { ptr, i32 } %4573, 0
   %4575 = extractvalue { ptr, i32 } %4573, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %300) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4576:                                             ; preds = %_ZN7QStringD2Ev.exit2680
   %4577 = invoke noundef zeroext i1 @_ZNK9MeshModel11hasDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 8)
@@ -45283,7 +45289,7 @@ _ZN7QStringD2Ev.exit2688:                         ; preds = %4589, %_ZN9QtPrivat
   %4596 = extractvalue { ptr, i32 } %4595, 0
   %4597 = extractvalue { ptr, i32 } %4595, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %301) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4598:                                             ; preds = %_ZN7QStringD2Ev.exit2688
   %4599 = invoke noundef zeroext i1 @_ZNK9MeshModel11hasDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %340, i32 noundef 1024)
@@ -45338,7 +45344,7 @@ _ZN7QStringD2Ev.exit2688:                         ; preds = %4589, %_ZN9QtPrivat
 
 4615:                                             ; preds = %4614
   invoke void @__cxa_throw(ptr nonnull %4612, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %4618
+          to label %5422 unwind label %4618
 
 .thread3488:                                      ; preds = %4611
   %4616 = landingpad { ptr, i32 }
@@ -45363,13 +45369,13 @@ _ZN7QStringD2Ev.exit2688:                         ; preds = %4589, %_ZN9QtPrivat
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %304) #26
   %.53 = extractvalue { ptr, i32 } %4619, 0
   %.53940 = extractvalue { ptr, i32 } %4619, 1
-  br i1 %.01013, label %4620, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br i1 %.01013, label %4620, label %5412
 
 4620:                                             ; preds = %.thread3495, %.thread3488, %4618
   %.539403494 = phi i32 [ %.539403492, %.thread3488 ], [ %.53940, %4618 ], [ %.539403499, %.thread3495 ]
   %.533493 = phi ptr [ %.533491, %.thread3488 ], [ %.53, %4618 ], [ %.533498, %.thread3495 ]
   call void @__cxa_free_exception(ptr %4612) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4621:                                             ; preds = %347
   %4622 = getelementptr inbounds i8, ptr %340, i64 1116
@@ -45403,7 +45409,7 @@ _ZN7QStringD2Ev.exit2688:                         ; preds = %4589, %_ZN9QtPrivat
 
 4635:                                             ; preds = %4633
   invoke void @__cxa_throw(ptr nonnull %4631, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %4637
+          to label %5422 unwind label %4637
 
 .thread3500:                                      ; preds = %4630
   %4636 = landingpad { ptr, i32 }
@@ -45416,14 +45422,14 @@ _ZN7QStringD2Ev.exit2688:                         ; preds = %4589, %_ZN9QtPrivat
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %305) #26
   %.55 = extractvalue { ptr, i32 } %4638, 0
   %.55942 = extractvalue { ptr, i32 } %4638, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4639:                                             ; preds = %.thread3507, %.thread3500
   %.pn3531 = phi { ptr, i32 } [ %4636, %.thread3500 ], [ %4634, %.thread3507 ]
   %.553505 = extractvalue { ptr, i32 } %.pn3531, 0
   %.559423506 = extractvalue { ptr, i32 } %.pn3531, 1
   call void @__cxa_free_exception(ptr %4631) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4640:                                             ; preds = %4621
   %4641 = getelementptr inbounds i8, ptr %4628, i64 8
@@ -45950,7 +45956,7 @@ _ZN7QStringD2Ev.exit2716:                         ; preds = %4668, %_ZN9QtPrivat
   %.56 = extractvalue { ptr, i32 } %.pn1043.pn, 0
   %.56943 = extractvalue { ptr, i32 } %.pn1043.pn, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %309) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4894:                                             ; preds = %_ZN7QStringD2Ev.exit2708, %_ZN7QStringD2Ev.exit2716
   %4895 = landingpad { ptr, i32 }
@@ -46127,7 +46133,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2765: ; preds = %_ZN9QtPrivate8RefC
   %.58 = extractvalue { ptr, i32 } %.pn1046, 0
   %.58945 = extractvalue { ptr, i32 } %.pn1046, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %306) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4961:                                             ; preds = %347
   store float 0.000000e+00, ptr %311, align 8
@@ -46184,7 +46190,7 @@ _ZN7QStringD2Ev.exit2778:                         ; preds = %4967, %_ZN9QtPrivat
   %4977 = extractvalue { ptr, i32 } %4976, 0
   %4978 = extractvalue { ptr, i32 } %4976, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %312) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4979:                                             ; preds = %_ZN7QStringD2Ev.exit2778
   %4980 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.347, i32 noundef 10)
@@ -46211,7 +46217,7 @@ _ZN7QStringD2Ev.exit2778:                         ; preds = %4967, %_ZN9QtPrivat
   %4988 = extractvalue { ptr, i32 } %4987, 0
   %4989 = extractvalue { ptr, i32 } %4987, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %313) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 4990:                                             ; preds = %4983, %4972
   %4991 = phi float [ %.fca.1.extract81, %4983 ], [ %.pre3854, %4972 ]
@@ -46322,7 +46328,7 @@ _ZN7QStringD2Ev.exit2790:                         ; preds = %_ZN9QtPrivate8RefCo
 
 5028:                                             ; preds = %5026
   invoke void @__cxa_throw(ptr nonnull %5024, ptr nonnull @_ZTI11MLException, ptr nonnull @_ZN11MLExceptionD2Ev) #39
-          to label %5421 unwind label %5036
+          to label %5422 unwind label %5036
 
 5029:                                             ; preds = %5003
   %5030 = landingpad { ptr, i32 }
@@ -46330,7 +46336,7 @@ _ZN7QStringD2Ev.exit2790:                         ; preds = %_ZN9QtPrivate8RefCo
   %5031 = extractvalue { ptr, i32 } %5030, 0
   %5032 = extractvalue { ptr, i32 } %5030, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %314) #26
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 5033:                                             ; preds = %5140, %5061, %5060, %5018, %5015, %5011, %_ZN7QStringD2Ev.exit2790
   %5034 = landingpad { ptr, i32 }
@@ -47326,7 +47332,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2925: ; preds = %_ZN9QtPrivate8RefC
   %.pn1040.pn = phi { ptr, i32 } [ %.pn10403514, %5038 ], [ %5037, %5036 ], [ %.pn1038, %5410 ], [ %.pn.pn, %5170 ], [ %5071, %5070 ], [ %5034, %5033 ], [ %5149, %5148 ]
   %.59 = extractvalue { ptr, i32 } %.pn1040.pn, 0
   %.59946 = extractvalue { ptr, i32 } %.pn1040.pn, 1
-  br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
+  br label %5412
 
 5411:                                             ; preds = %347
   invoke void @_ZN12FilterPlugin17wrongActionCalledEPK7QAction(ptr noundef %2)
@@ -47335,33 +47341,33 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2925: ; preds = %_ZN9QtPrivate8RefC
 _ZN3vcg3tri10ClusteringI6CMeshONS0_16AverageColorCellIS2_EEED2Ev.exit: ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit.i1666, %_ZN3vcg6Point3IfE9NormalizeEv.exit.i1535, %.invoke3957, %.invoke3956, %.invoke, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2925, %_ZN9QtPrivate8RefCount5derefEv.exit.i2926, %5405, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2765, %_ZN9QtPrivate8RefCount5derefEv.exit.i2766, %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit, %3653, %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2328, %_ZN9QtPrivate8RefCount5derefEv.exit.i2329, %3362, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2282, %_ZN9QtPrivate8RefCount5derefEv.exit.i2283, %_ZN7QStringD2Ev.exit2281, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2218, %_ZN9QtPrivate8RefCount5derefEv.exit.i2219, %_ZN7QStringD2Ev.exit2217, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2109, %_ZN9QtPrivate8RefCount5derefEv.exit.i2110, %_ZN7QStringD2Ev.exit2108, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i2039, %_ZN9QtPrivate8RefCount5derefEv.exit.i2040, %_ZN7QStringD2Ev.exit2038, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1977, %_ZN9QtPrivate8RefCount5derefEv.exit.i1978, %_ZN7QStringD2Ev.exit1976, %2348, %_ZN7QStringD2Ev.exit1885, %_ZN3vcg3tri12UpdateNormalI6CMeshOE30PerVertexFromCurrentFaceNormalERS2_.exit1661, %_ZN3vcg3tri12UpdateNormalI6CMeshOE30PerVertexFromCurrentFaceNormalERS2_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1408, %_ZN9QtPrivate8RefCount5derefEv.exit.i1409, %_ZN7QStringD2Ev.exit1407, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1306, %_ZN9QtPrivate8RefCount5derefEv.exit.i1307, %_ZN7QStringD2Ev.exit1305, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1274, %_ZN9QtPrivate8RefCount5derefEv.exit.i1275, %_ZN7QStringD2Ev.exit1273, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1256, %_ZN9QtPrivate8RefCount5derefEv.exit.i1257, %652, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1246, %_ZN9QtPrivate8RefCount5derefEv.exit.i1247, %632, %591, %_ZNSt10_HashtableIN3vcg3tri10ClusteringI6CMeshONS1_16AverageColorCellIS3_EEE9SimpleTriES7_SaIS7_ENSt8__detail9_IdentityESt8equal_toIS7_ES7_NS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i, %_ZN3vcg3tri18IsotropicRemeshingI6CMeshOE6ParamsD2Ev.exit, %4299, %_ZN3vcg3tri12UpdateNormalI6CMeshOE30PerVertexFromCurrentFaceNormalERS2_.exit2618, %_ZN7QStringD2Ev.exit2319, %3895, %.loopexit3598, %_ZN7QStringD2Ev.exit2664, %4610, %5411
   ret void
 
-_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888: ; preds = %4637, %4453, %4306, %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i, %3669, %3397, %2356, %2354, %1311, %520, %413, %4639, %4618, %4620, %4455, %4365, %4366, %4335, %4336, %3671, %3399, %1313, %522, %415, %.body2844, %5029, %4986, %4975, %.body2719, %4893, %4594, %4572, %4550, %4540, %4517, %4513, %4476, %4440, %3972, %3968, %3964, %3960, %3891, %3824, %3819, %3751, %3747, %3743, %3739, %3735, %3731, %3654, %3473, %3455, %3442, %3392, %3367, %3343, %3339, %3335, %3331, %3296, %3152, %2974, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit2009, %2571, %1904, %1574, %1570, %1566, %1562, %1558, %1554, %1550, %1546, %1349, %1345, %1341, %1153, %1149, %1145, %1141, %1137, %1133, %1129, %1125, %1121, %1117, %1113, %965, %961, %957, %926, %880, %876, %872, %868, %864, %860, %856, %852, %848, %735, %689, %657, %637, %614, %610, %567, %.body1224, %563, %495, %472, %459, %455, %451, %.body
-  %.0887 = phi i32 [ %349, %.body ], [ %.59946, %.body2844 ], [ %5032, %5029 ], [ %4989, %4986 ], [ %4978, %4975 ], [ %.559423506, %4639 ], [ %.55942, %4637 ], [ %.58945, %.body2719 ], [ %.56943, %4893 ], [ %.539403494, %4620 ], [ %.53940, %4618 ], [ %4597, %4594 ], [ %4575, %4572 ], [ %4553, %4550 ], [ %.52939, %4540 ], [ %4520, %4517 ], [ %4516, %4513 ], [ %4479, %4476 ], [ %.519383468, %4455 ], [ %.51938, %4453 ], [ %.50937, %4440 ], [ %.479343456, %4366 ], [ %.47934, %4365 ], [ %.449313443, %4336 ], [ %.44931, %4335 ], [ %3975, %3972 ], [ %3971, %3968 ], [ %3967, %3964 ], [ %3963, %3960 ], [ %.389253431, %3671 ], [ %.38925, %3669 ], [ %3894, %3891 ], [ %.40927, %3824 ], [ %.39926, %3819 ], [ %3754, %3751 ], [ %3750, %3747 ], [ %3746, %3743 ], [ %3742, %3739 ], [ %3738, %3735 ], [ %3734, %3731 ], [ %.379243408, %3399 ], [ %.37924, %3397 ], [ %3656, %3654 ], [ %3476, %3473 ], [ %3458, %3455 ], [ %3445, %3442 ], [ %3395, %3392 ], [ %3370, %3367 ], [ %3346, %3343 ], [ %3342, %3339 ], [ %3338, %3335 ], [ %3334, %3331 ], [ %.35922, %3296 ], [ %.32919, %3152 ], [ %.30917, %2974 ], [ %.28915, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit2009 ], [ %.26913, %2571 ], [ %.12899, %1904 ], [ %1577, %1574 ], [ %1573, %1570 ], [ %1569, %1566 ], [ %1565, %1562 ], [ %1561, %1558 ], [ %1557, %1554 ], [ %1553, %1550 ], [ %1549, %1546 ], [ %1352, %1349 ], [ %1348, %1345 ], [ %1344, %1341 ], [ %.118983384, %1313 ], [ %.11898, %1311 ], [ %1156, %1153 ], [ %1152, %1149 ], [ %1148, %1145 ], [ %1144, %1141 ], [ %1140, %1137 ], [ %1136, %1133 ], [ %1132, %1129 ], [ %1128, %1125 ], [ %1124, %1121 ], [ %1120, %1117 ], [ %1116, %1113 ], [ %968, %965 ], [ %964, %961 ], [ %960, %957 ], [ %.8895, %926 ], [ %883, %880 ], [ %879, %876 ], [ %875, %872 ], [ %871, %868 ], [ %867, %864 ], [ %863, %860 ], [ %859, %856 ], [ %855, %852 ], [ %851, %848 ], [ %.4891, %735 ], [ %.3890, %689 ], [ %660, %657 ], [ %640, %637 ], [ %617, %614 ], [ %613, %610 ], [ %570, %567 ], [ %556, %.body1224 ], [ %566, %563 ], [ %.28893372, %522 ], [ %.2889, %520 ], [ %.18883361, %415 ], [ %.1888, %413 ], [ %498, %495 ], [ %475, %472 ], [ %462, %459 ], [ %458, %455 ], [ %454, %451 ], [ %.16903, %2354 ], [ %.16903, %2356 ], [ %.41928, %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i ], [ %.41928, %4306 ]
-  %.0 = phi ptr [ %348, %.body ], [ %.59, %.body2844 ], [ %5031, %5029 ], [ %4988, %4986 ], [ %4977, %4975 ], [ %.553505, %4639 ], [ %.55, %4637 ], [ %.58, %.body2719 ], [ %.56, %4893 ], [ %.533493, %4620 ], [ %.53, %4618 ], [ %4596, %4594 ], [ %4574, %4572 ], [ %4552, %4550 ], [ %.52, %4540 ], [ %4519, %4517 ], [ %4515, %4513 ], [ %4478, %4476 ], [ %.513467, %4455 ], [ %.51, %4453 ], [ %.50, %4440 ], [ %.473455, %4366 ], [ %.47, %4365 ], [ %.443442, %4336 ], [ %.44, %4335 ], [ %3974, %3972 ], [ %3970, %3968 ], [ %3966, %3964 ], [ %3962, %3960 ], [ %.383430, %3671 ], [ %.38, %3669 ], [ %3893, %3891 ], [ %.40, %3824 ], [ %.39, %3819 ], [ %3753, %3751 ], [ %3749, %3747 ], [ %3745, %3743 ], [ %3741, %3739 ], [ %3737, %3735 ], [ %3733, %3731 ], [ %.373407, %3399 ], [ %.37, %3397 ], [ %3655, %3654 ], [ %3475, %3473 ], [ %3457, %3455 ], [ %3444, %3442 ], [ %3394, %3392 ], [ %3369, %3367 ], [ %3345, %3343 ], [ %3341, %3339 ], [ %3337, %3335 ], [ %3333, %3331 ], [ %.35, %3296 ], [ %.32, %3152 ], [ %.30, %2974 ], [ %.28, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit2009 ], [ %.26, %2571 ], [ %.12, %1904 ], [ %1576, %1574 ], [ %1572, %1570 ], [ %1568, %1566 ], [ %1564, %1562 ], [ %1560, %1558 ], [ %1556, %1554 ], [ %1552, %1550 ], [ %1548, %1546 ], [ %1351, %1349 ], [ %1347, %1345 ], [ %1343, %1341 ], [ %.113383, %1313 ], [ %.11, %1311 ], [ %1155, %1153 ], [ %1151, %1149 ], [ %1147, %1145 ], [ %1143, %1141 ], [ %1139, %1137 ], [ %1135, %1133 ], [ %1131, %1129 ], [ %1127, %1125 ], [ %1123, %1121 ], [ %1119, %1117 ], [ %1115, %1113 ], [ %967, %965 ], [ %963, %961 ], [ %959, %957 ], [ %.8, %926 ], [ %882, %880 ], [ %878, %876 ], [ %874, %872 ], [ %870, %868 ], [ %866, %864 ], [ %862, %860 ], [ %858, %856 ], [ %854, %852 ], [ %850, %848 ], [ %.4, %735 ], [ %.3, %689 ], [ %659, %657 ], [ %639, %637 ], [ %616, %614 ], [ %612, %610 ], [ %569, %567 ], [ %555, %.body1224 ], [ %565, %563 ], [ %.23371, %522 ], [ %.2, %520 ], [ %.13360, %415 ], [ %.1, %413 ], [ %497, %495 ], [ %474, %472 ], [ %461, %459 ], [ %457, %455 ], [ %453, %451 ], [ %.16, %2354 ], [ %.16, %2356 ], [ %.41, %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i ], [ %.41, %4306 ]
-  %5412 = load ptr, ptr %336, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_8QVariantESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5412)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8QVariantSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit unwind label %5413
+5412:                                             ; preds = %4637, %4453, %3669, %3397, %1311, %520, %413, %4639, %4618, %4620, %4455, %4365, %4366, %4335, %4336, %3671, %3399, %1313, %522, %415, %.body2844, %5029, %4986, %4975, %.body2719, %4893, %4594, %4572, %4550, %4540, %4517, %4513, %4476, %4440, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit, %3972, %3968, %3964, %3960, %3891, %3824, %3819, %3751, %3747, %3743, %3739, %3735, %3731, %3654, %3473, %3455, %3442, %3392, %3367, %3343, %3339, %3335, %3331, %3296, %3152, %2974, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit2009, %2571, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888, %1904, %1574, %1570, %1566, %1562, %1558, %1554, %1550, %1546, %1349, %1345, %1341, %1153, %1149, %1145, %1141, %1137, %1133, %1129, %1125, %1121, %1117, %1113, %965, %961, %957, %926, %880, %876, %872, %868, %864, %860, %856, %852, %848, %735, %689, %657, %637, %614, %610, %567, %.body1224, %563, %495, %472, %459, %455, %451, %.body
+  %.0887 = phi i32 [ %349, %.body ], [ %.59946, %.body2844 ], [ %5032, %5029 ], [ %4989, %4986 ], [ %4978, %4975 ], [ %.559423506, %4639 ], [ %.55942, %4637 ], [ %.58945, %.body2719 ], [ %.56943, %4893 ], [ %.539403494, %4620 ], [ %.53940, %4618 ], [ %4597, %4594 ], [ %4575, %4572 ], [ %4553, %4550 ], [ %.52939, %4540 ], [ %4520, %4517 ], [ %4516, %4513 ], [ %4479, %4476 ], [ %.519383468, %4455 ], [ %.51938, %4453 ], [ %.50937, %4440 ], [ %.479343456, %4366 ], [ %.47934, %4365 ], [ %.449313443, %4336 ], [ %.44931, %4335 ], [ %.41928, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit ], [ %3975, %3972 ], [ %3971, %3968 ], [ %3967, %3964 ], [ %3963, %3960 ], [ %.389253431, %3671 ], [ %.38925, %3669 ], [ %3894, %3891 ], [ %.40927, %3824 ], [ %.39926, %3819 ], [ %3754, %3751 ], [ %3750, %3747 ], [ %3746, %3743 ], [ %3742, %3739 ], [ %3738, %3735 ], [ %3734, %3731 ], [ %.379243408, %3399 ], [ %.37924, %3397 ], [ %3656, %3654 ], [ %3476, %3473 ], [ %3458, %3455 ], [ %3445, %3442 ], [ %3395, %3392 ], [ %3370, %3367 ], [ %3346, %3343 ], [ %3342, %3339 ], [ %3338, %3335 ], [ %3334, %3331 ], [ %.35922, %3296 ], [ %.32919, %3152 ], [ %.30917, %2974 ], [ %.28915, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit2009 ], [ %.26913, %2571 ], [ %.16903, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888 ], [ %.12899, %1904 ], [ %1577, %1574 ], [ %1573, %1570 ], [ %1569, %1566 ], [ %1565, %1562 ], [ %1561, %1558 ], [ %1557, %1554 ], [ %1553, %1550 ], [ %1549, %1546 ], [ %1352, %1349 ], [ %1348, %1345 ], [ %1344, %1341 ], [ %.118983384, %1313 ], [ %.11898, %1311 ], [ %1156, %1153 ], [ %1152, %1149 ], [ %1148, %1145 ], [ %1144, %1141 ], [ %1140, %1137 ], [ %1136, %1133 ], [ %1132, %1129 ], [ %1128, %1125 ], [ %1124, %1121 ], [ %1120, %1117 ], [ %1116, %1113 ], [ %968, %965 ], [ %964, %961 ], [ %960, %957 ], [ %.8895, %926 ], [ %883, %880 ], [ %879, %876 ], [ %875, %872 ], [ %871, %868 ], [ %867, %864 ], [ %863, %860 ], [ %859, %856 ], [ %855, %852 ], [ %851, %848 ], [ %.4891, %735 ], [ %.3890, %689 ], [ %660, %657 ], [ %640, %637 ], [ %617, %614 ], [ %613, %610 ], [ %570, %567 ], [ %556, %.body1224 ], [ %566, %563 ], [ %.28893372, %522 ], [ %.2889, %520 ], [ %.18883361, %415 ], [ %.1888, %413 ], [ %498, %495 ], [ %475, %472 ], [ %462, %459 ], [ %458, %455 ], [ %454, %451 ]
+  %.0 = phi ptr [ %348, %.body ], [ %.59, %.body2844 ], [ %5031, %5029 ], [ %4988, %4986 ], [ %4977, %4975 ], [ %.553505, %4639 ], [ %.55, %4637 ], [ %.58, %.body2719 ], [ %.56, %4893 ], [ %.533493, %4620 ], [ %.53, %4618 ], [ %4596, %4594 ], [ %4574, %4572 ], [ %4552, %4550 ], [ %.52, %4540 ], [ %4519, %4517 ], [ %4515, %4513 ], [ %4478, %4476 ], [ %.513467, %4455 ], [ %.51, %4453 ], [ %.50, %4440 ], [ %.473455, %4366 ], [ %.47, %4365 ], [ %.443442, %4336 ], [ %.44, %4335 ], [ %.41, %_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit ], [ %3974, %3972 ], [ %3970, %3968 ], [ %3966, %3964 ], [ %3962, %3960 ], [ %.383430, %3671 ], [ %.38, %3669 ], [ %3893, %3891 ], [ %.40, %3824 ], [ %.39, %3819 ], [ %3753, %3751 ], [ %3749, %3747 ], [ %3745, %3743 ], [ %3741, %3739 ], [ %3737, %3735 ], [ %3733, %3731 ], [ %.373407, %3399 ], [ %.37, %3397 ], [ %3655, %3654 ], [ %3475, %3473 ], [ %3457, %3455 ], [ %3444, %3442 ], [ %3394, %3392 ], [ %3369, %3367 ], [ %3345, %3343 ], [ %3341, %3339 ], [ %3337, %3335 ], [ %3333, %3331 ], [ %.35, %3296 ], [ %.32, %3152 ], [ %.30, %2974 ], [ %.28, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit2009 ], [ %.26, %2571 ], [ %.16, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888 ], [ %.12, %1904 ], [ %1576, %1574 ], [ %1572, %1570 ], [ %1568, %1566 ], [ %1564, %1562 ], [ %1560, %1558 ], [ %1556, %1554 ], [ %1552, %1550 ], [ %1548, %1546 ], [ %1351, %1349 ], [ %1347, %1345 ], [ %1343, %1341 ], [ %.113383, %1313 ], [ %.11, %1311 ], [ %1155, %1153 ], [ %1151, %1149 ], [ %1147, %1145 ], [ %1143, %1141 ], [ %1139, %1137 ], [ %1135, %1133 ], [ %1131, %1129 ], [ %1127, %1125 ], [ %1123, %1121 ], [ %1119, %1117 ], [ %1115, %1113 ], [ %967, %965 ], [ %963, %961 ], [ %959, %957 ], [ %.8, %926 ], [ %882, %880 ], [ %878, %876 ], [ %874, %872 ], [ %870, %868 ], [ %866, %864 ], [ %862, %860 ], [ %858, %856 ], [ %854, %852 ], [ %850, %848 ], [ %.4, %735 ], [ %.3, %689 ], [ %659, %657 ], [ %639, %637 ], [ %616, %614 ], [ %612, %610 ], [ %569, %567 ], [ %555, %.body1224 ], [ %565, %563 ], [ %.23371, %522 ], [ %.2, %520 ], [ %.13360, %415 ], [ %.1, %413 ], [ %497, %495 ], [ %474, %472 ], [ %461, %459 ], [ %457, %455 ], [ %453, %451 ]
+  %5413 = load ptr, ptr %336, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_8QVariantESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5413)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8QVariantSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit unwind label %5414
 
-5413:                                             ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
-  %5414 = landingpad { ptr, i32 }
+5414:                                             ; preds = %5412
+  %5415 = landingpad { ptr, i32 }
           catch ptr null
-  %5415 = extractvalue { ptr, i32 } %5414, 0
-  call void @__clang_call_terminate(ptr %5415) #36
+  %5416 = extractvalue { ptr, i32 } %5415, 0
+  call void @__clang_call_terminate(ptr %5416) #36
   unreachable
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8QVariantSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit1888
-  %5416 = insertvalue { ptr, i32 } poison, ptr %.0, 0
-  %5417 = insertvalue { ptr, i32 } %5416, i32 %.0887, 1
-  resume { ptr, i32 } %5417
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8QVariantSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev.exit: ; preds = %5412
+  %5417 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %5418 = insertvalue { ptr, i32 } %5417, i32 %.0887, 1
+  resume { ptr, i32 } %5418
 
-5418:                                             ; preds = %1895
-  %5419 = landingpad { ptr, i32 }
+5419:                                             ; preds = %1895
+  %5420 = landingpad { ptr, i32 }
           catch ptr null
-  %5420 = extractvalue { ptr, i32 } %5419, 0
-  call void @__clang_call_terminate(ptr %5420) #36
+  %5421 = extractvalue { ptr, i32 } %5420, 0
+  call void @__clang_call_terminate(ptr %5421) #36
   unreachable
 
-5421:                                             ; preds = %5028, %4635, %4615, %4451, %4358, %4328, %3667, %3391, %1923, %1888, %1309, %518, %411
+5422:                                             ; preds = %5028, %4635, %4615, %4451, %4358, %4328, %3667, %3391, %1923, %1888, %1309, %518, %411
   unreachable
 }
 

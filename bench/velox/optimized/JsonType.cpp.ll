@@ -4091,10 +4091,10 @@ lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %if.the
           cleanup
   br label %common.resume
 
-common.resume:                                    ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i4179, %catch.fallthrough.i.i.i.i.i.i.i.i4353, %catch.fallthrough.i.i.i.i4405, %catch.fallthrough.i21.i.i.i.i.i.i.i3838, %catch.fallthrough.i.i.i.i.i.i.i.i3963, %catch.fallthrough.i.i.i.i4015, %catch.fallthrough.i21.i.i.i.i.i.i.i3501, %catch.fallthrough.i.i.i.i.i.i.i.i3622, %catch.fallthrough.i.i.i.i3672, %catch.fallthrough.i21.i.i.i.i.i.i.i3200, %catch.fallthrough.i.i.i.i.i.i.i.i3284, %catch.fallthrough.i.i.i.i3338, %catch.fallthrough.i21.i.i.i.i.i.i.i2892, %catch.fallthrough.i.i.i.i.i.i.i.i2976, %catch.fallthrough.i.i.i.i3030, %catch.fallthrough.i21.i.i.i.i.i.i.i2542, %catch.fallthrough.i.i.i.i.i.i.i.i2668, %catch.fallthrough.i.i.i.i2722, %catch.fallthrough.i21.i.i.i.i.i.i.i2188, %catch.fallthrough.i.i.i.i.i.i.i.i2318, %catch.fallthrough.i.i.i.i2372, %catch.fallthrough.i21.i.i.i.i.i.i.i1829, %catch.fallthrough.i.i.i.i.i.i.i.i1964, %catch.fallthrough.i.i.i.i2018, %catch.fallthrough.i21.i.i.i.i.i.i.i1545, %catch.fallthrough.i.i.i.i.i.i.i.i1611, %catch.fallthrough.i.i.i.i1656, %catch.fallthrough.i21.i.i.i.i.i.i.i1189, %catch.fallthrough.i.i.i.i.i.i.i.i1323, %catch.fallthrough.i.i.i.i1377, %catch.fallthrough.i21.i.i.i.i.i.i.i813, %catch.fallthrough.i.i.i.i.i.i.i.i965, %catch.fallthrough.i.i.i.i1019, %catch.fallthrough.i21.i.i.i.i.i.i.i438, %catch.fallthrough.i.i.i.i.i.i.i.i586, %catch.fallthrough.i.i.i.i640, %catch.fallthrough.i21.i.i.i.i.i.i.i108, %catch.fallthrough.i.i.i.i.i.i.i.i211, %catch.fallthrough.i.i.i.i265, %catch.fallthrough.i21.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411, %ehcleanup.i.i.i.i4427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185, %ehcleanup.i35.i.i.i.i.i.i.i4201, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359, %ehcleanup.i.i.i.i.i.i.i.i4373, %lpad3.loopexit.i4418, %lpad3.loopexit.split-lp.loopexit.i4364, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i4192, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4126, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021, %ehcleanup.i.i.i.i4037, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844, %ehcleanup.i35.i.i.i.i.i.i.i3860, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969, %ehcleanup.i.i.i.i.i.i.i.i3983, %lpad3.loopexit.i4028, %lpad3.loopexit.split-lp.loopexit.i3974, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3851, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3784, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678, %ehcleanup.i.i.i.i3694, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507, %ehcleanup.i35.i.i.i.i.i.i.i3523, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628, %ehcleanup.i.i.i.i.i.i.i.i3641, %lpad3.loopexit.i3685, %lpad3.loopexit.split-lp.loopexit.i3633, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3514, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3448, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344, %ehcleanup.i.i.i.i3360, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206, %ehcleanup.i35.i.i.i.i.i.i.i3222, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290, %ehcleanup.i.i.i.i.i.i.i.i3304, %lpad3.loopexit.i3351, %lpad3.loopexit.split-lp.loopexit.i3295, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3213, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3140, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036, %ehcleanup.i.i.i.i3052, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898, %ehcleanup.i35.i.i.i.i.i.i.i2914, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982, %ehcleanup.i.i.i.i.i.i.i.i2996, %lpad3.loopexit.i3043, %lpad3.loopexit.split-lp.loopexit.i2987, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2905, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2832, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728, %ehcleanup.i.i.i.i2744, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548, %ehcleanup.i35.i.i.i.i.i.i.i2564, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674, %ehcleanup.i.i.i.i.i.i.i.i2688, %lpad3.loopexit.i2735, %lpad3.loopexit.split-lp.loopexit.i2679, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2555, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2483, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378, %ehcleanup.i.i.i.i2394, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194, %ehcleanup.i35.i.i.i.i.i.i.i2210, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324, %ehcleanup.i.i.i.i.i.i.i.i2338, %lpad3.loopexit.i2385, %lpad3.loopexit.split-lp.loopexit.i2329, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2201, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2128, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024, %ehcleanup.i.i.i.i2040, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835, %ehcleanup.i35.i.i.i.i.i.i.i1851, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970, %ehcleanup.i.i.i.i.i.i.i.i1984, %lpad3.loopexit.i2031, %lpad3.loopexit.split-lp.loopexit.i1975, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662, %ehcleanup.i.i.i.i1678, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i1564, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i1626, %lpad3.loopexit.i1669, %lpad3.loopexit.split-lp.loopexit.i1618, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383, %ehcleanup.i.i.i.i1399, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195, %ehcleanup.i35.i.i.i.i.i.i.i1211, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329, %ehcleanup.i.i.i.i.i.i.i.i1343, %lpad3.loopexit.i1390, %lpad3.loopexit.split-lp.loopexit.i1334, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025, %ehcleanup.i.i.i.i1041, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819, %ehcleanup.i35.i.i.i.i.i.i.i835, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971, %ehcleanup.i.i.i.i.i.i.i.i985, %lpad3.loopexit.i1032, %lpad3.loopexit.split-lp.loopexit.i976, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646, %ehcleanup.i.i.i.i662, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444, %ehcleanup.i35.i.i.i.i.i.i.i460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592, %ehcleanup.i.i.i.i.i.i.i.i606, %lpad3.loopexit.i653, %lpad3.loopexit.split-lp.loopexit.i597, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271, %ehcleanup.i.i.i.i287, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114, %ehcleanup.i35.i.i.i.i.i.i.i130, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217, %ehcleanup.i.i.i.i.i.i.i.i231, %lpad3.loopexit.i278, %lpad3.loopexit.split-lp.loopexit.i222, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i, %ehcleanup.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i, %lpad3.loopexit.i, %lpad3.loopexit.split-lp.loopexit.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
-  %object.i4090.sink = phi ptr [ %object.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %object.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %object.i, %lpad3.loopexit.split-lp.loopexit.i ], [ %object.i, %lpad3.loopexit.i ], [ %object.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %object.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i ], [ %object.i, %ehcleanup.i35.i.i.i.i.i.i.i ], [ %object.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i ], [ %object.i, %ehcleanup.i.i.i.i ], [ %object.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %object.i13, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49 ], [ %object.i13, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121 ], [ %object.i13, %lpad3.loopexit.split-lp.loopexit.i222 ], [ %object.i13, %lpad3.loopexit.i278 ], [ %object.i13, %ehcleanup.i.i.i.i.i.i.i.i231 ], [ %object.i13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217 ], [ %object.i13, %ehcleanup.i35.i.i.i.i.i.i.i130 ], [ %object.i13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114 ], [ %object.i13, %ehcleanup.i.i.i.i287 ], [ %object.i13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271 ], [ %object.i342, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378 ], [ %object.i342, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451 ], [ %object.i342, %lpad3.loopexit.split-lp.loopexit.i597 ], [ %object.i342, %lpad3.loopexit.i653 ], [ %object.i342, %ehcleanup.i.i.i.i.i.i.i.i606 ], [ %object.i342, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592 ], [ %object.i342, %ehcleanup.i35.i.i.i.i.i.i.i460 ], [ %object.i342, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444 ], [ %object.i342, %ehcleanup.i.i.i.i662 ], [ %object.i342, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646 ], [ %object.i717, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753 ], [ %object.i717, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826 ], [ %object.i717, %lpad3.loopexit.split-lp.loopexit.i976 ], [ %object.i717, %lpad3.loopexit.i1032 ], [ %object.i717, %ehcleanup.i.i.i.i.i.i.i.i985 ], [ %object.i717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971 ], [ %object.i717, %ehcleanup.i35.i.i.i.i.i.i.i835 ], [ %object.i717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819 ], [ %object.i717, %ehcleanup.i.i.i.i1041 ], [ %object.i717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025 ], [ %object.i1093, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129 ], [ %object.i1093, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202 ], [ %object.i1093, %lpad3.loopexit.split-lp.loopexit.i1334 ], [ %object.i1093, %lpad3.loopexit.i1390 ], [ %object.i1093, %ehcleanup.i.i.i.i.i.i.i.i1343 ], [ %object.i1093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329 ], [ %object.i1093, %ehcleanup.i35.i.i.i.i.i.i.i1211 ], [ %object.i1093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195 ], [ %object.i1093, %ehcleanup.i.i.i.i1399 ], [ %object.i1093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383 ], [ %object.i1451, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487 ], [ %object.i1451, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555 ], [ %object.i1451, %lpad3.loopexit.split-lp.loopexit.i1618 ], [ %object.i1451, %lpad3.loopexit.i1669 ], [ %object.i1451, %ehcleanup.i.i.i.i.i.i.i.i1626 ], [ %object.i1451, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i ], [ %object.i1451, %ehcleanup.i35.i.i.i.i.i.i.i1564 ], [ %object.i1451, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i ], [ %object.i1451, %ehcleanup.i.i.i.i1678 ], [ %object.i1451, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662 ], [ %object.i1733, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769 ], [ %object.i1733, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842 ], [ %object.i1733, %lpad3.loopexit.split-lp.loopexit.i1975 ], [ %object.i1733, %lpad3.loopexit.i2031 ], [ %object.i1733, %ehcleanup.i.i.i.i.i.i.i.i1984 ], [ %object.i1733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970 ], [ %object.i1733, %ehcleanup.i35.i.i.i.i.i.i.i1851 ], [ %object.i1733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835 ], [ %object.i1733, %ehcleanup.i.i.i.i2040 ], [ %object.i1733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024 ], [ %object.i2092, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2128 ], [ %object.i2092, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2201 ], [ %object.i2092, %lpad3.loopexit.split-lp.loopexit.i2329 ], [ %object.i2092, %lpad3.loopexit.i2385 ], [ %object.i2092, %ehcleanup.i.i.i.i.i.i.i.i2338 ], [ %object.i2092, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324 ], [ %object.i2092, %ehcleanup.i35.i.i.i.i.i.i.i2210 ], [ %object.i2092, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194 ], [ %object.i2092, %ehcleanup.i.i.i.i2394 ], [ %object.i2092, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378 ], [ %object.i2447, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2483 ], [ %object.i2447, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2555 ], [ %object.i2447, %lpad3.loopexit.split-lp.loopexit.i2679 ], [ %object.i2447, %lpad3.loopexit.i2735 ], [ %object.i2447, %ehcleanup.i.i.i.i.i.i.i.i2688 ], [ %object.i2447, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674 ], [ %object.i2447, %ehcleanup.i35.i.i.i.i.i.i.i2564 ], [ %object.i2447, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548 ], [ %object.i2447, %ehcleanup.i.i.i.i2744 ], [ %object.i2447, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728 ], [ %object.i2796, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2832 ], [ %object.i2796, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2905 ], [ %object.i2796, %lpad3.loopexit.split-lp.loopexit.i2987 ], [ %object.i2796, %lpad3.loopexit.i3043 ], [ %object.i2796, %ehcleanup.i.i.i.i.i.i.i.i2996 ], [ %object.i2796, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982 ], [ %object.i2796, %ehcleanup.i35.i.i.i.i.i.i.i2914 ], [ %object.i2796, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898 ], [ %object.i2796, %ehcleanup.i.i.i.i3052 ], [ %object.i2796, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036 ], [ %object.i3104, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3140 ], [ %object.i3104, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3213 ], [ %object.i3104, %lpad3.loopexit.split-lp.loopexit.i3295 ], [ %object.i3104, %lpad3.loopexit.i3351 ], [ %object.i3104, %ehcleanup.i.i.i.i.i.i.i.i3304 ], [ %object.i3104, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290 ], [ %object.i3104, %ehcleanup.i35.i.i.i.i.i.i.i3222 ], [ %object.i3104, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206 ], [ %object.i3104, %ehcleanup.i.i.i.i3360 ], [ %object.i3104, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344 ], [ %object.i3412, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3448 ], [ %object.i3412, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3514 ], [ %object.i3412, %lpad3.loopexit.split-lp.loopexit.i3633 ], [ %object.i3412, %lpad3.loopexit.i3685 ], [ %object.i3412, %ehcleanup.i.i.i.i.i.i.i.i3641 ], [ %object.i3412, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628 ], [ %object.i3412, %ehcleanup.i35.i.i.i.i.i.i.i3523 ], [ %object.i3412, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507 ], [ %object.i3412, %ehcleanup.i.i.i.i3694 ], [ %object.i3412, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678 ], [ %object.i3748, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3784 ], [ %object.i3748, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3851 ], [ %object.i3748, %lpad3.loopexit.split-lp.loopexit.i3974 ], [ %object.i3748, %lpad3.loopexit.i4028 ], [ %object.i3748, %ehcleanup.i.i.i.i.i.i.i.i3983 ], [ %object.i3748, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969 ], [ %object.i3748, %ehcleanup.i35.i.i.i.i.i.i.i3860 ], [ %object.i3748, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844 ], [ %object.i3748, %ehcleanup.i.i.i.i4037 ], [ %object.i3748, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021 ], [ %object.i4090, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4126 ], [ %object.i4090, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i4192 ], [ %object.i4090, %lpad3.loopexit.split-lp.loopexit.i4364 ], [ %object.i4090, %lpad3.loopexit.i4418 ], [ %object.i4090, %ehcleanup.i.i.i.i.i.i.i.i4373 ], [ %object.i4090, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359 ], [ %object.i4090, %ehcleanup.i35.i.i.i.i.i.i.i4201 ], [ %object.i4090, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185 ], [ %object.i4090, %ehcleanup.i.i.i.i4427 ], [ %object.i4090, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411 ], [ %object.i, %catch.fallthrough.i.i.i.i ], [ %object.i, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %object.i, %catch.fallthrough.i21.i.i.i.i.i.i.i ], [ %object.i13, %catch.fallthrough.i.i.i.i265 ], [ %object.i13, %catch.fallthrough.i.i.i.i.i.i.i.i211 ], [ %object.i13, %catch.fallthrough.i21.i.i.i.i.i.i.i108 ], [ %object.i342, %catch.fallthrough.i.i.i.i640 ], [ %object.i342, %catch.fallthrough.i.i.i.i.i.i.i.i586 ], [ %object.i342, %catch.fallthrough.i21.i.i.i.i.i.i.i438 ], [ %object.i717, %catch.fallthrough.i.i.i.i1019 ], [ %object.i717, %catch.fallthrough.i.i.i.i.i.i.i.i965 ], [ %object.i717, %catch.fallthrough.i21.i.i.i.i.i.i.i813 ], [ %object.i1093, %catch.fallthrough.i.i.i.i1377 ], [ %object.i1093, %catch.fallthrough.i.i.i.i.i.i.i.i1323 ], [ %object.i1093, %catch.fallthrough.i21.i.i.i.i.i.i.i1189 ], [ %object.i1451, %catch.fallthrough.i.i.i.i1656 ], [ %object.i1451, %catch.fallthrough.i.i.i.i.i.i.i.i1611 ], [ %object.i1451, %catch.fallthrough.i21.i.i.i.i.i.i.i1545 ], [ %object.i1733, %catch.fallthrough.i.i.i.i2018 ], [ %object.i1733, %catch.fallthrough.i.i.i.i.i.i.i.i1964 ], [ %object.i1733, %catch.fallthrough.i21.i.i.i.i.i.i.i1829 ], [ %object.i2092, %catch.fallthrough.i.i.i.i2372 ], [ %object.i2092, %catch.fallthrough.i.i.i.i.i.i.i.i2318 ], [ %object.i2092, %catch.fallthrough.i21.i.i.i.i.i.i.i2188 ], [ %object.i2447, %catch.fallthrough.i.i.i.i2722 ], [ %object.i2447, %catch.fallthrough.i.i.i.i.i.i.i.i2668 ], [ %object.i2447, %catch.fallthrough.i21.i.i.i.i.i.i.i2542 ], [ %object.i2796, %catch.fallthrough.i.i.i.i3030 ], [ %object.i2796, %catch.fallthrough.i.i.i.i.i.i.i.i2976 ], [ %object.i2796, %catch.fallthrough.i21.i.i.i.i.i.i.i2892 ], [ %object.i3104, %catch.fallthrough.i.i.i.i3338 ], [ %object.i3104, %catch.fallthrough.i.i.i.i.i.i.i.i3284 ], [ %object.i3104, %catch.fallthrough.i21.i.i.i.i.i.i.i3200 ], [ %object.i3412, %catch.fallthrough.i.i.i.i3672 ], [ %object.i3412, %catch.fallthrough.i.i.i.i.i.i.i.i3622 ], [ %object.i3412, %catch.fallthrough.i21.i.i.i.i.i.i.i3501 ], [ %object.i3748, %catch.fallthrough.i.i.i.i4015 ], [ %object.i3748, %catch.fallthrough.i.i.i.i.i.i.i.i3963 ], [ %object.i3748, %catch.fallthrough.i21.i.i.i.i.i.i.i3838 ], [ %object.i4090, %catch.fallthrough.i.i.i.i4405 ], [ %object.i4090, %catch.fallthrough.i.i.i.i.i.i.i.i4353 ], [ %object.i4090, %catch.fallthrough.i21.i.i.i.i.i.i.i4179 ]
-  %writer.i4088.sink = phi ptr [ %writer.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %writer.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %writer.i, %lpad3.loopexit.split-lp.loopexit.i ], [ %writer.i, %lpad3.loopexit.i ], [ %writer.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %writer.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i ], [ %writer.i, %ehcleanup.i35.i.i.i.i.i.i.i ], [ %writer.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i ], [ %writer.i, %ehcleanup.i.i.i.i ], [ %writer.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %writer.i11, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49 ], [ %writer.i11, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121 ], [ %writer.i11, %lpad3.loopexit.split-lp.loopexit.i222 ], [ %writer.i11, %lpad3.loopexit.i278 ], [ %writer.i11, %ehcleanup.i.i.i.i.i.i.i.i231 ], [ %writer.i11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217 ], [ %writer.i11, %ehcleanup.i35.i.i.i.i.i.i.i130 ], [ %writer.i11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114 ], [ %writer.i11, %ehcleanup.i.i.i.i287 ], [ %writer.i11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271 ], [ %writer.i340, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378 ], [ %writer.i340, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451 ], [ %writer.i340, %lpad3.loopexit.split-lp.loopexit.i597 ], [ %writer.i340, %lpad3.loopexit.i653 ], [ %writer.i340, %ehcleanup.i.i.i.i.i.i.i.i606 ], [ %writer.i340, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592 ], [ %writer.i340, %ehcleanup.i35.i.i.i.i.i.i.i460 ], [ %writer.i340, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444 ], [ %writer.i340, %ehcleanup.i.i.i.i662 ], [ %writer.i340, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646 ], [ %writer.i715, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753 ], [ %writer.i715, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826 ], [ %writer.i715, %lpad3.loopexit.split-lp.loopexit.i976 ], [ %writer.i715, %lpad3.loopexit.i1032 ], [ %writer.i715, %ehcleanup.i.i.i.i.i.i.i.i985 ], [ %writer.i715, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971 ], [ %writer.i715, %ehcleanup.i35.i.i.i.i.i.i.i835 ], [ %writer.i715, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819 ], [ %writer.i715, %ehcleanup.i.i.i.i1041 ], [ %writer.i715, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025 ], [ %writer.i1091, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129 ], [ %writer.i1091, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202 ], [ %writer.i1091, %lpad3.loopexit.split-lp.loopexit.i1334 ], [ %writer.i1091, %lpad3.loopexit.i1390 ], [ %writer.i1091, %ehcleanup.i.i.i.i.i.i.i.i1343 ], [ %writer.i1091, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329 ], [ %writer.i1091, %ehcleanup.i35.i.i.i.i.i.i.i1211 ], [ %writer.i1091, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195 ], [ %writer.i1091, %ehcleanup.i.i.i.i1399 ], [ %writer.i1091, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383 ], [ %writer.i1449, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487 ], [ %writer.i1449, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555 ], [ %writer.i1449, %lpad3.loopexit.split-lp.loopexit.i1618 ], [ %writer.i1449, %lpad3.loopexit.i1669 ], [ %writer.i1449, %ehcleanup.i.i.i.i.i.i.i.i1626 ], [ %writer.i1449, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i ], [ %writer.i1449, %ehcleanup.i35.i.i.i.i.i.i.i1564 ], [ %writer.i1449, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i ], [ %writer.i1449, %ehcleanup.i.i.i.i1678 ], [ %writer.i1449, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662 ], [ %writer.i1731, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769 ], [ %writer.i1731, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842 ], [ %writer.i1731, %lpad3.loopexit.split-lp.loopexit.i1975 ], [ %writer.i1731, %lpad3.loopexit.i2031 ], [ %writer.i1731, %ehcleanup.i.i.i.i.i.i.i.i1984 ], [ %writer.i1731, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970 ], [ %writer.i1731, %ehcleanup.i35.i.i.i.i.i.i.i1851 ], [ %writer.i1731, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835 ], [ %writer.i1731, %ehcleanup.i.i.i.i2040 ], [ %writer.i1731, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024 ], [ %writer.i2090, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2128 ], [ %writer.i2090, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2201 ], [ %writer.i2090, %lpad3.loopexit.split-lp.loopexit.i2329 ], [ %writer.i2090, %lpad3.loopexit.i2385 ], [ %writer.i2090, %ehcleanup.i.i.i.i.i.i.i.i2338 ], [ %writer.i2090, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324 ], [ %writer.i2090, %ehcleanup.i35.i.i.i.i.i.i.i2210 ], [ %writer.i2090, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194 ], [ %writer.i2090, %ehcleanup.i.i.i.i2394 ], [ %writer.i2090, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378 ], [ %writer.i2445, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2483 ], [ %writer.i2445, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2555 ], [ %writer.i2445, %lpad3.loopexit.split-lp.loopexit.i2679 ], [ %writer.i2445, %lpad3.loopexit.i2735 ], [ %writer.i2445, %ehcleanup.i.i.i.i.i.i.i.i2688 ], [ %writer.i2445, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674 ], [ %writer.i2445, %ehcleanup.i35.i.i.i.i.i.i.i2564 ], [ %writer.i2445, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548 ], [ %writer.i2445, %ehcleanup.i.i.i.i2744 ], [ %writer.i2445, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728 ], [ %writer.i2794, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2832 ], [ %writer.i2794, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2905 ], [ %writer.i2794, %lpad3.loopexit.split-lp.loopexit.i2987 ], [ %writer.i2794, %lpad3.loopexit.i3043 ], [ %writer.i2794, %ehcleanup.i.i.i.i.i.i.i.i2996 ], [ %writer.i2794, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982 ], [ %writer.i2794, %ehcleanup.i35.i.i.i.i.i.i.i2914 ], [ %writer.i2794, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898 ], [ %writer.i2794, %ehcleanup.i.i.i.i3052 ], [ %writer.i2794, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036 ], [ %writer.i3102, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3140 ], [ %writer.i3102, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3213 ], [ %writer.i3102, %lpad3.loopexit.split-lp.loopexit.i3295 ], [ %writer.i3102, %lpad3.loopexit.i3351 ], [ %writer.i3102, %ehcleanup.i.i.i.i.i.i.i.i3304 ], [ %writer.i3102, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290 ], [ %writer.i3102, %ehcleanup.i35.i.i.i.i.i.i.i3222 ], [ %writer.i3102, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206 ], [ %writer.i3102, %ehcleanup.i.i.i.i3360 ], [ %writer.i3102, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344 ], [ %writer.i3410, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3448 ], [ %writer.i3410, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3514 ], [ %writer.i3410, %lpad3.loopexit.split-lp.loopexit.i3633 ], [ %writer.i3410, %lpad3.loopexit.i3685 ], [ %writer.i3410, %ehcleanup.i.i.i.i.i.i.i.i3641 ], [ %writer.i3410, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628 ], [ %writer.i3410, %ehcleanup.i35.i.i.i.i.i.i.i3523 ], [ %writer.i3410, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507 ], [ %writer.i3410, %ehcleanup.i.i.i.i3694 ], [ %writer.i3410, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678 ], [ %writer.i3746, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3784 ], [ %writer.i3746, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3851 ], [ %writer.i3746, %lpad3.loopexit.split-lp.loopexit.i3974 ], [ %writer.i3746, %lpad3.loopexit.i4028 ], [ %writer.i3746, %ehcleanup.i.i.i.i.i.i.i.i3983 ], [ %writer.i3746, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969 ], [ %writer.i3746, %ehcleanup.i35.i.i.i.i.i.i.i3860 ], [ %writer.i3746, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844 ], [ %writer.i3746, %ehcleanup.i.i.i.i4037 ], [ %writer.i3746, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021 ], [ %writer.i4088, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4126 ], [ %writer.i4088, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i4192 ], [ %writer.i4088, %lpad3.loopexit.split-lp.loopexit.i4364 ], [ %writer.i4088, %lpad3.loopexit.i4418 ], [ %writer.i4088, %ehcleanup.i.i.i.i.i.i.i.i4373 ], [ %writer.i4088, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359 ], [ %writer.i4088, %ehcleanup.i35.i.i.i.i.i.i.i4201 ], [ %writer.i4088, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185 ], [ %writer.i4088, %ehcleanup.i.i.i.i4427 ], [ %writer.i4088, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411 ], [ %writer.i, %catch.fallthrough.i.i.i.i ], [ %writer.i, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %writer.i, %catch.fallthrough.i21.i.i.i.i.i.i.i ], [ %writer.i11, %catch.fallthrough.i.i.i.i265 ], [ %writer.i11, %catch.fallthrough.i.i.i.i.i.i.i.i211 ], [ %writer.i11, %catch.fallthrough.i21.i.i.i.i.i.i.i108 ], [ %writer.i340, %catch.fallthrough.i.i.i.i640 ], [ %writer.i340, %catch.fallthrough.i.i.i.i.i.i.i.i586 ], [ %writer.i340, %catch.fallthrough.i21.i.i.i.i.i.i.i438 ], [ %writer.i715, %catch.fallthrough.i.i.i.i1019 ], [ %writer.i715, %catch.fallthrough.i.i.i.i.i.i.i.i965 ], [ %writer.i715, %catch.fallthrough.i21.i.i.i.i.i.i.i813 ], [ %writer.i1091, %catch.fallthrough.i.i.i.i1377 ], [ %writer.i1091, %catch.fallthrough.i.i.i.i.i.i.i.i1323 ], [ %writer.i1091, %catch.fallthrough.i21.i.i.i.i.i.i.i1189 ], [ %writer.i1449, %catch.fallthrough.i.i.i.i1656 ], [ %writer.i1449, %catch.fallthrough.i.i.i.i.i.i.i.i1611 ], [ %writer.i1449, %catch.fallthrough.i21.i.i.i.i.i.i.i1545 ], [ %writer.i1731, %catch.fallthrough.i.i.i.i2018 ], [ %writer.i1731, %catch.fallthrough.i.i.i.i.i.i.i.i1964 ], [ %writer.i1731, %catch.fallthrough.i21.i.i.i.i.i.i.i1829 ], [ %writer.i2090, %catch.fallthrough.i.i.i.i2372 ], [ %writer.i2090, %catch.fallthrough.i.i.i.i.i.i.i.i2318 ], [ %writer.i2090, %catch.fallthrough.i21.i.i.i.i.i.i.i2188 ], [ %writer.i2445, %catch.fallthrough.i.i.i.i2722 ], [ %writer.i2445, %catch.fallthrough.i.i.i.i.i.i.i.i2668 ], [ %writer.i2445, %catch.fallthrough.i21.i.i.i.i.i.i.i2542 ], [ %writer.i2794, %catch.fallthrough.i.i.i.i3030 ], [ %writer.i2794, %catch.fallthrough.i.i.i.i.i.i.i.i2976 ], [ %writer.i2794, %catch.fallthrough.i21.i.i.i.i.i.i.i2892 ], [ %writer.i3102, %catch.fallthrough.i.i.i.i3338 ], [ %writer.i3102, %catch.fallthrough.i.i.i.i.i.i.i.i3284 ], [ %writer.i3102, %catch.fallthrough.i21.i.i.i.i.i.i.i3200 ], [ %writer.i3410, %catch.fallthrough.i.i.i.i3672 ], [ %writer.i3410, %catch.fallthrough.i.i.i.i.i.i.i.i3622 ], [ %writer.i3410, %catch.fallthrough.i21.i.i.i.i.i.i.i3501 ], [ %writer.i3746, %catch.fallthrough.i.i.i.i4015 ], [ %writer.i3746, %catch.fallthrough.i.i.i.i.i.i.i.i3963 ], [ %writer.i3746, %catch.fallthrough.i21.i.i.i.i.i.i.i3838 ], [ %writer.i4088, %catch.fallthrough.i.i.i.i4405 ], [ %writer.i4088, %catch.fallthrough.i.i.i.i.i.i.i.i4353 ], [ %writer.i4088, %catch.fallthrough.i21.i.i.i.i.i.i.i4179 ]
-  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit17.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit13.i, %lpad3.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.i, %lpad3.loopexit.i ], [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %134, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i ], [ %118, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i.i ], [ %34, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %lpad.loopexit.split-lp.i50, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49 ], [ %lpad.loopexit17.i122, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121 ], [ %lpad.loopexit13.i223, %lpad3.loopexit.split-lp.loopexit.i222 ], [ %lpad.loopexit.i279, %lpad3.loopexit.i278 ], [ %.pn.i.i.i.i.i.i.i232, %ehcleanup.i.i.i.i.i.i.i.i231 ], [ %282, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217 ], [ %.pn19.i.i.i.i.i.i.i131, %ehcleanup.i35.i.i.i.i.i.i.i130 ], [ %266, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114 ], [ %.pn.i.i.i288, %ehcleanup.i.i.i.i287 ], [ %175, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271 ], [ %lpad.loopexit.split-lp.i379, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378 ], [ %lpad.loopexit17.i452, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451 ], [ %lpad.loopexit13.i598, %lpad3.loopexit.split-lp.loopexit.i597 ], [ %lpad.loopexit.i654, %lpad3.loopexit.i653 ], [ %.pn.i.i.i.i.i.i.i607, %ehcleanup.i.i.i.i.i.i.i.i606 ], [ %427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592 ], [ %.pn19.i.i.i.i.i.i.i461, %ehcleanup.i35.i.i.i.i.i.i.i460 ], [ %411, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444 ], [ %.pn.i.i.i663, %ehcleanup.i.i.i.i662 ], [ %323, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646 ], [ %lpad.loopexit.split-lp.i754, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753 ], [ %lpad.loopexit17.i827, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826 ], [ %lpad.loopexit13.i977, %lpad3.loopexit.split-lp.loopexit.i976 ], [ %lpad.loopexit.i1033, %lpad3.loopexit.i1032 ], [ %.pn.i.i.i.i.i.i.i986, %ehcleanup.i.i.i.i.i.i.i.i985 ], [ %572, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971 ], [ %.pn19.i.i.i.i.i.i.i836, %ehcleanup.i35.i.i.i.i.i.i.i835 ], [ %556, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819 ], [ %.pn.i.i.i1042, %ehcleanup.i.i.i.i1041 ], [ %468, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025 ], [ %lpad.loopexit.split-lp.i1130, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129 ], [ %lpad.loopexit17.i1203, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202 ], [ %lpad.loopexit13.i1335, %lpad3.loopexit.split-lp.loopexit.i1334 ], [ %lpad.loopexit.i1391, %lpad3.loopexit.i1390 ], [ %.pn.i.i.i.i.i.i.i1344, %ehcleanup.i.i.i.i.i.i.i.i1343 ], [ %717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329 ], [ %.pn19.i.i.i.i.i.i.i1212, %ehcleanup.i35.i.i.i.i.i.i.i1211 ], [ %701, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195 ], [ %.pn.i.i.i1400, %ehcleanup.i.i.i.i1399 ], [ %613, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383 ], [ %lpad.loopexit.split-lp.i1488, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487 ], [ %lpad.loopexit17.i1556, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555 ], [ %lpad.loopexit13.i1619, %lpad3.loopexit.split-lp.loopexit.i1618 ], [ %lpad.loopexit.i1670, %lpad3.loopexit.i1669 ], [ %.pn.i.i.i.i.i.i.i1627, %ehcleanup.i.i.i.i.i.i.i.i1626 ], [ %832, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i1565, %ehcleanup.i35.i.i.i.i.i.i.i1564 ], [ %816, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i ], [ %.pn.i.i.i1679, %ehcleanup.i.i.i.i1678 ], [ %758, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662 ], [ %lpad.loopexit.split-lp.i1770, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769 ], [ %lpad.loopexit17.i1843, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842 ], [ %lpad.loopexit13.i1976, %lpad3.loopexit.split-lp.loopexit.i1975 ], [ %lpad.loopexit.i2032, %lpad3.loopexit.i2031 ], [ %.pn.i.i.i.i.i.i.i1985, %ehcleanup.i.i.i.i.i.i.i.i1984 ], [ %978, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970 ], [ %.pn19.i.i.i.i.i.i.i1852, %ehcleanup.i35.i.i.i.i.i.i.i1851 ], [ %962, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835 ], [ %.pn.i.i.i2041, %ehcleanup.i.i.i.i2040 ], [ %873, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024 ], [ %lpad.loopexit.split-lp.i2129, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2128 ], [ %lpad.loopexit17.i2202, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2201 ], [ %lpad.loopexit13.i2330, %lpad3.loopexit.split-lp.loopexit.i2329 ], [ %lpad.loopexit.i2386, %lpad3.loopexit.i2385 ], [ %.pn.i.i.i.i.i.i.i2339, %ehcleanup.i.i.i.i.i.i.i.i2338 ], [ %1121, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324 ], [ %.pn19.i.i.i.i.i.i.i2211, %ehcleanup.i35.i.i.i.i.i.i.i2210 ], [ %1105, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194 ], [ %.pn.i.i.i2395, %ehcleanup.i.i.i.i2394 ], [ %1019, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378 ], [ %lpad.loopexit.split-lp.i2484, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2483 ], [ %lpad.loopexit17.i2556, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2555 ], [ %lpad.loopexit13.i2680, %lpad3.loopexit.split-lp.loopexit.i2679 ], [ %lpad.loopexit.i2736, %lpad3.loopexit.i2735 ], [ %.pn.i.i.i.i.i.i.i2689, %ehcleanup.i.i.i.i.i.i.i.i2688 ], [ %1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674 ], [ %.pn19.i.i.i.i.i.i.i2565, %ehcleanup.i35.i.i.i.i.i.i.i2564 ], [ %1284, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548 ], [ %.pn.i.i.i2745, %ehcleanup.i.i.i.i2744 ], [ %1162, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728 ], [ %lpad.loopexit.split-lp.i2833, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2832 ], [ %lpad.loopexit17.i2906, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2905 ], [ %lpad.loopexit13.i2988, %lpad3.loopexit.split-lp.loopexit.i2987 ], [ %lpad.loopexit.i3044, %lpad3.loopexit.i3043 ], [ %.pn.i.i.i.i.i.i.i2997, %ehcleanup.i.i.i.i.i.i.i.i2996 ], [ %1415, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982 ], [ %.pn19.i.i.i.i.i.i.i2915, %ehcleanup.i35.i.i.i.i.i.i.i2914 ], [ %1399, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898 ], [ %.pn.i.i.i3053, %ehcleanup.i.i.i.i3052 ], [ %1341, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036 ], [ %lpad.loopexit.split-lp.i3141, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3140 ], [ %lpad.loopexit17.i3214, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3213 ], [ %lpad.loopexit13.i3296, %lpad3.loopexit.split-lp.loopexit.i3295 ], [ %lpad.loopexit.i3352, %lpad3.loopexit.i3351 ], [ %.pn.i.i.i.i.i.i.i3305, %ehcleanup.i.i.i.i.i.i.i.i3304 ], [ %1530, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290 ], [ %.pn19.i.i.i.i.i.i.i3223, %ehcleanup.i35.i.i.i.i.i.i.i3222 ], [ %1514, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206 ], [ %.pn.i.i.i3361, %ehcleanup.i.i.i.i3360 ], [ %1456, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344 ], [ %lpad.loopexit.split-lp.i3449, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3448 ], [ %lpad.loopexit17.i3515, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3514 ], [ %lpad.loopexit13.i3634, %lpad3.loopexit.split-lp.loopexit.i3633 ], [ %lpad.loopexit.i3686, %lpad3.loopexit.i3685 ], [ %.pn.i.i.i.i.i.i.i3642, %ehcleanup.i.i.i.i.i.i.i.i3641 ], [ %1703, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628 ], [ %.pn19.i.i.i.i.i.i.i3524, %ehcleanup.i35.i.i.i.i.i.i.i3523 ], [ %1687, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507 ], [ %.pn.i.i.i3695, %ehcleanup.i.i.i.i3694 ], [ %1571, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678 ], [ %lpad.loopexit.split-lp.i3785, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3784 ], [ %lpad.loopexit17.i3852, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3851 ], [ %lpad.loopexit13.i3975, %lpad3.loopexit.split-lp.loopexit.i3974 ], [ %lpad.loopexit.i4029, %lpad3.loopexit.i4028 ], [ %.pn.i.i.i.i.i.i.i3984, %ehcleanup.i.i.i.i.i.i.i.i3983 ], [ %1866, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969 ], [ %.pn19.i.i.i.i.i.i.i3861, %ehcleanup.i35.i.i.i.i.i.i.i3860 ], [ %1850, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844 ], [ %.pn.i.i.i4038, %ehcleanup.i.i.i.i4037 ], [ %1744, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021 ], [ %lpad.loopexit.split-lp.i4127, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4126 ], [ %lpad.loopexit17.i4193, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i4192 ], [ %lpad.loopexit13.i4365, %lpad3.loopexit.split-lp.loopexit.i4364 ], [ %lpad.loopexit.i4419, %lpad3.loopexit.i4418 ], [ %.pn.i.i.i.i.i.i.i4374, %ehcleanup.i.i.i.i.i.i.i.i4373 ], [ %2093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359 ], [ %.pn19.i.i.i.i.i.i.i4202, %ehcleanup.i35.i.i.i.i.i.i.i4201 ], [ %2077, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185 ], [ %.pn.i.i.i4428, %ehcleanup.i.i.i.i4427 ], [ %1907, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411 ], [ %26, %catch.fallthrough.i.i.i.i ], [ %126, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i, %catch.fallthrough.i21.i.i.i.i.i.i.i ], [ %167, %catch.fallthrough.i.i.i.i265 ], [ %274, %catch.fallthrough.i.i.i.i.i.i.i.i211 ], [ %eh.lpad-body.i.i.i.i.i.i.i106, %catch.fallthrough.i21.i.i.i.i.i.i.i108 ], [ %315, %catch.fallthrough.i.i.i.i640 ], [ %419, %catch.fallthrough.i.i.i.i.i.i.i.i586 ], [ %eh.lpad-body.i.i.i.i.i.i.i436, %catch.fallthrough.i21.i.i.i.i.i.i.i438 ], [ %460, %catch.fallthrough.i.i.i.i1019 ], [ %564, %catch.fallthrough.i.i.i.i.i.i.i.i965 ], [ %eh.lpad-body.i.i.i.i.i.i.i811, %catch.fallthrough.i21.i.i.i.i.i.i.i813 ], [ %605, %catch.fallthrough.i.i.i.i1377 ], [ %709, %catch.fallthrough.i.i.i.i.i.i.i.i1323 ], [ %eh.lpad-body.i.i.i.i.i.i.i1187, %catch.fallthrough.i21.i.i.i.i.i.i.i1189 ], [ %750, %catch.fallthrough.i.i.i.i1656 ], [ %824, %catch.fallthrough.i.i.i.i.i.i.i.i1611 ], [ %eh.lpad-body.i.i.i.i.i.i.i1543, %catch.fallthrough.i21.i.i.i.i.i.i.i1545 ], [ %865, %catch.fallthrough.i.i.i.i2018 ], [ %970, %catch.fallthrough.i.i.i.i.i.i.i.i1964 ], [ %eh.lpad-body.i.i.i.i.i.i.i1827, %catch.fallthrough.i21.i.i.i.i.i.i.i1829 ], [ %1011, %catch.fallthrough.i.i.i.i2372 ], [ %1113, %catch.fallthrough.i.i.i.i.i.i.i.i2318 ], [ %eh.lpad-body.i.i.i.i.i.i.i2186, %catch.fallthrough.i21.i.i.i.i.i.i.i2188 ], [ %1154, %catch.fallthrough.i.i.i.i2722 ], [ %1292, %catch.fallthrough.i.i.i.i.i.i.i.i2668 ], [ %eh.lpad-body.i.i.i.i.i.i.i2540, %catch.fallthrough.i21.i.i.i.i.i.i.i2542 ], [ %1333, %catch.fallthrough.i.i.i.i3030 ], [ %1407, %catch.fallthrough.i.i.i.i.i.i.i.i2976 ], [ %eh.lpad-body.i.i.i.i.i.i.i2890, %catch.fallthrough.i21.i.i.i.i.i.i.i2892 ], [ %1448, %catch.fallthrough.i.i.i.i3338 ], [ %1522, %catch.fallthrough.i.i.i.i.i.i.i.i3284 ], [ %eh.lpad-body.i.i.i.i.i.i.i3198, %catch.fallthrough.i21.i.i.i.i.i.i.i3200 ], [ %1563, %catch.fallthrough.i.i.i.i3672 ], [ %1695, %catch.fallthrough.i.i.i.i.i.i.i.i3622 ], [ %eh.lpad-body.i.i.i.i.i.i.i3499, %catch.fallthrough.i21.i.i.i.i.i.i.i3501 ], [ %1736, %catch.fallthrough.i.i.i.i4015 ], [ %1858, %catch.fallthrough.i.i.i.i.i.i.i.i3963 ], [ %eh.lpad-body.i.i.i.i.i.i.i3836, %catch.fallthrough.i21.i.i.i.i.i.i.i3838 ], [ %1899, %catch.fallthrough.i.i.i.i4405 ], [ %2085, %catch.fallthrough.i.i.i.i.i.i.i.i4353 ], [ %eh.lpad-body.i.i.i.i.i.i.i4177, %catch.fallthrough.i21.i.i.i.i.i.i.i4179 ]
+common.resume:                                    ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i1829, %catch.fallthrough.i.i.i.i.i.i.i.i1964, %catch.fallthrough.i.i.i.i2018, %catch.fallthrough.i21.i.i.i.i.i.i.i1545, %catch.fallthrough.i.i.i.i.i.i.i.i1611, %catch.fallthrough.i.i.i.i1656, %catch.fallthrough.i21.i.i.i.i.i.i.i1189, %catch.fallthrough.i.i.i.i.i.i.i.i1323, %catch.fallthrough.i.i.i.i1377, %catch.fallthrough.i21.i.i.i.i.i.i.i813, %catch.fallthrough.i.i.i.i.i.i.i.i965, %catch.fallthrough.i.i.i.i1019, %catch.fallthrough.i21.i.i.i.i.i.i.i438, %catch.fallthrough.i.i.i.i.i.i.i.i586, %catch.fallthrough.i.i.i.i640, %catch.fallthrough.i21.i.i.i.i.i.i.i108, %catch.fallthrough.i.i.i.i.i.i.i.i211, %catch.fallthrough.i.i.i.i265, %catch.fallthrough.i21.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024, %ehcleanup.i.i.i.i2040, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835, %ehcleanup.i35.i.i.i.i.i.i.i1851, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970, %ehcleanup.i.i.i.i.i.i.i.i1984, %lpad3.loopexit.i2031, %lpad3.loopexit.split-lp.loopexit.i1975, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662, %ehcleanup.i.i.i.i1678, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i1564, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i1626, %lpad3.loopexit.i1669, %lpad3.loopexit.split-lp.loopexit.i1618, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383, %ehcleanup.i.i.i.i1399, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195, %ehcleanup.i35.i.i.i.i.i.i.i1211, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329, %ehcleanup.i.i.i.i.i.i.i.i1343, %lpad3.loopexit.i1390, %lpad3.loopexit.split-lp.loopexit.i1334, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025, %ehcleanup.i.i.i.i1041, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819, %ehcleanup.i35.i.i.i.i.i.i.i835, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971, %ehcleanup.i.i.i.i.i.i.i.i985, %lpad3.loopexit.i1032, %lpad3.loopexit.split-lp.loopexit.i976, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646, %ehcleanup.i.i.i.i662, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444, %ehcleanup.i35.i.i.i.i.i.i.i460, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592, %ehcleanup.i.i.i.i.i.i.i.i606, %lpad3.loopexit.i653, %lpad3.loopexit.split-lp.loopexit.i597, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271, %ehcleanup.i.i.i.i287, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114, %ehcleanup.i35.i.i.i.i.i.i.i130, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217, %ehcleanup.i.i.i.i.i.i.i.i231, %lpad3.loopexit.i278, %lpad3.loopexit.split-lp.loopexit.i222, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i, %ehcleanup.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i, %lpad3.loopexit.i, %lpad3.loopexit.split-lp.loopexit.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad3.body.i4128, %lpad3.body.i3786, %lpad3.body.i3450, %lpad3.body.i3142, %lpad3.body.i2834, %lpad3.body.i2485, %lpad3.body.i2130
+  %object.i4090.sink = phi ptr [ %object.i4090, %lpad3.body.i4128 ], [ %object.i3748, %lpad3.body.i3786 ], [ %object.i3412, %lpad3.body.i3450 ], [ %object.i3104, %lpad3.body.i3142 ], [ %object.i2796, %lpad3.body.i2834 ], [ %object.i2447, %lpad3.body.i2485 ], [ %object.i2092, %lpad3.body.i2130 ], [ %object.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %object.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %object.i, %lpad3.loopexit.split-lp.loopexit.i ], [ %object.i, %lpad3.loopexit.i ], [ %object.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %object.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i ], [ %object.i, %ehcleanup.i35.i.i.i.i.i.i.i ], [ %object.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i ], [ %object.i, %ehcleanup.i.i.i.i ], [ %object.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %object.i13, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49 ], [ %object.i13, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121 ], [ %object.i13, %lpad3.loopexit.split-lp.loopexit.i222 ], [ %object.i13, %lpad3.loopexit.i278 ], [ %object.i13, %ehcleanup.i.i.i.i.i.i.i.i231 ], [ %object.i13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217 ], [ %object.i13, %ehcleanup.i35.i.i.i.i.i.i.i130 ], [ %object.i13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114 ], [ %object.i13, %ehcleanup.i.i.i.i287 ], [ %object.i13, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271 ], [ %object.i342, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378 ], [ %object.i342, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451 ], [ %object.i342, %lpad3.loopexit.split-lp.loopexit.i597 ], [ %object.i342, %lpad3.loopexit.i653 ], [ %object.i342, %ehcleanup.i.i.i.i.i.i.i.i606 ], [ %object.i342, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592 ], [ %object.i342, %ehcleanup.i35.i.i.i.i.i.i.i460 ], [ %object.i342, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444 ], [ %object.i342, %ehcleanup.i.i.i.i662 ], [ %object.i342, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646 ], [ %object.i717, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753 ], [ %object.i717, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826 ], [ %object.i717, %lpad3.loopexit.split-lp.loopexit.i976 ], [ %object.i717, %lpad3.loopexit.i1032 ], [ %object.i717, %ehcleanup.i.i.i.i.i.i.i.i985 ], [ %object.i717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971 ], [ %object.i717, %ehcleanup.i35.i.i.i.i.i.i.i835 ], [ %object.i717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819 ], [ %object.i717, %ehcleanup.i.i.i.i1041 ], [ %object.i717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025 ], [ %object.i1093, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129 ], [ %object.i1093, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202 ], [ %object.i1093, %lpad3.loopexit.split-lp.loopexit.i1334 ], [ %object.i1093, %lpad3.loopexit.i1390 ], [ %object.i1093, %ehcleanup.i.i.i.i.i.i.i.i1343 ], [ %object.i1093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329 ], [ %object.i1093, %ehcleanup.i35.i.i.i.i.i.i.i1211 ], [ %object.i1093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195 ], [ %object.i1093, %ehcleanup.i.i.i.i1399 ], [ %object.i1093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383 ], [ %object.i1451, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487 ], [ %object.i1451, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555 ], [ %object.i1451, %lpad3.loopexit.split-lp.loopexit.i1618 ], [ %object.i1451, %lpad3.loopexit.i1669 ], [ %object.i1451, %ehcleanup.i.i.i.i.i.i.i.i1626 ], [ %object.i1451, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i ], [ %object.i1451, %ehcleanup.i35.i.i.i.i.i.i.i1564 ], [ %object.i1451, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i ], [ %object.i1451, %ehcleanup.i.i.i.i1678 ], [ %object.i1451, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662 ], [ %object.i1733, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769 ], [ %object.i1733, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842 ], [ %object.i1733, %lpad3.loopexit.split-lp.loopexit.i1975 ], [ %object.i1733, %lpad3.loopexit.i2031 ], [ %object.i1733, %ehcleanup.i.i.i.i.i.i.i.i1984 ], [ %object.i1733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970 ], [ %object.i1733, %ehcleanup.i35.i.i.i.i.i.i.i1851 ], [ %object.i1733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835 ], [ %object.i1733, %ehcleanup.i.i.i.i2040 ], [ %object.i1733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024 ], [ %object.i, %catch.fallthrough.i.i.i.i ], [ %object.i, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %object.i, %catch.fallthrough.i21.i.i.i.i.i.i.i ], [ %object.i13, %catch.fallthrough.i.i.i.i265 ], [ %object.i13, %catch.fallthrough.i.i.i.i.i.i.i.i211 ], [ %object.i13, %catch.fallthrough.i21.i.i.i.i.i.i.i108 ], [ %object.i342, %catch.fallthrough.i.i.i.i640 ], [ %object.i342, %catch.fallthrough.i.i.i.i.i.i.i.i586 ], [ %object.i342, %catch.fallthrough.i21.i.i.i.i.i.i.i438 ], [ %object.i717, %catch.fallthrough.i.i.i.i1019 ], [ %object.i717, %catch.fallthrough.i.i.i.i.i.i.i.i965 ], [ %object.i717, %catch.fallthrough.i21.i.i.i.i.i.i.i813 ], [ %object.i1093, %catch.fallthrough.i.i.i.i1377 ], [ %object.i1093, %catch.fallthrough.i.i.i.i.i.i.i.i1323 ], [ %object.i1093, %catch.fallthrough.i21.i.i.i.i.i.i.i1189 ], [ %object.i1451, %catch.fallthrough.i.i.i.i1656 ], [ %object.i1451, %catch.fallthrough.i.i.i.i.i.i.i.i1611 ], [ %object.i1451, %catch.fallthrough.i21.i.i.i.i.i.i.i1545 ], [ %object.i1733, %catch.fallthrough.i.i.i.i2018 ], [ %object.i1733, %catch.fallthrough.i.i.i.i.i.i.i.i1964 ], [ %object.i1733, %catch.fallthrough.i21.i.i.i.i.i.i.i1829 ]
+  %writer.i4088.sink = phi ptr [ %writer.i4088, %lpad3.body.i4128 ], [ %writer.i3746, %lpad3.body.i3786 ], [ %writer.i3410, %lpad3.body.i3450 ], [ %writer.i3102, %lpad3.body.i3142 ], [ %writer.i2794, %lpad3.body.i2834 ], [ %writer.i2445, %lpad3.body.i2485 ], [ %writer.i2090, %lpad3.body.i2130 ], [ %writer.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %writer.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %writer.i, %lpad3.loopexit.split-lp.loopexit.i ], [ %writer.i, %lpad3.loopexit.i ], [ %writer.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %writer.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i ], [ %writer.i, %ehcleanup.i35.i.i.i.i.i.i.i ], [ %writer.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i ], [ %writer.i, %ehcleanup.i.i.i.i ], [ %writer.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %writer.i11, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49 ], [ %writer.i11, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121 ], [ %writer.i11, %lpad3.loopexit.split-lp.loopexit.i222 ], [ %writer.i11, %lpad3.loopexit.i278 ], [ %writer.i11, %ehcleanup.i.i.i.i.i.i.i.i231 ], [ %writer.i11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217 ], [ %writer.i11, %ehcleanup.i35.i.i.i.i.i.i.i130 ], [ %writer.i11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114 ], [ %writer.i11, %ehcleanup.i.i.i.i287 ], [ %writer.i11, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271 ], [ %writer.i340, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378 ], [ %writer.i340, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451 ], [ %writer.i340, %lpad3.loopexit.split-lp.loopexit.i597 ], [ %writer.i340, %lpad3.loopexit.i653 ], [ %writer.i340, %ehcleanup.i.i.i.i.i.i.i.i606 ], [ %writer.i340, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592 ], [ %writer.i340, %ehcleanup.i35.i.i.i.i.i.i.i460 ], [ %writer.i340, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444 ], [ %writer.i340, %ehcleanup.i.i.i.i662 ], [ %writer.i340, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646 ], [ %writer.i715, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753 ], [ %writer.i715, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826 ], [ %writer.i715, %lpad3.loopexit.split-lp.loopexit.i976 ], [ %writer.i715, %lpad3.loopexit.i1032 ], [ %writer.i715, %ehcleanup.i.i.i.i.i.i.i.i985 ], [ %writer.i715, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971 ], [ %writer.i715, %ehcleanup.i35.i.i.i.i.i.i.i835 ], [ %writer.i715, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819 ], [ %writer.i715, %ehcleanup.i.i.i.i1041 ], [ %writer.i715, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025 ], [ %writer.i1091, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129 ], [ %writer.i1091, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202 ], [ %writer.i1091, %lpad3.loopexit.split-lp.loopexit.i1334 ], [ %writer.i1091, %lpad3.loopexit.i1390 ], [ %writer.i1091, %ehcleanup.i.i.i.i.i.i.i.i1343 ], [ %writer.i1091, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329 ], [ %writer.i1091, %ehcleanup.i35.i.i.i.i.i.i.i1211 ], [ %writer.i1091, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195 ], [ %writer.i1091, %ehcleanup.i.i.i.i1399 ], [ %writer.i1091, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383 ], [ %writer.i1449, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487 ], [ %writer.i1449, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555 ], [ %writer.i1449, %lpad3.loopexit.split-lp.loopexit.i1618 ], [ %writer.i1449, %lpad3.loopexit.i1669 ], [ %writer.i1449, %ehcleanup.i.i.i.i.i.i.i.i1626 ], [ %writer.i1449, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i ], [ %writer.i1449, %ehcleanup.i35.i.i.i.i.i.i.i1564 ], [ %writer.i1449, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i ], [ %writer.i1449, %ehcleanup.i.i.i.i1678 ], [ %writer.i1449, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662 ], [ %writer.i1731, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769 ], [ %writer.i1731, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842 ], [ %writer.i1731, %lpad3.loopexit.split-lp.loopexit.i1975 ], [ %writer.i1731, %lpad3.loopexit.i2031 ], [ %writer.i1731, %ehcleanup.i.i.i.i.i.i.i.i1984 ], [ %writer.i1731, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970 ], [ %writer.i1731, %ehcleanup.i35.i.i.i.i.i.i.i1851 ], [ %writer.i1731, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835 ], [ %writer.i1731, %ehcleanup.i.i.i.i2040 ], [ %writer.i1731, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024 ], [ %writer.i, %catch.fallthrough.i.i.i.i ], [ %writer.i, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %writer.i, %catch.fallthrough.i21.i.i.i.i.i.i.i ], [ %writer.i11, %catch.fallthrough.i.i.i.i265 ], [ %writer.i11, %catch.fallthrough.i.i.i.i.i.i.i.i211 ], [ %writer.i11, %catch.fallthrough.i21.i.i.i.i.i.i.i108 ], [ %writer.i340, %catch.fallthrough.i.i.i.i640 ], [ %writer.i340, %catch.fallthrough.i.i.i.i.i.i.i.i586 ], [ %writer.i340, %catch.fallthrough.i21.i.i.i.i.i.i.i438 ], [ %writer.i715, %catch.fallthrough.i.i.i.i1019 ], [ %writer.i715, %catch.fallthrough.i.i.i.i.i.i.i.i965 ], [ %writer.i715, %catch.fallthrough.i21.i.i.i.i.i.i.i813 ], [ %writer.i1091, %catch.fallthrough.i.i.i.i1377 ], [ %writer.i1091, %catch.fallthrough.i.i.i.i.i.i.i.i1323 ], [ %writer.i1091, %catch.fallthrough.i21.i.i.i.i.i.i.i1189 ], [ %writer.i1449, %catch.fallthrough.i.i.i.i1656 ], [ %writer.i1449, %catch.fallthrough.i.i.i.i.i.i.i.i1611 ], [ %writer.i1449, %catch.fallthrough.i21.i.i.i.i.i.i.i1545 ], [ %writer.i1731, %catch.fallthrough.i.i.i.i2018 ], [ %writer.i1731, %catch.fallthrough.i.i.i.i.i.i.i.i1964 ], [ %writer.i1731, %catch.fallthrough.i21.i.i.i.i.i.i.i1829 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i4129, %lpad3.body.i4128 ], [ %eh.lpad-body.i3787, %lpad3.body.i3786 ], [ %eh.lpad-body.i3451, %lpad3.body.i3450 ], [ %eh.lpad-body.i3143, %lpad3.body.i3142 ], [ %eh.lpad-body.i2835, %lpad3.body.i2834 ], [ %eh.lpad-body.i2486, %lpad3.body.i2485 ], [ %eh.lpad-body.i2131, %lpad3.body.i2130 ], [ %lpad.loopexit.split-lp.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit17.i, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit13.i, %lpad3.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.i, %lpad3.loopexit.i ], [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %134, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i, %ehcleanup.i35.i.i.i.i.i.i.i ], [ %118, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i.i ], [ %34, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %lpad.loopexit.split-lp.i50, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i49 ], [ %lpad.loopexit17.i122, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i121 ], [ %lpad.loopexit13.i223, %lpad3.loopexit.split-lp.loopexit.i222 ], [ %lpad.loopexit.i279, %lpad3.loopexit.i278 ], [ %.pn.i.i.i.i.i.i.i232, %ehcleanup.i.i.i.i.i.i.i.i231 ], [ %282, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i217 ], [ %.pn19.i.i.i.i.i.i.i131, %ehcleanup.i35.i.i.i.i.i.i.i130 ], [ %266, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i114 ], [ %.pn.i.i.i288, %ehcleanup.i.i.i.i287 ], [ %175, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i271 ], [ %lpad.loopexit.split-lp.i379, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i378 ], [ %lpad.loopexit17.i452, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i451 ], [ %lpad.loopexit13.i598, %lpad3.loopexit.split-lp.loopexit.i597 ], [ %lpad.loopexit.i654, %lpad3.loopexit.i653 ], [ %.pn.i.i.i.i.i.i.i607, %ehcleanup.i.i.i.i.i.i.i.i606 ], [ %427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i592 ], [ %.pn19.i.i.i.i.i.i.i461, %ehcleanup.i35.i.i.i.i.i.i.i460 ], [ %411, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i444 ], [ %.pn.i.i.i663, %ehcleanup.i.i.i.i662 ], [ %323, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i646 ], [ %lpad.loopexit.split-lp.i754, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i753 ], [ %lpad.loopexit17.i827, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i826 ], [ %lpad.loopexit13.i977, %lpad3.loopexit.split-lp.loopexit.i976 ], [ %lpad.loopexit.i1033, %lpad3.loopexit.i1032 ], [ %.pn.i.i.i.i.i.i.i986, %ehcleanup.i.i.i.i.i.i.i.i985 ], [ %572, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i971 ], [ %.pn19.i.i.i.i.i.i.i836, %ehcleanup.i35.i.i.i.i.i.i.i835 ], [ %556, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i819 ], [ %.pn.i.i.i1042, %ehcleanup.i.i.i.i1041 ], [ %468, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1025 ], [ %lpad.loopexit.split-lp.i1130, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1129 ], [ %lpad.loopexit17.i1203, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1202 ], [ %lpad.loopexit13.i1335, %lpad3.loopexit.split-lp.loopexit.i1334 ], [ %lpad.loopexit.i1391, %lpad3.loopexit.i1390 ], [ %.pn.i.i.i.i.i.i.i1344, %ehcleanup.i.i.i.i.i.i.i.i1343 ], [ %717, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1329 ], [ %.pn19.i.i.i.i.i.i.i1212, %ehcleanup.i35.i.i.i.i.i.i.i1211 ], [ %701, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1195 ], [ %.pn.i.i.i1400, %ehcleanup.i.i.i.i1399 ], [ %613, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1383 ], [ %lpad.loopexit.split-lp.i1488, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1487 ], [ %lpad.loopexit17.i1556, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1555 ], [ %lpad.loopexit13.i1619, %lpad3.loopexit.split-lp.loopexit.i1618 ], [ %lpad.loopexit.i1670, %lpad3.loopexit.i1669 ], [ %.pn.i.i.i.i.i.i.i1627, %ehcleanup.i.i.i.i.i.i.i.i1626 ], [ %832, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i ], [ %.pn19.i.i.i.i.i.i.i1565, %ehcleanup.i35.i.i.i.i.i.i.i1564 ], [ %816, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i ], [ %.pn.i.i.i1679, %ehcleanup.i.i.i.i1678 ], [ %758, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1662 ], [ %lpad.loopexit.split-lp.i1770, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1769 ], [ %lpad.loopexit17.i1843, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i1842 ], [ %lpad.loopexit13.i1976, %lpad3.loopexit.split-lp.loopexit.i1975 ], [ %lpad.loopexit.i2032, %lpad3.loopexit.i2031 ], [ %.pn.i.i.i.i.i.i.i1985, %ehcleanup.i.i.i.i.i.i.i.i1984 ], [ %978, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i1970 ], [ %.pn19.i.i.i.i.i.i.i1852, %ehcleanup.i35.i.i.i.i.i.i.i1851 ], [ %962, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i1835 ], [ %.pn.i.i.i2041, %ehcleanup.i.i.i.i2040 ], [ %873, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2024 ], [ %26, %catch.fallthrough.i.i.i.i ], [ %126, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i.i.i.i, %catch.fallthrough.i21.i.i.i.i.i.i.i ], [ %167, %catch.fallthrough.i.i.i.i265 ], [ %274, %catch.fallthrough.i.i.i.i.i.i.i.i211 ], [ %eh.lpad-body.i.i.i.i.i.i.i106, %catch.fallthrough.i21.i.i.i.i.i.i.i108 ], [ %315, %catch.fallthrough.i.i.i.i640 ], [ %419, %catch.fallthrough.i.i.i.i.i.i.i.i586 ], [ %eh.lpad-body.i.i.i.i.i.i.i436, %catch.fallthrough.i21.i.i.i.i.i.i.i438 ], [ %460, %catch.fallthrough.i.i.i.i1019 ], [ %564, %catch.fallthrough.i.i.i.i.i.i.i.i965 ], [ %eh.lpad-body.i.i.i.i.i.i.i811, %catch.fallthrough.i21.i.i.i.i.i.i.i813 ], [ %605, %catch.fallthrough.i.i.i.i1377 ], [ %709, %catch.fallthrough.i.i.i.i.i.i.i.i1323 ], [ %eh.lpad-body.i.i.i.i.i.i.i1187, %catch.fallthrough.i21.i.i.i.i.i.i.i1189 ], [ %750, %catch.fallthrough.i.i.i.i1656 ], [ %824, %catch.fallthrough.i.i.i.i.i.i.i.i1611 ], [ %eh.lpad-body.i.i.i.i.i.i.i1543, %catch.fallthrough.i21.i.i.i.i.i.i.i1545 ], [ %865, %catch.fallthrough.i.i.i.i2018 ], [ %970, %catch.fallthrough.i.i.i.i.i.i.i.i1964 ], [ %eh.lpad-body.i.i.i.i.i.i.i1827, %catch.fallthrough.i21.i.i.i.i.i.i.i1829 ]
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %object.i4090.sink) #35
   call void @_ZN8facebook5velox4exec12VectorWriterINS0_7GenericINS0_7AnyTypeELb0ELb0EEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %writer.i4088.sink) #35
   resume { ptr, i32 } %common.resume.op
@@ -10083,7 +10083,7 @@ if.then.i.i.i.i2397:                              ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i2372:                    ; preds = %lpad.i.i.i.i2370
   %1016 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i2373 = icmp eq i32 %1013, %1016
-  br i1 %matches2.i.i.i.i2373, label %catch.i.i.i.i2374, label %common.resume
+  br i1 %matches2.i.i.i.i2373, label %catch.i.i.i.i2374, label %lpad3.body.i2130
 
 catch.i.i.i.i2374:                                ; preds = %catch.fallthrough.i.i.i.i2372
   %1017 = call ptr @__cxa_begin_catch(ptr %1012) #35
@@ -10109,7 +10109,7 @@ if.then.i11.i.i.i2377:                            ; preds = %lpad3.i.i.i.i2375
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378: ; preds = %if.then.i11.i.i.i2377, %lpad3.i.i.i.i2375
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i2379
+          to label %lpad3.body.i2130 unwind label %terminate.lpad.i.i.i.i2379
 
 lpad9.i.loopexit.i.i.i2392:                       ; preds = %catch6.i.i.i.i2390
   %lpad.loopexit.i.i.i2393 = landingpad { ptr, i32 }
@@ -10145,7 +10145,7 @@ if.then.i19.i.i.i2404:                            ; preds = %lpad12.i.i.i.i2402
 ehcleanup.i.i.i.i2394:                            ; preds = %if.then.i19.i.i.i2404, %lpad12.i.i.i.i2402, %lpad9.i.loopexit.split-lp.i.i.i2398, %lpad9.i.loopexit.i.i.i2392
   %.pn.i.i.i2395 = phi { ptr, i32 } [ %1022, %lpad12.i.i.i.i2402 ], [ %1022, %if.then.i19.i.i.i2404 ], [ %lpad.loopexit.i.i.i2393, %lpad9.i.loopexit.i.i.i2392 ], [ %lpad.loopexit.split-lp.i.i.i2399, %lpad9.i.loopexit.split-lp.i.i.i2398 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i2379
+          to label %lpad3.body.i2130 unwind label %terminate.lpad.i.i.i.i2379
 
 terminate.lpad.i.i.i.i2379:                       ; preds = %ehcleanup.i.i.i.i2394, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378
   %1024 = landingpad { ptr, i32 }
@@ -10602,7 +10602,7 @@ if.then.i37.i.i.i.i.i.i.i2213:                    ; preds = %invoke.cont10.i36.i
 catch.fallthrough.i21.i.i.i.i.i.i.i2188:          ; preds = %lpad.i18.body.i.i.i.i.i.i.i2185
   %1102 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i22.i.i.i.i.i.i.i2189 = icmp eq i32 %1099, %1102
-  br i1 %matches2.i22.i.i.i.i.i.i.i2189, label %catch.i25.i.i.i.i.i.i.i2190, label %common.resume
+  br i1 %matches2.i22.i.i.i.i.i.i.i2189, label %catch.i25.i.i.i.i.i.i.i2190, label %lpad3.body.i2130
 
 catch.i25.i.i.i.i.i.i.i2190:                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i2188
   %1103 = call ptr @__cxa_begin_catch(ptr %1098) #35
@@ -10637,7 +10637,7 @@ if.then.i45.i.i.i.i.i.i.i2193:                    ; preds = %lpad3.i27.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194: ; preds = %if.then.i45.i.i.i.i.i.i.i2193, %lpad3.i27.i.i.i.i.i.i.i2191
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2195
+          to label %lpad3.body.i2130 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2195
 
 lpad9.i34.loopexit.i.i.i.i.i.i.i2208:             ; preds = %catch6.i31.i.i.i.i.i.i.i2206
   %lpad.loopexit.i.i.i.i.i.i.i2209 = landingpad { ptr, i32 }
@@ -10673,7 +10673,7 @@ if.then.i53.i.i.i.i.i.i.i2220:                    ; preds = %lpad13.i.i.i.i.i.i.
 ehcleanup.i35.i.i.i.i.i.i.i2210:                  ; preds = %if.then.i53.i.i.i.i.i.i.i2220, %lpad13.i.i.i.i.i.i.i.i2218, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i2214, %lpad9.i34.loopexit.i.i.i.i.i.i.i2208
   %.pn19.i.i.i.i.i.i.i2211 = phi { ptr, i32 } [ %1108, %lpad13.i.i.i.i.i.i.i.i2218 ], [ %1108, %if.then.i53.i.i.i.i.i.i.i2220 ], [ %lpad.loopexit.i.i.i.i.i.i.i2209, %lpad9.i34.loopexit.i.i.i.i.i.i.i2208 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2215, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i2214 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2195
+          to label %lpad3.body.i2130 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2195
 
 terminate.lpad.i28.i.i.i.i.i.i.i2195:             ; preds = %ehcleanup.i35.i.i.i.i.i.i.i2210, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194
   %1110 = landingpad { ptr, i32 }
@@ -10724,7 +10724,7 @@ if.then.i.i.i.i.i.i.i.i2341:                      ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i.i.i.i.i2318:            ; preds = %lpad.i.i.i.i.i.i.i.i2316
   %1118 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i.i.i.i.i2319 = icmp eq i32 %1115, %1118
-  br i1 %matches2.i.i.i.i.i.i.i.i2319, label %catch.i.i.i.i.i.i.i.i2320, label %common.resume
+  br i1 %matches2.i.i.i.i.i.i.i.i2319, label %catch.i.i.i.i.i.i.i.i2320, label %lpad3.body.i2130
 
 catch.i.i.i.i.i.i.i.i2320:                        ; preds = %catch.fallthrough.i.i.i.i.i.i.i.i2318
   %1119 = call ptr @__cxa_begin_catch(ptr %1114) #35
@@ -10750,7 +10750,7 @@ if.then.i61.i.i.i.i.i.i.i2323:                    ; preds = %lpad3.i.i.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324: ; preds = %if.then.i61.i.i.i.i.i.i.i2323, %lpad3.i.i.i.i.i.i.i.i2321
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i2325
+          to label %lpad3.body.i2130 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2325
 
 lpad9.i.loopexit.i.i.i.i.i.i.i2336:               ; preds = %catch6.i.i.i.i.i.i.i.i2334
   %lpad.loopexit74.i.i.i.i.i.i.i2337 = landingpad { ptr, i32 }
@@ -10786,7 +10786,7 @@ if.then.i69.i.i.i.i.i.i.i2348:                    ; preds = %lpad12.i.i.i.i.i.i.
 ehcleanup.i.i.i.i.i.i.i.i2338:                    ; preds = %if.then.i69.i.i.i.i.i.i.i2348, %lpad12.i.i.i.i.i.i.i.i2346, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2342, %lpad9.i.loopexit.i.i.i.i.i.i.i2336
   %.pn.i.i.i.i.i.i.i2339 = phi { ptr, i32 } [ %1124, %lpad12.i.i.i.i.i.i.i.i2346 ], [ %1124, %if.then.i69.i.i.i.i.i.i.i2348 ], [ %lpad.loopexit74.i.i.i.i.i.i.i2337, %lpad9.i.loopexit.i.i.i.i.i.i.i2336 ], [ %lpad.loopexit.split-lp75.i.i.i.i.i.i.i2343, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2342 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i2325
+          to label %lpad3.body.i2130 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2325
 
 terminate.lpad.i.i.i.i.i.i.i.i2325:               ; preds = %ehcleanup.i.i.i.i.i.i.i.i2338, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324
   %1126 = landingpad { ptr, i32 }
@@ -10856,21 +10856,25 @@ if.then.i.i2125:                                  ; preds = %invoke.cont4.i2123
 lpad3.loopexit.i2385:                             ; preds = %for.inc.sink.split.i.i.i2384
   %lpad.loopexit.i2386 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2130
 
 lpad3.loopexit.split-lp.loopexit.i2329:           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.sink.split.i.i.i.i.i.i.i
   %lpad.loopexit13.i2330 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2130
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2201: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke.i2200
   %lpad.loopexit17.i2202 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2130
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2128: ; preds = %if.then.i.i2125, %if.then10.i.i.i.i.i.i2138, %if.then3.i.i.i.i.i.invoke.i2167
   %lpad.loopexit.split-lp.i2129 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad3.body.i2130
+
+lpad3.body.i2130:                                 ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i2188, %catch.fallthrough.i.i.i.i.i.i.i.i2318, %catch.fallthrough.i.i.i.i2372, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2128, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2201, %lpad3.loopexit.split-lp.loopexit.i2329, %lpad3.loopexit.i2385, %ehcleanup.i.i.i.i.i.i.i.i2338, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324, %ehcleanup.i35.i.i.i.i.i.i.i2210, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194, %ehcleanup.i.i.i.i2394, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378
+  %eh.lpad-body.i2131 = phi { ptr, i32 } [ %.pn.i.i.i2395, %ehcleanup.i.i.i.i2394 ], [ %1019, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2378 ], [ %.pn19.i.i.i.i.i.i.i2211, %ehcleanup.i35.i.i.i.i.i.i.i2210 ], [ %1105, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2194 ], [ %.pn.i.i.i.i.i.i.i2339, %ehcleanup.i.i.i.i.i.i.i.i2338 ], [ %1121, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2324 ], [ %lpad.loopexit.i2386, %lpad3.loopexit.i2385 ], [ %lpad.loopexit13.i2330, %lpad3.loopexit.split-lp.loopexit.i2329 ], [ %lpad.loopexit17.i2202, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2201 ], [ %lpad.loopexit.split-lp.i2129, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2128 ], [ %1011, %catch.fallthrough.i.i.i.i2372 ], [ %1113, %catch.fallthrough.i.i.i.i.i.i.i.i2318 ], [ %eh.lpad-body.i.i.i.i.i.i.i2186, %catch.fallthrough.i21.i.i.i.i.i.i.i2188 ]
   br label %common.resume
 
 _ZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE6EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_.exit: ; preds = %invoke.cont4.i2123, %if.then.i.i2125
@@ -11038,7 +11042,7 @@ if.then.i.i.i.i2747:                              ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i2722:                    ; preds = %lpad.i.i.i.i2720
   %1159 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i2723 = icmp eq i32 %1156, %1159
-  br i1 %matches2.i.i.i.i2723, label %catch.i.i.i.i2724, label %common.resume
+  br i1 %matches2.i.i.i.i2723, label %catch.i.i.i.i2724, label %lpad3.body.i2485
 
 catch.i.i.i.i2724:                                ; preds = %catch.fallthrough.i.i.i.i2722
   %1160 = call ptr @__cxa_begin_catch(ptr %1155) #35
@@ -11064,7 +11068,7 @@ if.then.i11.i.i.i2727:                            ; preds = %lpad3.i.i.i.i2725
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728: ; preds = %if.then.i11.i.i.i2727, %lpad3.i.i.i.i2725
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i2729
+          to label %lpad3.body.i2485 unwind label %terminate.lpad.i.i.i.i2729
 
 lpad9.i.loopexit.i.i.i2742:                       ; preds = %catch6.i.i.i.i2740
   %lpad.loopexit.i.i.i2743 = landingpad { ptr, i32 }
@@ -11100,7 +11104,7 @@ if.then.i19.i.i.i2754:                            ; preds = %lpad12.i.i.i.i2752
 ehcleanup.i.i.i.i2744:                            ; preds = %if.then.i19.i.i.i2754, %lpad12.i.i.i.i2752, %lpad9.i.loopexit.split-lp.i.i.i2748, %lpad9.i.loopexit.i.i.i2742
   %.pn.i.i.i2745 = phi { ptr, i32 } [ %1165, %lpad12.i.i.i.i2752 ], [ %1165, %if.then.i19.i.i.i2754 ], [ %lpad.loopexit.i.i.i2743, %lpad9.i.loopexit.i.i.i2742 ], [ %lpad.loopexit.split-lp.i.i.i2749, %lpad9.i.loopexit.split-lp.i.i.i2748 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i2729
+          to label %lpad3.body.i2485 unwind label %terminate.lpad.i.i.i.i2729
 
 terminate.lpad.i.i.i.i2729:                       ; preds = %ehcleanup.i.i.i.i2744, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728
   %1167 = landingpad { ptr, i32 }
@@ -11822,7 +11826,7 @@ if.then.i37.i.i.i.i.i.i.i2567:                    ; preds = %invoke.cont10.i36.i
 catch.fallthrough.i21.i.i.i.i.i.i.i2542:          ; preds = %lpad.i18.body.i.i.i.i.i.i.i2539
   %1281 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i22.i.i.i.i.i.i.i2543 = icmp eq i32 %1278, %1281
-  br i1 %matches2.i22.i.i.i.i.i.i.i2543, label %catch.i25.i.i.i.i.i.i.i2544, label %common.resume
+  br i1 %matches2.i22.i.i.i.i.i.i.i2543, label %catch.i25.i.i.i.i.i.i.i2544, label %lpad3.body.i2485
 
 catch.i25.i.i.i.i.i.i.i2544:                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i2542
   %1282 = call ptr @__cxa_begin_catch(ptr %1277) #35
@@ -11857,7 +11861,7 @@ if.then.i45.i.i.i.i.i.i.i2547:                    ; preds = %lpad3.i27.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548: ; preds = %if.then.i45.i.i.i.i.i.i.i2547, %lpad3.i27.i.i.i.i.i.i.i2545
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2549
+          to label %lpad3.body.i2485 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2549
 
 lpad9.i34.loopexit.i.i.i.i.i.i.i2562:             ; preds = %catch6.i31.i.i.i.i.i.i.i2560
   %lpad.loopexit.i.i.i.i.i.i.i2563 = landingpad { ptr, i32 }
@@ -11893,7 +11897,7 @@ if.then.i53.i.i.i.i.i.i.i2574:                    ; preds = %lpad13.i.i.i.i.i.i.
 ehcleanup.i35.i.i.i.i.i.i.i2564:                  ; preds = %if.then.i53.i.i.i.i.i.i.i2574, %lpad13.i.i.i.i.i.i.i.i2572, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i2568, %lpad9.i34.loopexit.i.i.i.i.i.i.i2562
   %.pn19.i.i.i.i.i.i.i2565 = phi { ptr, i32 } [ %1287, %lpad13.i.i.i.i.i.i.i.i2572 ], [ %1287, %if.then.i53.i.i.i.i.i.i.i2574 ], [ %lpad.loopexit.i.i.i.i.i.i.i2563, %lpad9.i34.loopexit.i.i.i.i.i.i.i2562 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2569, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i2568 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2549
+          to label %lpad3.body.i2485 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2549
 
 terminate.lpad.i28.i.i.i.i.i.i.i2549:             ; preds = %ehcleanup.i35.i.i.i.i.i.i.i2564, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548
   %1289 = landingpad { ptr, i32 }
@@ -11944,7 +11948,7 @@ if.then.i.i.i.i.i.i.i.i2691:                      ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i.i.i.i.i2668:            ; preds = %lpad.i.i.i.i.i.i.i.i2666
   %1297 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i.i.i.i.i2669 = icmp eq i32 %1294, %1297
-  br i1 %matches2.i.i.i.i.i.i.i.i2669, label %catch.i.i.i.i.i.i.i.i2670, label %common.resume
+  br i1 %matches2.i.i.i.i.i.i.i.i2669, label %catch.i.i.i.i.i.i.i.i2670, label %lpad3.body.i2485
 
 catch.i.i.i.i.i.i.i.i2670:                        ; preds = %catch.fallthrough.i.i.i.i.i.i.i.i2668
   %1298 = call ptr @__cxa_begin_catch(ptr %1293) #35
@@ -11970,7 +11974,7 @@ if.then.i61.i.i.i.i.i.i.i2673:                    ; preds = %lpad3.i.i.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674: ; preds = %if.then.i61.i.i.i.i.i.i.i2673, %lpad3.i.i.i.i.i.i.i.i2671
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i2675
+          to label %lpad3.body.i2485 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2675
 
 lpad9.i.loopexit.i.i.i.i.i.i.i2686:               ; preds = %catch6.i.i.i.i.i.i.i.i2684
   %lpad.loopexit74.i.i.i.i.i.i.i2687 = landingpad { ptr, i32 }
@@ -12006,7 +12010,7 @@ if.then.i69.i.i.i.i.i.i.i2698:                    ; preds = %lpad12.i.i.i.i.i.i.
 ehcleanup.i.i.i.i.i.i.i.i2688:                    ; preds = %if.then.i69.i.i.i.i.i.i.i2698, %lpad12.i.i.i.i.i.i.i.i2696, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2692, %lpad9.i.loopexit.i.i.i.i.i.i.i2686
   %.pn.i.i.i.i.i.i.i2689 = phi { ptr, i32 } [ %1303, %lpad12.i.i.i.i.i.i.i.i2696 ], [ %1303, %if.then.i69.i.i.i.i.i.i.i2698 ], [ %lpad.loopexit74.i.i.i.i.i.i.i2687, %lpad9.i.loopexit.i.i.i.i.i.i.i2686 ], [ %lpad.loopexit.split-lp75.i.i.i.i.i.i.i2693, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2692 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i2675
+          to label %lpad3.body.i2485 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2675
 
 terminate.lpad.i.i.i.i.i.i.i.i2675:               ; preds = %ehcleanup.i.i.i.i.i.i.i.i2688, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674
   %1305 = landingpad { ptr, i32 }
@@ -12076,21 +12080,25 @@ if.then.i.i2480:                                  ; preds = %invoke.cont4.i2478
 lpad3.loopexit.i2735:                             ; preds = %for.inc.sink.split.i.i.i2734
   %lpad.loopexit.i2736 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2485
 
 lpad3.loopexit.split-lp.loopexit.i2679:           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.sink.split.i.i.i.i.i.i.i
   %lpad.loopexit13.i2680 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2485
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2555: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke.i2554
   %lpad.loopexit17.i2556 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2485
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2483: ; preds = %if.then.i.i2480, %if.then10.i.i.i.i.i.i2493, %if.then3.i.i.i.i.i.invoke.i2522
   %lpad.loopexit.split-lp.i2484 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad3.body.i2485
+
+lpad3.body.i2485:                                 ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i2542, %catch.fallthrough.i.i.i.i.i.i.i.i2668, %catch.fallthrough.i.i.i.i2722, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2483, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2555, %lpad3.loopexit.split-lp.loopexit.i2679, %lpad3.loopexit.i2735, %ehcleanup.i.i.i.i.i.i.i.i2688, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674, %ehcleanup.i35.i.i.i.i.i.i.i2564, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548, %ehcleanup.i.i.i.i2744, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728
+  %eh.lpad-body.i2486 = phi { ptr, i32 } [ %.pn.i.i.i2745, %ehcleanup.i.i.i.i2744 ], [ %1162, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2728 ], [ %.pn19.i.i.i.i.i.i.i2565, %ehcleanup.i35.i.i.i.i.i.i.i2564 ], [ %1284, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i2548 ], [ %.pn.i.i.i.i.i.i.i2689, %ehcleanup.i.i.i.i.i.i.i.i2688 ], [ %1300, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i2674 ], [ %lpad.loopexit.i2736, %lpad3.loopexit.i2735 ], [ %lpad.loopexit13.i2680, %lpad3.loopexit.split-lp.loopexit.i2679 ], [ %lpad.loopexit17.i2556, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2555 ], [ %lpad.loopexit.split-lp.i2484, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2483 ], [ %1154, %catch.fallthrough.i.i.i.i2722 ], [ %1292, %catch.fallthrough.i.i.i.i.i.i.i.i2668 ], [ %eh.lpad-body.i.i.i.i.i.i.i2540, %catch.fallthrough.i21.i.i.i.i.i.i.i2542 ]
   br label %common.resume
 
 _ZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE7EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_.exit: ; preds = %invoke.cont4.i2478, %if.then.i.i2480
@@ -12258,7 +12266,7 @@ if.then.i.i.i.i3055:                              ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i3030:                    ; preds = %lpad.i.i.i.i3028
   %1338 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i3031 = icmp eq i32 %1335, %1338
-  br i1 %matches2.i.i.i.i3031, label %catch.i.i.i.i3032, label %common.resume
+  br i1 %matches2.i.i.i.i3031, label %catch.i.i.i.i3032, label %lpad3.body.i2834
 
 catch.i.i.i.i3032:                                ; preds = %catch.fallthrough.i.i.i.i3030
   %1339 = call ptr @__cxa_begin_catch(ptr %1334) #35
@@ -12284,7 +12292,7 @@ if.then.i11.i.i.i3035:                            ; preds = %lpad3.i.i.i.i3033
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036: ; preds = %if.then.i11.i.i.i3035, %lpad3.i.i.i.i3033
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i3037
+          to label %lpad3.body.i2834 unwind label %terminate.lpad.i.i.i.i3037
 
 lpad9.i.loopexit.i.i.i3050:                       ; preds = %catch6.i.i.i.i3048
   %lpad.loopexit.i.i.i3051 = landingpad { ptr, i32 }
@@ -12320,7 +12328,7 @@ if.then.i19.i.i.i3062:                            ; preds = %lpad12.i.i.i.i3060
 ehcleanup.i.i.i.i3052:                            ; preds = %if.then.i19.i.i.i3062, %lpad12.i.i.i.i3060, %lpad9.i.loopexit.split-lp.i.i.i3056, %lpad9.i.loopexit.i.i.i3050
   %.pn.i.i.i3053 = phi { ptr, i32 } [ %1344, %lpad12.i.i.i.i3060 ], [ %1344, %if.then.i19.i.i.i3062 ], [ %lpad.loopexit.i.i.i3051, %lpad9.i.loopexit.i.i.i3050 ], [ %lpad.loopexit.split-lp.i.i.i3057, %lpad9.i.loopexit.split-lp.i.i.i3056 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i3037
+          to label %lpad3.body.i2834 unwind label %terminate.lpad.i.i.i.i3037
 
 terminate.lpad.i.i.i.i3037:                       ; preds = %ehcleanup.i.i.i.i3052, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036
   %1346 = landingpad { ptr, i32 }
@@ -12624,7 +12632,7 @@ if.then.i37.i.i.i.i.i.i.i2917:                    ; preds = %invoke.cont10.i36.i
 catch.fallthrough.i21.i.i.i.i.i.i.i2892:          ; preds = %lpad.i18.body.i.i.i.i.i.i.i2889
   %1396 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i22.i.i.i.i.i.i.i2893 = icmp eq i32 %1393, %1396
-  br i1 %matches2.i22.i.i.i.i.i.i.i2893, label %catch.i25.i.i.i.i.i.i.i2894, label %common.resume
+  br i1 %matches2.i22.i.i.i.i.i.i.i2893, label %catch.i25.i.i.i.i.i.i.i2894, label %lpad3.body.i2834
 
 catch.i25.i.i.i.i.i.i.i2894:                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i2892
   %1397 = call ptr @__cxa_begin_catch(ptr %1392) #35
@@ -12659,7 +12667,7 @@ if.then.i42.i.i.i.i.i.i.i2897:                    ; preds = %lpad3.i27.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898: ; preds = %if.then.i42.i.i.i.i.i.i.i2897, %lpad3.i27.i.i.i.i.i.i.i2895
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2899
+          to label %lpad3.body.i2834 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2899
 
 lpad9.i34.loopexit.i.i.i.i.i.i.i2912:             ; preds = %catch6.i31.i.i.i.i.i.i.i2910
   %lpad.loopexit.i.i.i.i.i.i.i2913 = landingpad { ptr, i32 }
@@ -12695,7 +12703,7 @@ if.then.i50.i.i.i.i.i.i.i2924:                    ; preds = %lpad13.i.i.i.i.i.i.
 ehcleanup.i35.i.i.i.i.i.i.i2914:                  ; preds = %if.then.i50.i.i.i.i.i.i.i2924, %lpad13.i.i.i.i.i.i.i.i2922, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i2918, %lpad9.i34.loopexit.i.i.i.i.i.i.i2912
   %.pn19.i.i.i.i.i.i.i2915 = phi { ptr, i32 } [ %1402, %lpad13.i.i.i.i.i.i.i.i2922 ], [ %1402, %if.then.i50.i.i.i.i.i.i.i2924 ], [ %lpad.loopexit.i.i.i.i.i.i.i2913, %lpad9.i34.loopexit.i.i.i.i.i.i.i2912 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2919, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i2918 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2899
+          to label %lpad3.body.i2834 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i2899
 
 terminate.lpad.i28.i.i.i.i.i.i.i2899:             ; preds = %ehcleanup.i35.i.i.i.i.i.i.i2914, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898
   %1404 = landingpad { ptr, i32 }
@@ -12746,7 +12754,7 @@ if.then.i.i.i.i.i.i.i.i2999:                      ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i.i.i.i.i2976:            ; preds = %lpad.i.i.i.i.i.i.i.i2974
   %1412 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i.i.i.i.i2977 = icmp eq i32 %1409, %1412
-  br i1 %matches2.i.i.i.i.i.i.i.i2977, label %catch.i.i.i.i.i.i.i.i2978, label %common.resume
+  br i1 %matches2.i.i.i.i.i.i.i.i2977, label %catch.i.i.i.i.i.i.i.i2978, label %lpad3.body.i2834
 
 catch.i.i.i.i.i.i.i.i2978:                        ; preds = %catch.fallthrough.i.i.i.i.i.i.i.i2976
   %1413 = call ptr @__cxa_begin_catch(ptr %1408) #35
@@ -12772,7 +12780,7 @@ if.then.i58.i.i.i.i.i.i.i2981:                    ; preds = %lpad3.i.i.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982: ; preds = %if.then.i58.i.i.i.i.i.i.i2981, %lpad3.i.i.i.i.i.i.i.i2979
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i2983
+          to label %lpad3.body.i2834 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2983
 
 lpad9.i.loopexit.i.i.i.i.i.i.i2994:               ; preds = %catch6.i.i.i.i.i.i.i.i2992
   %lpad.loopexit71.i.i.i.i.i.i.i2995 = landingpad { ptr, i32 }
@@ -12808,7 +12816,7 @@ if.then.i66.i.i.i.i.i.i.i3006:                    ; preds = %lpad12.i.i.i.i.i.i.
 ehcleanup.i.i.i.i.i.i.i.i2996:                    ; preds = %if.then.i66.i.i.i.i.i.i.i3006, %lpad12.i.i.i.i.i.i.i.i3004, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3000, %lpad9.i.loopexit.i.i.i.i.i.i.i2994
   %.pn.i.i.i.i.i.i.i2997 = phi { ptr, i32 } [ %1418, %lpad12.i.i.i.i.i.i.i.i3004 ], [ %1418, %if.then.i66.i.i.i.i.i.i.i3006 ], [ %lpad.loopexit71.i.i.i.i.i.i.i2995, %lpad9.i.loopexit.i.i.i.i.i.i.i2994 ], [ %lpad.loopexit.split-lp72.i.i.i.i.i.i.i3001, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3000 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i2983
+          to label %lpad3.body.i2834 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2983
 
 terminate.lpad.i.i.i.i.i.i.i.i2983:               ; preds = %ehcleanup.i.i.i.i.i.i.i.i2996, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982
   %1420 = landingpad { ptr, i32 }
@@ -12878,21 +12886,25 @@ if.then.i.i2829:                                  ; preds = %invoke.cont4.i2827
 lpad3.loopexit.i3043:                             ; preds = %for.inc.sink.split.i.i.i3042
   %lpad.loopexit.i3044 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2834
 
 lpad3.loopexit.split-lp.loopexit.i2987:           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.sink.split.i.i.i.i.i.i.i
   %lpad.loopexit13.i2988 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2834
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2905: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke.i2904
   %lpad.loopexit17.i2906 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i2834
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2832: ; preds = %if.then.i.i2829, %if.then10.i.i.i.i.i.i2842, %if.then3.i.i.i.i.i.invoke.i2871
   %lpad.loopexit.split-lp.i2833 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad3.body.i2834
+
+lpad3.body.i2834:                                 ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i2892, %catch.fallthrough.i.i.i.i.i.i.i.i2976, %catch.fallthrough.i.i.i.i3030, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2832, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2905, %lpad3.loopexit.split-lp.loopexit.i2987, %lpad3.loopexit.i3043, %ehcleanup.i.i.i.i.i.i.i.i2996, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982, %ehcleanup.i35.i.i.i.i.i.i.i2914, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898, %ehcleanup.i.i.i.i3052, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036
+  %eh.lpad-body.i2835 = phi { ptr, i32 } [ %.pn.i.i.i3053, %ehcleanup.i.i.i.i3052 ], [ %1341, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3036 ], [ %.pn19.i.i.i.i.i.i.i2915, %ehcleanup.i35.i.i.i.i.i.i.i2914 ], [ %1399, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i2898 ], [ %.pn.i.i.i.i.i.i.i2997, %ehcleanup.i.i.i.i.i.i.i.i2996 ], [ %1415, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i2982 ], [ %lpad.loopexit.i3044, %lpad3.loopexit.i3043 ], [ %lpad.loopexit13.i2988, %lpad3.loopexit.split-lp.loopexit.i2987 ], [ %lpad.loopexit17.i2906, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i2905 ], [ %lpad.loopexit.split-lp.i2833, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2832 ], [ %1333, %catch.fallthrough.i.i.i.i3030 ], [ %1407, %catch.fallthrough.i.i.i.i.i.i.i.i2976 ], [ %eh.lpad-body.i.i.i.i.i.i.i2890, %catch.fallthrough.i21.i.i.i.i.i.i.i2892 ]
   br label %common.resume
 
 _ZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE8EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_.exit: ; preds = %invoke.cont4.i2827, %if.then.i.i2829
@@ -13060,7 +13072,7 @@ if.then.i.i.i.i3363:                              ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i3338:                    ; preds = %lpad.i.i.i.i3336
   %1453 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i3339 = icmp eq i32 %1450, %1453
-  br i1 %matches2.i.i.i.i3339, label %catch.i.i.i.i3340, label %common.resume
+  br i1 %matches2.i.i.i.i3339, label %catch.i.i.i.i3340, label %lpad3.body.i3142
 
 catch.i.i.i.i3340:                                ; preds = %catch.fallthrough.i.i.i.i3338
   %1454 = call ptr @__cxa_begin_catch(ptr %1449) #35
@@ -13086,7 +13098,7 @@ if.then.i11.i.i.i3343:                            ; preds = %lpad3.i.i.i.i3341
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344: ; preds = %if.then.i11.i.i.i3343, %lpad3.i.i.i.i3341
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i3345
+          to label %lpad3.body.i3142 unwind label %terminate.lpad.i.i.i.i3345
 
 lpad9.i.loopexit.i.i.i3358:                       ; preds = %catch6.i.i.i.i3356
   %lpad.loopexit.i.i.i3359 = landingpad { ptr, i32 }
@@ -13122,7 +13134,7 @@ if.then.i19.i.i.i3370:                            ; preds = %lpad12.i.i.i.i3368
 ehcleanup.i.i.i.i3360:                            ; preds = %if.then.i19.i.i.i3370, %lpad12.i.i.i.i3368, %lpad9.i.loopexit.split-lp.i.i.i3364, %lpad9.i.loopexit.i.i.i3358
   %.pn.i.i.i3361 = phi { ptr, i32 } [ %1459, %lpad12.i.i.i.i3368 ], [ %1459, %if.then.i19.i.i.i3370 ], [ %lpad.loopexit.i.i.i3359, %lpad9.i.loopexit.i.i.i3358 ], [ %lpad.loopexit.split-lp.i.i.i3365, %lpad9.i.loopexit.split-lp.i.i.i3364 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i3345
+          to label %lpad3.body.i3142 unwind label %terminate.lpad.i.i.i.i3345
 
 terminate.lpad.i.i.i.i3345:                       ; preds = %ehcleanup.i.i.i.i3360, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344
   %1461 = landingpad { ptr, i32 }
@@ -13426,7 +13438,7 @@ if.then.i37.i.i.i.i.i.i.i3225:                    ; preds = %invoke.cont10.i36.i
 catch.fallthrough.i21.i.i.i.i.i.i.i3200:          ; preds = %lpad.i18.body.i.i.i.i.i.i.i3197
   %1511 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i22.i.i.i.i.i.i.i3201 = icmp eq i32 %1508, %1511
-  br i1 %matches2.i22.i.i.i.i.i.i.i3201, label %catch.i25.i.i.i.i.i.i.i3202, label %common.resume
+  br i1 %matches2.i22.i.i.i.i.i.i.i3201, label %catch.i25.i.i.i.i.i.i.i3202, label %lpad3.body.i3142
 
 catch.i25.i.i.i.i.i.i.i3202:                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i3200
   %1512 = call ptr @__cxa_begin_catch(ptr %1507) #35
@@ -13461,7 +13473,7 @@ if.then.i42.i.i.i.i.i.i.i3205:                    ; preds = %lpad3.i27.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206: ; preds = %if.then.i42.i.i.i.i.i.i.i3205, %lpad3.i27.i.i.i.i.i.i.i3203
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3207
+          to label %lpad3.body.i3142 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3207
 
 lpad9.i34.loopexit.i.i.i.i.i.i.i3220:             ; preds = %catch6.i31.i.i.i.i.i.i.i3218
   %lpad.loopexit.i.i.i.i.i.i.i3221 = landingpad { ptr, i32 }
@@ -13497,7 +13509,7 @@ if.then.i50.i.i.i.i.i.i.i3232:                    ; preds = %lpad13.i.i.i.i.i.i.
 ehcleanup.i35.i.i.i.i.i.i.i3222:                  ; preds = %if.then.i50.i.i.i.i.i.i.i3232, %lpad13.i.i.i.i.i.i.i.i3230, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i3226, %lpad9.i34.loopexit.i.i.i.i.i.i.i3220
   %.pn19.i.i.i.i.i.i.i3223 = phi { ptr, i32 } [ %1517, %lpad13.i.i.i.i.i.i.i.i3230 ], [ %1517, %if.then.i50.i.i.i.i.i.i.i3232 ], [ %lpad.loopexit.i.i.i.i.i.i.i3221, %lpad9.i34.loopexit.i.i.i.i.i.i.i3220 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i3227, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i3226 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3207
+          to label %lpad3.body.i3142 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3207
 
 terminate.lpad.i28.i.i.i.i.i.i.i3207:             ; preds = %ehcleanup.i35.i.i.i.i.i.i.i3222, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206
   %1519 = landingpad { ptr, i32 }
@@ -13548,7 +13560,7 @@ if.then.i.i.i.i.i.i.i.i3307:                      ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i.i.i.i.i3284:            ; preds = %lpad.i.i.i.i.i.i.i.i3282
   %1527 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i.i.i.i.i3285 = icmp eq i32 %1524, %1527
-  br i1 %matches2.i.i.i.i.i.i.i.i3285, label %catch.i.i.i.i.i.i.i.i3286, label %common.resume
+  br i1 %matches2.i.i.i.i.i.i.i.i3285, label %catch.i.i.i.i.i.i.i.i3286, label %lpad3.body.i3142
 
 catch.i.i.i.i.i.i.i.i3286:                        ; preds = %catch.fallthrough.i.i.i.i.i.i.i.i3284
   %1528 = call ptr @__cxa_begin_catch(ptr %1523) #35
@@ -13574,7 +13586,7 @@ if.then.i58.i.i.i.i.i.i.i3289:                    ; preds = %lpad3.i.i.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290: ; preds = %if.then.i58.i.i.i.i.i.i.i3289, %lpad3.i.i.i.i.i.i.i.i3287
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i3291
+          to label %lpad3.body.i3142 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3291
 
 lpad9.i.loopexit.i.i.i.i.i.i.i3302:               ; preds = %catch6.i.i.i.i.i.i.i.i3300
   %lpad.loopexit71.i.i.i.i.i.i.i3303 = landingpad { ptr, i32 }
@@ -13610,7 +13622,7 @@ if.then.i66.i.i.i.i.i.i.i3314:                    ; preds = %lpad12.i.i.i.i.i.i.
 ehcleanup.i.i.i.i.i.i.i.i3304:                    ; preds = %if.then.i66.i.i.i.i.i.i.i3314, %lpad12.i.i.i.i.i.i.i.i3312, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3308, %lpad9.i.loopexit.i.i.i.i.i.i.i3302
   %.pn.i.i.i.i.i.i.i3305 = phi { ptr, i32 } [ %1533, %lpad12.i.i.i.i.i.i.i.i3312 ], [ %1533, %if.then.i66.i.i.i.i.i.i.i3314 ], [ %lpad.loopexit71.i.i.i.i.i.i.i3303, %lpad9.i.loopexit.i.i.i.i.i.i.i3302 ], [ %lpad.loopexit.split-lp72.i.i.i.i.i.i.i3309, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3308 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i3291
+          to label %lpad3.body.i3142 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3291
 
 terminate.lpad.i.i.i.i.i.i.i.i3291:               ; preds = %ehcleanup.i.i.i.i.i.i.i.i3304, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290
   %1535 = landingpad { ptr, i32 }
@@ -13680,21 +13692,25 @@ if.then.i.i3137:                                  ; preds = %invoke.cont4.i3135
 lpad3.loopexit.i3351:                             ; preds = %for.inc.sink.split.i.i.i3350
   %lpad.loopexit.i3352 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3142
 
 lpad3.loopexit.split-lp.loopexit.i3295:           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.sink.split.i.i.i.i.i.i.i
   %lpad.loopexit13.i3296 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3142
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3213: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke.i3212
   %lpad.loopexit17.i3214 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3142
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3140: ; preds = %if.then.i.i3137, %if.then10.i.i.i.i.i.i3150, %if.then3.i.i.i.i.i.invoke.i3179
   %lpad.loopexit.split-lp.i3141 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad3.body.i3142
+
+lpad3.body.i3142:                                 ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i3200, %catch.fallthrough.i.i.i.i.i.i.i.i3284, %catch.fallthrough.i.i.i.i3338, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3140, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3213, %lpad3.loopexit.split-lp.loopexit.i3295, %lpad3.loopexit.i3351, %ehcleanup.i.i.i.i.i.i.i.i3304, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290, %ehcleanup.i35.i.i.i.i.i.i.i3222, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206, %ehcleanup.i.i.i.i3360, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344
+  %eh.lpad-body.i3143 = phi { ptr, i32 } [ %.pn.i.i.i3361, %ehcleanup.i.i.i.i3360 ], [ %1456, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3344 ], [ %.pn19.i.i.i.i.i.i.i3223, %ehcleanup.i35.i.i.i.i.i.i.i3222 ], [ %1514, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit44.i.i.i.i.i.i.i3206 ], [ %.pn.i.i.i.i.i.i.i3305, %ehcleanup.i.i.i.i.i.i.i.i3304 ], [ %1530, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit60.i.i.i.i.i.i.i3290 ], [ %lpad.loopexit.i3352, %lpad3.loopexit.i3351 ], [ %lpad.loopexit13.i3296, %lpad3.loopexit.split-lp.loopexit.i3295 ], [ %lpad.loopexit17.i3214, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3213 ], [ %lpad.loopexit.split-lp.i3141, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3140 ], [ %1448, %catch.fallthrough.i.i.i.i3338 ], [ %1522, %catch.fallthrough.i.i.i.i.i.i.i.i3284 ], [ %eh.lpad-body.i.i.i.i.i.i.i3198, %catch.fallthrough.i21.i.i.i.i.i.i.i3200 ]
   br label %common.resume
 
 _ZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE9EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_.exit: ; preds = %invoke.cont4.i3135, %if.then.i.i3137
@@ -13862,7 +13878,7 @@ if.then.i.i.i.i3697:                              ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i3672:                    ; preds = %lpad.i.i.i.i3670
   %1568 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i3673 = icmp eq i32 %1565, %1568
-  br i1 %matches2.i.i.i.i3673, label %catch.i.i.i.i3674, label %common.resume
+  br i1 %matches2.i.i.i.i3673, label %catch.i.i.i.i3674, label %lpad3.body.i3450
 
 catch.i.i.i.i3674:                                ; preds = %catch.fallthrough.i.i.i.i3672
   %1569 = call ptr @__cxa_begin_catch(ptr %1564) #35
@@ -13888,7 +13904,7 @@ if.then.i11.i.i.i3677:                            ; preds = %lpad3.i.i.i.i3675
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678: ; preds = %if.then.i11.i.i.i3677, %lpad3.i.i.i.i3675
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i3679
+          to label %lpad3.body.i3450 unwind label %terminate.lpad.i.i.i.i3679
 
 lpad9.i.loopexit.i.i.i3692:                       ; preds = %catch6.i.i.i.i3690
   %lpad.loopexit.i.i.i3693 = landingpad { ptr, i32 }
@@ -13924,7 +13940,7 @@ if.then.i19.i.i.i3704:                            ; preds = %lpad12.i.i.i.i3702
 ehcleanup.i.i.i.i3694:                            ; preds = %if.then.i19.i.i.i3704, %lpad12.i.i.i.i3702, %lpad9.i.loopexit.split-lp.i.i.i3698, %lpad9.i.loopexit.i.i.i3692
   %.pn.i.i.i3695 = phi { ptr, i32 } [ %1574, %lpad12.i.i.i.i3702 ], [ %1574, %if.then.i19.i.i.i3704 ], [ %lpad.loopexit.i.i.i3693, %lpad9.i.loopexit.i.i.i3692 ], [ %lpad.loopexit.split-lp.i.i.i3699, %lpad9.i.loopexit.split-lp.i.i.i3698 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i3679
+          to label %lpad3.body.i3450 unwind label %terminate.lpad.i.i.i.i3679
 
 terminate.lpad.i.i.i.i3679:                       ; preds = %ehcleanup.i.i.i.i3694, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678
   %1576 = landingpad { ptr, i32 }
@@ -14523,7 +14539,7 @@ if.then.i37.i.i.i.i.i.i.i3526:                    ; preds = %invoke.cont10.i36.i
 catch.fallthrough.i21.i.i.i.i.i.i.i3501:          ; preds = %lpad.i18.body.i.i.i.i.i.i.i3498
   %1684 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i22.i.i.i.i.i.i.i3502 = icmp eq i32 %1681, %1684
-  br i1 %matches2.i22.i.i.i.i.i.i.i3502, label %catch.i25.i.i.i.i.i.i.i3503, label %common.resume
+  br i1 %matches2.i22.i.i.i.i.i.i.i3502, label %catch.i25.i.i.i.i.i.i.i3503, label %lpad3.body.i3450
 
 catch.i25.i.i.i.i.i.i.i3503:                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i3501
   %1685 = call ptr @__cxa_begin_catch(ptr %1680) #35
@@ -14558,7 +14574,7 @@ if.then.i45.i.i.i.i.i.i.i3506:                    ; preds = %lpad3.i27.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507: ; preds = %if.then.i45.i.i.i.i.i.i.i3506, %lpad3.i27.i.i.i.i.i.i.i3504
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3508
+          to label %lpad3.body.i3450 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3508
 
 lpad9.i34.loopexit.i.i.i.i.i.i.i3521:             ; preds = %catch6.i31.i.i.i.i.i.i.i3519
   %lpad.loopexit.i.i.i.i.i.i.i3522 = landingpad { ptr, i32 }
@@ -14594,7 +14610,7 @@ if.then.i53.i.i.i.i.i.i.i3533:                    ; preds = %lpad13.i.i.i.i.i.i.
 ehcleanup.i35.i.i.i.i.i.i.i3523:                  ; preds = %if.then.i53.i.i.i.i.i.i.i3533, %lpad13.i.i.i.i.i.i.i.i3531, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i3527, %lpad9.i34.loopexit.i.i.i.i.i.i.i3521
   %.pn19.i.i.i.i.i.i.i3524 = phi { ptr, i32 } [ %1690, %lpad13.i.i.i.i.i.i.i.i3531 ], [ %1690, %if.then.i53.i.i.i.i.i.i.i3533 ], [ %lpad.loopexit.i.i.i.i.i.i.i3522, %lpad9.i34.loopexit.i.i.i.i.i.i.i3521 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i3528, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i3527 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3508
+          to label %lpad3.body.i3450 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3508
 
 terminate.lpad.i28.i.i.i.i.i.i.i3508:             ; preds = %ehcleanup.i35.i.i.i.i.i.i.i3523, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507
   %1692 = landingpad { ptr, i32 }
@@ -14645,7 +14661,7 @@ if.then.i.i.i.i.i.i.i.i3644:                      ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i.i.i.i.i3622:            ; preds = %lpad.i.i.i.i.i.i.i.i3620
   %1700 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i.i.i.i.i3623 = icmp eq i32 %1697, %1700
-  br i1 %matches2.i.i.i.i.i.i.i.i3623, label %catch.i.i.i.i.i.i.i.i3624, label %common.resume
+  br i1 %matches2.i.i.i.i.i.i.i.i3623, label %catch.i.i.i.i.i.i.i.i3624, label %lpad3.body.i3450
 
 catch.i.i.i.i.i.i.i.i3624:                        ; preds = %catch.fallthrough.i.i.i.i.i.i.i.i3622
   %1701 = call ptr @__cxa_begin_catch(ptr %1696) #35
@@ -14671,7 +14687,7 @@ if.then.i61.i.i.i.i.i.i.i3627:                    ; preds = %lpad3.i.i.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628: ; preds = %if.then.i61.i.i.i.i.i.i.i3627, %lpad3.i.i.i.i.i.i.i.i3625
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i3629
+          to label %lpad3.body.i3450 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3629
 
 lpad9.i.loopexit.i.i.i.i.i.i.i3640:               ; preds = %catch6.i.i.i.i.i.i.i.i3638
   %lpad.loopexit78.i.i.i.i.i.i.i = landingpad { ptr, i32 }
@@ -14707,7 +14723,7 @@ if.then.i69.i.i.i.i.i.i.i3650:                    ; preds = %lpad12.i.i.i.i.i.i.
 ehcleanup.i.i.i.i.i.i.i.i3641:                    ; preds = %if.then.i69.i.i.i.i.i.i.i3650, %lpad12.i.i.i.i.i.i.i.i3648, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3645, %lpad9.i.loopexit.i.i.i.i.i.i.i3640
   %.pn.i.i.i.i.i.i.i3642 = phi { ptr, i32 } [ %1706, %lpad12.i.i.i.i.i.i.i.i3648 ], [ %1706, %if.then.i69.i.i.i.i.i.i.i3650 ], [ %lpad.loopexit78.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i3640 ], [ %lpad.loopexit.split-lp79.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3645 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i3629
+          to label %lpad3.body.i3450 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3629
 
 terminate.lpad.i.i.i.i.i.i.i.i3629:               ; preds = %ehcleanup.i.i.i.i.i.i.i.i3641, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628
   %1708 = landingpad { ptr, i32 }
@@ -14777,21 +14793,25 @@ if.then.i.i3445:                                  ; preds = %invoke.cont4.i3443
 lpad3.loopexit.i3685:                             ; preds = %for.inc.sink.split.i.i.i3684
   %lpad.loopexit.i3686 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3450
 
 lpad3.loopexit.split-lp.loopexit.i3633:           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.sink.split.i.i.i.i.i.i.i
   %lpad.loopexit13.i3634 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3450
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3514: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke.i3513
   %lpad.loopexit17.i3515 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3450
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3448: ; preds = %if.then.i.i3445, %if.then10.i.i.i.i.i.i3458, %if.then3.i.i.i.i.i.invoke.i3483
   %lpad.loopexit.split-lp.i3449 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad3.body.i3450
+
+lpad3.body.i3450:                                 ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i3501, %catch.fallthrough.i.i.i.i.i.i.i.i3622, %catch.fallthrough.i.i.i.i3672, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3448, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3514, %lpad3.loopexit.split-lp.loopexit.i3633, %lpad3.loopexit.i3685, %ehcleanup.i.i.i.i.i.i.i.i3641, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628, %ehcleanup.i35.i.i.i.i.i.i.i3523, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507, %ehcleanup.i.i.i.i3694, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678
+  %eh.lpad-body.i3451 = phi { ptr, i32 } [ %.pn.i.i.i3695, %ehcleanup.i.i.i.i3694 ], [ %1571, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3678 ], [ %.pn19.i.i.i.i.i.i.i3524, %ehcleanup.i35.i.i.i.i.i.i.i3523 ], [ %1687, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3507 ], [ %.pn.i.i.i.i.i.i.i3642, %ehcleanup.i.i.i.i.i.i.i.i3641 ], [ %1703, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3628 ], [ %lpad.loopexit.i3686, %lpad3.loopexit.i3685 ], [ %lpad.loopexit13.i3634, %lpad3.loopexit.split-lp.loopexit.i3633 ], [ %lpad.loopexit17.i3515, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3514 ], [ %lpad.loopexit.split-lp.i3449, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3448 ], [ %1563, %catch.fallthrough.i.i.i.i3672 ], [ %1695, %catch.fallthrough.i.i.i.i.i.i.i.i3622 ], [ %eh.lpad-body.i.i.i.i.i.i.i3499, %catch.fallthrough.i21.i.i.i.i.i.i.i3501 ]
   br label %common.resume
 
 _ZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE30EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_.exit: ; preds = %invoke.cont4.i3443, %if.then.i.i3445
@@ -14959,7 +14979,7 @@ if.then.i.i.i.i4040:                              ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i4015:                    ; preds = %lpad.i.i.i.i4013
   %1741 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i4016 = icmp eq i32 %1738, %1741
-  br i1 %matches2.i.i.i.i4016, label %catch.i.i.i.i4017, label %common.resume
+  br i1 %matches2.i.i.i.i4016, label %catch.i.i.i.i4017, label %lpad3.body.i3786
 
 catch.i.i.i.i4017:                                ; preds = %catch.fallthrough.i.i.i.i4015
   %1742 = call ptr @__cxa_begin_catch(ptr %1737) #35
@@ -14985,7 +15005,7 @@ if.then.i11.i.i.i4020:                            ; preds = %lpad3.i.i.i.i4018
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021: ; preds = %if.then.i11.i.i.i4020, %lpad3.i.i.i.i4018
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i4022
+          to label %lpad3.body.i3786 unwind label %terminate.lpad.i.i.i.i4022
 
 lpad9.i.loopexit.i.i.i4035:                       ; preds = %catch6.i.i.i.i4033
   %lpad.loopexit.i.i.i4036 = landingpad { ptr, i32 }
@@ -15021,7 +15041,7 @@ if.then.i19.i.i.i4047:                            ; preds = %lpad12.i.i.i.i4045
 ehcleanup.i.i.i.i4037:                            ; preds = %if.then.i19.i.i.i4047, %lpad12.i.i.i.i4045, %lpad9.i.loopexit.split-lp.i.i.i4041, %lpad9.i.loopexit.i.i.i4035
   %.pn.i.i.i4038 = phi { ptr, i32 } [ %1747, %lpad12.i.i.i.i4045 ], [ %1747, %if.then.i19.i.i.i4047 ], [ %lpad.loopexit.i.i.i4036, %lpad9.i.loopexit.i.i.i4035 ], [ %lpad.loopexit.split-lp.i.i.i4042, %lpad9.i.loopexit.split-lp.i.i.i4041 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i4022
+          to label %lpad3.body.i3786 unwind label %terminate.lpad.i.i.i.i4022
 
 terminate.lpad.i.i.i.i4022:                       ; preds = %ehcleanup.i.i.i.i4037, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021
   %1749 = landingpad { ptr, i32 }
@@ -15603,7 +15623,7 @@ if.then.i37.i.i.i.i.i.i.i3863:                    ; preds = %invoke.cont10.i36.i
 catch.fallthrough.i21.i.i.i.i.i.i.i3838:          ; preds = %lpad.i18.body.i.i.i.i.i.i.i3835
   %1847 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i22.i.i.i.i.i.i.i3839 = icmp eq i32 %1844, %1847
-  br i1 %matches2.i22.i.i.i.i.i.i.i3839, label %catch.i25.i.i.i.i.i.i.i3840, label %common.resume
+  br i1 %matches2.i22.i.i.i.i.i.i.i3839, label %catch.i25.i.i.i.i.i.i.i3840, label %lpad3.body.i3786
 
 catch.i25.i.i.i.i.i.i.i3840:                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i3838
   %1848 = call ptr @__cxa_begin_catch(ptr %1843) #35
@@ -15638,7 +15658,7 @@ if.then.i45.i.i.i.i.i.i.i3843:                    ; preds = %lpad3.i27.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844: ; preds = %if.then.i45.i.i.i.i.i.i.i3843, %lpad3.i27.i.i.i.i.i.i.i3841
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3845
+          to label %lpad3.body.i3786 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3845
 
 lpad9.i34.loopexit.i.i.i.i.i.i.i3858:             ; preds = %catch6.i31.i.i.i.i.i.i.i3856
   %lpad.loopexit.i.i.i.i.i.i.i3859 = landingpad { ptr, i32 }
@@ -15674,7 +15694,7 @@ if.then.i53.i.i.i.i.i.i.i3870:                    ; preds = %lpad13.i.i.i.i.i.i.
 ehcleanup.i35.i.i.i.i.i.i.i3860:                  ; preds = %if.then.i53.i.i.i.i.i.i.i3870, %lpad13.i.i.i.i.i.i.i.i3868, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i3864, %lpad9.i34.loopexit.i.i.i.i.i.i.i3858
   %.pn19.i.i.i.i.i.i.i3861 = phi { ptr, i32 } [ %1853, %lpad13.i.i.i.i.i.i.i.i3868 ], [ %1853, %if.then.i53.i.i.i.i.i.i.i3870 ], [ %lpad.loopexit.i.i.i.i.i.i.i3859, %lpad9.i34.loopexit.i.i.i.i.i.i.i3858 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i3865, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i3864 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3845
+          to label %lpad3.body.i3786 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i3845
 
 terminate.lpad.i28.i.i.i.i.i.i.i3845:             ; preds = %ehcleanup.i35.i.i.i.i.i.i.i3860, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844
   %1855 = landingpad { ptr, i32 }
@@ -15725,7 +15745,7 @@ if.then.i.i.i.i.i.i.i.i3986:                      ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i.i.i.i.i3963:            ; preds = %lpad.i.i.i.i.i.i.i.i3961
   %1863 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i.i.i.i.i3964 = icmp eq i32 %1860, %1863
-  br i1 %matches2.i.i.i.i.i.i.i.i3964, label %catch.i.i.i.i.i.i.i.i3965, label %common.resume
+  br i1 %matches2.i.i.i.i.i.i.i.i3964, label %catch.i.i.i.i.i.i.i.i3965, label %lpad3.body.i3786
 
 catch.i.i.i.i.i.i.i.i3965:                        ; preds = %catch.fallthrough.i.i.i.i.i.i.i.i3963
   %1864 = call ptr @__cxa_begin_catch(ptr %1859) #35
@@ -15751,7 +15771,7 @@ if.then.i61.i.i.i.i.i.i.i3968:                    ; preds = %lpad3.i.i.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969: ; preds = %if.then.i61.i.i.i.i.i.i.i3968, %lpad3.i.i.i.i.i.i.i.i3966
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i3970
+          to label %lpad3.body.i3786 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3970
 
 lpad9.i.loopexit.i.i.i.i.i.i.i3981:               ; preds = %catch6.i.i.i.i.i.i.i.i3979
   %lpad.loopexit74.i.i.i.i.i.i.i3982 = landingpad { ptr, i32 }
@@ -15787,7 +15807,7 @@ if.then.i69.i.i.i.i.i.i.i3993:                    ; preds = %lpad12.i.i.i.i.i.i.
 ehcleanup.i.i.i.i.i.i.i.i3983:                    ; preds = %if.then.i69.i.i.i.i.i.i.i3993, %lpad12.i.i.i.i.i.i.i.i3991, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3987, %lpad9.i.loopexit.i.i.i.i.i.i.i3981
   %.pn.i.i.i.i.i.i.i3984 = phi { ptr, i32 } [ %1869, %lpad12.i.i.i.i.i.i.i.i3991 ], [ %1869, %if.then.i69.i.i.i.i.i.i.i3993 ], [ %lpad.loopexit74.i.i.i.i.i.i.i3982, %lpad9.i.loopexit.i.i.i.i.i.i.i3981 ], [ %lpad.loopexit.split-lp75.i.i.i.i.i.i.i3988, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3987 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i3970
+          to label %lpad3.body.i3786 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3970
 
 terminate.lpad.i.i.i.i.i.i.i.i3970:               ; preds = %ehcleanup.i.i.i.i.i.i.i.i3983, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969
   %1871 = landingpad { ptr, i32 }
@@ -15857,21 +15877,25 @@ if.then.i.i3781:                                  ; preds = %invoke.cont4.i3779
 lpad3.loopexit.i4028:                             ; preds = %for.inc.sink.split.i.i.i4027
   %lpad.loopexit.i4029 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3786
 
 lpad3.loopexit.split-lp.loopexit.i3974:           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.sink.split.i.i.i.i.i.i.i
   %lpad.loopexit13.i3975 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3786
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3851: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke.i3850
   %lpad.loopexit17.i3852 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i3786
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3784: ; preds = %if.then.i.i3781, %if.then10.i.i.i.i.i.i3794, %if.then3.i.i.i.i.i.invoke.i3820
   %lpad.loopexit.split-lp.i3785 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad3.body.i3786
+
+lpad3.body.i3786:                                 ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i3838, %catch.fallthrough.i.i.i.i.i.i.i.i3963, %catch.fallthrough.i.i.i.i4015, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3784, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3851, %lpad3.loopexit.split-lp.loopexit.i3974, %lpad3.loopexit.i4028, %ehcleanup.i.i.i.i.i.i.i.i3983, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969, %ehcleanup.i35.i.i.i.i.i.i.i3860, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844, %ehcleanup.i.i.i.i4037, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021
+  %eh.lpad-body.i3787 = phi { ptr, i32 } [ %.pn.i.i.i4038, %ehcleanup.i.i.i.i4037 ], [ %1744, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4021 ], [ %.pn19.i.i.i.i.i.i.i3861, %ehcleanup.i35.i.i.i.i.i.i.i3860 ], [ %1850, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i3844 ], [ %.pn.i.i.i.i.i.i.i3984, %ehcleanup.i.i.i.i.i.i.i.i3983 ], [ %1866, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i3969 ], [ %lpad.loopexit.i4029, %lpad3.loopexit.i4028 ], [ %lpad.loopexit13.i3975, %lpad3.loopexit.split-lp.loopexit.i3974 ], [ %lpad.loopexit17.i3852, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i3851 ], [ %lpad.loopexit.split-lp.i3785, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3784 ], [ %1736, %catch.fallthrough.i.i.i.i4015 ], [ %1858, %catch.fallthrough.i.i.i.i.i.i.i.i3963 ], [ %eh.lpad-body.i.i.i.i.i.i.i3836, %catch.fallthrough.i21.i.i.i.i.i.i.i3838 ]
   br label %common.resume
 
 _ZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE31EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_.exit: ; preds = %invoke.cont4.i3779, %if.then.i.i3781
@@ -16039,7 +16063,7 @@ if.then.i.i.i.i4430:                              ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i4405:                    ; preds = %lpad.i.i.i.i4403
   %1904 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i4406 = icmp eq i32 %1901, %1904
-  br i1 %matches2.i.i.i.i4406, label %catch.i.i.i.i4407, label %common.resume
+  br i1 %matches2.i.i.i.i4406, label %catch.i.i.i.i4407, label %lpad3.body.i4128
 
 catch.i.i.i.i4407:                                ; preds = %catch.fallthrough.i.i.i.i4405
   %1905 = call ptr @__cxa_begin_catch(ptr %1900) #35
@@ -16065,7 +16089,7 @@ if.then.i11.i.i.i4410:                            ; preds = %lpad3.i.i.i.i4408
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411: ; preds = %if.then.i11.i.i.i4410, %lpad3.i.i.i.i4408
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i4412
+          to label %lpad3.body.i4128 unwind label %terminate.lpad.i.i.i.i4412
 
 lpad9.i.loopexit.i.i.i4425:                       ; preds = %catch6.i.i.i.i4423
   %lpad.loopexit.i.i.i4426 = landingpad { ptr, i32 }
@@ -16101,7 +16125,7 @@ if.then.i19.i.i.i4437:                            ; preds = %lpad12.i.i.i.i4435
 ehcleanup.i.i.i.i4427:                            ; preds = %if.then.i19.i.i.i4437, %lpad12.i.i.i.i4435, %lpad9.i.loopexit.split-lp.i.i.i4431, %lpad9.i.loopexit.i.i.i4425
   %.pn.i.i.i4428 = phi { ptr, i32 } [ %1910, %lpad12.i.i.i.i4435 ], [ %1910, %if.then.i19.i.i.i4437 ], [ %lpad.loopexit.i.i.i4426, %lpad9.i.loopexit.i.i.i4425 ], [ %lpad.loopexit.split-lp.i.i.i4432, %lpad9.i.loopexit.split-lp.i.i.i4431 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i4412
+          to label %lpad3.body.i4128 unwind label %terminate.lpad.i.i.i.i4412
 
 terminate.lpad.i.i.i.i4412:                       ; preds = %ehcleanup.i.i.i.i4427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411
   %1912 = landingpad { ptr, i32 }
@@ -17222,7 +17246,7 @@ if.then.i37.i.i.i.i.i.i.i4204:                    ; preds = %invoke.cont10.i36.i
 catch.fallthrough.i21.i.i.i.i.i.i.i4179:          ; preds = %lpad.i18.body.i.i.i.i.i.i.i4176
   %2074 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i22.i.i.i.i.i.i.i4180 = icmp eq i32 %2071, %2074
-  br i1 %matches2.i22.i.i.i.i.i.i.i4180, label %catch.i25.i.i.i.i.i.i.i4181, label %common.resume
+  br i1 %matches2.i22.i.i.i.i.i.i.i4180, label %catch.i25.i.i.i.i.i.i.i4181, label %lpad3.body.i4128
 
 catch.i25.i.i.i.i.i.i.i4181:                      ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i4179
   %2075 = call ptr @__cxa_begin_catch(ptr %2070) #35
@@ -17257,7 +17281,7 @@ if.then.i45.i.i.i.i.i.i.i4184:                    ; preds = %lpad3.i27.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185: ; preds = %if.then.i45.i.i.i.i.i.i.i4184, %lpad3.i27.i.i.i.i.i.i.i4182
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i4186
+          to label %lpad3.body.i4128 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i4186
 
 lpad9.i34.loopexit.i.i.i.i.i.i.i4199:             ; preds = %catch6.i31.i.i.i.i.i.i.i4197
   %lpad.loopexit.i.i.i.i.i.i.i4200 = landingpad { ptr, i32 }
@@ -17293,7 +17317,7 @@ if.then.i53.i.i.i.i.i.i.i4211:                    ; preds = %lpad13.i.i.i.i.i.i.
 ehcleanup.i35.i.i.i.i.i.i.i4201:                  ; preds = %if.then.i53.i.i.i.i.i.i.i4211, %lpad13.i.i.i.i.i.i.i.i4209, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i4205, %lpad9.i34.loopexit.i.i.i.i.i.i.i4199
   %.pn19.i.i.i.i.i.i.i4202 = phi { ptr, i32 } [ %2080, %lpad13.i.i.i.i.i.i.i.i4209 ], [ %2080, %if.then.i53.i.i.i.i.i.i.i4211 ], [ %lpad.loopexit.i.i.i.i.i.i.i4200, %lpad9.i34.loopexit.i.i.i.i.i.i.i4199 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i4206, %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i.i4205 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i28.i.i.i.i.i.i.i4186
+          to label %lpad3.body.i4128 unwind label %terminate.lpad.i28.i.i.i.i.i.i.i4186
 
 terminate.lpad.i28.i.i.i.i.i.i.i4186:             ; preds = %ehcleanup.i35.i.i.i.i.i.i.i4201, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185
   %2082 = landingpad { ptr, i32 }
@@ -17344,7 +17368,7 @@ if.then.i.i.i.i.i.i.i.i4376:                      ; preds = %invoke.cont10.i.i.i
 catch.fallthrough.i.i.i.i.i.i.i.i4353:            ; preds = %lpad.i.i.i.i.i.i.i.i4351
   %2090 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #35
   %matches2.i.i.i.i.i.i.i.i4354 = icmp eq i32 %2087, %2090
-  br i1 %matches2.i.i.i.i.i.i.i.i4354, label %catch.i.i.i.i.i.i.i.i4355, label %common.resume
+  br i1 %matches2.i.i.i.i.i.i.i.i4354, label %catch.i.i.i.i.i.i.i.i4355, label %lpad3.body.i4128
 
 catch.i.i.i.i.i.i.i.i4355:                        ; preds = %catch.fallthrough.i.i.i.i.i.i.i.i4353
   %2091 = call ptr @__cxa_begin_catch(ptr %2086) #35
@@ -17370,7 +17394,7 @@ if.then.i61.i.i.i.i.i.i.i4358:                    ; preds = %lpad3.i.i.i.i.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359: ; preds = %if.then.i61.i.i.i.i.i.i.i4358, %lpad3.i.i.i.i.i.i.i.i4356
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i4360
+          to label %lpad3.body.i4128 unwind label %terminate.lpad.i.i.i.i.i.i.i.i4360
 
 lpad9.i.loopexit.i.i.i.i.i.i.i4371:               ; preds = %catch6.i.i.i.i.i.i.i.i4369
   %lpad.loopexit74.i.i.i.i.i.i.i4372 = landingpad { ptr, i32 }
@@ -17406,7 +17430,7 @@ if.then.i69.i.i.i.i.i.i.i4383:                    ; preds = %lpad12.i.i.i.i.i.i.
 ehcleanup.i.i.i.i.i.i.i.i4373:                    ; preds = %if.then.i69.i.i.i.i.i.i.i4383, %lpad12.i.i.i.i.i.i.i.i4381, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i4377, %lpad9.i.loopexit.i.i.i.i.i.i.i4371
   %.pn.i.i.i.i.i.i.i4374 = phi { ptr, i32 } [ %2096, %lpad12.i.i.i.i.i.i.i.i4381 ], [ %2096, %if.then.i69.i.i.i.i.i.i.i4383 ], [ %lpad.loopexit74.i.i.i.i.i.i.i4372, %lpad9.i.loopexit.i.i.i.i.i.i.i4371 ], [ %lpad.loopexit.split-lp75.i.i.i.i.i.i.i4378, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i4377 ]
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %terminate.lpad.i.i.i.i.i.i.i.i4360
+          to label %lpad3.body.i4128 unwind label %terminate.lpad.i.i.i.i.i.i.i.i4360
 
 terminate.lpad.i.i.i.i.i.i.i.i4360:               ; preds = %ehcleanup.i.i.i.i.i.i.i.i4373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359
   %2098 = landingpad { ptr, i32 }
@@ -17476,21 +17500,25 @@ if.then.i.i4123:                                  ; preds = %invoke.cont4.i4121
 lpad3.loopexit.i4418:                             ; preds = %for.inc.sink.split.i.i.i4417
   %lpad.loopexit.i4419 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i4128
 
 lpad3.loopexit.split-lp.loopexit.i4364:           ; preds = %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERS2_RKNS0_17SelectivityVectorERS7_EUlT_E_EEvSD_SF_ENKUlSF_E_clIiEEDaSF_.exit.sink.split.i.i.i.i.i.i.i
   %lpad.loopexit13.i4365 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i4128
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i4192: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke.i4191
   %lpad.loopexit17.i4193 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %lpad3.body.i4128
 
 lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4126: ; preds = %if.then.i.i4123, %if.then10.i.i.i.i.i.i4136, %if.then3.i.i.i.i.i.invoke.i4162
   %lpad.loopexit.split-lp.i4127 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad3.body.i4128
+
+lpad3.body.i4128:                                 ; preds = %catch.fallthrough.i21.i.i.i.i.i.i.i4179, %catch.fallthrough.i.i.i.i.i.i.i.i4353, %catch.fallthrough.i.i.i.i4405, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4126, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i4192, %lpad3.loopexit.split-lp.loopexit.i4364, %lpad3.loopexit.i4418, %ehcleanup.i.i.i.i.i.i.i.i4373, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359, %ehcleanup.i35.i.i.i.i.i.i.i4201, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185, %ehcleanup.i.i.i.i4427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411
+  %eh.lpad-body.i4129 = phi { ptr, i32 } [ %.pn.i.i.i4428, %ehcleanup.i.i.i.i4427 ], [ %1907, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i4411 ], [ %.pn19.i.i.i.i.i.i.i4202, %ehcleanup.i35.i.i.i.i.i.i.i4201 ], [ %2077, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit47.i.i.i.i.i.i.i4185 ], [ %.pn.i.i.i.i.i.i.i4374, %ehcleanup.i.i.i.i.i.i.i.i4373 ], [ %2093, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit63.i.i.i.i.i.i.i4359 ], [ %lpad.loopexit.i4419, %lpad3.loopexit.i4418 ], [ %lpad.loopexit13.i4365, %lpad3.loopexit.split-lp.loopexit.i4364 ], [ %lpad.loopexit17.i4193, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i4192 ], [ %lpad.loopexit.split-lp.i4127, %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i4126 ], [ %1899, %catch.fallthrough.i.i.i.i4405 ], [ %2085, %catch.fallthrough.i.i.i.i.i.i.i.i4353 ], [ %eh.lpad-body.i.i.i.i.i.i.i4177, %catch.fallthrough.i21.i.i.i.i.i.i.i4179 ]
   br label %common.resume
 
 _ZN8facebook5velox12_GLOBAL__N_112castFromJsonILNS0_8TypeKindE32EEEvRKNS0_10BaseVectorERNS0_4exec7EvalCtxERKNS0_17SelectivityVectorERS4_.exit: ; preds = %invoke.cont4.i4121, %if.then.i.i4123

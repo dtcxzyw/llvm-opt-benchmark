@@ -5889,7 +5889,7 @@ if.then6:                                         ; preds = %if.then3
 if.end7:                                          ; preds = %if.then3
   switch i32 %tok.addr.0, label %sw.default [
     i32 0, label %sw.bb
-    i32 -1, label %return.loopexit2132
+    i32 -1, label %return.loopexit2152
     i32 -2, label %return
     i32 -15, label %if.end33
     i32 -4, label %sw.bb11
@@ -6118,7 +6118,7 @@ sw.epilog44:                                      ; preds = %sw.default39, %acco
   ]
 
 sw.epilog44.sw.bb109_crit_edge:                   ; preds = %sw.epilog44
-  %.pre1788 = load ptr, ptr %next.addr, align 8
+  %.pre1808 = load ptr, ptr %next.addr, align 8
   br label %sw.bb109
 
 sw.bb45:                                          ; preds = %sw.epilog44
@@ -6275,13 +6275,13 @@ if.end87:                                         ; preds = %sw.bb82
   store i8 1, ptr %hasParamEntityRefs1117, align 1
   %51 = load ptr, ptr %m_startDoctypeDeclHandler1404, align 8
   %tobool89.not = icmp eq ptr %51, null
-  %.pre1789 = load ptr, ptr %next.addr, align 8
+  %.pre1809 = load ptr, ptr %next.addr, align 8
   br i1 %tobool89.not, label %sw.bb109, label %if.then90
 
 if.then90:                                        ; preds = %if.end87
   %isPublicId = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
   %52 = load ptr, ptr %isPublicId, align 8
-  %call91 = call i32 %52(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %.pre1789, ptr noundef nonnull %eventPP.0) #25
+  %call91 = call i32 %52(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %.pre1809, ptr noundef nonnull %eventPP.0) #25
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %return, label %if.end94
 
@@ -6406,7 +6406,7 @@ normalizePublicId.exit:                           ; preds = %for.end.i, %land.lh
   br label %alreadyChecked
 
 sw.bb109:                                         ; preds = %sw.epilog44.sw.bb109_crit_edge, %if.end87
-  %67 = phi ptr [ %.pre1788, %sw.epilog44.sw.bb109_crit_edge ], [ %.pre1789, %if.end87 ]
+  %67 = phi ptr [ %.pre1808, %sw.epilog44.sw.bb109_crit_edge ], [ %.pre1809, %if.end87 ]
   %isPublicId110 = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
   %68 = load ptr, ptr %isPublicId110, align 8
   %call111 = call i32 %68(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %67, ptr noundef nonnull %eventPP.0) #25
@@ -7076,11 +7076,11 @@ land.lhs.true374:                                 ; preds = %if.then367
   br i1 %tobool377.not, label %return, label %land.lhs.true374.cond.false_crit_edge
 
 land.lhs.true374.cond.false_crit_edge:            ; preds = %land.lhs.true374
-  %.pre1786 = load ptr, ptr %ptr1.i.i1184, align 8
+  %.pre1806 = load ptr, ptr %ptr1.i.i1184, align 8
   br label %cond.false
 
 cond.false:                                       ; preds = %land.lhs.true374.cond.false_crit_edge, %if.then367
-  %170 = phi ptr [ %.pre1786, %land.lhs.true374.cond.false_crit_edge ], [ %168, %if.then367 ]
+  %170 = phi ptr [ %.pre1806, %land.lhs.true374.cond.false_crit_edge ], [ %168, %if.then367 ]
   %incdec.ptr = getelementptr i8, ptr %170, i64 1
   store ptr %incdec.ptr, ptr %ptr1.i.i1184, align 8
   store i8 41, ptr %170, align 1
@@ -7095,11 +7095,11 @@ land.lhs.true387:                                 ; preds = %cond.false
   br i1 %tobool390.not, label %return, label %land.lhs.true387.cond.false392_crit_edge
 
 land.lhs.true387.cond.false392_crit_edge:         ; preds = %land.lhs.true387
-  %.pre1787 = load ptr, ptr %ptr1.i.i1184, align 8
+  %.pre1807 = load ptr, ptr %ptr1.i.i1184, align 8
   br label %cond.false392
 
 cond.false392:                                    ; preds = %land.lhs.true387.cond.false392_crit_edge, %cond.false
-  %173 = phi ptr [ %.pre1787, %land.lhs.true387.cond.false392_crit_edge ], [ %171, %cond.false ]
+  %173 = phi ptr [ %.pre1807, %land.lhs.true387.cond.false392_crit_edge ], [ %171, %cond.false ]
   %incdec.ptr395 = getelementptr i8, ptr %173, i64 1
   store ptr %incdec.ptr395, ptr %ptr1.i.i1184, align 8
   store i8 0, ptr %173, align 1
@@ -7348,11 +7348,11 @@ land.lhs.true476:                                 ; preds = %if.then469
   br i1 %tobool479.not, label %return, label %land.lhs.true476.cond.false481_crit_edge
 
 land.lhs.true476.cond.false481_crit_edge:         ; preds = %land.lhs.true476
-  %.pre1784 = load ptr, ptr %ptr1.i.i1184, align 8
+  %.pre1804 = load ptr, ptr %ptr1.i.i1184, align 8
   br label %cond.false481
 
 cond.false481:                                    ; preds = %land.lhs.true476.cond.false481_crit_edge, %if.then469
-  %218 = phi ptr [ %.pre1784, %land.lhs.true476.cond.false481_crit_edge ], [ %216, %if.then469 ]
+  %218 = phi ptr [ %.pre1804, %land.lhs.true476.cond.false481_crit_edge ], [ %216, %if.then469 ]
   %incdec.ptr484 = getelementptr i8, ptr %218, i64 1
   store ptr %incdec.ptr484, ptr %ptr1.i.i1184, align 8
   store i8 41, ptr %218, align 1
@@ -7367,11 +7367,11 @@ land.lhs.true492:                                 ; preds = %cond.false481
   br i1 %tobool495.not, label %return, label %land.lhs.true492.cond.false497_crit_edge
 
 land.lhs.true492.cond.false497_crit_edge:         ; preds = %land.lhs.true492
-  %.pre1785 = load ptr, ptr %ptr1.i.i1184, align 8
+  %.pre1805 = load ptr, ptr %ptr1.i.i1184, align 8
   br label %cond.false497
 
 cond.false497:                                    ; preds = %land.lhs.true492.cond.false497_crit_edge, %cond.false481
-  %221 = phi ptr [ %.pre1785, %land.lhs.true492.cond.false497_crit_edge ], [ %219, %cond.false481 ]
+  %221 = phi ptr [ %.pre1805, %land.lhs.true492.cond.false497_crit_edge ], [ %219, %cond.false481 ]
   %incdec.ptr500 = getelementptr i8, ptr %221, i64 1
   store ptr %incdec.ptr500, ptr %ptr1.i.i1184, align 8
   store i8 0, ptr %221, align 1
@@ -8742,14 +8742,14 @@ if.then1096:                                      ; preds = %land.lhs.true1084
   %483 = load ptr, ptr %m_elementDeclHandler1432, align 8
   %tobool1107.not = icmp eq ptr %483, null
   %spec.select724 = zext i1 %tobool1107.not to i8
-  %.pre1782 = load ptr, ptr %m_groupConnector1064, align 8
-  %.pre1783 = load i32, ptr %level1066, align 8
-  %.pre1790 = zext i32 %.pre1783 to i64
+  %.pre1802 = load ptr, ptr %m_groupConnector1064, align 8
+  %.pre1803 = load i32, ptr %level1066, align 8
+  %.pre1810 = zext i32 %.pre1803 to i64
   br label %if.end1110
 
 if.end1110:                                       ; preds = %if.then1096, %land.lhs.true1084, %if.end1073
-  %idxprom1114.pre-phi = phi i64 [ %.pre1790, %if.then1096 ], [ %idxprom1067, %land.lhs.true1084 ], [ %idxprom1067, %if.end1073 ]
-  %484 = phi ptr [ %.pre1782, %if.then1096 ], [ %474, %land.lhs.true1084 ], [ %474, %if.end1073 ]
+  %idxprom1114.pre-phi = phi i64 [ %.pre1810, %if.then1096 ], [ %idxprom1067, %land.lhs.true1084 ], [ %idxprom1067, %if.end1073 ]
+  %484 = phi ptr [ %.pre1802, %if.then1096 ], [ %474, %land.lhs.true1084 ], [ %474, %if.end1073 ]
   %handleDefault.10 = phi i8 [ %spec.select724, %if.then1096 ], [ 1, %land.lhs.true1084 ], [ 1, %if.end1073 ]
   %arrayidx1115 = getelementptr i8, ptr %484, i64 %idxprom1114.pre-phi
   store i8 124, ptr %arrayidx1115, align 1
@@ -9584,11 +9584,11 @@ sw.default1446:                                   ; preds = %if.end1443
   %call1448 = call i32 %635(ptr noundef nonnull %enc.addr.11430, ptr noundef %634, ptr noundef %end, ptr noundef nonnull %next.addr) #25
   br label %for.cond
 
-return.loopexit2132:                              ; preds = %if.end7
+return.loopexit2152:                              ; preds = %if.end7
   br label %return
 
-return:                                           ; preds = %if.then1376, %land.lhs.true.i1267, %poolAppend.exit.i1260, %land.lhs.true.i1204, %poolAppend.exit.i1197, %land.lhs.true.i1152, %poolAppend.exit.i1145, %land.lhs.true.i1092, %poolAppend.exit.i1085, %land.lhs.true.i1062, %poolAppend.exit.i1055, %if.end36.i911, %if.else.i909, %land.lhs.true14.i, %if.then420, %if.end36.i, %if.else.i856, %land.lhs.true.i794, %poolAppend.exit.i787, %land.lhs.true.i763, %poolAppend.exit.i756, %if.end1443, %sw.bb1395, %sw.bb1390, %for.end, %if.end1316, %cond.end, %if.then1256, %if.then1240, %land.lhs.true1230, %if.then1185, %if.end1179, %if.else1159, %if.then1156, %poolStoreString.exit1275, %sw.bb1063, %sw.bb1039, %if.then1023, %if.then992, %if.then976, %if.end958, %poolStoreString.exit1212, %poolStoreString.exit1160, %sw.bb881, %poolStoreString.exit1130, %if.end816, %poolStoreString.exit1100, %if.end764, %poolStoreString.exit1070, %poolStoreString.exit1040, %poolStoreString.exit1010, %if.then622, %land.lhs.true613, %poolStoreString.exit980, %if.end571, %land.lhs.true476, %land.lhs.true492, %land.lhs.true374, %land.lhs.true387, %poolAppend.exit, %poolAppendString.exit, %sw.bb275, %sw.bb269, %land.lhs.true195, %if.end181, %if.then172, %sw.bb144, %poolStoreString.exit802, %sw.bb109, %poolStoreString.exit771, %if.then90, %sw.bb82, %sw.bb74, %poolStoreString.exit, %sw.bb45, %land.lhs.true.i842, %if.end7, %return.loopexit2132, %poolAppend.exit.thread.i1258, %poolAppend.exit.thread.i1195, %poolAppend.exit.thread.i1143, %poolAppend.exit.thread.i1083, %poolAppend.exit.thread.i1053, %if.then29.i925, %if.then29.i, %poolAppend.exit.thread.i785, %poolAppend.exit.thread.i754, %poolStoreString.exit1130.thread, %poolStoreString.exit980.thread, %poolAppend.exit.thread, %poolStoreString.exit.thread, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %if.end19, %sw.bb950, %land.lhs.true256, %if.end235, %if.then229, %if.then25, %sw.bb1444, %if.then1210, %if.then1013, %if.then987, %if.then965, %if.end267, %if.end30, %if.then18, %sw.bb, %if.then6
-  %retval.0 = phi i32 [ 0, %if.then6 ], [ 0, %sw.bb1444 ], [ 21, %if.then1210 ], [ 1, %if.then987 ], [ 1, %if.then1013 ], [ 0, %if.then965 ], [ %call268, %if.end267 ], [ 0, %if.end30 ], [ 0, %if.then18 ], [ 4, %sw.bb ], [ 29, %if.then25 ], [ 1, %if.then229 ], [ 21, %if.end235 ], [ 22, %land.lhs.true256 ], [ %switch.select720, %sw.bb950 ], [ 3, %if.end19 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 1, %poolStoreString.exit.thread ], [ 1, %poolAppend.exit.thread ], [ 1, %poolStoreString.exit980.thread ], [ 1, %poolStoreString.exit1130.thread ], [ 1, %poolAppend.exit.thread.i754 ], [ 1, %poolAppend.exit.thread.i785 ], [ 1, %if.then29.i ], [ 1, %if.then29.i925 ], [ 1, %poolAppend.exit.thread.i1053 ], [ 1, %poolAppend.exit.thread.i1083 ], [ 1, %poolAppend.exit.thread.i1143 ], [ 1, %poolAppend.exit.thread.i1195 ], [ 1, %poolAppend.exit.thread.i1258 ], [ 6, %if.end7 ], [ 1, %land.lhs.true.i842 ], [ 1, %if.then1376 ], [ 1, %land.lhs.true.i1267 ], [ 1, %poolAppend.exit.i1260 ], [ 1, %land.lhs.true.i1204 ], [ 1, %poolAppend.exit.i1197 ], [ 1, %land.lhs.true.i1152 ], [ 1, %poolAppend.exit.i1145 ], [ 1, %land.lhs.true.i1092 ], [ 1, %poolAppend.exit.i1085 ], [ 1, %land.lhs.true.i1062 ], [ 1, %poolAppend.exit.i1055 ], [ 1, %if.end36.i911 ], [ 1, %if.else.i909 ], [ %call.i875, %if.then420 ], [ 1, %land.lhs.true14.i ], [ 1, %if.end36.i ], [ 1, %if.else.i856 ], [ 1, %land.lhs.true.i794 ], [ 1, %poolAppend.exit.i787 ], [ 1, %land.lhs.true.i763 ], [ 1, %poolAppend.exit.i756 ], [ 35, %if.end1443 ], [ 1, %sw.bb1395 ], [ 1, %sw.bb1390 ], [ 1, %for.end ], [ 1, %if.end1316 ], [ 1, %cond.end ], [ 1, %if.then1256 ], [ 1, %if.then1240 ], [ 22, %land.lhs.true1230 ], [ %call1192, %if.then1185 ], [ 12, %if.end1179 ], [ 24, %if.else1159 ], [ 11, %if.then1156 ], [ 1, %poolStoreString.exit1275 ], [ 2, %sw.bb1063 ], [ 2, %sw.bb1039 ], [ 1, %if.then1023 ], [ 1, %if.then992 ], [ 1, %if.then976 ], [ %call959, %if.end958 ], [ 1, %poolStoreString.exit1212 ], [ 1, %poolStoreString.exit1160 ], [ 32, %sw.bb881 ], [ 1, %poolStoreString.exit1130 ], [ 1, %if.end816 ], [ 1, %poolStoreString.exit1100 ], [ 1, %if.end764 ], [ 1, %poolStoreString.exit1070 ], [ 1, %poolStoreString.exit1040 ], [ 1, %poolStoreString.exit1010 ], [ 1, %if.then622 ], [ 22, %land.lhs.true613 ], [ 1, %poolStoreString.exit980 ], [ %call535, %if.end571 ], [ 1, %land.lhs.true476 ], [ 1, %land.lhs.true492 ], [ 1, %land.lhs.true374 ], [ 1, %land.lhs.true387 ], [ 1, %poolAppend.exit ], [ 1, %poolAppendString.exit ], [ 1, %sw.bb275 ], [ 1, %sw.bb269 ], [ 22, %land.lhs.true195 ], [ 21, %if.end181 ], [ 1, %if.then172 ], [ 4, %sw.bb144 ], [ 1, %poolStoreString.exit802 ], [ 32, %sw.bb109 ], [ 1, %poolStoreString.exit771 ], [ 32, %if.then90 ], [ 1, %sw.bb82 ], [ %call76, %sw.bb74 ], [ 1, %poolStoreString.exit ], [ %call46, %sw.bb45 ], [ 5, %return.loopexit2132 ]
+return:                                           ; preds = %if.then1376, %if.end36.i911, %if.else.i909, %land.lhs.true14.i, %if.then420, %if.end36.i, %if.else.i856, %land.lhs.true.i794, %poolAppend.exit.i787, %land.lhs.true.i763, %poolAppend.exit.i756, %if.end1443, %sw.bb1395, %sw.bb1390, %for.end, %if.end1316, %cond.end, %if.then1256, %if.then1240, %land.lhs.true1230, %if.then1185, %if.end1179, %if.else1159, %if.then1156, %poolStoreString.exit1275, %sw.bb1063, %sw.bb1039, %if.then1023, %if.then992, %if.then976, %if.end958, %poolStoreString.exit1212, %poolStoreString.exit1160, %sw.bb881, %poolStoreString.exit1130, %if.end816, %poolStoreString.exit1100, %if.end764, %poolStoreString.exit1070, %poolStoreString.exit1040, %poolStoreString.exit1010, %if.then622, %land.lhs.true613, %poolStoreString.exit980, %if.end571, %land.lhs.true476, %land.lhs.true492, %land.lhs.true374, %land.lhs.true387, %poolAppend.exit, %poolAppendString.exit, %sw.bb275, %sw.bb269, %land.lhs.true195, %if.end181, %if.then172, %sw.bb144, %poolStoreString.exit802, %sw.bb109, %poolStoreString.exit771, %if.then90, %sw.bb82, %sw.bb74, %poolStoreString.exit, %sw.bb45, %land.lhs.true.i1267, %poolAppend.exit.i1260, %land.lhs.true.i1204, %poolAppend.exit.i1197, %land.lhs.true.i1152, %poolAppend.exit.i1145, %land.lhs.true.i1092, %poolAppend.exit.i1085, %land.lhs.true.i1062, %poolAppend.exit.i1055, %land.lhs.true.i842, %if.end7, %return.loopexit2152, %poolAppend.exit.thread.i1258, %poolAppend.exit.thread.i1195, %poolAppend.exit.thread.i1143, %poolAppend.exit.thread.i1083, %poolAppend.exit.thread.i1053, %if.then29.i925, %if.then29.i, %poolAppend.exit.thread.i785, %poolAppend.exit.thread.i754, %poolStoreString.exit1130.thread, %poolStoreString.exit980.thread, %poolAppend.exit.thread, %poolStoreString.exit.thread, %accountingGetCurrentAmplification.exit.i.i, %getRootParserOf.exit.i.i, %if.end19, %sw.bb950, %land.lhs.true256, %if.end235, %if.then229, %if.then25, %sw.bb1444, %if.then1210, %if.then1013, %if.then987, %if.then965, %if.end267, %if.end30, %if.then18, %sw.bb, %if.then6
+  %retval.0 = phi i32 [ 0, %if.then6 ], [ 0, %sw.bb1444 ], [ 21, %if.then1210 ], [ 1, %if.then987 ], [ 1, %if.then1013 ], [ 0, %if.then965 ], [ %call268, %if.end267 ], [ 0, %if.end30 ], [ 0, %if.then18 ], [ 4, %sw.bb ], [ 29, %if.then25 ], [ 1, %if.then229 ], [ 21, %if.end235 ], [ 22, %land.lhs.true256 ], [ %switch.select720, %sw.bb950 ], [ 3, %if.end19 ], [ 43, %getRootParserOf.exit.i.i ], [ 43, %accountingGetCurrentAmplification.exit.i.i ], [ 1, %poolStoreString.exit.thread ], [ 1, %poolAppend.exit.thread ], [ 1, %poolStoreString.exit980.thread ], [ 1, %poolStoreString.exit1130.thread ], [ 1, %poolAppend.exit.thread.i754 ], [ 1, %poolAppend.exit.thread.i785 ], [ 1, %if.then29.i ], [ 1, %if.then29.i925 ], [ 1, %poolAppend.exit.thread.i1053 ], [ 1, %poolAppend.exit.thread.i1083 ], [ 1, %poolAppend.exit.thread.i1143 ], [ 1, %poolAppend.exit.thread.i1195 ], [ 1, %poolAppend.exit.thread.i1258 ], [ 6, %if.end7 ], [ 1, %land.lhs.true.i842 ], [ 1, %poolAppend.exit.i1055 ], [ 1, %land.lhs.true.i1062 ], [ 1, %poolAppend.exit.i1085 ], [ 1, %land.lhs.true.i1092 ], [ 1, %poolAppend.exit.i1145 ], [ 1, %land.lhs.true.i1152 ], [ 1, %poolAppend.exit.i1197 ], [ 1, %land.lhs.true.i1204 ], [ 1, %poolAppend.exit.i1260 ], [ 1, %land.lhs.true.i1267 ], [ 1, %if.then1376 ], [ 1, %if.end36.i911 ], [ 1, %if.else.i909 ], [ %call.i875, %if.then420 ], [ 1, %land.lhs.true14.i ], [ 1, %if.end36.i ], [ 1, %if.else.i856 ], [ 1, %land.lhs.true.i794 ], [ 1, %poolAppend.exit.i787 ], [ 1, %land.lhs.true.i763 ], [ 1, %poolAppend.exit.i756 ], [ 35, %if.end1443 ], [ 1, %sw.bb1395 ], [ 1, %sw.bb1390 ], [ 1, %for.end ], [ 1, %if.end1316 ], [ 1, %cond.end ], [ 1, %if.then1256 ], [ 1, %if.then1240 ], [ 22, %land.lhs.true1230 ], [ %call1192, %if.then1185 ], [ 12, %if.end1179 ], [ 24, %if.else1159 ], [ 11, %if.then1156 ], [ 1, %poolStoreString.exit1275 ], [ 2, %sw.bb1063 ], [ 2, %sw.bb1039 ], [ 1, %if.then1023 ], [ 1, %if.then992 ], [ 1, %if.then976 ], [ %call959, %if.end958 ], [ 1, %poolStoreString.exit1212 ], [ 1, %poolStoreString.exit1160 ], [ 32, %sw.bb881 ], [ 1, %poolStoreString.exit1130 ], [ 1, %if.end816 ], [ 1, %poolStoreString.exit1100 ], [ 1, %if.end764 ], [ 1, %poolStoreString.exit1070 ], [ 1, %poolStoreString.exit1040 ], [ 1, %poolStoreString.exit1010 ], [ 1, %if.then622 ], [ 22, %land.lhs.true613 ], [ 1, %poolStoreString.exit980 ], [ %call535, %if.end571 ], [ 1, %land.lhs.true476 ], [ 1, %land.lhs.true492 ], [ 1, %land.lhs.true374 ], [ 1, %land.lhs.true387 ], [ 1, %poolAppend.exit ], [ 1, %poolAppendString.exit ], [ 1, %sw.bb275 ], [ 1, %sw.bb269 ], [ 22, %land.lhs.true195 ], [ 21, %if.end181 ], [ 1, %if.then172 ], [ 4, %sw.bb144 ], [ 1, %poolStoreString.exit802 ], [ 32, %sw.bb109 ], [ 1, %poolStoreString.exit771 ], [ 32, %if.then90 ], [ 1, %sw.bb82 ], [ %call76, %sw.bb74 ], [ 1, %poolStoreString.exit ], [ %call46, %sw.bb45 ], [ 5, %return.loopexit2152 ]
   ret i32 %retval.0
 }
 

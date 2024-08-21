@@ -2352,8 +2352,8 @@ define noundef zeroext i1 @_ZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEi(ptr no
   store i32 %1528, ptr %1526, align 4, !noalias !6
   br label %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK3$_0clEv.exit"
 
-common.resume:                                    ; preds = %.body, %1950, %.body2226, %2903, %.body2802, %.body2826, %.body2837, %_ZNSt6vectorIiSaIiEED2Ev.exit2951, %_ZNSt6vectorIiSaIiEED2Ev.exit2953, %_ZNSt6vectorIiSaIiEED2Ev.exit2955, %_ZNSt6vectorIiSaIiEED2Ev.exit2959, %.body2938, %4814, %4869, %_ZNSt6vectorIiSaIiEED2Ev.exit3121, %_ZNSt6vectorIiSaIiEED2Ev.exit3123, %_ZNSt6vectorIiSaIiEED2Ev.exit3125, %_ZNSt6vectorIiSaIiEED2Ev.exit3129, %5271, %5279, %5287, %5295, %5296, %5298, %5310, %5321, %5326, %5331, %5342, %5343, %5591, %5596, %5601, %5606, %5607, %5609, %5621, %5632, %5640, %5648, %5659, %5660, %.body3189, %5852, %6073, %.body3425, %6428, %6715, %7195, %7704, %8026, %8028, %8207, %8208, %8667, %8669, %9194, %9195, %9806, %9807, %10269, %10489, %10899, %10900, %11581, %11924, %12397, %12599, %12986, %13367, %13404, %_ZNSt6vectorIiSaIiEED2Ev.exit5623, %13847, %13912, %13983, %14045, %14047, %_ZNSt6vectorIiSaIiEED2Ev.exit5849, %14236, %14324, %.body2093, %_ZNSt6vectorIiSaIiEED2Ev.exit2957, %_ZNSt6vectorIiSaIiEED2Ev.exit3127, %14223, %14222, %14311, %14310, %_ZNSt6vectorIiSaIiEED2Ev.exit2219, %2254, %_ZNSt6vectorIiSaIiEED2Ev.exit2795, %4275, %_ZNSt6vectorIiSaIiEED2Ev.exit3276, %5889, %_ZNSt6vectorIiSaIiEED2Ev.exit3418, %6160, %_ZNSt6vectorIiSaIiEED2Ev.exit3600, %6640, %_ZNSt6vectorIiSaIiEED2Ev.exit3826, %7123, %_ZNSt6vectorIiSaIiEED2Ev.exit3947, %7618, %_ZNSt6vectorIiSaIiEED2Ev.exit4081, %7988, %_ZNSt6vectorIiSaIiEED2Ev.exit4130, %8137, %_ZNSt6vectorIiSaIiEED2Ev.exit4227, %8613, %_ZNSt6vectorIiSaIiEED2Ev.exit4312, %9070, %_ZNSt6vectorIiSaIiEED2Ev.exit4474, %9751, %_ZNSt6vectorIiSaIiEED2Ev.exit4593, %10185, %_ZNSt6vectorIiSaIiEED2Ev.exit4655, %10361, %_ZNSt6vectorIiSaIiEED2Ev.exit4793, %10805, %_ZNSt6vectorIiSaIiEED2Ev.exit5021, %11557, %_ZNSt6vectorIiSaIiEED2Ev.exit5144, %11884, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278, %12276, %_ZNSt6vectorIiSaIiEED2Ev.exit5392, %12512, %_ZNSt6vectorIiSaIiEED2Ev.exit5452, %12736, %_ZNSt6vectorIiSaIiEED2Ev.exit5613, %13335, %13853, %13855, %_ZNSt6vectorIiSaIiEED2Ev.exit5796, %13957, %13985, %13988, %_ZNSt6vectorIiSaIiEED2Ev.exit5833, %14080, %6654, %6178, %5903, %5680, %4678, %4499, %4432, %4293, %2271, %1671, %1529
-  %common.resume.op = phi { ptr, i32 } [ %1530, %1529 ], [ %1672, %1671 ], [ %2272, %2271 ], [ %4294, %4293 ], [ %4433, %4432 ], [ %4500, %4499 ], [ %4679, %4678 ], [ %5681, %5680 ], [ %5904, %5903 ], [ %6179, %6178 ], [ %6655, %6654 ], [ %2904, %2903 ], [ %5344, %5343 ], [ %.pn1977.pn.pn, %5342 ], [ %.pn1975, %5331 ], [ %.pn1973, %5326 ], [ %.pn1969.pn.pn, %5321 ], [ %.pn1965.pn.pn, %5310 ], [ %5299, %5298 ], [ %5297, %5296 ], [ %.pn1962.pn, %5295 ], [ %.pn1959.pn, %5287 ], [ %.pn1956.pn, %5279 ], [ %.pn1953.pn, %5271 ], [ %5661, %5660 ], [ %.pn1949.pn.pn, %5659 ], [ %.pn1946.pn, %5648 ], [ %.pn1943.pn, %5640 ], [ %.pn1939.pn.pn, %5632 ], [ %.pn1935.pn.pn, %5621 ], [ %5610, %5609 ], [ %5608, %5607 ], [ %.pn1933, %5606 ], [ %.pn1931, %5601 ], [ %.pn1929, %5596 ], [ %.pn1927, %5591 ], [ %.pn1925, %_ZNSt6vectorIiSaIiEED2Ev.exit3129 ], [ %.pn1922, %_ZNSt6vectorIiSaIiEED2Ev.exit3127 ], [ %.pn1920, %_ZNSt6vectorIiSaIiEED2Ev.exit3125 ], [ %.pn1918, %_ZNSt6vectorIiSaIiEED2Ev.exit3123 ], [ %.pn1916, %_ZNSt6vectorIiSaIiEED2Ev.exit3121 ], [ %.pn1911.pn.pn.pn, %4814 ], [ %.pn1906.pn.pn.pn, %4869 ], [ %4696, %.body2938 ], [ %.pn1902, %_ZNSt6vectorIiSaIiEED2Ev.exit2959 ], [ %.pn1900, %_ZNSt6vectorIiSaIiEED2Ev.exit2957 ], [ %.pn1898, %_ZNSt6vectorIiSaIiEED2Ev.exit2955 ], [ %.pn1896, %_ZNSt6vectorIiSaIiEED2Ev.exit2953 ], [ %.pn1894, %_ZNSt6vectorIiSaIiEED2Ev.exit2951 ], [ %4517, %.body2837 ], [ %4450, %.body2826 ], [ %5853, %5852 ], [ %6074, %6073 ], [ %6429, %6428 ], [ %6716, %6715 ], [ %7196, %7195 ], [ %7705, %7704 ], [ %8029, %8028 ], [ %8209, %8208 ], [ %8670, %8669 ], [ %9196, %9195 ], [ %9808, %9807 ], [ %10270, %10269 ], [ %10490, %10489 ], [ %10901, %10900 ], [ %11582, %11581 ], [ %11925, %11924 ], [ %12398, %12397 ], [ %12600, %12599 ], [ %12987, %12986 ], [ %.pn1458.pn.pn, %13367 ], [ %.pn1452.pn.pn.pn.pn, %13404 ], [ %.pn1449.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5623 ], [ %13848, %13847 ], [ %13913, %13912 ], [ %13984, %13983 ], [ %14048, %14047 ], [ %.pn1409.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5849 ], [ %.pn1404.pn, %14236 ], [ %.pn1400, %14223 ], [ %.pn1400, %14222 ], [ %.pn1397.pn, %14324 ], [ %.pn1393, %14311 ], [ %.pn1393, %14310 ], [ %14046, %14045 ], [ %.pn1388.pn, %10899 ], [ %.pn1383.pn.pn.pn, %9806 ], [ %.pn1376.pn.pn.pn.pn.pn, %9194 ], [ %8668, %8667 ], [ %.pn1369.pn.pn.pn, %8207 ], [ %8027, %8026 ], [ %.pn1364.pn, %.body3425 ], [ %5698, %.body3189 ], [ %.pn1359.pn, %.body2802 ], [ %.pn1346.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2226 ], [ %1951, %1950 ], [ %.pn1332.pn.pn.pn.pn, %.body2093 ], [ %.pn.pn, %.body ], [ %.pn2047.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2219 ], [ %.pn2047.pn.pn.pn, %2254 ], [ %.pn2042.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2795 ], [ %.pn2042.pn.pn.pn, %4275 ], [ %.pn1885.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3276 ], [ %.pn1885.pn.pn.pn, %5889 ], [ %.pn1875.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3418 ], [ %.pn1875.pn.pn.pn.pn.pn.pn.pn.pn, %6160 ], [ %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3600 ], [ %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %6640 ], [ %.pn1855.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3826 ], [ %.pn1855.pn.pn, %7123 ], [ %.pn1839.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3947 ], [ %.pn1839.pn.pn.pn, %7618 ], [ %.pn1811.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4081 ], [ %.pn1811.pn.pn.pn.pn.pn, %7988 ], [ %.pn1790.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4130 ], [ %.pn1790.pn.pn.pn.pn, %8137 ], [ %.pn1783.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4227 ], [ %.pn1783.pn.pn.pn, %8613 ], [ %.pn1740.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4312 ], [ %.pn1740.pn.pn.pn.pn, %9070 ], [ %.pn1699.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4474 ], [ %.pn1699.pn.pn.pn.pn, %9751 ], [ %.pn1651.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4593 ], [ %.pn1651.pn.pn, %10185 ], [ %.pn1629.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4655 ], [ %.pn1629.pn.pn.pn.pn.pn, %10361 ], [ %.pn1621.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4793 ], [ %.pn1621.pn.pn.pn.pn.pn.pn, %10805 ], [ %.pn1603.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5021 ], [ %.pn1603.pn.pn.pn.pn.pn.pn, %11557 ], [ %.pn1575.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5144 ], [ %.pn1575.pn, %11884 ], [ %.pn1556.pn, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278 ], [ %.pn1556.pn, %12276 ], [ %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5392 ], [ %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %12512 ], [ %.pn1506.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5452 ], [ %.pn1506.pn.pn.pn.pn.pn.pn, %12736 ], [ %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5613 ], [ %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13335 ], [ %.pn1423, %13853 ], [ %.pn1423, %13855 ], [ %.pn1417.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5796 ], [ %.pn1417.pn.pn.pn.pn, %13957 ], [ %13986, %13985 ], [ %13986, %13988 ], [ %.pn1412.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5833 ], [ %.pn1412.pn.pn.pn, %14080 ]
+common.resume:                                    ; preds = %.body, %1950, %_ZNSt6vectorIiSaIiEED2Ev.exit2221, %.body2226, %2903, %_ZNSt6vectorIiSaIiEED2Ev.exit2797, %.body2802, %.body2826, %.body2837, %_ZNSt6vectorIiSaIiEED2Ev.exit2951, %_ZNSt6vectorIiSaIiEED2Ev.exit2953, %_ZNSt6vectorIiSaIiEED2Ev.exit2955, %_ZNSt6vectorIiSaIiEED2Ev.exit2959, %.body2938, %4814, %4869, %_ZNSt6vectorIiSaIiEED2Ev.exit3121, %_ZNSt6vectorIiSaIiEED2Ev.exit3123, %_ZNSt6vectorIiSaIiEED2Ev.exit3125, %_ZNSt6vectorIiSaIiEED2Ev.exit3129, %5271, %5279, %5287, %5295, %5296, %5298, %5310, %5321, %5326, %5331, %5342, %5343, %5591, %5596, %5601, %5606, %5607, %5609, %5621, %5632, %5640, %5648, %5659, %5660, %.body3189, %5852, %_ZNSt6vectorIiSaIiEED2Ev.exit3278, %6073, %_ZNSt6vectorIiSaIiEED2Ev.exit3420, %.body3425, %6428, %_ZNSt6vectorIiSaIiEED2Ev.exit3602, %6715, %_ZNSt6vectorIiSaIiEED2Ev.exit3829, %7195, %_ZNSt6vectorIiSaIiEED2Ev.exit3950, %7704, %_ZNSt6vectorIiSaIiEED2Ev.exit4084, %8026, %8028, %_ZNSt6vectorIiSaIiEED2Ev.exit4133, %8207, %8208, %_ZNSt6vectorIiSaIiEED2Ev.exit4230, %8667, %8669, %_ZNSt6vectorIiSaIiEED2Ev.exit4315, %9194, %9195, %_ZNSt6vectorIiSaIiEED2Ev.exit4477, %9806, %9807, %_ZNSt6vectorIiSaIiEED2Ev.exit4596, %10269, %_ZNSt6vectorIiSaIiEED2Ev.exit4658, %10489, %_ZNSt6vectorIiSaIiEED2Ev.exit4796, %10899, %10900, %_ZNSt6vectorIiSaIiEED2Ev.exit5024, %11581, %_ZNSt6vectorIiSaIiEED2Ev.exit5147, %11924, %_ZNSt6vectorIiSaIiEED2Ev.exit5281, %12397, %_ZNSt6vectorIiSaIiEED2Ev.exit5395, %12599, %_ZNSt6vectorIiSaIiEED2Ev.exit5455, %12986, %_ZNSt6vectorIiSaIiEED2Ev.exit5616, %13367, %13404, %_ZNSt6vectorIiSaIiEED2Ev.exit5623, %13847, %_ZNSt6vectorIiSaIiEED2Ev.exit5769, %13912, %_ZNSt6vectorIiSaIiEED2Ev.exit5799, %13983, %_ZNSt6vectorIiSaIiEED2Ev.exit5802, %14045, %14047, %_ZNSt6vectorIiSaIiEED2Ev.exit5836, %_ZNSt6vectorIiSaIiEED2Ev.exit5849, %14236, %14324, %.body2093, %_ZNSt6vectorIiSaIiEED2Ev.exit2957, %_ZNSt6vectorIiSaIiEED2Ev.exit3127, %14223, %14222, %14311, %14310, %6654, %6178, %5903, %5680, %4678, %4499, %4432, %4293, %2271, %1671, %1529
+  %common.resume.op = phi { ptr, i32 } [ %1530, %1529 ], [ %1672, %1671 ], [ %2272, %2271 ], [ %4294, %4293 ], [ %4433, %4432 ], [ %4500, %4499 ], [ %4679, %4678 ], [ %5681, %5680 ], [ %5904, %5903 ], [ %6179, %6178 ], [ %6655, %6654 ], [ %.pn2047.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2221 ], [ %.pn2042.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2797 ], [ %2904, %2903 ], [ %5344, %5343 ], [ %.pn1977.pn.pn, %5342 ], [ %.pn1975, %5331 ], [ %.pn1973, %5326 ], [ %.pn1969.pn.pn, %5321 ], [ %.pn1965.pn.pn, %5310 ], [ %5299, %5298 ], [ %5297, %5296 ], [ %.pn1962.pn, %5295 ], [ %.pn1959.pn, %5287 ], [ %.pn1956.pn, %5279 ], [ %.pn1953.pn, %5271 ], [ %5661, %5660 ], [ %.pn1949.pn.pn, %5659 ], [ %.pn1946.pn, %5648 ], [ %.pn1943.pn, %5640 ], [ %.pn1939.pn.pn, %5632 ], [ %.pn1935.pn.pn, %5621 ], [ %5610, %5609 ], [ %5608, %5607 ], [ %.pn1933, %5606 ], [ %.pn1931, %5601 ], [ %.pn1929, %5596 ], [ %.pn1927, %5591 ], [ %.pn1925, %_ZNSt6vectorIiSaIiEED2Ev.exit3129 ], [ %.pn1922, %_ZNSt6vectorIiSaIiEED2Ev.exit3127 ], [ %.pn1920, %_ZNSt6vectorIiSaIiEED2Ev.exit3125 ], [ %.pn1918, %_ZNSt6vectorIiSaIiEED2Ev.exit3123 ], [ %.pn1916, %_ZNSt6vectorIiSaIiEED2Ev.exit3121 ], [ %.pn1911.pn.pn.pn, %4814 ], [ %.pn1906.pn.pn.pn, %4869 ], [ %4696, %.body2938 ], [ %.pn1902, %_ZNSt6vectorIiSaIiEED2Ev.exit2959 ], [ %.pn1900, %_ZNSt6vectorIiSaIiEED2Ev.exit2957 ], [ %.pn1898, %_ZNSt6vectorIiSaIiEED2Ev.exit2955 ], [ %.pn1896, %_ZNSt6vectorIiSaIiEED2Ev.exit2953 ], [ %.pn1894, %_ZNSt6vectorIiSaIiEED2Ev.exit2951 ], [ %4517, %.body2837 ], [ %4450, %.body2826 ], [ %.pn1885.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3278 ], [ %5853, %5852 ], [ %.pn1875.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3420 ], [ %6074, %6073 ], [ %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3602 ], [ %6429, %6428 ], [ %.pn1855.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3829 ], [ %6716, %6715 ], [ %.pn1839.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3950 ], [ %7196, %7195 ], [ %.pn1811.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4084 ], [ %7705, %7704 ], [ %.pn1790.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4133 ], [ %8029, %8028 ], [ %.pn1783.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4230 ], [ %8209, %8208 ], [ %.pn1740.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4315 ], [ %8670, %8669 ], [ %.pn1699.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4477 ], [ %9196, %9195 ], [ %.pn1651.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4596 ], [ %9808, %9807 ], [ %.pn1629.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4658 ], [ %10270, %10269 ], [ %.pn1621.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4796 ], [ %10490, %10489 ], [ %.pn1603.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5024 ], [ %10901, %10900 ], [ %.pn1575.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5147 ], [ %11582, %11581 ], [ %.pn1556.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5281 ], [ %11925, %11924 ], [ %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5395 ], [ %12398, %12397 ], [ %.pn1506.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5455 ], [ %12600, %12599 ], [ %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5616 ], [ %12987, %12986 ], [ %.pn1458.pn.pn, %13367 ], [ %.pn1452.pn.pn.pn.pn, %13404 ], [ %.pn1449.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5623 ], [ %.pn1423, %_ZNSt6vectorIiSaIiEED2Ev.exit5769 ], [ %13848, %13847 ], [ %.pn1417.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5799 ], [ %13913, %13912 ], [ %13986, %_ZNSt6vectorIiSaIiEED2Ev.exit5802 ], [ %13984, %13983 ], [ %.pn1412.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5836 ], [ %14048, %14047 ], [ %.pn1409.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5849 ], [ %.pn1404.pn, %14236 ], [ %.pn1400, %14223 ], [ %.pn1400, %14222 ], [ %.pn1397.pn, %14324 ], [ %.pn1393, %14311 ], [ %.pn1393, %14310 ], [ %14046, %14045 ], [ %.pn1388.pn, %10899 ], [ %.pn1383.pn.pn.pn, %9806 ], [ %.pn1376.pn.pn.pn.pn.pn, %9194 ], [ %8668, %8667 ], [ %.pn1369.pn.pn.pn, %8207 ], [ %8027, %8026 ], [ %.pn1364.pn, %.body3425 ], [ %5698, %.body3189 ], [ %.pn1359.pn, %.body2802 ], [ %.pn1346.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body2226 ], [ %1951, %1950 ], [ %.pn1332.pn.pn.pn.pn, %.body2093 ], [ %.pn.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 1529:                                             ; preds = %1517
@@ -4150,10 +4150,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2219:                ; preds = %2252, %_ZNSt6vector
   %.pn2047.pn.pn.pn = phi { ptr, i32 } [ %1955, %1954 ], [ %1953, %1952 ], [ %.pn2047.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2217 ], [ %.pn2047.pn.pn, %2252 ]
   %2253 = load ptr, ptr %13, align 8
   %.not.i.i.i2220 = icmp eq ptr %2253, null
-  br i1 %.not.i.i.i2220, label %common.resume, label %2254
+  br i1 %.not.i.i.i2220, label %_ZNSt6vectorIiSaIiEED2Ev.exit2221, label %2254
 
 2254:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2219
   call void @_ZdlPv(ptr noundef nonnull %2253) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit2221
+
+_ZNSt6vectorIiSaIiEED2Ev.exit2221:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2219, %2254
   br label %common.resume
 
 _ZNSt6vectorIiSaIiEED2Ev.exit2215:                ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2088, %2248, %_ZNSt6vectorIiSaIiEED2Ev.exit2213, %.critedge2057
@@ -9314,10 +9317,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2795:                ; preds = %4273, %_ZNSt6vector
   %.pn2042.pn.pn.pn = phi { ptr, i32 } [ %2908, %2907 ], [ %2906, %2905 ], [ %.pn2042.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit2793 ], [ %.pn2042.pn.pn, %4273 ]
   %4274 = load ptr, ptr %55, align 8
   %.not.i.i.i2796 = icmp eq ptr %4274, null
-  br i1 %.not.i.i.i2796, label %common.resume, label %4275
+  br i1 %.not.i.i.i2796, label %_ZNSt6vectorIiSaIiEED2Ev.exit2797, label %4275
 
 4275:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2795
   call void @_ZdlPv(ptr noundef nonnull %4274) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit2797
+
+_ZNSt6vectorIiSaIiEED2Ev.exit2797:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2795, %4275
   br label %common.resume
 
 4276:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2304
@@ -14292,10 +14298,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3276:                ; preds = %5887, %_ZNSt6vector
   %.pn1885.pn.pn.pn = phi { ptr, i32 } [ %5857, %5856 ], [ %5855, %5854 ], [ %.pn1885.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3274 ], [ %.pn1885.pn.pn, %5887 ]
   %5888 = load ptr, ptr %451, align 8
   %.not.i.i.i3277 = icmp eq ptr %5888, null
-  br i1 %.not.i.i.i3277, label %common.resume, label %5889
+  br i1 %.not.i.i.i3277, label %_ZNSt6vectorIiSaIiEED2Ev.exit3278, label %5889
 
 5889:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3276
   call void @_ZdlPv(ptr noundef nonnull %5888) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit3278
+
+_ZNSt6vectorIiSaIiEED2Ev.exit3278:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3276, %5889
   br label %common.resume
 
 5890:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3195
@@ -15174,10 +15183,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3418:                ; preds = %6158, %_ZNSt6vector
   %.pn1875.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %6078, %6077 ], [ %6076, %6075 ], [ %.pn1875.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3416 ], [ %.pn1875.pn.pn.pn.pn.pn.pn.pn, %6158 ]
   %6159 = load ptr, ptr %461, align 8
   %.not.i.i.i3419 = icmp eq ptr %6159, null
-  br i1 %.not.i.i.i3419, label %common.resume, label %6160
+  br i1 %.not.i.i.i3419, label %_ZNSt6vectorIiSaIiEED2Ev.exit3420, label %6160
 
 6160:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3418
   call void @_ZdlPv(ptr noundef nonnull %6159) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit3420
+
+_ZNSt6vectorIiSaIiEED2Ev.exit3420:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3418, %6160
   br label %common.resume
 
 6161:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_67clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3282
@@ -16553,10 +16565,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3600:                ; preds = %6638, %_ZNSt6vector
   %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %6433, %6432 ], [ %6431, %6430 ], [ %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3598 ], [ %.pn1861.pn.pn.pn.pn.pn.pn.pn.pn.pn, %6638 ]
   %6639 = load ptr, ptr %485, align 8
   %.not.i.i.i3601 = icmp eq ptr %6639, null
-  br i1 %.not.i.i.i3601, label %common.resume, label %6640
+  br i1 %.not.i.i.i3601, label %_ZNSt6vectorIiSaIiEED2Ev.exit3602, label %6640
 
 6640:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3600
   call void @_ZdlPv(ptr noundef nonnull %6639) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit3602
+
+_ZNSt6vectorIiSaIiEED2Ev.exit3602:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3600, %6640
   br label %common.resume
 
 6641:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3444
@@ -17958,10 +17973,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3826:                ; preds = %7121, %_ZNSt6vector
   %.pn1855.pn.pn = phi { ptr, i32 } [ %6720, %6719 ], [ %6718, %6717 ], [ %.pn1855.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3823 ], [ %.pn1855.pn, %7121 ]
   %7122 = load ptr, ptr %517, align 8
   %.not.i.i.i3827 = icmp eq ptr %7122, null
-  br i1 %.not.i.i.i3827, label %common.resume, label %7123
+  br i1 %.not.i.i.i3827, label %_ZNSt6vectorIiSaIiEED2Ev.exit3829, label %7123
 
 7123:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3826
   call void @_ZdlPv(ptr noundef nonnull %7122) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit3829
+
+_ZNSt6vectorIiSaIiEED2Ev.exit3829:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3826, %7123
   br label %common.resume
 
 7124:                                             ; preds = %"_ZZN5Yosys6SatGen10importCellEPNS_5RTLIL4CellEiENK4$_75clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit3606
@@ -19311,10 +19329,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3947:                ; preds = %7616, %_ZNSt6vector
   %.pn1839.pn.pn.pn = phi { ptr, i32 } [ %7200, %7199 ], [ %7198, %7197 ], [ %.pn1839.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit3944 ], [ %.pn1839.pn.pn, %7616 ]
   %7617 = load ptr, ptr %546, align 8
   %.not.i.i.i3948 = icmp eq ptr %7617, null
-  br i1 %.not.i.i.i3948, label %common.resume, label %7618
+  br i1 %.not.i.i.i3948, label %_ZNSt6vectorIiSaIiEED2Ev.exit3950, label %7618
 
 7618:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3947
   call void @_ZdlPv(ptr noundef nonnull %7617) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit3950
+
+_ZNSt6vectorIiSaIiEED2Ev.exit3950:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3947, %7618
   br label %common.resume
 
 7619:                                             ; preds = %7124
@@ -20398,10 +20419,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4081:                ; preds = %7986, %_ZNSt6vector
   %.pn1811.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %7709, %7708 ], [ %7707, %7706 ], [ %.pn1811.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4078 ], [ %.pn1811.pn.pn.pn.pn, %7986 ]
   %7987 = load ptr, ptr %612, align 8
   %.not.i.i.i4082 = icmp eq ptr %7987, null
-  br i1 %.not.i.i.i4082, label %common.resume, label %7988
+  br i1 %.not.i.i.i4082, label %_ZNSt6vectorIiSaIiEED2Ev.exit4084, label %7988
 
 7988:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4081
   call void @_ZdlPv(ptr noundef nonnull %7987) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4084
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4084:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4081, %7988
   br label %common.resume
 
 7989:                                             ; preds = %7619
@@ -20812,10 +20836,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4130:                ; preds = %8135, %_ZNSt6vector
   %.pn1790.pn.pn.pn.pn = phi { ptr, i32 } [ %8033, %8032 ], [ %8031, %8030 ], [ %.pn1790.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4127 ], [ %.pn1790.pn.pn.pn, %8135 ]
   %8136 = load ptr, ptr %665, align 8
   %.not.i.i.i4131 = icmp eq ptr %8136, null
-  br i1 %.not.i.i.i4131, label %common.resume, label %8137
+  br i1 %.not.i.i.i4131, label %_ZNSt6vectorIiSaIiEED2Ev.exit4133, label %8137
 
 8137:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4130
   call void @_ZdlPv(ptr noundef nonnull %8136) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4133
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4133:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4130, %8137
   br label %common.resume
 
 8138:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4085
@@ -22218,10 +22245,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4227:                ; preds = %8611, %_ZNSt6vector
   %.pn1783.pn.pn.pn = phi { ptr, i32 } [ %8213, %8212 ], [ %8211, %8210 ], [ %.pn1783.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4224 ], [ %.pn1783.pn.pn, %8611 ]
   %8612 = load ptr, ptr %688, align 8
   %.not.i.i.i4228 = icmp eq ptr %8612, null
-  br i1 %.not.i.i.i4228, label %common.resume, label %8613
+  br i1 %.not.i.i.i4228, label %_ZNSt6vectorIiSaIiEED2Ev.exit4230, label %8613
 
 8613:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4227
   call void @_ZdlPv(ptr noundef nonnull %8612) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4230
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4230:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4227, %8613
   br label %common.resume
 
 8614:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_EEEbDpT_.exit
@@ -23577,10 +23607,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4312:                ; preds = %9068, %_ZNSt6vector
   %.pn1740.pn.pn.pn.pn = phi { ptr, i32 } [ %8674, %8673 ], [ %8672, %8671 ], [ %.pn1740.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4309 ], [ %.pn1740.pn.pn.pn, %9068 ]
   %9069 = load ptr, ptr %764, align 8
   %.not.i.i.i4313 = icmp eq ptr %9069, null
-  br i1 %.not.i.i.i4313, label %common.resume, label %9070
+  br i1 %.not.i.i.i4313, label %_ZNSt6vectorIiSaIiEED2Ev.exit4315, label %9070
 
 9070:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4312
   call void @_ZdlPv(ptr noundef nonnull %9069) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4315
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4315:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4312, %9070
   br label %common.resume
 
 9071:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit4231
@@ -25557,10 +25590,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4474:                ; preds = %9749, %_ZNSt6vector
   %.pn1699.pn.pn.pn.pn = phi { ptr, i32 } [ %9200, %9199 ], [ %9198, %9197 ], [ %.pn1699.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4471 ], [ %.pn1699.pn.pn.pn, %9749 ]
   %9750 = load ptr, ptr %860, align 8
   %.not.i.i.i4475 = icmp eq ptr %9750, null
-  br i1 %.not.i.i.i4475, label %common.resume, label %9751
+  br i1 %.not.i.i.i4475, label %_ZNSt6vectorIiSaIiEED2Ev.exit4477, label %9751
 
 9751:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4474
   call void @_ZdlPv(ptr noundef nonnull %9750) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4477
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4477:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4474, %9751
   br label %common.resume
 
 9752:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit
@@ -26722,10 +26758,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4593:                ; preds = %10183, %_ZNSt6vecto
   %.pn1651.pn.pn = phi { ptr, i32 } [ %9812, %9811 ], [ %9810, %9809 ], [ %.pn1651.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4590 ], [ %.pn1651.pn, %10183 ]
   %10184 = load ptr, ptr %957, align 8
   %.not.i.i.i4594 = icmp eq ptr %10184, null
-  br i1 %.not.i.i.i4594, label %common.resume, label %10185
+  br i1 %.not.i.i.i4594, label %_ZNSt6vectorIiSaIiEED2Ev.exit4596, label %10185
 
 10185:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4593
   call void @_ZdlPv(ptr noundef nonnull %10184) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4596
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4596:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4593, %10185
   br label %common.resume
 
 10186:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_EEEbDpT_.exit4482
@@ -27186,10 +27225,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4655:                ; preds = %10359, %_ZNSt6vecto
   %.pn1629.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10274, %10273 ], [ %10272, %10271 ], [ %.pn1629.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4652 ], [ %.pn1629.pn.pn.pn.pn, %10359 ]
   %10360 = load ptr, ptr %1002, align 8
   %.not.i.i.i4656 = icmp eq ptr %10360, null
-  br i1 %.not.i.i.i4656, label %common.resume, label %10361
+  br i1 %.not.i.i.i4656, label %_ZNSt6vectorIiSaIiEED2Ev.exit4658, label %10361
 
 10361:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4655
   call void @_ZdlPv(ptr noundef nonnull %10360) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4658
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4658:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4655, %10361
   br label %common.resume
 
 10362:                                            ; preds = %10186
@@ -28351,10 +28393,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit4793:                ; preds = %10803, %_ZNSt6vecto
   %.pn1621.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10494, %10493 ], [ %10492, %10491 ], [ %.pn1621.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit4790 ], [ %.pn1621.pn.pn.pn.pn.pn, %10803 ]
   %10804 = load ptr, ptr %1018, align 8
   %.not.i.i.i4794 = icmp eq ptr %10804, null
-  br i1 %.not.i.i.i4794, label %common.resume, label %10805
+  br i1 %.not.i.i.i4794, label %_ZNSt6vectorIiSaIiEED2Ev.exit4796, label %10805
 
 10805:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4793
   call void @_ZdlPv(ptr noundef nonnull %10804) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit4796
+
+_ZNSt6vectorIiSaIiEED2Ev.exit4796:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit4793, %10805
   br label %common.resume
 
 10806:                                            ; preds = %10362
@@ -30277,10 +30322,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5021:                ; preds = %11555, %_ZNSt6vecto
   %.pn1603.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10905, %10904 ], [ %10903, %10902 ], [ %.pn1603.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5018 ], [ %.pn1603.pn.pn.pn.pn.pn, %11555 ]
   %11556 = load ptr, ptr %1061, align 8
   %.not.i.i.i5022 = icmp eq ptr %11556, null
-  br i1 %.not.i.i.i5022, label %common.resume, label %11557
+  br i1 %.not.i.i.i5022, label %_ZNSt6vectorIiSaIiEED2Ev.exit5024, label %11557
 
 11557:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5021
   call void @_ZdlPv(ptr noundef nonnull %11556) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5024
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5024:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5021, %11557
   br label %common.resume
 
 11558:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_EEEbDpT_.exit4798
@@ -31144,10 +31192,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5144:                ; preds = %11882, %_ZNSt6vecto
   %.pn1575.pn = phi { ptr, i32 } [ %11586, %11585 ], [ %11584, %11583 ], [ %.pn1575, %_ZNSt6vectorIiSaIiEED2Ev.exit5141 ], [ %.pn1575, %11882 ]
   %11883 = load ptr, ptr %1137, align 8
   %.not.i.i.i5145 = icmp eq ptr %11883, null
-  br i1 %.not.i.i.i5145, label %common.resume, label %11884
+  br i1 %.not.i.i.i5145, label %_ZNSt6vectorIiSaIiEED2Ev.exit5147, label %11884
 
 11884:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5144
   call void @_ZdlPv(ptr noundef nonnull %11883) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5147
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5147:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5144, %11884
   br label %common.resume
 
 11885:                                            ; preds = %11558
@@ -32288,10 +32339,13 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278: ; preds = %12274, %12272
   %.pn1556.pn = phi { ptr, i32 } [ %11927, %11926 ], [ %.pn1532, %_ZNSt6vectorIiSaIiEED2Ev.exit5156 ], [ %.pn1556, %12272 ], [ %.pn1556, %12274 ]
   %12275 = load ptr, ptr %1170, align 8
   %.not.i.i.i5279 = icmp eq ptr %12275, null
-  br i1 %.not.i.i.i5279, label %common.resume, label %12276
+  br i1 %.not.i.i.i5279, label %_ZNSt6vectorIiSaIiEED2Ev.exit5281, label %12276
 
 12276:                                            ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278
   call void @_ZdlPv(ptr noundef nonnull %12275) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5281
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5281:                ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit5278, %12276
   br label %common.resume
 
 12277:                                            ; preds = %11885
@@ -33048,10 +33102,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5392:                ; preds = %12510, %_ZNSt6vecto
   %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12402, %12401 ], [ %12400, %12399 ], [ %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5389 ], [ %.pn1516.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %12510 ]
   %12511 = load ptr, ptr %1223, align 8
   %.not.i.i.i5393 = icmp eq ptr %12511, null
-  br i1 %.not.i.i.i5393, label %common.resume, label %12512
+  br i1 %.not.i.i.i5393, label %_ZNSt6vectorIiSaIiEED2Ev.exit5395, label %12512
 
 12512:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5392
   call void @_ZdlPv(ptr noundef nonnull %12511) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5395
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5395:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5392, %12512
   br label %common.resume
 
 12513:                                            ; preds = %12277
@@ -33702,10 +33759,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5452:                ; preds = %12734, %_ZNSt6vecto
   %.pn1506.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12604, %12603 ], [ %12602, %12601 ], [ %.pn1506.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5449 ], [ %.pn1506.pn.pn.pn.pn.pn, %12734 ]
   %12735 = load ptr, ptr %1253, align 8
   %.not.i.i.i5453 = icmp eq ptr %12735, null
-  br i1 %.not.i.i.i5453, label %common.resume, label %12736
+  br i1 %.not.i.i.i5453, label %_ZNSt6vectorIiSaIiEED2Ev.exit5455, label %12736
 
 12736:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5452
   call void @_ZdlPv(ptr noundef nonnull %12735) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5455
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5455:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5452, %12736
   br label %common.resume
 
 12737:                                            ; preds = %12513
@@ -35362,10 +35422,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5613:                ; preds = %13333, %_ZNSt6vecto
   %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %12991, %12990 ], [ %12989, %12988 ], [ %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5610 ], [ %.pn1484.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %13333 ]
   %13334 = load ptr, ptr %1294, align 8
   %.not.i.i.i5614 = icmp eq ptr %13334, null
-  br i1 %.not.i.i.i5614, label %common.resume, label %13335
+  br i1 %.not.i.i.i5614, label %_ZNSt6vectorIiSaIiEED2Ev.exit5616, label %13335
 
 13335:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5613
   call void @_ZdlPv(ptr noundef nonnull %13334) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5616
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5616:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5613, %13335
   br label %common.resume
 
 13336:                                            ; preds = %12737
@@ -36851,10 +36914,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5623:                ; preds = %13822, %_ZNSt6vecto
   %.pn1423 = phi { ptr, i32 } [ %13852, %13851 ], [ %13850, %13849 ]
   %13854 = load ptr, ptr %1455, align 8
   %.not.i.i.i5767 = icmp eq ptr %13854, null
-  br i1 %.not.i.i.i5767, label %common.resume, label %13855
+  br i1 %.not.i.i.i5767, label %_ZNSt6vectorIiSaIiEED2Ev.exit5769, label %13855
 
 13855:                                            ; preds = %13853
   call void @_ZdlPv(ptr noundef nonnull %13854) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5769
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5769:                ; preds = %13853, %13855
   br label %common.resume
 
 13856:                                            ; preds = %13826
@@ -37145,10 +37211,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5796:                ; preds = %13955, %_ZNSt6vecto
   %.pn1417.pn.pn.pn.pn = phi { ptr, i32 } [ %13917, %13916 ], [ %13915, %13914 ], [ %.pn1417.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5793 ], [ %.pn1417.pn.pn.pn, %13955 ]
   %13956 = load ptr, ptr %1458, align 8
   %.not.i.i.i5797 = icmp eq ptr %13956, null
-  br i1 %.not.i.i.i5797, label %common.resume, label %13957
+  br i1 %.not.i.i.i5797, label %_ZNSt6vectorIiSaIiEED2Ev.exit5799, label %13957
 
 13957:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5796
   call void @_ZdlPv(ptr noundef nonnull %13956) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5799
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5799:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5796, %13957
   br label %common.resume
 
 13958:                                            ; preds = %.thread6210
@@ -37221,10 +37290,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5796:                ; preds = %13955, %_ZNSt6vecto
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13976) #23
   %13987 = load ptr, ptr %1470, align 8
   %.not.i.i.i5800 = icmp eq ptr %13987, null
-  br i1 %.not.i.i.i5800, label %common.resume, label %13988
+  br i1 %.not.i.i.i5800, label %_ZNSt6vectorIiSaIiEED2Ev.exit5802, label %13988
 
 13988:                                            ; preds = %13985
   call void @_ZdlPv(ptr noundef nonnull %13987) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5802
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5802:                ; preds = %13985, %13988
   br label %common.resume
 
 ._crit_edge7760.loopexit:                         ; preds = %13981
@@ -37499,10 +37571,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5833:                ; preds = %14078, %_ZNSt6vecto
   %.pn1412.pn.pn.pn = phi { ptr, i32 } [ %14052, %14051 ], [ %14050, %14049 ], [ %.pn1412.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit5830 ], [ %.pn1412.pn.pn, %14078 ]
   %14079 = load ptr, ptr %1476, align 8
   %.not.i.i.i5834 = icmp eq ptr %14079, null
-  br i1 %.not.i.i.i5834, label %common.resume, label %14080
+  br i1 %.not.i.i.i5834, label %_ZNSt6vectorIiSaIiEED2Ev.exit5836, label %14080
 
 14080:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5833
   call void @_ZdlPv(ptr noundef nonnull %14079) #25
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit5836
+
+_ZNSt6vectorIiSaIiEED2Ev.exit5836:                ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5833, %14080
   br label %common.resume
 
 14081:                                            ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit5806

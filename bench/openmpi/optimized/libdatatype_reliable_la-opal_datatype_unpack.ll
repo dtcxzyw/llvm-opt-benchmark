@@ -1088,18 +1088,18 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp ult i64 %28, 9
-  br i1 %29, label %30, label %opal_datatype_unpack_predefined_element.exit.thread93
+  br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 4194304
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %34, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %.not, label %34, label %opal_datatype_unpack_predefined_element.exit.thread
 
 34:                                               ; preds = %30
   %35 = load i16, ptr %7, align 2
-  switch i16 %35, label %opal_datatype_unpack_predefined_element.exit [
+  switch i16 %35, label %opal_datatype_unpack_predefined_element.exit.thread [
     i16 4, label %36
     i16 5, label %174
     i16 6, label %321
@@ -1159,7 +1159,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3566.i:                                 ; preds = %36
   %.not34234848.i = icmp eq i64 %.0, 0
-  br i1 %.not34234848.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4852.i
+  br i1 %.not34234848.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4852.i
 
 .lr.ph4852.i:                                     ; preds = %.preheader3566.i, %.lr.ph4852.i
   %.028754851.i = phi ptr [ %46, %.lr.ph4852.i ], [ %19, %.preheader3566.i ]
@@ -1171,7 +1171,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %47 = getelementptr inbounds i8, ptr %.029184850.i, i64 %38
   %48 = add i64 %.029614849.i, -1
   %.not3423.i = icmp eq i64 %48, 0
-  br i1 %.not3423.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4852.i, !llvm.loop !14
+  br i1 %.not3423.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4852.i, !llvm.loop !14
 
 .lr.ph4844.i:                                     ; preds = %.preheader3568.i, %.lr.ph4844.i
   %.228774843.i = phi ptr [ %53, %.lr.ph4844.i ], [ %19, %.preheader3568.i ]
@@ -1380,7 +1380,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12919.i = phi ptr [ %18, %142 ], [ %18, %.preheader3568.i ], [ %18, %.preheader3570.i ], [ %18, %.preheader3572.i ], [ %18, %.preheader3574.i ], [ %18, %.preheader3576.i ], [ %18, %.preheader3578.i ], [ %168, %.preheader3565.i ], [ %54, %.lr.ph4844.i ], [ %65, %.lr.ph4837.i ], [ %79, %.lr.ph4830.i ], [ %96, %.lr.ph4823.i ], [ %116, %.lr.ph4816.i ], [ %139, %.lr.ph4809.i ]
   %.12876.i = phi ptr [ %19, %142 ], [ %19, %.preheader3568.i ], [ %19, %.preheader3570.i ], [ %19, %.preheader3572.i ], [ %19, %.preheader3574.i ], [ %19, %.preheader3576.i ], [ %19, %.preheader3578.i ], [ %167, %.preheader3565.i ], [ %53, %.lr.ph4844.i ], [ %64, %.lr.ph4837.i ], [ %78, %.lr.ph4830.i ], [ %95, %.lr.ph4823.i ], [ %115, %.lr.ph4816.i ], [ %138, %.lr.ph4809.i ]
   %.not3424.i = icmp eq i64 %.12962.i, 0
-  br i1 %.not3424.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader.i
+  br i1 %.not3424.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %.preheader.i
   %.92970.i = phi i64 [ %173, %.preheader.i ], [ %.12962.i, %.loopexit.i ]
@@ -1392,7 +1392,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i8 %171, ptr %.102928.i, align 1
   %173 = add i64 %.92970.i, -1
   %.old3.not.i = icmp eq i64 %173, 0
-  br i1 %.old3.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader.i
+  br i1 %.old3.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader.i
 
 174:                                              ; preds = %34
   %175 = ptrtoint ptr %19 to i64
@@ -1402,7 +1402,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %178 = and i64 %177, 1
   %.not3419.i = icmp eq i64 %178, 0
   %or.cond3426.i = select i1 %.not3418.i, i1 %.not3419.i, i1 false
-  br i1 %or.cond3426.i, label %179, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3426.i, label %179, label %opal_datatype_unpack_predefined_element.exit.thread
 
 179:                                              ; preds = %174
   %180 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1411,7 +1411,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3420.i = icmp ne i64 %182, 0
   %183 = icmp ult i64 %28, %.0
   %or.cond3427.i = and i1 %183, %.not3420.i
-  br i1 %or.cond3427.i, label %opal_datatype_unpack_predefined_element.exit, label %184
+  br i1 %or.cond3427.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %184
 
 184:                                              ; preds = %179
   %185 = lshr i64 %181, 1
@@ -1451,7 +1451,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3584.i:                                 ; preds = %184
   %.not34214799.i = icmp eq i64 %.0, 0
-  br i1 %.not34214799.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4803.i
+  br i1 %.not34214799.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4803.i
 
 .lr.ph4803.i:                                     ; preds = %.preheader3584.i, %.lr.ph4803.i
   %.030034802.i = phi ptr [ %193, %.lr.ph4803.i ], [ %19, %.preheader3584.i ]
@@ -1463,7 +1463,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %194 = getelementptr inbounds i16, ptr %.030464801.i, i64 %185
   %195 = add i64 %.030894800.i, -1
   %.not3421.i = icmp eq i64 %195, 0
-  br i1 %.not3421.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4803.i, !llvm.loop !21
+  br i1 %.not3421.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4803.i, !llvm.loop !21
 
 .lr.ph4795.i:                                     ; preds = %.preheader3586.i, %.lr.ph4795.i
   %.230054794.i = phi ptr [ %200, %.lr.ph4795.i ], [ %19, %.preheader3586.i ]
@@ -1672,7 +1672,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13047.i = phi ptr [ %18, %289 ], [ %18, %.preheader3586.i ], [ %18, %.preheader3588.i ], [ %18, %.preheader3590.i ], [ %18, %.preheader3592.i ], [ %18, %.preheader3594.i ], [ %18, %.preheader3596.i ], [ %315, %.preheader3582.i ], [ %201, %.lr.ph4795.i ], [ %212, %.lr.ph4788.i ], [ %226, %.lr.ph4781.i ], [ %243, %.lr.ph4774.i ], [ %263, %.lr.ph4767.i ], [ %286, %.lr.ph4760.i ]
   %.13004.i = phi ptr [ %19, %289 ], [ %19, %.preheader3586.i ], [ %19, %.preheader3588.i ], [ %19, %.preheader3590.i ], [ %19, %.preheader3592.i ], [ %19, %.preheader3594.i ], [ %19, %.preheader3596.i ], [ %314, %.preheader3582.i ], [ %200, %.lr.ph4795.i ], [ %211, %.lr.ph4788.i ], [ %225, %.lr.ph4781.i ], [ %242, %.lr.ph4774.i ], [ %262, %.lr.ph4767.i ], [ %285, %.lr.ph4760.i ]
   %.not3422.i = icmp eq i64 %.13090.i, 0
-  br i1 %.not3422.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3580.i
+  br i1 %.not3422.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3580.i
 
 .preheader3580.i:                                 ; preds = %.loopexit3583.i, %.preheader3580.i
   %.93098.i = phi i64 [ %320, %.preheader3580.i ], [ %.13090.i, %.loopexit3583.i ]
@@ -1684,7 +1684,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i16 %318, ptr %.103056.i, align 2
   %320 = add i64 %.93098.i, -1
   %.old9.not.i = icmp eq i64 %320, 0
-  br i1 %.old9.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3580.i
+  br i1 %.old9.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3580.i
 
 321:                                              ; preds = %34
   %322 = ptrtoint ptr %19 to i64
@@ -1694,7 +1694,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %325 = and i64 %324, 3
   %.not3414.i = icmp eq i64 %325, 0
   %or.cond3429.i = select i1 %.not3413.i, i1 %.not3414.i, i1 false
-  br i1 %or.cond3429.i, label %326, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3429.i, label %326, label %opal_datatype_unpack_predefined_element.exit.thread
 
 326:                                              ; preds = %321
   %327 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1703,7 +1703,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3415.i = icmp ne i64 %329, 0
   %330 = icmp ult i64 %28, %.0
   %or.cond3430.i = and i1 %330, %.not3415.i
-  br i1 %or.cond3430.i, label %opal_datatype_unpack_predefined_element.exit, label %331
+  br i1 %or.cond3430.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %331
 
 331:                                              ; preds = %326
   %332 = lshr i64 %328, 2
@@ -1743,7 +1743,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3602.i:                                 ; preds = %331
   %.not34164750.i = icmp eq i64 %.0, 0
-  br i1 %.not34164750.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4754.i
+  br i1 %.not34164750.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4754.i
 
 .lr.ph4754.i:                                     ; preds = %.preheader3602.i, %.lr.ph4754.i
   %.031314753.i = phi ptr [ %340, %.lr.ph4754.i ], [ %19, %.preheader3602.i ]
@@ -1755,7 +1755,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %341 = getelementptr inbounds i32, ptr %.031744752.i, i64 %332
   %342 = add i64 %.032174751.i, -1
   %.not3416.i = icmp eq i64 %342, 0
-  br i1 %.not3416.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4754.i, !llvm.loop !28
+  br i1 %.not3416.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4754.i, !llvm.loop !28
 
 .lr.ph4746.i:                                     ; preds = %.preheader3604.i, %.lr.ph4746.i
   %.231334745.i = phi ptr [ %347, %.lr.ph4746.i ], [ %19, %.preheader3604.i ]
@@ -1964,7 +1964,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13175.i = phi ptr [ %18, %436 ], [ %18, %.preheader3604.i ], [ %18, %.preheader3606.i ], [ %18, %.preheader3608.i ], [ %18, %.preheader3610.i ], [ %18, %.preheader3612.i ], [ %18, %.preheader3614.i ], [ %462, %.preheader3600.i ], [ %348, %.lr.ph4746.i ], [ %359, %.lr.ph4739.i ], [ %373, %.lr.ph4732.i ], [ %390, %.lr.ph4725.i ], [ %410, %.lr.ph4718.i ], [ %433, %.lr.ph4711.i ]
   %.13132.i = phi ptr [ %19, %436 ], [ %19, %.preheader3604.i ], [ %19, %.preheader3606.i ], [ %19, %.preheader3608.i ], [ %19, %.preheader3610.i ], [ %19, %.preheader3612.i ], [ %19, %.preheader3614.i ], [ %461, %.preheader3600.i ], [ %347, %.lr.ph4746.i ], [ %358, %.lr.ph4739.i ], [ %372, %.lr.ph4732.i ], [ %389, %.lr.ph4725.i ], [ %409, %.lr.ph4718.i ], [ %432, %.lr.ph4711.i ]
   %.not3417.i = icmp eq i64 %.13218.i, 0
-  br i1 %.not3417.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3598.i
+  br i1 %.not3417.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3598.i
 
 .preheader3598.i:                                 ; preds = %.loopexit3601.i, %.preheader3598.i
   %.93226.i = phi i64 [ %467, %.preheader3598.i ], [ %.13218.i, %.loopexit3601.i ]
@@ -1976,7 +1976,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i32 %465, ptr %.103184.i, align 4
   %467 = add i64 %.93226.i, -1
   %.old15.not.i = icmp eq i64 %467, 0
-  br i1 %.old15.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3598.i
+  br i1 %.old15.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3598.i
 
 468:                                              ; preds = %34
   %469 = ptrtoint ptr %19 to i64
@@ -1986,7 +1986,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %472 = and i64 %471, 7
   %.not3409.i = icmp eq i64 %472, 0
   %or.cond3432.i = select i1 %.not3408.i, i1 %.not3409.i, i1 false
-  br i1 %or.cond3432.i, label %473, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3432.i, label %473, label %opal_datatype_unpack_predefined_element.exit.thread
 
 473:                                              ; preds = %468
   %474 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1995,7 +1995,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3410.i = icmp ne i64 %476, 0
   %477 = icmp ult i64 %28, %.0
   %or.cond3433.i = and i1 %477, %.not3410.i
-  br i1 %or.cond3433.i, label %opal_datatype_unpack_predefined_element.exit, label %478
+  br i1 %or.cond3433.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %478
 
 478:                                              ; preds = %473
   %479 = lshr i64 %475, 3
@@ -2035,7 +2035,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3620.i:                                 ; preds = %478
   %.not34114701.i = icmp eq i64 %.0, 0
-  br i1 %.not34114701.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4705.i
+  br i1 %.not34114701.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4705.i
 
 .lr.ph4705.i:                                     ; preds = %.preheader3620.i, %.lr.ph4705.i
   %.032594704.i = phi ptr [ %487, %.lr.ph4705.i ], [ %19, %.preheader3620.i ]
@@ -2047,7 +2047,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %488 = getelementptr inbounds i64, ptr %.033024702.i, i64 %479
   %489 = add i64 %.032924703.i, -1
   %.not3411.i = icmp eq i64 %489, 0
-  br i1 %.not3411.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4705.i, !llvm.loop !35
+  br i1 %.not3411.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4705.i, !llvm.loop !35
 
 .lr.ph4697.i:                                     ; preds = %.preheader3622.i, %.lr.ph4697.i
   %.232614696.i = phi ptr [ %494, %.lr.ph4697.i ], [ %19, %.preheader3622.i ]
@@ -2256,7 +2256,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13293.i = phi i64 [ %.0, %583 ], [ %.0, %.preheader3622.i ], [ %.0, %.preheader3624.i ], [ %.0, %.preheader3626.i ], [ %.0, %.preheader3628.i ], [ %.0, %.preheader3630.i ], [ %.0, %.preheader3632.i ], [ %610, %.preheader3618.i ], [ %496, %.lr.ph4697.i ], [ %507, %.lr.ph4690.i ], [ %521, %.lr.ph4683.i ], [ %538, %.lr.ph4676.i ], [ %558, %.lr.ph4669.i ], [ %581, %.lr.ph4662.i ]
   %.13260.i = phi ptr [ %19, %583 ], [ %19, %.preheader3622.i ], [ %19, %.preheader3624.i ], [ %19, %.preheader3626.i ], [ %19, %.preheader3628.i ], [ %19, %.preheader3630.i ], [ %19, %.preheader3632.i ], [ %608, %.preheader3618.i ], [ %494, %.lr.ph4697.i ], [ %505, %.lr.ph4690.i ], [ %519, %.lr.ph4683.i ], [ %536, %.lr.ph4676.i ], [ %556, %.lr.ph4669.i ], [ %579, %.lr.ph4662.i ]
   %.not3412.i = icmp eq i64 %.13293.i, 0
-  br i1 %.not3412.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3616.i
+  br i1 %.not3412.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3616.i
 
 .preheader3616.i:                                 ; preds = %.loopexit3619.i, %.preheader3616.i
   %.103312.i = phi ptr [ %613, %.preheader3616.i ], [ %.13303.i, %.loopexit3619.i ]
@@ -2268,7 +2268,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i64 %612, ptr %.103312.i, align 8
   %614 = add i64 %.93301.i, -1
   %.old21.not.i = icmp eq i64 %614, 0
-  br i1 %.old21.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3616.i
+  br i1 %.old21.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3616.i
 
 615:                                              ; preds = %34
   %616 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2309,7 +2309,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3656.i:                                 ; preds = %615
   %.not34064603.i = icmp eq i64 %.0, 0
-  br i1 %.not34064603.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4607.i
+  br i1 %.not34064603.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4607.i
 
 .lr.ph4607.i:                                     ; preds = %.preheader3656.i, %.lr.ph4607.i
   %.032494606.i = phi i64 [ %627, %.lr.ph4607.i ], [ %.0, %.preheader3656.i ]
@@ -2321,7 +2321,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %626 = getelementptr inbounds i8, ptr %.032704605.i, i64 %617
   %627 = add i64 %.032494606.i, -1
   %.not3406.i = icmp eq i64 %627, 0
-  br i1 %.not3406.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4607.i, !llvm.loop !42
+  br i1 %.not3406.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4607.i, !llvm.loop !42
 
 .lr.ph4599.i:                                     ; preds = %.preheader3658.i, %.lr.ph4599.i
   %.232514598.i = phi i64 [ %634, %.lr.ph4599.i ], [ %.0, %.preheader3658.i ]
@@ -2530,7 +2530,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13271.i = phi ptr [ %18, %721 ], [ %18, %.preheader3658.i ], [ %18, %.preheader3660.i ], [ %18, %.preheader3662.i ], [ %18, %.preheader3664.i ], [ %18, %.preheader3666.i ], [ %18, %.preheader3668.i ], [ %747, %.preheader3654.i ], [ %633, %.lr.ph4599.i ], [ %644, %.lr.ph4592.i ], [ %658, %.lr.ph4585.i ], [ %675, %.lr.ph4578.i ], [ %695, %.lr.ph4571.i ], [ %718, %.lr.ph4564.i ]
   %.13250.i = phi i64 [ %.0, %721 ], [ %.0, %.preheader3658.i ], [ %.0, %.preheader3660.i ], [ %.0, %.preheader3662.i ], [ %.0, %.preheader3664.i ], [ %.0, %.preheader3666.i ], [ %.0, %.preheader3668.i ], [ %748, %.preheader3654.i ], [ %634, %.lr.ph4599.i ], [ %645, %.lr.ph4592.i ], [ %659, %.lr.ph4585.i ], [ %676, %.lr.ph4578.i ], [ %696, %.lr.ph4571.i ], [ %719, %.lr.ph4564.i ]
   %.not3407.i = icmp eq i64 %.13250.i, 0
-  br i1 %.not3407.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3652.i
+  br i1 %.not3407.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3652.i
 
 .preheader3652.i:                                 ; preds = %.loopexit3655.i, %.preheader3652.i
   %.103291.i = phi ptr [ %749, %.preheader3652.i ], [ %.13282.i, %.loopexit3655.i ]
@@ -2542,7 +2542,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i8 %750, ptr %.103280.i, align 1
   %752 = add i64 %.93258.i, -1
   %.old27.not.i = icmp eq i64 %752, 0
-  br i1 %.old27.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3652.i
+  br i1 %.old27.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3652.i
 
 753:                                              ; preds = %34
   %754 = ptrtoint ptr %19 to i64
@@ -2552,7 +2552,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %757 = and i64 %756, 1
   %.not3402.i = icmp eq i64 %757, 0
   %or.cond3435.i = select i1 %.not3401.i, i1 %.not3402.i, i1 false
-  br i1 %or.cond3435.i, label %758, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3435.i, label %758, label %opal_datatype_unpack_predefined_element.exit.thread
 
 758:                                              ; preds = %753
   %759 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2561,7 +2561,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3403.i = icmp ne i64 %761, 0
   %762 = icmp ult i64 %28, %.0
   %or.cond3436.i = and i1 %762, %.not3403.i
-  br i1 %or.cond3436.i, label %opal_datatype_unpack_predefined_element.exit, label %763
+  br i1 %or.cond3436.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %763
 
 763:                                              ; preds = %758
   %764 = lshr i64 %760, 1
@@ -2601,7 +2601,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3674.i:                                 ; preds = %763
   %.not34044554.i = icmp eq i64 %.0, 0
-  br i1 %.not34044554.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4558.i
+  br i1 %.not34044554.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4558.i
 
 .lr.ph4558.i:                                     ; preds = %.preheader3674.i, %.lr.ph4558.i
   %.032074557.i = phi i64 [ %774, %.lr.ph4558.i ], [ %.0, %.preheader3674.i ]
@@ -2613,7 +2613,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %773 = getelementptr inbounds i16, ptr %.032274556.i, i64 %764
   %774 = add i64 %.032074557.i, -1
   %.not3404.i = icmp eq i64 %774, 0
-  br i1 %.not3404.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4558.i, !llvm.loop !49
+  br i1 %.not3404.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4558.i, !llvm.loop !49
 
 .lr.ph4550.i:                                     ; preds = %.preheader3676.i, %.lr.ph4550.i
   %.232094549.i = phi i64 [ %781, %.lr.ph4550.i ], [ %.0, %.preheader3676.i ]
@@ -2822,7 +2822,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13228.i = phi ptr [ %18, %868 ], [ %18, %.preheader3676.i ], [ %18, %.preheader3678.i ], [ %18, %.preheader3680.i ], [ %18, %.preheader3682.i ], [ %18, %.preheader3684.i ], [ %18, %.preheader3686.i ], [ %894, %.preheader3672.i ], [ %780, %.lr.ph4550.i ], [ %791, %.lr.ph4543.i ], [ %805, %.lr.ph4536.i ], [ %822, %.lr.ph4529.i ], [ %842, %.lr.ph4522.i ], [ %865, %.lr.ph4515.i ]
   %.13208.i = phi i64 [ %.0, %868 ], [ %.0, %.preheader3676.i ], [ %.0, %.preheader3678.i ], [ %.0, %.preheader3680.i ], [ %.0, %.preheader3682.i ], [ %.0, %.preheader3684.i ], [ %.0, %.preheader3686.i ], [ %895, %.preheader3672.i ], [ %781, %.lr.ph4550.i ], [ %792, %.lr.ph4543.i ], [ %806, %.lr.ph4536.i ], [ %823, %.lr.ph4529.i ], [ %843, %.lr.ph4522.i ], [ %866, %.lr.ph4515.i ]
   %.not3405.i = icmp eq i64 %.13208.i, 0
-  br i1 %.not3405.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3670.i
+  br i1 %.not3405.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3670.i
 
 .preheader3670.i:                                 ; preds = %.loopexit3673.i, %.preheader3670.i
   %.103248.i = phi ptr [ %896, %.preheader3670.i ], [ %.13239.i, %.loopexit3673.i ]
@@ -2834,7 +2834,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i16 %897, ptr %.103237.i, align 2
   %899 = add i64 %.93216.i, -1
   %.old33.not.i = icmp eq i64 %899, 0
-  br i1 %.old33.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3670.i
+  br i1 %.old33.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3670.i
 
 900:                                              ; preds = %34
   %901 = ptrtoint ptr %19 to i64
@@ -2844,7 +2844,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %904 = and i64 %903, 3
   %.not3397.i = icmp eq i64 %904, 0
   %or.cond3438.i = select i1 %.not3396.i, i1 %.not3397.i, i1 false
-  br i1 %or.cond3438.i, label %905, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3438.i, label %905, label %opal_datatype_unpack_predefined_element.exit.thread
 
 905:                                              ; preds = %900
   %906 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2853,7 +2853,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3398.i = icmp ne i64 %908, 0
   %909 = icmp ult i64 %28, %.0
   %or.cond3439.i = and i1 %909, %.not3398.i
-  br i1 %or.cond3439.i, label %opal_datatype_unpack_predefined_element.exit, label %910
+  br i1 %or.cond3439.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %910
 
 910:                                              ; preds = %905
   %911 = lshr i64 %907, 2
@@ -2893,7 +2893,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3692.i:                                 ; preds = %910
   %.not33994505.i = icmp eq i64 %.0, 0
-  br i1 %.not33994505.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4509.i
+  br i1 %.not33994505.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4509.i
 
 .lr.ph4509.i:                                     ; preds = %.preheader3692.i, %.lr.ph4509.i
   %.031644508.i = phi i64 [ %921, %.lr.ph4509.i ], [ %.0, %.preheader3692.i ]
@@ -2905,7 +2905,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %920 = getelementptr inbounds i32, ptr %.031854507.i, i64 %911
   %921 = add i64 %.031644508.i, -1
   %.not3399.i = icmp eq i64 %921, 0
-  br i1 %.not3399.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4509.i, !llvm.loop !56
+  br i1 %.not3399.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4509.i, !llvm.loop !56
 
 .lr.ph4501.i:                                     ; preds = %.preheader3694.i, %.lr.ph4501.i
   %.231664500.i = phi i64 [ %928, %.lr.ph4501.i ], [ %.0, %.preheader3694.i ]
@@ -3114,7 +3114,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13186.i = phi ptr [ %18, %1015 ], [ %18, %.preheader3694.i ], [ %18, %.preheader3696.i ], [ %18, %.preheader3698.i ], [ %18, %.preheader3700.i ], [ %18, %.preheader3702.i ], [ %18, %.preheader3704.i ], [ %1041, %.preheader3690.i ], [ %927, %.lr.ph4501.i ], [ %938, %.lr.ph4494.i ], [ %952, %.lr.ph4487.i ], [ %969, %.lr.ph4480.i ], [ %989, %.lr.ph4473.i ], [ %1012, %.lr.ph4466.i ]
   %.13165.i = phi i64 [ %.0, %1015 ], [ %.0, %.preheader3694.i ], [ %.0, %.preheader3696.i ], [ %.0, %.preheader3698.i ], [ %.0, %.preheader3700.i ], [ %.0, %.preheader3702.i ], [ %.0, %.preheader3704.i ], [ %1042, %.preheader3690.i ], [ %928, %.lr.ph4501.i ], [ %939, %.lr.ph4494.i ], [ %953, %.lr.ph4487.i ], [ %970, %.lr.ph4480.i ], [ %990, %.lr.ph4473.i ], [ %1013, %.lr.ph4466.i ]
   %.not3400.i = icmp eq i64 %.13165.i, 0
-  br i1 %.not3400.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3688.i
+  br i1 %.not3400.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3688.i
 
 .preheader3688.i:                                 ; preds = %.loopexit3691.i, %.preheader3688.i
   %.103206.i = phi ptr [ %1043, %.preheader3688.i ], [ %.13197.i, %.loopexit3691.i ]
@@ -3126,7 +3126,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i32 %1044, ptr %.103195.i, align 4
   %1046 = add i64 %.93173.i, -1
   %.old39.not.i = icmp eq i64 %1046, 0
-  br i1 %.old39.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3688.i
+  br i1 %.old39.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3688.i
 
 1047:                                             ; preds = %34
   %1048 = ptrtoint ptr %19 to i64
@@ -3136,7 +3136,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1051 = and i64 %1050, 7
   %.not3392.i = icmp eq i64 %1051, 0
   %or.cond3441.i = select i1 %.not3391.i, i1 %.not3392.i, i1 false
-  br i1 %or.cond3441.i, label %1052, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3441.i, label %1052, label %opal_datatype_unpack_predefined_element.exit.thread
 
 1052:                                             ; preds = %1047
   %1053 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3145,7 +3145,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3393.i = icmp ne i64 %1055, 0
   %1056 = icmp ult i64 %28, %.0
   %or.cond3442.i = and i1 %1056, %.not3393.i
-  br i1 %or.cond3442.i, label %opal_datatype_unpack_predefined_element.exit, label %1057
+  br i1 %or.cond3442.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %1057
 
 1057:                                             ; preds = %1052
   %1058 = lshr i64 %1054, 3
@@ -3185,7 +3185,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3710.i:                                 ; preds = %1057
   %.not33944456.i = icmp eq i64 %.0, 0
-  br i1 %.not33944456.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4460.i
+  br i1 %.not33944456.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4460.i
 
 .lr.ph4460.i:                                     ; preds = %.preheader3710.i, %.lr.ph4460.i
   %.031214459.i = phi i64 [ %1068, %.lr.ph4460.i ], [ %.0, %.preheader3710.i ]
@@ -3197,7 +3197,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1067 = getelementptr inbounds i64, ptr %.031424458.i, i64 %1058
   %1068 = add i64 %.031214459.i, -1
   %.not3394.i = icmp eq i64 %1068, 0
-  br i1 %.not3394.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4460.i, !llvm.loop !63
+  br i1 %.not3394.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4460.i, !llvm.loop !63
 
 .lr.ph4452.i:                                     ; preds = %.preheader3712.i, %.lr.ph4452.i
   %.231234451.i = phi i64 [ %1075, %.lr.ph4452.i ], [ %.0, %.preheader3712.i ]
@@ -3406,7 +3406,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13143.i = phi ptr [ %18, %1162 ], [ %18, %.preheader3712.i ], [ %18, %.preheader3714.i ], [ %18, %.preheader3716.i ], [ %18, %.preheader3718.i ], [ %18, %.preheader3720.i ], [ %18, %.preheader3722.i ], [ %1188, %.preheader3708.i ], [ %1074, %.lr.ph4452.i ], [ %1085, %.lr.ph4445.i ], [ %1099, %.lr.ph4438.i ], [ %1116, %.lr.ph4431.i ], [ %1136, %.lr.ph4424.i ], [ %1159, %.lr.ph4417.i ]
   %.13122.i = phi i64 [ %.0, %1162 ], [ %.0, %.preheader3712.i ], [ %.0, %.preheader3714.i ], [ %.0, %.preheader3716.i ], [ %.0, %.preheader3718.i ], [ %.0, %.preheader3720.i ], [ %.0, %.preheader3722.i ], [ %1189, %.preheader3708.i ], [ %1075, %.lr.ph4452.i ], [ %1086, %.lr.ph4445.i ], [ %1100, %.lr.ph4438.i ], [ %1117, %.lr.ph4431.i ], [ %1137, %.lr.ph4424.i ], [ %1160, %.lr.ph4417.i ]
   %.not3395.i = icmp eq i64 %.13122.i, 0
-  br i1 %.not3395.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3706.i
+  br i1 %.not3395.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3706.i
 
 .preheader3706.i:                                 ; preds = %.loopexit3709.i, %.preheader3706.i
   %.103163.i = phi ptr [ %1190, %.preheader3706.i ], [ %.13154.i, %.loopexit3709.i ]
@@ -3418,7 +3418,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i64 %1191, ptr %.103152.i, align 8
   %1193 = add i64 %.93130.i, -1
   %.old45.not.i = icmp eq i64 %1193, 0
-  br i1 %.old45.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3706.i
+  br i1 %.old45.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3706.i
 
 1194:                                             ; preds = %34
   %1195 = ptrtoint ptr %19 to i64
@@ -3428,7 +3428,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1198 = and i64 %1197, 1
   %.not3387.i = icmp eq i64 %1198, 0
   %or.cond3444.i = select i1 %.not3386.i, i1 %.not3387.i, i1 false
-  br i1 %or.cond3444.i, label %1199, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3444.i, label %1199, label %opal_datatype_unpack_predefined_element.exit.thread
 
 1199:                                             ; preds = %1194
   %1200 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3437,7 +3437,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3388.i = icmp ne i64 %1202, 0
   %1203 = icmp ult i64 %28, %.0
   %or.cond3445.i = and i1 %1203, %.not3388.i
-  br i1 %or.cond3445.i, label %opal_datatype_unpack_predefined_element.exit, label %1204
+  br i1 %or.cond3445.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %1204
 
 1204:                                             ; preds = %1199
   %1205 = lshr i64 %1201, 1
@@ -3477,7 +3477,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3746.i:                                 ; preds = %1204
   %.not33894358.i = icmp eq i64 %.0, 0
-  br i1 %.not33894358.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4362.i
+  br i1 %.not33894358.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4362.i
 
 .lr.ph4362.i:                                     ; preds = %.preheader3746.i, %.lr.ph4362.i
   %.030794361.i = phi i64 [ %1215, %.lr.ph4362.i ], [ %.0, %.preheader3746.i ]
@@ -3489,7 +3489,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1214 = getelementptr inbounds half, ptr %.030994360.i, i64 %1205
   %1215 = add i64 %.030794361.i, -1
   %.not3389.i = icmp eq i64 %1215, 0
-  br i1 %.not3389.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4362.i, !llvm.loop !70
+  br i1 %.not3389.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4362.i, !llvm.loop !70
 
 .lr.ph4354.i:                                     ; preds = %.preheader3748.i, %.lr.ph4354.i
   %.230814353.i = phi i64 [ %1222, %.lr.ph4354.i ], [ %.0, %.preheader3748.i ]
@@ -3698,7 +3698,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13100.i = phi ptr [ %18, %1309 ], [ %18, %.preheader3748.i ], [ %18, %.preheader3750.i ], [ %18, %.preheader3752.i ], [ %18, %.preheader3754.i ], [ %18, %.preheader3756.i ], [ %18, %.preheader3758.i ], [ %1335, %.preheader3744.i ], [ %1221, %.lr.ph4354.i ], [ %1232, %.lr.ph4347.i ], [ %1246, %.lr.ph4340.i ], [ %1263, %.lr.ph4333.i ], [ %1283, %.lr.ph4326.i ], [ %1306, %.lr.ph4319.i ]
   %.13080.i = phi i64 [ %.0, %1309 ], [ %.0, %.preheader3748.i ], [ %.0, %.preheader3750.i ], [ %.0, %.preheader3752.i ], [ %.0, %.preheader3754.i ], [ %.0, %.preheader3756.i ], [ %.0, %.preheader3758.i ], [ %1336, %.preheader3744.i ], [ %1222, %.lr.ph4354.i ], [ %1233, %.lr.ph4347.i ], [ %1247, %.lr.ph4340.i ], [ %1264, %.lr.ph4333.i ], [ %1284, %.lr.ph4326.i ], [ %1307, %.lr.ph4319.i ]
   %.not3390.i = icmp eq i64 %.13080.i, 0
-  br i1 %.not3390.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3742.i
+  br i1 %.not3390.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3742.i
 
 .preheader3742.i:                                 ; preds = %.loopexit3745.i, %.preheader3742.i
   %.103120.i = phi ptr [ %1337, %.preheader3742.i ], [ %.13111.i, %.loopexit3745.i ]
@@ -3710,7 +3710,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store half %1338, ptr %.103109.i, align 2
   %1340 = add i64 %.93088.i, -1
   %.old51.not.i = icmp eq i64 %1340, 0
-  br i1 %.old51.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3742.i
+  br i1 %.old51.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3742.i
 
 1341:                                             ; preds = %34
   %1342 = ptrtoint ptr %19 to i64
@@ -3720,7 +3720,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1345 = and i64 %1344, 3
   %.not3382.i = icmp eq i64 %1345, 0
   %or.cond3447.i = select i1 %.not3381.i, i1 %.not3382.i, i1 false
-  br i1 %or.cond3447.i, label %1346, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3447.i, label %1346, label %opal_datatype_unpack_predefined_element.exit.thread
 
 1346:                                             ; preds = %1341
   %1347 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3729,7 +3729,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3383.i = icmp ne i64 %1349, 0
   %1350 = icmp ult i64 %28, %.0
   %or.cond3448.i = and i1 %1350, %.not3383.i
-  br i1 %or.cond3448.i, label %opal_datatype_unpack_predefined_element.exit, label %1351
+  br i1 %or.cond3448.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %1351
 
 1351:                                             ; preds = %1346
   %1352 = lshr i64 %1348, 2
@@ -3769,7 +3769,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3764.i:                                 ; preds = %1351
   %.not33844309.i = icmp eq i64 %.0, 0
-  br i1 %.not33844309.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4313.i
+  br i1 %.not33844309.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4313.i
 
 .lr.ph4313.i:                                     ; preds = %.preheader3764.i, %.lr.ph4313.i
   %.030364312.i = phi i64 [ %1362, %.lr.ph4313.i ], [ %.0, %.preheader3764.i ]
@@ -3781,7 +3781,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1361 = getelementptr inbounds float, ptr %.030574311.i, i64 %1352
   %1362 = add i64 %.030364312.i, -1
   %.not3384.i = icmp eq i64 %1362, 0
-  br i1 %.not3384.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4313.i, !llvm.loop !77
+  br i1 %.not3384.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4313.i, !llvm.loop !77
 
 .lr.ph4305.i:                                     ; preds = %.preheader3766.i, %.lr.ph4305.i
   %.230384304.i = phi i64 [ %1369, %.lr.ph4305.i ], [ %.0, %.preheader3766.i ]
@@ -3990,7 +3990,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13058.i = phi ptr [ %18, %1456 ], [ %18, %.preheader3766.i ], [ %18, %.preheader3768.i ], [ %18, %.preheader3770.i ], [ %18, %.preheader3772.i ], [ %18, %.preheader3774.i ], [ %18, %.preheader3776.i ], [ %1482, %.preheader3762.i ], [ %1368, %.lr.ph4305.i ], [ %1379, %.lr.ph4298.i ], [ %1393, %.lr.ph4291.i ], [ %1410, %.lr.ph4284.i ], [ %1430, %.lr.ph4277.i ], [ %1453, %.lr.ph4270.i ]
   %.13037.i = phi i64 [ %.0, %1456 ], [ %.0, %.preheader3766.i ], [ %.0, %.preheader3768.i ], [ %.0, %.preheader3770.i ], [ %.0, %.preheader3772.i ], [ %.0, %.preheader3774.i ], [ %.0, %.preheader3776.i ], [ %1483, %.preheader3762.i ], [ %1369, %.lr.ph4305.i ], [ %1380, %.lr.ph4298.i ], [ %1394, %.lr.ph4291.i ], [ %1411, %.lr.ph4284.i ], [ %1431, %.lr.ph4277.i ], [ %1454, %.lr.ph4270.i ]
   %.not3385.i = icmp eq i64 %.13037.i, 0
-  br i1 %.not3385.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3760.i
+  br i1 %.not3385.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3760.i
 
 .preheader3760.i:                                 ; preds = %.loopexit3763.i, %.preheader3760.i
   %.103078.i = phi ptr [ %1484, %.preheader3760.i ], [ %.13069.i, %.loopexit3763.i ]
@@ -4002,7 +4002,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store float %1485, ptr %.103067.i, align 4
   %1487 = add i64 %.93045.i, -1
   %.old57.not.i = icmp eq i64 %1487, 0
-  br i1 %.old57.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3760.i
+  br i1 %.old57.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3760.i
 
 1488:                                             ; preds = %34
   %1489 = ptrtoint ptr %19 to i64
@@ -4012,7 +4012,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1492 = and i64 %1491, 7
   %.not3377.i = icmp eq i64 %1492, 0
   %or.cond3450.i = select i1 %.not3376.i, i1 %.not3377.i, i1 false
-  br i1 %or.cond3450.i, label %1493, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3450.i, label %1493, label %opal_datatype_unpack_predefined_element.exit.thread
 
 1493:                                             ; preds = %1488
   %1494 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4021,7 +4021,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3378.i = icmp ne i64 %1496, 0
   %1497 = icmp ult i64 %28, %.0
   %or.cond3451.i = and i1 %1497, %.not3378.i
-  br i1 %or.cond3451.i, label %opal_datatype_unpack_predefined_element.exit, label %1498
+  br i1 %or.cond3451.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %1498
 
 1498:                                             ; preds = %1493
   %1499 = lshr i64 %1495, 3
@@ -4061,7 +4061,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3782.i:                                 ; preds = %1498
   %.not33794260.i = icmp eq i64 %.0, 0
-  br i1 %.not33794260.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4264.i
+  br i1 %.not33794260.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4264.i
 
 .lr.ph4264.i:                                     ; preds = %.preheader3782.i, %.lr.ph4264.i
   %.029934263.i = phi i64 [ %1509, %.lr.ph4264.i ], [ %.0, %.preheader3782.i ]
@@ -4073,7 +4073,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1508 = getelementptr inbounds double, ptr %.030144262.i, i64 %1499
   %1509 = add i64 %.029934263.i, -1
   %.not3379.i = icmp eq i64 %1509, 0
-  br i1 %.not3379.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4264.i, !llvm.loop !84
+  br i1 %.not3379.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4264.i, !llvm.loop !84
 
 .lr.ph4256.i:                                     ; preds = %.preheader3784.i, %.lr.ph4256.i
   %.229954255.i = phi i64 [ %1516, %.lr.ph4256.i ], [ %.0, %.preheader3784.i ]
@@ -4282,7 +4282,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.13015.i = phi ptr [ %18, %1603 ], [ %18, %.preheader3784.i ], [ %18, %.preheader3786.i ], [ %18, %.preheader3788.i ], [ %18, %.preheader3790.i ], [ %18, %.preheader3792.i ], [ %18, %.preheader3794.i ], [ %1629, %.preheader3780.i ], [ %1515, %.lr.ph4256.i ], [ %1526, %.lr.ph4249.i ], [ %1540, %.lr.ph4242.i ], [ %1557, %.lr.ph4235.i ], [ %1577, %.lr.ph4228.i ], [ %1600, %.lr.ph4221.i ]
   %.12994.i = phi i64 [ %.0, %1603 ], [ %.0, %.preheader3784.i ], [ %.0, %.preheader3786.i ], [ %.0, %.preheader3788.i ], [ %.0, %.preheader3790.i ], [ %.0, %.preheader3792.i ], [ %.0, %.preheader3794.i ], [ %1630, %.preheader3780.i ], [ %1516, %.lr.ph4256.i ], [ %1527, %.lr.ph4249.i ], [ %1541, %.lr.ph4242.i ], [ %1558, %.lr.ph4235.i ], [ %1578, %.lr.ph4228.i ], [ %1601, %.lr.ph4221.i ]
   %.not3380.i = icmp eq i64 %.12994.i, 0
-  br i1 %.not3380.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3778.i
+  br i1 %.not3380.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3778.i
 
 .preheader3778.i:                                 ; preds = %.loopexit3781.i, %.preheader3778.i
   %.103035.i = phi ptr [ %1631, %.preheader3778.i ], [ %.13026.i, %.loopexit3781.i ]
@@ -4294,7 +4294,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store double %1632, ptr %.103024.i, align 8
   %1634 = add i64 %.93002.i, -1
   %.old63.not.i = icmp eq i64 %1634, 0
-  br i1 %.old63.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3778.i
+  br i1 %.old63.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3778.i
 
 1635:                                             ; preds = %34
   %1636 = ptrtoint ptr %19 to i64
@@ -4304,7 +4304,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1639 = and i64 %1638, 15
   %.not3372.i = icmp eq i64 %1639, 0
   %or.cond3453.i = select i1 %.not3371.i, i1 %.not3372.i, i1 false
-  br i1 %or.cond3453.i, label %1640, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3453.i, label %1640, label %opal_datatype_unpack_predefined_element.exit.thread
 
 1640:                                             ; preds = %1635
   %1641 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4313,7 +4313,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3373.i = icmp ne i64 %1643, 0
   %1644 = icmp ult i64 %28, %.0
   %or.cond3454.i = and i1 %1644, %.not3373.i
-  br i1 %or.cond3454.i, label %opal_datatype_unpack_predefined_element.exit, label %1645
+  br i1 %or.cond3454.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %1645
 
 1645:                                             ; preds = %1640
   %1646 = lshr i64 %1642, 4
@@ -4353,7 +4353,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3818.i:                                 ; preds = %1645
   %.not33744162.i = icmp eq i64 %.0, 0
-  br i1 %.not33744162.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4166.i
+  br i1 %.not33744162.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4166.i
 
 .lr.ph4166.i:                                     ; preds = %.preheader3818.i, %.lr.ph4166.i
   %.029514165.i = phi i64 [ %1656, %.lr.ph4166.i ], [ %.0, %.preheader3818.i ]
@@ -4365,7 +4365,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1655 = getelementptr inbounds x86_fp80, ptr %.029714164.i, i64 %1646
   %1656 = add i64 %.029514165.i, -1
   %.not3374.i = icmp eq i64 %1656, 0
-  br i1 %.not3374.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4166.i, !llvm.loop !91
+  br i1 %.not3374.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4166.i, !llvm.loop !91
 
 .lr.ph4158.i:                                     ; preds = %.preheader3820.i, %.lr.ph4158.i
   %.229534157.i = phi i64 [ %1663, %.lr.ph4158.i ], [ %.0, %.preheader3820.i ]
@@ -4574,7 +4574,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12972.i = phi ptr [ %18, %1750 ], [ %18, %.preheader3820.i ], [ %18, %.preheader3822.i ], [ %18, %.preheader3824.i ], [ %18, %.preheader3826.i ], [ %18, %.preheader3828.i ], [ %18, %.preheader3830.i ], [ %1776, %.preheader3816.i ], [ %1662, %.lr.ph4158.i ], [ %1673, %.lr.ph4151.i ], [ %1687, %.lr.ph4144.i ], [ %1704, %.lr.ph4137.i ], [ %1724, %.lr.ph4130.i ], [ %1747, %.lr.ph4123.i ]
   %.12952.i = phi i64 [ %.0, %1750 ], [ %.0, %.preheader3820.i ], [ %.0, %.preheader3822.i ], [ %.0, %.preheader3824.i ], [ %.0, %.preheader3826.i ], [ %.0, %.preheader3828.i ], [ %.0, %.preheader3830.i ], [ %1777, %.preheader3816.i ], [ %1663, %.lr.ph4158.i ], [ %1674, %.lr.ph4151.i ], [ %1688, %.lr.ph4144.i ], [ %1705, %.lr.ph4137.i ], [ %1725, %.lr.ph4130.i ], [ %1748, %.lr.ph4123.i ]
   %.not3375.i = icmp eq i64 %.12952.i, 0
-  br i1 %.not3375.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3814.i
+  br i1 %.not3375.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3814.i
 
 .preheader3814.i:                                 ; preds = %.loopexit3817.i, %.preheader3814.i
   %.102992.i = phi ptr [ %1778, %.preheader3814.i ], [ %.12983.i, %.loopexit3817.i ]
@@ -4586,7 +4586,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store x86_fp80 %1779, ptr %.102981.i, align 16
   %1781 = add i64 %.92960.i, -1
   %.old69.not.i = icmp eq i64 %1781, 0
-  br i1 %.old69.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3814.i
+  br i1 %.old69.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3814.i
 
 1782:                                             ; preds = %34
   %1783 = ptrtoint ptr %19 to i64
@@ -4596,7 +4596,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1786 = and i64 %1785, 1
   %.not3367.i = icmp eq i64 %1786, 0
   %or.cond3456.i = select i1 %.not3366.i, i1 %.not3367.i, i1 false
-  br i1 %or.cond3456.i, label %1787, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3456.i, label %1787, label %opal_datatype_unpack_predefined_element.exit.thread
 
 1787:                                             ; preds = %1782
   %1788 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4605,7 +4605,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3368.i = icmp ne i64 %1790, 0
   %1791 = icmp ult i64 %28, %.0
   %or.cond3457.i = and i1 %1791, %.not3368.i
-  br i1 %or.cond3457.i, label %opal_datatype_unpack_predefined_element.exit, label %1792
+  br i1 %or.cond3457.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %1792
 
 1792:                                             ; preds = %1787
   %1793 = lshr i64 %1789, 2
@@ -4645,7 +4645,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3836.i:                                 ; preds = %1792
   %.not33694113.i = icmp eq i64 %.0, 0
-  br i1 %.not33694113.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4117.i
+  br i1 %.not33694113.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4117.i
 
 .lr.ph4117.i:                                     ; preds = %.preheader3836.i, %.lr.ph4117.i
   %.029084116.i = phi i64 [ %1803, %.lr.ph4117.i ], [ %.0, %.preheader3836.i ]
@@ -4657,7 +4657,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1802 = getelementptr inbounds %struct.opal_short_float_complex_t, ptr %.029294115.i, i64 %1793
   %1803 = add i64 %.029084116.i, -1
   %.not3369.i = icmp eq i64 %1803, 0
-  br i1 %.not3369.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4117.i, !llvm.loop !98
+  br i1 %.not3369.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4117.i, !llvm.loop !98
 
 .lr.ph4109.i:                                     ; preds = %.preheader3838.i, %.lr.ph4109.i
   %.229104108.i = phi i64 [ %1810, %.lr.ph4109.i ], [ %.0, %.preheader3838.i ]
@@ -4866,7 +4866,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12930.i = phi ptr [ %18, %1897 ], [ %18, %.preheader3838.i ], [ %18, %.preheader3840.i ], [ %18, %.preheader3842.i ], [ %18, %.preheader3844.i ], [ %18, %.preheader3846.i ], [ %18, %.preheader3848.i ], [ %1923, %.preheader3834.i ], [ %1809, %.lr.ph4109.i ], [ %1820, %.lr.ph4102.i ], [ %1834, %.lr.ph4095.i ], [ %1851, %.lr.ph4088.i ], [ %1871, %.lr.ph4081.i ], [ %1894, %.lr.ph4074.i ]
   %.12909.i = phi i64 [ %.0, %1897 ], [ %.0, %.preheader3838.i ], [ %.0, %.preheader3840.i ], [ %.0, %.preheader3842.i ], [ %.0, %.preheader3844.i ], [ %.0, %.preheader3846.i ], [ %.0, %.preheader3848.i ], [ %1924, %.preheader3834.i ], [ %1810, %.lr.ph4109.i ], [ %1821, %.lr.ph4102.i ], [ %1835, %.lr.ph4095.i ], [ %1852, %.lr.ph4088.i ], [ %1872, %.lr.ph4081.i ], [ %1895, %.lr.ph4074.i ]
   %.not3370.i = icmp eq i64 %.12909.i, 0
-  br i1 %.not3370.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3832.i
+  br i1 %.not3370.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3832.i
 
 .preheader3832.i:                                 ; preds = %.loopexit3835.i, %.preheader3832.i
   %.102950.i = phi ptr [ %1926, %.preheader3832.i ], [ %.12941.i, %.loopexit3835.i ]
@@ -4878,7 +4878,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i32 %1927, ptr %.102939.i, align 2
   %1928 = add i64 %.92917.i, -1
   %.old75.not.i = icmp eq i64 %1928, 0
-  br i1 %.old75.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3832.i
+  br i1 %.old75.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3832.i
 
 1929:                                             ; preds = %34
   %1930 = ptrtoint ptr %19 to i64
@@ -4888,7 +4888,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1933 = and i64 %1932, 3
   %.not3362.i = icmp eq i64 %1933, 0
   %or.cond3459.i = select i1 %.not3361.i, i1 %.not3362.i, i1 false
-  br i1 %or.cond3459.i, label %1934, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3459.i, label %1934, label %opal_datatype_unpack_predefined_element.exit.thread
 
 1934:                                             ; preds = %1929
   %1935 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4897,7 +4897,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3363.i = icmp ne i64 %1937, 0
   %1938 = icmp ult i64 %28, %.0
   %or.cond3460.i = and i1 %1938, %.not3363.i
-  br i1 %or.cond3460.i, label %opal_datatype_unpack_predefined_element.exit, label %1939
+  br i1 %or.cond3460.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %1939
 
 1939:                                             ; preds = %1934
   %1940 = lshr i64 %1936, 3
@@ -4937,7 +4937,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3854.i:                                 ; preds = %1939
   %.not33644064.i = icmp eq i64 %.0, 0
-  br i1 %.not33644064.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4068.i
+  br i1 %.not33644064.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4068.i
 
 .lr.ph4068.i:                                     ; preds = %.preheader3854.i, %.lr.ph4068.i
   %.028654067.i = phi i64 [ %1953, %.lr.ph4068.i ], [ %.0, %.preheader3854.i ]
@@ -4953,7 +4953,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %1952 = getelementptr inbounds { float, float }, ptr %.028864066.i, i64 %1940
   %1953 = add i64 %.028654067.i, -1
   %.not3364.i = icmp eq i64 %1953, 0
-  br i1 %.not3364.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4068.i, !llvm.loop !105
+  br i1 %.not3364.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4068.i, !llvm.loop !105
 
 .lr.ph4060.i:                                     ; preds = %.preheader3856.i, %.lr.ph4060.i
   %.228674059.i = phi i64 [ %1966, %.lr.ph4060.i ], [ %.0, %.preheader3856.i ]
@@ -5302,7 +5302,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12887.i = phi ptr [ %18, %2128 ], [ %18, %.preheader3856.i ], [ %18, %.preheader3858.i ], [ %18, %.preheader3860.i ], [ %18, %.preheader3862.i ], [ %18, %.preheader3864.i ], [ %18, %.preheader3866.i ], [ %2178, %.preheader3852.i ], [ %1965, %.lr.ph4060.i ], [ %1985, %.lr.ph4053.i ], [ %2011, %.lr.ph4046.i ], [ %2043, %.lr.ph4039.i ], [ %2081, %.lr.ph4032.i ], [ %2125, %.lr.ph4025.i ]
   %.12866.i = phi i64 [ %.0, %2128 ], [ %.0, %.preheader3856.i ], [ %.0, %.preheader3858.i ], [ %.0, %.preheader3860.i ], [ %.0, %.preheader3862.i ], [ %.0, %.preheader3864.i ], [ %.0, %.preheader3866.i ], [ %2179, %.preheader3852.i ], [ %1966, %.lr.ph4060.i ], [ %1986, %.lr.ph4053.i ], [ %2012, %.lr.ph4046.i ], [ %2044, %.lr.ph4039.i ], [ %2082, %.lr.ph4032.i ], [ %2126, %.lr.ph4025.i ]
   %.not3365.i = icmp eq i64 %.12866.i, 0
-  br i1 %.not3365.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3850.i
+  br i1 %.not3365.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3850.i
 
 .preheader3850.i:                                 ; preds = %.loopexit3853.i, %.preheader3850.i
   %.102907.i = phi ptr [ %2180, %.preheader3850.i ], [ %.12898.i, %.loopexit3853.i ]
@@ -5318,7 +5318,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store float %2183, ptr %2185, align 4
   %2186 = add i64 %.92874.i, -1
   %.old81.not.i = icmp eq i64 %2186, 0
-  br i1 %.old81.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3850.i
+  br i1 %.old81.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3850.i
 
 2187:                                             ; preds = %34
   %2188 = ptrtoint ptr %19 to i64
@@ -5328,7 +5328,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2191 = and i64 %2190, 7
   %.not3357.i = icmp eq i64 %2191, 0
   %or.cond3462.i = select i1 %.not3356.i, i1 %.not3357.i, i1 false
-  br i1 %or.cond3462.i, label %2192, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3462.i, label %2192, label %opal_datatype_unpack_predefined_element.exit.thread
 
 2192:                                             ; preds = %2187
   %2193 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5337,7 +5337,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3358.i = icmp ne i64 %2195, 0
   %2196 = icmp ult i64 %28, %.0
   %or.cond3463.i = and i1 %2196, %.not3358.i
-  br i1 %or.cond3463.i, label %opal_datatype_unpack_predefined_element.exit, label %2197
+  br i1 %or.cond3463.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %2197
 
 2197:                                             ; preds = %2192
   %2198 = lshr i64 %2194, 4
@@ -5377,7 +5377,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3872.i:                                 ; preds = %2197
   %.not33594015.i = icmp eq i64 %.0, 0
-  br i1 %.not33594015.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4019.i
+  br i1 %.not33594015.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4019.i
 
 .lr.ph4019.i:                                     ; preds = %.preheader3872.i, %.lr.ph4019.i
   %.028324018.i = phi i64 [ %2211, %.lr.ph4019.i ], [ %.0, %.preheader3872.i ]
@@ -5393,7 +5393,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2210 = getelementptr inbounds { double, double }, ptr %.028434017.i, i64 %2198
   %2211 = add i64 %.028324018.i, -1
   %.not3359.i = icmp eq i64 %2211, 0
-  br i1 %.not3359.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4019.i, !llvm.loop !112
+  br i1 %.not3359.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4019.i, !llvm.loop !112
 
 .lr.ph4011.i:                                     ; preds = %.preheader3874.i, %.lr.ph4011.i
   %.228344010.i = phi i64 [ %2224, %.lr.ph4011.i ], [ %.0, %.preheader3874.i ]
@@ -5742,7 +5742,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12844.i = phi ptr [ %18, %2386 ], [ %18, %.preheader3874.i ], [ %18, %.preheader3876.i ], [ %18, %.preheader3878.i ], [ %18, %.preheader3880.i ], [ %18, %.preheader3882.i ], [ %18, %.preheader3884.i ], [ %2436, %.preheader3870.i ], [ %2223, %.lr.ph4011.i ], [ %2243, %.lr.ph4004.i ], [ %2269, %.lr.ph3997.i ], [ %2301, %.lr.ph3990.i ], [ %2339, %.lr.ph3983.i ], [ %2383, %.lr.ph.i ]
   %.12833.i = phi i64 [ %.0, %2386 ], [ %.0, %.preheader3874.i ], [ %.0, %.preheader3876.i ], [ %.0, %.preheader3878.i ], [ %.0, %.preheader3880.i ], [ %.0, %.preheader3882.i ], [ %.0, %.preheader3884.i ], [ %2437, %.preheader3870.i ], [ %2224, %.lr.ph4011.i ], [ %2244, %.lr.ph4004.i ], [ %2270, %.lr.ph3997.i ], [ %2302, %.lr.ph3990.i ], [ %2340, %.lr.ph3983.i ], [ %2384, %.lr.ph.i ]
   %.not3360.i = icmp eq i64 %.12833.i, 0
-  br i1 %.not3360.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3868.i
+  br i1 %.not3360.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3868.i
 
 .preheader3868.i:                                 ; preds = %.loopexit3871.i, %.preheader3868.i
   %.102864.i = phi ptr [ %2438, %.preheader3868.i ], [ %.12855.i, %.loopexit3871.i ]
@@ -5758,7 +5758,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store double %2441, ptr %2443, align 8
   %2444 = add i64 %.92841.i, -1
   %.old87.not.i = icmp eq i64 %2444, 0
-  br i1 %.old87.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3868.i
+  br i1 %.old87.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3868.i
 
 2445:                                             ; preds = %34
   %2446 = ptrtoint ptr %19 to i64
@@ -5768,7 +5768,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2449 = and i64 %2448, 15
   %.not3352.i = icmp eq i64 %2449, 0
   %or.cond3465.i = select i1 %.not3351.i, i1 %.not3352.i, i1 false
-  br i1 %or.cond3465.i, label %2450, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3465.i, label %2450, label %opal_datatype_unpack_predefined_element.exit.thread
 
 2450:                                             ; preds = %2445
   %2451 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5777,7 +5777,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3353.i = icmp ne i64 %2453, 0
   %2454 = icmp ult i64 %28, %.0
   %or.cond3466.i = and i1 %2454, %.not3353.i
-  br i1 %or.cond3466.i, label %opal_datatype_unpack_predefined_element.exit, label %2455
+  br i1 %or.cond3466.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %2455
 
 2455:                                             ; preds = %2450
   %2456 = lshr i64 %2452, 5
@@ -5817,7 +5817,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3800.i:                                 ; preds = %2455
   %.not33544211.i = icmp eq i64 %.0, 0
-  br i1 %.not33544211.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4215.i
+  br i1 %.not33544211.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4215.i
 
 .lr.ph4215.i:                                     ; preds = %.preheader3800.i, %.lr.ph4215.i
   %.027994214.i = phi i64 [ %2469, %.lr.ph4215.i ], [ %.0, %.preheader3800.i ]
@@ -5833,7 +5833,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2468 = getelementptr inbounds { x86_fp80, x86_fp80 }, ptr %.028104213.i, i64 %2456
   %2469 = add i64 %.027994214.i, -1
   %.not3354.i = icmp eq i64 %2469, 0
-  br i1 %.not3354.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4215.i, !llvm.loop !119
+  br i1 %.not3354.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4215.i, !llvm.loop !119
 
 .lr.ph4207.i:                                     ; preds = %.preheader3802.i, %.lr.ph4207.i
   %.228014206.i = phi i64 [ %2482, %.lr.ph4207.i ], [ %.0, %.preheader3802.i ]
@@ -6182,7 +6182,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12811.i = phi ptr [ %18, %2644 ], [ %18, %.preheader3802.i ], [ %18, %.preheader3804.i ], [ %18, %.preheader3806.i ], [ %18, %.preheader3808.i ], [ %18, %.preheader3810.i ], [ %18, %.preheader3812.i ], [ %2694, %.preheader3798.i ], [ %2481, %.lr.ph4207.i ], [ %2501, %.lr.ph4200.i ], [ %2527, %.lr.ph4193.i ], [ %2559, %.lr.ph4186.i ], [ %2597, %.lr.ph4179.i ], [ %2641, %.lr.ph4172.i ]
   %.12800.i = phi i64 [ %.0, %2644 ], [ %.0, %.preheader3802.i ], [ %.0, %.preheader3804.i ], [ %.0, %.preheader3806.i ], [ %.0, %.preheader3808.i ], [ %.0, %.preheader3810.i ], [ %.0, %.preheader3812.i ], [ %2695, %.preheader3798.i ], [ %2482, %.lr.ph4207.i ], [ %2502, %.lr.ph4200.i ], [ %2528, %.lr.ph4193.i ], [ %2560, %.lr.ph4186.i ], [ %2598, %.lr.ph4179.i ], [ %2642, %.lr.ph4172.i ]
   %.not3355.i = icmp eq i64 %.12800.i, 0
-  br i1 %.not3355.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3796.i
+  br i1 %.not3355.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3796.i
 
 .preheader3796.i:                                 ; preds = %.loopexit3799.i, %.preheader3796.i
   %.102831.i = phi ptr [ %2696, %.preheader3796.i ], [ %.12822.i, %.loopexit3799.i ]
@@ -6198,7 +6198,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store x86_fp80 %2699, ptr %2701, align 16
   %2702 = add i64 %.92808.i, -1
   %.old93.not.i = icmp eq i64 %2702, 0
-  br i1 %.old93.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3796.i
+  br i1 %.old93.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3796.i
 
 2703:                                             ; preds = %34
   %2704 = getelementptr inbounds i8, ptr %1, i64 16
@@ -6239,7 +6239,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3728.i:                                 ; preds = %2703
   %.not33494407.i = icmp eq i64 %.0, 0
-  br i1 %.not33494407.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4411.i
+  br i1 %.not33494407.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4411.i
 
 .lr.ph4411.i:                                     ; preds = %.preheader3728.i, %.lr.ph4411.i
   %.027664410.i = phi i64 [ %2716, %.lr.ph4411.i ], [ %.0, %.preheader3728.i ]
@@ -6252,7 +6252,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2715 = getelementptr inbounds i8, ptr %.027774409.i, i64 %2705
   %2716 = add i64 %.027664410.i, -1
   %.not3349.i = icmp eq i64 %2716, 0
-  br i1 %.not3349.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4411.i, !llvm.loop !126
+  br i1 %.not3349.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4411.i, !llvm.loop !126
 
 .lr.ph4403.i:                                     ; preds = %.preheader3730.i, %.lr.ph4403.i
   %.227684402.i = phi i64 [ %2725, %.lr.ph4403.i ], [ %.0, %.preheader3730.i ]
@@ -6496,7 +6496,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12778.i = phi ptr [ %18, %2837 ], [ %18, %.preheader3730.i ], [ %18, %.preheader3732.i ], [ %18, %.preheader3734.i ], [ %18, %.preheader3736.i ], [ %18, %.preheader3738.i ], [ %18, %.preheader3740.i ], [ %2871, %.preheader3726.i ], [ %2724, %.lr.ph4403.i ], [ %2738, %.lr.ph4396.i ], [ %2756, %.lr.ph4389.i ], [ %2778, %.lr.ph4382.i ], [ %2804, %.lr.ph4375.i ], [ %2834, %.lr.ph4368.i ]
   %.12767.i = phi i64 [ %.0, %2837 ], [ %.0, %.preheader3730.i ], [ %.0, %.preheader3732.i ], [ %.0, %.preheader3734.i ], [ %.0, %.preheader3736.i ], [ %.0, %.preheader3738.i ], [ %.0, %.preheader3740.i ], [ %2872, %.preheader3726.i ], [ %2725, %.lr.ph4403.i ], [ %2739, %.lr.ph4396.i ], [ %2757, %.lr.ph4389.i ], [ %2779, %.lr.ph4382.i ], [ %2805, %.lr.ph4375.i ], [ %2835, %.lr.ph4368.i ]
   %.not3350.i = icmp eq i64 %.12767.i, 0
-  br i1 %.not3350.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3724.i
+  br i1 %.not3350.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3724.i
 
 .preheader3724.i:                                 ; preds = %.loopexit3727.i, %.preheader3724.i
   %.102798.i = phi ptr [ %2873, %.preheader3724.i ], [ %.12789.i, %.loopexit3727.i ]
@@ -6509,7 +6509,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i8 %2876, ptr %.102787.i, align 1
   %2877 = add i64 %.92775.i, -1
   %.old99.not.i = icmp eq i64 %2877, 0
-  br i1 %.old99.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3724.i
+  br i1 %.old99.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3724.i
 
 2878:                                             ; preds = %34
   %2879 = ptrtoint ptr %19 to i64
@@ -6519,7 +6519,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2882 = and i64 %2881, 3
   %.not3345.i = icmp eq i64 %2882, 0
   %or.cond3468.i = select i1 %.not.i, i1 %.not3345.i, i1 false
-  br i1 %or.cond3468.i, label %2883, label %opal_datatype_unpack_predefined_element.exit
+  br i1 %or.cond3468.i, label %2883, label %opal_datatype_unpack_predefined_element.exit.thread
 
 2883:                                             ; preds = %2878
   %2884 = getelementptr inbounds i8, ptr %1, i64 16
@@ -6528,7 +6528,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.not3346.i = icmp ne i64 %2886, 0
   %2887 = icmp ult i64 %28, %.0
   %or.cond3469.i = and i1 %2887, %.not3346.i
-  br i1 %or.cond3469.i, label %opal_datatype_unpack_predefined_element.exit, label %2888
+  br i1 %or.cond3469.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %2888
 
 2888:                                             ; preds = %2883
   %2889 = lshr i64 %2885, 2
@@ -6568,7 +6568,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
 
 .preheader3638.i:                                 ; preds = %2888
   %.not33474652.i = icmp eq i64 %.0, 0
-  br i1 %.not33474652.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4656.i
+  br i1 %.not33474652.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4656.i
 
 .lr.ph4656.i:                                     ; preds = %.preheader3638.i, %.lr.ph4656.i
   %.04655.i = phi i64 [ %2899, %.lr.ph4656.i ], [ %.0, %.preheader3638.i ]
@@ -6580,7 +6580,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %2898 = getelementptr inbounds i32, ptr %.027454654.i, i64 %2889
   %2899 = add i64 %.04655.i, -1
   %.not3347.i = icmp eq i64 %2899, 0
-  br i1 %.not3347.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph4656.i, !llvm.loop !133
+  br i1 %.not3347.i, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph4656.i, !llvm.loop !133
 
 .lr.ph4648.i:                                     ; preds = %.preheader3640.i, %.lr.ph4648.i
   %.24647.i = phi i64 [ %2906, %.lr.ph4648.i ], [ %.0, %.preheader3640.i ]
@@ -6789,7 +6789,7 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   %.12746.i = phi ptr [ %18, %2993 ], [ %18, %.preheader3640.i ], [ %18, %.preheader3642.i ], [ %18, %.preheader3644.i ], [ %18, %.preheader3646.i ], [ %18, %.preheader3648.i ], [ %18, %.preheader3650.i ], [ %3019, %.preheader3636.i ], [ %2905, %.lr.ph4648.i ], [ %2916, %.lr.ph4641.i ], [ %2930, %.lr.ph4634.i ], [ %2947, %.lr.ph4627.i ], [ %2967, %.lr.ph4620.i ], [ %2990, %.lr.ph4613.i ]
   %.1.i = phi i64 [ %.0, %2993 ], [ %.0, %.preheader3640.i ], [ %.0, %.preheader3642.i ], [ %.0, %.preheader3644.i ], [ %.0, %.preheader3646.i ], [ %.0, %.preheader3648.i ], [ %.0, %.preheader3650.i ], [ %3020, %.preheader3636.i ], [ %2906, %.lr.ph4648.i ], [ %2917, %.lr.ph4641.i ], [ %2931, %.lr.ph4634.i ], [ %2948, %.lr.ph4627.i ], [ %2968, %.lr.ph4620.i ], [ %2991, %.lr.ph4613.i ]
   %.not3348.i = icmp eq i64 %.1.i, 0
-  br i1 %.not3348.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3634.i
+  br i1 %.not3348.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3634.i
 
 .preheader3634.i:                                 ; preds = %.loopexit3637.i, %.preheader3634.i
   %.102765.i = phi ptr [ %3021, %.preheader3634.i ], [ %.12756.i, %.loopexit3637.i ]
@@ -6801,15 +6801,15 @@ define internal fastcc void @unpack_predefined_data(ptr noundef %0, ptr nocaptur
   store i32 %3022, ptr %.10.i, align 4
   %3024 = add i64 %.9.i, -1
   %.old105.not.i = icmp eq i64 %3024, 0
-  br i1 %.old105.not.i, label %opal_datatype_unpack_predefined_element.exit.thread, label %.preheader3634.i
+  br i1 %.old105.not.i, label %opal_datatype_unpack_predefined_element.exit, label %.preheader3634.i
 
-opal_datatype_unpack_predefined_element.exit:     ; preds = %2883, %2878, %2450, %2445, %2192, %2187, %1934, %1929, %1787, %1782, %1640, %1635, %1493, %1488, %1346, %1341, %1199, %1194, %1052, %1047, %905, %900, %758, %753, %473, %468, %326, %321, %179, %174, %34, %30
+opal_datatype_unpack_predefined_element.exit.thread: ; preds = %34, %2878, %2883, %2445, %2450, %2187, %2192, %1929, %1934, %1782, %1787, %1635, %1640, %1488, %1493, %1341, %1346, %1194, %1199, %1047, %1052, %900, %905, %753, %758, %468, %473, %321, %326, %174, %179, %30
   %3025 = icmp eq i64 %28, 1
-  br i1 %3025, label %.preheader, label %opal_datatype_unpack_predefined_element.exit.thread93
+  br i1 %3025, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %opal_datatype_unpack_predefined_element.exit
-  %.not63695 = icmp eq i64 %.0, 0
-  br i1 %.not63695, label %opal_datatype_unpack_predefined_element.exit.thread, label %.lr.ph
+.preheader:                                       ; preds = %opal_datatype_unpack_predefined_element.exit.thread
+  %.not63690 = icmp eq i64 %.0, 0
+  br i1 %.not63690, label %opal_datatype_unpack_predefined_element.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %3026 = getelementptr inbounds i8, ptr %0, i64 132
@@ -6819,21 +6819,21 @@ opal_datatype_unpack_predefined_element.exit:     ; preds = %2883, %2878, %2450,
   br label %3030
 
 3030:                                             ; preds = %.lr.ph, %3030
-  %.1698 = phi i64 [ %.0, %.lr.ph ], [ %3037, %3030 ]
-  %.282697 = phi ptr [ %19, %.lr.ph ], [ %3034, %3030 ]
-  %.286696 = phi ptr [ %18, %.lr.ph ], [ %3036, %3030 ]
-  %3031 = tail call i32 @opal_bcopy_uicsum_partial(ptr noundef %.282697, ptr noundef %.286696, i64 noundef %13, i64 noundef %13, ptr noundef nonnull %3026, ptr noundef nonnull %3027) #7
+  %.1693 = phi i64 [ %.0, %.lr.ph ], [ %3037, %3030 ]
+  %.282692 = phi ptr [ %19, %.lr.ph ], [ %3034, %3030 ]
+  %.286691 = phi ptr [ %18, %.lr.ph ], [ %3036, %3030 ]
+  %3031 = tail call i32 @opal_bcopy_uicsum_partial(ptr noundef %.282692, ptr noundef %.286691, i64 noundef %13, i64 noundef %13, ptr noundef nonnull %3026, ptr noundef nonnull %3027) #7
   %3032 = load i32, ptr %3028, align 8
   %3033 = add i32 %3032, %3031
   store i32 %3033, ptr %3028, align 8
-  %3034 = getelementptr inbounds i8, ptr %.282697, i64 %13
+  %3034 = getelementptr inbounds i8, ptr %.282692, i64 %13
   %3035 = load i64, ptr %3029, align 8
-  %3036 = getelementptr inbounds i8, ptr %.286696, i64 %3035
-  %3037 = add i64 %.1698, -1
+  %3036 = getelementptr inbounds i8, ptr %.286691, i64 %3035
+  %3037 = add i64 %.1693, -1
   %.not63 = icmp eq i64 %3037, 0
-  br i1 %.not63, label %opal_datatype_unpack_predefined_element.exit.thread, label %3030, !llvm.loop !140
+  br i1 %.not63, label %opal_datatype_unpack_predefined_element.exit, label %3030, !llvm.loop !140
 
-opal_datatype_unpack_predefined_element.exit.thread93: ; preds = %25, %opal_datatype_unpack_predefined_element.exit
+.thread:                                          ; preds = %25, %opal_datatype_unpack_predefined_element.exit.thread
   %3038 = getelementptr inbounds i8, ptr %1, i64 4
   %3039 = load i32, ptr %3038, align 4
   %3040 = icmp ult i32 %3039, 2
@@ -6841,7 +6841,7 @@ opal_datatype_unpack_predefined_element.exit.thread93: ; preds = %25, %opal_data
   %or.cond = or i1 %.not60, %3040
   br i1 %or.cond, label %.loopexit, label %3041
 
-3041:                                             ; preds = %opal_datatype_unpack_predefined_element.exit.thread93
+3041:                                             ; preds = %.thread
   %3042 = mul i64 %28, %13
   %3043 = getelementptr inbounds i8, ptr %0, i64 132
   %3044 = getelementptr inbounds i8, ptr %0, i64 136
@@ -6865,12 +6865,12 @@ opal_datatype_unpack_predefined_element.exit.thread93: ; preds = %25, %opal_data
   %.not61 = icmp ugt i64 %3054, %3055
   br i1 %.not61, label %.loopexit, label %3047, !llvm.loop !141
 
-.loopexit:                                        ; preds = %3047, %opal_datatype_unpack_predefined_element.exit.thread93
-  %.387 = phi ptr [ %18, %opal_datatype_unpack_predefined_element.exit.thread93 ], [ %3053, %3047 ]
-  %.383 = phi ptr [ %19, %opal_datatype_unpack_predefined_element.exit.thread93 ], [ %3051, %3047 ]
-  %.2 = phi i64 [ %.0, %opal_datatype_unpack_predefined_element.exit.thread93 ], [ %3055, %3047 ]
+.loopexit:                                        ; preds = %3047, %.thread
+  %.387 = phi ptr [ %18, %.thread ], [ %3053, %3047 ]
+  %.383 = phi ptr [ %19, %.thread ], [ %3051, %3047 ]
+  %.2 = phi i64 [ %.0, %.thread ], [ %3055, %3047 ]
   %.not62 = icmp eq i64 %.2, 0
-  br i1 %.not62, label %opal_datatype_unpack_predefined_element.exit.thread, label %3056
+  br i1 %.not62, label %opal_datatype_unpack_predefined_element.exit, label %3056
 
 3056:                                             ; preds = %.loopexit
   %3057 = load i16, ptr %7, align 2
@@ -6889,11 +6889,11 @@ opal_datatype_unpack_predefined_element.exit.thread93: ; preds = %25, %opal_data
   store i32 %3069, ptr %3067, align 8
   %3070 = getelementptr inbounds i8, ptr %.387, i64 %3063
   %3071 = getelementptr inbounds i8, ptr %.383, i64 %3063
-  br label %opal_datatype_unpack_predefined_element.exit.thread
+  br label %opal_datatype_unpack_predefined_element.exit
 
-opal_datatype_unpack_predefined_element.exit.thread: ; preds = %.lr.ph4019.i, %.preheader3868.i, %.lr.ph4068.i, %.preheader3850.i, %.lr.ph4117.i, %.preheader3832.i, %.lr.ph4166.i, %.preheader3814.i, %.lr.ph4215.i, %.preheader3796.i, %.lr.ph4264.i, %.preheader3778.i, %.lr.ph4313.i, %.preheader3760.i, %.lr.ph4362.i, %.preheader3742.i, %.lr.ph4411.i, %.preheader3724.i, %.lr.ph4460.i, %.preheader3706.i, %.lr.ph4509.i, %.preheader3688.i, %.lr.ph4558.i, %.preheader3670.i, %.lr.ph4607.i, %.preheader3652.i, %.lr.ph4656.i, %.preheader3634.i, %.lr.ph4705.i, %.preheader3616.i, %.lr.ph4754.i, %.preheader3598.i, %.lr.ph4803.i, %.preheader3580.i, %.lr.ph4852.i, %.preheader.i, %3030, %.preheader, %.preheader3566.i, %.loopexit.i, %.preheader3584.i, %.loopexit3583.i, %.preheader3602.i, %.loopexit3601.i, %.preheader3620.i, %.loopexit3619.i, %.preheader3656.i, %.loopexit3655.i, %.preheader3674.i, %.loopexit3673.i, %.preheader3692.i, %.loopexit3691.i, %.preheader3710.i, %.loopexit3709.i, %.preheader3746.i, %.loopexit3745.i, %.preheader3764.i, %.loopexit3763.i, %.preheader3782.i, %.loopexit3781.i, %.preheader3818.i, %.loopexit3817.i, %.preheader3836.i, %.loopexit3835.i, %.preheader3854.i, %.loopexit3853.i, %.preheader3872.i, %.loopexit3871.i, %.preheader3800.i, %.loopexit3799.i, %.preheader3728.i, %.loopexit3727.i, %.preheader3638.i, %.loopexit3637.i, %.loopexit, %3056
-  %.185 = phi ptr [ %.387, %.loopexit ], [ %3070, %3056 ], [ %18, %.preheader3872.i ], [ %18, %.preheader3854.i ], [ %18, %.preheader3836.i ], [ %18, %.preheader3818.i ], [ %18, %.preheader3800.i ], [ %18, %.preheader3782.i ], [ %18, %.preheader3764.i ], [ %18, %.preheader3746.i ], [ %18, %.preheader3728.i ], [ %18, %.preheader3710.i ], [ %18, %.preheader3692.i ], [ %18, %.preheader3674.i ], [ %18, %.preheader3656.i ], [ %18, %.preheader3638.i ], [ %18, %.preheader3620.i ], [ %18, %.preheader3602.i ], [ %18, %.preheader3584.i ], [ %18, %.preheader3566.i ], [ %.12919.i, %.loopexit.i ], [ %.13047.i, %.loopexit3583.i ], [ %.13175.i, %.loopexit3601.i ], [ %.13303.i, %.loopexit3619.i ], [ %.13271.i, %.loopexit3655.i ], [ %.13228.i, %.loopexit3673.i ], [ %.13186.i, %.loopexit3691.i ], [ %.13143.i, %.loopexit3709.i ], [ %.13100.i, %.loopexit3745.i ], [ %.13058.i, %.loopexit3763.i ], [ %.13015.i, %.loopexit3781.i ], [ %.12972.i, %.loopexit3817.i ], [ %.12930.i, %.loopexit3835.i ], [ %.12887.i, %.loopexit3853.i ], [ %.12844.i, %.loopexit3871.i ], [ %.12811.i, %.loopexit3799.i ], [ %.12778.i, %.loopexit3727.i ], [ %.12746.i, %.loopexit3637.i ], [ %18, %.preheader ], [ %3036, %3030 ], [ %172, %.preheader.i ], [ %47, %.lr.ph4852.i ], [ %319, %.preheader3580.i ], [ %194, %.lr.ph4803.i ], [ %466, %.preheader3598.i ], [ %341, %.lr.ph4754.i ], [ %613, %.preheader3616.i ], [ %488, %.lr.ph4705.i ], [ %3023, %.preheader3634.i ], [ %2898, %.lr.ph4656.i ], [ %751, %.preheader3652.i ], [ %626, %.lr.ph4607.i ], [ %898, %.preheader3670.i ], [ %773, %.lr.ph4558.i ], [ %1045, %.preheader3688.i ], [ %920, %.lr.ph4509.i ], [ %1192, %.preheader3706.i ], [ %1067, %.lr.ph4460.i ], [ %2875, %.preheader3724.i ], [ %2715, %.lr.ph4411.i ], [ %1339, %.preheader3742.i ], [ %1214, %.lr.ph4362.i ], [ %1486, %.preheader3760.i ], [ %1361, %.lr.ph4313.i ], [ %1633, %.preheader3778.i ], [ %1508, %.lr.ph4264.i ], [ %2700, %.preheader3796.i ], [ %2468, %.lr.ph4215.i ], [ %1780, %.preheader3814.i ], [ %1655, %.lr.ph4166.i ], [ %1925, %.preheader3832.i ], [ %1802, %.lr.ph4117.i ], [ %2184, %.preheader3850.i ], [ %1952, %.lr.ph4068.i ], [ %2442, %.preheader3868.i ], [ %2210, %.lr.ph4019.i ]
-  %.181 = phi ptr [ %.383, %.loopexit ], [ %3071, %3056 ], [ %19, %.preheader3872.i ], [ %19, %.preheader3854.i ], [ %19, %.preheader3836.i ], [ %19, %.preheader3818.i ], [ %19, %.preheader3800.i ], [ %19, %.preheader3782.i ], [ %19, %.preheader3764.i ], [ %19, %.preheader3746.i ], [ %19, %.preheader3728.i ], [ %19, %.preheader3710.i ], [ %19, %.preheader3692.i ], [ %19, %.preheader3674.i ], [ %19, %.preheader3656.i ], [ %19, %.preheader3638.i ], [ %19, %.preheader3620.i ], [ %19, %.preheader3602.i ], [ %19, %.preheader3584.i ], [ %19, %.preheader3566.i ], [ %.12876.i, %.loopexit.i ], [ %.13004.i, %.loopexit3583.i ], [ %.13132.i, %.loopexit3601.i ], [ %.13260.i, %.loopexit3619.i ], [ %.13282.i, %.loopexit3655.i ], [ %.13239.i, %.loopexit3673.i ], [ %.13197.i, %.loopexit3691.i ], [ %.13154.i, %.loopexit3709.i ], [ %.13111.i, %.loopexit3745.i ], [ %.13069.i, %.loopexit3763.i ], [ %.13026.i, %.loopexit3781.i ], [ %.12983.i, %.loopexit3817.i ], [ %.12941.i, %.loopexit3835.i ], [ %.12898.i, %.loopexit3853.i ], [ %.12855.i, %.loopexit3871.i ], [ %.12822.i, %.loopexit3799.i ], [ %.12789.i, %.loopexit3727.i ], [ %.12756.i, %.loopexit3637.i ], [ %19, %.preheader ], [ %3034, %3030 ], [ %170, %.preheader.i ], [ %46, %.lr.ph4852.i ], [ %317, %.preheader3580.i ], [ %193, %.lr.ph4803.i ], [ %464, %.preheader3598.i ], [ %340, %.lr.ph4754.i ], [ %611, %.preheader3616.i ], [ %487, %.lr.ph4705.i ], [ %3021, %.preheader3634.i ], [ %2897, %.lr.ph4656.i ], [ %749, %.preheader3652.i ], [ %625, %.lr.ph4607.i ], [ %896, %.preheader3670.i ], [ %772, %.lr.ph4558.i ], [ %1043, %.preheader3688.i ], [ %919, %.lr.ph4509.i ], [ %1190, %.preheader3706.i ], [ %1066, %.lr.ph4460.i ], [ %2873, %.preheader3724.i ], [ %2714, %.lr.ph4411.i ], [ %1337, %.preheader3742.i ], [ %1213, %.lr.ph4362.i ], [ %1484, %.preheader3760.i ], [ %1360, %.lr.ph4313.i ], [ %1631, %.preheader3778.i ], [ %1507, %.lr.ph4264.i ], [ %2696, %.preheader3796.i ], [ %2467, %.lr.ph4215.i ], [ %1778, %.preheader3814.i ], [ %1654, %.lr.ph4166.i ], [ %1926, %.preheader3832.i ], [ %1801, %.lr.ph4117.i ], [ %2180, %.preheader3850.i ], [ %1951, %.lr.ph4068.i ], [ %2438, %.preheader3868.i ], [ %2209, %.lr.ph4019.i ]
+opal_datatype_unpack_predefined_element.exit:     ; preds = %.lr.ph4019.i, %.preheader3868.i, %.lr.ph4068.i, %.preheader3850.i, %.lr.ph4117.i, %.preheader3832.i, %.lr.ph4166.i, %.preheader3814.i, %.lr.ph4215.i, %.preheader3796.i, %.lr.ph4264.i, %.preheader3778.i, %.lr.ph4313.i, %.preheader3760.i, %.lr.ph4362.i, %.preheader3742.i, %.lr.ph4411.i, %.preheader3724.i, %.lr.ph4460.i, %.preheader3706.i, %.lr.ph4509.i, %.preheader3688.i, %.lr.ph4558.i, %.preheader3670.i, %.lr.ph4607.i, %.preheader3652.i, %.lr.ph4656.i, %.preheader3634.i, %.lr.ph4705.i, %.preheader3616.i, %.lr.ph4754.i, %.preheader3598.i, %.lr.ph4803.i, %.preheader3580.i, %.lr.ph4852.i, %.preheader.i, %3030, %.preheader, %.loopexit3637.i, %.preheader3638.i, %.loopexit3727.i, %.preheader3728.i, %.loopexit3799.i, %.preheader3800.i, %.loopexit3871.i, %.preheader3872.i, %.loopexit3853.i, %.preheader3854.i, %.loopexit3835.i, %.preheader3836.i, %.loopexit3817.i, %.preheader3818.i, %.loopexit3781.i, %.preheader3782.i, %.loopexit3763.i, %.preheader3764.i, %.loopexit3745.i, %.preheader3746.i, %.loopexit3709.i, %.preheader3710.i, %.loopexit3691.i, %.preheader3692.i, %.loopexit3673.i, %.preheader3674.i, %.loopexit3655.i, %.preheader3656.i, %.loopexit3619.i, %.preheader3620.i, %.loopexit3601.i, %.preheader3602.i, %.loopexit3583.i, %.preheader3584.i, %.loopexit.i, %.preheader3566.i, %.loopexit, %3056
+  %.185 = phi ptr [ %.387, %.loopexit ], [ %3070, %3056 ], [ %.12746.i, %.loopexit3637.i ], [ %.12778.i, %.loopexit3727.i ], [ %.12811.i, %.loopexit3799.i ], [ %.12844.i, %.loopexit3871.i ], [ %.12887.i, %.loopexit3853.i ], [ %.12930.i, %.loopexit3835.i ], [ %.12972.i, %.loopexit3817.i ], [ %.13015.i, %.loopexit3781.i ], [ %.13058.i, %.loopexit3763.i ], [ %.13100.i, %.loopexit3745.i ], [ %.13143.i, %.loopexit3709.i ], [ %.13186.i, %.loopexit3691.i ], [ %.13228.i, %.loopexit3673.i ], [ %.13271.i, %.loopexit3655.i ], [ %.13303.i, %.loopexit3619.i ], [ %.13175.i, %.loopexit3601.i ], [ %.13047.i, %.loopexit3583.i ], [ %.12919.i, %.loopexit.i ], [ %18, %.preheader3566.i ], [ %18, %.preheader3584.i ], [ %18, %.preheader3602.i ], [ %18, %.preheader3620.i ], [ %18, %.preheader3638.i ], [ %18, %.preheader3656.i ], [ %18, %.preheader3674.i ], [ %18, %.preheader3692.i ], [ %18, %.preheader3710.i ], [ %18, %.preheader3728.i ], [ %18, %.preheader3746.i ], [ %18, %.preheader3764.i ], [ %18, %.preheader3782.i ], [ %18, %.preheader3800.i ], [ %18, %.preheader3818.i ], [ %18, %.preheader3836.i ], [ %18, %.preheader3854.i ], [ %18, %.preheader3872.i ], [ %18, %.preheader ], [ %3036, %3030 ], [ %172, %.preheader.i ], [ %47, %.lr.ph4852.i ], [ %319, %.preheader3580.i ], [ %194, %.lr.ph4803.i ], [ %466, %.preheader3598.i ], [ %341, %.lr.ph4754.i ], [ %613, %.preheader3616.i ], [ %488, %.lr.ph4705.i ], [ %3023, %.preheader3634.i ], [ %2898, %.lr.ph4656.i ], [ %751, %.preheader3652.i ], [ %626, %.lr.ph4607.i ], [ %898, %.preheader3670.i ], [ %773, %.lr.ph4558.i ], [ %1045, %.preheader3688.i ], [ %920, %.lr.ph4509.i ], [ %1192, %.preheader3706.i ], [ %1067, %.lr.ph4460.i ], [ %2875, %.preheader3724.i ], [ %2715, %.lr.ph4411.i ], [ %1339, %.preheader3742.i ], [ %1214, %.lr.ph4362.i ], [ %1486, %.preheader3760.i ], [ %1361, %.lr.ph4313.i ], [ %1633, %.preheader3778.i ], [ %1508, %.lr.ph4264.i ], [ %2700, %.preheader3796.i ], [ %2468, %.lr.ph4215.i ], [ %1780, %.preheader3814.i ], [ %1655, %.lr.ph4166.i ], [ %1925, %.preheader3832.i ], [ %1802, %.lr.ph4117.i ], [ %2184, %.preheader3850.i ], [ %1952, %.lr.ph4068.i ], [ %2442, %.preheader3868.i ], [ %2210, %.lr.ph4019.i ]
+  %.181 = phi ptr [ %.383, %.loopexit ], [ %3071, %3056 ], [ %.12756.i, %.loopexit3637.i ], [ %.12789.i, %.loopexit3727.i ], [ %.12822.i, %.loopexit3799.i ], [ %.12855.i, %.loopexit3871.i ], [ %.12898.i, %.loopexit3853.i ], [ %.12941.i, %.loopexit3835.i ], [ %.12983.i, %.loopexit3817.i ], [ %.13026.i, %.loopexit3781.i ], [ %.13069.i, %.loopexit3763.i ], [ %.13111.i, %.loopexit3745.i ], [ %.13154.i, %.loopexit3709.i ], [ %.13197.i, %.loopexit3691.i ], [ %.13239.i, %.loopexit3673.i ], [ %.13282.i, %.loopexit3655.i ], [ %.13260.i, %.loopexit3619.i ], [ %.13132.i, %.loopexit3601.i ], [ %.13004.i, %.loopexit3583.i ], [ %.12876.i, %.loopexit.i ], [ %19, %.preheader3566.i ], [ %19, %.preheader3584.i ], [ %19, %.preheader3602.i ], [ %19, %.preheader3620.i ], [ %19, %.preheader3638.i ], [ %19, %.preheader3656.i ], [ %19, %.preheader3674.i ], [ %19, %.preheader3692.i ], [ %19, %.preheader3710.i ], [ %19, %.preheader3728.i ], [ %19, %.preheader3746.i ], [ %19, %.preheader3764.i ], [ %19, %.preheader3782.i ], [ %19, %.preheader3800.i ], [ %19, %.preheader3818.i ], [ %19, %.preheader3836.i ], [ %19, %.preheader3854.i ], [ %19, %.preheader3872.i ], [ %19, %.preheader ], [ %3034, %3030 ], [ %170, %.preheader.i ], [ %46, %.lr.ph4852.i ], [ %317, %.preheader3580.i ], [ %193, %.lr.ph4803.i ], [ %464, %.preheader3598.i ], [ %340, %.lr.ph4754.i ], [ %611, %.preheader3616.i ], [ %487, %.lr.ph4705.i ], [ %3021, %.preheader3634.i ], [ %2897, %.lr.ph4656.i ], [ %749, %.preheader3652.i ], [ %625, %.lr.ph4607.i ], [ %896, %.preheader3670.i ], [ %772, %.lr.ph4558.i ], [ %1043, %.preheader3688.i ], [ %919, %.lr.ph4509.i ], [ %1190, %.preheader3706.i ], [ %1066, %.lr.ph4460.i ], [ %2873, %.preheader3724.i ], [ %2714, %.lr.ph4411.i ], [ %1337, %.preheader3742.i ], [ %1213, %.lr.ph4362.i ], [ %1484, %.preheader3760.i ], [ %1360, %.lr.ph4313.i ], [ %1631, %.preheader3778.i ], [ %1507, %.lr.ph4264.i ], [ %2696, %.preheader3796.i ], [ %2467, %.lr.ph4215.i ], [ %1778, %.preheader3814.i ], [ %1654, %.lr.ph4166.i ], [ %1926, %.preheader3832.i ], [ %1801, %.lr.ph4117.i ], [ %2180, %.preheader3850.i ], [ %1951, %.lr.ph4068.i ], [ %2438, %.preheader3868.i ], [ %2209, %.lr.ph4019.i ]
   %3072 = load i64, ptr %16, align 8
   %3073 = sub i64 0, %3072
   %3074 = getelementptr inbounds i8, ptr %.185, i64 %3073

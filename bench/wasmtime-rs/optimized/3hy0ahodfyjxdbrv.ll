@@ -20621,7 +20621,7 @@ default.unreachable:                              ; preds = %17
   %165 = getelementptr inbounds i8, ptr %.val, i64 9
   %166 = load i8, ptr %165, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %167 = icmp eq i8 %164, %166
-  br i1 %167, label %538, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %167, label %538, label %544
 
 168:                                              ; preds = %17
   %169 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20629,7 +20629,7 @@ default.unreachable:                              ; preds = %17
   %171 = getelementptr inbounds i8, ptr %.val, i64 9
   %172 = load i8, ptr %171, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %173 = icmp eq i8 %170, %172
-  br i1 %173, label %556, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %173, label %557, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit62.i.i.i"
 
 174:                                              ; preds = %17
   %175 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20637,7 +20637,7 @@ default.unreachable:                              ; preds = %17
   %177 = getelementptr inbounds i8, ptr %.val, i64 9
   %178 = load i8, ptr %177, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %179 = icmp eq i8 %176, %178
-  br i1 %179, label %577, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %179, label %578, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 180:                                              ; preds = %17
   %181 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20645,7 +20645,7 @@ default.unreachable:                              ; preds = %17
   %183 = getelementptr inbounds i8, ptr %.val, i64 9
   %184 = load i8, ptr %183, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %185 = icmp eq i8 %182, %184
-  br i1 %185, label %592, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %185, label %593, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 186:                                              ; preds = %17
   %187 = getelementptr inbounds i8, ptr %8, i64 -30
@@ -20653,7 +20653,7 @@ default.unreachable:                              ; preds = %17
   %189 = getelementptr inbounds i8, ptr %.val, i64 10
   %190 = load i8, ptr %189, align 2, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %191 = icmp eq i8 %188, %190
-  br i1 %191, label %601, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %191, label %602, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit80.i.i.i"
 
 192:                                              ; preds = %17
   %193 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20661,7 +20661,7 @@ default.unreachable:                              ; preds = %17
   %195 = getelementptr inbounds i8, ptr %.val, i64 9
   %196 = load i8, ptr %195, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %197 = icmp eq i8 %194, %196
-  br i1 %197, label %616, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %197, label %617, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 198:                                              ; preds = %17
   %199 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20669,7 +20669,7 @@ default.unreachable:                              ; preds = %17
   %201 = getelementptr inbounds i8, ptr %.val, i64 9
   %202 = load i8, ptr %201, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %203 = icmp eq i8 %200, %202
-  br i1 %203, label %630, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %203, label %631, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 204:                                              ; preds = %17
   %205 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20677,7 +20677,7 @@ default.unreachable:                              ; preds = %17
   %207 = getelementptr inbounds i8, ptr %.val, i64 9
   %208 = load i8, ptr %207, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %209 = icmp eq i8 %206, %208
-  br i1 %209, label %636, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %209, label %637, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 210:                                              ; preds = %17
   %211 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20685,7 +20685,7 @@ default.unreachable:                              ; preds = %17
   %213 = getelementptr inbounds i8, ptr %.val, i64 9
   %214 = load i8, ptr %213, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %215 = icmp eq i8 %212, %214
-  br i1 %215, label %642, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %215, label %643, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 216:                                              ; preds = %17
   %217 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20693,7 +20693,7 @@ default.unreachable:                              ; preds = %17
   %219 = getelementptr inbounds i8, ptr %.val, i64 9
   %220 = load i8, ptr %219, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %221 = icmp eq i8 %218, %220
-  br i1 %221, label %648, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %221, label %649, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 222:                                              ; preds = %17
   %223 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20701,7 +20701,7 @@ default.unreachable:                              ; preds = %17
   %225 = getelementptr inbounds i8, ptr %.val, i64 9
   %226 = load i8, ptr %225, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %227 = icmp eq i8 %224, %226
-  br i1 %227, label %654, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %227, label %655, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 228:                                              ; preds = %17
   %229 = getelementptr inbounds i8, ptr %8, i64 -31
@@ -20709,7 +20709,7 @@ default.unreachable:                              ; preds = %17
   %231 = getelementptr inbounds i8, ptr %.val, i64 9
   %232 = load i8, ptr %231, align 1, !range !5663, !alias.scope !5662, !noalias !5661, !noundef !9
   %233 = icmp eq i8 %230, %232
-  br i1 %233, label %660, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %233, label %661, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
 234:                                              ; preds = %18
   %235 = getelementptr inbounds i8, ptr %8, i64 -28
@@ -20795,7 +20795,7 @@ default.unreachable:                              ; preds = %17
 .preheader.split.i22.i.i.i:                       ; preds = %273, %270
   %.sroa.01.0.i23.i.i.i = phi i64 [ %274, %273 ], [ 0, %270 ]
   %exitcond.not.i24.i.i.i = icmp eq i64 %.sroa.01.0.i23.i.i.i, 2
-  br i1 %exitcond.not.i24.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit", label %273
+  br i1 %exitcond.not.i24.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit33", label %273
 
 273:                                              ; preds = %.preheader.split.i22.i.i.i
   %274 = add nuw nsw i64 %.sroa.01.0.i23.i.i.i, 1
@@ -20808,7 +20808,7 @@ default.unreachable:                              ; preds = %17
   %277 = load i32, ptr %275, align 4, !alias.scope !5714, !noalias !5715, !noundef !9
   %278 = load i32, ptr %276, align 4, !alias.scope !5715, !noalias !5714, !noundef !9
   %.not9.i25.i.i.i = icmp eq i32 %277, %278
-  br i1 %.not9.i25.i.i.i, label %.preheader.split.i22.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %.not9.i25.i.i.i, label %.preheader.split.i22.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit33"
 
 279:                                              ; preds = %36
   %280 = getelementptr inbounds i8, ptr %8, i64 -28
@@ -20876,7 +20876,7 @@ default.unreachable:                              ; preds = %17
 .preheader.split.i28.i.i.i:                       ; preds = %324, %321
   %.sroa.01.0.i29.i.i.i = phi i64 [ %325, %324 ], [ 0, %321 ]
   %exitcond.not.i30.i.i.i = icmp eq i64 %.sroa.01.0.i29.i.i.i, 2
-  br i1 %exitcond.not.i30.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit", label %324
+  br i1 %exitcond.not.i30.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit34", label %324
 
 324:                                              ; preds = %.preheader.split.i28.i.i.i
   %325 = add nuw nsw i64 %.sroa.01.0.i29.i.i.i, 1
@@ -20889,7 +20889,7 @@ default.unreachable:                              ; preds = %17
   %328 = load i32, ptr %326, align 4, !alias.scope !5731, !noalias !5732, !noundef !9
   %329 = load i32, ptr %327, align 4, !alias.scope !5732, !noalias !5731, !noundef !9
   %.not9.i31.i.i.i = icmp eq i32 %328, %329
-  br i1 %.not9.i31.i.i.i, label %.preheader.split.i28.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %.not9.i31.i.i.i, label %.preheader.split.i28.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit34"
 
 330:                                              ; preds = %60
   %331 = getelementptr inbounds i8, ptr %8, i64 -28
@@ -21229,226 +21229,244 @@ default.unreachable:                              ; preds = %17
   %541 = getelementptr inbounds i8, ptr %.val, i64 12
   %542 = load i32, ptr %541, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
   %543 = icmp eq i32 %540, %542
-  br i1 %543, label %544, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  br i1 %543, label %545, label %544
 
-544:                                              ; preds = %538
-  %545 = getelementptr inbounds i8, ptr %8, i64 -24
-  %546 = load i32, ptr %545, align 8, !alias.scope !5661, !noalias !5662, !noundef !9
-  %547 = getelementptr inbounds i8, ptr %.val, i64 16
-  %548 = load i32, ptr %547, align 8, !alias.scope !5662, !noalias !5661, !noundef !9
-  %549 = icmp eq i32 %546, %548
-  br i1 %549, label %550, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
-
-550:                                              ; preds = %544
-  %551 = getelementptr inbounds i8, ptr %8, i64 -20
-  %552 = load i32, ptr %551, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
-  %553 = getelementptr inbounds i8, ptr %.val, i64 20
-  %554 = load i32, ptr %553, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
-  %555 = icmp eq i32 %552, %554
+544:                                              ; preds = %545, %538, %162
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-556:                                              ; preds = %168
-  %557 = getelementptr inbounds i8, ptr %8, i64 -28
-  %558 = getelementptr inbounds i8, ptr %.val, i64 12
+545:                                              ; preds = %538
+  %546 = getelementptr inbounds i8, ptr %8, i64 -24
+  %547 = load i32, ptr %546, align 8, !alias.scope !5661, !noalias !5662, !noundef !9
+  %548 = getelementptr inbounds i8, ptr %.val, i64 16
+  %549 = load i32, ptr %548, align 8, !alias.scope !5662, !noalias !5661, !noundef !9
+  %550 = icmp eq i32 %547, %549
+  br i1 %550, label %551, label %544
+
+551:                                              ; preds = %545
+  %552 = getelementptr inbounds i8, ptr %8, i64 -20
+  %553 = load i32, ptr %552, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
+  %554 = getelementptr inbounds i8, ptr %.val, i64 20
+  %555 = load i32, ptr %554, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
+  %556 = icmp eq i32 %553, %555
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+557:                                              ; preds = %168
+  %558 = getelementptr inbounds i8, ptr %8, i64 -28
+  %559 = getelementptr inbounds i8, ptr %.val, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5804)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5807)
   br label %.preheader.split.i57.i.i.i
 
-.preheader.split.i57.i.i.i:                       ; preds = %559, %556
-  %.sroa.01.0.i58.i.i.i = phi i64 [ %560, %559 ], [ 0, %556 ]
+.preheader.split.i57.i.i.i:                       ; preds = %560, %557
+  %.sroa.01.0.i58.i.i.i = phi i64 [ %561, %560 ], [ 0, %557 ]
   %exitcond.not.i59.i.i.i = icmp eq i64 %.sroa.01.0.i58.i.i.i, 2
-  br i1 %exitcond.not.i59.i.i.i, label %565, label %559
+  br i1 %exitcond.not.i59.i.i.i, label %566, label %560
 
-559:                                              ; preds = %.preheader.split.i57.i.i.i
-  %560 = add nuw nsw i64 %.sroa.01.0.i58.i.i.i, 1
-  %561 = getelementptr inbounds [0 x i32], ptr %557, i64 0, i64 %.sroa.01.0.i58.i.i.i
+560:                                              ; preds = %.preheader.split.i57.i.i.i
+  %561 = add nuw nsw i64 %.sroa.01.0.i58.i.i.i, 1
   %562 = getelementptr inbounds [0 x i32], ptr %558, i64 0, i64 %.sroa.01.0.i58.i.i.i
+  %563 = getelementptr inbounds [0 x i32], ptr %559, i64 0, i64 %.sroa.01.0.i58.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5809)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5812)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5814)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5817)
-  %563 = load i32, ptr %561, align 4, !alias.scope !5819, !noalias !5820, !noundef !9
-  %564 = load i32, ptr %562, align 4, !alias.scope !5820, !noalias !5819, !noundef !9
-  %.not9.i60.i.i.i = icmp eq i32 %563, %564
-  br i1 %.not9.i60.i.i.i, label %.preheader.split.i57.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  %564 = load i32, ptr %562, align 4, !alias.scope !5819, !noalias !5820, !noundef !9
+  %565 = load i32, ptr %563, align 4, !alias.scope !5820, !noalias !5819, !noundef !9
+  %.not9.i60.i.i.i = icmp eq i32 %564, %565
+  br i1 %.not9.i60.i.i.i, label %.preheader.split.i57.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit62.i.i.i"
 
-565:                                              ; preds = %.preheader.split.i57.i.i.i
-  %566 = getelementptr inbounds i8, ptr %8, i64 -30
-  %567 = load i16, ptr %566, align 2, !alias.scope !5661, !noalias !5662, !noundef !9
-  %568 = getelementptr inbounds i8, ptr %.val, i64 10
-  %569 = load i16, ptr %568, align 2, !alias.scope !5662, !noalias !5661, !noundef !9
-  %570 = icmp eq i16 %567, %569
-  br i1 %570, label %571, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
-
-571:                                              ; preds = %565
-  %572 = getelementptr inbounds i8, ptr %8, i64 -20
-  %573 = load i32, ptr %572, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
-  %574 = getelementptr inbounds i8, ptr %.val, i64 20
-  %575 = load i32, ptr %574, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
-  %576 = icmp eq i32 %573, %575
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit62.i.i.i": ; preds = %560, %566, %168
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-577:                                              ; preds = %174
-  %578 = getelementptr inbounds i8, ptr %8, i64 -28
-  %579 = getelementptr inbounds i8, ptr %.val, i64 12
+566:                                              ; preds = %.preheader.split.i57.i.i.i
+  %567 = getelementptr inbounds i8, ptr %8, i64 -30
+  %568 = load i16, ptr %567, align 2, !alias.scope !5661, !noalias !5662, !noundef !9
+  %569 = getelementptr inbounds i8, ptr %.val, i64 10
+  %570 = load i16, ptr %569, align 2, !alias.scope !5662, !noalias !5661, !noundef !9
+  %571 = icmp eq i16 %568, %570
+  br i1 %571, label %572, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit62.i.i.i"
+
+572:                                              ; preds = %566
+  %573 = getelementptr inbounds i8, ptr %8, i64 -20
+  %574 = load i32, ptr %573, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
+  %575 = getelementptr inbounds i8, ptr %.val, i64 20
+  %576 = load i32, ptr %575, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
+  %577 = icmp eq i32 %574, %576
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+578:                                              ; preds = %174
+  %579 = getelementptr inbounds i8, ptr %8, i64 -28
+  %580 = getelementptr inbounds i8, ptr %.val, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5821)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5824)
   br label %.preheader.split.i63.i.i.i
 
-.preheader.split.i63.i.i.i:                       ; preds = %580, %577
-  %.sroa.01.0.i64.i.i.i = phi i64 [ %581, %580 ], [ 0, %577 ]
+.preheader.split.i63.i.i.i:                       ; preds = %581, %578
+  %.sroa.01.0.i64.i.i.i = phi i64 [ %582, %581 ], [ 0, %578 ]
   %exitcond.not.i65.i.i.i = icmp eq i64 %.sroa.01.0.i64.i.i.i, 2
-  br i1 %exitcond.not.i65.i.i.i, label %586, label %580
+  br i1 %exitcond.not.i65.i.i.i, label %587, label %581
 
-580:                                              ; preds = %.preheader.split.i63.i.i.i
-  %581 = add nuw nsw i64 %.sroa.01.0.i64.i.i.i, 1
-  %582 = getelementptr inbounds [0 x i32], ptr %578, i64 0, i64 %.sroa.01.0.i64.i.i.i
+581:                                              ; preds = %.preheader.split.i63.i.i.i
+  %582 = add nuw nsw i64 %.sroa.01.0.i64.i.i.i, 1
   %583 = getelementptr inbounds [0 x i32], ptr %579, i64 0, i64 %.sroa.01.0.i64.i.i.i
+  %584 = getelementptr inbounds [0 x i32], ptr %580, i64 0, i64 %.sroa.01.0.i64.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5826)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5829)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5831)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5834)
-  %584 = load i32, ptr %582, align 4, !alias.scope !5836, !noalias !5837, !noundef !9
-  %585 = load i32, ptr %583, align 4, !alias.scope !5837, !noalias !5836, !noundef !9
-  %.not9.i66.i.i.i = icmp eq i32 %584, %585
+  %585 = load i32, ptr %583, align 4, !alias.scope !5836, !noalias !5837, !noundef !9
+  %586 = load i32, ptr %584, align 4, !alias.scope !5837, !noalias !5836, !noundef !9
+  %.not9.i66.i.i.i = icmp eq i32 %585, %586
   br i1 %.not9.i66.i.i.i, label %.preheader.split.i63.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-586:                                              ; preds = %.preheader.split.i63.i.i.i
-  %587 = getelementptr inbounds i8, ptr %8, i64 -30
-  %588 = load i16, ptr %587, align 2, !alias.scope !5661, !noalias !5662, !noundef !9
-  %589 = getelementptr inbounds i8, ptr %.val, i64 10
-  %590 = load i16, ptr %589, align 2, !alias.scope !5662, !noalias !5661, !noundef !9
-  %591 = icmp eq i16 %588, %590
+587:                                              ; preds = %.preheader.split.i63.i.i.i
+  %588 = getelementptr inbounds i8, ptr %8, i64 -30
+  %589 = load i16, ptr %588, align 2, !alias.scope !5661, !noalias !5662, !noundef !9
+  %590 = getelementptr inbounds i8, ptr %.val, i64 10
+  %591 = load i16, ptr %590, align 2, !alias.scope !5662, !noalias !5661, !noundef !9
+  %592 = icmp eq i16 %589, %591
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-592:                                              ; preds = %180
-  %593 = getelementptr inbounds i8, ptr %8, i64 -28
-  %594 = getelementptr inbounds i8, ptr %.val, i64 12
+593:                                              ; preds = %180
+  %594 = getelementptr inbounds i8, ptr %8, i64 -28
+  %595 = getelementptr inbounds i8, ptr %.val, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5838)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5841)
   br label %.preheader.split.i69.i.i.i
 
-.preheader.split.i69.i.i.i:                       ; preds = %595, %592
-  %.sroa.01.0.i70.i.i.i = phi i64 [ %596, %595 ], [ 0, %592 ]
+.preheader.split.i69.i.i.i:                       ; preds = %596, %593
+  %.sroa.01.0.i70.i.i.i = phi i64 [ %597, %596 ], [ 0, %593 ]
   %exitcond.not.i71.i.i.i = icmp eq i64 %.sroa.01.0.i70.i.i.i, 3
-  br i1 %exitcond.not.i71.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit", label %595
+  br i1 %exitcond.not.i71.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit40", label %596
 
-595:                                              ; preds = %.preheader.split.i69.i.i.i
-  %596 = add nuw nsw i64 %.sroa.01.0.i70.i.i.i, 1
-  %597 = getelementptr inbounds [0 x i32], ptr %593, i64 0, i64 %.sroa.01.0.i70.i.i.i
+596:                                              ; preds = %.preheader.split.i69.i.i.i
+  %597 = add nuw nsw i64 %.sroa.01.0.i70.i.i.i, 1
   %598 = getelementptr inbounds [0 x i32], ptr %594, i64 0, i64 %.sroa.01.0.i70.i.i.i
+  %599 = getelementptr inbounds [0 x i32], ptr %595, i64 0, i64 %.sroa.01.0.i70.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5843)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5846)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5848)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5851)
-  %599 = load i32, ptr %597, align 4, !alias.scope !5853, !noalias !5854, !noundef !9
-  %600 = load i32, ptr %598, align 4, !alias.scope !5854, !noalias !5853, !noundef !9
-  %.not9.i72.i.i.i = icmp eq i32 %599, %600
-  br i1 %.not9.i72.i.i.i, label %.preheader.split.i69.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  %600 = load i32, ptr %598, align 4, !alias.scope !5853, !noalias !5854, !noundef !9
+  %601 = load i32, ptr %599, align 4, !alias.scope !5854, !noalias !5853, !noundef !9
+  %.not9.i72.i.i.i = icmp eq i32 %600, %601
+  br i1 %.not9.i72.i.i.i, label %.preheader.split.i69.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit40"
 
-601:                                              ; preds = %186
-  %602 = getelementptr inbounds i8, ptr %8, i64 -28
-  %603 = getelementptr inbounds i8, ptr %.val, i64 12
+602:                                              ; preds = %186
+  %603 = getelementptr inbounds i8, ptr %8, i64 -28
+  %604 = getelementptr inbounds i8, ptr %.val, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5855)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5858)
   br label %.preheader.split.i75.i.i.i
 
-.preheader.split.i75.i.i.i:                       ; preds = %604, %601
-  %.sroa.01.0.i76.i.i.i = phi i64 [ %605, %604 ], [ 0, %601 ]
+.preheader.split.i75.i.i.i:                       ; preds = %605, %602
+  %.sroa.01.0.i76.i.i.i = phi i64 [ %606, %605 ], [ 0, %602 ]
   %exitcond.not.i77.i.i.i = icmp eq i64 %.sroa.01.0.i76.i.i.i, 2
-  br i1 %exitcond.not.i77.i.i.i, label %610, label %604
+  br i1 %exitcond.not.i77.i.i.i, label %611, label %605
 
-604:                                              ; preds = %.preheader.split.i75.i.i.i
-  %605 = add nuw nsw i64 %.sroa.01.0.i76.i.i.i, 1
-  %606 = getelementptr inbounds [0 x i32], ptr %602, i64 0, i64 %.sroa.01.0.i76.i.i.i
+605:                                              ; preds = %.preheader.split.i75.i.i.i
+  %606 = add nuw nsw i64 %.sroa.01.0.i76.i.i.i, 1
   %607 = getelementptr inbounds [0 x i32], ptr %603, i64 0, i64 %.sroa.01.0.i76.i.i.i
+  %608 = getelementptr inbounds [0 x i32], ptr %604, i64 0, i64 %.sroa.01.0.i76.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5860)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5865)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5868)
-  %608 = load i32, ptr %606, align 4, !alias.scope !5870, !noalias !5871, !noundef !9
-  %609 = load i32, ptr %607, align 4, !alias.scope !5871, !noalias !5870, !noundef !9
-  %.not9.i78.i.i.i = icmp eq i32 %608, %609
-  br i1 %.not9.i78.i.i.i, label %.preheader.split.i75.i.i.i, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+  %609 = load i32, ptr %607, align 4, !alias.scope !5870, !noalias !5871, !noundef !9
+  %610 = load i32, ptr %608, align 4, !alias.scope !5871, !noalias !5870, !noundef !9
+  %.not9.i78.i.i.i = icmp eq i32 %609, %610
+  br i1 %.not9.i78.i.i.i, label %.preheader.split.i75.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit80.i.i.i"
 
-610:                                              ; preds = %.preheader.split.i75.i.i.i
-  %611 = getelementptr inbounds i8, ptr %8, i64 -31
-  %612 = load i8, ptr %611, align 1, !alias.scope !5661, !noalias !5662, !noundef !9
-  %613 = getelementptr inbounds i8, ptr %.val, i64 9
-  %614 = load i8, ptr %613, align 1, !alias.scope !5662, !noalias !5661, !noundef !9
-  %615 = icmp eq i8 %612, %614
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit80.i.i.i": ; preds = %605, %186
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-616:                                              ; preds = %192
-  %617 = getelementptr inbounds i8, ptr %8, i64 -30
-  %618 = load i16, ptr %617, align 2, !range !5733, !alias.scope !5661, !noalias !5662, !noundef !9
-  %619 = getelementptr inbounds i8, ptr %.val, i64 10
-  %620 = load i16, ptr %619, align 2, !range !5733, !alias.scope !5662, !noalias !5661, !noundef !9
-  %621 = icmp eq i16 %618, %620
-  br i1 %621, label %622, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
-
-622:                                              ; preds = %616
-  %623 = icmp eq i16 %618, 11
-  br i1 %623, label %624, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
-
-624:                                              ; preds = %622
-  %625 = getelementptr inbounds i8, ptr %8, i64 -28
-  %626 = load i16, ptr %625, align 2, !alias.scope !5661, !noalias !5662, !noundef !9
-  %627 = getelementptr inbounds i8, ptr %.val, i64 12
-  %628 = load i16, ptr %627, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
-  %629 = icmp eq i16 %626, %628
+611:                                              ; preds = %.preheader.split.i75.i.i.i
+  %612 = getelementptr inbounds i8, ptr %8, i64 -31
+  %613 = load i8, ptr %612, align 1, !alias.scope !5661, !noalias !5662, !noundef !9
+  %614 = getelementptr inbounds i8, ptr %.val, i64 9
+  %615 = load i8, ptr %614, align 1, !alias.scope !5662, !noalias !5661, !noundef !9
+  %616 = icmp eq i8 %613, %615
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-630:                                              ; preds = %198
-  %631 = getelementptr inbounds i8, ptr %8, i64 -28
-  %632 = load i32, ptr %631, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
-  %633 = getelementptr inbounds i8, ptr %.val, i64 12
-  %634 = load i32, ptr %633, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
-  %635 = icmp eq i32 %632, %634
+617:                                              ; preds = %192
+  %618 = getelementptr inbounds i8, ptr %8, i64 -30
+  %619 = load i16, ptr %618, align 2, !range !5733, !alias.scope !5661, !noalias !5662, !noundef !9
+  %620 = getelementptr inbounds i8, ptr %.val, i64 10
+  %621 = load i16, ptr %620, align 2, !range !5733, !alias.scope !5662, !noalias !5661, !noundef !9
+  %622 = icmp eq i16 %619, %621
+  br i1 %622, label %623, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+623:                                              ; preds = %617
+  %624 = icmp eq i16 %619, 11
+  br i1 %624, label %625, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+625:                                              ; preds = %623
+  %626 = getelementptr inbounds i8, ptr %8, i64 -28
+  %627 = load i16, ptr %626, align 2, !alias.scope !5661, !noalias !5662, !noundef !9
+  %628 = getelementptr inbounds i8, ptr %.val, i64 12
+  %629 = load i16, ptr %628, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
+  %630 = icmp eq i16 %627, %629
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-636:                                              ; preds = %204
-  %637 = getelementptr inbounds i8, ptr %8, i64 -28
-  %638 = load i32, ptr %637, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
-  %639 = getelementptr inbounds i8, ptr %.val, i64 12
-  %640 = load i32, ptr %639, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
-  %641 = icmp eq i32 %638, %640
+631:                                              ; preds = %198
+  %632 = getelementptr inbounds i8, ptr %8, i64 -28
+  %633 = load i32, ptr %632, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
+  %634 = getelementptr inbounds i8, ptr %.val, i64 12
+  %635 = load i32, ptr %634, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
+  %636 = icmp eq i32 %633, %635
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-642:                                              ; preds = %210
-  %643 = getelementptr inbounds i8, ptr %8, i64 -28
-  %644 = load i32, ptr %643, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
-  %645 = getelementptr inbounds i8, ptr %.val, i64 12
-  %646 = load i32, ptr %645, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
-  %647 = icmp eq i32 %644, %646
+637:                                              ; preds = %204
+  %638 = getelementptr inbounds i8, ptr %8, i64 -28
+  %639 = load i32, ptr %638, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
+  %640 = getelementptr inbounds i8, ptr %.val, i64 12
+  %641 = load i32, ptr %640, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
+  %642 = icmp eq i32 %639, %641
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-648:                                              ; preds = %216
-  %649 = getelementptr inbounds i8, ptr %8, i64 -28
-  %650 = load i32, ptr %649, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
-  %651 = getelementptr inbounds i8, ptr %.val, i64 12
-  %652 = load i32, ptr %651, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
-  %653 = icmp eq i32 %650, %652
+643:                                              ; preds = %210
+  %644 = getelementptr inbounds i8, ptr %8, i64 -28
+  %645 = load i32, ptr %644, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
+  %646 = getelementptr inbounds i8, ptr %.val, i64 12
+  %647 = load i32, ptr %646, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
+  %648 = icmp eq i32 %645, %647
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-654:                                              ; preds = %222
-  %655 = getelementptr inbounds i8, ptr %8, i64 -24
-  %656 = load i64, ptr %655, align 8, !alias.scope !5661, !noalias !5662, !noundef !9
-  %657 = getelementptr inbounds i8, ptr %.val, i64 16
-  %658 = load i64, ptr %657, align 8, !alias.scope !5662, !noalias !5661, !noundef !9
-  %659 = icmp eq i64 %656, %658
+649:                                              ; preds = %216
+  %650 = getelementptr inbounds i8, ptr %8, i64 -28
+  %651 = load i32, ptr %650, align 4, !alias.scope !5661, !noalias !5662, !noundef !9
+  %652 = getelementptr inbounds i8, ptr %.val, i64 12
+  %653 = load i32, ptr %652, align 4, !alias.scope !5662, !noalias !5661, !noundef !9
+  %654 = icmp eq i32 %651, %653
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-660:                                              ; preds = %228
-  %661 = getelementptr inbounds i8, ptr %8, i64 -24
-  %662 = load i64, ptr %661, align 8, !alias.scope !5661, !noalias !5662, !noundef !9
-  %663 = getelementptr inbounds i8, ptr %.val, i64 16
-  %664 = load i64, ptr %663, align 8, !alias.scope !5662, !noalias !5661, !noundef !9
-  %665 = icmp eq i64 %662, %664
+655:                                              ; preds = %222
+  %656 = getelementptr inbounds i8, ptr %8, i64 -24
+  %657 = load i64, ptr %656, align 8, !alias.scope !5661, !noalias !5662, !noundef !9
+  %658 = getelementptr inbounds i8, ptr %.val, i64 16
+  %659 = load i64, ptr %658, align 8, !alias.scope !5662, !noalias !5661, !noundef !9
+  %660 = icmp eq i64 %657, %659
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit": ; preds = %604, %.preheader.split.i69.i.i.i, %595, %580, %559, %514, %439, %416, %395, %.preheader.split.i28.i.i.i, %324, %.preheader.split.i22.i.i.i, %273, %252, %237, %2, %11, %18, %24, %30, %36, %42, %48, %54, %60, %66, %72, %78, %84, %90, %96, %102, %108, %114, %120, %126, %132, %138, %144, %150, %156, %162, %168, %174, %180, %186, %192, %198, %204, %210, %216, %222, %228, %243, %258, %264, %279, %285, %291, %297, %303, %309, %315, %330, %336, %342, %348, %354, %360, %366, %368, %374, %380, %386, %401, %407, %422, %428, %430, %445, %451, %457, %463, %469, %475, %481, %487, %493, %499, %505, %520, %526, %532, %538, %544, %550, %565, %571, %586, %610, %616, %622, %624, %630, %636, %642, %648, %654, %660
-  %.0.i.i = phi i1 [ false, %2 ], [ %665, %660 ], [ %659, %654 ], [ %653, %648 ], [ %647, %642 ], [ %641, %636 ], [ %635, %630 ], [ %629, %624 ], [ %615, %610 ], [ %591, %586 ], [ %576, %571 ], [ %555, %550 ], [ %537, %532 ], [ %525, %520 ], [ %149, %144 ], [ %504, %499 ], [ %492, %487 ], [ %468, %463 ], [ %450, %445 ], [ %435, %430 ], [ %412, %407 ], [ %406, %401 ], [ %391, %386 ], [ %379, %374 ], [ %373, %368 ], [ %314, %309 ], [ %302, %297 ], [ %290, %285 ], [ %269, %264 ], [ %248, %243 ], [ false, %11 ], [ false, %18 ], [ false, %258 ], [ false, %24 ], [ false, %30 ], [ false, %279 ], [ false, %36 ], [ false, %291 ], [ false, %42 ], [ false, %303 ], [ false, %48 ], [ false, %315 ], [ false, %54 ], [ %341, %336 ], [ false, %330 ], [ false, %60 ], [ %353, %348 ], [ false, %342 ], [ false, %66 ], [ false, %354 ], [ false, %72 ], [ false, %360 ], [ true, %366 ], [ false, %78 ], [ false, %380 ], [ false, %84 ], [ false, %90 ], [ false, %96 ], [ false, %102 ], [ false, %422 ], [ true, %428 ], [ false, %108 ], [ false, %457 ], [ false, %451 ], [ false, %114 ], [ false, %120 ], [ %474, %469 ], [ false, %481 ], [ false, %475 ], [ false, %126 ], [ false, %493 ], [ false, %132 ], [ false, %138 ], [ %510, %505 ], [ false, %150 ], [ false, %526 ], [ false, %156 ], [ false, %544 ], [ false, %538 ], [ false, %162 ], [ false, %565 ], [ false, %168 ], [ false, %174 ], [ false, %180 ], [ false, %186 ], [ false, %192 ], [ false, %616 ], [ true, %622 ], [ false, %198 ], [ false, %204 ], [ false, %210 ], [ false, %216 ], [ false, %222 ], [ false, %228 ], [ false, %237 ], [ false, %252 ], [ %exitcond.not.i24.i.i.i, %273 ], [ %exitcond.not.i24.i.i.i, %.preheader.split.i22.i.i.i ], [ %exitcond.not.i30.i.i.i, %324 ], [ %exitcond.not.i30.i.i.i, %.preheader.split.i28.i.i.i ], [ false, %395 ], [ false, %416 ], [ false, %439 ], [ false, %514 ], [ false, %559 ], [ false, %580 ], [ %exitcond.not.i71.i.i.i, %595 ], [ %exitcond.not.i71.i.i.i, %.preheader.split.i69.i.i.i ], [ false, %604 ]
+661:                                              ; preds = %228
+  %662 = getelementptr inbounds i8, ptr %8, i64 -24
+  %663 = load i64, ptr %662, align 8, !alias.scope !5661, !noalias !5662, !noundef !9
+  %664 = getelementptr inbounds i8, ptr %.val, i64 16
+  %665 = load i64, ptr %664, align 8, !alias.scope !5662, !noalias !5661, !noundef !9
+  %666 = icmp eq i64 %663, %665
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit33": ; preds = %273, %.preheader.split.i22.i.i.i
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit34": ; preds = %324, %.preheader.split.i28.i.i.i
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit40": ; preds = %596, %.preheader.split.i69.i.i.i
+  br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit"
+
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit": ; preds = %581, %514, %439, %416, %395, %252, %237, %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit40", %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit34", %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit33", %2, %11, %18, %24, %30, %36, %42, %48, %54, %60, %66, %72, %78, %84, %90, %96, %102, %108, %114, %120, %126, %132, %138, %144, %150, %156, %174, %180, %192, %198, %204, %210, %216, %222, %228, %243, %258, %264, %279, %285, %291, %297, %303, %309, %315, %330, %336, %342, %348, %354, %360, %366, %368, %374, %380, %386, %401, %407, %422, %428, %430, %445, %451, %457, %463, %469, %475, %481, %487, %493, %499, %505, %520, %526, %532, %544, %551, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit62.i.i.i", %572, %587, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit80.i.i.i", %611, %617, %623, %625, %631, %637, %643, %649, %655, %661
+  %.0.i.i = phi i1 [ false, %2 ], [ %666, %661 ], [ %660, %655 ], [ %654, %649 ], [ %648, %643 ], [ %642, %637 ], [ %636, %631 ], [ %630, %625 ], [ %616, %611 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit80.i.i.i" ], [ %592, %587 ], [ %577, %572 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfc185eb46c1dbf77E.exit62.i.i.i" ], [ %556, %551 ], [ false, %544 ], [ %537, %532 ], [ %525, %520 ], [ %149, %144 ], [ %504, %499 ], [ %492, %487 ], [ %468, %463 ], [ %450, %445 ], [ %435, %430 ], [ %412, %407 ], [ %406, %401 ], [ %391, %386 ], [ %379, %374 ], [ %373, %368 ], [ %314, %309 ], [ %302, %297 ], [ %290, %285 ], [ %269, %264 ], [ %248, %243 ], [ false, %11 ], [ false, %18 ], [ false, %258 ], [ false, %24 ], [ false, %30 ], [ false, %279 ], [ false, %36 ], [ false, %291 ], [ false, %42 ], [ false, %303 ], [ false, %48 ], [ false, %315 ], [ false, %54 ], [ %341, %336 ], [ false, %330 ], [ false, %60 ], [ %353, %348 ], [ false, %342 ], [ false, %66 ], [ false, %354 ], [ false, %72 ], [ false, %360 ], [ true, %366 ], [ false, %78 ], [ false, %380 ], [ false, %84 ], [ false, %90 ], [ false, %96 ], [ false, %102 ], [ false, %422 ], [ true, %428 ], [ false, %108 ], [ false, %457 ], [ false, %451 ], [ false, %114 ], [ false, %120 ], [ %474, %469 ], [ false, %481 ], [ false, %475 ], [ false, %126 ], [ false, %493 ], [ false, %132 ], [ false, %138 ], [ %510, %505 ], [ false, %150 ], [ false, %526 ], [ false, %156 ], [ false, %174 ], [ false, %180 ], [ false, %192 ], [ false, %617 ], [ true, %623 ], [ false, %198 ], [ false, %204 ], [ false, %210 ], [ false, %216 ], [ false, %222 ], [ false, %228 ], [ %exitcond.not.i24.i.i.i, %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit33" ], [ %exitcond.not.i30.i.i.i, %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit34" ], [ %exitcond.not.i71.i.i.i, %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h67d0a60dfe842f6eE.exit.loopexit40" ], [ false, %237 ], [ false, %252 ], [ false, %395 ], [ false, %416 ], [ false, %439 ], [ false, %514 ], [ false, %581 ]
   ret i1 %.0.i.i
 }
 

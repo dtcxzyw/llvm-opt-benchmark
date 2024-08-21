@@ -7622,13 +7622,13 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %104 = getelementptr inbounds i8, ptr %12, i64 8
   br label %105
 
-105:                                              ; preds = %.thread41, %48
-  %106 = phi ptr [ %1, %48 ], [ %114, %.thread41 ]
-  %107 = phi i32 [ %2, %48 ], [ %116, %.thread41 ]
-  %108 = phi i32 [ 0, %48 ], [ %115, %.thread41 ]
-  %109 = phi i64 [ 0, %48 ], [ %969, %.thread41 ]
-  %110 = phi i64 [ 0, %48 ], [ %968, %.thread41 ]
-  %111 = phi i32 [ -1, %48 ], [ %967, %.thread41 ]
+105:                                              ; preds = %.thread43, %48
+  %106 = phi ptr [ %1, %48 ], [ %114, %.thread43 ]
+  %107 = phi i32 [ %2, %48 ], [ %116, %.thread43 ]
+  %108 = phi i32 [ 0, %48 ], [ %115, %.thread43 ]
+  %109 = phi i64 [ 0, %48 ], [ %969, %.thread43 ]
+  %110 = phi i64 [ 0, %48 ], [ %968, %.thread43 ]
+  %111 = phi i32 [ -1, %48 ], [ %967, %.thread43 ]
   %112 = load i8, ptr %106, align 1
   %113 = zext i8 %112 to i32
   %114 = getelementptr i8, ptr %106, i64 1
@@ -7688,7 +7688,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %156 = add i8 %147, -1
   store i8 %156, ptr %52, align 2
   %157 = icmp eq i8 %156, 0
-  br i1 %157, label %158, label %.thread41
+  br i1 %157, label %158, label %.thread43
 
 158:                                              ; preds = %150
   %159 = zext i32 %154 to i64
@@ -7721,7 +7721,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 172:                                              ; preds = %171
   store i8 1, ptr %52, align 2
   store i32 %134, ptr %54, align 4
-  br label %.thread41
+  br label %.thread43
 
 173:                                              ; preds = %171
   br i1 %123, label %174, label %175
@@ -7729,7 +7729,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 174:                                              ; preds = %173
   store i8 2, ptr %52, align 2
   store i32 %133, ptr %54, align 4
-  br label %.thread41
+  br label %.thread43
 
 175:                                              ; preds = %173
   br i1 %125, label %176, label %177
@@ -7737,7 +7737,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 176:                                              ; preds = %175
   store i8 3, ptr %52, align 2
   store i32 %132, ptr %54, align 4
-  br label %.thread41
+  br label %.thread43
 
 177:                                              ; preds = %175
   br i1 %127, label %178, label %179
@@ -7745,7 +7745,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 178:                                              ; preds = %177
   store i8 4, ptr %52, align 2
   store i32 %131, ptr %54, align 4
-  br label %.thread41
+  br label %.thread43
 
 179:                                              ; preds = %177
   br i1 %129, label %180, label %.thread
@@ -7753,7 +7753,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 180:                                              ; preds = %179
   store i8 5, ptr %52, align 2
   store i32 %130, ptr %54, align 4
-  br label %.thread41
+  br label %.thread43
 
 181:                                              ; preds = %142
   %182 = shl i16 %143, 6
@@ -7775,7 +7775,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %196 = or i1 %193, %195
   %197 = select i1 %196, i32 65533, i32 %153
   %198 = icmp eq i32 %197, -1
-  br i1 %198, label %.thread41, label %.thread, !llvm.loop !130
+  br i1 %198, label %.thread43, label %.thread, !llvm.loop !130
 
 .thread:                                          ; preds = %179, %170, %158, %163, %149, %169, %136, %181, %191
   %199 = phi i32 [ %197, %191 ], [ 65533, %179 ], [ %113, %170 ], [ 65533, %158 ], [ 65533, %163 ], [ 65533, %149 ], [ 65533, %169 ], [ %113, %136 ], [ %190, %181 ]
@@ -7784,7 +7784,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   store i32 %199, ptr %55, align 8
   %202 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @vt_notifier_list, i64 noundef 5, ptr noundef nonnull %13) #25
   %203 = icmp eq i32 %202, 32769
-  br i1 %203, label %.thread41, label %204, !llvm.loop !130
+  br i1 %203, label %.thread43, label %204, !llvm.loop !130
 
 204:                                              ; preds = %.thread
   %205 = load i32, ptr %49, align 4
@@ -7850,22 +7850,22 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %241 = trunc i64 %240 to i32
   %242 = load i32, ptr %59, align 4
   call void %237(ptr noundef %19, ptr noundef %238, i32 noundef %241, i32 noundef %242, i32 noundef %137) #25
-  %.pre106 = load i32, ptr %49, align 4
+  %.pre109 = load i32, ptr %49, align 4
   br label %243
 
 243:                                              ; preds = %234, %232
-  %244 = phi i32 [ %205, %232 ], [ %.pre106, %234 ]
+  %244 = phi i32 [ %205, %232 ], [ %.pre109, %234 ]
   %245 = phi i32 [ %137, %232 ], [ -1, %234 ]
   %246 = and i32 %244, -4
   %247 = icmp eq i32 %246, 12
   %248 = add nsw i32 %113, -8
   %249 = icmp ult i32 %248, 6
   %250 = and i1 %249, %247
-  br i1 %250, label %.thread41, label %251, !llvm.loop !130
+  br i1 %250, label %.thread43, label %251, !llvm.loop !130
 
 251:                                              ; preds = %243
   switch i8 %112, label %346 [
-    i8 0, label %.thread41
+    i8 0, label %.thread43
     i8 7, label %252
     i8 8, label %259
     i8 9, label %269
@@ -7878,7 +7878,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
     i8 24, label %343
     i8 26, label %343
     i8 27, label %344
-    i8 127, label %.thread41
+    i8 127, label %.thread43
     i8 -101, label %345
   ], !llvm.loop !130
 
@@ -7887,22 +7887,22 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 253:                                              ; preds = %252
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 254:                                              ; preds = %252
   %255 = load i32, ptr %80, align 8
   %256 = icmp eq i32 %255, 0
-  br i1 %256, label %.thread41, label %257, !llvm.loop !130
+  br i1 %256, label %.thread43, label %257, !llvm.loop !130
 
 257:                                              ; preds = %254
   %258 = load i32, ptr %81, align 4
   call void @kd_mksound(i32 noundef %258, i32 noundef %255) #25
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 259:                                              ; preds = %251
   %260 = load i32, ptr %60, align 8
   %261 = icmp eq i32 %260, 0
-  br i1 %261, label %.thread41, label %262, !llvm.loop !130
+  br i1 %261, label %.thread43, label %262, !llvm.loop !130
 
 262:                                              ; preds = %259
   %263 = load i64, ptr %61, align 8
@@ -7919,7 +7919,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   store i32 8, ptr %79, align 8
   %268 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @vt_notifier_list, i64 noundef 3, ptr noundef nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 269:                                              ; preds = %251
   %270 = load i32, ptr %60, align 8
@@ -7959,7 +7959,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   store i32 9, ptr %78, align 8
   %293 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @vt_notifier_list, i64 noundef 3, ptr noundef nonnull %11) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 294:                                              ; preds = %251, %251, %251
   %295 = load i32, ptr %59, align 4
@@ -8002,7 +8002,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %315 = zext i16 %314 to i32
   %316 = call i32 @vt_get_kbd_mode_bit(i32 noundef %315, i32 noundef 3) #25
   %317 = icmp eq i32 %316, 0
-  br i1 %317, label %.thread41, label %318, !llvm.loop !130
+  br i1 %317, label %.thread43, label %318, !llvm.loop !130
 
 318:                                              ; preds = %310, %251
   %319 = load i32, ptr %60, align 8
@@ -8021,7 +8021,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   store i32 13, ptr %76, align 8
   %326 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @vt_notifier_list, i64 noundef 3, ptr noundef nonnull %9) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 327:                                              ; preds = %251
   %328 = load i8, ptr %72, align 1
@@ -8034,7 +8034,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %333 = load i16, ptr %50, align 8
   %334 = or i16 %333, 1
   store i16 %334, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 335:                                              ; preds = %251
   %336 = load i8, ptr %72, align 1
@@ -8047,19 +8047,19 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %341 = load i16, ptr %50, align 8
   %342 = and i16 %341, -2
   store i16 %342, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 343:                                              ; preds = %251, %251
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 344:                                              ; preds = %251
   store i32 1, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 345:                                              ; preds = %251
   store i32 2, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 346:                                              ; preds = %251
   switch i32 %244, label %684 [
@@ -8074,15 +8074,15 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
     i32 5, label %670
     i32 6, label %682
     i32 7, label %683
-    i32 13, label %.thread41
-    i32 12, label %.thread41
-    i32 14, label %.thread41
-    i32 15, label %.thread41
+    i32 13, label %.thread43
+    i32 12, label %.thread43
+    i32 14, label %.thread43
+    i32 15, label %.thread43
   ], !llvm.loop !130
 
 347:                                              ; preds = %346
   store i32 0, ptr %49, align 4
-  switch i8 %112, label %.thread41 [
+  switch i8 %112, label %.thread43 [
     i8 91, label %348
     i8 93, label %349
     i8 95, label %350
@@ -8106,91 +8106,91 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 348:                                              ; preds = %347
   store i32 2, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 349:                                              ; preds = %347
   store i32 10, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 350:                                              ; preds = %347
   store i32 13, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 351:                                              ; preds = %347
   store i32 14, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 352:                                              ; preds = %347
   store i32 8, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 353:                                              ; preds = %347
   call fastcc void @cr(ptr noundef %19)
   call fastcc void @lf(ptr noundef %19)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 354:                                              ; preds = %347
   call fastcc void @ri(ptr noundef %19)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 355:                                              ; preds = %347
   call fastcc void @lf(ptr noundef %19)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 356:                                              ; preds = %347
   %357 = load i32, ptr %60, align 8
   %358 = icmp ult i32 %357, 256
-  br i1 %358, label %359, label %.thread41, !llvm.loop !130
+  br i1 %358, label %359, label %.thread43, !llvm.loop !130
 
 359:                                              ; preds = %356
   %360 = zext nneg i32 %357 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %77, i64 %360) #25, !srcloc !112
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 361:                                              ; preds = %347
   store i32 15, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 362:                                              ; preds = %347
   %.val = load ptr, ptr %97, align 8
   call fastcc void @respond_ID(ptr %.val)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 363:                                              ; preds = %347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %91, ptr noundef align 8 dereferenceable(20) %60, i64 20, i1 false)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 364:                                              ; preds = %347
   call fastcc void @restore_cur(ptr noundef %19)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 365:                                              ; preds = %347
   store i32 6, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 366:                                              ; preds = %347
   store i32 7, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 367:                                              ; preds = %347
   store i32 5, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 368:                                              ; preds = %347
   call fastcc void @reset_terminal(ptr noundef %19, i32 noundef 1)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 369:                                              ; preds = %347
   %370 = load i16, ptr %24, align 8
   %371 = zext i16 %370 to i32
   call void @vt_clr_kbd_mode_bit(i32 noundef %371, i32 noundef 0) #25
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 372:                                              ; preds = %347
   %373 = load i16, ptr %24, align 8
   %374 = zext i16 %373 to i32
   call void @vt_set_kbd_mode_bit(i32 noundef %374, i32 noundef 0) #25
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 375:                                              ; preds = %346
   switch i8 %112, label %378 [
@@ -8201,12 +8201,12 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 376:                                              ; preds = %375
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(68) %53, i8 0, i64 68, i1 false)
   store i32 11, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 377:                                              ; preds = %375
   call void @reset_palette(ptr noundef %19)
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 378:                                              ; preds = %375
   %379 = add nsw i32 %113, -48
@@ -8215,11 +8215,11 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 381:                                              ; preds = %378
   store i32 12, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 382:                                              ; preds = %378
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 383:                                              ; preds = %346
   %384 = zext i8 %112 to i64
@@ -8238,7 +8238,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %394 = getelementptr [16 x i32], ptr %85, i64 0, i64 %393
   store i32 %390, ptr %394, align 4
   %395 = icmp eq i32 %392, 7
-  br i1 %395, label %396, label %.thread41, !llvm.loop !130
+  br i1 %395, label %396, label %.thread43, !llvm.loop !130
 
 396:                                              ; preds = %389
   %397 = load i32, ptr %85, align 4
@@ -8277,11 +8277,11 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   store i8 %424, ptr %421, align 1
   call fastcc void @set_palette(ptr noundef %19)
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 425:                                              ; preds = %383
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 426:                                              ; preds = %346
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(68) %53, i8 0, i64 68, i1 false)
@@ -8296,35 +8296,35 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 427:                                              ; preds = %426
   store i32 4, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 428:                                              ; preds = %426
   %429 = load i16, ptr %50, align 8
   %430 = and i16 %429, -897
   %431 = or disjoint i16 %430, 128
   store i16 %431, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 432:                                              ; preds = %426
   %433 = load i16, ptr %50, align 8
   %434 = and i16 %433, -897
   %435 = or disjoint i16 %434, 384
   store i16 %435, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 436:                                              ; preds = %426
   %437 = load i16, ptr %50, align 8
   %438 = and i16 %437, -897
   %439 = or disjoint i16 %438, 256
   store i16 %439, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 440:                                              ; preds = %426
   %441 = load i16, ptr %50, align 8
   %442 = and i16 %441, -897
   %443 = or disjoint i16 %442, 512
   store i16 %443, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 444:                                              ; preds = %426
   %445 = load i16, ptr %50, align 8
@@ -8344,7 +8344,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 452:                                              ; preds = %449
   %453 = add nuw nsw i32 %450, 1
   store i32 %453, ptr %53, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 454:                                              ; preds = %447
   %455 = add nsw i32 %113, -48
@@ -8359,7 +8359,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %462 = mul i32 %461, 10
   %463 = add i32 %462, %455
   store i32 %463, ptr %460, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 .thread42:                                        ; preds = %449, %454
   %464 = icmp eq i32 %120, 32
@@ -8367,12 +8367,12 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 465:                                              ; preds = %.thread42
   store i32 9, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 466:                                              ; preds = %.thread42
   store i32 0, ptr %49, align 4
-  %.pre108 = load i16, ptr %50, align 8
-  switch i8 %112, label %._crit_edge107 [
+  %.pre111 = load i16, ptr %50, align 8
+  switch i8 %112, label %._crit_edge110 [
     i8 104, label %467
     i8 108, label %471
     i8 99, label %475
@@ -8381,27 +8381,27 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   ]
 
 467:                                              ; preds = %466
-  %468 = and i16 %.pre108, 768
+  %468 = and i16 %.pre111, 768
   %469 = icmp eq i16 %468, 0
-  br i1 %469, label %470, label %.thread41, !llvm.loop !130
+  br i1 %469, label %470, label %.thread43, !llvm.loop !130
 
 470:                                              ; preds = %467
   call fastcc void @set_mode(ptr noundef %19, i32 noundef 1)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 471:                                              ; preds = %466
-  %472 = and i16 %.pre108, 768
+  %472 = and i16 %.pre111, 768
   %473 = icmp eq i16 %472, 0
-  br i1 %473, label %474, label %.thread41, !llvm.loop !130
+  br i1 %473, label %474, label %.thread43, !llvm.loop !130
 
 474:                                              ; preds = %471
   call fastcc void @set_mode(ptr noundef %19, i32 noundef 0)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 475:                                              ; preds = %466
-  %476 = and i16 %.pre108, 896
+  %476 = and i16 %.pre111, 896
   %477 = icmp eq i16 %476, 128
-  br i1 %477, label %478, label %._crit_edge107
+  br i1 %477, label %478, label %._crit_edge110
 
 478:                                              ; preds = %475
   %479 = load i32, ptr %85, align 4
@@ -8416,17 +8416,17 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %486 = or i32 %483, %485
   %487 = or i32 %486, %479
   store i32 %487, ptr %90, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 488:                                              ; preds = %478
   %489 = load i32, ptr @cur_default, align 4
   store i32 %489, ptr %90, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 490:                                              ; preds = %466
-  %491 = and i16 %.pre108, 896
+  %491 = and i16 %.pre111, 896
   %492 = icmp eq i16 %491, 128
-  br i1 %492, label %493, label %._crit_edge107
+  br i1 %492, label %493, label %._crit_edge110
 
 493:                                              ; preds = %490
   call void @clear_selection() #25
@@ -8440,21 +8440,21 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %499 = or i32 %498, %497
   %500 = trunc i32 %499 to i16
   store i16 %500, ptr %87, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 501:                                              ; preds = %493
   %502 = load i16, ptr %88, align 2
   store i16 %502, ptr %87, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 503:                                              ; preds = %466
-  %504 = and i16 %.pre108, 896
+  %504 = and i16 %.pre111, 896
   %505 = icmp eq i16 %504, 0
-  br i1 %505, label %506, label %.thread41, !llvm.loop !130
+  br i1 %505, label %506, label %.thread43, !llvm.loop !130
 
 506:                                              ; preds = %503
   %507 = load i32, ptr %85, align 4
-  switch i32 %507, label %.thread41 [
+  switch i32 %507, label %.thread43 [
     i32 5, label %508
     i32 6, label %509
   ], !llvm.loop !130
@@ -8462,24 +8462,24 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 508:                                              ; preds = %506
   %.val37 = load ptr, ptr %97, align 8
   call fastcc void @status_report(ptr %.val37)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 509:                                              ; preds = %506
   call fastcc void @cursor_report(ptr noundef %19, ptr noundef %0)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
-._crit_edge107:                                   ; preds = %466, %490, %475
-  %510 = and i16 %.pre108, 896
+._crit_edge110:                                   ; preds = %466, %490, %475
+  %510 = and i16 %.pre111, 896
   %511 = icmp eq i16 %510, 0
   br i1 %511, label %514, label %512
 
-512:                                              ; preds = %._crit_edge107
-  %513 = and i16 %.pre108, -897
+512:                                              ; preds = %._crit_edge110
+  %513 = and i16 %.pre111, -897
   store i16 %513, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
-514:                                              ; preds = %._crit_edge107
-  switch i8 %112, label %.thread41 [
+514:                                              ; preds = %._crit_edge110
+  switch i8 %112, label %.thread43 [
     i8 71, label %515
     i8 96, label %515
     i8 65, label %523
@@ -8524,7 +8524,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %521 = phi i32 [ %519, %518 ], [ 0, %515 ]
   %522 = load i32, ptr %59, align 4
   call fastcc void @gotoxy(ptr noundef %19, i32 noundef %521, i32 noundef %522)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 523:                                              ; preds = %514
   %524 = load i32, ptr %85, align 4
@@ -8541,7 +8541,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %530 = load i32, ptr %59, align 4
   %531 = sub i32 %530, %528
   call fastcc void @gotoxy(ptr noundef %19, i32 noundef %529, i32 noundef %531)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 532:                                              ; preds = %514, %514
   %533 = load i32, ptr %85, align 4
@@ -8558,7 +8558,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %539 = load i32, ptr %59, align 4
   %540 = add i32 %537, %539
   call fastcc void @gotoxy(ptr noundef %19, i32 noundef %538, i32 noundef %540)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 541:                                              ; preds = %514, %514
   %542 = load i32, ptr %85, align 4
@@ -8575,7 +8575,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %548 = add i32 %546, %547
   %549 = load i32, ptr %59, align 4
   call fastcc void @gotoxy(ptr noundef %19, i32 noundef %548, i32 noundef %549)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 550:                                              ; preds = %514
   %551 = load i32, ptr %85, align 4
@@ -8592,7 +8592,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %557 = sub i32 %556, %555
   %558 = load i32, ptr %59, align 4
   call fastcc void @gotoxy(ptr noundef %19, i32 noundef %557, i32 noundef %558)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 559:                                              ; preds = %514
   %560 = load i32, ptr %85, align 4
@@ -8608,7 +8608,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %565 = load i32, ptr %59, align 4
   %566 = add i32 %564, %565
   call fastcc void @gotoxy(ptr noundef %19, i32 noundef 0, i32 noundef %566)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 567:                                              ; preds = %514
   %568 = load i32, ptr %85, align 4
@@ -8624,7 +8624,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %573 = load i32, ptr %59, align 4
   %574 = sub i32 %573, %572
   call fastcc void @gotoxy(ptr noundef %19, i32 noundef 0, i32 noundef %574)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 575:                                              ; preds = %514
   %576 = load i32, ptr %85, align 4
@@ -8640,7 +8640,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %581 = phi i32 [ %579, %578 ], [ 0, %575 ]
   %582 = load i32, ptr %60, align 8
   call fastcc void @gotoxay(ptr noundef %19, i32 noundef %582, i32 noundef %581)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 583:                                              ; preds = %514, %514
   %584 = load i32, ptr %85, align 4
@@ -8666,46 +8666,46 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 594:                                              ; preds = %592, %588
   %595 = phi i32 [ %593, %592 ], [ 0, %588 ]
   call fastcc void @gotoxay(ptr noundef %19, i32 noundef %595, i32 noundef %589)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 596:                                              ; preds = %514
   %597 = load i32, ptr %85, align 4
   call fastcc void @csi_J(ptr noundef %19, i32 noundef %597)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 598:                                              ; preds = %514
   %599 = load i32, ptr %85, align 4
   call fastcc void @csi_K(ptr noundef %19, i32 noundef %599)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 600:                                              ; preds = %514
   %601 = load i32, ptr %85, align 4
   call fastcc void @csi_L(ptr noundef %19, i32 noundef %601)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 602:                                              ; preds = %514
   %603 = load i32, ptr %85, align 4
   call fastcc void @csi_M(ptr noundef %19, i32 noundef %603)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 604:                                              ; preds = %514
   %605 = load i32, ptr %85, align 4
   call fastcc void @csi_P(ptr noundef %19, i32 noundef %605)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 606:                                              ; preds = %514
   %607 = load i32, ptr %85, align 4
   %608 = icmp eq i32 %607, 0
-  br i1 %608, label %609, label %.thread41, !llvm.loop !130
+  br i1 %608, label %609, label %.thread43, !llvm.loop !130
 
 609:                                              ; preds = %606
   %.val36 = load ptr, ptr %97, align 8
   call fastcc void @respond_ID(ptr %.val36)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 610:                                              ; preds = %514
   %611 = load i32, ptr %85, align 4
-  switch i32 %611, label %.thread41 [
+  switch i32 %611, label %.thread43 [
     i32 0, label %612
     i32 3, label %617
   ], !llvm.loop !130
@@ -8713,25 +8713,25 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 612:                                              ; preds = %610
   %613 = load i32, ptr %60, align 8
   %614 = icmp ult i32 %613, 256
-  br i1 %614, label %615, label %.thread41
+  br i1 %614, label %615, label %.thread43
 
 615:                                              ; preds = %612
   %616 = zext nneg i32 %613 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %77, i64 %616) #25, !srcloc !112
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 617:                                              ; preds = %610
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %77, i8 0, i64 32, i1 false)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 618:                                              ; preds = %514
   call fastcc void @csi_m(ptr noundef %19)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 619:                                              ; preds = %514
   %620 = load i32, ptr %85, align 4
   %621 = icmp ult i32 %620, 4
-  br i1 %621, label %622, label %.thread41, !llvm.loop !130
+  br i1 %621, label %622, label %.thread43, !llvm.loop !130
 
 622:                                              ; preds = %619
   %623 = load i16, ptr %24, align 8
@@ -8739,7 +8739,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %625 = icmp eq i32 %620, 3
   %626 = select i1 %625, i32 4, i32 %620
   call void @vt_set_led_state(i32 noundef %624, i32 noundef %626) #25
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 627:                                              ; preds = %514
   %628 = load i32, ptr %85, align 4
@@ -8764,32 +8764,32 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 637:                                              ; preds = %635, %631
   %638 = phi i32 [ %636, %635 ], [ %633, %631 ]
   %639 = icmp ult i32 %632, %638
-  br i1 %639, label %640, label %.thread41, !llvm.loop !130
+  br i1 %639, label %640, label %.thread43, !llvm.loop !130
 
 640:                                              ; preds = %637
   %641 = load i32, ptr %64, align 8
   %642 = icmp ugt i32 %638, %641
-  br i1 %642, label %.thread41, label %643, !llvm.loop !130
+  br i1 %642, label %.thread43, label %643, !llvm.loop !130
 
 643:                                              ; preds = %640
   %644 = add i32 %632, -1
   store i32 %644, ptr %66, align 8
   store i32 %638, ptr %63, align 4
   call fastcc void @gotoxay(ptr noundef %19, i32 noundef 0, i32 noundef 0)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 645:                                              ; preds = %514
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %91, ptr noundef align 8 dereferenceable(20) %60, i64 20, i1 false)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 646:                                              ; preds = %514
   call fastcc void @restore_cur(ptr noundef %19)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 647:                                              ; preds = %514
   %648 = load i32, ptr %85, align 4
   call fastcc void @csi_X(ptr noundef %19, i32 noundef %648)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 649:                                              ; preds = %514
   %650 = load i32, ptr %85, align 4
@@ -8800,24 +8800,24 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %655 = call i32 @llvm.umax.i32(i32 %650, i32 1)
   %656 = select i1 %654, i32 %653, i32 %655
   call fastcc void @insert_char(ptr noundef %19, i32 noundef %656)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 657:                                              ; preds = %514
   call fastcc void @setterm_command(ptr noundef %19)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 658:                                              ; preds = %346
   %659 = add nsw i32 %113, -20
   %660 = icmp ult i32 %659, 44
-  br i1 %660, label %.thread41, label %661, !llvm.loop !130
+  br i1 %660, label %.thread43, label %661, !llvm.loop !130
 
 661:                                              ; preds = %658
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 662:                                              ; preds = %346
   store i32 0, ptr %49, align 4
-  switch i8 %112, label %.thread41 [
+  switch i8 %112, label %.thread43 [
     i8 64, label %663
     i8 71, label %666
     i8 56, label %666
@@ -8827,22 +8827,22 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %664 = load i16, ptr %50, align 8
   %665 = and i16 %664, -16385
   store i16 %665, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 666:                                              ; preds = %662, %662
   %667 = load i16, ptr %50, align 8
   %668 = or i16 %667, 16384
   store i16 %668, ptr %50, align 8
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 669:                                              ; preds = %346
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 670:                                              ; preds = %346
   store i32 0, ptr %49, align 4
   %671 = icmp eq i8 %112, 56
-  br i1 %671, label %672, label %.thread41, !llvm.loop !130
+  br i1 %671, label %672, label %.thread43, !llvm.loop !130
 
 672:                                              ; preds = %670
   %673 = load i16, ptr %82, align 8
@@ -8858,21 +8858,21 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %680 = load i32, ptr %84, align 8
   %681 = lshr i32 %680, 1
   call fastcc void @do_update_region(ptr noundef %19, i64 noundef %679, i32 noundef %681)
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 682:                                              ; preds = %346
   call fastcc void @vc_setGx(ptr noundef %19, i32 noundef 0, i32 noundef %113)
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 683:                                              ; preds = %346
   call fastcc void @vc_setGx(ptr noundef %19, i32 noundef 1, i32 noundef %113)
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 684:                                              ; preds = %346
   store i32 0, ptr %49, align 4
-  br label %.thread41, !llvm.loop !130
+  br label %.thread43, !llvm.loop !130
 
 685:                                              ; preds = %._crit_edge, %215, %224, %220
   %686 = phi i16 [ %.pre, %._crit_edge ], [ %212, %215 ], [ %212, %224 ], [ %221, %220 ]
@@ -8912,7 +8912,7 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
 
 708:                                              ; preds = %701
   %709 = icmp ugt i32 %704, -3
-  br i1 %709, label %.thread41, label %710
+  br i1 %709, label %.thread43, label %710
 
 710:                                              ; preds = %708
   %711 = load i16, ptr %50, align 8
@@ -9030,11 +9030,11 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %796 = trunc i64 %795 to i32
   %797 = load i32, ptr %59, align 4
   call void %792(ptr noundef %19, ptr noundef %793, i32 noundef %796, i32 noundef %797, i32 noundef %778) #25
-  %.pre103 = load i16, ptr %50, align 8
+  %.pre106 = load i16, ptr %50, align 8
   br label %798
 
 798:                                              ; preds = %789, %777
-  %799 = phi i16 [ %784, %777 ], [ %.pre103, %789 ]
+  %799 = phi i16 [ %784, %777 ], [ %.pre106, %789 ]
   %800 = phi i32 [ %778, %777 ], [ -1, %789 ]
   %801 = and i16 %799, 1024
   %802 = icmp eq i16 %801, 0
@@ -9092,11 +9092,11 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   store i32 10, ptr %67, align 8
   %829 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @vt_notifier_list, i64 noundef 3, ptr noundef nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  %.pre104 = load i16, ptr %50, align 8
+  %.pre107 = load i16, ptr %50, align 8
   br label %830
 
 830:                                              ; preds = %826, %798
-  %831 = phi i16 [ %.pre104, %826 ], [ %799, %798 ]
+  %831 = phi i16 [ %.pre107, %826 ], [ %799, %798 ]
   %832 = and i16 %831, 64
   %833 = icmp eq i16 %832, 0
   br i1 %833, label %insert_char.exit, label %834
@@ -9236,7 +9236,7 @@ insert_char.exit:                                 ; preds = %881, %874, %830
   %923 = select i1 %920, i1 %922, i1 false
   %924 = icmp slt i32 %800, 0
   %925 = select i1 %923, i1 %924, i1 false
-  %.pre105 = load i32, ptr %60, align 8
+  %.pre108 = load i32, ptr %60, align 8
   br i1 %925, label %926, label %928
 
 926:                                              ; preds = %917
@@ -9244,11 +9244,11 @@ insert_char.exit:                                 ; preds = %881, %874, %830
   br label %928
 
 928:                                              ; preds = %926, %917
-  %929 = phi i32 [ %.pre105, %926 ], [ %800, %917 ]
+  %929 = phi i32 [ %.pre108, %926 ], [ %800, %917 ]
   %930 = phi i64 [ %927, %926 ], [ %780, %917 ]
   %931 = load i32, ptr %70, align 4
   %932 = add i32 %931, -1
-  %933 = icmp eq i32 %.pre105, %932
+  %933 = icmp eq i32 %.pre108, %932
   br i1 %933, label %934, label %942
 
 934:                                              ; preds = %928
@@ -9263,7 +9263,7 @@ insert_char.exit:                                 ; preds = %881, %874, %830
   br label %946
 
 942:                                              ; preds = %928
-  %943 = add i32 %.pre105, 1
+  %943 = add i32 %.pre108, 1
   store i32 %943, ptr %60, align 8
   %944 = load i64, ptr %61, align 8
   %945 = add i64 %944, 2
@@ -9305,19 +9305,19 @@ insert_char.exit:                                 ; preds = %881, %874, %830
 
 965:                                              ; preds = %956, %952
   %966 = phi i32 [ -1, %956 ], [ %929, %952 ]
-  br i1 %200, label %.thread41, label %136, !llvm.loop !130
+  br i1 %200, label %.thread43, label %136, !llvm.loop !130
 
-.thread41:                                        ; preds = %708, %150, %965, %.thread, %191, %174, %178, %180, %176, %172, %612, %684, %683, %682, %672, %670, %669, %666, %663, %662, %661, %658, %657, %649, %647, %646, %645, %643, %640, %637, %622, %619, %618, %617, %615, %610, %609, %606, %604, %602, %600, %598, %596, %594, %580, %571, %563, %554, %545, %536, %527, %520, %514, %512, %509, %508, %506, %503, %501, %496, %488, %481, %474, %471, %470, %467, %465, %457, %452, %440, %436, %432, %428, %427, %425, %396, %389, %382, %381, %377, %376, %372, %369, %368, %367, %366, %365, %364, %363, %362, %361, %359, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %346, %346, %346, %345, %344, %343, %335, %327, %318, %310, %287, %262, %259, %257, %254, %253, %251, %251, %243
-  %967 = phi i32 [ %245, %243 ], [ %245, %251 ], [ %245, %251 ], [ %245, %253 ], [ %245, %254 ], [ %245, %257 ], [ %245, %259 ], [ %245, %262 ], [ %245, %287 ], [ %245, %310 ], [ %245, %318 ], [ %245, %327 ], [ %245, %335 ], [ %245, %343 ], [ %245, %344 ], [ %245, %345 ], [ %245, %346 ], [ %245, %346 ], [ %245, %346 ], [ %245, %346 ], [ %245, %347 ], [ %245, %348 ], [ %245, %349 ], [ %245, %350 ], [ %245, %351 ], [ %245, %352 ], [ %245, %353 ], [ %245, %354 ], [ %245, %355 ], [ %245, %356 ], [ %245, %359 ], [ %245, %361 ], [ %245, %362 ], [ %245, %363 ], [ %245, %364 ], [ %245, %365 ], [ %245, %366 ], [ %245, %367 ], [ %245, %368 ], [ %245, %369 ], [ %245, %372 ], [ %245, %376 ], [ %245, %377 ], [ %245, %381 ], [ %245, %382 ], [ %245, %389 ], [ %245, %396 ], [ %245, %425 ], [ %245, %427 ], [ %245, %428 ], [ %245, %432 ], [ %245, %436 ], [ %245, %440 ], [ %245, %452 ], [ %245, %457 ], [ %245, %465 ], [ %245, %467 ], [ %245, %470 ], [ %245, %471 ], [ %245, %474 ], [ %245, %481 ], [ %245, %488 ], [ %245, %496 ], [ %245, %501 ], [ %245, %503 ], [ %245, %506 ], [ %245, %508 ], [ %245, %509 ], [ %245, %512 ], [ %245, %514 ], [ %245, %520 ], [ %245, %527 ], [ %245, %536 ], [ %245, %545 ], [ %245, %554 ], [ %245, %563 ], [ %245, %571 ], [ %245, %580 ], [ %245, %594 ], [ %245, %596 ], [ %245, %598 ], [ %245, %600 ], [ %245, %602 ], [ %245, %604 ], [ %245, %606 ], [ %245, %609 ], [ %245, %610 ], [ %245, %615 ], [ %245, %617 ], [ %245, %618 ], [ %245, %619 ], [ %245, %622 ], [ %245, %637 ], [ %245, %640 ], [ %245, %643 ], [ %245, %645 ], [ %245, %646 ], [ %245, %647 ], [ %245, %649 ], [ %245, %657 ], [ %245, %658 ], [ %245, %661 ], [ %245, %662 ], [ %245, %663 ], [ %245, %666 ], [ %245, %669 ], [ %245, %670 ], [ %245, %672 ], [ %245, %682 ], [ %245, %683 ], [ %245, %684 ], [ %245, %612 ], [ %137, %172 ], [ %137, %176 ], [ %137, %180 ], [ %137, %178 ], [ %137, %174 ], [ %137, %708 ], [ %137, %150 ], [ %966, %965 ], [ %137, %.thread ], [ %137, %191 ]
-  %968 = phi i64 [ %138, %243 ], [ %138, %251 ], [ %138, %251 ], [ %138, %253 ], [ %138, %254 ], [ %138, %257 ], [ %138, %259 ], [ %138, %262 ], [ %138, %287 ], [ %138, %310 ], [ %138, %318 ], [ %138, %327 ], [ %138, %335 ], [ %138, %343 ], [ %138, %344 ], [ %138, %345 ], [ %138, %346 ], [ %138, %346 ], [ %138, %346 ], [ %138, %346 ], [ %138, %347 ], [ %138, %348 ], [ %138, %349 ], [ %138, %350 ], [ %138, %351 ], [ %138, %352 ], [ %138, %353 ], [ %138, %354 ], [ %138, %355 ], [ %138, %356 ], [ %138, %359 ], [ %138, %361 ], [ %138, %362 ], [ %138, %363 ], [ %138, %364 ], [ %138, %365 ], [ %138, %366 ], [ %138, %367 ], [ %138, %368 ], [ %138, %369 ], [ %138, %372 ], [ %138, %376 ], [ %138, %377 ], [ %138, %381 ], [ %138, %382 ], [ %138, %389 ], [ %138, %396 ], [ %138, %425 ], [ %138, %427 ], [ %138, %428 ], [ %138, %432 ], [ %138, %436 ], [ %138, %440 ], [ %138, %452 ], [ %138, %457 ], [ %138, %465 ], [ %138, %467 ], [ %138, %470 ], [ %138, %471 ], [ %138, %474 ], [ %138, %481 ], [ %138, %488 ], [ %138, %496 ], [ %138, %501 ], [ %138, %503 ], [ %138, %506 ], [ %138, %508 ], [ %138, %509 ], [ %138, %512 ], [ %138, %514 ], [ %138, %520 ], [ %138, %527 ], [ %138, %536 ], [ %138, %545 ], [ %138, %554 ], [ %138, %563 ], [ %138, %571 ], [ %138, %580 ], [ %138, %594 ], [ %138, %596 ], [ %138, %598 ], [ %138, %600 ], [ %138, %602 ], [ %138, %604 ], [ %138, %606 ], [ %138, %609 ], [ %138, %610 ], [ %138, %615 ], [ %138, %617 ], [ %138, %618 ], [ %138, %619 ], [ %138, %622 ], [ %138, %637 ], [ %138, %640 ], [ %138, %643 ], [ %138, %645 ], [ %138, %646 ], [ %138, %647 ], [ %138, %649 ], [ %138, %657 ], [ %138, %658 ], [ %138, %661 ], [ %138, %662 ], [ %138, %663 ], [ %138, %666 ], [ %138, %669 ], [ %138, %670 ], [ %138, %672 ], [ %138, %682 ], [ %138, %683 ], [ %138, %684 ], [ %138, %612 ], [ %138, %172 ], [ %138, %176 ], [ %138, %180 ], [ %138, %178 ], [ %138, %174 ], [ %138, %708 ], [ %138, %150 ], [ %947, %965 ], [ %138, %.thread ], [ %138, %191 ]
-  %969 = phi i64 [ %139, %243 ], [ %139, %251 ], [ %139, %251 ], [ %139, %253 ], [ %139, %254 ], [ %139, %257 ], [ %139, %259 ], [ %139, %262 ], [ %139, %287 ], [ %139, %310 ], [ %139, %318 ], [ %139, %327 ], [ %139, %335 ], [ %139, %343 ], [ %139, %344 ], [ %139, %345 ], [ %139, %346 ], [ %139, %346 ], [ %139, %346 ], [ %139, %346 ], [ %139, %347 ], [ %139, %348 ], [ %139, %349 ], [ %139, %350 ], [ %139, %351 ], [ %139, %352 ], [ %139, %353 ], [ %139, %354 ], [ %139, %355 ], [ %139, %356 ], [ %139, %359 ], [ %139, %361 ], [ %139, %362 ], [ %139, %363 ], [ %139, %364 ], [ %139, %365 ], [ %139, %366 ], [ %139, %367 ], [ %139, %368 ], [ %139, %369 ], [ %139, %372 ], [ %139, %376 ], [ %139, %377 ], [ %139, %381 ], [ %139, %382 ], [ %139, %389 ], [ %139, %396 ], [ %139, %425 ], [ %139, %427 ], [ %139, %428 ], [ %139, %432 ], [ %139, %436 ], [ %139, %440 ], [ %139, %452 ], [ %139, %457 ], [ %139, %465 ], [ %139, %467 ], [ %139, %470 ], [ %139, %471 ], [ %139, %474 ], [ %139, %481 ], [ %139, %488 ], [ %139, %496 ], [ %139, %501 ], [ %139, %503 ], [ %139, %506 ], [ %139, %508 ], [ %139, %509 ], [ %139, %512 ], [ %139, %514 ], [ %139, %520 ], [ %139, %527 ], [ %139, %536 ], [ %139, %545 ], [ %139, %554 ], [ %139, %563 ], [ %139, %571 ], [ %139, %580 ], [ %139, %594 ], [ %139, %596 ], [ %139, %598 ], [ %139, %600 ], [ %139, %602 ], [ %139, %604 ], [ %139, %606 ], [ %139, %609 ], [ %139, %610 ], [ %139, %615 ], [ %139, %617 ], [ %139, %618 ], [ %139, %619 ], [ %139, %622 ], [ %139, %637 ], [ %139, %640 ], [ %139, %643 ], [ %139, %645 ], [ %139, %646 ], [ %139, %647 ], [ %139, %649 ], [ %139, %657 ], [ %139, %658 ], [ %139, %661 ], [ %139, %662 ], [ %139, %663 ], [ %139, %666 ], [ %139, %669 ], [ %139, %670 ], [ %139, %672 ], [ %139, %682 ], [ %139, %683 ], [ %139, %684 ], [ %139, %612 ], [ %139, %172 ], [ %139, %176 ], [ %139, %180 ], [ %139, %178 ], [ %139, %174 ], [ %139, %708 ], [ %139, %150 ], [ %930, %965 ], [ %139, %.thread ], [ %139, %191 ]
+.thread43:                                        ; preds = %708, %965, %.thread, %191, %150, %174, %178, %180, %176, %172, %612, %684, %683, %682, %672, %670, %669, %666, %663, %662, %661, %658, %657, %649, %647, %646, %645, %643, %640, %637, %622, %619, %618, %617, %615, %610, %609, %606, %604, %602, %600, %598, %596, %594, %580, %571, %563, %554, %545, %536, %527, %520, %514, %512, %509, %508, %506, %503, %501, %496, %488, %481, %474, %471, %470, %467, %465, %457, %452, %440, %436, %432, %428, %427, %425, %396, %389, %382, %381, %377, %376, %372, %369, %368, %367, %366, %365, %364, %363, %362, %361, %359, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %346, %346, %346, %345, %344, %343, %335, %327, %318, %310, %287, %262, %259, %257, %254, %253, %251, %251, %243
+  %967 = phi i32 [ %245, %243 ], [ %245, %251 ], [ %245, %251 ], [ %245, %253 ], [ %245, %254 ], [ %245, %257 ], [ %245, %259 ], [ %245, %262 ], [ %245, %287 ], [ %245, %310 ], [ %245, %318 ], [ %245, %327 ], [ %245, %335 ], [ %245, %343 ], [ %245, %344 ], [ %245, %345 ], [ %245, %346 ], [ %245, %346 ], [ %245, %346 ], [ %245, %346 ], [ %245, %347 ], [ %245, %348 ], [ %245, %349 ], [ %245, %350 ], [ %245, %351 ], [ %245, %352 ], [ %245, %353 ], [ %245, %354 ], [ %245, %355 ], [ %245, %356 ], [ %245, %359 ], [ %245, %361 ], [ %245, %362 ], [ %245, %363 ], [ %245, %364 ], [ %245, %365 ], [ %245, %366 ], [ %245, %367 ], [ %245, %368 ], [ %245, %369 ], [ %245, %372 ], [ %245, %376 ], [ %245, %377 ], [ %245, %381 ], [ %245, %382 ], [ %245, %389 ], [ %245, %396 ], [ %245, %425 ], [ %245, %427 ], [ %245, %428 ], [ %245, %432 ], [ %245, %436 ], [ %245, %440 ], [ %245, %452 ], [ %245, %457 ], [ %245, %465 ], [ %245, %467 ], [ %245, %470 ], [ %245, %471 ], [ %245, %474 ], [ %245, %481 ], [ %245, %488 ], [ %245, %496 ], [ %245, %501 ], [ %245, %503 ], [ %245, %506 ], [ %245, %508 ], [ %245, %509 ], [ %245, %512 ], [ %245, %514 ], [ %245, %520 ], [ %245, %527 ], [ %245, %536 ], [ %245, %545 ], [ %245, %554 ], [ %245, %563 ], [ %245, %571 ], [ %245, %580 ], [ %245, %594 ], [ %245, %596 ], [ %245, %598 ], [ %245, %600 ], [ %245, %602 ], [ %245, %604 ], [ %245, %606 ], [ %245, %609 ], [ %245, %610 ], [ %245, %615 ], [ %245, %617 ], [ %245, %618 ], [ %245, %619 ], [ %245, %622 ], [ %245, %637 ], [ %245, %640 ], [ %245, %643 ], [ %245, %645 ], [ %245, %646 ], [ %245, %647 ], [ %245, %649 ], [ %245, %657 ], [ %245, %658 ], [ %245, %661 ], [ %245, %662 ], [ %245, %663 ], [ %245, %666 ], [ %245, %669 ], [ %245, %670 ], [ %245, %672 ], [ %245, %682 ], [ %245, %683 ], [ %245, %684 ], [ %245, %612 ], [ %137, %172 ], [ %137, %176 ], [ %137, %180 ], [ %137, %178 ], [ %137, %174 ], [ %137, %150 ], [ %137, %708 ], [ %966, %965 ], [ %137, %.thread ], [ %137, %191 ]
+  %968 = phi i64 [ %138, %243 ], [ %138, %251 ], [ %138, %251 ], [ %138, %253 ], [ %138, %254 ], [ %138, %257 ], [ %138, %259 ], [ %138, %262 ], [ %138, %287 ], [ %138, %310 ], [ %138, %318 ], [ %138, %327 ], [ %138, %335 ], [ %138, %343 ], [ %138, %344 ], [ %138, %345 ], [ %138, %346 ], [ %138, %346 ], [ %138, %346 ], [ %138, %346 ], [ %138, %347 ], [ %138, %348 ], [ %138, %349 ], [ %138, %350 ], [ %138, %351 ], [ %138, %352 ], [ %138, %353 ], [ %138, %354 ], [ %138, %355 ], [ %138, %356 ], [ %138, %359 ], [ %138, %361 ], [ %138, %362 ], [ %138, %363 ], [ %138, %364 ], [ %138, %365 ], [ %138, %366 ], [ %138, %367 ], [ %138, %368 ], [ %138, %369 ], [ %138, %372 ], [ %138, %376 ], [ %138, %377 ], [ %138, %381 ], [ %138, %382 ], [ %138, %389 ], [ %138, %396 ], [ %138, %425 ], [ %138, %427 ], [ %138, %428 ], [ %138, %432 ], [ %138, %436 ], [ %138, %440 ], [ %138, %452 ], [ %138, %457 ], [ %138, %465 ], [ %138, %467 ], [ %138, %470 ], [ %138, %471 ], [ %138, %474 ], [ %138, %481 ], [ %138, %488 ], [ %138, %496 ], [ %138, %501 ], [ %138, %503 ], [ %138, %506 ], [ %138, %508 ], [ %138, %509 ], [ %138, %512 ], [ %138, %514 ], [ %138, %520 ], [ %138, %527 ], [ %138, %536 ], [ %138, %545 ], [ %138, %554 ], [ %138, %563 ], [ %138, %571 ], [ %138, %580 ], [ %138, %594 ], [ %138, %596 ], [ %138, %598 ], [ %138, %600 ], [ %138, %602 ], [ %138, %604 ], [ %138, %606 ], [ %138, %609 ], [ %138, %610 ], [ %138, %615 ], [ %138, %617 ], [ %138, %618 ], [ %138, %619 ], [ %138, %622 ], [ %138, %637 ], [ %138, %640 ], [ %138, %643 ], [ %138, %645 ], [ %138, %646 ], [ %138, %647 ], [ %138, %649 ], [ %138, %657 ], [ %138, %658 ], [ %138, %661 ], [ %138, %662 ], [ %138, %663 ], [ %138, %666 ], [ %138, %669 ], [ %138, %670 ], [ %138, %672 ], [ %138, %682 ], [ %138, %683 ], [ %138, %684 ], [ %138, %612 ], [ %138, %172 ], [ %138, %176 ], [ %138, %180 ], [ %138, %178 ], [ %138, %174 ], [ %138, %150 ], [ %138, %708 ], [ %947, %965 ], [ %138, %.thread ], [ %138, %191 ]
+  %969 = phi i64 [ %139, %243 ], [ %139, %251 ], [ %139, %251 ], [ %139, %253 ], [ %139, %254 ], [ %139, %257 ], [ %139, %259 ], [ %139, %262 ], [ %139, %287 ], [ %139, %310 ], [ %139, %318 ], [ %139, %327 ], [ %139, %335 ], [ %139, %343 ], [ %139, %344 ], [ %139, %345 ], [ %139, %346 ], [ %139, %346 ], [ %139, %346 ], [ %139, %346 ], [ %139, %347 ], [ %139, %348 ], [ %139, %349 ], [ %139, %350 ], [ %139, %351 ], [ %139, %352 ], [ %139, %353 ], [ %139, %354 ], [ %139, %355 ], [ %139, %356 ], [ %139, %359 ], [ %139, %361 ], [ %139, %362 ], [ %139, %363 ], [ %139, %364 ], [ %139, %365 ], [ %139, %366 ], [ %139, %367 ], [ %139, %368 ], [ %139, %369 ], [ %139, %372 ], [ %139, %376 ], [ %139, %377 ], [ %139, %381 ], [ %139, %382 ], [ %139, %389 ], [ %139, %396 ], [ %139, %425 ], [ %139, %427 ], [ %139, %428 ], [ %139, %432 ], [ %139, %436 ], [ %139, %440 ], [ %139, %452 ], [ %139, %457 ], [ %139, %465 ], [ %139, %467 ], [ %139, %470 ], [ %139, %471 ], [ %139, %474 ], [ %139, %481 ], [ %139, %488 ], [ %139, %496 ], [ %139, %501 ], [ %139, %503 ], [ %139, %506 ], [ %139, %508 ], [ %139, %509 ], [ %139, %512 ], [ %139, %514 ], [ %139, %520 ], [ %139, %527 ], [ %139, %536 ], [ %139, %545 ], [ %139, %554 ], [ %139, %563 ], [ %139, %571 ], [ %139, %580 ], [ %139, %594 ], [ %139, %596 ], [ %139, %598 ], [ %139, %600 ], [ %139, %602 ], [ %139, %604 ], [ %139, %606 ], [ %139, %609 ], [ %139, %610 ], [ %139, %615 ], [ %139, %617 ], [ %139, %618 ], [ %139, %619 ], [ %139, %622 ], [ %139, %637 ], [ %139, %640 ], [ %139, %643 ], [ %139, %645 ], [ %139, %646 ], [ %139, %647 ], [ %139, %649 ], [ %139, %657 ], [ %139, %658 ], [ %139, %661 ], [ %139, %662 ], [ %139, %663 ], [ %139, %666 ], [ %139, %669 ], [ %139, %670 ], [ %139, %672 ], [ %139, %682 ], [ %139, %683 ], [ %139, %684 ], [ %139, %612 ], [ %139, %172 ], [ %139, %176 ], [ %139, %180 ], [ %139, %178 ], [ %139, %174 ], [ %139, %150 ], [ %139, %708 ], [ %930, %965 ], [ %139, %.thread ], [ %139, %191 ]
   %970 = load i8, ptr %43, align 4, !range !51, !noundef !52
   %971 = icmp eq i8 %970, 0
   %972 = icmp ne i32 %116, 0
   %973 = select i1 %971, i1 %972, i1 false
   br i1 %973, label %105, label %974
 
-974:                                              ; preds = %.thread41
+974:                                              ; preds = %.thread43
   %975 = icmp slt i32 %967, 0
   br i1 %975, label %.thread44, label %976
 

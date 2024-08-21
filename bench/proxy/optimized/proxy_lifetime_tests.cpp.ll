@@ -40659,9 +40659,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %152) #23
   br label %common.resume
 
-common.resume:                                    ; preds = %1984, %1990, %1948, %1954, %1912, %1918, %1876, %1882, %1840, %1846, %1804, %1810, %1768, %1774, %1732, %1738, %1696, %1702, %1660, %1666, %1624, %1630, %1588, %1594, %1552, %1558, %1516, %1522, %1480, %1486, %1444, %1450, %1408, %1414, %1372, %1378, %1336, %1342, %1300, %1306, %1264, %1270, %1228, %1234, %1192, %1198, %1156, %1162, %1120, %1126, %1084, %1090, %1048, %1054, %1012, %1018, %976, %982, %940, %946, %904, %910, %868, %874, %832, %838, %796, %802, %760, %766, %724, %730, %688, %694, %652, %658, %616, %622, %580, %586, %544, %550, %508, %514, %472, %478, %436, %442, %400, %406, %364, %370, %328, %334, %292, %298, %256, %262, %220, %226, %184, %190
-  %.sink = phi ptr [ %153, %190 ], [ %153, %184 ], [ %150, %226 ], [ %150, %220 ], [ %147, %262 ], [ %147, %256 ], [ %144, %298 ], [ %144, %292 ], [ %141, %334 ], [ %141, %328 ], [ %138, %370 ], [ %138, %364 ], [ %135, %406 ], [ %135, %400 ], [ %132, %442 ], [ %132, %436 ], [ %129, %478 ], [ %129, %472 ], [ %126, %514 ], [ %126, %508 ], [ %123, %550 ], [ %123, %544 ], [ %120, %586 ], [ %120, %580 ], [ %117, %622 ], [ %117, %616 ], [ %114, %658 ], [ %114, %652 ], [ %111, %694 ], [ %111, %688 ], [ %108, %730 ], [ %108, %724 ], [ %105, %766 ], [ %105, %760 ], [ %102, %802 ], [ %102, %796 ], [ %99, %838 ], [ %99, %832 ], [ %96, %874 ], [ %96, %868 ], [ %93, %910 ], [ %93, %904 ], [ %90, %946 ], [ %90, %940 ], [ %87, %982 ], [ %87, %976 ], [ %84, %1018 ], [ %84, %1012 ], [ %81, %1054 ], [ %81, %1048 ], [ %78, %1090 ], [ %78, %1084 ], [ %75, %1126 ], [ %75, %1120 ], [ %72, %1162 ], [ %72, %1156 ], [ %69, %1198 ], [ %69, %1192 ], [ %66, %1234 ], [ %66, %1228 ], [ %63, %1270 ], [ %63, %1264 ], [ %60, %1306 ], [ %60, %1300 ], [ %57, %1342 ], [ %57, %1336 ], [ %54, %1378 ], [ %54, %1372 ], [ %51, %1414 ], [ %51, %1408 ], [ %48, %1450 ], [ %48, %1444 ], [ %45, %1486 ], [ %45, %1480 ], [ %42, %1522 ], [ %42, %1516 ], [ %39, %1558 ], [ %39, %1552 ], [ %36, %1594 ], [ %36, %1588 ], [ %33, %1630 ], [ %33, %1624 ], [ %30, %1666 ], [ %30, %1660 ], [ %27, %1702 ], [ %27, %1696 ], [ %24, %1738 ], [ %24, %1732 ], [ %21, %1774 ], [ %21, %1768 ], [ %18, %1810 ], [ %18, %1804 ], [ %15, %1846 ], [ %15, %1840 ], [ %12, %1882 ], [ %12, %1876 ], [ %9, %1918 ], [ %9, %1912 ], [ %6, %1954 ], [ %6, %1948 ], [ %3, %1990 ], [ %3, %1984 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %190 ], [ %185, %184 ], [ %.pn.i, %226 ], [ %221, %220 ], [ %.pn.i8, %262 ], [ %257, %256 ], [ %.pn.i15, %298 ], [ %293, %292 ], [ %.pn.i22, %334 ], [ %329, %328 ], [ %.pn.i29, %370 ], [ %365, %364 ], [ %.pn.i36, %406 ], [ %401, %400 ], [ %.pn.i43, %442 ], [ %437, %436 ], [ %.pn.i50, %478 ], [ %473, %472 ], [ %.pn.i57, %514 ], [ %509, %508 ], [ %.pn.i64, %550 ], [ %545, %544 ], [ %.pn.i71, %586 ], [ %581, %580 ], [ %.pn.i78, %622 ], [ %617, %616 ], [ %.pn.i85, %658 ], [ %653, %652 ], [ %.pn.i92, %694 ], [ %689, %688 ], [ %.pn.i99, %730 ], [ %725, %724 ], [ %.pn.i106, %766 ], [ %761, %760 ], [ %.pn.i113, %802 ], [ %797, %796 ], [ %.pn.i120, %838 ], [ %833, %832 ], [ %.pn.i127, %874 ], [ %869, %868 ], [ %.pn.i134, %910 ], [ %905, %904 ], [ %.pn.i141, %946 ], [ %941, %940 ], [ %.pn.i148, %982 ], [ %977, %976 ], [ %.pn.i155, %1018 ], [ %1013, %1012 ], [ %.pn.i162, %1054 ], [ %1049, %1048 ], [ %.pn.i169, %1090 ], [ %1085, %1084 ], [ %.pn.i176, %1126 ], [ %1121, %1120 ], [ %.pn.i183, %1162 ], [ %1157, %1156 ], [ %.pn.i190, %1198 ], [ %1193, %1192 ], [ %.pn.i197, %1234 ], [ %1229, %1228 ], [ %.pn.i204, %1270 ], [ %1265, %1264 ], [ %.pn.i211, %1306 ], [ %1301, %1300 ], [ %.pn.i218, %1342 ], [ %1337, %1336 ], [ %.pn.i225, %1378 ], [ %1373, %1372 ], [ %.pn.i232, %1414 ], [ %1409, %1408 ], [ %.pn.i239, %1450 ], [ %1445, %1444 ], [ %.pn.i246, %1486 ], [ %1481, %1480 ], [ %.pn.i253, %1522 ], [ %1517, %1516 ], [ %.pn.i260, %1558 ], [ %1553, %1552 ], [ %.pn.i267, %1594 ], [ %1589, %1588 ], [ %.pn.i274, %1630 ], [ %1625, %1624 ], [ %.pn.i281, %1666 ], [ %1661, %1660 ], [ %.pn.i288, %1702 ], [ %1697, %1696 ], [ %.pn.i295, %1738 ], [ %1733, %1732 ], [ %.pn.i302, %1774 ], [ %1769, %1768 ], [ %.pn.i309, %1810 ], [ %1805, %1804 ], [ %.pn.i316, %1846 ], [ %1841, %1840 ], [ %.pn.i323, %1882 ], [ %1877, %1876 ], [ %.pn.i330, %1918 ], [ %1913, %1912 ], [ %.pn.i337, %1954 ], [ %1949, %1948 ], [ %.pn.i344, %1990 ], [ %1985, %1984 ]
+common.resume:                                    ; preds = %1912, %1918, %1876, %1882, %1840, %1846, %1804, %1810, %1768, %1774, %1732, %1738, %1696, %1702, %1660, %1666, %1624, %1630, %1588, %1594, %1552, %1558, %1516, %1522, %1480, %1486, %1444, %1450, %1408, %1414, %1372, %1378, %1336, %1342, %1300, %1306, %1264, %1270, %1228, %1234, %1192, %1198, %1156, %1162, %1120, %1126, %1084, %1090, %1048, %1054, %1012, %1018, %976, %982, %940, %946, %904, %910, %868, %874, %832, %838, %796, %802, %760, %766, %724, %730, %688, %694, %652, %658, %616, %622, %580, %586, %544, %550, %508, %514, %472, %478, %436, %442, %400, %406, %364, %370, %328, %334, %292, %298, %256, %262, %220, %226, %184, %190, %1992, %1955
+  %.sink = phi ptr [ %3, %1992 ], [ %6, %1955 ], [ %153, %190 ], [ %153, %184 ], [ %150, %226 ], [ %150, %220 ], [ %147, %262 ], [ %147, %256 ], [ %144, %298 ], [ %144, %292 ], [ %141, %334 ], [ %141, %328 ], [ %138, %370 ], [ %138, %364 ], [ %135, %406 ], [ %135, %400 ], [ %132, %442 ], [ %132, %436 ], [ %129, %478 ], [ %129, %472 ], [ %126, %514 ], [ %126, %508 ], [ %123, %550 ], [ %123, %544 ], [ %120, %586 ], [ %120, %580 ], [ %117, %622 ], [ %117, %616 ], [ %114, %658 ], [ %114, %652 ], [ %111, %694 ], [ %111, %688 ], [ %108, %730 ], [ %108, %724 ], [ %105, %766 ], [ %105, %760 ], [ %102, %802 ], [ %102, %796 ], [ %99, %838 ], [ %99, %832 ], [ %96, %874 ], [ %96, %868 ], [ %93, %910 ], [ %93, %904 ], [ %90, %946 ], [ %90, %940 ], [ %87, %982 ], [ %87, %976 ], [ %84, %1018 ], [ %84, %1012 ], [ %81, %1054 ], [ %81, %1048 ], [ %78, %1090 ], [ %78, %1084 ], [ %75, %1126 ], [ %75, %1120 ], [ %72, %1162 ], [ %72, %1156 ], [ %69, %1198 ], [ %69, %1192 ], [ %66, %1234 ], [ %66, %1228 ], [ %63, %1270 ], [ %63, %1264 ], [ %60, %1306 ], [ %60, %1300 ], [ %57, %1342 ], [ %57, %1336 ], [ %54, %1378 ], [ %54, %1372 ], [ %51, %1414 ], [ %51, %1408 ], [ %48, %1450 ], [ %48, %1444 ], [ %45, %1486 ], [ %45, %1480 ], [ %42, %1522 ], [ %42, %1516 ], [ %39, %1558 ], [ %39, %1552 ], [ %36, %1594 ], [ %36, %1588 ], [ %33, %1630 ], [ %33, %1624 ], [ %30, %1666 ], [ %30, %1660 ], [ %27, %1702 ], [ %27, %1696 ], [ %24, %1738 ], [ %24, %1732 ], [ %21, %1774 ], [ %21, %1768 ], [ %18, %1810 ], [ %18, %1804 ], [ %15, %1846 ], [ %15, %1840 ], [ %12, %1882 ], [ %12, %1876 ], [ %9, %1918 ], [ %9, %1912 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i343, %1992 ], [ %.pn.pn.i336, %1955 ], [ %.pn.pn.i, %190 ], [ %185, %184 ], [ %.pn.i, %226 ], [ %221, %220 ], [ %.pn.i8, %262 ], [ %257, %256 ], [ %.pn.i15, %298 ], [ %293, %292 ], [ %.pn.i22, %334 ], [ %329, %328 ], [ %.pn.i29, %370 ], [ %365, %364 ], [ %.pn.i36, %406 ], [ %401, %400 ], [ %.pn.i43, %442 ], [ %437, %436 ], [ %.pn.i50, %478 ], [ %473, %472 ], [ %.pn.i57, %514 ], [ %509, %508 ], [ %.pn.i64, %550 ], [ %545, %544 ], [ %.pn.i71, %586 ], [ %581, %580 ], [ %.pn.i78, %622 ], [ %617, %616 ], [ %.pn.i85, %658 ], [ %653, %652 ], [ %.pn.i92, %694 ], [ %689, %688 ], [ %.pn.i99, %730 ], [ %725, %724 ], [ %.pn.i106, %766 ], [ %761, %760 ], [ %.pn.i113, %802 ], [ %797, %796 ], [ %.pn.i120, %838 ], [ %833, %832 ], [ %.pn.i127, %874 ], [ %869, %868 ], [ %.pn.i134, %910 ], [ %905, %904 ], [ %.pn.i141, %946 ], [ %941, %940 ], [ %.pn.i148, %982 ], [ %977, %976 ], [ %.pn.i155, %1018 ], [ %1013, %1012 ], [ %.pn.i162, %1054 ], [ %1049, %1048 ], [ %.pn.i169, %1090 ], [ %1085, %1084 ], [ %.pn.i176, %1126 ], [ %1121, %1120 ], [ %.pn.i183, %1162 ], [ %1157, %1156 ], [ %.pn.i190, %1198 ], [ %1193, %1192 ], [ %.pn.i197, %1234 ], [ %1229, %1228 ], [ %.pn.i204, %1270 ], [ %1265, %1264 ], [ %.pn.i211, %1306 ], [ %1301, %1300 ], [ %.pn.i218, %1342 ], [ %1337, %1336 ], [ %.pn.i225, %1378 ], [ %1373, %1372 ], [ %.pn.i232, %1414 ], [ %1409, %1408 ], [ %.pn.i239, %1450 ], [ %1445, %1444 ], [ %.pn.i246, %1486 ], [ %1481, %1480 ], [ %.pn.i253, %1522 ], [ %1517, %1516 ], [ %.pn.i260, %1558 ], [ %1553, %1552 ], [ %.pn.i267, %1594 ], [ %1589, %1588 ], [ %.pn.i274, %1630 ], [ %1625, %1624 ], [ %.pn.i281, %1666 ], [ %1661, %1660 ], [ %.pn.i288, %1702 ], [ %1697, %1696 ], [ %.pn.i295, %1738 ], [ %1733, %1732 ], [ %.pn.i302, %1774 ], [ %1769, %1768 ], [ %.pn.i309, %1810 ], [ %1805, %1804 ], [ %.pn.i316, %1846 ], [ %1841, %1840 ], [ %.pn.i323, %1882 ], [ %1877, %1876 ], [ %.pn.i330, %1918 ], [ %1913, %1912 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
   resume { ptr, i32 } %common.resume.op
 
@@ -45596,7 +45596,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 1948:                                             ; preds = %__cxx_global_var_init.125.exit
   %1949 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %1955
 
 1950:                                             ; preds = %1919
   %1951 = landingpad { ptr, i32 }
@@ -45612,6 +45612,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 1954:                                             ; preds = %1952, %1950
   %.pn.i337 = phi { ptr, i32 } [ %1953, %1952 ], [ %1951, %1950 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
+  br label %1955
+
+1955:                                             ; preds = %1954, %1948
+  %.pn.pn.i336 = phi { ptr, i32 } [ %.pn.i337, %1954 ], [ %1949, %1948 ]
   br label %common.resume
 
 __cxx_global_var_init.127.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i341, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i340
@@ -45626,99 +45630,103 @@ __cxx_global_var_init.127.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %1955 unwind label %1984
+          to label %1956 unwind label %1985
 
-1955:                                             ; preds = %__cxx_global_var_init.127.exit
+1956:                                             ; preds = %__cxx_global_var_init.127.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %1956 unwind label %1986
+          to label %1957 unwind label %1987
 
-1956:                                             ; preds = %1955
-  %1957 = getelementptr inbounds i8, ptr %1, i64 32
-  store i32 853, ptr %1957, align 8
-  %1958 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
-          to label %1959 unwind label %1988
+1957:                                             ; preds = %1956
+  %1958 = getelementptr inbounds i8, ptr %1, i64 32
+  store i32 853, ptr %1958, align 8
+  %1959 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
+          to label %1960 unwind label %1989
 
-1959:                                             ; preds = %1956
-  %1960 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 853)
-          to label %1961 unwind label %1988
+1960:                                             ; preds = %1957
+  %1961 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 853)
+          to label %1962 unwind label %1989
 
-1961:                                             ; preds = %1959
-  %1962 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 853)
-          to label %1963 unwind label %1988
+1962:                                             ; preds = %1960
+  %1963 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 853)
+          to label %1964 unwind label %1989
 
-1963:                                             ; preds = %1961
-  %1964 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-          to label %1965 unwind label %1988
+1964:                                             ; preds = %1962
+  %1965 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
+          to label %1966 unwind label %1989
 
-1965:                                             ; preds = %1963
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI42ProxyLifetimeTests_TestSwap_Null_Null_TestEE, i64 16), ptr %1964, align 8
-  %1966 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.130, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %1958, ptr noundef %1960, ptr noundef %1962, ptr noundef nonnull %1964)
-          to label %1967 unwind label %1988
+1966:                                             ; preds = %1964
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI42ProxyLifetimeTests_TestSwap_Null_Null_TestEE, i64 16), ptr %1965, align 8
+  %1967 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.130, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %1959, ptr noundef %1961, ptr noundef %1963, ptr noundef nonnull %1965)
+          to label %1968 unwind label %1989
 
-1967:                                             ; preds = %1965
-  %1968 = load ptr, ptr %1, align 8
-  %1969 = getelementptr inbounds i8, ptr %1, i64 16
-  %1970 = icmp eq ptr %1968, %1969
-  br i1 %1970, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i349, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i345
+1968:                                             ; preds = %1966
+  %1969 = load ptr, ptr %1, align 8
+  %1970 = getelementptr inbounds i8, ptr %1, i64 16
+  %1971 = icmp eq ptr %1969, %1970
+  br i1 %1971, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i349, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i345
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i349: ; preds = %1967
-  %1971 = getelementptr inbounds i8, ptr %1, i64 8
-  %1972 = load i64, ptr %1971, align 8
-  %1973 = icmp ult i64 %1972, 16
-  call void @llvm.assume(i1 %1973)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i349: ; preds = %1968
+  %1972 = getelementptr inbounds i8, ptr %1, i64 8
+  %1973 = load i64, ptr %1972, align 8
+  %1974 = icmp ult i64 %1973, 16
+  call void @llvm.assume(i1 %1974)
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit.i346
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i345: ; preds = %1967
-  %1974 = load i64, ptr %1969, align 8
-  %1975 = add i64 %1974, 1
-  call void @_ZdlPvm(ptr noundef %1968, i64 noundef %1975) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i345: ; preds = %1968
+  %1975 = load i64, ptr %1970, align 8
+  %1976 = add i64 %1975, 1
+  call void @_ZdlPvm(ptr noundef %1969, i64 noundef %1976) #26
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit.i346
 
 _ZN7testing8internal12CodeLocationD2Ev.exit.i346: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i345, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i349
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
-  %1976 = load ptr, ptr %2, align 8
-  %1977 = getelementptr inbounds i8, ptr %2, i64 16
-  %1978 = icmp eq ptr %1976, %1977
-  br i1 %1978, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i348, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i347
+  %1977 = load ptr, ptr %2, align 8
+  %1978 = getelementptr inbounds i8, ptr %2, i64 16
+  %1979 = icmp eq ptr %1977, %1978
+  br i1 %1979, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i348, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i347
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i348: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i346
-  %1979 = getelementptr inbounds i8, ptr %2, i64 8
-  %1980 = load i64, ptr %1979, align 8
-  %1981 = icmp ult i64 %1980, 16
-  call void @llvm.assume(i1 %1981)
+  %1980 = getelementptr inbounds i8, ptr %2, i64 8
+  %1981 = load i64, ptr %1980, align 8
+  %1982 = icmp ult i64 %1981, 16
+  call void @llvm.assume(i1 %1982)
   br label %__cxx_global_var_init.129.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i347: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i346
-  %1982 = load i64, ptr %1977, align 8
-  %1983 = add i64 %1982, 1
-  call void @_ZdlPvm(ptr noundef %1976, i64 noundef %1983) #26
+  %1983 = load i64, ptr %1978, align 8
+  %1984 = add i64 %1983, 1
+  call void @_ZdlPvm(ptr noundef %1977, i64 noundef %1984) #26
   br label %__cxx_global_var_init.129.exit
 
-1984:                                             ; preds = %__cxx_global_var_init.127.exit
-  %1985 = landingpad { ptr, i32 }
+1985:                                             ; preds = %__cxx_global_var_init.127.exit
+  %1986 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %1992
 
-1986:                                             ; preds = %1955
-  %1987 = landingpad { ptr, i32 }
+1987:                                             ; preds = %1956
+  %1988 = landingpad { ptr, i32 }
           cleanup
-  br label %1990
+  br label %1991
 
-1988:                                             ; preds = %1965, %1963, %1961, %1959, %1956
-  %1989 = landingpad { ptr, i32 }
+1989:                                             ; preds = %1966, %1964, %1962, %1960, %1957
+  %1990 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal12CodeLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %1) #23
-  br label %1990
+  br label %1991
 
-1990:                                             ; preds = %1988, %1986
-  %.pn.i344 = phi { ptr, i32 } [ %1989, %1988 ], [ %1987, %1986 ]
+1991:                                             ; preds = %1989, %1987
+  %.pn.i344 = phi { ptr, i32 } [ %1990, %1989 ], [ %1988, %1987 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
+  br label %1992
+
+1992:                                             ; preds = %1991, %1985
+  %.pn.pn.i343 = phi { ptr, i32 } [ %.pn.i344, %1991 ], [ %1986, %1985 ]
   br label %common.resume
 
 __cxx_global_var_init.129.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i348, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i347
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  store ptr %1966, ptr @_ZN42ProxyLifetimeTests_TestSwap_Null_Null_Test10test_info_E, align 8
+  store ptr %1967, ptr @_ZN42ProxyLifetimeTests_TestSwap_Null_Null_Test10test_info_E, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)

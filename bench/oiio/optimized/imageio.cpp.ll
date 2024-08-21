@@ -4374,30 +4374,30 @@ lpad370:                                          ; preds = %cond.true.i1000
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1019: ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit802, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i787, %land.lhs.true8.i796, %land.lhs.true.i793, %land.lhs.true293
   %bcmp.i1020 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.58, i64 %15)
   %cmp5.not.i.i1021 = icmp eq i32 %bcmp.i1020, 0
-  br i1 %cmp5.not.i.i1021, label %land.lhs.true382, label %cleanup
+  br i1 %cmp5.not.i.i1021, label %land.lhs.true382, label %if.end387
 
 land.lhs.true382:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1019
   %157 = load i8, ptr %type, align 4
   %cmp.i1024 = icmp eq i8 %157, 7
-  br i1 %cmp.i1024, label %land.lhs.true.i1025, label %cleanup
+  br i1 %cmp.i1024, label %land.lhs.true.i1025, label %if.end387
 
 land.lhs.true.i1025:                              ; preds = %land.lhs.true382
   %aggregate.i1026 = getelementptr inbounds i8, ptr %type, i64 1
   %158 = load i8, ptr %aggregate.i1026, align 1
   %cmp7.i1027 = icmp eq i8 %158, 1
-  br i1 %cmp7.i1027, label %land.lhs.true8.i1028, label %cleanup
+  br i1 %cmp7.i1027, label %land.lhs.true8.i1028, label %if.end387
 
 land.lhs.true8.i1028:                             ; preds = %land.lhs.true.i1025
   %vecsemantics.i1029 = getelementptr inbounds i8, ptr %type, i64 2
   %159 = load i8, ptr %vecsemantics.i1029, align 2
   %cmp12.i1030 = icmp eq i8 %159, 0
-  br i1 %cmp12.i1030, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1034, label %cleanup
+  br i1 %cmp12.i1030, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1034, label %if.end387
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1034: ; preds = %land.lhs.true8.i1028
   %arraylen.i1032 = getelementptr inbounds i8, ptr %type, i64 4
   %160 = load i32, ptr %arraylen.i1032, align 4
   %cmp14.i1033 = icmp eq i32 %160, 0
-  br i1 %cmp14.i1033, label %if.then384, label %cleanup
+  br i1 %cmp14.i1033, label %if.then384, label %if.end387
 
 if.then384:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1034
   %call386 = invoke noundef i64 @_ZN18OpenImageIO_v2_6_07Sysutil11memory_usedEb(i1 noundef zeroext true)
@@ -4407,6 +4407,9 @@ invoke.cont385:                                   ; preds = %if.then384
   %shr = lshr i64 %call386, 20
   %conv = trunc i64 %shr to i32
   store i32 %conv, ptr %val, align 4
+  br label %cleanup
+
+if.end387:                                        ; preds = %land.lhs.true382, %land.lhs.true.i1025, %land.lhs.true8.i1028, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1019, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1034
   br label %cleanup
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1047: ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit578, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i563, %land.lhs.true8.i572, %land.lhs.true.i569, %land.lhs.true229
@@ -4477,30 +4480,30 @@ for.body:                                         ; preds = %for.body.preheader,
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1070: ; preds = %land.lhs.true392, %land.lhs.true394, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1047
   %bcmp.i1071 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.41, i64 %15)
   %cmp5.not.i.i1072 = icmp eq i32 %bcmp.i1071, 0
-  br i1 %cmp5.not.i.i1072, label %land.lhs.true421, label %cleanup
+  br i1 %cmp5.not.i.i1072, label %land.lhs.true421, label %if.end436
 
 land.lhs.true421:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1070
   %175 = load i8, ptr %type, align 4
   %cmp.i1075 = icmp eq i8 %175, 13
-  br i1 %cmp.i1075, label %land.lhs.true.i1076, label %cleanup
+  br i1 %cmp.i1075, label %land.lhs.true.i1076, label %if.end436
 
 land.lhs.true.i1076:                              ; preds = %land.lhs.true421
   %aggregate.i1077 = getelementptr inbounds i8, ptr %type, i64 1
   %176 = load i8, ptr %aggregate.i1077, align 1
   %cmp7.i1078 = icmp eq i8 %176, 1
-  br i1 %cmp7.i1078, label %land.lhs.true8.i1079, label %cleanup
+  br i1 %cmp7.i1078, label %land.lhs.true8.i1079, label %if.end436
 
 land.lhs.true8.i1079:                             ; preds = %land.lhs.true.i1076
   %vecsemantics.i1080 = getelementptr inbounds i8, ptr %type, i64 2
   %177 = load i8, ptr %vecsemantics.i1080, align 2
   %cmp12.i1081 = icmp eq i8 %177, 0
-  br i1 %cmp12.i1081, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1085, label %cleanup
+  br i1 %cmp12.i1081, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1085, label %if.end436
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1085: ; preds = %land.lhs.true8.i1079
   %arraylen.i1083 = getelementptr inbounds i8, ptr %type, i64 4
   %178 = load i32, ptr %arraylen.i1083, align 4
   %cmp14.i1084 = icmp eq i32 %178, 0
-  br i1 %cmp14.i1084, label %if.then423, label %cleanup
+  br i1 %cmp14.i1084, label %if.then423, label %if.end436
 
 if.then423:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1085
   store ptr @.str.42, ptr %agg.tmp427, align 8
@@ -4536,66 +4539,72 @@ lpad429:                                          ; preds = %cond.true.i1095
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp426) #8
   br label %ehcleanup513
 
+if.end436:                                        ; preds = %land.lhs.true421, %land.lhs.true.i1076, %land.lhs.true8.i1079, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1070, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1085
+  br label %cleanup
+
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1114: ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit634, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i619, %land.lhs.true8.i628, %land.lhs.true.i625, %land.lhs.true245
   %bcmp.i1115 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.43, i64 %15)
   %cmp5.not.i.i1116 = icmp eq i32 %bcmp.i1115, 0
-  br i1 %cmp5.not.i.i1116, label %land.lhs.true441, label %cleanup
+  br i1 %cmp5.not.i.i1116, label %land.lhs.true441, label %if.end445
 
 land.lhs.true441:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1114
   %180 = load i8, ptr %type, align 4
   %cmp.i1119 = icmp eq i8 %180, 7
-  br i1 %cmp.i1119, label %land.lhs.true.i1120, label %cleanup
+  br i1 %cmp.i1119, label %land.lhs.true.i1120, label %if.end445
 
 land.lhs.true.i1120:                              ; preds = %land.lhs.true441
   %aggregate.i1121 = getelementptr inbounds i8, ptr %type, i64 1
   %181 = load i8, ptr %aggregate.i1121, align 1
   %cmp7.i1122 = icmp eq i8 %181, 1
-  br i1 %cmp7.i1122, label %land.lhs.true8.i1123, label %cleanup
+  br i1 %cmp7.i1122, label %land.lhs.true8.i1123, label %if.end445
 
 land.lhs.true8.i1123:                             ; preds = %land.lhs.true.i1120
   %vecsemantics.i1124 = getelementptr inbounds i8, ptr %type, i64 2
   %182 = load i8, ptr %vecsemantics.i1124, align 2
   %cmp12.i1125 = icmp eq i8 %182, 0
-  br i1 %cmp12.i1125, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1129, label %cleanup
+  br i1 %cmp12.i1125, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1129, label %if.end445
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1129: ; preds = %land.lhs.true8.i1123
   %arraylen.i1127 = getelementptr inbounds i8, ptr %type, i64 4
   %183 = load i32, ptr %arraylen.i1127, align 4
   %cmp14.i1128 = icmp eq i32 %183, 0
-  br i1 %cmp14.i1128, label %if.then443, label %cleanup
+  br i1 %cmp14.i1128, label %if.then443, label %if.end445
 
 if.then443:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1129
   %184 = load atomic i32, ptr @_ZN18OpenImageIO_v2_6_03pvt20oiio_try_all_readersE seq_cst, align 4
   store i32 %184, ptr %val, align 4
   br label %cleanup
 
+if.end445:                                        ; preds = %land.lhs.true441, %land.lhs.true.i1120, %land.lhs.true8.i1123, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1114, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1129
+  br label %cleanup
+
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1142: ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit662, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i647, %land.lhs.true8.i656, %land.lhs.true.i653, %land.lhs.true253
   %bcmp.i1143 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.59, i64 %15)
   %cmp5.not.i.i1144 = icmp eq i32 %bcmp.i1143, 0
-  br i1 %cmp5.not.i.i1144, label %land.lhs.true450, label %cleanup
+  br i1 %cmp5.not.i.i1144, label %land.lhs.true450, label %if.end468
 
 land.lhs.true450:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1142
   %185 = load i8, ptr %type, align 4
   %cmp.i1147 = icmp eq i8 %185, 13
-  br i1 %cmp.i1147, label %land.lhs.true.i1148, label %cleanup
+  br i1 %cmp.i1147, label %land.lhs.true.i1148, label %if.end468
 
 land.lhs.true.i1148:                              ; preds = %land.lhs.true450
   %aggregate.i1149 = getelementptr inbounds i8, ptr %type, i64 1
   %186 = load i8, ptr %aggregate.i1149, align 1
   %cmp7.i1150 = icmp eq i8 %186, 1
-  br i1 %cmp7.i1150, label %land.lhs.true8.i1151, label %cleanup
+  br i1 %cmp7.i1150, label %land.lhs.true8.i1151, label %if.end468
 
 land.lhs.true8.i1151:                             ; preds = %land.lhs.true.i1148
   %vecsemantics.i1152 = getelementptr inbounds i8, ptr %type, i64 2
   %187 = load i8, ptr %vecsemantics.i1152, align 2
   %cmp12.i1153 = icmp eq i8 %187, 0
-  br i1 %cmp12.i1153, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1157, label %cleanup
+  br i1 %cmp12.i1153, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1157, label %if.end468
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1157: ; preds = %land.lhs.true8.i1151
   %arraylen.i1155 = getelementptr inbounds i8, ptr %type, i64 4
   %188 = load i32, ptr %arraylen.i1155, align 4
   %cmp14.i1156 = icmp eq i32 %188, 0
-  br i1 %cmp14.i1156, label %if.then452, label %cleanup
+  br i1 %cmp14.i1156, label %if.then452, label %if.end468
 
 if.then452:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1157
   %call454 = invoke noundef i32 @_ZN18OpenImageIO_v2_6_011ColorConfig23OpenColorIO_version_hexEv()
@@ -4618,136 +4627,151 @@ invoke.cont465:                                   ; preds = %invoke.cont453
   store ptr %189, ptr %val, align 8
   br label %cleanup
 
+if.end468:                                        ; preds = %land.lhs.true450, %land.lhs.true.i1148, %land.lhs.true8.i1151, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1142, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1157
+  br label %cleanup
+
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1170: ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit462, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i447, %land.lhs.true8.i456, %land.lhs.true.i453, %land.lhs.true176
   %bcmp.i1171 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.61, i64 %15)
   %cmp5.not.i.i1172 = icmp eq i32 %bcmp.i1171, 0
-  br i1 %cmp5.not.i.i1172, label %land.lhs.true473, label %cleanup
+  br i1 %cmp5.not.i.i1172, label %land.lhs.true473, label %if.end476
 
 land.lhs.true473:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1170
   %190 = load i8, ptr %type, align 4
   %cmp.i1175 = icmp eq i8 %190, 7
-  br i1 %cmp.i1175, label %land.lhs.true.i1176, label %cleanup
+  br i1 %cmp.i1175, label %land.lhs.true.i1176, label %if.end476
 
 land.lhs.true.i1176:                              ; preds = %land.lhs.true473
   %aggregate.i1177 = getelementptr inbounds i8, ptr %type, i64 1
   %191 = load i8, ptr %aggregate.i1177, align 1
   %cmp7.i1178 = icmp eq i8 %191, 1
-  br i1 %cmp7.i1178, label %land.lhs.true8.i1179, label %cleanup
+  br i1 %cmp7.i1178, label %land.lhs.true8.i1179, label %if.end476
 
 land.lhs.true8.i1179:                             ; preds = %land.lhs.true.i1176
   %vecsemantics.i1180 = getelementptr inbounds i8, ptr %type, i64 2
   %192 = load i8, ptr %vecsemantics.i1180, align 2
   %cmp12.i1181 = icmp eq i8 %192, 0
-  br i1 %cmp12.i1181, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1185, label %cleanup
+  br i1 %cmp12.i1181, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1185, label %if.end476
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1185: ; preds = %land.lhs.true8.i1179
   %arraylen.i1183 = getelementptr inbounds i8, ptr %type, i64 4
   %193 = load i32, ptr %arraylen.i1183, align 4
   %cmp14.i1184 = icmp eq i32 %193, 0
-  br i1 %cmp14.i1184, label %if.then475, label %cleanup
+  br i1 %cmp14.i1184, label %if.then475, label %if.end476
 
 if.then475:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1185
   %194 = load i32, ptr @_ZN18OpenImageIO_v2_6_03pvt14opencv_versionE, align 4
   store i32 %194, ptr %val, align 4
   br label %cleanup
 
+if.end476:                                        ; preds = %land.lhs.true473, %land.lhs.true.i1176, %land.lhs.true8.i1179, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1170, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1185
+  br label %cleanup
+
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1198: ; preds = %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
   %bcmp.i1199 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.62, i64 %15)
   %cmp5.not.i.i1200 = icmp eq i32 %bcmp.i1199, 0
-  br i1 %cmp5.not.i.i1200, label %land.lhs.true481, label %cleanup
+  br i1 %cmp5.not.i.i1200, label %land.lhs.true481, label %if.end485
 
 land.lhs.true481:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1198
   %195 = load i8, ptr %type, align 4
   %cmp.i1203 = icmp eq i8 %195, 9
-  br i1 %cmp.i1203, label %land.lhs.true.i1204, label %cleanup
+  br i1 %cmp.i1203, label %land.lhs.true.i1204, label %if.end485
 
 land.lhs.true.i1204:                              ; preds = %land.lhs.true481
   %aggregate.i1205 = getelementptr inbounds i8, ptr %type, i64 1
   %196 = load i8, ptr %aggregate.i1205, align 1
   %cmp7.i1206 = icmp eq i8 %196, 1
-  br i1 %cmp7.i1206, label %land.lhs.true8.i1207, label %cleanup
+  br i1 %cmp7.i1206, label %land.lhs.true8.i1207, label %if.end485
 
 land.lhs.true8.i1207:                             ; preds = %land.lhs.true.i1204
   %vecsemantics.i1208 = getelementptr inbounds i8, ptr %type, i64 2
   %197 = load i8, ptr %vecsemantics.i1208, align 2
   %cmp12.i1209 = icmp eq i8 %197, 0
-  br i1 %cmp12.i1209, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1213, label %cleanup
+  br i1 %cmp12.i1209, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1213, label %if.end485
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1213: ; preds = %land.lhs.true8.i1207
   %arraylen.i1211 = getelementptr inbounds i8, ptr %type, i64 4
   %198 = load i32, ptr %arraylen.i1211, align 4
   %cmp14.i1212 = icmp eq i32 %198, 0
-  br i1 %cmp14.i1212, label %if.then483, label %cleanup
+  br i1 %cmp14.i1212, label %if.then483, label %if.end485
 
 if.then483:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1213
   %199 = load atomic i64, ptr @_ZN18OpenImageIO_v2_6_03pvt20IB_local_mem_currentE seq_cst, align 8
   store i64 %199, ptr %val, align 8
   br label %cleanup
 
+if.end485:                                        ; preds = %land.lhs.true481, %land.lhs.true.i1204, %land.lhs.true8.i1207, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1198, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1213
+  br label %cleanup
+
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1226: ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit246, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i231, %land.lhs.true8.i240, %land.lhs.true.i237, %land.lhs.true68
   %bcmp.i1227 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.63, i64 %15)
   %cmp5.not.i.i1228 = icmp eq i32 %bcmp.i1227, 0
-  br i1 %cmp5.not.i.i1228, label %land.lhs.true490, label %cleanup
+  br i1 %cmp5.not.i.i1228, label %land.lhs.true490, label %if.end494
 
 land.lhs.true490:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1226
   %200 = load i8, ptr %type, align 4
   %cmp.i1231 = icmp eq i8 %200, 9
-  br i1 %cmp.i1231, label %land.lhs.true.i1232, label %cleanup
+  br i1 %cmp.i1231, label %land.lhs.true.i1232, label %if.end494
 
 land.lhs.true.i1232:                              ; preds = %land.lhs.true490
   %aggregate.i1233 = getelementptr inbounds i8, ptr %type, i64 1
   %201 = load i8, ptr %aggregate.i1233, align 1
   %cmp7.i1234 = icmp eq i8 %201, 1
-  br i1 %cmp7.i1234, label %land.lhs.true8.i1235, label %cleanup
+  br i1 %cmp7.i1234, label %land.lhs.true8.i1235, label %if.end494
 
 land.lhs.true8.i1235:                             ; preds = %land.lhs.true.i1232
   %vecsemantics.i1236 = getelementptr inbounds i8, ptr %type, i64 2
   %202 = load i8, ptr %vecsemantics.i1236, align 2
   %cmp12.i1237 = icmp eq i8 %202, 0
-  br i1 %cmp12.i1237, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1241, label %cleanup
+  br i1 %cmp12.i1237, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1241, label %if.end494
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1241: ; preds = %land.lhs.true8.i1235
   %arraylen.i1239 = getelementptr inbounds i8, ptr %type, i64 4
   %203 = load i32, ptr %arraylen.i1239, align 4
   %cmp14.i1240 = icmp eq i32 %203, 0
-  br i1 %cmp14.i1240, label %if.then492, label %cleanup
+  br i1 %cmp14.i1240, label %if.then492, label %if.end494
 
 if.then492:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1241
   %204 = load atomic i64, ptr @_ZN18OpenImageIO_v2_6_03pvt17IB_local_mem_peakE seq_cst, align 8
   store i64 %204, ptr %val, align 8
   br label %cleanup
 
+if.end494:                                        ; preds = %land.lhs.true490, %land.lhs.true.i1232, %land.lhs.true8.i1235, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1226, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1241
+  br label %cleanup
+
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1254: ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit289, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i274, %land.lhs.true8.i283, %land.lhs.true.i280, %land.lhs.true90
   %bcmp.i1255 = tail call i32 @bcmp(ptr %14, ptr nonnull @.str.64, i64 %15)
   %cmp5.not.i.i1256 = icmp eq i32 %bcmp.i1255, 0
-  br i1 %cmp5.not.i.i1256, label %land.lhs.true499, label %cleanup
+  br i1 %cmp5.not.i.i1256, label %land.lhs.true499, label %if.end503
 
 land.lhs.true499:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1254
   %205 = load i8, ptr %type, align 4
   %cmp.i1259 = icmp eq i8 %205, 11
-  br i1 %cmp.i1259, label %land.lhs.true.i1260, label %cleanup
+  br i1 %cmp.i1259, label %land.lhs.true.i1260, label %if.end503
 
 land.lhs.true.i1260:                              ; preds = %land.lhs.true499
   %aggregate.i1261 = getelementptr inbounds i8, ptr %type, i64 1
   %206 = load i8, ptr %aggregate.i1261, align 1
   %cmp7.i1262 = icmp eq i8 %206, 1
-  br i1 %cmp7.i1262, label %land.lhs.true8.i1263, label %cleanup
+  br i1 %cmp7.i1262, label %land.lhs.true8.i1263, label %if.end503
 
 land.lhs.true8.i1263:                             ; preds = %land.lhs.true.i1260
   %vecsemantics.i1264 = getelementptr inbounds i8, ptr %type, i64 2
   %207 = load i8, ptr %vecsemantics.i1264, align 2
   %cmp12.i1265 = icmp eq i8 %207, 0
-  br i1 %cmp12.i1265, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1269, label %cleanup
+  br i1 %cmp12.i1265, label %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1269, label %if.end503
 
 _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1269: ; preds = %land.lhs.true8.i1263
   %arraylen.i1267 = getelementptr inbounds i8, ptr %type, i64 4
   %208 = load i32, ptr %arraylen.i1267, align 4
   %cmp14.i1268 = icmp eq i32 %208, 0
-  br i1 %cmp14.i1268, label %if.then501, label %cleanup
+  br i1 %cmp14.i1268, label %if.then501, label %if.end503
 
 if.then501:                                       ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1269
   %209 = load atomic i32, ptr @_ZN18OpenImageIO_v2_6_03pvt18IB_total_open_timeE seq_cst, align 4
   store i32 %209, ptr %val, align 4
+  br label %cleanup
+
+if.end503:                                        ; preds = %land.lhs.true499, %land.lhs.true.i1260, %land.lhs.true8.i1263, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1254, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1269
   br label %cleanup
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1282: ; preds = %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit
@@ -4783,8 +4807,8 @@ if.then510:                                       ; preds = %_ZNK18OpenImageIO_v
   store i32 %214, ptr %val, align 4
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1269, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1254, %land.lhs.true8.i1263, %land.lhs.true.i1260, %land.lhs.true499, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1241, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1226, %land.lhs.true8.i1235, %land.lhs.true.i1232, %land.lhs.true490, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1213, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1198, %land.lhs.true8.i1207, %land.lhs.true.i1204, %land.lhs.true481, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1185, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1170, %land.lhs.true8.i1179, %land.lhs.true.i1176, %land.lhs.true473, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1157, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1142, %land.lhs.true8.i1151, %land.lhs.true.i1148, %land.lhs.true450, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1129, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1114, %land.lhs.true8.i1123, %land.lhs.true.i1120, %land.lhs.true441, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1085, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1070, %land.lhs.true8.i1079, %land.lhs.true.i1076, %land.lhs.true421, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1034, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1019, %land.lhs.true8.i1028, %land.lhs.true.i1025, %land.lhs.true382, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit994, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i979, %land.lhs.true8.i988, %land.lhs.true.i985, %land.lhs.true363, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit954, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i939, %land.lhs.true8.i948, %land.lhs.true.i945, %land.lhs.true344, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit914, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i899, %land.lhs.true8.i908, %land.lhs.true.i905, %land.lhs.true325, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit858, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i843, %land.lhs.true8.i852, %land.lhs.true.i849, %land.lhs.true309, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit774, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i759, %land.lhs.true8.i768, %land.lhs.true.i765, %land.lhs.true285, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit746, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i731, %land.lhs.true8.i740, %land.lhs.true.i737, %land.lhs.true277, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit690, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i675, %land.lhs.true8.i684, %land.lhs.true.i681, %land.lhs.true261, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit550, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i535, %land.lhs.true8.i544, %land.lhs.true.i541, %land.lhs.true220, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit125, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110, %land.lhs.true8.i119, %land.lhs.true.i116, %land.lhs.true17, %for.body410.preheader, %for.cond408.preheader, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit, %land.lhs.true508, %land.lhs.true.i1288, %land.lhs.true8.i1291, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1282, %if.then38, %if.then28, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1297, %if.then510, %if.then501, %if.then492, %if.then483, %if.then475, %invoke.cont465, %if.then443, %invoke.cont432, %invoke.cont385, %invoke.cont373, %invoke.cont354, %invoke.cont335, %if.then319, %if.then311, %if.then303, %if.then295, %if.then287, %if.then279, %if.then271, %if.then263, %if.then255, %if.then247, %if.then239, %if.then231, %if.then222, %invoke.cont211, %invoke.cont189, %invoke.cont169, %invoke.cont149, %invoke.cont127, %invoke.cont105, %invoke.cont83, %invoke.cont61, %if.then19
-  %retval.1 = phi i1 [ true, %if.then19 ], [ true, %invoke.cont61 ], [ true, %invoke.cont83 ], [ true, %invoke.cont105 ], [ true, %invoke.cont127 ], [ true, %invoke.cont149 ], [ true, %invoke.cont169 ], [ true, %invoke.cont189 ], [ true, %invoke.cont211 ], [ true, %if.then222 ], [ true, %if.then231 ], [ true, %if.then239 ], [ true, %if.then247 ], [ true, %if.then255 ], [ true, %if.then263 ], [ true, %if.then271 ], [ true, %if.then279 ], [ true, %if.then287 ], [ true, %if.then295 ], [ true, %if.then303 ], [ true, %if.then311 ], [ true, %if.then319 ], [ true, %invoke.cont335 ], [ true, %invoke.cont354 ], [ true, %invoke.cont373 ], [ true, %invoke.cont385 ], [ true, %invoke.cont432 ], [ true, %if.then443 ], [ true, %invoke.cont465 ], [ true, %if.then475 ], [ true, %if.then483 ], [ true, %if.then492 ], [ true, %if.then501 ], [ true, %if.then510 ], [ true, %if.then28 ], [ true, %if.then38 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1297 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1282 ], [ false, %land.lhs.true8.i1291 ], [ false, %land.lhs.true.i1288 ], [ false, %land.lhs.true508 ], [ false, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ], [ true, %for.cond408.preheader ], [ true, %for.body410.preheader ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true.i116 ], [ false, %land.lhs.true8.i119 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit125 ], [ false, %land.lhs.true220 ], [ false, %land.lhs.true.i541 ], [ false, %land.lhs.true8.i544 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i535 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit550 ], [ false, %land.lhs.true261 ], [ false, %land.lhs.true.i681 ], [ false, %land.lhs.true8.i684 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i675 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit690 ], [ false, %land.lhs.true277 ], [ false, %land.lhs.true.i737 ], [ false, %land.lhs.true8.i740 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i731 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit746 ], [ false, %land.lhs.true285 ], [ false, %land.lhs.true.i765 ], [ false, %land.lhs.true8.i768 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i759 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit774 ], [ false, %land.lhs.true309 ], [ false, %land.lhs.true.i849 ], [ false, %land.lhs.true8.i852 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i843 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit858 ], [ false, %land.lhs.true325 ], [ false, %land.lhs.true.i905 ], [ false, %land.lhs.true8.i908 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i899 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit914 ], [ false, %land.lhs.true344 ], [ false, %land.lhs.true.i945 ], [ false, %land.lhs.true8.i948 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i939 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit954 ], [ false, %land.lhs.true363 ], [ false, %land.lhs.true.i985 ], [ false, %land.lhs.true8.i988 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i979 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit994 ], [ false, %land.lhs.true382 ], [ false, %land.lhs.true.i1025 ], [ false, %land.lhs.true8.i1028 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1019 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1034 ], [ false, %land.lhs.true421 ], [ false, %land.lhs.true.i1076 ], [ false, %land.lhs.true8.i1079 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1070 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1085 ], [ false, %land.lhs.true441 ], [ false, %land.lhs.true.i1120 ], [ false, %land.lhs.true8.i1123 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1114 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1129 ], [ false, %land.lhs.true450 ], [ false, %land.lhs.true.i1148 ], [ false, %land.lhs.true8.i1151 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1142 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1157 ], [ false, %land.lhs.true473 ], [ false, %land.lhs.true.i1176 ], [ false, %land.lhs.true8.i1179 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1170 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1185 ], [ false, %land.lhs.true481 ], [ false, %land.lhs.true.i1204 ], [ false, %land.lhs.true8.i1207 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1198 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1213 ], [ false, %land.lhs.true490 ], [ false, %land.lhs.true.i1232 ], [ false, %land.lhs.true8.i1235 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1226 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1241 ], [ false, %land.lhs.true499 ], [ false, %land.lhs.true.i1260 ], [ false, %land.lhs.true8.i1263 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1254 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1269 ]
+cleanup:                                          ; preds = %if.end503, %if.end494, %if.end485, %if.end476, %if.end468, %if.end445, %if.end436, %if.end387, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit994, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i979, %land.lhs.true8.i988, %land.lhs.true.i985, %land.lhs.true363, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit954, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i939, %land.lhs.true8.i948, %land.lhs.true.i945, %land.lhs.true344, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit914, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i899, %land.lhs.true8.i908, %land.lhs.true.i905, %land.lhs.true325, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit858, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i843, %land.lhs.true8.i852, %land.lhs.true.i849, %land.lhs.true309, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit774, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i759, %land.lhs.true8.i768, %land.lhs.true.i765, %land.lhs.true285, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit746, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i731, %land.lhs.true8.i740, %land.lhs.true.i737, %land.lhs.true277, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit690, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i675, %land.lhs.true8.i684, %land.lhs.true.i681, %land.lhs.true261, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit550, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i535, %land.lhs.true8.i544, %land.lhs.true.i541, %land.lhs.true220, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit125, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110, %land.lhs.true8.i119, %land.lhs.true.i116, %land.lhs.true17, %for.body410.preheader, %for.cond408.preheader, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit, %land.lhs.true508, %land.lhs.true.i1288, %land.lhs.true8.i1291, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1282, %if.then38, %if.then28, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1297, %if.then510, %if.then501, %if.then492, %if.then483, %if.then475, %invoke.cont465, %if.then443, %invoke.cont432, %invoke.cont385, %invoke.cont373, %invoke.cont354, %invoke.cont335, %if.then319, %if.then311, %if.then303, %if.then295, %if.then287, %if.then279, %if.then271, %if.then263, %if.then255, %if.then247, %if.then239, %if.then231, %if.then222, %invoke.cont211, %invoke.cont189, %invoke.cont169, %invoke.cont149, %invoke.cont127, %invoke.cont105, %invoke.cont83, %invoke.cont61, %if.then19
+  %retval.1 = phi i1 [ true, %if.then19 ], [ true, %invoke.cont61 ], [ true, %invoke.cont83 ], [ true, %invoke.cont105 ], [ true, %invoke.cont127 ], [ true, %invoke.cont149 ], [ true, %invoke.cont169 ], [ true, %invoke.cont189 ], [ true, %invoke.cont211 ], [ true, %if.then222 ], [ true, %if.then231 ], [ true, %if.then239 ], [ true, %if.then247 ], [ true, %if.then255 ], [ true, %if.then263 ], [ true, %if.then271 ], [ true, %if.then279 ], [ true, %if.then287 ], [ true, %if.then295 ], [ true, %if.then303 ], [ true, %if.then311 ], [ true, %if.then319 ], [ true, %invoke.cont335 ], [ true, %invoke.cont354 ], [ true, %invoke.cont373 ], [ true, %invoke.cont385 ], [ true, %invoke.cont432 ], [ true, %if.then443 ], [ true, %invoke.cont465 ], [ true, %if.then475 ], [ true, %if.then483 ], [ true, %if.then492 ], [ true, %if.then501 ], [ true, %if.then510 ], [ true, %if.then28 ], [ true, %if.then38 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit1297 ], [ false, %if.end503 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1282 ], [ false, %land.lhs.true8.i1291 ], [ false, %land.lhs.true.i1288 ], [ false, %land.lhs.true508 ], [ false, %if.end494 ], [ false, %if.end485 ], [ false, %if.end476 ], [ false, %if.end468 ], [ false, %if.end445 ], [ false, %if.end436 ], [ false, %if.end387 ], [ false, %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit ], [ true, %for.cond408.preheader ], [ true, %for.body410.preheader ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true.i116 ], [ false, %land.lhs.true8.i119 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i110 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit125 ], [ false, %land.lhs.true220 ], [ false, %land.lhs.true.i541 ], [ false, %land.lhs.true8.i544 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i535 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit550 ], [ false, %land.lhs.true261 ], [ false, %land.lhs.true.i681 ], [ false, %land.lhs.true8.i684 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i675 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit690 ], [ false, %land.lhs.true277 ], [ false, %land.lhs.true.i737 ], [ false, %land.lhs.true8.i740 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i731 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit746 ], [ false, %land.lhs.true285 ], [ false, %land.lhs.true.i765 ], [ false, %land.lhs.true8.i768 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i759 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit774 ], [ false, %land.lhs.true309 ], [ false, %land.lhs.true.i849 ], [ false, %land.lhs.true8.i852 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i843 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit858 ], [ false, %land.lhs.true325 ], [ false, %land.lhs.true.i905 ], [ false, %land.lhs.true8.i908 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i899 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit914 ], [ false, %land.lhs.true344 ], [ false, %land.lhs.true.i945 ], [ false, %land.lhs.true8.i948 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i939 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit954 ], [ false, %land.lhs.true363 ], [ false, %land.lhs.true.i985 ], [ false, %land.lhs.true8.i988 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i979 ], [ false, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit994 ]
   store atomic i8 0, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112attrib_mutexE release, align 1
   br label %return
 

@@ -6266,7 +6266,7 @@ sw.bb58.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1197.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %149 = load ptr, ptr %_M_refcount3.i.i.i1197.i, align 8, !noalias !413
   %cmp.not.i.i.i.i1198.i = icmp eq ptr %149, null
-  br i1 %cmp.not.i.i.i.i1198.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1201.i
+  br i1 %cmp.not.i.i.i.i1198.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1241.i, label %if.then4.i.i.i.i1201.i
 
 if.then4.i.i.i.i1201.i:                           ; preds = %sw.bb58.i
   %_M_use_count.i.i.i.i.i1202.i = getelementptr inbounds i8, ptr %149, i64 8
@@ -6278,17 +6278,20 @@ if.then.i.i.i.i.i.i1204.i:                        ; preds = %if.then4.i.i.i.i120
   %151 = load i32, ptr %_M_use_count.i.i.i.i.i1202.i, align 4, !noalias !413
   %add.i.i.i.i.i.i1205.i = add nsw i32 %151, 1
   store i32 %add.i.i.i.i.i.i1205.i, ptr %_M_use_count.i.i.i.i.i1202.i, align 4, !noalias !413
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1241.i
 
 if.else.i.i.i.i.i.i1240.i:                        ; preds = %if.then4.i.i.i.i1201.i
   %152 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1202.i, i32 1 acq_rel, align 4, !noalias !413
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1241.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1241.i: ; preds = %if.then.i.i.i.i.i.i1204.i, %if.else.i.i.i.i.i.i1240.i, %sw.bb58.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb60.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1244.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %153 = load ptr, ptr %_M_refcount3.i.i.i1244.i, align 8, !noalias !416
   %cmp.not.i.i.i.i1245.i = icmp eq ptr %153, null
-  br i1 %cmp.not.i.i.i.i1245.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1248.i
+  br i1 %cmp.not.i.i.i.i1245.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1288.i, label %if.then4.i.i.i.i1248.i
 
 if.then4.i.i.i.i1248.i:                           ; preds = %sw.bb60.i
   %_M_use_count.i.i.i.i.i1249.i = getelementptr inbounds i8, ptr %153, i64 8
@@ -6300,17 +6303,20 @@ if.then.i.i.i.i.i.i1251.i:                        ; preds = %if.then4.i.i.i.i124
   %155 = load i32, ptr %_M_use_count.i.i.i.i.i1249.i, align 4, !noalias !416
   %add.i.i.i.i.i.i1252.i = add nsw i32 %155, 1
   store i32 %add.i.i.i.i.i.i1252.i, ptr %_M_use_count.i.i.i.i.i1249.i, align 4, !noalias !416
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1288.i
 
 if.else.i.i.i.i.i.i1287.i:                        ; preds = %if.then4.i.i.i.i1248.i
   %156 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1249.i, i32 1 acq_rel, align 4, !noalias !416
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1288.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1288.i: ; preds = %if.then.i.i.i.i.i.i1251.i, %if.else.i.i.i.i.i.i1287.i, %sw.bb60.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb62.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1291.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %157 = load ptr, ptr %_M_refcount3.i.i.i1291.i, align 8, !noalias !419
   %cmp.not.i.i.i.i1292.i = icmp eq ptr %157, null
-  br i1 %cmp.not.i.i.i.i1292.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1295.i
+  br i1 %cmp.not.i.i.i.i1292.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1335.i, label %if.then4.i.i.i.i1295.i
 
 if.then4.i.i.i.i1295.i:                           ; preds = %sw.bb62.i
   %_M_use_count.i.i.i.i.i1296.i = getelementptr inbounds i8, ptr %157, i64 8
@@ -6322,17 +6328,20 @@ if.then.i.i.i.i.i.i1298.i:                        ; preds = %if.then4.i.i.i.i129
   %159 = load i32, ptr %_M_use_count.i.i.i.i.i1296.i, align 4, !noalias !419
   %add.i.i.i.i.i.i1299.i = add nsw i32 %159, 1
   store i32 %add.i.i.i.i.i.i1299.i, ptr %_M_use_count.i.i.i.i.i1296.i, align 4, !noalias !419
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1335.i
 
 if.else.i.i.i.i.i.i1334.i:                        ; preds = %if.then4.i.i.i.i1295.i
   %160 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1296.i, i32 1 acq_rel, align 4, !noalias !419
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1335.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1335.i: ; preds = %if.then.i.i.i.i.i.i1298.i, %if.else.i.i.i.i.i.i1334.i, %sw.bb62.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb64.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1338.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %161 = load ptr, ptr %_M_refcount3.i.i.i1338.i, align 8, !noalias !422
   %cmp.not.i.i.i.i1339.i = icmp eq ptr %161, null
-  br i1 %cmp.not.i.i.i.i1339.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1342.i
+  br i1 %cmp.not.i.i.i.i1339.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1382.i, label %if.then4.i.i.i.i1342.i
 
 if.then4.i.i.i.i1342.i:                           ; preds = %sw.bb64.i
   %_M_use_count.i.i.i.i.i1343.i = getelementptr inbounds i8, ptr %161, i64 8
@@ -6344,17 +6353,20 @@ if.then.i.i.i.i.i.i1345.i:                        ; preds = %if.then4.i.i.i.i134
   %163 = load i32, ptr %_M_use_count.i.i.i.i.i1343.i, align 4, !noalias !422
   %add.i.i.i.i.i.i1346.i = add nsw i32 %163, 1
   store i32 %add.i.i.i.i.i.i1346.i, ptr %_M_use_count.i.i.i.i.i1343.i, align 4, !noalias !422
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1382.i
 
 if.else.i.i.i.i.i.i1381.i:                        ; preds = %if.then4.i.i.i.i1342.i
   %164 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1343.i, i32 1 acq_rel, align 4, !noalias !422
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1382.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1382.i: ; preds = %if.then.i.i.i.i.i.i1345.i, %if.else.i.i.i.i.i.i1381.i, %sw.bb64.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb66.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1385.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %165 = load ptr, ptr %_M_refcount3.i.i.i1385.i, align 8, !noalias !425
   %cmp.not.i.i.i.i1386.i = icmp eq ptr %165, null
-  br i1 %cmp.not.i.i.i.i1386.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1389.i
+  br i1 %cmp.not.i.i.i.i1386.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1429.i, label %if.then4.i.i.i.i1389.i
 
 if.then4.i.i.i.i1389.i:                           ; preds = %sw.bb66.i
   %_M_use_count.i.i.i.i.i1390.i = getelementptr inbounds i8, ptr %165, i64 8
@@ -6366,17 +6378,20 @@ if.then.i.i.i.i.i.i1392.i:                        ; preds = %if.then4.i.i.i.i138
   %167 = load i32, ptr %_M_use_count.i.i.i.i.i1390.i, align 4, !noalias !425
   %add.i.i.i.i.i.i1393.i = add nsw i32 %167, 1
   store i32 %add.i.i.i.i.i.i1393.i, ptr %_M_use_count.i.i.i.i.i1390.i, align 4, !noalias !425
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1429.i
 
 if.else.i.i.i.i.i.i1428.i:                        ; preds = %if.then4.i.i.i.i1389.i
   %168 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1390.i, i32 1 acq_rel, align 4, !noalias !425
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1429.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1429.i: ; preds = %if.then.i.i.i.i.i.i1392.i, %if.else.i.i.i.i.i.i1428.i, %sw.bb66.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb68.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1432.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %169 = load ptr, ptr %_M_refcount3.i.i.i1432.i, align 8, !noalias !428
   %cmp.not.i.i.i.i1433.i = icmp eq ptr %169, null
-  br i1 %cmp.not.i.i.i.i1433.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1436.i
+  br i1 %cmp.not.i.i.i.i1433.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1476.i, label %if.then4.i.i.i.i1436.i
 
 if.then4.i.i.i.i1436.i:                           ; preds = %sw.bb68.i
   %_M_use_count.i.i.i.i.i1437.i = getelementptr inbounds i8, ptr %169, i64 8
@@ -6388,17 +6403,20 @@ if.then.i.i.i.i.i.i1439.i:                        ; preds = %if.then4.i.i.i.i143
   %171 = load i32, ptr %_M_use_count.i.i.i.i.i1437.i, align 4, !noalias !428
   %add.i.i.i.i.i.i1440.i = add nsw i32 %171, 1
   store i32 %add.i.i.i.i.i.i1440.i, ptr %_M_use_count.i.i.i.i.i1437.i, align 4, !noalias !428
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1476.i
 
 if.else.i.i.i.i.i.i1475.i:                        ; preds = %if.then4.i.i.i.i1436.i
   %172 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1437.i, i32 1 acq_rel, align 4, !noalias !428
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1476.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1476.i: ; preds = %if.then.i.i.i.i.i.i1439.i, %if.else.i.i.i.i.i.i1475.i, %sw.bb68.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb70.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1479.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %173 = load ptr, ptr %_M_refcount3.i.i.i1479.i, align 8, !noalias !431
   %cmp.not.i.i.i.i1480.i = icmp eq ptr %173, null
-  br i1 %cmp.not.i.i.i.i1480.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1483.i
+  br i1 %cmp.not.i.i.i.i1480.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1523.i, label %if.then4.i.i.i.i1483.i
 
 if.then4.i.i.i.i1483.i:                           ; preds = %sw.bb70.i
   %_M_use_count.i.i.i.i.i1484.i = getelementptr inbounds i8, ptr %173, i64 8
@@ -6410,17 +6428,20 @@ if.then.i.i.i.i.i.i1486.i:                        ; preds = %if.then4.i.i.i.i148
   %175 = load i32, ptr %_M_use_count.i.i.i.i.i1484.i, align 4, !noalias !431
   %add.i.i.i.i.i.i1487.i = add nsw i32 %175, 1
   store i32 %add.i.i.i.i.i.i1487.i, ptr %_M_use_count.i.i.i.i.i1484.i, align 4, !noalias !431
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1523.i
 
 if.else.i.i.i.i.i.i1522.i:                        ; preds = %if.then4.i.i.i.i1483.i
   %176 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1484.i, i32 1 acq_rel, align 4, !noalias !431
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1523.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1523.i: ; preds = %if.then.i.i.i.i.i.i1486.i, %if.else.i.i.i.i.i.i1522.i, %sw.bb70.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb72.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1526.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %177 = load ptr, ptr %_M_refcount3.i.i.i1526.i, align 8, !noalias !434
   %cmp.not.i.i.i.i1527.i = icmp eq ptr %177, null
-  br i1 %cmp.not.i.i.i.i1527.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1530.i
+  br i1 %cmp.not.i.i.i.i1527.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1570.i, label %if.then4.i.i.i.i1530.i
 
 if.then4.i.i.i.i1530.i:                           ; preds = %sw.bb72.i
   %_M_use_count.i.i.i.i.i1531.i = getelementptr inbounds i8, ptr %177, i64 8
@@ -6432,17 +6453,20 @@ if.then.i.i.i.i.i.i1533.i:                        ; preds = %if.then4.i.i.i.i153
   %179 = load i32, ptr %_M_use_count.i.i.i.i.i1531.i, align 4, !noalias !434
   %add.i.i.i.i.i.i1534.i = add nsw i32 %179, 1
   store i32 %add.i.i.i.i.i.i1534.i, ptr %_M_use_count.i.i.i.i.i1531.i, align 4, !noalias !434
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1570.i
 
 if.else.i.i.i.i.i.i1569.i:                        ; preds = %if.then4.i.i.i.i1530.i
   %180 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1531.i, i32 1 acq_rel, align 4, !noalias !434
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1570.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1570.i: ; preds = %if.then.i.i.i.i.i.i1533.i, %if.else.i.i.i.i.i.i1569.i, %sw.bb72.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb74.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1573.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %181 = load ptr, ptr %_M_refcount3.i.i.i1573.i, align 8, !noalias !437
   %cmp.not.i.i.i.i1574.i = icmp eq ptr %181, null
-  br i1 %cmp.not.i.i.i.i1574.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1577.i
+  br i1 %cmp.not.i.i.i.i1574.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1617.i, label %if.then4.i.i.i.i1577.i
 
 if.then4.i.i.i.i1577.i:                           ; preds = %sw.bb74.i
   %_M_use_count.i.i.i.i.i1578.i = getelementptr inbounds i8, ptr %181, i64 8
@@ -6454,17 +6478,20 @@ if.then.i.i.i.i.i.i1580.i:                        ; preds = %if.then4.i.i.i.i157
   %183 = load i32, ptr %_M_use_count.i.i.i.i.i1578.i, align 4, !noalias !437
   %add.i.i.i.i.i.i1581.i = add nsw i32 %183, 1
   store i32 %add.i.i.i.i.i.i1581.i, ptr %_M_use_count.i.i.i.i.i1578.i, align 4, !noalias !437
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1617.i
 
 if.else.i.i.i.i.i.i1616.i:                        ; preds = %if.then4.i.i.i.i1577.i
   %184 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1578.i, i32 1 acq_rel, align 4, !noalias !437
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1617.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1617.i: ; preds = %if.then.i.i.i.i.i.i1580.i, %if.else.i.i.i.i.i.i1616.i, %sw.bb74.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb76.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1620.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %185 = load ptr, ptr %_M_refcount3.i.i.i1620.i, align 8, !noalias !440
   %cmp.not.i.i.i.i1621.i = icmp eq ptr %185, null
-  br i1 %cmp.not.i.i.i.i1621.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1624.i
+  br i1 %cmp.not.i.i.i.i1621.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1664.i, label %if.then4.i.i.i.i1624.i
 
 if.then4.i.i.i.i1624.i:                           ; preds = %sw.bb76.i
   %_M_use_count.i.i.i.i.i1625.i = getelementptr inbounds i8, ptr %185, i64 8
@@ -6476,17 +6503,20 @@ if.then.i.i.i.i.i.i1627.i:                        ; preds = %if.then4.i.i.i.i162
   %187 = load i32, ptr %_M_use_count.i.i.i.i.i1625.i, align 4, !noalias !440
   %add.i.i.i.i.i.i1628.i = add nsw i32 %187, 1
   store i32 %add.i.i.i.i.i.i1628.i, ptr %_M_use_count.i.i.i.i.i1625.i, align 4, !noalias !440
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1664.i
 
 if.else.i.i.i.i.i.i1663.i:                        ; preds = %if.then4.i.i.i.i1624.i
   %188 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1625.i, i32 1 acq_rel, align 4, !noalias !440
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1664.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1664.i: ; preds = %if.then.i.i.i.i.i.i1627.i, %if.else.i.i.i.i.i.i1663.i, %sw.bb76.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb78.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1667.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %189 = load ptr, ptr %_M_refcount3.i.i.i1667.i, align 8, !noalias !443
   %cmp.not.i.i.i.i1668.i = icmp eq ptr %189, null
-  br i1 %cmp.not.i.i.i.i1668.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1671.i
+  br i1 %cmp.not.i.i.i.i1668.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1711.i, label %if.then4.i.i.i.i1671.i
 
 if.then4.i.i.i.i1671.i:                           ; preds = %sw.bb78.i
   %_M_use_count.i.i.i.i.i1672.i = getelementptr inbounds i8, ptr %189, i64 8
@@ -6498,17 +6528,20 @@ if.then.i.i.i.i.i.i1674.i:                        ; preds = %if.then4.i.i.i.i167
   %191 = load i32, ptr %_M_use_count.i.i.i.i.i1672.i, align 4, !noalias !443
   %add.i.i.i.i.i.i1675.i = add nsw i32 %191, 1
   store i32 %add.i.i.i.i.i.i1675.i, ptr %_M_use_count.i.i.i.i.i1672.i, align 4, !noalias !443
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1711.i
 
 if.else.i.i.i.i.i.i1710.i:                        ; preds = %if.then4.i.i.i.i1671.i
   %192 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1672.i, i32 1 acq_rel, align 4, !noalias !443
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1711.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1711.i: ; preds = %if.then.i.i.i.i.i.i1674.i, %if.else.i.i.i.i.i.i1710.i, %sw.bb78.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb80.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1714.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %193 = load ptr, ptr %_M_refcount3.i.i.i1714.i, align 8, !noalias !446
   %cmp.not.i.i.i.i1715.i = icmp eq ptr %193, null
-  br i1 %cmp.not.i.i.i.i1715.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1718.i
+  br i1 %cmp.not.i.i.i.i1715.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1758.i, label %if.then4.i.i.i.i1718.i
 
 if.then4.i.i.i.i1718.i:                           ; preds = %sw.bb80.i
   %_M_use_count.i.i.i.i.i1719.i = getelementptr inbounds i8, ptr %193, i64 8
@@ -6520,17 +6553,20 @@ if.then.i.i.i.i.i.i1721.i:                        ; preds = %if.then4.i.i.i.i171
   %195 = load i32, ptr %_M_use_count.i.i.i.i.i1719.i, align 4, !noalias !446
   %add.i.i.i.i.i.i1722.i = add nsw i32 %195, 1
   store i32 %add.i.i.i.i.i.i1722.i, ptr %_M_use_count.i.i.i.i.i1719.i, align 4, !noalias !446
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1758.i
 
 if.else.i.i.i.i.i.i1757.i:                        ; preds = %if.then4.i.i.i.i1718.i
   %196 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1719.i, i32 1 acq_rel, align 4, !noalias !446
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1758.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1758.i: ; preds = %if.then.i.i.i.i.i.i1721.i, %if.else.i.i.i.i.i.i1757.i, %sw.bb80.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb82.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1761.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %197 = load ptr, ptr %_M_refcount3.i.i.i1761.i, align 8, !noalias !449
   %cmp.not.i.i.i.i1762.i = icmp eq ptr %197, null
-  br i1 %cmp.not.i.i.i.i1762.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1765.i
+  br i1 %cmp.not.i.i.i.i1762.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1805.i, label %if.then4.i.i.i.i1765.i
 
 if.then4.i.i.i.i1765.i:                           ; preds = %sw.bb82.i
   %_M_use_count.i.i.i.i.i1766.i = getelementptr inbounds i8, ptr %197, i64 8
@@ -6542,17 +6578,20 @@ if.then.i.i.i.i.i.i1768.i:                        ; preds = %if.then4.i.i.i.i176
   %199 = load i32, ptr %_M_use_count.i.i.i.i.i1766.i, align 4, !noalias !449
   %add.i.i.i.i.i.i1769.i = add nsw i32 %199, 1
   store i32 %add.i.i.i.i.i.i1769.i, ptr %_M_use_count.i.i.i.i.i1766.i, align 4, !noalias !449
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1805.i
 
 if.else.i.i.i.i.i.i1804.i:                        ; preds = %if.then4.i.i.i.i1765.i
   %200 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1766.i, i32 1 acq_rel, align 4, !noalias !449
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1805.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1805.i: ; preds = %if.then.i.i.i.i.i.i1768.i, %if.else.i.i.i.i.i.i1804.i, %sw.bb82.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.bb84.i:                                        ; preds = %entry
   %_M_refcount3.i.i.i1808.i = getelementptr inbounds i8, ptr %real_type, i64 8
   %201 = load ptr, ptr %_M_refcount3.i.i.i1808.i, align 8, !noalias !452
   %cmp.not.i.i.i.i1809.i = icmp eq ptr %201, null
-  br i1 %cmp.not.i.i.i.i1809.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit, label %if.then4.i.i.i.i1812.i
+  br i1 %cmp.not.i.i.i.i1809.i, label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1852.i, label %if.then4.i.i.i.i1812.i
 
 if.then4.i.i.i.i1812.i:                           ; preds = %sw.bb84.i
   %_M_use_count.i.i.i.i.i1813.i = getelementptr inbounds i8, ptr %201, i64 8
@@ -6564,10 +6603,13 @@ if.then.i.i.i.i.i.i1815.i:                        ; preds = %if.then4.i.i.i.i181
   %203 = load i32, ptr %_M_use_count.i.i.i.i.i1813.i, align 4, !noalias !452
   %add.i.i.i.i.i.i1816.i = add nsw i32 %203, 1
   store i32 %add.i.i.i.i.i.i1816.i, ptr %_M_use_count.i.i.i.i.i1813.i, align 4, !noalias !452
-  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1852.i
 
 if.else.i.i.i.i.i.i1851.i:                        ; preds = %if.then4.i.i.i.i1812.i
   %204 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i1813.i, i32 1 acq_rel, align 4, !noalias !452
+  br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1852.i
+
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1852.i: ; preds = %if.then.i.i.i.i.i.i1815.i, %if.else.i.i.i.i.i.i1851.i, %sw.bb84.i
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 sw.epilog.i:                                      ; preds = %entry
@@ -6821,9 +6863,9 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   call void @_ZdlPv(ptr noundef nonnull %.pr211.pr) #34
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
-_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit: ; preds = %sw.bb84.i, %if.else.i.i.i.i.i.i1851.i, %if.then.i.i.i.i.i.i1815.i, %sw.bb82.i, %if.else.i.i.i.i.i.i1804.i, %if.then.i.i.i.i.i.i1768.i, %sw.bb80.i, %if.else.i.i.i.i.i.i1757.i, %if.then.i.i.i.i.i.i1721.i, %sw.bb78.i, %if.else.i.i.i.i.i.i1710.i, %if.then.i.i.i.i.i.i1674.i, %sw.bb76.i, %if.else.i.i.i.i.i.i1663.i, %if.then.i.i.i.i.i.i1627.i, %sw.bb74.i, %if.else.i.i.i.i.i.i1616.i, %if.then.i.i.i.i.i.i1580.i, %sw.bb72.i, %if.else.i.i.i.i.i.i1569.i, %if.then.i.i.i.i.i.i1533.i, %sw.bb70.i, %if.else.i.i.i.i.i.i1522.i, %if.then.i.i.i.i.i.i1486.i, %sw.bb68.i, %if.else.i.i.i.i.i.i1475.i, %if.then.i.i.i.i.i.i1439.i, %sw.bb66.i, %if.else.i.i.i.i.i.i1428.i, %if.then.i.i.i.i.i.i1392.i, %sw.bb64.i, %if.else.i.i.i.i.i.i1381.i, %if.then.i.i.i.i.i.i1345.i, %sw.bb62.i, %if.else.i.i.i.i.i.i1334.i, %if.then.i.i.i.i.i.i1298.i, %sw.bb60.i, %if.else.i.i.i.i.i.i1287.i, %if.then.i.i.i.i.i.i1251.i, %sw.bb58.i, %if.else.i.i.i.i.i.i1240.i, %if.then.i.i.i.i.i.i1204.i, %if.else.i.i.i.i.i.i.i1137.i, %if.then.i.i.i.i.i.i.i1102.i, %call.i.i1097.i.noexc, %if.else.i.i.i.i.i.i.i1064.i, %if.then.i.i.i.i.i.i.i1029.i, %call.i.i1024.i.noexc, %if.else.i.i.i.i.i.i.i1023.i, %if.then.i.i.i.i.i.i.i988.i, %call.i.i983.i.noexc, %if.else.i.i.i.i.i.i.i982.i, %if.then.i.i.i.i.i.i.i947.i, %call.i.i942.i.noexc, %if.else.i.i.i.i.i.i.i941.i, %if.then.i.i.i.i.i.i.i906.i, %call.i.i901.i.noexc, %if.else.i.i.i.i.i.i.i900.i, %if.then.i.i.i.i.i.i.i865.i, %call.i.i860.i.noexc, %if.else.i.i.i.i.i.i.i859.i, %if.then.i.i.i.i.i.i.i824.i, %call.i.i819.i.noexc, %sw.bb38.i, %if.else.i.i.i.i.i.i817.i, %if.then.i.i.i.i.i.i781.i, %if.else.i.i.i.i.i.i.i771.i, %if.then.i.i.i.i.i.i.i736.i, %call.i.i731.i.noexc, %if.else.i.i.i.i.i.i.i730.i, %if.then.i.i.i.i.i.i.i696.i, %call.i.i691.i.noexc, %if.else.i.i.i.i.i.i.i690.i, %if.then.i.i.i.i.i.i.i655.i, %call.i.i650.i.noexc, %if.else.i.i.i.i.i.i.i649.i, %if.then.i.i.i.i.i.i.i614.i, %call.i.i609.i.noexc, %if.else.i.i.i.i.i.i.i608.i, %if.then.i.i.i.i.i.i.i574.i, %call.i.i569.i.noexc, %if.else.i.i.i.i.i.i.i568.i, %if.then.i.i.i.i.i.i.i534.i, %call.i.i529.i.noexc, %if.else.i.i.i.i.i.i.i528.i, %if.then.i.i.i.i.i.i.i494.i, %call.i.i489.i.noexc, %if.else.i.i.i.i.i.i.i488.i, %if.then.i.i.i.i.i.i.i454.i, %call.i.i449.i.noexc, %if.else.i.i.i.i.i.i.i448.i, %if.then.i.i.i.i.i.i.i414.i, %call.i.i409.i.noexc, %if.else.i.i.i.i.i.i.i408.i, %if.then.i.i.i.i.i.i.i374.i, %call.i.i369.i.noexc, %if.else.i.i.i.i.i.i.i368.i, %if.then.i.i.i.i.i.i.i334.i, %call.i.i329.i.noexc, %if.else.i.i.i.i.i.i.i328.i, %if.then.i.i.i.i.i.i.i294.i, %call.i.i289.i.noexc, %if.else.i.i.i.i.i.i.i288.i, %if.then.i.i.i.i.i.i.i254.i, %call.i.i249.i.noexc, %if.else.i.i.i.i.i.i.i248.i, %if.then.i.i.i.i.i.i.i214.i, %call.i.i209.i.noexc, %if.else.i.i.i.i.i.i.i208.i, %if.then.i.i.i.i.i.i.i174.i, %call.i.i169.i.noexc, %if.else.i.i.i.i.i.i.i168.i, %if.then.i.i.i.i.i.i.i134.i, %call.i.i129.i.noexc, %if.else.i.i.i.i.i.i.i128.i, %if.then.i.i.i.i.i.i.i94.i, %call.i.i89.i.noexc, %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %call.i.i.i.noexc, %sw.bb.i, %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i, %invoke.cont, %_ZN5arrow6Status11DeleteStateEv.exit.i, %cleanup.done34
-  %visitor.sroa.63.17207216 = phi ptr [ null, %cleanup.done34 ], [ null, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ null, %invoke.cont ], [ %call5.i.i.i3.i.i.i.i.i.i.i1138.i32, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %call5.i.i.i3.i.i.i.i.i.i.i.i30, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %2, %if.then.i.i.i.i.i.i.i ], [ %2, %if.else.i.i.i.i.i.i.i ], [ %2, %sw.bb.i ], [ %7, %call.i.i.i.noexc ], [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i ], [ %12, %call.i.i89.i.noexc ], [ %12, %if.then.i.i.i.i.i.i.i94.i ], [ %12, %if.else.i.i.i.i.i.i.i128.i ], [ %17, %call.i.i129.i.noexc ], [ %17, %if.then.i.i.i.i.i.i.i134.i ], [ %17, %if.else.i.i.i.i.i.i.i168.i ], [ %22, %call.i.i169.i.noexc ], [ %22, %if.then.i.i.i.i.i.i.i174.i ], [ %22, %if.else.i.i.i.i.i.i.i208.i ], [ %27, %call.i.i209.i.noexc ], [ %27, %if.then.i.i.i.i.i.i.i214.i ], [ %27, %if.else.i.i.i.i.i.i.i248.i ], [ %32, %call.i.i249.i.noexc ], [ %32, %if.then.i.i.i.i.i.i.i254.i ], [ %32, %if.else.i.i.i.i.i.i.i288.i ], [ %37, %call.i.i289.i.noexc ], [ %37, %if.then.i.i.i.i.i.i.i294.i ], [ %37, %if.else.i.i.i.i.i.i.i328.i ], [ %42, %call.i.i329.i.noexc ], [ %42, %if.then.i.i.i.i.i.i.i334.i ], [ %42, %if.else.i.i.i.i.i.i.i368.i ], [ %47, %call.i.i369.i.noexc ], [ %47, %if.then.i.i.i.i.i.i.i374.i ], [ %47, %if.else.i.i.i.i.i.i.i408.i ], [ %52, %call.i.i409.i.noexc ], [ %52, %if.then.i.i.i.i.i.i.i414.i ], [ %52, %if.else.i.i.i.i.i.i.i448.i ], [ %57, %call.i.i449.i.noexc ], [ %57, %if.then.i.i.i.i.i.i.i454.i ], [ %57, %if.else.i.i.i.i.i.i.i488.i ], [ %62, %call.i.i489.i.noexc ], [ %62, %if.then.i.i.i.i.i.i.i494.i ], [ %62, %if.else.i.i.i.i.i.i.i528.i ], [ %67, %call.i.i529.i.noexc ], [ %67, %if.then.i.i.i.i.i.i.i534.i ], [ %67, %if.else.i.i.i.i.i.i.i568.i ], [ %72, %call.i.i569.i.noexc ], [ %72, %if.then.i.i.i.i.i.i.i574.i ], [ %72, %if.else.i.i.i.i.i.i.i608.i ], [ %77, %call.i.i609.i.noexc ], [ %77, %if.then.i.i.i.i.i.i.i614.i ], [ %77, %if.else.i.i.i.i.i.i.i649.i ], [ %82, %call.i.i650.i.noexc ], [ %82, %if.then.i.i.i.i.i.i.i655.i ], [ %82, %if.else.i.i.i.i.i.i.i690.i ], [ %87, %call.i.i691.i.noexc ], [ %87, %if.then.i.i.i.i.i.i.i696.i ], [ %87, %if.else.i.i.i.i.i.i.i730.i ], [ %92, %call.i.i731.i.noexc ], [ %92, %if.then.i.i.i.i.i.i.i736.i ], [ %92, %if.else.i.i.i.i.i.i.i771.i ], [ %96, %if.then.i.i.i.i.i.i781.i ], [ %96, %if.else.i.i.i.i.i.i817.i ], [ %96, %sw.bb38.i ], [ %101, %call.i.i819.i.noexc ], [ %101, %if.then.i.i.i.i.i.i.i824.i ], [ %101, %if.else.i.i.i.i.i.i.i859.i ], [ %106, %call.i.i860.i.noexc ], [ %106, %if.then.i.i.i.i.i.i.i865.i ], [ %106, %if.else.i.i.i.i.i.i.i900.i ], [ %111, %call.i.i901.i.noexc ], [ %111, %if.then.i.i.i.i.i.i.i906.i ], [ %111, %if.else.i.i.i.i.i.i.i941.i ], [ %116, %call.i.i942.i.noexc ], [ %116, %if.then.i.i.i.i.i.i.i947.i ], [ %116, %if.else.i.i.i.i.i.i.i982.i ], [ %121, %call.i.i983.i.noexc ], [ %121, %if.then.i.i.i.i.i.i.i988.i ], [ %121, %if.else.i.i.i.i.i.i.i1023.i ], [ %126, %call.i.i1024.i.noexc ], [ %126, %if.then.i.i.i.i.i.i.i1029.i ], [ %126, %if.else.i.i.i.i.i.i.i1064.i ], [ %138, %call.i.i1097.i.noexc ], [ %138, %if.then.i.i.i.i.i.i.i1102.i ], [ %138, %if.else.i.i.i.i.i.i.i1137.i ], [ %149, %if.then.i.i.i.i.i.i1204.i ], [ %149, %if.else.i.i.i.i.i.i1240.i ], [ %149, %sw.bb58.i ], [ %153, %if.then.i.i.i.i.i.i1251.i ], [ %153, %if.else.i.i.i.i.i.i1287.i ], [ %153, %sw.bb60.i ], [ %157, %if.then.i.i.i.i.i.i1298.i ], [ %157, %if.else.i.i.i.i.i.i1334.i ], [ %157, %sw.bb62.i ], [ %161, %if.then.i.i.i.i.i.i1345.i ], [ %161, %if.else.i.i.i.i.i.i1381.i ], [ %161, %sw.bb64.i ], [ %165, %if.then.i.i.i.i.i.i1392.i ], [ %165, %if.else.i.i.i.i.i.i1428.i ], [ %165, %sw.bb66.i ], [ %169, %if.then.i.i.i.i.i.i1439.i ], [ %169, %if.else.i.i.i.i.i.i1475.i ], [ %169, %sw.bb68.i ], [ %173, %if.then.i.i.i.i.i.i1486.i ], [ %173, %if.else.i.i.i.i.i.i1522.i ], [ %173, %sw.bb70.i ], [ %177, %if.then.i.i.i.i.i.i1533.i ], [ %177, %if.else.i.i.i.i.i.i1569.i ], [ %177, %sw.bb72.i ], [ %181, %if.then.i.i.i.i.i.i1580.i ], [ %181, %if.else.i.i.i.i.i.i1616.i ], [ %181, %sw.bb74.i ], [ %185, %if.then.i.i.i.i.i.i1627.i ], [ %185, %if.else.i.i.i.i.i.i1663.i ], [ %185, %sw.bb76.i ], [ %189, %if.then.i.i.i.i.i.i1674.i ], [ %189, %if.else.i.i.i.i.i.i1710.i ], [ %189, %sw.bb78.i ], [ %193, %if.then.i.i.i.i.i.i1721.i ], [ %193, %if.else.i.i.i.i.i.i1757.i ], [ %193, %sw.bb80.i ], [ %197, %if.then.i.i.i.i.i.i1768.i ], [ %197, %if.else.i.i.i.i.i.i1804.i ], [ %197, %sw.bb82.i ], [ %201, %if.then.i.i.i.i.i.i1815.i ], [ %201, %if.else.i.i.i.i.i.i1851.i ], [ %201, %sw.bb84.i ]
-  %visitor.sroa.17.0210215 = phi ptr [ null, %cleanup.done34 ], [ null, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ null, %invoke.cont ], [ %_M_impl.i.i.i.i.i.i.i.i.i1141.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %_M_impl.i.i.i.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %0, %if.else.i.i.i.i.i.i.i ], [ %0, %sw.bb.i ], [ %6, %call.i.i.i.noexc ], [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %6, %if.else.i.i.i.i.i.i.i.i ], [ %11, %call.i.i89.i.noexc ], [ %11, %if.then.i.i.i.i.i.i.i94.i ], [ %11, %if.else.i.i.i.i.i.i.i128.i ], [ %16, %call.i.i129.i.noexc ], [ %16, %if.then.i.i.i.i.i.i.i134.i ], [ %16, %if.else.i.i.i.i.i.i.i168.i ], [ %21, %call.i.i169.i.noexc ], [ %21, %if.then.i.i.i.i.i.i.i174.i ], [ %21, %if.else.i.i.i.i.i.i.i208.i ], [ %26, %call.i.i209.i.noexc ], [ %26, %if.then.i.i.i.i.i.i.i214.i ], [ %26, %if.else.i.i.i.i.i.i.i248.i ], [ %31, %call.i.i249.i.noexc ], [ %31, %if.then.i.i.i.i.i.i.i254.i ], [ %31, %if.else.i.i.i.i.i.i.i288.i ], [ %36, %call.i.i289.i.noexc ], [ %36, %if.then.i.i.i.i.i.i.i294.i ], [ %36, %if.else.i.i.i.i.i.i.i328.i ], [ %41, %call.i.i329.i.noexc ], [ %41, %if.then.i.i.i.i.i.i.i334.i ], [ %41, %if.else.i.i.i.i.i.i.i368.i ], [ %46, %call.i.i369.i.noexc ], [ %46, %if.then.i.i.i.i.i.i.i374.i ], [ %46, %if.else.i.i.i.i.i.i.i408.i ], [ %51, %call.i.i409.i.noexc ], [ %51, %if.then.i.i.i.i.i.i.i414.i ], [ %51, %if.else.i.i.i.i.i.i.i448.i ], [ %56, %call.i.i449.i.noexc ], [ %56, %if.then.i.i.i.i.i.i.i454.i ], [ %56, %if.else.i.i.i.i.i.i.i488.i ], [ %61, %call.i.i489.i.noexc ], [ %61, %if.then.i.i.i.i.i.i.i494.i ], [ %61, %if.else.i.i.i.i.i.i.i528.i ], [ %66, %call.i.i529.i.noexc ], [ %66, %if.then.i.i.i.i.i.i.i534.i ], [ %66, %if.else.i.i.i.i.i.i.i568.i ], [ %71, %call.i.i569.i.noexc ], [ %71, %if.then.i.i.i.i.i.i.i574.i ], [ %71, %if.else.i.i.i.i.i.i.i608.i ], [ %76, %call.i.i609.i.noexc ], [ %76, %if.then.i.i.i.i.i.i.i614.i ], [ %76, %if.else.i.i.i.i.i.i.i649.i ], [ %81, %call.i.i650.i.noexc ], [ %81, %if.then.i.i.i.i.i.i.i655.i ], [ %81, %if.else.i.i.i.i.i.i.i690.i ], [ %86, %call.i.i691.i.noexc ], [ %86, %if.then.i.i.i.i.i.i.i696.i ], [ %86, %if.else.i.i.i.i.i.i.i730.i ], [ %91, %call.i.i731.i.noexc ], [ %91, %if.then.i.i.i.i.i.i.i736.i ], [ %91, %if.else.i.i.i.i.i.i.i771.i ], [ %0, %if.then.i.i.i.i.i.i781.i ], [ %0, %if.else.i.i.i.i.i.i817.i ], [ %0, %sw.bb38.i ], [ %100, %call.i.i819.i.noexc ], [ %100, %if.then.i.i.i.i.i.i.i824.i ], [ %100, %if.else.i.i.i.i.i.i.i859.i ], [ %105, %call.i.i860.i.noexc ], [ %105, %if.then.i.i.i.i.i.i.i865.i ], [ %105, %if.else.i.i.i.i.i.i.i900.i ], [ %110, %call.i.i901.i.noexc ], [ %110, %if.then.i.i.i.i.i.i.i906.i ], [ %110, %if.else.i.i.i.i.i.i.i941.i ], [ %115, %call.i.i942.i.noexc ], [ %115, %if.then.i.i.i.i.i.i.i947.i ], [ %115, %if.else.i.i.i.i.i.i.i982.i ], [ %120, %call.i.i983.i.noexc ], [ %120, %if.then.i.i.i.i.i.i.i988.i ], [ %120, %if.else.i.i.i.i.i.i.i1023.i ], [ %125, %call.i.i1024.i.noexc ], [ %125, %if.then.i.i.i.i.i.i.i1029.i ], [ %125, %if.else.i.i.i.i.i.i.i1064.i ], [ %137, %call.i.i1097.i.noexc ], [ %137, %if.then.i.i.i.i.i.i.i1102.i ], [ %137, %if.else.i.i.i.i.i.i.i1137.i ], [ %0, %if.then.i.i.i.i.i.i1204.i ], [ %0, %if.else.i.i.i.i.i.i1240.i ], [ %0, %sw.bb58.i ], [ %0, %if.then.i.i.i.i.i.i1251.i ], [ %0, %if.else.i.i.i.i.i.i1287.i ], [ %0, %sw.bb60.i ], [ %0, %if.then.i.i.i.i.i.i1298.i ], [ %0, %if.else.i.i.i.i.i.i1334.i ], [ %0, %sw.bb62.i ], [ %0, %if.then.i.i.i.i.i.i1345.i ], [ %0, %if.else.i.i.i.i.i.i1381.i ], [ %0, %sw.bb64.i ], [ %0, %if.then.i.i.i.i.i.i1392.i ], [ %0, %if.else.i.i.i.i.i.i1428.i ], [ %0, %sw.bb66.i ], [ %0, %if.then.i.i.i.i.i.i1439.i ], [ %0, %if.else.i.i.i.i.i.i1475.i ], [ %0, %sw.bb68.i ], [ %0, %if.then.i.i.i.i.i.i1486.i ], [ %0, %if.else.i.i.i.i.i.i1522.i ], [ %0, %sw.bb70.i ], [ %0, %if.then.i.i.i.i.i.i1533.i ], [ %0, %if.else.i.i.i.i.i.i1569.i ], [ %0, %sw.bb72.i ], [ %0, %if.then.i.i.i.i.i.i1580.i ], [ %0, %if.else.i.i.i.i.i.i1616.i ], [ %0, %sw.bb74.i ], [ %0, %if.then.i.i.i.i.i.i1627.i ], [ %0, %if.else.i.i.i.i.i.i1663.i ], [ %0, %sw.bb76.i ], [ %0, %if.then.i.i.i.i.i.i1674.i ], [ %0, %if.else.i.i.i.i.i.i1710.i ], [ %0, %sw.bb78.i ], [ %0, %if.then.i.i.i.i.i.i1721.i ], [ %0, %if.else.i.i.i.i.i.i1757.i ], [ %0, %sw.bb80.i ], [ %0, %if.then.i.i.i.i.i.i1768.i ], [ %0, %if.else.i.i.i.i.i.i1804.i ], [ %0, %sw.bb82.i ], [ %0, %if.then.i.i.i.i.i.i1815.i ], [ %0, %if.else.i.i.i.i.i.i1851.i ], [ %0, %sw.bb84.i ]
+_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit: ; preds = %if.else.i.i.i.i.i.i.i1137.i, %if.then.i.i.i.i.i.i.i1102.i, %call.i.i1097.i.noexc, %if.else.i.i.i.i.i.i.i1064.i, %if.then.i.i.i.i.i.i.i1029.i, %call.i.i1024.i.noexc, %if.else.i.i.i.i.i.i.i1023.i, %if.then.i.i.i.i.i.i.i988.i, %call.i.i983.i.noexc, %if.else.i.i.i.i.i.i.i982.i, %if.then.i.i.i.i.i.i.i947.i, %call.i.i942.i.noexc, %if.else.i.i.i.i.i.i.i941.i, %if.then.i.i.i.i.i.i.i906.i, %call.i.i901.i.noexc, %if.else.i.i.i.i.i.i.i900.i, %if.then.i.i.i.i.i.i.i865.i, %call.i.i860.i.noexc, %if.else.i.i.i.i.i.i.i859.i, %if.then.i.i.i.i.i.i.i824.i, %call.i.i819.i.noexc, %sw.bb38.i, %if.else.i.i.i.i.i.i817.i, %if.then.i.i.i.i.i.i781.i, %if.else.i.i.i.i.i.i.i771.i, %if.then.i.i.i.i.i.i.i736.i, %call.i.i731.i.noexc, %if.else.i.i.i.i.i.i.i730.i, %if.then.i.i.i.i.i.i.i696.i, %call.i.i691.i.noexc, %if.else.i.i.i.i.i.i.i690.i, %if.then.i.i.i.i.i.i.i655.i, %call.i.i650.i.noexc, %if.else.i.i.i.i.i.i.i649.i, %if.then.i.i.i.i.i.i.i614.i, %call.i.i609.i.noexc, %if.else.i.i.i.i.i.i.i608.i, %if.then.i.i.i.i.i.i.i574.i, %call.i.i569.i.noexc, %if.else.i.i.i.i.i.i.i568.i, %if.then.i.i.i.i.i.i.i534.i, %call.i.i529.i.noexc, %if.else.i.i.i.i.i.i.i528.i, %if.then.i.i.i.i.i.i.i494.i, %call.i.i489.i.noexc, %if.else.i.i.i.i.i.i.i488.i, %if.then.i.i.i.i.i.i.i454.i, %call.i.i449.i.noexc, %if.else.i.i.i.i.i.i.i448.i, %if.then.i.i.i.i.i.i.i414.i, %call.i.i409.i.noexc, %if.else.i.i.i.i.i.i.i408.i, %if.then.i.i.i.i.i.i.i374.i, %call.i.i369.i.noexc, %if.else.i.i.i.i.i.i.i368.i, %if.then.i.i.i.i.i.i.i334.i, %call.i.i329.i.noexc, %if.else.i.i.i.i.i.i.i328.i, %if.then.i.i.i.i.i.i.i294.i, %call.i.i289.i.noexc, %if.else.i.i.i.i.i.i.i288.i, %if.then.i.i.i.i.i.i.i254.i, %call.i.i249.i.noexc, %if.else.i.i.i.i.i.i.i248.i, %if.then.i.i.i.i.i.i.i214.i, %call.i.i209.i.noexc, %if.else.i.i.i.i.i.i.i208.i, %if.then.i.i.i.i.i.i.i174.i, %call.i.i169.i.noexc, %if.else.i.i.i.i.i.i.i168.i, %if.then.i.i.i.i.i.i.i134.i, %call.i.i129.i.noexc, %if.else.i.i.i.i.i.i.i128.i, %if.then.i.i.i.i.i.i.i94.i, %call.i.i89.i.noexc, %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %call.i.i.i.noexc, %sw.bb.i, %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1852.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1805.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1758.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1711.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1664.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1617.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1570.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1523.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1476.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1429.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1382.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1335.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1288.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1241.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i, %invoke.cont, %_ZN5arrow6Status11DeleteStateEv.exit.i, %cleanup.done34
+  %visitor.sroa.63.17207216 = phi ptr [ null, %cleanup.done34 ], [ null, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ null, %invoke.cont ], [ %201, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1852.i ], [ %197, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1805.i ], [ %193, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1758.i ], [ %189, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1711.i ], [ %185, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1664.i ], [ %181, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1617.i ], [ %177, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1570.i ], [ %173, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1523.i ], [ %169, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1476.i ], [ %165, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1429.i ], [ %161, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1382.i ], [ %157, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1335.i ], [ %153, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1288.i ], [ %149, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1241.i ], [ %call5.i.i.i3.i.i.i.i.i.i.i1138.i32, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %call5.i.i.i3.i.i.i.i.i.i.i.i30, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %2, %if.then.i.i.i.i.i.i.i ], [ %2, %if.else.i.i.i.i.i.i.i ], [ %2, %sw.bb.i ], [ %7, %call.i.i.i.noexc ], [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i ], [ %12, %call.i.i89.i.noexc ], [ %12, %if.then.i.i.i.i.i.i.i94.i ], [ %12, %if.else.i.i.i.i.i.i.i128.i ], [ %17, %call.i.i129.i.noexc ], [ %17, %if.then.i.i.i.i.i.i.i134.i ], [ %17, %if.else.i.i.i.i.i.i.i168.i ], [ %22, %call.i.i169.i.noexc ], [ %22, %if.then.i.i.i.i.i.i.i174.i ], [ %22, %if.else.i.i.i.i.i.i.i208.i ], [ %27, %call.i.i209.i.noexc ], [ %27, %if.then.i.i.i.i.i.i.i214.i ], [ %27, %if.else.i.i.i.i.i.i.i248.i ], [ %32, %call.i.i249.i.noexc ], [ %32, %if.then.i.i.i.i.i.i.i254.i ], [ %32, %if.else.i.i.i.i.i.i.i288.i ], [ %37, %call.i.i289.i.noexc ], [ %37, %if.then.i.i.i.i.i.i.i294.i ], [ %37, %if.else.i.i.i.i.i.i.i328.i ], [ %42, %call.i.i329.i.noexc ], [ %42, %if.then.i.i.i.i.i.i.i334.i ], [ %42, %if.else.i.i.i.i.i.i.i368.i ], [ %47, %call.i.i369.i.noexc ], [ %47, %if.then.i.i.i.i.i.i.i374.i ], [ %47, %if.else.i.i.i.i.i.i.i408.i ], [ %52, %call.i.i409.i.noexc ], [ %52, %if.then.i.i.i.i.i.i.i414.i ], [ %52, %if.else.i.i.i.i.i.i.i448.i ], [ %57, %call.i.i449.i.noexc ], [ %57, %if.then.i.i.i.i.i.i.i454.i ], [ %57, %if.else.i.i.i.i.i.i.i488.i ], [ %62, %call.i.i489.i.noexc ], [ %62, %if.then.i.i.i.i.i.i.i494.i ], [ %62, %if.else.i.i.i.i.i.i.i528.i ], [ %67, %call.i.i529.i.noexc ], [ %67, %if.then.i.i.i.i.i.i.i534.i ], [ %67, %if.else.i.i.i.i.i.i.i568.i ], [ %72, %call.i.i569.i.noexc ], [ %72, %if.then.i.i.i.i.i.i.i574.i ], [ %72, %if.else.i.i.i.i.i.i.i608.i ], [ %77, %call.i.i609.i.noexc ], [ %77, %if.then.i.i.i.i.i.i.i614.i ], [ %77, %if.else.i.i.i.i.i.i.i649.i ], [ %82, %call.i.i650.i.noexc ], [ %82, %if.then.i.i.i.i.i.i.i655.i ], [ %82, %if.else.i.i.i.i.i.i.i690.i ], [ %87, %call.i.i691.i.noexc ], [ %87, %if.then.i.i.i.i.i.i.i696.i ], [ %87, %if.else.i.i.i.i.i.i.i730.i ], [ %92, %call.i.i731.i.noexc ], [ %92, %if.then.i.i.i.i.i.i.i736.i ], [ %92, %if.else.i.i.i.i.i.i.i771.i ], [ %96, %if.then.i.i.i.i.i.i781.i ], [ %96, %if.else.i.i.i.i.i.i817.i ], [ %96, %sw.bb38.i ], [ %101, %call.i.i819.i.noexc ], [ %101, %if.then.i.i.i.i.i.i.i824.i ], [ %101, %if.else.i.i.i.i.i.i.i859.i ], [ %106, %call.i.i860.i.noexc ], [ %106, %if.then.i.i.i.i.i.i.i865.i ], [ %106, %if.else.i.i.i.i.i.i.i900.i ], [ %111, %call.i.i901.i.noexc ], [ %111, %if.then.i.i.i.i.i.i.i906.i ], [ %111, %if.else.i.i.i.i.i.i.i941.i ], [ %116, %call.i.i942.i.noexc ], [ %116, %if.then.i.i.i.i.i.i.i947.i ], [ %116, %if.else.i.i.i.i.i.i.i982.i ], [ %121, %call.i.i983.i.noexc ], [ %121, %if.then.i.i.i.i.i.i.i988.i ], [ %121, %if.else.i.i.i.i.i.i.i1023.i ], [ %126, %call.i.i1024.i.noexc ], [ %126, %if.then.i.i.i.i.i.i.i1029.i ], [ %126, %if.else.i.i.i.i.i.i.i1064.i ], [ %138, %call.i.i1097.i.noexc ], [ %138, %if.then.i.i.i.i.i.i.i1102.i ], [ %138, %if.else.i.i.i.i.i.i.i1137.i ]
+  %visitor.sroa.17.0210215 = phi ptr [ null, %cleanup.done34 ], [ null, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ null, %invoke.cont ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1852.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1805.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1758.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1711.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1664.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1617.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1570.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1523.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1476.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1429.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1382.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1335.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1288.i ], [ %0, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitERKNS_8DataTypeE.exit1241.i ], [ %_M_impl.i.i.i.i.i.i.i.i.i1141.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %_M_impl.i.i.i.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %0, %if.else.i.i.i.i.i.i.i ], [ %0, %sw.bb.i ], [ %6, %call.i.i.i.noexc ], [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %6, %if.else.i.i.i.i.i.i.i.i ], [ %11, %call.i.i89.i.noexc ], [ %11, %if.then.i.i.i.i.i.i.i94.i ], [ %11, %if.else.i.i.i.i.i.i.i128.i ], [ %16, %call.i.i129.i.noexc ], [ %16, %if.then.i.i.i.i.i.i.i134.i ], [ %16, %if.else.i.i.i.i.i.i.i168.i ], [ %21, %call.i.i169.i.noexc ], [ %21, %if.then.i.i.i.i.i.i.i174.i ], [ %21, %if.else.i.i.i.i.i.i.i208.i ], [ %26, %call.i.i209.i.noexc ], [ %26, %if.then.i.i.i.i.i.i.i214.i ], [ %26, %if.else.i.i.i.i.i.i.i248.i ], [ %31, %call.i.i249.i.noexc ], [ %31, %if.then.i.i.i.i.i.i.i254.i ], [ %31, %if.else.i.i.i.i.i.i.i288.i ], [ %36, %call.i.i289.i.noexc ], [ %36, %if.then.i.i.i.i.i.i.i294.i ], [ %36, %if.else.i.i.i.i.i.i.i328.i ], [ %41, %call.i.i329.i.noexc ], [ %41, %if.then.i.i.i.i.i.i.i334.i ], [ %41, %if.else.i.i.i.i.i.i.i368.i ], [ %46, %call.i.i369.i.noexc ], [ %46, %if.then.i.i.i.i.i.i.i374.i ], [ %46, %if.else.i.i.i.i.i.i.i408.i ], [ %51, %call.i.i409.i.noexc ], [ %51, %if.then.i.i.i.i.i.i.i414.i ], [ %51, %if.else.i.i.i.i.i.i.i448.i ], [ %56, %call.i.i449.i.noexc ], [ %56, %if.then.i.i.i.i.i.i.i454.i ], [ %56, %if.else.i.i.i.i.i.i.i488.i ], [ %61, %call.i.i489.i.noexc ], [ %61, %if.then.i.i.i.i.i.i.i494.i ], [ %61, %if.else.i.i.i.i.i.i.i528.i ], [ %66, %call.i.i529.i.noexc ], [ %66, %if.then.i.i.i.i.i.i.i534.i ], [ %66, %if.else.i.i.i.i.i.i.i568.i ], [ %71, %call.i.i569.i.noexc ], [ %71, %if.then.i.i.i.i.i.i.i574.i ], [ %71, %if.else.i.i.i.i.i.i.i608.i ], [ %76, %call.i.i609.i.noexc ], [ %76, %if.then.i.i.i.i.i.i.i614.i ], [ %76, %if.else.i.i.i.i.i.i.i649.i ], [ %81, %call.i.i650.i.noexc ], [ %81, %if.then.i.i.i.i.i.i.i655.i ], [ %81, %if.else.i.i.i.i.i.i.i690.i ], [ %86, %call.i.i691.i.noexc ], [ %86, %if.then.i.i.i.i.i.i.i696.i ], [ %86, %if.else.i.i.i.i.i.i.i730.i ], [ %91, %call.i.i731.i.noexc ], [ %91, %if.then.i.i.i.i.i.i.i736.i ], [ %91, %if.else.i.i.i.i.i.i.i771.i ], [ %0, %if.then.i.i.i.i.i.i781.i ], [ %0, %if.else.i.i.i.i.i.i817.i ], [ %0, %sw.bb38.i ], [ %100, %call.i.i819.i.noexc ], [ %100, %if.then.i.i.i.i.i.i.i824.i ], [ %100, %if.else.i.i.i.i.i.i.i859.i ], [ %105, %call.i.i860.i.noexc ], [ %105, %if.then.i.i.i.i.i.i.i865.i ], [ %105, %if.else.i.i.i.i.i.i.i900.i ], [ %110, %call.i.i901.i.noexc ], [ %110, %if.then.i.i.i.i.i.i.i906.i ], [ %110, %if.else.i.i.i.i.i.i.i941.i ], [ %115, %call.i.i942.i.noexc ], [ %115, %if.then.i.i.i.i.i.i.i947.i ], [ %115, %if.else.i.i.i.i.i.i.i982.i ], [ %120, %call.i.i983.i.noexc ], [ %120, %if.then.i.i.i.i.i.i.i988.i ], [ %120, %if.else.i.i.i.i.i.i.i1023.i ], [ %125, %call.i.i1024.i.noexc ], [ %125, %if.then.i.i.i.i.i.i.i1029.i ], [ %125, %if.else.i.i.i.i.i.i.i1064.i ], [ %137, %call.i.i1097.i.noexc ], [ %137, %if.then.i.i.i.i.i.i.i1102.i ], [ %137, %if.else.i.i.i.i.i.i.i1137.i ]
   store ptr %visitor.sroa.17.0210215, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %visitor.sroa.63.17207216, ptr %_M_refcount.i.i, align 8

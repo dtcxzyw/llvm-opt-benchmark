@@ -3343,7 +3343,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 symtable_lookup.exit:                             ; preds = %_PyST_GetSymbol.exit.i, %if.end.i.i, %if.then1.i.i
   %cmp1463 = icmp slt i64 %retval.0.i.i, 0
-  br i1 %cmp1463, label %return, label %if.end1468
+  br i1 %cmp1463, label %return.loopexit986, label %if.end1468
 
 if.end1468:                                       ; preds = %symtable_lookup.exit
   %and1469 = and i64 %retval.0.i.i, 278
@@ -3388,7 +3388,7 @@ if.end1498:                                       ; preds = %for.body1456, %if.e
   %265 = load ptr, ptr %st_cur.i729, align 8
   %call.i732 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %249, i32 noundef 1, ptr noundef %265, i32 noundef %261, i32 noundef %262, i32 noundef %263, i32 noundef %264)
   %tobool1504.not = icmp eq i32 %call.i732, 0
-  br i1 %tobool1504.not, label %return, label %if.end1508
+  br i1 %tobool1504.not, label %return.loopexit986, label %if.end1508
 
 if.end1508:                                       ; preds = %if.end1498
   %266 = load i32, ptr %lineno1499, align 8
@@ -3398,7 +3398,7 @@ if.end1508:                                       ; preds = %if.end1498
   %call1513 = tail call fastcc i32 @symtable_record_directive(ptr noundef nonnull %st, ptr noundef %249, i32 noundef %266, i32 noundef %267, i32 noundef %268, i32 noundef %269)
   %tobool1514.not = icmp eq i32 %call1513, 0
   %inc1520 = add i32 %i1441.0, 1
-  br i1 %tobool1514.not, label %return, label %for.cond1445, !llvm.loop !40
+  br i1 %tobool1514.not, label %return.loopexit986, label %for.cond1445, !llvm.loop !40
 
 sw.bb1522:                                        ; preds = %if.end
   %v1525 = getelementptr inbounds i8, ptr %s, i64 8
@@ -3466,7 +3466,7 @@ if.then1.i.i750:                                  ; preds = %if.end.i.i747
 
 symtable_lookup.exit751:                          ; preds = %_PyST_GetSymbol.exit.i743, %if.end.i.i747, %if.then1.i.i750
   %cmp1545 = icmp slt i64 %retval.0.i.i744, 0
-  br i1 %cmp1545, label %return, label %if.end1550
+  br i1 %cmp1545, label %return.loopexit989, label %if.end1550
 
 if.end1550:                                       ; preds = %symtable_lookup.exit751
   %and1551 = and i64 %retval.0.i.i744, 278
@@ -3511,7 +3511,7 @@ if.end1580:                                       ; preds = %for.body1538, %if.e
   %288 = load ptr, ptr %st_cur.i737, align 8
   %call.i753 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %272, i32 noundef 8, ptr noundef %288, i32 noundef %284, i32 noundef %285, i32 noundef %286, i32 noundef %287)
   %tobool1586.not = icmp eq i32 %call.i753, 0
-  br i1 %tobool1586.not, label %return, label %if.end1590
+  br i1 %tobool1586.not, label %return.loopexit989, label %if.end1590
 
 if.end1590:                                       ; preds = %if.end1580
   %289 = load i32, ptr %lineno1581, align 8
@@ -3521,7 +3521,7 @@ if.end1590:                                       ; preds = %if.end1580
   %call1595 = tail call fastcc i32 @symtable_record_directive(ptr noundef nonnull %st, ptr noundef %272, i32 noundef %289, i32 noundef %290, i32 noundef %291, i32 noundef %292)
   %tobool1596.not = icmp eq i32 %call1595, 0
   %inc1602 = add i32 %i1523.0, 1
-  br i1 %tobool1596.not, label %return, label %for.cond1527, !llvm.loop !41
+  br i1 %tobool1596.not, label %return.loopexit989, label %for.cond1527, !llvm.loop !41
 
 sw.bb1604:                                        ; preds = %if.end
   %v1605 = getelementptr inbounds i8, ptr %s, i64 8
@@ -3557,7 +3557,7 @@ for.body1629:                                     ; preds = %cond.end1625
   %297 = load ptr, ptr %296, align 8
   %call.i754 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %297)
   %tobool.not.i755 = icmp eq i32 %call.i754, 0
-  br i1 %tobool.not.i755, label %return, label %if.end.i756
+  br i1 %tobool.not.i755, label %if.then1636, label %if.end.i756
 
 if.end.i756:                                      ; preds = %for.body1629
   %optional_vars.i = getelementptr inbounds i8, ptr %296, i64 8
@@ -3568,7 +3568,10 @@ if.end.i756:                                      ; preds = %for.body1629
 if.then2.i758:                                    ; preds = %if.end.i756
   %call4.i759 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %298)
   %tobool5.not.i760 = icmp eq i32 %call4.i759, 0
-  br i1 %tobool5.not.i760, label %return, label %for.inc1640
+  br i1 %tobool5.not.i760, label %if.then1636, label %for.inc1640
+
+if.then1636:                                      ; preds = %if.then2.i758, %for.body1629
+  br label %return
 
 for.inc1640:                                      ; preds = %if.then2.i758, %if.end.i756
   %inc1641 = add i32 %i1615.0, 1
@@ -3916,7 +3919,7 @@ for.body1971:                                     ; preds = %cond.end1967
   %358 = load ptr, ptr %357, align 8
   %call.i779 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %358)
   %tobool.not.i780 = icmp eq i32 %call.i779, 0
-  br i1 %tobool.not.i780, label %return, label %if.end.i781
+  br i1 %tobool.not.i780, label %if.then1978, label %if.end.i781
 
 if.end.i781:                                      ; preds = %for.body1971
   %optional_vars.i782 = getelementptr inbounds i8, ptr %357, i64 8
@@ -3927,7 +3930,10 @@ if.end.i781:                                      ; preds = %for.body1971
 if.then2.i784:                                    ; preds = %if.end.i781
   %call4.i785 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %359)
   %tobool5.not.i786 = icmp eq i32 %call4.i785, 0
-  br i1 %tobool5.not.i786, label %return, label %for.inc1982
+  br i1 %tobool5.not.i786, label %if.then1978, label %for.inc1982
+
+if.then1978:                                      ; preds = %if.then2.i784, %for.body1971
+  br label %return
 
 for.inc1982:                                      ; preds = %if.then2.i784, %if.end.i781
   %inc1983 = add i32 %i1956.0, 1
@@ -4039,9 +4045,15 @@ for.body2079:                                     ; preds = %for.body2079.lr.ph,
 sw.epilog:                                        ; preds = %cond.end1654, %cond.end1996, %for.cond2068, %cond.end1534, %cond.end1452, %cond.end1422, %cond.end1392, %cond.end1342, %cond.end1225, %cond.end1085, %for.cond1041, %for.cond969, %for.cond898, %cond.end671, %for.cond2068.preheader, %for.cond1041.preheader, %for.cond969.preheader, %for.cond898.preheader, %if.end1933, %if.end495, %if.end226, %for.end2059, %cond.false1939, %if.then1947, %sw.bb1604, %if.end1368, %if.then1371, %sw.bb1103, %if.then1117, %if.end1114, %for.end1032, %for.end960, %for.end890, %if.end837, %if.end815, %if.then819, %for.end718, %sw.bb642, %if.end654, %if.end632, %if.then634, %cond.false501, %if.then509, %cond.false232, %if.then240, %if.end
   br label %return
 
-return:                                           ; preds = %for.body1629, %if.then2.i758, %for.body1658, %for.body1706, %if.end1749, %for.body1779, %for.body1850, %for.body1914, %for.body1971, %if.then2.i784, %for.body2000, %for.body2046, %for.body2079, %if.end1590, %if.end1580, %symtable_lookup.exit751, %if.end1508, %if.end1498, %symtable_lookup.exit, %for.body1426, %for.body1396, %for.body1259, %for.body1288, %for.body1317, %for.body1346, %for.body1144, %for.body1172, %for.body1201, %for.body1229, %for.body1089, %if.then2.i, %for.body.i719, %for.body1019, %for.body1052, %for.body947, %for.body980, %for.body877, %for.body909, %for.body705, %for.body675, %for.body575, %for.body280, %for.body339, %for.body368, %for.body396, %for.body475, %for.body, %if.end51, %for.body80, %for.body149, %for.body207, %if.end2022, %sw.bb2014, %if.then1947, %for.end1927, %if.end1886, %if.end1874, %if.end1864, %has_kwonlydefaults.exit778, %sw.bb1672, %sw.bb1604, %if.then1371, %sw.bb1360, %if.then1117, %if.then1106, %sw.bb1067, %sw.bb995, %sw.bb924, %if.end854, %sw.bb846, %if.end837, %sw.bb829, %if.then819, %if.end808, %if.else799, %land.lhs.true785, %land.lhs.true770, %if.then732, %for.end718, %if.then646, %if.then634, %if.end626, %if.end618, %land.lhs.true, %if.end589, %if.then546, %sw.bb517, %if.then509, %for.end488, %if.end448, %if.then438, %for.end409, %if.then308, %sw.bb248, %if.then240, %for.end220, %if.end184, %if.end172, %if.end163, %has_kwonlydefaults.exit, %sw.bb, %sw.epilog, %if.end1569, %if.end1487, %if.then752, %if.then
-  %.sink947 = phi i32 [ -1, %sw.epilog ], [ -1, %if.end1569 ], [ -1, %if.end1487 ], [ -1, %if.then752 ], [ -1, %if.then ], [ -1, %sw.bb ], [ -1, %has_kwonlydefaults.exit ], [ -1, %if.end163 ], [ -1, %if.end172 ], [ -1, %if.end184 ], [ -1, %for.end220 ], [ -1, %if.then240 ], [ -1, %sw.bb248 ], [ -1, %if.then308 ], [ -1, %for.end409 ], [ -1, %if.then438 ], [ -1, %if.end448 ], [ -1, %for.end488 ], [ -1, %if.then509 ], [ -1, %sw.bb517 ], [ -1, %if.then546 ], [ -1, %if.end589 ], [ -1, %land.lhs.true ], [ -1, %if.end618 ], [ -1, %if.end626 ], [ -1, %if.then634 ], [ -1, %if.then646 ], [ -1, %for.end718 ], [ -1, %if.then732 ], [ -1, %land.lhs.true770 ], [ -1, %land.lhs.true785 ], [ -1, %if.else799 ], [ -1, %if.end808 ], [ -1, %if.then819 ], [ -1, %sw.bb829 ], [ -1, %if.end837 ], [ -1, %sw.bb846 ], [ -1, %if.end854 ], [ -1, %sw.bb924 ], [ -1, %sw.bb995 ], [ -1, %sw.bb1067 ], [ -1, %if.then1106 ], [ -1, %if.then1117 ], [ -1, %sw.bb1360 ], [ -1, %if.then1371 ], [ -1, %sw.bb1604 ], [ -1, %sw.bb1672 ], [ -1, %has_kwonlydefaults.exit778 ], [ -1, %if.end1864 ], [ -1, %if.end1874 ], [ -1, %if.end1886 ], [ -1, %for.end1927 ], [ -1, %if.then1947 ], [ -1, %sw.bb2014 ], [ -1, %if.end2022 ], [ -1, %for.body207 ], [ -1, %for.body149 ], [ -1, %for.body80 ], [ -1, %if.end51 ], [ -1, %for.body ], [ -1, %for.body475 ], [ -2, %for.body396 ], [ -1, %for.body368 ], [ -1, %for.body339 ], [ -1, %for.body280 ], [ -1, %for.body575 ], [ -1, %for.body675 ], [ -1, %for.body705 ], [ -1, %for.body909 ], [ -1, %for.body877 ], [ -1, %for.body980 ], [ -1, %for.body947 ], [ -1, %for.body1052 ], [ -1, %for.body1019 ], [ -2, %for.body.i719 ], [ -2, %if.then2.i ], [ -2, %for.body1089 ], [ -1, %for.body1229 ], [ -1, %for.body1201 ], [ -1, %for.body1172 ], [ -1, %for.body1144 ], [ -1, %for.body1346 ], [ -1, %for.body1317 ], [ -1, %for.body1288 ], [ -1, %for.body1259 ], [ -1, %for.body1396 ], [ -1, %for.body1426 ], [ -1, %symtable_lookup.exit ], [ -1, %if.end1498 ], [ -1, %if.end1508 ], [ -1, %symtable_lookup.exit751 ], [ -1, %if.end1580 ], [ -1, %if.end1590 ], [ -1, %for.body2079 ], [ -1, %for.body2046 ], [ -1, %for.body2000 ], [ -2, %if.then2.i784 ], [ -2, %for.body1971 ], [ -1, %for.body1914 ], [ -1, %for.body1850 ], [ -1, %for.body1779 ], [ -1, %if.end1749 ], [ -1, %for.body1706 ], [ -1, %for.body1658 ], [ -2, %if.then2.i758 ], [ -2, %for.body1629 ]
-  %retval.0 = phi i32 [ 1, %sw.epilog ], [ 0, %if.end1569 ], [ 0, %if.end1487 ], [ 0, %if.then752 ], [ 0, %if.then ], [ 0, %sw.bb ], [ 0, %has_kwonlydefaults.exit ], [ 0, %if.end163 ], [ 0, %if.end172 ], [ 0, %if.end184 ], [ 0, %for.end220 ], [ 0, %if.then240 ], [ 0, %sw.bb248 ], [ 0, %if.then308 ], [ 0, %for.end409 ], [ 0, %if.then438 ], [ 0, %if.end448 ], [ 0, %for.end488 ], [ 0, %if.then509 ], [ 0, %sw.bb517 ], [ 0, %if.then546 ], [ 0, %if.end589 ], [ 0, %land.lhs.true ], [ 0, %if.end618 ], [ 0, %if.end626 ], [ 0, %if.then634 ], [ 0, %if.then646 ], [ 0, %for.end718 ], [ 0, %if.then732 ], [ 0, %land.lhs.true770 ], [ 0, %land.lhs.true785 ], [ 0, %if.else799 ], [ 0, %if.end808 ], [ 0, %if.then819 ], [ 0, %sw.bb829 ], [ 0, %if.end837 ], [ 0, %sw.bb846 ], [ 0, %if.end854 ], [ 0, %sw.bb924 ], [ 0, %sw.bb995 ], [ 0, %sw.bb1067 ], [ 0, %if.then1106 ], [ 0, %if.then1117 ], [ 0, %sw.bb1360 ], [ 0, %if.then1371 ], [ 0, %sw.bb1604 ], [ 0, %sw.bb1672 ], [ 0, %has_kwonlydefaults.exit778 ], [ 0, %if.end1864 ], [ 0, %if.end1874 ], [ 0, %if.end1886 ], [ 0, %for.end1927 ], [ 0, %if.then1947 ], [ 0, %sw.bb2014 ], [ 0, %if.end2022 ], [ 0, %for.body207 ], [ 0, %for.body149 ], [ 0, %for.body80 ], [ 0, %if.end51 ], [ 0, %for.body ], [ 0, %for.body475 ], [ 0, %for.body396 ], [ 0, %for.body368 ], [ 0, %for.body339 ], [ 0, %for.body280 ], [ 0, %for.body575 ], [ 0, %for.body675 ], [ 0, %for.body705 ], [ 0, %for.body909 ], [ 0, %for.body877 ], [ 0, %for.body980 ], [ 0, %for.body947 ], [ 0, %for.body1052 ], [ 0, %for.body1019 ], [ 0, %for.body.i719 ], [ 0, %if.then2.i ], [ 0, %for.body1089 ], [ 0, %for.body1229 ], [ 0, %for.body1201 ], [ 0, %for.body1172 ], [ 0, %for.body1144 ], [ 0, %for.body1346 ], [ 0, %for.body1317 ], [ 0, %for.body1288 ], [ 0, %for.body1259 ], [ 0, %for.body1396 ], [ 0, %for.body1426 ], [ 0, %symtable_lookup.exit ], [ 0, %if.end1498 ], [ 0, %if.end1508 ], [ 0, %symtable_lookup.exit751 ], [ 0, %if.end1580 ], [ 0, %if.end1590 ], [ 0, %for.body2079 ], [ 0, %for.body2046 ], [ 0, %for.body2000 ], [ 0, %if.then2.i784 ], [ 0, %for.body1971 ], [ 0, %for.body1914 ], [ 0, %for.body1850 ], [ 0, %for.body1779 ], [ 0, %if.end1749 ], [ 0, %for.body1706 ], [ 0, %for.body1658 ], [ 0, %if.then2.i758 ], [ 0, %for.body1629 ]
+return.loopexit986:                               ; preds = %symtable_lookup.exit, %if.end1498, %if.end1508
+  br label %return
+
+return.loopexit989:                               ; preds = %symtable_lookup.exit751, %if.end1580, %if.end1590
+  br label %return
+
+return:                                           ; preds = %for.body1658, %for.body1706, %if.end1749, %for.body1779, %for.body1850, %for.body1914, %for.body2000, %for.body2046, %for.body2079, %for.body1426, %for.body1396, %for.body1259, %for.body1288, %for.body1317, %for.body1346, %for.body1144, %for.body1172, %for.body1201, %for.body1229, %for.body1019, %for.body1052, %for.body947, %for.body980, %for.body877, %for.body909, %for.body705, %for.body675, %for.body575, %for.body280, %for.body339, %for.body368, %for.body396, %for.body475, %for.body, %if.end51, %for.body80, %for.body149, %for.body207, %for.body.i719, %for.body1089, %if.then2.i, %return.loopexit989, %return.loopexit986, %if.end2022, %sw.bb2014, %if.then1947, %for.end1927, %if.end1886, %if.end1874, %if.end1864, %has_kwonlydefaults.exit778, %sw.bb1672, %sw.bb1604, %if.then1371, %sw.bb1360, %if.then1117, %if.then1106, %sw.bb1067, %sw.bb995, %sw.bb924, %if.end854, %sw.bb846, %if.end837, %sw.bb829, %if.then819, %if.end808, %if.else799, %land.lhs.true785, %land.lhs.true770, %if.then732, %for.end718, %if.then646, %if.then634, %if.end626, %if.end618, %land.lhs.true, %if.end589, %if.then546, %sw.bb517, %if.then509, %for.end488, %if.end448, %if.then438, %for.end409, %if.then308, %sw.bb248, %if.then240, %for.end220, %if.end184, %if.end172, %if.end163, %has_kwonlydefaults.exit, %sw.bb, %sw.epilog, %if.then1978, %if.then1636, %if.end1569, %if.end1487, %if.then752, %if.then
+  %.sink947 = phi i32 [ -1, %sw.epilog ], [ -2, %if.then1978 ], [ -2, %if.then1636 ], [ -1, %if.end1569 ], [ -1, %if.end1487 ], [ -1, %if.then752 ], [ -1, %if.then ], [ -1, %sw.bb ], [ -1, %has_kwonlydefaults.exit ], [ -1, %if.end163 ], [ -1, %if.end172 ], [ -1, %if.end184 ], [ -1, %for.end220 ], [ -1, %if.then240 ], [ -1, %sw.bb248 ], [ -1, %if.then308 ], [ -1, %for.end409 ], [ -1, %if.then438 ], [ -1, %if.end448 ], [ -1, %for.end488 ], [ -1, %if.then509 ], [ -1, %sw.bb517 ], [ -1, %if.then546 ], [ -1, %if.end589 ], [ -1, %land.lhs.true ], [ -1, %if.end618 ], [ -1, %if.end626 ], [ -1, %if.then634 ], [ -1, %if.then646 ], [ -1, %for.end718 ], [ -1, %if.then732 ], [ -1, %land.lhs.true770 ], [ -1, %land.lhs.true785 ], [ -1, %if.else799 ], [ -1, %if.end808 ], [ -1, %if.then819 ], [ -1, %sw.bb829 ], [ -1, %if.end837 ], [ -1, %sw.bb846 ], [ -1, %if.end854 ], [ -1, %sw.bb924 ], [ -1, %sw.bb995 ], [ -1, %sw.bb1067 ], [ -1, %if.then1106 ], [ -1, %if.then1117 ], [ -1, %sw.bb1360 ], [ -1, %if.then1371 ], [ -1, %sw.bb1604 ], [ -1, %sw.bb1672 ], [ -1, %has_kwonlydefaults.exit778 ], [ -1, %if.end1864 ], [ -1, %if.end1874 ], [ -1, %if.end1886 ], [ -1, %for.end1927 ], [ -1, %if.then1947 ], [ -1, %sw.bb2014 ], [ -1, %if.end2022 ], [ -1, %return.loopexit986 ], [ -1, %return.loopexit989 ], [ -2, %if.then2.i ], [ -2, %for.body1089 ], [ -2, %for.body.i719 ], [ -1, %for.body207 ], [ -1, %for.body149 ], [ -1, %for.body80 ], [ -1, %if.end51 ], [ -1, %for.body ], [ -1, %for.body475 ], [ -2, %for.body396 ], [ -1, %for.body368 ], [ -1, %for.body339 ], [ -1, %for.body280 ], [ -1, %for.body575 ], [ -1, %for.body675 ], [ -1, %for.body705 ], [ -1, %for.body909 ], [ -1, %for.body877 ], [ -1, %for.body980 ], [ -1, %for.body947 ], [ -1, %for.body1052 ], [ -1, %for.body1019 ], [ -1, %for.body1229 ], [ -1, %for.body1201 ], [ -1, %for.body1172 ], [ -1, %for.body1144 ], [ -1, %for.body1346 ], [ -1, %for.body1317 ], [ -1, %for.body1288 ], [ -1, %for.body1259 ], [ -1, %for.body1396 ], [ -1, %for.body1426 ], [ -1, %for.body2079 ], [ -1, %for.body2046 ], [ -1, %for.body2000 ], [ -1, %for.body1914 ], [ -1, %for.body1850 ], [ -1, %for.body1779 ], [ -1, %if.end1749 ], [ -1, %for.body1706 ], [ -1, %for.body1658 ]
+  %retval.0 = phi i32 [ 1, %sw.epilog ], [ 0, %if.then1978 ], [ 0, %if.then1636 ], [ 0, %if.end1569 ], [ 0, %if.end1487 ], [ 0, %if.then752 ], [ 0, %if.then ], [ 0, %sw.bb ], [ 0, %has_kwonlydefaults.exit ], [ 0, %if.end163 ], [ 0, %if.end172 ], [ 0, %if.end184 ], [ 0, %for.end220 ], [ 0, %if.then240 ], [ 0, %sw.bb248 ], [ 0, %if.then308 ], [ 0, %for.end409 ], [ 0, %if.then438 ], [ 0, %if.end448 ], [ 0, %for.end488 ], [ 0, %if.then509 ], [ 0, %sw.bb517 ], [ 0, %if.then546 ], [ 0, %if.end589 ], [ 0, %land.lhs.true ], [ 0, %if.end618 ], [ 0, %if.end626 ], [ 0, %if.then634 ], [ 0, %if.then646 ], [ 0, %for.end718 ], [ 0, %if.then732 ], [ 0, %land.lhs.true770 ], [ 0, %land.lhs.true785 ], [ 0, %if.else799 ], [ 0, %if.end808 ], [ 0, %if.then819 ], [ 0, %sw.bb829 ], [ 0, %if.end837 ], [ 0, %sw.bb846 ], [ 0, %if.end854 ], [ 0, %sw.bb924 ], [ 0, %sw.bb995 ], [ 0, %sw.bb1067 ], [ 0, %if.then1106 ], [ 0, %if.then1117 ], [ 0, %sw.bb1360 ], [ 0, %if.then1371 ], [ 0, %sw.bb1604 ], [ 0, %sw.bb1672 ], [ 0, %has_kwonlydefaults.exit778 ], [ 0, %if.end1864 ], [ 0, %if.end1874 ], [ 0, %if.end1886 ], [ 0, %for.end1927 ], [ 0, %if.then1947 ], [ 0, %sw.bb2014 ], [ 0, %if.end2022 ], [ 0, %return.loopexit986 ], [ 0, %return.loopexit989 ], [ 0, %if.then2.i ], [ 0, %for.body1089 ], [ 0, %for.body.i719 ], [ 0, %for.body207 ], [ 0, %for.body149 ], [ 0, %for.body80 ], [ 0, %if.end51 ], [ 0, %for.body ], [ 0, %for.body475 ], [ 0, %for.body396 ], [ 0, %for.body368 ], [ 0, %for.body339 ], [ 0, %for.body280 ], [ 0, %for.body575 ], [ 0, %for.body675 ], [ 0, %for.body705 ], [ 0, %for.body909 ], [ 0, %for.body877 ], [ 0, %for.body980 ], [ 0, %for.body947 ], [ 0, %for.body1052 ], [ 0, %for.body1019 ], [ 0, %for.body1229 ], [ 0, %for.body1201 ], [ 0, %for.body1172 ], [ 0, %for.body1144 ], [ 0, %for.body1346 ], [ 0, %for.body1317 ], [ 0, %for.body1288 ], [ 0, %for.body1259 ], [ 0, %for.body1396 ], [ 0, %for.body1426 ], [ 0, %for.body2079 ], [ 0, %for.body2046 ], [ 0, %for.body2000 ], [ 0, %for.body1914 ], [ 0, %for.body1850 ], [ 0, %for.body1779 ], [ 0, %if.end1749 ], [ 0, %for.body1706 ], [ 0, %for.body1658 ]
   %372 = load i32, ptr %recursion_depth, align 8
   %dec2095 = add i32 %372, %.sink947
   store i32 %dec2095, ptr %recursion_depth, align 8

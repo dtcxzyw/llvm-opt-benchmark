@@ -132954,7 +132954,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$hir_ty..mir..BasicBlock$u20$as$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29844)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29847)
   %.not.i.i = icmp eq i64 %.val4, %.val6
-  br i1 %.not.i.i, label %.critedge.preheader.split.i.i, label %.critedge
+  br i1 %.not.i.i, label %.critedge.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 .critedge.preheader.split.i.i:                    ; preds = %2
   %.not173.i.i = icmp eq i64 %.val4, 0
@@ -132985,7 +132985,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$hir_ty..mir..BasicBlock$u20$as$u20$
   %21 = add nsw i64 %20, -11
   %22 = select i1 %19, i64 0, i64 %21
   %23 = icmp eq i64 %17, %22
-  br i1 %23, label %24, label %.critedge
+  br i1 %23, label %24, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 24:                                               ; preds = %.lr.ph.i.i
   switch i64 %17, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i" [
@@ -133011,13 +133011,13 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$hir_ty..mir..BasicBlock$u20$as$u20$
   %35 = load i32, ptr %34, align 4, !alias.scope !29865, !noalias !29864
   %36 = icmp eq i32 %33, %35
   %.02.i.i.i.i.i = select i1 %31, i1 %36, i1 false
-  br i1 %.02.i.i.i.i.i, label %37, label %.critedge
+  br i1 %.02.i.i.i.i.i, label %37, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 37:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29866)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29869)
   %38 = icmp eq i8 %12, %18
-  br i1 %38, label %39, label %.critedge
+  br i1 %38, label %39, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 39:                                               ; preds = %37
   switch i8 %12, label %default.unreachable57.i.i.i.i.i.i [
@@ -133049,7 +133049,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %43 = load i32, ptr %41, align 8, !range !1419, !alias.scope !29876, !noalias !29877, !noundef !9
   %44 = load i32, ptr %42, align 8, !range !1419, !alias.scope !29877, !noalias !29876, !noundef !9
   %45 = icmp eq i32 %43, %44
-  br i1 %45, label %46, label %.critedge
+  br i1 %45, label %46, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 46:                                               ; preds = %40
   switch i32 %43, label %default.unreachable [
@@ -133065,7 +133065,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %50 = getelementptr inbounds i8, ptr %9, i64 20
   %51 = load i32, ptr %50, align 4, !alias.scope !29877, !noalias !29876, !noundef !9
   %52 = icmp eq i32 %49, %51
-  br i1 %52, label %71, label %.critedge
+  br i1 %52, label %71, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds i8, ptr %8, i64 20
@@ -133073,7 +133073,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %56 = getelementptr inbounds i8, ptr %9, i64 20
   %57 = load i32, ptr %56, align 4, !alias.scope !29877, !noalias !29876, !noundef !9
   %58 = icmp eq i32 %55, %57
-  br i1 %58, label %77, label %.critedge
+  br i1 %58, label %77, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 59:                                               ; preds = %46
   %60 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133081,7 +133081,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %62 = getelementptr inbounds i8, ptr %9, i64 24
   %63 = load ptr, ptr %62, align 8, !alias.scope !29877, !noalias !29876, !nonnull !9, !noundef !9
   %64 = icmp eq ptr %61, %63
-  br i1 %64, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %64, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 65:                                               ; preds = %46
   %66 = getelementptr inbounds i8, ptr %8, i64 20
@@ -133089,7 +133089,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %68 = getelementptr inbounds i8, ptr %9, i64 20
   %69 = load i32, ptr %68, align 4, !alias.scope !29877, !noalias !29876, !noundef !9
   %70 = icmp eq i32 %67, %69
-  br i1 %70, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %70, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 71:                                               ; preds = %47
   %72 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133097,7 +133097,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %74 = getelementptr inbounds i8, ptr %9, i64 24
   %75 = load i32, ptr %74, align 4, !alias.scope !29877, !noalias !29876, !noundef !9
   %76 = icmp eq i32 %73, %75
-  br i1 %76, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %76, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 77:                                               ; preds = %53
   %78 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133105,7 +133105,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %80 = getelementptr inbounds i8, ptr %9, i64 24
   %81 = load i32, ptr %80, align 4, !alias.scope !29877, !noalias !29876, !noundef !9
   %82 = icmp eq i32 %79, %81
-  br i1 %82, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %82, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 83:                                               ; preds = %39
   %84 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133115,7 +133115,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %86 = load i32, ptr %84, align 8, !range !1419, !alias.scope !29883, !noalias !29884, !noundef !9
   %87 = load i32, ptr %85, align 8, !range !1419, !alias.scope !29884, !noalias !29883, !noundef !9
   %88 = icmp eq i32 %86, %87
-  br i1 %88, label %89, label %.critedge
+  br i1 %88, label %89, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 89:                                               ; preds = %83
   switch i32 %86, label %default.unreachable [
@@ -133131,7 +133131,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %93 = getelementptr inbounds i8, ptr %9, i64 28
   %94 = load i32, ptr %93, align 4, !alias.scope !29884, !noalias !29883, !noundef !9
   %95 = icmp eq i32 %92, %94
-  br i1 %95, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit14.i.i.i.i.i.i", label %.critedge
+  br i1 %95, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit14.i.i.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 96:                                               ; preds = %89
   %97 = getelementptr inbounds i8, ptr %8, i64 28
@@ -133139,7 +133139,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %99 = getelementptr inbounds i8, ptr %9, i64 28
   %100 = load i32, ptr %99, align 4, !alias.scope !29884, !noalias !29883, !noundef !9
   %101 = icmp eq i32 %98, %100
-  br i1 %101, label %114, label %.critedge
+  br i1 %101, label %114, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 102:                                              ; preds = %89
   %103 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133147,7 +133147,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %105 = getelementptr inbounds i8, ptr %9, i64 32
   %106 = load ptr, ptr %105, align 8, !alias.scope !29884, !noalias !29883, !nonnull !9, !noundef !9
   %107 = icmp eq ptr %104, %106
-  br i1 %107, label %287, label %.critedge
+  br i1 %107, label %287, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 108:                                              ; preds = %89
   %109 = getelementptr inbounds i8, ptr %8, i64 28
@@ -133155,7 +133155,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %111 = getelementptr inbounds i8, ptr %9, i64 28
   %112 = load i32, ptr %111, align 4, !alias.scope !29884, !noalias !29883, !noundef !9
   %113 = icmp eq i32 %110, %112
-  br i1 %113, label %287, label %.critedge
+  br i1 %113, label %287, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 114:                                              ; preds = %96
   %115 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133163,7 +133163,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %117 = getelementptr inbounds i8, ptr %9, i64 32
   %118 = load i32, ptr %117, align 4, !alias.scope !29884, !noalias !29883, !noundef !9
   %119 = icmp eq i32 %116, %118
-  br i1 %119, label %287, label %.critedge
+  br i1 %119, label %287, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit14.i.i.i.i.i.i": ; preds = %90
   %120 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133171,7 +133171,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %122 = getelementptr inbounds i8, ptr %9, i64 32
   %123 = load i32, ptr %122, align 4, !alias.scope !29884, !noalias !29883, !noundef !9
   %124 = icmp eq i32 %121, %123
-  br i1 %124, label %287, label %.critedge
+  br i1 %124, label %287, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 125:                                              ; preds = %39
   %126 = getelementptr inbounds i8, ptr %8, i64 9
@@ -133183,7 +133183,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %131 = add nsw i8 %130, -3
   %narrow7.i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %131, i8 2)
   %132 = icmp eq i8 %narrow.i.i.i.i.i.i, %narrow7.i.i.i.i.i.i
-  br i1 %132, label %293, label %.critedge
+  br i1 %132, label %293, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 133:                                              ; preds = %39
   %134 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133191,7 +133191,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %136 = getelementptr inbounds i8, ptr %9, i64 12
   %137 = load i32, ptr %136, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %138 = icmp eq i32 %135, %137
-  br i1 %138, label %308, label %.critedge
+  br i1 %138, label %308, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 139:                                              ; preds = %39
   %140 = getelementptr inbounds i8, ptr %8, i64 9
@@ -133205,7 +133205,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %145 = icmp ult i8 %144, 9
   %narrow6.i.i.i.i.i.i.i = select i1 %145, i8 %144, i8 2
   %146 = icmp eq i8 %narrow.i.i.i.i.i.i.i, %narrow6.i.i.i.i.i.i.i
-  br i1 %146, label %147, label %.critedge
+  br i1 %146, label %147, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 147:                                              ; preds = %139
   %148 = icmp eq i8 %narrow.i.i.i.i.i.i.i, 2
@@ -133219,14 +133219,14 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %153 = icmp ult i8 %152, 6
   %narrow8.i.i.i.i.i.i.i = select i1 %153, i8 %152, i8 2
   %154 = icmp eq i8 %narrow7.i.i.i.i.i.i.i, %narrow8.i.i.i.i.i.i.i
-  br i1 %154, label %155, label %.critedge
+  br i1 %154, label %155, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 155:                                              ; preds = %149
   %156 = icmp eq i8 %narrow7.i.i.i.i.i.i.i, 2
   %157 = xor i8 %.val11.i.i.i.i.i.i, %.val.i.i.i.i.i.i
   %158 = trunc i8 %157 to i1
   %or.cond40.not.i.i.i.i.i.i = and i1 %156, %158
-  br i1 %or.cond40.not.i.i.i.i.i.i, label %.critedge, label %"_ZN62_$LT$hir_ty..mir..CastKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h532e8365ced98582E.exit.thread.i.i.i.i.i.i"
+  br i1 %or.cond40.not.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread", label %"_ZN62_$LT$hir_ty..mir..CastKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h532e8365ced98582E.exit.thread.i.i.i.i.i.i"
 
 159:                                              ; preds = %39
   %160 = getelementptr inbounds i8, ptr %8, i64 9
@@ -133234,7 +133234,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %162 = getelementptr inbounds i8, ptr %9, i64 9
   %163 = load i8, ptr %162, align 1, !range !1381, !alias.scope !29886, !noalias !29885, !noundef !9
   %164 = icmp eq i8 %161, %163
-  br i1 %164, label %361, label %.critedge
+  br i1 %164, label %361, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 165:                                              ; preds = %39
   %166 = getelementptr inbounds i8, ptr %8, i64 9
@@ -133242,7 +133242,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %168 = getelementptr inbounds i8, ptr %9, i64 9
   %169 = load i8, ptr %168, align 1, !range !1481, !alias.scope !29886, !noalias !29885, !noundef !9
   %170 = icmp eq i8 %167, %169
-  br i1 %170, label %407, label %.critedge
+  br i1 %170, label %407, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 171:                                              ; preds = %39
   %172 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133250,7 +133250,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %174 = getelementptr inbounds i8, ptr %9, i64 12
   %175 = load i32, ptr %174, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %176 = icmp eq i32 %173, %175
-  br i1 %176, label %444, label %.critedge
+  br i1 %176, label %444, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 177:                                              ; preds = %39
   %178 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133260,7 +133260,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %180 = load i32, ptr %178, align 8, !range !7717, !alias.scope !29892, !noalias !29893, !noundef !9
   %181 = load i32, ptr %179, align 8, !range !7717, !alias.scope !29893, !noalias !29892, !noundef !9
   %182 = icmp eq i32 %180, %181
-  br i1 %182, label %183, label %.critedge
+  br i1 %182, label %183, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 183:                                              ; preds = %177
   switch i32 %180, label %default.unreachable [
@@ -133277,7 +133277,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %187 = getelementptr inbounds i8, ptr %9, i64 40
   %188 = load ptr, ptr %187, align 8, !alias.scope !29893, !noalias !29892, !nonnull !9, !noundef !9
   %189 = icmp eq ptr %186, %188
-  br i1 %189, label %450, label %.critedge
+  br i1 %189, label %450, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 190:                                              ; preds = %183
   %191 = getelementptr inbounds i8, ptr %8, i64 48
@@ -133291,7 +133291,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %195 = icmp eq i32 %.val6.i.i.i.i.i.i.i, %.val8.i.i.i.i.i.i.i
   %196 = icmp eq i32 %.val7.i.i.i.i.i.i.i, %.val9.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %195, i1 %196, i1 false
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %209, label %.critedge
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %209, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 197:                                              ; preds = %183
   %198 = getelementptr inbounds i8, ptr %8, i64 36
@@ -133299,7 +133299,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %200 = getelementptr inbounds i8, ptr %9, i64 36
   %201 = load i32, ptr %200, align 4, !alias.scope !29893, !noalias !29892, !noundef !9
   %202 = icmp eq i32 %199, %201
-  br i1 %202, label %215, label %.critedge
+  br i1 %202, label %215, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 203:                                              ; preds = %183
   %204 = getelementptr inbounds i8, ptr %8, i64 40
@@ -133307,7 +133307,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %206 = getelementptr inbounds i8, ptr %9, i64 40
   %207 = load ptr, ptr %206, align 8, !alias.scope !29893, !noalias !29892, !nonnull !9, !noundef !9
   %208 = icmp eq ptr %205, %207
-  br i1 %208, label %450, label %.critedge
+  br i1 %208, label %450, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 209:                                              ; preds = %190
   %210 = getelementptr inbounds i8, ptr %8, i64 40
@@ -133315,7 +133315,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %212 = getelementptr inbounds i8, ptr %9, i64 40
   %213 = load ptr, ptr %212, align 8, !alias.scope !29893, !noalias !29892, !nonnull !9, !noundef !9
   %214 = icmp eq ptr %211, %213
-  br i1 %214, label %450, label %.critedge
+  br i1 %214, label %450, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 215:                                              ; preds = %197
   %216 = getelementptr inbounds i8, ptr %8, i64 40
@@ -133329,7 +133329,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %220 = icmp eq i32 %.val.i.i.i.i.i.i.i, %.val4.i.i.i.i.i.i.i
   %221 = icmp eq i32 %.val3.i.i.i.i.i.i.i, %.val5.i.i.i.i.i.i.i
   %spec.select.i10.i.i.i.i.i.i.i = select i1 %220, i1 %221, i1 false
-  br i1 %spec.select.i10.i.i.i.i.i.i.i, label %222, label %.critedge
+  br i1 %spec.select.i10.i.i.i.i.i.i.i, label %222, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 222:                                              ; preds = %215
   %223 = getelementptr inbounds i8, ptr %8, i64 48
@@ -133337,7 +133337,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %225 = getelementptr inbounds i8, ptr %9, i64 48
   %226 = load i32, ptr %225, align 8, !alias.scope !29893, !noalias !29892, !noundef !9
   %227 = icmp eq i32 %224, %226
-  br i1 %227, label %450, label %.critedge
+  br i1 %227, label %450, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN67_$LT$hir_ty..mir..AggregateKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha31820aa516e7defE.exit.i.i.i.i.i.i": ; preds = %183
   %228 = getelementptr inbounds i8, ptr %8, i64 40
@@ -133345,7 +133345,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %230 = getelementptr inbounds i8, ptr %9, i64 40
   %231 = load ptr, ptr %230, align 8, !alias.scope !29893, !noalias !29892, !nonnull !9, !noundef !9
   %232 = icmp eq ptr %229, %231
-  br i1 %232, label %450, label %.critedge
+  br i1 %232, label %450, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 233:                                              ; preds = %39
   %234 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133355,7 +133355,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %236 = load i32, ptr %234, align 8, !range !1419, !alias.scope !29899, !noalias !29900, !noundef !9
   %237 = load i32, ptr %235, align 8, !range !1419, !alias.scope !29900, !noalias !29899, !noundef !9
   %238 = icmp eq i32 %236, %237
-  br i1 %238, label %239, label %.critedge
+  br i1 %238, label %239, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 239:                                              ; preds = %233
   switch i32 %236, label %default.unreachable [
@@ -133371,7 +133371,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %243 = getelementptr inbounds i8, ptr %9, i64 28
   %244 = load i32, ptr %243, align 4, !alias.scope !29900, !noalias !29899, !noundef !9
   %245 = icmp eq i32 %242, %244
-  br i1 %245, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit18.i.i.i.i.i.i", label %.critedge
+  br i1 %245, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit18.i.i.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 246:                                              ; preds = %239
   %247 = getelementptr inbounds i8, ptr %8, i64 28
@@ -133379,7 +133379,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %249 = getelementptr inbounds i8, ptr %9, i64 28
   %250 = load i32, ptr %249, align 4, !alias.scope !29900, !noalias !29899, !noundef !9
   %251 = icmp eq i32 %248, %250
-  br i1 %251, label %264, label %.critedge
+  br i1 %251, label %264, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 252:                                              ; preds = %239
   %253 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133387,7 +133387,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %255 = getelementptr inbounds i8, ptr %9, i64 32
   %256 = load ptr, ptr %255, align 8, !alias.scope !29900, !noalias !29899, !nonnull !9, !noundef !9
   %257 = icmp eq ptr %254, %256
-  br i1 %257, label %501, label %.critedge
+  br i1 %257, label %501, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 258:                                              ; preds = %239
   %259 = getelementptr inbounds i8, ptr %8, i64 28
@@ -133395,7 +133395,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %261 = getelementptr inbounds i8, ptr %9, i64 28
   %262 = load i32, ptr %261, align 4, !alias.scope !29900, !noalias !29899, !noundef !9
   %263 = icmp eq i32 %260, %262
-  br i1 %263, label %501, label %.critedge
+  br i1 %263, label %501, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 264:                                              ; preds = %246
   %265 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133403,7 +133403,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %267 = getelementptr inbounds i8, ptr %9, i64 32
   %268 = load i32, ptr %267, align 4, !alias.scope !29900, !noalias !29899, !noundef !9
   %269 = icmp eq i32 %266, %268
-  br i1 %269, label %501, label %.critedge
+  br i1 %269, label %501, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit18.i.i.i.i.i.i": ; preds = %240
   %270 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133411,7 +133411,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %272 = getelementptr inbounds i8, ptr %9, i64 32
   %273 = load i32, ptr %272, align 4, !alias.scope !29900, !noalias !29899, !noundef !9
   %274 = icmp eq i32 %271, %273
-  br i1 %274, label %501, label %.critedge
+  br i1 %274, label %501, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 275:                                              ; preds = %39
   %276 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133419,7 +133419,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %278 = getelementptr inbounds i8, ptr %9, i64 16
   %279 = load ptr, ptr %278, align 8, !alias.scope !29886, !noalias !29885, !nonnull !9, !noundef !9
   %280 = icmp eq ptr %277, %279
-  br i1 %280, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %280, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 281:                                              ; preds = %39
   %282 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133427,7 +133427,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %284 = getelementptr inbounds i8, ptr %9, i64 12
   %285 = load i32, ptr %284, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %286 = icmp eq i32 %283, %285
-  br i1 %286, label %507, label %.critedge
+  br i1 %286, label %507, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 287:                                              ; preds = %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit14.i.i.i.i.i.i", %114, %108, %102
   %288 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133435,7 +133435,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %290 = getelementptr inbounds i8, ptr %9, i64 16
   %291 = load ptr, ptr %290, align 8, !alias.scope !29886, !noalias !29885, !nonnull !9, !noundef !9
   %292 = icmp eq ptr %289, %291
-  br i1 %292, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %292, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 293:                                              ; preds = %125
   %294 = icmp ult i8 %128, 2
@@ -133443,7 +133443,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %or.cond.not42.i.i.i.i.i.i = or i1 %294, %295
   %296 = icmp eq i8 %127, %130
   %or.cond10.i.i.i.i.i.i = or i1 %296, %or.cond.not42.i.i.i.i.i.i
-  br i1 %or.cond10.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %.critedge
+  br i1 %or.cond10.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 .critedge.i.i.i.i.i.i:                            ; preds = %293
   %297 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133451,7 +133451,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %299 = getelementptr inbounds i8, ptr %9, i64 12
   %300 = load i32, ptr %299, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %301 = icmp eq i32 %298, %300
-  br i1 %301, label %302, label %.critedge
+  br i1 %301, label %302, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 302:                                              ; preds = %.critedge.i.i.i.i.i.i
   %303 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133459,7 +133459,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %305 = getelementptr inbounds i8, ptr %9, i64 16
   %306 = load i32, ptr %305, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %307 = icmp eq i32 %304, %306
-  br i1 %307, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %307, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 308:                                              ; preds = %133
   %309 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133467,7 +133467,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %311 = getelementptr inbounds i8, ptr %9, i64 16
   %312 = load i32, ptr %311, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %313 = icmp eq i32 %310, %312
-  br i1 %313, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %313, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN62_$LT$hir_ty..mir..CastKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h532e8365ced98582E.exit.thread.i.i.i.i.i.i": ; preds = %155, %147
   %314 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133477,7 +133477,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %316 = load i32, ptr %314, align 8, !range !1419, !alias.scope !29906, !noalias !29907, !noundef !9
   %317 = load i32, ptr %315, align 8, !range !1419, !alias.scope !29907, !noalias !29906, !noundef !9
   %318 = icmp eq i32 %316, %317
-  br i1 %318, label %319, label %.critedge
+  br i1 %318, label %319, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 319:                                              ; preds = %"_ZN62_$LT$hir_ty..mir..CastKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h532e8365ced98582E.exit.thread.i.i.i.i.i.i"
   switch i32 %316, label %default.unreachable [
@@ -133493,7 +133493,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %323 = getelementptr inbounds i8, ptr %9, i64 28
   %324 = load i32, ptr %323, align 4, !alias.scope !29907, !noalias !29906, !noundef !9
   %325 = icmp eq i32 %322, %324
-  br i1 %325, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit21.i.i.i.i.i.i", label %.critedge
+  br i1 %325, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit21.i.i.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 326:                                              ; preds = %319
   %327 = getelementptr inbounds i8, ptr %8, i64 28
@@ -133501,7 +133501,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %329 = getelementptr inbounds i8, ptr %9, i64 28
   %330 = load i32, ptr %329, align 4, !alias.scope !29907, !noalias !29906, !noundef !9
   %331 = icmp eq i32 %328, %330
-  br i1 %331, label %344, label %.critedge
+  br i1 %331, label %344, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 332:                                              ; preds = %319
   %333 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133509,7 +133509,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %335 = getelementptr inbounds i8, ptr %9, i64 32
   %336 = load ptr, ptr %335, align 8, !alias.scope !29907, !noalias !29906, !nonnull !9, !noundef !9
   %337 = icmp eq ptr %334, %336
-  br i1 %337, label %355, label %.critedge
+  br i1 %337, label %355, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 338:                                              ; preds = %319
   %339 = getelementptr inbounds i8, ptr %8, i64 28
@@ -133517,7 +133517,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %341 = getelementptr inbounds i8, ptr %9, i64 28
   %342 = load i32, ptr %341, align 4, !alias.scope !29907, !noalias !29906, !noundef !9
   %343 = icmp eq i32 %340, %342
-  br i1 %343, label %355, label %.critedge
+  br i1 %343, label %355, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 344:                                              ; preds = %326
   %345 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133525,7 +133525,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %347 = getelementptr inbounds i8, ptr %9, i64 32
   %348 = load i32, ptr %347, align 4, !alias.scope !29907, !noalias !29906, !noundef !9
   %349 = icmp eq i32 %346, %348
-  br i1 %349, label %355, label %.critedge
+  br i1 %349, label %355, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit21.i.i.i.i.i.i": ; preds = %320
   %350 = getelementptr inbounds i8, ptr %8, i64 32
@@ -133533,7 +133533,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %352 = getelementptr inbounds i8, ptr %9, i64 32
   %353 = load i32, ptr %352, align 4, !alias.scope !29907, !noalias !29906, !noundef !9
   %354 = icmp eq i32 %351, %353
-  br i1 %354, label %355, label %.critedge
+  br i1 %354, label %355, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 355:                                              ; preds = %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit21.i.i.i.i.i.i", %344, %338, %332
   %356 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133541,7 +133541,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %358 = getelementptr inbounds i8, ptr %9, i64 16
   %359 = load ptr, ptr %358, align 8, !alias.scope !29886, !noalias !29885, !nonnull !9, !noundef !9
   %360 = icmp eq ptr %357, %359
-  br i1 %360, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %360, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 361:                                              ; preds = %159
   %362 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133551,7 +133551,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %364 = load i32, ptr %362, align 8, !range !1419, !alias.scope !29913, !noalias !29914, !noundef !9
   %365 = load i32, ptr %363, align 8, !range !1419, !alias.scope !29914, !noalias !29913, !noundef !9
   %366 = icmp eq i32 %364, %365
-  br i1 %366, label %367, label %.critedge
+  br i1 %366, label %367, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 367:                                              ; preds = %361
   switch i32 %364, label %default.unreachable [
@@ -133567,7 +133567,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %371 = getelementptr inbounds i8, ptr %9, i64 20
   %372 = load i32, ptr %371, align 4, !alias.scope !29914, !noalias !29913, !noundef !9
   %373 = icmp eq i32 %370, %372
-  br i1 %373, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit24.i.i.i.i.i.i", label %.critedge
+  br i1 %373, label %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit24.i.i.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 374:                                              ; preds = %367
   %375 = getelementptr inbounds i8, ptr %8, i64 20
@@ -133575,7 +133575,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %377 = getelementptr inbounds i8, ptr %9, i64 20
   %378 = load i32, ptr %377, align 4, !alias.scope !29914, !noalias !29913, !noundef !9
   %379 = icmp eq i32 %376, %378
-  br i1 %379, label %392, label %.critedge
+  br i1 %379, label %392, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 380:                                              ; preds = %367
   %381 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133583,7 +133583,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %383 = getelementptr inbounds i8, ptr %9, i64 24
   %384 = load ptr, ptr %383, align 8, !alias.scope !29914, !noalias !29913, !nonnull !9, !noundef !9
   %385 = icmp eq ptr %382, %384
-  br i1 %385, label %403, label %.critedge
+  br i1 %385, label %403, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 386:                                              ; preds = %367
   %387 = getelementptr inbounds i8, ptr %8, i64 20
@@ -133591,7 +133591,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %389 = getelementptr inbounds i8, ptr %9, i64 20
   %390 = load i32, ptr %389, align 4, !alias.scope !29914, !noalias !29913, !noundef !9
   %391 = icmp eq i32 %388, %390
-  br i1 %391, label %403, label %.critedge
+  br i1 %391, label %403, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 392:                                              ; preds = %374
   %393 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133599,7 +133599,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %395 = getelementptr inbounds i8, ptr %9, i64 24
   %396 = load i32, ptr %395, align 4, !alias.scope !29914, !noalias !29913, !noundef !9
   %397 = icmp eq i32 %394, %396
-  br i1 %397, label %403, label %.critedge
+  br i1 %397, label %403, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit24.i.i.i.i.i.i": ; preds = %368
   %398 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133607,13 +133607,13 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %400 = getelementptr inbounds i8, ptr %9, i64 24
   %401 = load i32, ptr %400, align 4, !alias.scope !29914, !noalias !29913, !noundef !9
   %402 = icmp eq i32 %399, %401
-  br i1 %402, label %403, label %.critedge
+  br i1 %402, label %403, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 403:                                              ; preds = %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit24.i.i.i.i.i.i", %392, %386, %380
   %404 = getelementptr inbounds i8, ptr %8, i64 32
   %405 = getelementptr inbounds i8, ptr %9, i64 32
   %406 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %404, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %405), !alias.scope !29915
-  br i1 %406, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %406, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 407:                                              ; preds = %165
   %408 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133623,7 +133623,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %410 = load i32, ptr %408, align 8, !range !1419, !alias.scope !29921, !noalias !29922, !noundef !9
   %411 = load i32, ptr %409, align 8, !range !1419, !alias.scope !29922, !noalias !29921, !noundef !9
   %412 = icmp eq i32 %410, %411
-  br i1 %412, label %413, label %.critedge
+  br i1 %412, label %413, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 413:                                              ; preds = %407
   switch i32 %410, label %default.unreachable [
@@ -133639,7 +133639,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %417 = getelementptr inbounds i8, ptr %9, i64 20
   %418 = load i32, ptr %417, align 4, !alias.scope !29922, !noalias !29921, !noundef !9
   %419 = icmp eq i32 %416, %418
-  br i1 %419, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.i.i.i.i", label %.critedge
+  br i1 %419, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 420:                                              ; preds = %413
   %421 = getelementptr inbounds i8, ptr %8, i64 20
@@ -133647,7 +133647,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %423 = getelementptr inbounds i8, ptr %9, i64 20
   %424 = load i32, ptr %423, align 4, !alias.scope !29922, !noalias !29921, !noundef !9
   %425 = icmp eq i32 %422, %424
-  br i1 %425, label %438, label %.critedge
+  br i1 %425, label %438, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 426:                                              ; preds = %413
   %427 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133655,7 +133655,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %429 = getelementptr inbounds i8, ptr %9, i64 24
   %430 = load ptr, ptr %429, align 8, !alias.scope !29922, !noalias !29921, !nonnull !9, !noundef !9
   %431 = icmp eq ptr %428, %430
-  br i1 %431, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %431, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 432:                                              ; preds = %413
   %433 = getelementptr inbounds i8, ptr %8, i64 20
@@ -133663,7 +133663,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %435 = getelementptr inbounds i8, ptr %9, i64 20
   %436 = load i32, ptr %435, align 4, !alias.scope !29922, !noalias !29921, !noundef !9
   %437 = icmp eq i32 %434, %436
-  br i1 %437, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %437, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 438:                                              ; preds = %420
   %439 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133671,7 +133671,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %441 = getelementptr inbounds i8, ptr %9, i64 24
   %442 = load i32, ptr %441, align 4, !alias.scope !29922, !noalias !29921, !noundef !9
   %443 = icmp eq i32 %440, %442
-  br i1 %443, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %443, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 444:                                              ; preds = %171
   %445 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133679,7 +133679,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %447 = getelementptr inbounds i8, ptr %9, i64 16
   %448 = load i32, ptr %447, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %449 = icmp eq i32 %446, %448
-  br i1 %449, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %449, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 450:                                              ; preds = %"_ZN67_$LT$hir_ty..mir..AggregateKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha31820aa516e7defE.exit.i.i.i.i.i.i", %222, %209, %203, %184
   %451 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133693,7 +133693,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29923)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29926)
   %.not.i.i.i.i.i.i.i = icmp eq i64 %454, %458
-  br i1 %.not.i.i.i.i.i.i.i, label %.preheader.split.i.preheader.i.i.i.i.i.i, label %.critedge
+  br i1 %.not.i.i.i.i.i.i.i, label %.preheader.split.i.preheader.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 .preheader.split.i.preheader.i.i.i.i.i.i:         ; preds = %450
   %exitcond.not.i43.i.i.i.i.i.i = icmp eq i64 %454, 0
@@ -133711,7 +133711,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %462 = load i32, ptr %460, align 8, !range !1419, !alias.scope !29938, !noalias !29939, !noundef !9
   %463 = load i32, ptr %461, align 8, !range !1419, !alias.scope !29939, !noalias !29938, !noundef !9
   %464 = icmp eq i32 %462, %463
-  br i1 %464, label %465, label %.critedge
+  br i1 %464, label %465, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 465:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   switch i32 %462, label %default.unreachable [
@@ -133727,7 +133727,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %469 = getelementptr inbounds i8, ptr %461, i64 4
   %470 = load i32, ptr %469, align 4, !alias.scope !29939, !noalias !29938, !noundef !9
   %471 = icmp eq i32 %468, %470
-  br i1 %471, label %_ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i, label %.critedge
+  br i1 %471, label %_ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 472:                                              ; preds = %465
   %473 = getelementptr inbounds i8, ptr %460, i64 4
@@ -133735,7 +133735,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %475 = getelementptr inbounds i8, ptr %461, i64 4
   %476 = load i32, ptr %475, align 4, !alias.scope !29939, !noalias !29938, !noundef !9
   %477 = icmp eq i32 %474, %476
-  br i1 %477, label %490, label %.critedge
+  br i1 %477, label %490, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 478:                                              ; preds = %465
   %479 = getelementptr inbounds i8, ptr %460, i64 8
@@ -133743,7 +133743,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %481 = getelementptr inbounds i8, ptr %461, i64 8
   %482 = load ptr, ptr %481, align 8, !alias.scope !29939, !noalias !29938, !nonnull !9, !noundef !9
   %483 = icmp eq ptr %480, %482
-  br i1 %483, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %.critedge
+  br i1 %483, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 484:                                              ; preds = %465
   %485 = getelementptr inbounds i8, ptr %460, i64 4
@@ -133751,7 +133751,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %487 = getelementptr inbounds i8, ptr %461, i64 4
   %488 = load i32, ptr %487, align 4, !alias.scope !29939, !noalias !29938, !noundef !9
   %489 = icmp eq i32 %486, %488
-  br i1 %489, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %.critedge
+  br i1 %489, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 490:                                              ; preds = %472
   %491 = getelementptr inbounds i8, ptr %460, i64 8
@@ -133759,7 +133759,7 @@ default.unreachable57.i.i.i.i.i.i:                ; preds = %39
   %493 = getelementptr inbounds i8, ptr %461, i64 8
   %494 = load i32, ptr %493, align 4, !alias.scope !29939, !noalias !29938, !noundef !9
   %495 = icmp eq i32 %492, %494
-  br i1 %495, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %.critedge
+  br i1 %495, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %496 = getelementptr inbounds i8, ptr %460, i64 8
@@ -133767,7 +133767,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %498 = getelementptr inbounds i8, ptr %461, i64 8
   %499 = load i32, ptr %498, align 4, !alias.scope !29939, !noalias !29938, !noundef !9
   %500 = icmp eq i32 %497, %499
-  br i1 %500, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %.critedge
+  br i1 %500, label %.preheader.split.backedge.i.i.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 .preheader.split.backedge.i.i.i.i.i.i.i:          ; preds = %_ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i, %490, %484, %478
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %459, %454
@@ -133779,7 +133779,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %504 = getelementptr inbounds i8, ptr %9, i64 16
   %505 = load ptr, ptr %504, align 8, !alias.scope !29886, !noalias !29885, !nonnull !9, !noundef !9
   %506 = icmp eq ptr %503, %505
-  br i1 %506, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %506, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 507:                                              ; preds = %281
   %508 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133787,7 +133787,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %510 = getelementptr inbounds i8, ptr %9, i64 16
   %511 = load i32, ptr %510, align 4, !alias.scope !29886, !noalias !29885, !noundef !9
   %512 = icmp eq i32 %509, %511
-  br i1 %512, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %512, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 513:                                              ; preds = %24
   %514 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133795,7 +133795,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %516 = getelementptr inbounds i8, ptr %9, i64 12
   %517 = load i32, ptr %516, align 4, !alias.scope !29865, !noalias !29864, !noundef !9
   %518 = icmp eq i32 %515, %517
-  br i1 %518, label %519, label %.critedge
+  br i1 %518, label %519, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 519:                                              ; preds = %513
   %520 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133803,7 +133803,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %522 = getelementptr inbounds i8, ptr %9, i64 16
   %523 = load i32, ptr %522, align 4, !alias.scope !29865, !noalias !29864, !noundef !9
   %524 = icmp eq i32 %521, %523
-  br i1 %524, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %524, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 525:                                              ; preds = %24
   %526 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133811,7 +133811,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %528 = getelementptr inbounds i8, ptr %9, i64 12
   %529 = load i32, ptr %528, align 4, !alias.scope !29865, !noalias !29864, !noundef !9
   %530 = icmp eq i32 %527, %529
-  br i1 %530, label %531, label %.critedge
+  br i1 %530, label %531, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 531:                                              ; preds = %525
   %532 = getelementptr inbounds i8, ptr %8, i64 16
@@ -133819,7 +133819,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %534 = getelementptr inbounds i8, ptr %9, i64 16
   %535 = load i32, ptr %534, align 4, !alias.scope !29865, !noalias !29864, !noundef !9
   %536 = icmp eq i32 %533, %535
-  br i1 %536, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %536, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 537:                                              ; preds = %24
   %538 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133827,7 +133827,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %540 = getelementptr inbounds i8, ptr %9, i64 12
   %541 = load i32, ptr %540, align 4, !alias.scope !29865, !noalias !29864, !noundef !9
   %542 = icmp eq i32 %539, %541
-  br i1 %542, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %542, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 543:                                              ; preds = %24
   %544 = getelementptr inbounds i8, ptr %8, i64 12
@@ -133835,7 +133835,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %546 = getelementptr inbounds i8, ptr %9, i64 12
   %547 = load i32, ptr %546, align 4, !alias.scope !29865, !noalias !29864, !noundef !9
   %548 = icmp eq i32 %545, %547
-  br i1 %548, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %548, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.i.i.i.i": ; preds = %414
   %549 = getelementptr inbounds i8, ptr %8, i64 24
@@ -133843,7 +133843,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %551 = getelementptr inbounds i8, ptr %9, i64 24
   %552 = load i32, ptr %551, align 4, !alias.scope !29922, !noalias !29921, !noundef !9
   %553 = icmp eq i32 %550, %552
-  br i1 %553, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %.critedge
+  br i1 %553, label %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 "_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i": ; preds = %.preheader.split.backedge.i.i.i.i.i.i.i, %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.i.i.i.i", %543, %537, %531, %519, %507, %501, %.preheader.split.i.preheader.i.i.i.i.i.i, %444, %438, %432, %426, %403, %355, %308, %302, %287, %275, %77, %71, %65, %59, %25, %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29940)
@@ -133851,7 +133851,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %554 = load i32, ptr %8, align 4, !range !1419, !alias.scope !29945, !noalias !29946, !noundef !9
   %555 = load i32, ptr %9, align 4, !range !1419, !alias.scope !29946, !noalias !29945, !noundef !9
   %556 = icmp eq i32 %554, %555
-  br i1 %556, label %557, label %.critedge
+  br i1 %556, label %557, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 557:                                              ; preds = %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i"
   switch i32 %554, label %.critedge.backedge.i.i [
@@ -133865,7 +133865,7 @@ _ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i: ; preds = %466
   %561 = getelementptr inbounds i8, ptr %9, i64 4
   %562 = load i32, ptr %561, align 4, !alias.scope !29946, !noalias !29945, !noundef !9
   %563 = icmp eq i32 %560, %562
-  br i1 %563, label %.critedge.backedge.i.i, label %.critedge
+  br i1 %563, label %.critedge.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 _ZN4core3cmp9PartialEq2ne17h15f587fb008112e3E.exit.i.i: ; preds = %557
   %564 = getelementptr inbounds i8, ptr %8, i64 4
@@ -133873,11 +133873,14 @@ _ZN4core3cmp9PartialEq2ne17h15f587fb008112e3E.exit.i.i: ; preds = %557
   %566 = getelementptr inbounds i8, ptr %9, i64 4
   %567 = load i32, ptr %566, align 4, !alias.scope !29946, !noalias !29945, !noundef !9
   %568 = icmp eq i32 %565, %567
-  br i1 %568, label %.critedge.backedge.i.i, label %.critedge
+  br i1 %568, label %.critedge.backedge.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread"
 
 .critedge.backedge.i.i:                           ; preds = %_ZN4core3cmp9PartialEq2ne17h15f587fb008112e3E.exit.i.i, %558, %557
   %exitcond.not.i.i = icmp eq i64 %7, %.val4
   br i1 %exitcond.not.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit", label %.lr.ph.i.i
+
+"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread": ; preds = %155, %374, %368, %361, %326, %320, %"_ZN62_$LT$hir_ty..mir..CastKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h532e8365ced98582E.exit.thread.i.i.i.i.i.i", %246, %240, %233, %215, %197, %190, %177, %149, %139, %96, %90, %83, %450, %420, %414, %407, %392, %380, %386, %344, %332, %338, %264, %252, %258, %184, %209, %222, %203, %114, %102, %108, %53, %47, %40, %281, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit18.i.i.i.i.i.i", %"_ZN67_$LT$hir_ty..mir..AggregateKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha31820aa516e7defE.exit.i.i.i.i.i.i", %171, %165, %159, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit24.i.i.i.i.i.i", %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit21.i.i.i.i.i.i", %133, %.critedge.i.i.i.i.i.i, %293, %125, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit14.i.i.i.i.i.i", %37, %525, %513, %26, %.lr.ph.i.i, %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", %438, %426, %432, %71, %77, %59, %65, %302, %287, %308, %355, %403, %444, %501, %275, %507, %519, %531, %537, %543, %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h15f587fb008112e3E.exit.i.i, %558, %_ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i, %490, %484, %478, %472, %466, %.lr.ph.i.i.i.i.i.i, %2
+  br label %.critedge
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit": ; preds = %.critedge.backedge.i.i, %.critedge.preheader.split.i.i
   %569 = getelementptr inbounds i8, ptr %0, i64 80
@@ -134548,8 +134551,8 @@ default.unreachable3.i.i:                         ; preds = %609
   %.not3 = icmp eq i8 %982, %984
   br label %.critedge
 
-.critedge:                                        ; preds = %558, %_ZN4core3cmp9PartialEq2ne17h15f587fb008112e3E.exit.i.i, %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.i.i.i.i", %543, %537, %531, %519, %507, %275, %501, %444, %403, %355, %308, %287, %302, %65, %59, %77, %71, %432, %426, %438, %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i", %.lr.ph.i.i, %26, %513, %525, %37, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit14.i.i.i.i.i.i", %125, %293, %.critedge.i.i.i.i.i.i, %133, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit21.i.i.i.i.i.i", %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit24.i.i.i.i.i.i", %159, %165, %171, %"_ZN67_$LT$hir_ty..mir..AggregateKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha31820aa516e7defE.exit.i.i.i.i.i.i", %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit18.i.i.i.i.i.i", %281, %40, %47, %53, %108, %102, %114, %203, %222, %209, %184, %258, %252, %264, %338, %332, %344, %386, %380, %392, %407, %414, %420, %450, %83, %90, %96, %139, %149, %177, %190, %197, %215, %233, %240, %246, %"_ZN62_$LT$hir_ty..mir..CastKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h532e8365ced98582E.exit.thread.i.i.i.i.i.i", %320, %326, %361, %368, %374, %155, %.lr.ph.i.i.i.i.i.i, %466, %472, %478, %484, %490, %_ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i, %579, %891, %885, %878, %824, %818, %811, %728, %722, %715, %616, %610, %607, %909, %897, %903, %842, %830, %836, %800, %786, %746, %734, %740, %634, %622, %628, %974, %961, %949, %942, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit50.i", %920, %926, %871, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit47.i", %853, %858, %797, %783, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit44.i", %757, %767, %784, %798, %708, %680, %691, %695, %673, %649, %660, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit.i", %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit.thread", %2, %582, %943, %806, %706, %709, %671, %674, %601, %645, %869, %872, %955, %972, %975, %575, %576, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit", %577, %.thread10
-  %.0 = phi i1 [ %.not3, %.thread10 ], [ false, %577 ], [ false, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit" ], [ false, %576 ], [ false, %575 ], [ false, %975 ], [ false, %972 ], [ false, %955 ], [ false, %872 ], [ false, %869 ], [ false, %645 ], [ false, %601 ], [ false, %674 ], [ false, %671 ], [ false, %709 ], [ false, %706 ], [ false, %806 ], [ false, %943 ], [ false, %582 ], [ false, %2 ], [ false, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit.thread" ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit.i" ], [ false, %660 ], [ false, %649 ], [ false, %673 ], [ false, %695 ], [ false, %691 ], [ false, %680 ], [ false, %708 ], [ false, %798 ], [ false, %784 ], [ false, %767 ], [ false, %757 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit44.i" ], [ false, %783 ], [ false, %797 ], [ false, %858 ], [ false, %853 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit47.i" ], [ false, %871 ], [ false, %926 ], [ false, %920 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit50.i" ], [ false, %942 ], [ false, %949 ], [ false, %961 ], [ false, %974 ], [ false, %628 ], [ false, %622 ], [ false, %634 ], [ false, %740 ], [ false, %734 ], [ false, %746 ], [ false, %786 ], [ false, %800 ], [ false, %836 ], [ false, %830 ], [ false, %842 ], [ false, %903 ], [ false, %897 ], [ false, %909 ], [ false, %607 ], [ false, %610 ], [ false, %616 ], [ false, %715 ], [ false, %722 ], [ false, %728 ], [ false, %811 ], [ false, %818 ], [ false, %824 ], [ false, %878 ], [ false, %885 ], [ false, %891 ], [ false, %579 ], [ false, %_ZN4core3cmp9PartialEq2ne17ha69c7d26127f0896E.exit.i.i.i.i.i.i.i ], [ false, %490 ], [ false, %484 ], [ false, %478 ], [ false, %472 ], [ false, %466 ], [ false, %.lr.ph.i.i.i.i.i.i ], [ false, %155 ], [ false, %374 ], [ false, %368 ], [ false, %361 ], [ false, %326 ], [ false, %320 ], [ false, %"_ZN62_$LT$hir_ty..mir..CastKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h532e8365ced98582E.exit.thread.i.i.i.i.i.i" ], [ false, %246 ], [ false, %240 ], [ false, %233 ], [ false, %215 ], [ false, %197 ], [ false, %190 ], [ false, %177 ], [ false, %149 ], [ false, %139 ], [ false, %96 ], [ false, %90 ], [ false, %83 ], [ false, %450 ], [ false, %420 ], [ false, %414 ], [ false, %407 ], [ false, %392 ], [ false, %380 ], [ false, %386 ], [ false, %344 ], [ false, %332 ], [ false, %338 ], [ false, %264 ], [ false, %252 ], [ false, %258 ], [ false, %184 ], [ false, %209 ], [ false, %222 ], [ false, %203 ], [ false, %114 ], [ false, %102 ], [ false, %108 ], [ false, %53 ], [ false, %47 ], [ false, %40 ], [ false, %281 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit18.i.i.i.i.i.i" ], [ false, %"_ZN67_$LT$hir_ty..mir..AggregateKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha31820aa516e7defE.exit.i.i.i.i.i.i" ], [ false, %171 ], [ false, %165 ], [ false, %159 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit24.i.i.i.i.i.i" ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit21.i.i.i.i.i.i" ], [ false, %133 ], [ false, %.critedge.i.i.i.i.i.i ], [ false, %293 ], [ false, %125 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit14.i.i.i.i.i.i" ], [ false, %37 ], [ false, %525 ], [ false, %513 ], [ false, %26 ], [ false, %.lr.ph.i.i ], [ false, %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.thread3.i.i.i.i" ], [ false, %438 ], [ false, %426 ], [ false, %432 ], [ false, %71 ], [ false, %77 ], [ false, %59 ], [ false, %65 ], [ false, %302 ], [ false, %287 ], [ false, %308 ], [ false, %355 ], [ false, %403 ], [ false, %444 ], [ false, %501 ], [ false, %275 ], [ false, %507 ], [ false, %519 ], [ false, %531 ], [ false, %537 ], [ false, %543 ], [ false, %"_ZN67_$LT$hir_ty..mir..StatementKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h82f8ec8758523001E.exit.i.i.i.i" ], [ false, %_ZN4core3cmp9PartialEq2ne17h15f587fb008112e3E.exit.i.i ], [ false, %558 ]
+.critedge:                                        ; preds = %579, %891, %885, %878, %824, %818, %811, %728, %722, %715, %616, %610, %607, %909, %897, %903, %842, %830, %836, %800, %786, %746, %734, %740, %634, %622, %628, %974, %961, %949, %942, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit50.i", %920, %926, %871, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit47.i", %853, %858, %797, %783, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit44.i", %757, %767, %784, %798, %708, %680, %691, %695, %673, %649, %660, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit.i", %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit.thread", %582, %943, %806, %706, %709, %671, %674, %601, %645, %869, %872, %955, %972, %975, %575, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread", %576, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit", %577, %.thread10
+  %.0 = phi i1 [ %.not3, %.thread10 ], [ false, %577 ], [ false, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit" ], [ false, %576 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05a332f1aed09ebcE.exit.thread" ], [ false, %575 ], [ false, %975 ], [ false, %972 ], [ false, %955 ], [ false, %872 ], [ false, %869 ], [ false, %645 ], [ false, %601 ], [ false, %674 ], [ false, %671 ], [ false, %709 ], [ false, %706 ], [ false, %806 ], [ false, %943 ], [ false, %582 ], [ false, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.llvm.15095859440380444305.exit.thread" ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit.i" ], [ false, %660 ], [ false, %649 ], [ false, %673 ], [ false, %695 ], [ false, %691 ], [ false, %680 ], [ false, %708 ], [ false, %798 ], [ false, %784 ], [ false, %767 ], [ false, %757 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit44.i" ], [ false, %783 ], [ false, %797 ], [ false, %858 ], [ false, %853 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit47.i" ], [ false, %871 ], [ false, %926 ], [ false, %920 ], [ false, %"_ZN61_$LT$hir_ty..mir..Operand$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8802439a81d2892dE.exit50.i" ], [ false, %942 ], [ false, %949 ], [ false, %961 ], [ false, %974 ], [ false, %628 ], [ false, %622 ], [ false, %634 ], [ false, %740 ], [ false, %734 ], [ false, %746 ], [ false, %786 ], [ false, %800 ], [ false, %836 ], [ false, %830 ], [ false, %842 ], [ false, %903 ], [ false, %897 ], [ false, %909 ], [ false, %607 ], [ false, %610 ], [ false, %616 ], [ false, %715 ], [ false, %722 ], [ false, %728 ], [ false, %811 ], [ false, %818 ], [ false, %824 ], [ false, %878 ], [ false, %885 ], [ false, %891 ], [ false, %579 ]
   ret i1 %.0
 }
 

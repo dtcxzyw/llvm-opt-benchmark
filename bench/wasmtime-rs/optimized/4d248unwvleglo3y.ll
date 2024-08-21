@@ -4256,12 +4256,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %327
 
 326:                                              ; preds = %318
-  br i1 %323, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %329
+  br i1 %323, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %329
 
 327:                                              ; preds = %329, %324
   %.029.i = phi i8 [ %325, %324 ], [ %331, %329 ]
   %328 = trunc nuw i8 %.029.i to i1
-  br i1 %328, label %332, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %328, label %332, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 329:                                              ; preds = %326
   %330 = xor i8 %.sroa.1962.0.copyload, %322
@@ -4279,11 +4279,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %336 = load i64, ptr %335, align 8
   %337 = icmp eq i64 %.sroa.446.0.copyload, %336
   %or.cond114 = select i1 %.not79.i, i1 %337, i1 false
-  br i1 %or.cond114, label %340, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond114, label %340, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 338:                                              ; preds = %332
   %339 = trunc nuw i64 %333 to i1
-  br i1 %339, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %340
+  br i1 %339, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %340
 
 340:                                              ; preds = %334, %338
   %341 = icmp eq i8 %.sroa.2063.0.copyload, 2
@@ -4297,12 +4297,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %348
 
 347:                                              ; preds = %340
-  br i1 %344, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %350
+  br i1 %344, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %350
 
 348:                                              ; preds = %350, %345
   %.031.i = phi i8 [ %346, %345 ], [ %352, %350 ]
   %349 = trunc nuw i8 %.031.i to i1
-  br i1 %349, label %353, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %349, label %353, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 350:                                              ; preds = %347
   %351 = xor i8 %.sroa.2063.0.copyload, %343
@@ -4321,11 +4321,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %358 = load i64, ptr %357, align 8
   %359 = icmp eq i64 %.sroa.648.0.copyload, %358
   %or.cond117 = select i1 %.not82.i, i1 %359, i1 false
-  br i1 %or.cond117, label %362, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond117, label %362, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 360:                                              ; preds = %353
   %361 = trunc nuw i64 %355 to i1
-  br i1 %361, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %362
+  br i1 %361, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %362
 
 362:                                              ; preds = %356, %360
   %363 = icmp eq i8 %.sroa.2164.0.copyload, 2
@@ -4339,12 +4339,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %370
 
 369:                                              ; preds = %362
-  br i1 %366, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %372
+  br i1 %366, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %372
 
 370:                                              ; preds = %372, %367
   %.033.i = phi i8 [ %368, %367 ], [ %374, %372 ]
   %371 = trunc nuw i8 %.033.i to i1
-  br i1 %371, label %375, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %371, label %375, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 372:                                              ; preds = %369
   %373 = xor i8 %.sroa.2164.0.copyload, %365
@@ -4363,12 +4363,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %383
 
 382:                                              ; preds = %375
-  br i1 %379, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %385
+  br i1 %379, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %385
 
 383:                                              ; preds = %385, %380
   %.034.i = phi i8 [ %381, %380 ], [ %387, %385 ]
   %384 = trunc nuw i8 %.034.i to i1
-  br i1 %384, label %388, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %384, label %388, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 385:                                              ; preds = %382
   %386 = xor i8 %.sroa.2265.0.copyload, %378
@@ -4387,12 +4387,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %396
 
 395:                                              ; preds = %388
-  br i1 %392, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %398
+  br i1 %392, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %398
 
 396:                                              ; preds = %398, %393
   %.035.i = phi i8 [ %394, %393 ], [ %400, %398 ]
   %397 = trunc nuw i8 %.035.i to i1
-  br i1 %397, label %401, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %397, label %401, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 398:                                              ; preds = %395
   %399 = xor i8 %.sroa.2366.0.copyload, %391
@@ -4411,12 +4411,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %409
 
 408:                                              ; preds = %401
-  br i1 %405, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %411
+  br i1 %405, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %411
 
 409:                                              ; preds = %411, %406
   %.036.i = phi i8 [ %407, %406 ], [ %413, %411 ]
   %410 = trunc nuw i8 %.036.i to i1
-  br i1 %410, label %414, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %410, label %414, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 411:                                              ; preds = %408
   %412 = xor i8 %.sroa.2467.0.copyload, %404
@@ -4435,11 +4435,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %419 = load i64, ptr %418, align 8
   %420 = icmp eq i64 %.sroa.850.0.copyload, %419
   %or.cond120 = select i1 %.not88.i, i1 %420, i1 false
-  br i1 %or.cond120, label %423, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond120, label %423, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 421:                                              ; preds = %414
   %422 = trunc nuw i64 %416 to i1
-  br i1 %422, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %423
+  br i1 %422, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %423
 
 423:                                              ; preds = %417, %421
   %trunc89.i = trunc nuw i32 %.sroa.1557.0.copyload to i1
@@ -4453,11 +4453,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %428 = load i32, ptr %427, align 4
   %429 = icmp eq i32 %.sroa.1658.0.copyload, %428
   %or.cond123 = select i1 %.not90.i, i1 %429, i1 false
-  br i1 %or.cond123, label %432, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond123, label %432, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 430:                                              ; preds = %423
   %431 = trunc nuw i32 %425 to i1
-  br i1 %431, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %432
+  br i1 %431, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %432
 
 432:                                              ; preds = %426, %430
   %trunc91.i = trunc nuw i64 %.sroa.951.0.copyload to i1
@@ -4471,11 +4471,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %437 = load i64, ptr %436, align 8
   %438 = icmp eq i64 %.sroa.1052.0.copyload, %437
   %or.cond126 = select i1 %.not92.i, i1 %438, i1 false
-  br i1 %or.cond126, label %441, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond126, label %441, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 439:                                              ; preds = %432
   %440 = trunc nuw i64 %434 to i1
-  br i1 %440, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %441
+  br i1 %440, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %441
 
 441:                                              ; preds = %435, %439
   %trunc93.i = trunc nuw i64 %.sroa.1153.0.copyload to i1
@@ -4489,11 +4489,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %446 = load i64, ptr %445, align 8
   %447 = icmp eq i64 %.sroa.1254.0.copyload, %446
   %or.cond129 = select i1 %.not94.i, i1 %447, i1 false
-  br i1 %or.cond129, label %450, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond129, label %450, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 448:                                              ; preds = %441
   %449 = trunc nuw i64 %443 to i1
-  br i1 %449, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %450
+  br i1 %449, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %450
 
 450:                                              ; preds = %444, %448
   %trunc95.i = trunc nuw i64 %.sroa.1355.0.copyload to i1
@@ -4507,11 +4507,11 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %455 = load i64, ptr %454, align 8
   %456 = icmp eq i64 %.sroa.1456.0.copyload, %455
   %or.cond132 = select i1 %.not96.i, i1 %456, i1 false
-  br i1 %or.cond132, label %459, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond132, label %459, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 457:                                              ; preds = %450
   %458 = trunc nuw i64 %452 to i1
-  br i1 %458, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %459
+  br i1 %458, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %459
 
 459:                                              ; preds = %453, %457
   %460 = icmp eq i8 %.sroa.2568.0.copyload, 2
@@ -4525,12 +4525,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %467
 
 466:                                              ; preds = %459
-  br i1 %463, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %469
+  br i1 %463, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %469
 
 467:                                              ; preds = %469, %464
   %.042.i = phi i8 [ %465, %464 ], [ %471, %469 ]
   %468 = trunc nuw i8 %.042.i to i1
-  br i1 %468, label %472, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %468, label %472, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 469:                                              ; preds = %466
   %470 = xor i8 %.sroa.2568.0.copyload, %462
@@ -4545,10 +4545,10 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %473, label %477, label %478
 
 477:                                              ; preds = %472
-  br i1 %476, label %484, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %476, label %484, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 478:                                              ; preds = %472
-  br i1 %476, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %479
+  br i1 %476, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %479
 
 479:                                              ; preds = %478
   %480 = getelementptr inbounds i8, ptr %7, i64 248
@@ -4556,7 +4556,7 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %482 = icmp eq i64 %.sroa.1759.0.copyload, %481
   %483 = icmp eq i32 %.sroa.1860.0.copyload, %475
   %or.cond.i = and i1 %483, %482
-  br i1 %or.cond.i, label %484, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %or.cond.i, label %484, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 484:                                              ; preds = %479, %477
   %485 = icmp eq i8 %.sroa.2669.0.copyload, 2
@@ -4570,12 +4570,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %492
 
 491:                                              ; preds = %484
-  br i1 %488, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %494
+  br i1 %488, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %494
 
 492:                                              ; preds = %494, %489
   %.044.i = phi i8 [ %490, %489 ], [ %496, %494 ]
   %493 = trunc nuw i8 %.044.i to i1
-  br i1 %493, label %497, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %493, label %497, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 494:                                              ; preds = %491
   %495 = xor i8 %.sroa.2669.0.copyload, %487
@@ -4594,12 +4594,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %505
 
 504:                                              ; preds = %497
-  br i1 %501, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %507
+  br i1 %501, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %507
 
 505:                                              ; preds = %507, %502
   %.045.i = phi i8 [ %503, %502 ], [ %509, %507 ]
   %506 = trunc nuw i8 %.045.i to i1
-  br i1 %506, label %510, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %506, label %510, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 507:                                              ; preds = %504
   %508 = xor i8 %.sroa.2770.0.copyload, %500
@@ -4618,12 +4618,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %518
 
 517:                                              ; preds = %510
-  br i1 %514, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %520
+  br i1 %514, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %520
 
 518:                                              ; preds = %520, %515
   %.046.i = phi i8 [ %516, %515 ], [ %522, %520 ]
   %519 = trunc nuw i8 %.046.i to i1
-  br i1 %519, label %523, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %519, label %523, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 520:                                              ; preds = %517
   %521 = xor i8 %.sroa.2871.0.copyload, %513
@@ -4642,12 +4642,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br label %531
 
 530:                                              ; preds = %523
-  br i1 %527, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %533
+  br i1 %527, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %533
 
 531:                                              ; preds = %533, %528
   %.047.i = phi i8 [ %529, %528 ], [ %535, %533 ]
   %532 = trunc nuw i8 %.047.i to i1
-  br i1 %532, label %536, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %532, label %536, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 533:                                              ; preds = %530
   %534 = xor i8 %.sroa.2972.0.copyload, %526
@@ -4665,10 +4665,10 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %542 = xor i8 %539, %.sroa.3073.0.copyload
   %543 = trunc i8 %542 to i1
   %or.cond135.not = select i1 %540, i1 true, i1 %543
-  br i1 %or.cond135.not, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %545
+  br i1 %or.cond135.not, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %545
 
 544:                                              ; preds = %536
-  br i1 %540, label %545, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %540, label %545, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 545:                                              ; preds = %541, %544
   %546 = icmp eq i8 %.sroa.3174.0.copyload, 2
@@ -4681,10 +4681,10 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %551 = xor i8 %548, %.sroa.3174.0.copyload
   %552 = trunc i8 %551 to i1
   %or.cond139.not = select i1 %549, i1 true, i1 %552
-  br i1 %or.cond139.not, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %554
+  br i1 %or.cond139.not, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %554
 
 553:                                              ; preds = %545
-  br i1 %549, label %554, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %549, label %554, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 554:                                              ; preds = %550, %553
   %555 = icmp eq i8 %.sroa.32.0.copyload, 2
@@ -4694,13 +4694,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %555, label %559, label %560
 
 559:                                              ; preds = %554
-  br i1 %558, label %563, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %558, label %563, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 560:                                              ; preds = %554
   %561 = xor i8 %557, %.sroa.32.0.copyload
   %562 = trunc i8 %561 to i1
   %or.cond185.not.i = or i1 %558, %562
-  br i1 %or.cond185.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %563
+  br i1 %or.cond185.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %563
 
 563:                                              ; preds = %560, %559
   %564 = icmp eq i8 %.sroa.33.0.copyload, 2
@@ -4710,13 +4710,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %564, label %568, label %569
 
 568:                                              ; preds = %563
-  br i1 %567, label %572, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %567, label %572, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 569:                                              ; preds = %563
   %570 = xor i8 %566, %.sroa.33.0.copyload
   %571 = trunc i8 %570 to i1
   %or.cond189.not.i = or i1 %567, %571
-  br i1 %or.cond189.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %572
+  br i1 %or.cond189.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %572
 
 572:                                              ; preds = %569, %568
   %573 = icmp eq i8 %.sroa.34.0.copyload, 2
@@ -4726,13 +4726,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %573, label %577, label %578
 
 577:                                              ; preds = %572
-  br i1 %576, label %581, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %576, label %581, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 578:                                              ; preds = %572
   %579 = xor i8 %575, %.sroa.34.0.copyload
   %580 = trunc i8 %579 to i1
   %or.cond193.not.i = or i1 %576, %580
-  br i1 %or.cond193.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %581
+  br i1 %or.cond193.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %581
 
 581:                                              ; preds = %578, %577
   %582 = icmp eq i8 %.sroa.35.0.copyload, 2
@@ -4742,13 +4742,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %582, label %586, label %587
 
 586:                                              ; preds = %581
-  br i1 %585, label %590, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %585, label %590, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 587:                                              ; preds = %581
   %588 = xor i8 %584, %.sroa.35.0.copyload
   %589 = trunc i8 %588 to i1
   %or.cond173.not.i = or i1 %585, %589
-  br i1 %or.cond173.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %590
+  br i1 %or.cond173.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %590
 
 590:                                              ; preds = %587, %586
   %591 = icmp eq i8 %.sroa.36.0.copyload, 2
@@ -4758,13 +4758,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %591, label %595, label %596
 
 595:                                              ; preds = %590
-  br i1 %594, label %599, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %594, label %599, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 596:                                              ; preds = %590
   %597 = xor i8 %593, %.sroa.36.0.copyload
   %598 = trunc i8 %597 to i1
   %or.cond176.not.i = or i1 %594, %598
-  br i1 %or.cond176.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %599
+  br i1 %or.cond176.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %599
 
 599:                                              ; preds = %596, %595
   %600 = icmp eq i8 %.sroa.37.0.copyload, 2
@@ -4774,13 +4774,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %600, label %604, label %605
 
 604:                                              ; preds = %599
-  br i1 %603, label %608, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %603, label %608, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 605:                                              ; preds = %599
   %606 = xor i8 %602, %.sroa.37.0.copyload
   %607 = trunc i8 %606 to i1
   %or.cond179.not.i = or i1 %603, %607
-  br i1 %or.cond179.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %608
+  br i1 %or.cond179.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %608
 
 608:                                              ; preds = %605, %604
   %609 = icmp eq i8 %.sroa.38.0.copyload, 2
@@ -4790,13 +4790,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   br i1 %609, label %613, label %614
 
 613:                                              ; preds = %608
-  br i1 %612, label %617, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
+  br i1 %612, label %617, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread"
 
 614:                                              ; preds = %608
   %615 = xor i8 %611, %.sroa.38.0.copyload
   %616 = trunc i8 %615 to i1
   %or.cond182.not.i = or i1 %612, %616
-  br i1 %or.cond182.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %617
+  br i1 %or.cond182.not.i, label %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", label %617
 
 617:                                              ; preds = %614, %613
   %618 = icmp eq i8 %.sroa.39.0.copyload, 2
@@ -4810,6 +4810,9 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %623 = xor i8 %620, %.sroa.39.0.copyload
   %624 = trunc i8 %623 to i1
   br i1 %624, label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit", label %625
+
+"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread": ; preds = %553, %544, %531, %518, %505, %492, %467, %457, %448, %439, %430, %421, %409, %396, %383, %370, %360, %348, %338, %327, %334, %356, %417, %426, %435, %444, %453, %587, %596, %605, %614, %479, %478, %477, %586, %595, %604, %613, %326, %347, %369, %382, %395, %408, %466, %491, %504, %517, %530, %541, %550, %560, %569, %578, %559, %568, %577
+  br label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
 "_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit": ; preds = %617
   %.mux.i35 = and i1 %618, %621
@@ -5124,8 +5127,8 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
   %798 = xor i1 %797, true
   br label %"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit"
 
-"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit": ; preds = %.noexc42, %577, %568, %559, %578, %569, %560, %550, %541, %530, %517, %504, %491, %466, %408, %395, %382, %369, %347, %326, %613, %604, %595, %586, %477, %478, %479, %614, %605, %596, %587, %453, %444, %435, %426, %417, %356, %334, %327, %338, %348, %360, %370, %383, %396, %409, %421, %430, %439, %448, %457, %467, %492, %505, %518, %531, %544, %553, %311, %302, %291, %280, %269, %303, %292, %281, %270, %251, %240, %230, %224, %213, %202, %191, %252, %241, %225, %214, %203, %226, %193, %136, %127, %137, %128, %98, %85, %45, %26, %179, %170, %161, %152, %143, %116, %107, %72, %63, %54, %32, %36, %46, %58, %67, %76, %86, %99, %111, %120, %147, %156, %165, %174, %28, %795, %788, %785, %784, %774, %773, %763, %762, %752, %751, %741, %740, %.noexc43, %724, %723, %707, %706, %703, %695, %692, %680, %679, %665, %664, %650, %649, %635, %634, %622, %314, %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit", %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit", %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
-  %.0 = phi i1 [ false, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit" ], [ false, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit" ], [ false, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit" ], [ false, %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit" ], [ false, %314 ], [ false, %622 ], [ %798, %795 ], [ false, %.noexc43 ], [ false, %706 ], [ false, %695 ], [ false, %680 ], [ false, %665 ], [ false, %650 ], [ false, %635 ], [ false, %752 ], [ false, %763 ], [ false, %774 ], [ false, %785 ], [ false, %751 ], [ false, %762 ], [ false, %773 ], [ false, %784 ], [ false, %634 ], [ false, %649 ], [ false, %664 ], [ false, %679 ], [ false, %692 ], [ false, %703 ], [ false, %707 ], [ false, %724 ], [ false, %741 ], [ false, %723 ], [ false, %740 ], [ %.mux.i41, %788 ], [ false, %28 ], [ false, %174 ], [ false, %165 ], [ false, %156 ], [ false, %147 ], [ false, %120 ], [ false, %111 ], [ false, %99 ], [ false, %86 ], [ false, %76 ], [ false, %67 ], [ false, %58 ], [ false, %46 ], [ false, %36 ], [ false, %32 ], [ false, %54 ], [ false, %63 ], [ false, %72 ], [ false, %107 ], [ false, %116 ], [ false, %143 ], [ false, %152 ], [ false, %161 ], [ false, %170 ], [ false, %179 ], [ false, %26 ], [ false, %45 ], [ false, %85 ], [ false, %98 ], [ false, %128 ], [ false, %137 ], [ false, %127 ], [ false, %136 ], [ false, %193 ], [ false, %226 ], [ false, %203 ], [ false, %214 ], [ false, %225 ], [ false, %241 ], [ false, %252 ], [ false, %191 ], [ false, %202 ], [ false, %213 ], [ false, %224 ], [ false, %230 ], [ false, %240 ], [ false, %251 ], [ false, %270 ], [ false, %281 ], [ false, %292 ], [ false, %303 ], [ false, %269 ], [ false, %280 ], [ false, %291 ], [ false, %302 ], [ false, %311 ], [ false, %553 ], [ false, %544 ], [ false, %531 ], [ false, %518 ], [ false, %505 ], [ false, %492 ], [ false, %467 ], [ false, %457 ], [ false, %448 ], [ false, %439 ], [ false, %430 ], [ false, %421 ], [ false, %409 ], [ false, %396 ], [ false, %383 ], [ false, %370 ], [ false, %360 ], [ false, %348 ], [ false, %338 ], [ false, %327 ], [ false, %334 ], [ false, %356 ], [ false, %417 ], [ false, %426 ], [ false, %435 ], [ false, %444 ], [ false, %453 ], [ false, %587 ], [ false, %596 ], [ false, %605 ], [ false, %614 ], [ false, %479 ], [ false, %478 ], [ false, %477 ], [ false, %586 ], [ false, %595 ], [ false, %604 ], [ false, %613 ], [ false, %326 ], [ false, %347 ], [ false, %369 ], [ false, %382 ], [ false, %395 ], [ false, %408 ], [ false, %466 ], [ false, %491 ], [ false, %504 ], [ false, %517 ], [ false, %530 ], [ false, %541 ], [ false, %550 ], [ false, %560 ], [ false, %569 ], [ false, %578 ], [ false, %559 ], [ false, %568 ], [ false, %577 ], [ false, %.noexc42 ]
+"_ZN72_$LT$wasmtime_cli_flags..WasiOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc4e83187ca1719deE.exit": ; preds = %.noexc42, %311, %302, %291, %280, %269, %303, %292, %281, %270, %251, %240, %230, %224, %213, %202, %191, %252, %241, %225, %214, %203, %226, %193, %136, %127, %137, %128, %98, %85, %45, %26, %179, %170, %161, %152, %143, %116, %107, %72, %63, %54, %32, %36, %46, %58, %67, %76, %86, %99, %111, %120, %147, %156, %165, %174, %28, %795, %788, %785, %784, %774, %773, %763, %762, %752, %751, %741, %740, %.noexc43, %724, %723, %707, %706, %703, %695, %692, %680, %679, %665, %664, %650, %649, %635, %634, %622, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread", %314, %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit", %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit", %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit", %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit"
+  %.0 = phi i1 [ false, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit" ], [ false, %"_ZN73_$LT$wasmtime_cli_flags..DebugOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h676422565aa4d042E.exit" ], [ false, %"_ZN75_$LT$wasmtime_cli_flags..CodegenOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5574cbe330187723E.exit" ], [ false, %"_ZN76_$LT$wasmtime_cli_flags..OptimizeOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31bb9ec911874e57E.exit" ], [ false, %314 ], [ false, %"_ZN72_$LT$wasmtime_cli_flags..WasmOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6ac99e59ff043beE.exit.thread" ], [ false, %622 ], [ %798, %795 ], [ false, %.noexc43 ], [ false, %706 ], [ false, %695 ], [ false, %680 ], [ false, %665 ], [ false, %650 ], [ false, %635 ], [ false, %752 ], [ false, %763 ], [ false, %774 ], [ false, %785 ], [ false, %751 ], [ false, %762 ], [ false, %773 ], [ false, %784 ], [ false, %634 ], [ false, %649 ], [ false, %664 ], [ false, %679 ], [ false, %692 ], [ false, %703 ], [ false, %707 ], [ false, %724 ], [ false, %741 ], [ false, %723 ], [ false, %740 ], [ %.mux.i41, %788 ], [ false, %28 ], [ false, %174 ], [ false, %165 ], [ false, %156 ], [ false, %147 ], [ false, %120 ], [ false, %111 ], [ false, %99 ], [ false, %86 ], [ false, %76 ], [ false, %67 ], [ false, %58 ], [ false, %46 ], [ false, %36 ], [ false, %32 ], [ false, %54 ], [ false, %63 ], [ false, %72 ], [ false, %107 ], [ false, %116 ], [ false, %143 ], [ false, %152 ], [ false, %161 ], [ false, %170 ], [ false, %179 ], [ false, %26 ], [ false, %45 ], [ false, %85 ], [ false, %98 ], [ false, %128 ], [ false, %137 ], [ false, %127 ], [ false, %136 ], [ false, %193 ], [ false, %226 ], [ false, %203 ], [ false, %214 ], [ false, %225 ], [ false, %241 ], [ false, %252 ], [ false, %191 ], [ false, %202 ], [ false, %213 ], [ false, %224 ], [ false, %230 ], [ false, %240 ], [ false, %251 ], [ false, %270 ], [ false, %281 ], [ false, %292 ], [ false, %303 ], [ false, %269 ], [ false, %280 ], [ false, %291 ], [ false, %302 ], [ false, %311 ], [ false, %.noexc42 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$wasmtime_cli_flags..WasiOptions$GT$17h2ed86d78514626aaE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
           to label %802 unwind label %800
 

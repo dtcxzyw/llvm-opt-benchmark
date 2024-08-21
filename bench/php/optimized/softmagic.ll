@@ -2140,20 +2140,20 @@ cvt_flip.exit.i:                                  ; preds = %729, %726
     i8 36, label %1168
     i8 37, label %cvt_flip.exit.thread201.i
     i8 38, label %cvt_flip.exit.thread204.i
-    i8 17, label %mconvert.exit
-    i8 20, label %mconvert.exit
-    i8 3, label %mconvert.exit
-    i8 47, label %mconvert.exit
-    i8 45, label %mconvert.exit
-    i8 46, label %mconvert.exit
-    i8 48, label %mconvert.exit
-    i8 49, label %mconvert.exit
+    i8 17, label %mconvert.exit.thread
+    i8 20, label %mconvert.exit.thread
+    i8 3, label %mconvert.exit.thread
+    i8 47, label %mconvert.exit.thread
+    i8 45, label %mconvert.exit.thread
+    i8 46, label %mconvert.exit.thread
+    i8 48, label %mconvert.exit.thread
+    i8 49, label %mconvert.exit.thread
   ]
 
 730:                                              ; preds = %cvt_flip.exit.i
   %731 = tail call fastcc i32 @cvt_8(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %732 = icmp eq i32 %731, -1
-  br i1 %732, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %732, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 733:                                              ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i
   %734 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2247,13 +2247,13 @@ default.unreachable:                              ; preds = %1112, %1070, %1014,
   %778 = load i8, ptr %777, align 1
   %779 = and i8 %778, 64
   %.not26.i.i = icmp eq i8 %779, 0
-  br i1 %.not26.i.i, label %mconvert.exit, label %780
+  br i1 %.not26.i.i, label %mconvert.exit.thread, label %780
 
 780:                                              ; preds = %776
   %781 = load i16, ptr %24, align 8
   %782 = xor i16 %781, -1
   store i16 %782, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 783:                                              ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i
   %784 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2335,13 +2335,13 @@ default.unreachable:                              ; preds = %1112, %1070, %1014,
   %821 = load i8, ptr %820, align 1
   %822 = and i8 %821, 64
   %.not26.i137.i = icmp eq i8 %822, 0
-  br i1 %.not26.i137.i, label %mconvert.exit, label %823
+  br i1 %.not26.i137.i, label %mconvert.exit.thread, label %823
 
 823:                                              ; preds = %819
   %824 = load i32, ptr %24, align 8
   %825 = xor i32 %824, -1
   store i32 %825, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 826:                                              ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i
   %827 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2407,18 +2407,18 @@ default.unreachable:                              ; preds = %1112, %1070, %1014,
   %852 = load i8, ptr %851, align 1
   %853 = and i8 %852, 64
   %.not24.i.i = icmp eq i8 %853, 0
-  br i1 %.not24.i.i, label %mconvert.exit, label %854
+  br i1 %.not24.i.i, label %mconvert.exit.thread, label %854
 
 854:                                              ; preds = %850
   %855 = load i64, ptr %24, align 8
   %856 = xor i64 %855, -1
   store i64 %856, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 857:                                              ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i
   %858 = getelementptr inbounds i8, ptr %0, i64 263
   store i8 0, ptr %858, align 1
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 859:                                              ; preds = %cvt_flip.exit.i
   %860 = tail call i64 @file_pstring_length_size(ptr noundef nonnull %0, ptr noundef nonnull %1) #21
@@ -2455,7 +2455,7 @@ default.unreachable:                              ; preds = %1112, %1070, %1014,
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %865
   %.0127.lcssa.i = phi ptr [ %24, %865 ], [ %871, %.lr.ph.i ]
   store i8 0, ptr %.0127.lcssa.i, align 1
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 cvt_flip.exit.thread189.i:                        ; preds = %cvt_flip.exit.i, %729
   %872 = load i8, ptr %24, align 8
@@ -2468,7 +2468,7 @@ cvt_flip.exit.thread189.i:                        ; preds = %cvt_flip.exit.i, %7
   store i16 %878, ptr %24, align 8
   %879 = tail call fastcc i32 @cvt_16(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %880 = icmp eq i32 %879, -1
-  br i1 %880, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %880, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 cvt_flip.exit.thread182.i:                        ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %729, %729, %729
   %881 = load i8, ptr %24, align 8
@@ -2561,12 +2561,12 @@ cvt_flip.exit.thread182.i:                        ; preds = %cvt_flip.exit.i, %c
   %928 = load i8, ptr %927, align 1
   %929 = and i8 %928, 64
   %.not26.i145.i = icmp eq i8 %929, 0
-  br i1 %.not26.i145.i, label %mconvert.exit, label %930
+  br i1 %.not26.i145.i, label %mconvert.exit.thread, label %930
 
 930:                                              ; preds = %925
   %931 = xor i32 %926, -1
   store i32 %931, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 cvt_flip.exit.thread.i:                           ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %729, %729, %729, %729
   %932 = load i8, ptr %24, align 8
@@ -2670,17 +2670,17 @@ cvt_flip.exit.thread.i:                           ; preds = %cvt_flip.exit.i, %c
   %994 = load i8, ptr %993, align 1
   %995 = and i8 %994, 64
   %.not24.i152.i = icmp eq i8 %995, 0
-  br i1 %.not24.i152.i, label %mconvert.exit, label %996
+  br i1 %.not24.i152.i, label %mconvert.exit.thread, label %996
 
 996:                                              ; preds = %991
   %997 = xor i64 %992, -1
   store i64 %997, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 cvt_flip.exit.thread192.i:                        ; preds = %cvt_flip.exit.i, %729
   %998 = tail call fastcc i32 @cvt_16(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %999 = icmp eq i32 %998, -1
-  br i1 %999, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %999, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 cvt_flip.exit.thread186.i:                        ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %729, %729, %729
   %1000 = getelementptr i8, ptr %0, i64 138
@@ -2768,12 +2768,12 @@ cvt_flip.exit.thread186.i:                        ; preds = %cvt_flip.exit.i, %c
   %1042 = load i8, ptr %1041, align 1
   %1043 = and i8 %1042, 64
   %.not26.i158.i = icmp eq i8 %1043, 0
-  br i1 %.not26.i158.i, label %mconvert.exit, label %1044
+  br i1 %.not26.i158.i, label %mconvert.exit.thread, label %1044
 
 1044:                                             ; preds = %1039
   %1045 = xor i32 %1040, -1
   store i32 %1045, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 cvt_flip.exit.thread178.i:                        ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %729, %729, %729, %729
   %1046 = getelementptr i8, ptr %0, i64 140
@@ -2862,12 +2862,12 @@ cvt_flip.exit.thread178.i:                        ; preds = %cvt_flip.exit.i, %c
   %1093 = load i8, ptr %1092, align 1
   %1094 = and i8 %1093, 64
   %.not24.i165.i = icmp eq i8 %1094, 0
-  br i1 %.not24.i165.i, label %mconvert.exit, label %1095
+  br i1 %.not24.i165.i, label %mconvert.exit.thread, label %1095
 
 1095:                                             ; preds = %1090
   %1096 = xor i64 %1091, -1
   store i64 %1096, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 1097:                                             ; preds = %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i
   %1098 = load i16, ptr %24, align 8
@@ -2955,17 +2955,17 @@ cvt_flip.exit.thread178.i:                        ; preds = %cvt_flip.exit.i, %c
   %1140 = load i8, ptr %1139, align 1
   %1141 = and i8 %1140, 64
   %.not26.i171.i = icmp eq i8 %1141, 0
-  br i1 %.not26.i171.i, label %mconvert.exit, label %1142
+  br i1 %.not26.i171.i, label %mconvert.exit.thread, label %1142
 
 1142:                                             ; preds = %1137
   %1143 = xor i32 %1138, -1
   store i32 %1143, ptr %24, align 8
-  br label %mconvert.exit
+  br label %mconvert.exit.thread
 
 1144:                                             ; preds = %cvt_flip.exit.i
   %1145 = tail call fastcc i32 @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %1146 = icmp eq i32 %1145, -1
-  br i1 %1146, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %1146, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 cvt_flip.exit.thread195.i:                        ; preds = %cvt_flip.exit.i, %729
   %1147 = load i8, ptr %24, align 8
@@ -2988,17 +2988,17 @@ cvt_flip.exit.thread195.i:                        ; preds = %cvt_flip.exit.i, %7
   store i32 %1163, ptr %24, align 8
   %1164 = tail call fastcc i32 @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %1165 = icmp eq i32 %1164, -1
-  br i1 %1165, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %1165, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 cvt_flip.exit.thread198.i:                        ; preds = %cvt_flip.exit.i, %729
   %1166 = tail call fastcc i32 @cvt_float(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %1167 = icmp eq i32 %1166, -1
-  br i1 %1167, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %1167, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 1168:                                             ; preds = %cvt_flip.exit.i
   %1169 = tail call fastcc i32 @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %1170 = icmp eq i32 %1169, -1
-  br i1 %1170, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %1170, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 cvt_flip.exit.thread201.i:                        ; preds = %cvt_flip.exit.i, %729
   %1171 = load i8, ptr %24, align 8
@@ -3041,12 +3041,12 @@ cvt_flip.exit.thread201.i:                        ; preds = %cvt_flip.exit.i, %7
   store i64 %1207, ptr %24, align 8
   %1208 = tail call fastcc i32 @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %1209 = icmp eq i32 %1208, -1
-  br i1 %1209, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %1209, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 cvt_flip.exit.thread204.i:                        ; preds = %cvt_flip.exit.i, %729
   %1210 = tail call fastcc i32 @cvt_double(ptr noundef nonnull %24, ptr noundef nonnull %1)
   %1211 = icmp eq i32 %1210, -1
-  br i1 %1211, label %cvt_16.exit.thread.i, label %mconvert.exit
+  br i1 %1211, label %cvt_16.exit.thread.i, label %mconvert.exit.thread
 
 1212:                                             ; preds = %cvt_flip.exit.i
   tail call void (ptr, ptr, ...) @file_magerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %727) #21
@@ -3056,8 +3056,11 @@ cvt_16.exit.thread.i:                             ; preds = %cvt_flip.exit.threa
   tail call void (ptr, ptr, ...) @file_magerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #21
   br label %mconvert.exit
 
-mconvert.exit:                                    ; preds = %1142, %1137, %1095, %1090, %1044, %1039, %996, %991, %930, %925, %854, %850, %823, %819, %780, %776, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.thread204.i, %cvt_flip.exit.thread201.i, %1168, %cvt_flip.exit.thread198.i, %cvt_flip.exit.thread195.i, %1144, %cvt_flip.exit.thread192.i, %cvt_flip.exit.thread189.i, %730, %857, %._crit_edge.i, %cvt_16.exit.thread.i, %1212, %862, %859, %.thread, %722, %719, %714, %715, %672, %670, %671, %668, %669, %663, %664, %649, %623, %615, %612, %603, %606, %598, %593, %588, %583, %581, %563, %564, %545, %548, %cvt_flip.exit578.thread, %537, %532, %523, %526, %484, %cvt_flip.exit578.thread627, %477, %cvt_flip.exit578.thread624, %467, %462, %459, %431, %426, %cvt_flip.exit578.thread620, %401, %cvt_flip.exit578.thread616, %370, %365, %359, %cvt_flip.exit578.thread613, %352, %cvt_flip.exit578.thread610, %327, %325, %cvt_flip.exit.thread, %297, %285, %287, %cvt_flip.exit.thread604, %cvt_flip.exit.thread601, %206, %cvt_flip.exit.thread598, %cvt_flip.exit.thread595, %147, %cvt_flip.exit.thread592, %cvt_flip.exit.thread589, %104, %93, %689, %683, %34, %28
-  %.0 = phi i32 [ -1, %28 ], [ -1, %34 ], [ -1, %683 ], [ -1, %689 ], [ 0, %93 ], [ 0, %104 ], [ 0, %cvt_flip.exit.thread589 ], [ 0, %cvt_flip.exit.thread592 ], [ 0, %147 ], [ 0, %cvt_flip.exit.thread595 ], [ 0, %cvt_flip.exit.thread598 ], [ 0, %206 ], [ 0, %cvt_flip.exit.thread601 ], [ 0, %cvt_flip.exit.thread604 ], [ 0, %287 ], [ 0, %285 ], [ 0, %297 ], [ 0, %cvt_flip.exit.thread ], [ 0, %325 ], [ 0, %327 ], [ 0, %cvt_flip.exit578.thread610 ], [ 0, %352 ], [ 0, %cvt_flip.exit578.thread613 ], [ 0, %359 ], [ 0, %365 ], [ 0, %370 ], [ 0, %cvt_flip.exit578.thread616 ], [ 0, %401 ], [ 0, %cvt_flip.exit578.thread620 ], [ 0, %426 ], [ 0, %431 ], [ 0, %459 ], [ 0, %462 ], [ 0, %467 ], [ 0, %cvt_flip.exit578.thread624 ], [ 0, %477 ], [ 0, %cvt_flip.exit578.thread627 ], [ 0, %484 ], [ 0, %526 ], [ 0, %523 ], [ 0, %532 ], [ 0, %537 ], [ 0, %cvt_flip.exit578.thread ], [ 0, %548 ], [ 0, %545 ], [ 0, %564 ], [ 0, %563 ], [ 0, %581 ], [ 0, %583 ], [ 0, %588 ], [ 0, %593 ], [ 0, %598 ], [ 0, %606 ], [ 0, %603 ], [ 0, %612 ], [ 0, %615 ], [ -1, %623 ], [ -1, %649 ], [ -1, %664 ], [ -1, %663 ], [ -1, %669 ], [ -1, %668 ], [ %.1434, %671 ], [ %.1434, %670 ], [ 0, %672 ], [ 1, %714 ], [ %718, %715 ], [ 1, %719 ], [ %., %722 ], [ 1, %.thread ], [ 0, %cvt_16.exit.thread.i ], [ 0, %1212 ], [ 0, %862 ], [ 0, %859 ], [ 1, %._crit_edge.i ], [ 1, %857 ], [ 1, %730 ], [ 1, %cvt_flip.exit.thread189.i ], [ 1, %cvt_flip.exit.thread192.i ], [ 1, %1144 ], [ 1, %cvt_flip.exit.thread195.i ], [ 1, %cvt_flip.exit.thread198.i ], [ 1, %1168 ], [ 1, %cvt_flip.exit.thread201.i ], [ 1, %cvt_flip.exit.thread204.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %cvt_flip.exit.i ], [ 1, %776 ], [ 1, %780 ], [ 1, %819 ], [ 1, %823 ], [ 1, %850 ], [ 1, %854 ], [ 1, %925 ], [ 1, %930 ], [ 1, %991 ], [ 1, %996 ], [ 1, %1039 ], [ 1, %1044 ], [ 1, %1090 ], [ 1, %1095 ], [ 1, %1137 ], [ 1, %1142 ]
+mconvert.exit.thread:                             ; preds = %._crit_edge.i, %857, %730, %cvt_flip.exit.thread189.i, %cvt_flip.exit.thread192.i, %1144, %cvt_flip.exit.thread195.i, %cvt_flip.exit.thread198.i, %1168, %cvt_flip.exit.thread201.i, %cvt_flip.exit.thread204.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %cvt_flip.exit.i, %776, %780, %819, %823, %850, %854, %925, %930, %991, %996, %1039, %1044, %1090, %1095, %1137, %1142
+  br label %mconvert.exit
+
+mconvert.exit:                                    ; preds = %mconvert.exit.thread, %cvt_16.exit.thread.i, %1212, %862, %859, %.thread, %722, %719, %714, %715, %672, %670, %671, %668, %669, %663, %664, %649, %623, %615, %612, %603, %606, %598, %593, %588, %583, %581, %563, %564, %545, %548, %cvt_flip.exit578.thread, %537, %532, %523, %526, %484, %cvt_flip.exit578.thread627, %477, %cvt_flip.exit578.thread624, %467, %462, %459, %431, %426, %cvt_flip.exit578.thread620, %401, %cvt_flip.exit578.thread616, %370, %365, %359, %cvt_flip.exit578.thread613, %352, %cvt_flip.exit578.thread610, %327, %325, %cvt_flip.exit.thread, %297, %285, %287, %cvt_flip.exit.thread604, %cvt_flip.exit.thread601, %206, %cvt_flip.exit.thread598, %cvt_flip.exit.thread595, %147, %cvt_flip.exit.thread592, %cvt_flip.exit.thread589, %104, %93, %689, %683, %34, %28
+  %.0 = phi i32 [ -1, %28 ], [ -1, %34 ], [ -1, %683 ], [ -1, %689 ], [ 0, %93 ], [ 0, %104 ], [ 0, %cvt_flip.exit.thread589 ], [ 0, %cvt_flip.exit.thread592 ], [ 0, %147 ], [ 0, %cvt_flip.exit.thread595 ], [ 0, %cvt_flip.exit.thread598 ], [ 0, %206 ], [ 0, %cvt_flip.exit.thread601 ], [ 0, %cvt_flip.exit.thread604 ], [ 0, %287 ], [ 0, %285 ], [ 0, %297 ], [ 0, %cvt_flip.exit.thread ], [ 0, %325 ], [ 0, %327 ], [ 0, %cvt_flip.exit578.thread610 ], [ 0, %352 ], [ 0, %cvt_flip.exit578.thread613 ], [ 0, %359 ], [ 0, %365 ], [ 0, %370 ], [ 0, %cvt_flip.exit578.thread616 ], [ 0, %401 ], [ 0, %cvt_flip.exit578.thread620 ], [ 0, %426 ], [ 0, %431 ], [ 0, %459 ], [ 0, %462 ], [ 0, %467 ], [ 0, %cvt_flip.exit578.thread624 ], [ 0, %477 ], [ 0, %cvt_flip.exit578.thread627 ], [ 0, %484 ], [ 0, %526 ], [ 0, %523 ], [ 0, %532 ], [ 0, %537 ], [ 0, %cvt_flip.exit578.thread ], [ 0, %548 ], [ 0, %545 ], [ 0, %564 ], [ 0, %563 ], [ 0, %581 ], [ 0, %583 ], [ 0, %588 ], [ 0, %593 ], [ 0, %598 ], [ 0, %606 ], [ 0, %603 ], [ 0, %612 ], [ 0, %615 ], [ -1, %623 ], [ -1, %649 ], [ -1, %664 ], [ -1, %663 ], [ -1, %669 ], [ -1, %668 ], [ %.1434, %671 ], [ %.1434, %670 ], [ 0, %672 ], [ 1, %714 ], [ %718, %715 ], [ 1, %719 ], [ %., %722 ], [ 1, %.thread ], [ 1, %mconvert.exit.thread ], [ 0, %cvt_16.exit.thread.i ], [ 0, %1212 ], [ 0, %862 ], [ 0, %859 ]
   ret i32 %.0
 }
 

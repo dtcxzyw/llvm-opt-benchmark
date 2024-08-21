@@ -3941,7 +3941,7 @@ entry:
   %violation = alloca ptr, align 8
   %end = alloca ptr, align 8
   %p = alloca ptr, align 8
-  switch i32 %short_option, label %return [
+  switch i32 %short_option, label %if.end624 [
     i32 0, label %if.then
     i32 104, label %sw.bb
     i32 72, label %sw.bb497
@@ -3990,7 +3990,7 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   store i32 0, ptr @flac__utils_verbosity_, align 4
-  br label %return
+  br label %if.end624
 
 if.else:                                          ; preds = %if.then
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(18) @.str.541) #25
@@ -3999,7 +3999,7 @@ if.else:                                          ; preds = %if.then
 
 if.then5:                                         ; preds = %if.else
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 124), align 4
-  br label %return
+  br label %if.end624
 
 if.else6:                                         ; preds = %if.else
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(17) @.str.542) #25
@@ -4008,7 +4008,7 @@ if.else6:                                         ; preds = %if.else
 
 if.then9:                                         ; preds = %if.else6
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 128), align 8
-  br label %return
+  br label %if.end624
 
 if.else10:                                        ; preds = %if.else6
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(22) @.str.543) #25
@@ -4017,7 +4017,7 @@ if.else10:                                        ; preds = %if.else6
 
 if.then13:                                        ; preds = %if.else10
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 132), align 4
-  br label %return
+  br label %if.end624
 
 if.else14:                                        ; preds = %if.else10
   %call15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(33) @.str.544) #25
@@ -4026,7 +4026,7 @@ if.else14:                                        ; preds = %if.else10
 
 if.then17:                                        ; preds = %if.else14
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 136), align 8
-  br label %return
+  br label %if.end624
 
 if.else18:                                        ; preds = %if.else14
   %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(14) @.str.545) #25
@@ -4035,7 +4035,7 @@ if.else18:                                        ; preds = %if.else14
 
 if.then21:                                        ; preds = %if.else18
   store ptr %option_argument, ptr getelementptr inbounds (i8, ptr @option_values, i64 160), align 8
-  br label %return
+  br label %if.end624
 
 if.else22:                                        ; preds = %if.else18
   %call23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(5) @.str.547) #25
@@ -4044,7 +4044,7 @@ if.else22:                                        ; preds = %if.else18
 
 if.then25:                                        ; preds = %if.else22
   store ptr %option_argument, ptr getelementptr inbounds (i8, ptr @option_values, i64 1224), align 8
-  br label %return
+  br label %if.end624
 
 if.else26:                                        ; preds = %if.else22
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(6) @.str.548) #25
@@ -4053,7 +4053,7 @@ if.else26:                                        ; preds = %if.else22
 
 if.then29:                                        ; preds = %if.else26
   store ptr %option_argument, ptr getelementptr inbounds (i8, ptr @option_values, i64 1232), align 8
-  br label %return
+  br label %if.end624
 
 if.else30:                                        ; preds = %if.else26
   %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(11) @.str.601) #25
@@ -4079,7 +4079,7 @@ if.then37:                                        ; preds = %lor.lhs.false, %if.
 if.end:                                           ; preds = %lor.lhs.false
   store i64 %call34, ptr getelementptr inbounds (i8, ptr @option_values, i64 1272), align 8
   %cmp44 = icmp slt i64 %call34, 1
-  br i1 %cmp44, label %if.then46, label %return
+  br i1 %cmp44, label %if.then46, label %if.end624
 
 if.then46:                                        ; preds = %if.end
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.634, ptr noundef %long_option)
@@ -4092,7 +4092,7 @@ if.else49:                                        ; preds = %if.else30
 
 if.then53:                                        ; preds = %if.else49
   store ptr %option_argument, ptr getelementptr inbounds (i8, ptr @option_values, i64 1240), align 8
-  br label %return
+  br label %if.end624
 
 if.else54:                                        ; preds = %if.else49
   %call55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(39) @.str.552) #25
@@ -4102,7 +4102,7 @@ if.else54:                                        ; preds = %if.else49
 if.then58:                                        ; preds = %if.else54
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 32), align 8
   %cmp59.not = icmp eq ptr %option_argument, null
-  br i1 %cmp59.not, label %return, label %if.then61
+  br i1 %cmp59.not, label %if.end624, label %if.then61
 
 if.then61:                                        ; preds = %if.then58
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 40), align 8
@@ -4116,7 +4116,7 @@ for.cond:                                         ; preds = %for.inc, %if.then61
   %incdec.ptr105189 = phi ptr [ %incdec.ptr105, %for.inc ], [ %p.promoted, %if.then61 ]
   %2 = load i8, ptr %incdec.ptr105189, align 1
   switch i8 %2, label %if.else98 [
-    i8 0, label %return
+    i8 0, label %if.end624
     i8 97, label %if.then67
     i8 116, label %if.then72
     i8 108, label %if.then77
@@ -4182,7 +4182,7 @@ if.then117:                                       ; preds = %lor.lhs.false114, %
 
 if.end119:                                        ; preds = %lor.lhs.false114
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 6300), align 4
-  br label %return
+  br label %if.end624
 
 if.else120:                                       ; preds = %if.else107
   %call121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(9) @.str.553) #25
@@ -4191,7 +4191,7 @@ if.else120:                                       ; preds = %if.else107
 
 if.then124:                                       ; preds = %if.else120
   store ptr %option_argument, ptr getelementptr inbounds (i8, ptr @option_values, i64 6288), align 8
-  br label %return
+  br label %if.end624
 
 if.else125:                                       ; preds = %if.else120
   %call126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(8) @.str.555) #25
@@ -4225,7 +4225,7 @@ if.end141:                                        ; preds = %if.end134
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 6848), align 8
   %inc = add i32 %8, 1
   store i32 %inc, ptr getelementptr inbounds (i8, ptr @option_values, i64 6848), align 8
-  br label %return
+  br label %if.end624
 
 if.else142:                                       ; preds = %if.else125
   %call143 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(14) @.str.557) #25
@@ -4239,7 +4239,7 @@ if.then146:                                       ; preds = %if.else142
   %lnot.ext = zext i1 %tobool147.not to i32
   %call148 = call i32 @flac__vorbiscomment_add(ptr noundef %9, ptr noundef %option_argument, i32 noundef 1, i32 noundef %lnot.ext, ptr noundef nonnull %violation) #22
   %tobool149.not = icmp eq i32 %call148, 0
-  br i1 %tobool149.not, label %if.then150, label %return
+  br i1 %tobool149.not, label %if.then150, label %if.end624
 
 if.then150:                                       ; preds = %if.then146
   %11 = load ptr, ptr %violation, align 8
@@ -4253,7 +4253,7 @@ if.else153:                                       ; preds = %if.else142
 
 if.then157:                                       ; preds = %if.else153
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 6296), align 8
-  br label %return
+  br label %if.end624
 
 if.else158:                                       ; preds = %if.else153
   %call159 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(17) @.str.571) #25
@@ -4262,7 +4262,7 @@ if.else158:                                       ; preds = %if.else153
 
 if.then162:                                       ; preds = %if.else158
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 92), align 4
-  br label %return
+  br label %if.end624
 
 if.else163:                                       ; preds = %if.else158
   %call164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(18) @.str.572) #25
@@ -4271,7 +4271,7 @@ if.else163:                                       ; preds = %if.else158
 
 if.then167:                                       ; preds = %if.else163
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 96), align 8
-  br label %return
+  br label %if.end624
 
 if.else168:                                       ; preds = %if.else163
   %call169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(18) @.str.573) #25
@@ -4280,7 +4280,7 @@ if.else168:                                       ; preds = %if.else163
 
 if.then172:                                       ; preds = %if.else168
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 100), align 4
-  br label %return
+  br label %if.end624
 
 if.else173:                                       ; preds = %if.else168
   %call174 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(20) @.str.574) #25
@@ -4289,7 +4289,7 @@ if.else173:                                       ; preds = %if.else168
 
 if.then177:                                       ; preds = %if.else173
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 104), align 8
-  br label %return
+  br label %if.end624
 
 if.else178:                                       ; preds = %if.else173
   %call179 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(25) @.str.575) #25
@@ -4298,7 +4298,7 @@ if.else178:                                       ; preds = %if.else173
 
 if.then182:                                       ; preds = %if.else178
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 108), align 4
-  br label %return
+  br label %if.end624
 
 if.else183:                                       ; preds = %if.else178
   %call184 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(29) @.str.576) #25
@@ -4307,7 +4307,7 @@ if.else183:                                       ; preds = %if.else178
 
 if.then187:                                       ; preds = %if.else183
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 112), align 8
-  br label %return
+  br label %if.end624
 
 if.else188:                                       ; preds = %if.else183
   %call189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(25) @.str.577) #25
@@ -4316,7 +4316,7 @@ if.else188:                                       ; preds = %if.else183
 
 if.then192:                                       ; preds = %if.else188
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 116), align 4
-  br label %return
+  br label %if.end624
 
 if.else193:                                       ; preds = %if.else188
   %call194 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(25) @.str.578) #25
@@ -4325,7 +4325,7 @@ if.else193:                                       ; preds = %if.else188
 
 if.then197:                                       ; preds = %if.else193
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 120), align 8
-  br label %return
+  br label %if.end624
 
 if.else198:                                       ; preds = %if.else193
   %call199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(4) @.str.579) #25
@@ -4334,7 +4334,7 @@ if.else198:                                       ; preds = %if.else193
 
 if.then202:                                       ; preds = %if.else198
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 56), align 8
-  br label %return
+  br label %if.end624
 
 if.else203:                                       ; preds = %if.else198
   %call204 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(12) @.str.580) #25
@@ -4343,7 +4343,7 @@ if.else203:                                       ; preds = %if.else198
 
 if.then207:                                       ; preds = %if.else203
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 140), align 4
-  br label %return
+  br label %if.end624
 
 if.else208:                                       ; preds = %if.else203
   %call209 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(19) @.str.581) #25
@@ -4352,7 +4352,7 @@ if.else208:                                       ; preds = %if.else203
 
 if.then212:                                       ; preds = %if.else208
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 144), align 8
-  br label %return
+  br label %if.end624
 
 if.else213:                                       ; preds = %if.else208
   %call214 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(4) @.str.584) #25
@@ -4361,7 +4361,7 @@ if.else213:                                       ; preds = %if.else208
 
 if.then217:                                       ; preds = %if.else213
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 68), align 4
-  br label %return
+  br label %if.end624
 
 if.else218:                                       ; preds = %if.else213
   %call219 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(14) @.str.585) #25
@@ -4372,7 +4372,7 @@ if.then222:                                       ; preds = %if.else218
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 72), align 8
   %call223 = tail call i64 @atol(ptr nocapture noundef %option_argument) #25
   store i64 %call223, ptr getelementptr inbounds (i8, ptr @option_values, i64 80), align 8
-  br label %return
+  br label %if.end624
 
 if.else224:                                       ; preds = %if.else218
   %call225 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(7) @.str.596) #25
@@ -4387,7 +4387,7 @@ if.then228:                                       ; preds = %if.else224
 
 if.then233:                                       ; preds = %if.then228
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 1248), align 8
-  br label %return
+  br label %if.end624
 
 if.else234:                                       ; preds = %if.then228
   %call236 = tail call i32 @strncmp(ptr noundef %option_argument, ptr noundef nonnull @.str.642, i64 noundef %call229) #25
@@ -4396,7 +4396,7 @@ if.else234:                                       ; preds = %if.then228
 
 if.then239:                                       ; preds = %if.else234
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 1248), align 8
-  br label %return
+  br label %if.end624
 
 if.else240:                                       ; preds = %if.else234
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.643)
@@ -4410,7 +4410,7 @@ if.else244:                                       ; preds = %if.else224
 if.then248:                                       ; preds = %if.else244
   %call249 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
   store i32 %call249, ptr getelementptr inbounds (i8, ptr @option_values, i64 1256), align 8
-  br label %return
+  br label %if.end624
 
 if.else250:                                       ; preds = %if.else244
   %call251 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(4) @.str.598) #25
@@ -4420,7 +4420,7 @@ if.else250:                                       ; preds = %if.else244
 if.then254:                                       ; preds = %if.else250
   %call255 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
   store i32 %call255, ptr getelementptr inbounds (i8, ptr @option_values, i64 1260), align 4
-  br label %return
+  br label %if.end624
 
 if.else256:                                       ; preds = %if.else250
   %call257 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(12) @.str.599) #25
@@ -4430,7 +4430,7 @@ if.else256:                                       ; preds = %if.else250
 if.then260:                                       ; preds = %if.else256
   %call261 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
   store i32 %call261, ptr getelementptr inbounds (i8, ptr @option_values, i64 1264), align 8
-  br label %return
+  br label %if.end624
 
 if.else262:                                       ; preds = %if.else256
   %call263 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(5) @.str.600) #25
@@ -4445,7 +4445,7 @@ if.then266:                                       ; preds = %if.else262
 
 if.then271:                                       ; preds = %if.then266
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 1252), align 4
-  br label %return
+  br label %if.end624
 
 if.else272:                                       ; preds = %if.then266
   %call274 = tail call i32 @strncmp(ptr noundef %option_argument, ptr noundef nonnull @.str.645, i64 noundef %call267) #25
@@ -4454,7 +4454,7 @@ if.else272:                                       ; preds = %if.then266
 
 if.then277:                                       ; preds = %if.else272
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 1252), align 4
-  br label %return
+  br label %if.end624
 
 if.else278:                                       ; preds = %if.else272
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.646)
@@ -4467,7 +4467,7 @@ if.else282:                                       ; preds = %if.else262
 
 if.then286:                                       ; preds = %if.else282
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 172), align 4
-  br label %return
+  br label %if.end624
 
 if.else287:                                       ; preds = %if.else282
   %call288 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(14) @.str.605) #25
@@ -4476,7 +4476,7 @@ if.else287:                                       ; preds = %if.else282
 
 if.then291:                                       ; preds = %if.else287
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 168), align 8
-  br label %return
+  br label %if.end624
 
 if.else292:                                       ; preds = %if.else287
   %call293 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(18) @.str.603) #25
@@ -4485,7 +4485,7 @@ if.else292:                                       ; preds = %if.else287
 
 if.then296:                                       ; preds = %if.else292
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 6308), align 4
-  br label %return
+  br label %if.end624
 
 if.else297:                                       ; preds = %if.else292
   %call298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(20) @.str.606) #25
@@ -4494,7 +4494,7 @@ if.else297:                                       ; preds = %if.else292
 
 if.then301:                                       ; preds = %if.else297
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 128), align 8
-  br label %return
+  br label %if.end624
 
 if.else302:                                       ; preds = %if.else297
   %call303 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(25) @.str.607) #25
@@ -4503,7 +4503,7 @@ if.else302:                                       ; preds = %if.else297
 
 if.then306:                                       ; preds = %if.else302
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 28), align 4
-  br label %return
+  br label %if.end624
 
 if.else307:                                       ; preds = %if.else302
   %call308 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(10) @.str.608) #25
@@ -4512,7 +4512,7 @@ if.else307:                                       ; preds = %if.else302
 
 if.then311:                                       ; preds = %if.else307
   store i32 2, ptr @flac__utils_verbosity_, align 4
-  br label %return
+  br label %if.end624
 
 if.else312:                                       ; preds = %if.else307
   %call313 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(9) @.str.609) #25
@@ -4521,7 +4521,7 @@ if.else312:                                       ; preds = %if.else307
 
 if.then316:                                       ; preds = %if.else312
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 24), align 8
-  br label %return
+  br label %if.end624
 
 if.else317:                                       ; preds = %if.else312
   %call318 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(13) @.str.610) #25
@@ -4531,7 +4531,7 @@ if.else317:                                       ; preds = %if.else312
 if.then321:                                       ; preds = %if.else317
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 6280), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 1280), align 8
-  br label %return
+  br label %if.end624
 
 if.else322:                                       ; preds = %if.else317
   %call323 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(21) @.str.611) #25
@@ -4540,7 +4540,7 @@ if.else322:                                       ; preds = %if.else317
 
 if.then326:                                       ; preds = %if.else322
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 124), align 4
-  br label %return
+  br label %if.end624
 
 if.else327:                                       ; preds = %if.else322
   %call328 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(25) @.str.612) #25
@@ -4550,7 +4550,7 @@ if.else327:                                       ; preds = %if.else322
 if.then331:                                       ; preds = %if.else327
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 132), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 136), align 8
-  br label %return
+  br label %if.end624
 
 if.else332:                                       ; preds = %if.else327
   %call333 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(15) @.str.613) #25
@@ -4559,7 +4559,7 @@ if.else332:                                       ; preds = %if.else327
 
 if.then336:                                       ; preds = %if.else332
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 140), align 4
-  br label %return
+  br label %if.end624
 
 if.else337:                                       ; preds = %if.else332
   %call338 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(22) @.str.614) #25
@@ -4568,7 +4568,7 @@ if.else337:                                       ; preds = %if.else332
 
 if.then341:                                       ; preds = %if.else337
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 144), align 8
-  br label %return
+  br label %if.end624
 
 if.else342:                                       ; preds = %if.else337
   %call343 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(16) @.str.615) #25
@@ -4577,7 +4577,7 @@ if.else342:                                       ; preds = %if.else337
 
 if.then346:                                       ; preds = %if.else342
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 148), align 4
-  br label %return
+  br label %if.end624
 
 if.else347:                                       ; preds = %if.else342
   %call348 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(7) @.str.616) #25
@@ -4586,7 +4586,7 @@ if.else347:                                       ; preds = %if.else342
 
 if.then351:                                       ; preds = %if.else347
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 56), align 8
-  br label %return
+  br label %if.end624
 
 if.else352:                                       ; preds = %if.else347
   %call353 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(7) @.str.617) #25
@@ -4595,7 +4595,7 @@ if.else352:                                       ; preds = %if.else347
 
 if.then356:                                       ; preds = %if.else352
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 68), align 4
-  br label %return
+  br label %if.end624
 
 if.else357:                                       ; preds = %if.else352
   %call358 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(27) @.str.618) #25
@@ -4604,7 +4604,7 @@ if.else357:                                       ; preds = %if.else352
 
 if.then361:                                       ; preds = %if.else357
   tail call fastcc void @add_compression_setting_bool(i32 noundef 9, i32 noundef 0)
-  br label %return
+  br label %if.end624
 
 if.else362:                                       ; preds = %if.else357
   %call363 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(12) @.str.619) #25
@@ -4614,7 +4614,7 @@ if.else362:                                       ; preds = %if.else357
 if.then366:                                       ; preds = %if.else362
   tail call fastcc void @add_compression_setting_bool(i32 noundef 2, i32 noundef 0)
   tail call fastcc void @add_compression_setting_bool(i32 noundef 3, i32 noundef 0)
-  br label %return
+  br label %if.end624
 
 if.else367:                                       ; preds = %if.else362
   %call368 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(21) @.str.620) #25
@@ -4624,7 +4624,7 @@ if.else367:                                       ; preds = %if.else362
 if.then371:                                       ; preds = %if.else367
   tail call fastcc void @add_compression_setting_bool(i32 noundef 2, i32 noundef 0)
   tail call fastcc void @add_compression_setting_bool(i32 noundef 3, i32 noundef 0)
-  br label %return
+  br label %if.end624
 
 if.else372:                                       ; preds = %if.else367
   %call373 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(25) @.str.621) #25
@@ -4633,7 +4633,7 @@ if.else372:                                       ; preds = %if.else367
 
 if.then376:                                       ; preds = %if.else372
   tail call fastcc void @add_compression_setting_bool(i32 noundef 7, i32 noundef 0)
-  br label %return
+  br label %if.end624
 
 if.else377:                                       ; preds = %if.else372
   %call378 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(11) @.str.622) #25
@@ -4642,7 +4642,7 @@ if.else377:                                       ; preds = %if.else372
 
 if.then381:                                       ; preds = %if.else377
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 176), align 8
-  br label %return
+  br label %if.end624
 
 if.else382:                                       ; preds = %if.else377
   %call383 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(10) @.str.623) #25
@@ -4651,7 +4651,7 @@ if.else382:                                       ; preds = %if.else377
 
 if.then386:                                       ; preds = %if.else382
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 16), align 8
-  br label %return
+  br label %if.end624
 
 if.else387:                                       ; preds = %if.else382
   %call388 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(22) @.str.624) #25
@@ -4660,7 +4660,7 @@ if.else387:                                       ; preds = %if.else382
 
 if.then391:                                       ; preds = %if.else387
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 20), align 4
-  br label %return
+  br label %if.end624
 
 if.else392:                                       ; preds = %if.else387
   %call393 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(20) @.str.625) #25
@@ -4669,7 +4669,7 @@ if.else392:                                       ; preds = %if.else387
 
 if.then396:                                       ; preds = %if.else392
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 172), align 4
-  br label %return
+  br label %if.end624
 
 if.else397:                                       ; preds = %if.else392
   %call398 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(17) @.str.626) #25
@@ -4678,7 +4678,7 @@ if.else397:                                       ; preds = %if.else392
 
 if.then401:                                       ; preds = %if.else397
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 168), align 8
-  br label %return
+  br label %if.end624
 
 if.else402:                                       ; preds = %if.else397
   %call403 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(27) @.str.628) #25
@@ -4687,7 +4687,7 @@ if.else402:                                       ; preds = %if.else397
 
 if.then406:                                       ; preds = %if.else402
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 6852), align 4
-  br label %return
+  br label %if.end624
 
 if.else407:                                       ; preds = %if.else402
   %call408 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(24) @.str.629) #25
@@ -4696,7 +4696,7 @@ if.else407:                                       ; preds = %if.else402
 
 if.then411:                                       ; preds = %if.else407
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 6856), align 8
-  br label %return
+  br label %if.end624
 
 if.else412:                                       ; preds = %if.else407
   %call413 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(27) @.str.630) #25
@@ -4705,7 +4705,7 @@ if.else412:                                       ; preds = %if.else407
 
 if.then416:                                       ; preds = %if.else412
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 6860), align 4
-  br label %return
+  br label %if.end624
 
 if.else417:                                       ; preds = %if.else412
   %call418 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(11) @.str.631) #25
@@ -4714,7 +4714,7 @@ if.else417:                                       ; preds = %if.else412
 
 if.then421:                                       ; preds = %if.else417
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 6864), align 8
-  br label %return
+  br label %if.end624
 
 if.else422:                                       ; preds = %if.else417
   %call423 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(29) @.str.627) #25
@@ -4723,62 +4723,62 @@ if.else422:                                       ; preds = %if.else417
 
 if.then426:                                       ; preds = %if.else422
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 6304), align 8
-  br label %return
+  br label %if.end624
 
 if.else427:                                       ; preds = %if.else422
   %call428 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %long_option, ptr noundef nonnull dereferenceable(26) @.str.602) #25
   %cmp429 = icmp eq i32 %call428, 0
-  br i1 %cmp429, label %if.then431, label %return
+  br i1 %cmp429, label %if.then431, label %if.end624
 
 if.then431:                                       ; preds = %if.else427
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 6304), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb:                                            ; preds = %entry
   store i32 1, ptr @option_values, align 8
-  br label %return
+  br label %if.end624
 
 sw.bb497:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 4), align 4
-  br label %return
+  br label %if.end624
 
 sw.bb498:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 8), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb499:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 12), align 4
-  br label %return
+  br label %if.end624
 
 sw.bb500:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 12), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 64), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb501:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 12), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 60), align 4
-  br label %return
+  br label %if.end624
 
 sw.bb502:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 88), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb503:                                         ; preds = %entry
   store i32 1, ptr @flac__utils_verbosity_, align 4
-  br label %return
+  br label %if.end624
 
 sw.bb504:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 24), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb505:                                         ; preds = %entry
   store ptr %option_argument, ptr getelementptr inbounds (i8, ptr @option_values, i64 152), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb506:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 28), align 4
-  br label %return
+  br label %if.end624
 
 sw.bb507:                                         ; preds = %entry
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @option_values, i64 6328), align 8
@@ -4787,7 +4787,7 @@ sw.bb507:                                         ; preds = %entry
   %lnot.ext510 = zext i1 %tobool508.not to i32
   %call511 = call i32 @flac__vorbiscomment_add(ptr noundef %12, ptr noundef %option_argument, i32 noundef 0, i32 noundef %lnot.ext510, ptr noundef nonnull %violation) #22
   %tobool512.not = icmp eq i32 %call511, 0
-  br i1 %tobool512.not, label %if.then513, label %return
+  br i1 %tobool512.not, label %if.then513, label %if.end624
 
 if.then513:                                       ; preds = %sw.bb507
   %14 = load ptr, ptr %violation, align 8
@@ -4807,7 +4807,7 @@ add_compression_setting_uint32_t.exit:            ; preds = %sw.bb516
   %sub517 = add nsw i32 %short_option, -48
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 192), align 8
   store i32 %sub517, ptr getelementptr inbounds (i8, ptr @option_values, i64 200), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb518:                                         ; preds = %entry
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.648)
@@ -4815,11 +4815,11 @@ sw.bb518:                                         ; preds = %entry
 
 sw.bb520:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 16), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb521:                                         ; preds = %entry
   store i32 1, ptr getelementptr inbounds (i8, ptr @option_values, i64 20), align 4
-  br label %return
+  br label %if.end624
 
 sub_0:                                            ; preds = %entry
   %16 = load i8, ptr %option_argument, align 1
@@ -4835,7 +4835,7 @@ sw.bb522.tail:                                    ; preds = %sub_0
 if.then526:                                       ; preds = %sw.bb522.tail
   store i32 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 6280), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @option_values, i64 1280), align 8
-  br label %return
+  br label %if.end624
 
 if.else527:                                       ; preds = %sub_0, %sw.bb522.tail
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @option_values, i64 6280), align 8
@@ -4857,13 +4857,13 @@ if.else540:                                       ; preds = %if.else527
   %add.ptr = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @option_values, i64 1280), i64 %call533
   %sub542 = sub i64 5000, %call533
   %call543 = tail call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub542, ptr noundef nonnull @.str.650, ptr noundef nonnull %option_argument) #22
-  br label %return
+  br label %if.end624
 
 sw.bb546:                                         ; preds = %entry
   %call547 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
   store i32 %call547, ptr getelementptr inbounds (i8, ptr @option_values, i64 176), align 8
   %cmp548 = icmp slt i32 %call547, 0
-  br i1 %cmp548, label %if.then550, label %return
+  br i1 %cmp548, label %if.then550, label %if.end624
 
 if.then550:                                       ; preds = %sw.bb546
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.651, i32 noundef 80, i32 noundef 80)
@@ -4881,7 +4881,7 @@ if.then560:                                       ; preds = %sw.bb553
 
 if.end562:                                        ; preds = %sw.bb553
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 0, i32 noundef %call554)
-  br label %return
+  br label %if.end624
 
 sw.bb563:                                         ; preds = %entry
   %23 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
@@ -4900,7 +4900,7 @@ add_compression_setting_bool.exit:                ; preds = %sw.bb563
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i = add i64 %24, 1
   store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb564:                                         ; preds = %entry
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
@@ -4919,7 +4919,7 @@ add_compression_setting_bool.exit148:             ; preds = %sw.bb564
   %26 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i146 = add i64 %26, 1
   store i64 %inc.i146, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb565:                                         ; preds = %entry
   %call567 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
@@ -4932,7 +4932,7 @@ if.then570:                                       ; preds = %sw.bb565
 
 if.end572:                                        ; preds = %sw.bb565
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 5, i32 noundef %call567)
-  br label %return
+  br label %if.end624
 
 sw.bb573:                                         ; preds = %entry
   %27 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
@@ -4951,7 +4951,7 @@ add_compression_setting_string.exit:              ; preds = %sw.bb573
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i152 = add i64 %28, 1
   store i64 %inc.i152, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb574:                                         ; preds = %entry
   %29 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
@@ -4985,7 +4985,7 @@ add_compression_setting_bool.exit165:             ; preds = %add_compression_set
   %31 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i163 = add i64 %31, 1
   store i64 %inc.i163, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb575:                                         ; preds = %entry
   %32 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
@@ -5019,7 +5019,7 @@ add_compression_setting_bool.exit177:             ; preds = %add_compression_set
   %34 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i175 = add i64 %34, 1
   store i64 %inc.i175, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb576:                                         ; preds = %entry
   %35 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
@@ -5038,7 +5038,7 @@ add_compression_setting_bool.exit183:             ; preds = %sw.bb576
   %36 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i181 = add i64 %36, 1
   store i64 %inc.i181, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb577:                                         ; preds = %entry
   %call579 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
@@ -5054,7 +5054,7 @@ if.then588:                                       ; preds = %sw.bb577
 
 if.end590:                                        ; preds = %sw.bb577
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 6, i32 noundef %call579)
-  br label %return
+  br label %if.end624
 
 sw.bb591:                                         ; preds = %entry
   %call594 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %option_argument, i32 noundef 44) #25
@@ -5073,7 +5073,7 @@ if.then601:                                       ; preds = %if.then597
 
 if.end603:                                        ; preds = %if.then597
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 11, i32 noundef %call598)
-  br label %return
+  br label %if.end624
 
 if.else604:                                       ; preds = %sw.bb591
   %call605 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
@@ -5097,7 +5097,7 @@ if.then615:                                       ; preds = %if.end610
 
 if.end617:                                        ; preds = %if.end610
   tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 11, i32 noundef %call612)
-  br label %return
+  br label %if.end624
 
 sw.bb619:                                         ; preds = %entry
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
@@ -5117,15 +5117,18 @@ add_compression_setting_uint32_t.exit188:         ; preds = %sw.bb619
   %39 = load i64, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
   %inc.i186 = add i64 %39, 1
   store i64 %inc.i186, ptr getelementptr inbounds (i8, ptr @option_values, i64 184), align 8
-  br label %return
+  br label %if.end624
 
 sw.bb622:                                         ; preds = %entry
   %call623 = tail call i32 @atoi(ptr nocapture noundef %option_argument) #25
   store i32 %call623, ptr getelementptr inbounds (i8, ptr @option_values, i64 1216), align 8
+  br label %if.end624
+
+if.end624:                                        ; preds = %for.cond, %entry, %sw.bb, %sw.bb497, %sw.bb498, %sw.bb499, %sw.bb500, %sw.bb501, %sw.bb502, %sw.bb503, %sw.bb504, %sw.bb505, %sw.bb506, %add_compression_setting_uint32_t.exit, %sw.bb520, %sw.bb521, %if.end562, %add_compression_setting_bool.exit, %add_compression_setting_bool.exit148, %if.end572, %add_compression_setting_string.exit, %add_compression_setting_bool.exit165, %add_compression_setting_bool.exit177, %add_compression_setting_bool.exit183, %if.end590, %add_compression_setting_uint32_t.exit188, %sw.bb622, %sw.bb507, %if.else540, %if.then526, %sw.bb546, %if.end617, %if.end603, %if.then2, %if.then9, %if.then17, %if.then25, %if.end, %if.then58, %if.then124, %if.then146, %if.then162, %if.then172, %if.then182, %if.then192, %if.then202, %if.then212, %if.then222, %if.then248, %if.then260, %if.then286, %if.then296, %if.then306, %if.then316, %if.then326, %if.then336, %if.then346, %if.then356, %if.then366, %if.then376, %if.then386, %if.then396, %if.then406, %if.then416, %if.then426, %if.then431, %if.else427, %if.then421, %if.then411, %if.then401, %if.then391, %if.then381, %if.then371, %if.then361, %if.then351, %if.then341, %if.then331, %if.then321, %if.then311, %if.then301, %if.then291, %if.then271, %if.then277, %if.then254, %if.then233, %if.then239, %if.then217, %if.then207, %if.then197, %if.then187, %if.then177, %if.then167, %if.then157, %if.end141, %if.end119, %if.then53, %if.then29, %if.then21, %if.then13, %if.then5
   br label %return
 
-return:                                           ; preds = %for.cond, %if.then5, %if.then13, %if.then21, %if.then29, %if.then53, %if.end119, %if.end141, %if.then157, %if.then167, %if.then177, %if.then187, %if.then197, %if.then207, %if.then217, %if.then239, %if.then233, %if.then254, %if.then277, %if.then271, %if.then291, %if.then301, %if.then311, %if.then321, %if.then331, %if.then341, %if.then351, %if.then361, %if.then371, %if.then381, %if.then391, %if.then401, %if.then411, %if.then421, %if.else427, %if.then431, %if.then426, %if.then416, %if.then406, %if.then396, %if.then386, %if.then376, %if.then366, %if.then356, %if.then346, %if.then336, %if.then326, %if.then316, %if.then306, %if.then296, %if.then286, %if.then260, %if.then248, %if.then222, %if.then212, %if.then202, %if.then192, %if.then182, %if.then172, %if.then162, %if.then146, %if.then124, %if.then58, %if.end, %if.then25, %if.then17, %if.then9, %if.then2, %if.end603, %if.end617, %sw.bb546, %if.then526, %if.else540, %sw.bb507, %sw.bb622, %add_compression_setting_uint32_t.exit188, %if.end590, %add_compression_setting_bool.exit183, %add_compression_setting_bool.exit177, %add_compression_setting_bool.exit165, %add_compression_setting_string.exit, %if.end572, %add_compression_setting_bool.exit148, %add_compression_setting_bool.exit, %if.end562, %sw.bb521, %sw.bb520, %add_compression_setting_uint32_t.exit, %sw.bb506, %sw.bb505, %sw.bb504, %sw.bb503, %sw.bb502, %sw.bb501, %sw.bb500, %sw.bb499, %sw.bb498, %sw.bb497, %sw.bb, %entry, %if.then615, %if.then608, %if.then601, %if.then588, %if.then570, %if.then560, %if.then550, %if.then538, %sw.bb518, %if.then513, %if.else278, %if.else240, %if.then150, %if.then139, %if.then132, %if.then117, %if.else98, %if.then46, %if.then37
-  %retval.0 = phi i32 [ 1, %if.then37 ], [ 1, %if.then46 ], [ 1, %if.else98 ], [ 1, %if.then117 ], [ 1, %if.then132 ], [ 1, %if.then139 ], [ 1, %if.then150 ], [ 1, %if.else240 ], [ 1, %if.else278 ], [ 1, %if.then601 ], [ 1, %if.then608 ], [ 1, %if.then615 ], [ 1, %if.then588 ], [ 1, %if.then570 ], [ 1, %if.then560 ], [ 1, %if.then550 ], [ 1, %if.then538 ], [ 1, %sw.bb518 ], [ 1, %if.then513 ], [ 0, %entry ], [ 0, %sw.bb ], [ 0, %sw.bb497 ], [ 0, %sw.bb498 ], [ 0, %sw.bb499 ], [ 0, %sw.bb500 ], [ 0, %sw.bb501 ], [ 0, %sw.bb502 ], [ 0, %sw.bb503 ], [ 0, %sw.bb504 ], [ 0, %sw.bb505 ], [ 0, %sw.bb506 ], [ 0, %add_compression_setting_uint32_t.exit ], [ 0, %sw.bb520 ], [ 0, %sw.bb521 ], [ 0, %if.end562 ], [ 0, %add_compression_setting_bool.exit ], [ 0, %add_compression_setting_bool.exit148 ], [ 0, %if.end572 ], [ 0, %add_compression_setting_string.exit ], [ 0, %add_compression_setting_bool.exit165 ], [ 0, %add_compression_setting_bool.exit177 ], [ 0, %add_compression_setting_bool.exit183 ], [ 0, %if.end590 ], [ 0, %add_compression_setting_uint32_t.exit188 ], [ 0, %sw.bb622 ], [ 0, %sw.bb507 ], [ 0, %if.else540 ], [ 0, %if.then526 ], [ 0, %sw.bb546 ], [ 0, %if.end617 ], [ 0, %if.end603 ], [ 0, %if.then2 ], [ 0, %if.then9 ], [ 0, %if.then17 ], [ 0, %if.then25 ], [ 0, %if.end ], [ 0, %if.then58 ], [ 0, %if.then124 ], [ 0, %if.then146 ], [ 0, %if.then162 ], [ 0, %if.then172 ], [ 0, %if.then182 ], [ 0, %if.then192 ], [ 0, %if.then202 ], [ 0, %if.then212 ], [ 0, %if.then222 ], [ 0, %if.then248 ], [ 0, %if.then260 ], [ 0, %if.then286 ], [ 0, %if.then296 ], [ 0, %if.then306 ], [ 0, %if.then316 ], [ 0, %if.then326 ], [ 0, %if.then336 ], [ 0, %if.then346 ], [ 0, %if.then356 ], [ 0, %if.then366 ], [ 0, %if.then376 ], [ 0, %if.then386 ], [ 0, %if.then396 ], [ 0, %if.then406 ], [ 0, %if.then416 ], [ 0, %if.then426 ], [ 0, %if.then431 ], [ 0, %if.else427 ], [ 0, %if.then421 ], [ 0, %if.then411 ], [ 0, %if.then401 ], [ 0, %if.then391 ], [ 0, %if.then381 ], [ 0, %if.then371 ], [ 0, %if.then361 ], [ 0, %if.then351 ], [ 0, %if.then341 ], [ 0, %if.then331 ], [ 0, %if.then321 ], [ 0, %if.then311 ], [ 0, %if.then301 ], [ 0, %if.then291 ], [ 0, %if.then271 ], [ 0, %if.then277 ], [ 0, %if.then254 ], [ 0, %if.then233 ], [ 0, %if.then239 ], [ 0, %if.then217 ], [ 0, %if.then207 ], [ 0, %if.then197 ], [ 0, %if.then187 ], [ 0, %if.then177 ], [ 0, %if.then167 ], [ 0, %if.then157 ], [ 0, %if.end141 ], [ 0, %if.end119 ], [ 0, %if.then53 ], [ 0, %if.then29 ], [ 0, %if.then21 ], [ 0, %if.then13 ], [ 0, %if.then5 ], [ 0, %for.cond ]
+return:                                           ; preds = %if.end624, %if.then615, %if.then608, %if.then601, %if.then588, %if.then570, %if.then560, %if.then550, %if.then538, %sw.bb518, %if.then513, %if.else278, %if.else240, %if.then150, %if.then139, %if.then132, %if.then117, %if.else98, %if.then46, %if.then37
+  %retval.0 = phi i32 [ 0, %if.end624 ], [ 1, %if.then37 ], [ 1, %if.then46 ], [ 1, %if.else98 ], [ 1, %if.then117 ], [ 1, %if.then132 ], [ 1, %if.then139 ], [ 1, %if.then150 ], [ 1, %if.else240 ], [ 1, %if.else278 ], [ 1, %if.then601 ], [ 1, %if.then608 ], [ 1, %if.then615 ], [ 1, %if.then588 ], [ 1, %if.then570 ], [ 1, %if.then560 ], [ 1, %if.then550 ], [ 1, %if.then538 ], [ 1, %sw.bb518 ], [ 1, %if.then513 ]
   ret i32 %retval.0
 }
 

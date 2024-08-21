@@ -91,7 +91,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 28:                                               ; preds = %3
   %29 = load i32, ptr @enable_error_stack, align 4
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %775
+  br i1 %30, label %31, label %776
 
 31:                                               ; preds = %28
   %32 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -105,14 +105,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %37 = load i64, ptr @H5E_tools_g, align 8
   %38 = load i64, ptr @H5E_tools_min_id_g, align 8
   %39 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %32, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 59, i64 noundef %34, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.1, ptr noundef %1) #6
-  br label %775
+  br label %776
 
 40:                                               ; preds = %31
   %41 = load ptr, ptr @stderr, align 8
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %1) #7
   %43 = load ptr, ptr @stderr, align 8
   %fputc315 = tail call i32 @fputc(i32 10, ptr %43)
-  br label %775
+  br label %776
 
 44:                                               ; preds = %217
   %indvars.iv.next = add nuw nsw i64 %indvars.iv908, 1
@@ -139,7 +139,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %.lcssa841 = phi i64 [ %26, %.lr.ph.preheader ], [ %53, %.lr.ph ]
   %55 = load i32, ptr @enable_error_stack, align 4
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %775
+  br i1 %56, label %57, label %776
 
 57:                                               ; preds = %.lr.ph._crit_edge
   %58 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -153,14 +153,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %63 = load i64, ptr @H5E_tools_g, align 8
   %64 = load i64, ptr @H5E_tools_min_id_g, align 8
   %65 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %58, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 70, i64 noundef %60, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.3, ptr noundef %.lcssa850) #6
-  br label %775
+  br label %776
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr @stderr, align 8
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.3, ptr noundef %.lcssa850) #7
   %69 = load ptr, ptr @stderr, align 8
   %fputc314 = call i32 @fputc(i32 10, ptr %69)
-  br label %775
+  br label %776
 
 .lr.ph912:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %70 = phi i64 [ %53, %.lr.ph ], [ %26, %.lr.ph.preheader ]
@@ -176,7 +176,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 74:                                               ; preds = %.lr.ph912
   %75 = load i32, ptr @enable_error_stack, align 4
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %775
+  br i1 %76, label %77, label %776
 
 77:                                               ; preds = %74
   %78 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -190,14 +190,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %83 = load i64, ptr @H5E_tools_g, align 8
   %84 = load i64, ptr @H5E_tools_min_id_g, align 8
   %85 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %78, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 72, i64 noundef %80, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.4) #6
-  br label %775
+  br label %776
 
 86:                                               ; preds = %77
   %87 = load ptr, ptr @stderr, align 8
   %88 = call i64 @fwrite(ptr nonnull @.str.4, i64 19, i64 1, ptr %87) #8
   %89 = load ptr, ptr @stderr, align 8
   %fputc313 = call i32 @fputc(i32 10, ptr %89)
-  br label %775
+  br label %776
 
 90:                                               ; preds = %.lr.ph912
   %91 = call i64 @H5Dget_create_plist(i64 noundef %70) #6
@@ -207,7 +207,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 93:                                               ; preds = %90
   %94 = load i32, ptr @enable_error_stack, align 4
   %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %96, label %775
+  br i1 %95, label %96, label %776
 
 96:                                               ; preds = %93
   %97 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -221,14 +221,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %102 = load i64, ptr @H5E_tools_g, align 8
   %103 = load i64, ptr @H5E_tools_min_id_g, align 8
   %104 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %97, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 74, i64 noundef %99, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.5) #6
-  br label %775
+  br label %776
 
 105:                                              ; preds = %96
   %106 = load ptr, ptr @stderr, align 8
   %107 = call i64 @fwrite(ptr nonnull @.str.5, i64 26, i64 1, ptr %106) #8
   %108 = load ptr, ptr @stderr, align 8
   %fputc312 = call i32 @fputc(i32 10, ptr %108)
-  br label %775
+  br label %776
 
 109:                                              ; preds = %90
   %110 = call i64 @H5Dget_type(i64 noundef %70) #6
@@ -238,7 +238,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 112:                                              ; preds = %109
   %113 = load i32, ptr @enable_error_stack, align 4
   %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %775
+  br i1 %114, label %115, label %776
 
 115:                                              ; preds = %112
   %116 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -252,14 +252,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %121 = load i64, ptr @H5E_tools_g, align 8
   %122 = load i64, ptr @H5E_tools_min_id_g, align 8
   %123 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %116, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 76, i64 noundef %118, i64 noundef %121, i64 noundef %122, ptr noundef nonnull @.str.6) #6
-  br label %775
+  br label %776
 
 124:                                              ; preds = %115
   %125 = load ptr, ptr @stderr, align 8
   %126 = call i64 @fwrite(ptr nonnull @.str.6, i64 18, i64 1, ptr %125) #8
   %127 = load ptr, ptr @stderr, align 8
   %fputc311 = call i32 @fputc(i32 10, ptr %127)
-  br label %775
+  br label %776
 
 128:                                              ; preds = %109
   %129 = getelementptr inbounds i8, ptr %71, i64 832
@@ -350,7 +350,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 163:                                              ; preds = %160
   %164 = load i32, ptr @enable_error_stack, align 4
   %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %166, label %775
+  br i1 %165, label %166, label %776
 
 166:                                              ; preds = %163
   %167 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -364,14 +364,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %172 = load i64, ptr @H5E_tools_g, align 8
   %173 = load i64, ptr @H5E_tools_min_id_g, align 8
   %174 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %167, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 97, i64 noundef %169, i64 noundef %172, i64 noundef %173, ptr noundef nonnull @.str.7) #6
-  br label %775
+  br label %776
 
 175:                                              ; preds = %166
   %176 = load ptr, ptr @stderr, align 8
   %177 = call i64 @fwrite(ptr nonnull @.str.7, i64 15, i64 1, ptr %176) #8
   %178 = load ptr, ptr @stderr, align 8
   %fputc310 = call i32 @fputc(i32 10, ptr %178)
-  br label %775
+  br label %776
 
 179:                                              ; preds = %160
   %180 = call i32 @H5Sclose(i64 noundef %72) #6
@@ -381,7 +381,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 182:                                              ; preds = %179
   %183 = load i32, ptr @enable_error_stack, align 4
   %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %185, label %775
+  br i1 %184, label %185, label %776
 
 185:                                              ; preds = %182
   %186 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -395,14 +395,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %191 = load i64, ptr @H5E_tools_g, align 8
   %192 = load i64, ptr @H5E_tools_min_id_g, align 8
   %193 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %186, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 99, i64 noundef %188, i64 noundef %191, i64 noundef %192, ptr noundef nonnull @.str.8) #6
-  br label %775
+  br label %776
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr @stderr, align 8
   %196 = call i64 @fwrite(ptr nonnull @.str.8, i64 15, i64 1, ptr %195) #8
   %197 = load ptr, ptr @stderr, align 8
   %fputc309 = call i32 @fputc(i32 10, ptr %197)
-  br label %775
+  br label %776
 
 198:                                              ; preds = %179
   %199 = call i32 @H5Dclose(i64 noundef %70) #6
@@ -412,7 +412,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 201:                                              ; preds = %198
   %202 = load i32, ptr @enable_error_stack, align 4
   %203 = icmp sgt i32 %202, 0
-  br i1 %203, label %204, label %775
+  br i1 %203, label %204, label %776
 
 204:                                              ; preds = %201
   %205 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -426,14 +426,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %210 = load i64, ptr @H5E_tools_g, align 8
   %211 = load i64, ptr @H5E_tools_min_id_g, align 8
   %212 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %205, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 101, i64 noundef %207, i64 noundef %210, i64 noundef %211, ptr noundef nonnull @.str.9) #6
-  br label %775
+  br label %776
 
 213:                                              ; preds = %204
   %214 = load ptr, ptr @stderr, align 8
   %215 = call i64 @fwrite(ptr nonnull @.str.9, i64 15, i64 1, ptr %214) #8
   %216 = load ptr, ptr @stderr, align 8
   %fputc308 = call i32 @fputc(i32 10, ptr %216)
-  br label %775
+  br label %776
 
 217:                                              ; preds = %198
   %218 = call i32 @H5Tclose(i64 noundef %110) #6
@@ -443,7 +443,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 220:                                              ; preds = %217
   %221 = load i32, ptr @enable_error_stack, align 4
   %222 = icmp sgt i32 %221, 0
-  br i1 %222, label %223, label %775
+  br i1 %222, label %223, label %776
 
 223:                                              ; preds = %220
   %224 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -457,14 +457,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %229 = load i64, ptr @H5E_tools_g, align 8
   %230 = load i64, ptr @H5E_tools_min_id_g, align 8
   %231 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %224, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 103, i64 noundef %226, i64 noundef %229, i64 noundef %230, ptr noundef nonnull @.str.10) #6
-  br label %775
+  br label %776
 
 232:                                              ; preds = %223
   %233 = load ptr, ptr @stderr, align 8
   %234 = call i64 @fwrite(ptr nonnull @.str.10, i64 15, i64 1, ptr %233) #8
   %235 = load ptr, ptr @stderr, align 8
   %fputc307 = call i32 @fputc(i32 10, ptr %235)
-  br label %775
+  br label %776
 
 ._crit_edge:                                      ; preds = %44, %.preheader345
   %.1173.lcssa = phi i64 [ -1, %.preheader345 ], [ %91, %44 ]
@@ -514,7 +514,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 260:                                              ; preds = %243
   %261 = load i32, ptr @enable_error_stack, align 4
   %262 = icmp sgt i32 %261, 0
-  br i1 %262, label %263, label %775
+  br i1 %262, label %263, label %776
 
 263:                                              ; preds = %260
   %264 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -528,14 +528,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %269 = load i64, ptr @H5E_tools_g, align 8
   %270 = load i64, ptr @H5E_tools_min_id_g, align 8
   %271 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %264, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 119, i64 noundef %266, i64 noundef %269, i64 noundef %270, ptr noundef nonnull @.str.11) #6
-  br label %775
+  br label %776
 
 272:                                              ; preds = %263
   %273 = load ptr, ptr @stderr, align 8
   %274 = call i64 @fwrite(ptr nonnull @.str.11, i64 22, i64 1, ptr %273) #8
   %275 = load ptr, ptr @stderr, align 8
   %fputc305 = call i32 @fputc(i32 10, ptr %275)
-  br label %775
+  br label %776
 
 276:                                              ; preds = %.lr.ph517, %471
   %277 = phi ptr [ %249, %.lr.ph517 ], [ %472, %471 ]
@@ -564,7 +564,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 290:                                              ; preds = %285
   %291 = load i32, ptr @enable_error_stack, align 4
   %292 = icmp sgt i32 %291, 0
-  br i1 %292, label %293, label %775
+  br i1 %292, label %293, label %776
 
 293:                                              ; preds = %290
   %294 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -578,14 +578,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %299 = load i64, ptr @H5E_tools_g, align 8
   %300 = load i64, ptr @H5E_tools_min_id_g, align 8
   %301 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %294, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 130, i64 noundef %296, i64 noundef %299, i64 noundef %300, ptr noundef nonnull @.str.3, ptr noundef %287) #6
-  br label %775
+  br label %776
 
 302:                                              ; preds = %293
   %303 = load ptr, ptr @stderr, align 8
   %304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %303, ptr noundef nonnull @.str.3, ptr noundef %287) #7
   %305 = load ptr, ptr @stderr, align 8
   %fputc304 = call i32 @fputc(i32 10, ptr %305)
-  br label %775
+  br label %776
 
 306:                                              ; preds = %285
   %307 = call i64 @H5Dget_space(i64 noundef %288) #6
@@ -595,7 +595,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 309:                                              ; preds = %306
   %310 = load i32, ptr @enable_error_stack, align 4
   %311 = icmp sgt i32 %310, 0
-  br i1 %311, label %312, label %775
+  br i1 %311, label %312, label %776
 
 312:                                              ; preds = %309
   %313 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -609,14 +609,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %318 = load i64, ptr @H5E_tools_g, align 8
   %319 = load i64, ptr @H5E_tools_min_id_g, align 8
   %320 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %313, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 132, i64 noundef %315, i64 noundef %318, i64 noundef %319, ptr noundef nonnull @.str.4) #6
-  br label %775
+  br label %776
 
 321:                                              ; preds = %312
   %322 = load ptr, ptr @stderr, align 8
   %323 = call i64 @fwrite(ptr nonnull @.str.4, i64 19, i64 1, ptr %322) #8
   %324 = load ptr, ptr @stderr, align 8
   %fputc303 = call i32 @fputc(i32 10, ptr %324)
-  br label %775
+  br label %776
 
 325:                                              ; preds = %306
   %326 = call i64 @H5Dget_create_plist(i64 noundef %288) #6
@@ -626,7 +626,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 328:                                              ; preds = %325
   %329 = load i32, ptr @enable_error_stack, align 4
   %330 = icmp sgt i32 %329, 0
-  br i1 %330, label %331, label %775
+  br i1 %330, label %331, label %776
 
 331:                                              ; preds = %328
   %332 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -640,14 +640,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %337 = load i64, ptr @H5E_tools_g, align 8
   %338 = load i64, ptr @H5E_tools_min_id_g, align 8
   %339 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %332, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 134, i64 noundef %334, i64 noundef %337, i64 noundef %338, ptr noundef nonnull @.str.5) #6
-  br label %775
+  br label %776
 
 340:                                              ; preds = %331
   %341 = load ptr, ptr @stderr, align 8
   %342 = call i64 @fwrite(ptr nonnull @.str.5, i64 26, i64 1, ptr %341) #8
   %343 = load ptr, ptr @stderr, align 8
   %fputc302 = call i32 @fputc(i32 10, ptr %343)
-  br label %775
+  br label %776
 
 344:                                              ; preds = %325
   %345 = call i64 @H5Dget_type(i64 noundef %288) #6
@@ -657,7 +657,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 347:                                              ; preds = %344
   %348 = load i32, ptr @enable_error_stack, align 4
   %349 = icmp sgt i32 %348, 0
-  br i1 %349, label %350, label %775
+  br i1 %349, label %350, label %776
 
 350:                                              ; preds = %347
   %351 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -671,14 +671,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %356 = load i64, ptr @H5E_tools_g, align 8
   %357 = load i64, ptr @H5E_tools_min_id_g, align 8
   %358 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %351, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 136, i64 noundef %353, i64 noundef %356, i64 noundef %357, ptr noundef nonnull @.str.6) #6
-  br label %775
+  br label %776
 
 359:                                              ; preds = %350
   %360 = load ptr, ptr @stderr, align 8
   %361 = call i64 @fwrite(ptr nonnull @.str.6, i64 18, i64 1, ptr %360) #8
   %362 = load ptr, ptr @stderr, align 8
   %fputc301 = call i32 @fputc(i32 10, ptr %362)
-  br label %775
+  br label %776
 
 363:                                              ; preds = %344
   %364 = load i32, ptr %236, align 4
@@ -775,7 +775,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 398:                                              ; preds = %395
   %399 = load i32, ptr @enable_error_stack, align 4
   %400 = icmp sgt i32 %399, 0
-  br i1 %400, label %401, label %775
+  br i1 %400, label %401, label %776
 
 401:                                              ; preds = %398
   %402 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -789,14 +789,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %407 = load i64, ptr @H5E_tools_g, align 8
   %408 = load i64, ptr @H5E_tools_min_id_g, align 8
   %409 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %402, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 166, i64 noundef %404, i64 noundef %407, i64 noundef %408, ptr noundef nonnull @.str.7) #6
-  br label %775
+  br label %776
 
 410:                                              ; preds = %401
   %411 = load ptr, ptr @stderr, align 8
   %412 = call i64 @fwrite(ptr nonnull @.str.7, i64 15, i64 1, ptr %411) #8
   %413 = load ptr, ptr @stderr, align 8
   %fputc300 = call i32 @fputc(i32 10, ptr %413)
-  br label %775
+  br label %776
 
 414:                                              ; preds = %395
   %415 = call i32 @H5Sclose(i64 noundef %307) #6
@@ -806,7 +806,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 417:                                              ; preds = %414
   %418 = load i32, ptr @enable_error_stack, align 4
   %419 = icmp sgt i32 %418, 0
-  br i1 %419, label %420, label %775
+  br i1 %419, label %420, label %776
 
 420:                                              ; preds = %417
   %421 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -820,14 +820,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %426 = load i64, ptr @H5E_tools_g, align 8
   %427 = load i64, ptr @H5E_tools_min_id_g, align 8
   %428 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %421, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 168, i64 noundef %423, i64 noundef %426, i64 noundef %427, ptr noundef nonnull @.str.8) #6
-  br label %775
+  br label %776
 
 429:                                              ; preds = %420
   %430 = load ptr, ptr @stderr, align 8
   %431 = call i64 @fwrite(ptr nonnull @.str.8, i64 15, i64 1, ptr %430) #8
   %432 = load ptr, ptr @stderr, align 8
   %fputc299 = call i32 @fputc(i32 10, ptr %432)
-  br label %775
+  br label %776
 
 433:                                              ; preds = %414
   %434 = call i32 @H5Dclose(i64 noundef %288) #6
@@ -837,7 +837,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 436:                                              ; preds = %433
   %437 = load i32, ptr @enable_error_stack, align 4
   %438 = icmp sgt i32 %437, 0
-  br i1 %438, label %439, label %775
+  br i1 %438, label %439, label %776
 
 439:                                              ; preds = %436
   %440 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -851,14 +851,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %445 = load i64, ptr @H5E_tools_g, align 8
   %446 = load i64, ptr @H5E_tools_min_id_g, align 8
   %447 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %440, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 170, i64 noundef %442, i64 noundef %445, i64 noundef %446, ptr noundef nonnull @.str.9) #6
-  br label %775
+  br label %776
 
 448:                                              ; preds = %439
   %449 = load ptr, ptr @stderr, align 8
   %450 = call i64 @fwrite(ptr nonnull @.str.9, i64 15, i64 1, ptr %449) #8
   %451 = load ptr, ptr @stderr, align 8
   %fputc298 = call i32 @fputc(i32 10, ptr %451)
-  br label %775
+  br label %776
 
 452:                                              ; preds = %433
   %453 = call i32 @H5Tclose(i64 noundef %345) #6
@@ -872,7 +872,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 455:                                              ; preds = %452
   %456 = load i32, ptr @enable_error_stack, align 4
   %457 = icmp sgt i32 %456, 0
-  br i1 %457, label %458, label %775
+  br i1 %457, label %458, label %776
 
 458:                                              ; preds = %455
   %459 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -886,14 +886,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %464 = load i64, ptr @H5E_tools_g, align 8
   %465 = load i64, ptr @H5E_tools_min_id_g, align 8
   %466 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %459, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 172, i64 noundef %461, i64 noundef %464, i64 noundef %465, ptr noundef nonnull @.str.10) #6
-  br label %775
+  br label %776
 
 467:                                              ; preds = %458
   %468 = load ptr, ptr @stderr, align 8
   %469 = call i64 @fwrite(ptr nonnull @.str.10, i64 15, i64 1, ptr %468) #8
   %470 = load ptr, ptr @stderr, align 8
   %fputc297 = call i32 @fputc(i32 10, ptr %470)
-  br label %775
+  br label %776
 
 471:                                              ; preds = %._crit_edge654, %276
   %472 = phi ptr [ %.pre, %._crit_edge654 ], [ %277, %276 ]
@@ -933,7 +933,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 481:                                              ; preds = %478
   %482 = load i32, ptr @enable_error_stack, align 4
   %483 = icmp sgt i32 %482, 0
-  br i1 %483, label %484, label %775
+  br i1 %483, label %484, label %776
 
 484:                                              ; preds = %481
   %485 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -947,14 +947,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %490 = load i64, ptr @H5E_tools_g, align 8
   %491 = load i64, ptr @H5E_tools_min_id_g, align 8
   %492 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %485, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 188, i64 noundef %487, i64 noundef %490, i64 noundef %491, ptr noundef nonnull @.str.12, ptr noundef %0) #6
-  br label %775
+  br label %776
 
 493:                                              ; preds = %484
   %494 = load ptr, ptr @stderr, align 8
   %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %494, ptr noundef nonnull @.str.12, ptr noundef %0) #7
   %496 = load ptr, ptr @stderr, align 8
   %fputc296 = call i32 @fputc(i32 10, ptr %496)
-  br label %775
+  br label %776
 
 497:                                              ; preds = %478
   %498 = call i64 @H5Fget_create_plist(i64 noundef %479) #6
@@ -964,7 +964,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 500:                                              ; preds = %497
   %501 = load i32, ptr @enable_error_stack, align 4
   %502 = icmp sgt i32 %501, 0
-  br i1 %502, label %503, label %775
+  br i1 %502, label %503, label %776
 
 503:                                              ; preds = %500
   %504 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -978,14 +978,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %509 = load i64, ptr @H5E_tools_g, align 8
   %510 = load i64, ptr @H5E_tools_min_id_g, align 8
   %511 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %504, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 192, i64 noundef %506, i64 noundef %509, i64 noundef %510, ptr noundef nonnull @.str.13) #6
-  br label %775
+  br label %776
 
 512:                                              ; preds = %503
   %513 = load ptr, ptr @stderr, align 8
   %514 = call i64 @fwrite(ptr nonnull @.str.13, i64 66, i64 1, ptr %513) #8
   %515 = load ptr, ptr @stderr, align 8
   %fputc295 = call i32 @fputc(i32 10, ptr %515)
-  br label %775
+  br label %776
 
 516:                                              ; preds = %497
   %517 = call i32 @H5Pget_file_space_strategy(i64 noundef %498, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %11) #6
@@ -995,7 +995,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 519:                                              ; preds = %516
   %520 = load i32, ptr @enable_error_stack, align 4
   %521 = icmp sgt i32 %520, 0
-  br i1 %521, label %522, label %775
+  br i1 %521, label %522, label %776
 
 522:                                              ; preds = %519
   %523 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1009,14 +1009,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %528 = load i64, ptr @H5E_tools_g, align 8
   %529 = load i64, ptr @H5E_tools_min_id_g, align 8
   %530 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %523, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 197, i64 noundef %525, i64 noundef %528, i64 noundef %529, ptr noundef nonnull @.str.14) #6
-  br label %775
+  br label %776
 
 531:                                              ; preds = %522
   %532 = load ptr, ptr @stderr, align 8
   %533 = call i64 @fwrite(ptr nonnull @.str.14, i64 77, i64 1, ptr %532) #8
   %534 = load ptr, ptr @stderr, align 8
   %fputc294 = call i32 @fputc(i32 10, ptr %534)
-  br label %775
+  br label %776
 
 535:                                              ; preds = %516
   %536 = call i32 @H5Pget_file_space_page_size(i64 noundef %498, ptr noundef nonnull %13) #6
@@ -1026,7 +1026,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 538:                                              ; preds = %535
   %539 = load i32, ptr @enable_error_stack, align 4
   %540 = icmp sgt i32 %539, 0
-  br i1 %540, label %541, label %775
+  br i1 %540, label %541, label %776
 
 541:                                              ; preds = %538
   %542 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1040,14 +1040,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %547 = load i64, ptr @H5E_tools_g, align 8
   %548 = load i64, ptr @H5E_tools_min_id_g, align 8
   %549 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %542, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 201, i64 noundef %544, i64 noundef %547, i64 noundef %548, ptr noundef nonnull @.str.15) #6
-  br label %775
+  br label %776
 
 550:                                              ; preds = %541
   %551 = load ptr, ptr @stderr, align 8
   %552 = call i64 @fwrite(ptr nonnull @.str.15, i64 67, i64 1, ptr %551) #8
   %553 = load ptr, ptr @stderr, align 8
   %fputc293 = call i32 @fputc(i32 10, ptr %553)
-  br label %775
+  br label %776
 
 554:                                              ; preds = %535
   %555 = call i64 @H5Fget_create_plist(i64 noundef %19) #6
@@ -1057,7 +1057,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 557:                                              ; preds = %554
   %558 = load i32, ptr @enable_error_stack, align 4
   %559 = icmp sgt i32 %558, 0
-  br i1 %559, label %560, label %775
+  br i1 %559, label %560, label %776
 
 560:                                              ; preds = %557
   %561 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1071,14 +1071,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %566 = load i64, ptr @H5E_tools_g, align 8
   %567 = load i64, ptr @H5E_tools_min_id_g, align 8
   %568 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %561, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 206, i64 noundef %563, i64 noundef %566, i64 noundef %567, ptr noundef nonnull @.str.13) #6
-  br label %775
+  br label %776
 
 569:                                              ; preds = %560
   %570 = load ptr, ptr @stderr, align 8
   %571 = call i64 @fwrite(ptr nonnull @.str.13, i64 66, i64 1, ptr %570) #8
   %572 = load ptr, ptr @stderr, align 8
   %fputc292 = call i32 @fputc(i32 10, ptr %572)
-  br label %775
+  br label %776
 
 573:                                              ; preds = %554
   %574 = call i32 @H5Pget_file_space_strategy(i64 noundef %555, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12) #6
@@ -1088,7 +1088,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 576:                                              ; preds = %573
   %577 = load i32, ptr @enable_error_stack, align 4
   %578 = icmp sgt i32 %577, 0
-  br i1 %578, label %579, label %775
+  br i1 %578, label %579, label %776
 
 579:                                              ; preds = %576
   %580 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1102,14 +1102,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %585 = load i64, ptr @H5E_tools_g, align 8
   %586 = load i64, ptr @H5E_tools_min_id_g, align 8
   %587 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %580, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 211, i64 noundef %582, i64 noundef %585, i64 noundef %586, ptr noundef nonnull @.str.14) #6
-  br label %775
+  br label %776
 
 588:                                              ; preds = %579
   %589 = load ptr, ptr @stderr, align 8
   %590 = call i64 @fwrite(ptr nonnull @.str.14, i64 77, i64 1, ptr %589) #8
   %591 = load ptr, ptr @stderr, align 8
   %fputc291 = call i32 @fputc(i32 10, ptr %591)
-  br label %775
+  br label %776
 
 592:                                              ; preds = %573
   %593 = call i32 @H5Pget_file_space_page_size(i64 noundef %555, ptr noundef nonnull %14) #6
@@ -1119,7 +1119,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 595:                                              ; preds = %592
   %596 = load i32, ptr @enable_error_stack, align 4
   %597 = icmp sgt i32 %596, 0
-  br i1 %597, label %598, label %775
+  br i1 %597, label %598, label %776
 
 598:                                              ; preds = %595
   %599 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1133,14 +1133,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %604 = load i64, ptr @H5E_tools_g, align 8
   %605 = load i64, ptr @H5E_tools_min_id_g, align 8
   %606 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %599, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 215, i64 noundef %601, i64 noundef %604, i64 noundef %605, ptr noundef nonnull @.str.15) #6
-  br label %775
+  br label %776
 
 607:                                              ; preds = %598
   %608 = load ptr, ptr @stderr, align 8
   %609 = call i64 @fwrite(ptr nonnull @.str.15, i64 67, i64 1, ptr %608) #8
   %610 = load ptr, ptr @stderr, align 8
   %fputc290 = call i32 @fputc(i32 10, ptr %610)
-  br label %775
+  br label %776
 
 611:                                              ; preds = %592
   %612 = getelementptr inbounds i8, ptr %2, i64 1000
@@ -1158,7 +1158,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 617:                                              ; preds = %615
   %618 = load i32, ptr @enable_error_stack, align 4
   %619 = icmp sgt i32 %618, 0
-  br i1 %619, label %620, label %775
+  br i1 %619, label %620, label %776
 
 620:                                              ; preds = %617
   %621 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1172,14 +1172,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %626 = load i64, ptr @H5E_tools_g, align 8
   %627 = load i64, ptr @H5E_tools_min_id_g, align 8
   %628 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %621, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 224, i64 noundef %623, i64 noundef %626, i64 noundef %627, ptr noundef nonnull @.str.16) #6
-  br label %775
+  br label %776
 
 629:                                              ; preds = %620
   %630 = load ptr, ptr @stderr, align 8
   %631 = call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %630) #8
   %632 = load ptr, ptr @stderr, align 8
   %fputc289 = call i32 @fputc(i32 10, ptr %632)
-  br label %775
+  br label %776
 
 633:                                              ; preds = %611
   %634 = load i32, ptr %7, align 4
@@ -1189,7 +1189,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 635:                                              ; preds = %633
   %636 = load i32, ptr @enable_error_stack, align 4
   %637 = icmp sgt i32 %636, 0
-  br i1 %637, label %638, label %775
+  br i1 %637, label %638, label %776
 
 638:                                              ; preds = %635
   %639 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1203,14 +1203,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %644 = load i64, ptr @H5E_tools_g, align 8
   %645 = load i64, ptr @H5E_tools_min_id_g, align 8
   %646 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %639, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 228, i64 noundef %641, i64 noundef %644, i64 noundef %645, ptr noundef nonnull @.str.16) #6
-  br label %775
+  br label %776
 
 647:                                              ; preds = %638
   %648 = load ptr, ptr @stderr, align 8
   %649 = call i64 @fwrite(ptr nonnull @.str.16, i64 41, i64 1, ptr %648) #8
   %650 = load ptr, ptr @stderr, align 8
   %fputc = call i32 @fputc(i32 10, ptr %650)
-  br label %775
+  br label %776
 
 651:                                              ; preds = %633, %615
   %652 = getelementptr inbounds i8, ptr %2, i64 1004
@@ -1228,7 +1228,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 659:                                              ; preds = %655
   %660 = load i32, ptr @enable_error_stack, align 4
   %661 = icmp sgt i32 %660, 0
-  br i1 %661, label %662, label %775
+  br i1 %661, label %662, label %776
 
 662:                                              ; preds = %659
   %663 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1242,14 +1242,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %668 = load i64, ptr @H5E_tools_g, align 8
   %669 = load i64, ptr @H5E_tools_min_id_g, align 8
   %670 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %663, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 238, i64 noundef %665, i64 noundef %668, i64 noundef %669, ptr noundef nonnull @.str.17) #6
-  br label %775
+  br label %776
 
 671:                                              ; preds = %662
   %672 = load ptr, ptr @stderr, align 8
   %673 = call i64 @fwrite(ptr nonnull @.str.17, i64 47, i64 1, ptr %672) #8
   %674 = load ptr, ptr @stderr, align 8
   %fputc288 = call i32 @fputc(i32 10, ptr %674)
-  br label %775
+  br label %776
 
 675:                                              ; preds = %651
   %676 = load i8, ptr %9, align 1
@@ -1261,7 +1261,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 679:                                              ; preds = %675
   %680 = load i32, ptr @enable_error_stack, align 4
   %681 = icmp sgt i32 %680, 0
-  br i1 %681, label %682, label %775
+  br i1 %681, label %682, label %776
 
 682:                                              ; preds = %679
   %683 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1275,14 +1275,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %688 = load i64, ptr @H5E_tools_g, align 8
   %689 = load i64, ptr @H5E_tools_min_id_g, align 8
   %690 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %683, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 242, i64 noundef %685, i64 noundef %688, i64 noundef %689, ptr noundef nonnull @.str.17) #6
-  br label %775
+  br label %776
 
 691:                                              ; preds = %682
   %692 = load ptr, ptr @stderr, align 8
   %693 = call i64 @fwrite(ptr nonnull @.str.17, i64 47, i64 1, ptr %692) #8
   %694 = load ptr, ptr @stderr, align 8
   %fputc276 = call i32 @fputc(i32 10, ptr %694)
-  br label %775
+  br label %776
 
 695:                                              ; preds = %675, %655
   %696 = getelementptr inbounds i8, ptr %2, i64 1008
@@ -1300,7 +1300,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 701:                                              ; preds = %699
   %702 = load i32, ptr @enable_error_stack, align 4
   %703 = icmp sgt i32 %702, 0
-  br i1 %703, label %704, label %775
+  br i1 %703, label %704, label %776
 
 704:                                              ; preds = %701
   %705 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1314,14 +1314,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %710 = load i64, ptr @H5E_tools_g, align 8
   %711 = load i64, ptr @H5E_tools_min_id_g, align 8
   %712 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %705, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 252, i64 noundef %707, i64 noundef %710, i64 noundef %711, ptr noundef nonnull @.str.18) #6
-  br label %775
+  br label %776
 
 713:                                              ; preds = %704
   %714 = load ptr, ptr @stderr, align 8
   %715 = call i64 @fwrite(ptr nonnull @.str.18, i64 31, i64 1, ptr %714) #8
   %716 = load ptr, ptr @stderr, align 8
   %fputc287 = call i32 @fputc(i32 10, ptr %716)
-  br label %775
+  br label %776
 
 717:                                              ; preds = %695
   %718 = load i64, ptr %11, align 8
@@ -1331,7 +1331,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 719:                                              ; preds = %717
   %720 = load i32, ptr @enable_error_stack, align 4
   %721 = icmp sgt i32 %720, 0
-  br i1 %721, label %722, label %775
+  br i1 %721, label %722, label %776
 
 722:                                              ; preds = %719
   %723 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1345,14 +1345,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %728 = load i64, ptr @H5E_tools_g, align 8
   %729 = load i64, ptr @H5E_tools_min_id_g, align 8
   %730 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %723, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 256, i64 noundef %725, i64 noundef %728, i64 noundef %729, ptr noundef nonnull @.str.18) #6
-  br label %775
+  br label %776
 
 731:                                              ; preds = %722
   %732 = load ptr, ptr @stderr, align 8
   %733 = call i64 @fwrite(ptr nonnull @.str.18, i64 31, i64 1, ptr %732) #8
   %734 = load ptr, ptr @stderr, align 8
   %fputc280 = call i32 @fputc(i32 10, ptr %734)
-  br label %775
+  br label %776
 
 735:                                              ; preds = %717, %699
   %736 = getelementptr inbounds i8, ptr %2, i64 1016
@@ -1370,7 +1370,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 741:                                              ; preds = %739
   %742 = load i32, ptr @enable_error_stack, align 4
   %743 = icmp sgt i32 %742, 0
-  br i1 %743, label %744, label %775
+  br i1 %743, label %744, label %776
 
 744:                                              ; preds = %741
   %745 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1384,14 +1384,14 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %750 = load i64, ptr @H5E_tools_g, align 8
   %751 = load i64, ptr @H5E_tools_min_id_g, align 8
   %752 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %745, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 266, i64 noundef %747, i64 noundef %750, i64 noundef %751, ptr noundef nonnull @.str.19) #6
-  br label %775
+  br label %776
 
 753:                                              ; preds = %744
   %754 = load ptr, ptr @stderr, align 8
   %755 = call i64 @fwrite(ptr nonnull @.str.19, i64 42, i64 1, ptr %754) #8
   %756 = load ptr, ptr @stderr, align 8
   %fputc286 = call i32 @fputc(i32 10, ptr %756)
-  br label %775
+  br label %776
 
 757:                                              ; preds = %735
   %758 = load i64, ptr %13, align 8
@@ -1401,7 +1401,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 759:                                              ; preds = %757
   %760 = load i32, ptr @enable_error_stack, align 4
   %761 = icmp sgt i32 %760, 0
-  br i1 %761, label %762, label %775
+  br i1 %761, label %762, label %776
 
 762:                                              ; preds = %759
   %763 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1415,72 +1415,75 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %768 = load i64, ptr @H5E_tools_g, align 8
   %769 = load i64, ptr @H5E_tools_min_id_g, align 8
   %770 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %763, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_verify, i32 noundef 270, i64 noundef %765, i64 noundef %768, i64 noundef %769, ptr noundef nonnull @.str.19) #6
-  br label %775
+  br label %776
 
 771:                                              ; preds = %762
   %772 = load ptr, ptr @stderr, align 8
   %773 = call i64 @fwrite(ptr nonnull @.str.19, i64 42, i64 1, ptr %772) #8
   %774 = load ptr, ptr @stderr, align 8
   %fputc284 = call i32 @fputc(i32 10, ptr %774)
-  br label %775
+  br label %776
 
-775:                                              ; preds = %739, %757, %759, %771, %767, %741, %753, %749, %719, %731, %727, %701, %713, %709, %679, %691, %687, %659, %671, %667, %635, %647, %643, %617, %629, %625, %595, %607, %603, %576, %588, %584, %557, %569, %565, %538, %550, %546, %519, %531, %527, %500, %512, %508, %481, %493, %489, %455, %467, %463, %436, %448, %444, %417, %429, %425, %398, %410, %406, %347, %359, %355, %328, %340, %336, %309, %321, %317, %290, %302, %298, %260, %272, %268, %220, %232, %228, %201, %213, %209, %182, %194, %190, %163, %175, %171, %112, %124, %120, %93, %105, %101, %74, %86, %82, %.lr.ph._crit_edge, %66, %62, %28, %40, %36
-  %.0172 = phi i64 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.1173502.lcssa, %62 ], [ %.1173502.lcssa, %66 ], [ %.1173502.lcssa, %.lr.ph._crit_edge ], [ %.1173502911, %82 ], [ %.1173502911, %86 ], [ %.1173502911, %74 ], [ %91, %101 ], [ %91, %105 ], [ %91, %93 ], [ %91, %120 ], [ %91, %124 ], [ %91, %112 ], [ %91, %171 ], [ %91, %175 ], [ %91, %163 ], [ %91, %190 ], [ %91, %194 ], [ %91, %182 ], [ %91, %209 ], [ %91, %213 ], [ %91, %201 ], [ %91, %228 ], [ %91, %232 ], [ %91, %220 ], [ %.1173.lcssa, %268 ], [ %.1173.lcssa, %272 ], [ %.1173.lcssa, %260 ], [ %.3175511, %298 ], [ %.3175511, %302 ], [ %.3175511, %290 ], [ %.3175511, %317 ], [ %.3175511, %321 ], [ %.3175511, %309 ], [ %326, %336 ], [ %326, %340 ], [ %326, %328 ], [ %326, %355 ], [ %326, %359 ], [ %326, %347 ], [ %326, %406 ], [ %326, %410 ], [ %326, %398 ], [ %326, %425 ], [ %326, %429 ], [ %326, %417 ], [ %326, %444 ], [ %326, %448 ], [ %326, %436 ], [ %326, %463 ], [ %326, %467 ], [ %326, %455 ], [ %.2174, %489 ], [ %.2174, %493 ], [ %.2174, %481 ], [ %.2174, %508 ], [ %.2174, %512 ], [ %.2174, %500 ], [ %.2174, %527 ], [ %.2174, %531 ], [ %.2174, %519 ], [ %.2174, %546 ], [ %.2174, %550 ], [ %.2174, %538 ], [ %.2174, %565 ], [ %.2174, %569 ], [ %.2174, %557 ], [ %.2174, %584 ], [ %.2174, %588 ], [ %.2174, %576 ], [ %.2174, %603 ], [ %.2174, %607 ], [ %.2174, %595 ], [ %.2174, %625 ], [ %.2174, %629 ], [ %.2174, %617 ], [ %.2174, %643 ], [ %.2174, %647 ], [ %.2174, %635 ], [ %.2174, %667 ], [ %.2174, %671 ], [ %.2174, %659 ], [ %.2174, %687 ], [ %.2174, %691 ], [ %.2174, %679 ], [ %.2174, %709 ], [ %.2174, %713 ], [ %.2174, %701 ], [ %.2174, %727 ], [ %.2174, %731 ], [ %.2174, %719 ], [ %.2174, %749 ], [ %.2174, %753 ], [ %.2174, %741 ], [ %.2174, %767 ], [ %.2174, %771 ], [ %.2174, %759 ], [ %.2174, %757 ], [ %.2174, %739 ]
-  %.0167 = phi i64 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.1168503.lcssa, %62 ], [ %.1168503.lcssa, %66 ], [ %.1168503.lcssa, %.lr.ph._crit_edge ], [ %72, %82 ], [ %72, %86 ], [ %72, %74 ], [ %72, %101 ], [ %72, %105 ], [ %72, %93 ], [ %72, %120 ], [ %72, %124 ], [ %72, %112 ], [ %72, %171 ], [ %72, %175 ], [ %72, %163 ], [ %72, %190 ], [ %72, %194 ], [ %72, %182 ], [ %72, %209 ], [ %72, %213 ], [ %72, %201 ], [ %72, %228 ], [ %72, %232 ], [ %72, %220 ], [ %.1168.lcssa, %268 ], [ %.1168.lcssa, %272 ], [ %.1168.lcssa, %260 ], [ %.3170512, %298 ], [ %.3170512, %302 ], [ %.3170512, %290 ], [ %307, %317 ], [ %307, %321 ], [ %307, %309 ], [ %307, %336 ], [ %307, %340 ], [ %307, %328 ], [ %307, %355 ], [ %307, %359 ], [ %307, %347 ], [ %307, %406 ], [ %307, %410 ], [ %307, %398 ], [ %307, %425 ], [ %307, %429 ], [ %307, %417 ], [ %307, %444 ], [ %307, %448 ], [ %307, %436 ], [ %307, %463 ], [ %307, %467 ], [ %307, %455 ], [ %.2169, %489 ], [ %.2169, %493 ], [ %.2169, %481 ], [ %.2169, %508 ], [ %.2169, %512 ], [ %.2169, %500 ], [ %.2169, %527 ], [ %.2169, %531 ], [ %.2169, %519 ], [ %.2169, %546 ], [ %.2169, %550 ], [ %.2169, %538 ], [ %.2169, %565 ], [ %.2169, %569 ], [ %.2169, %557 ], [ %.2169, %584 ], [ %.2169, %588 ], [ %.2169, %576 ], [ %.2169, %603 ], [ %.2169, %607 ], [ %.2169, %595 ], [ %.2169, %625 ], [ %.2169, %629 ], [ %.2169, %617 ], [ %.2169, %643 ], [ %.2169, %647 ], [ %.2169, %635 ], [ %.2169, %667 ], [ %.2169, %671 ], [ %.2169, %659 ], [ %.2169, %687 ], [ %.2169, %691 ], [ %.2169, %679 ], [ %.2169, %709 ], [ %.2169, %713 ], [ %.2169, %701 ], [ %.2169, %727 ], [ %.2169, %731 ], [ %.2169, %719 ], [ %.2169, %749 ], [ %.2169, %753 ], [ %.2169, %741 ], [ %.2169, %767 ], [ %.2169, %771 ], [ %.2169, %759 ], [ %.2169, %757 ], [ %.2169, %739 ]
-  %.0162 = phi i64 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.1163504.lcssa, %62 ], [ %.1163504.lcssa, %66 ], [ %.1163504.lcssa, %.lr.ph._crit_edge ], [ %.1163504910, %82 ], [ %.1163504910, %86 ], [ %.1163504910, %74 ], [ %.1163504910, %101 ], [ %.1163504910, %105 ], [ %.1163504910, %93 ], [ %110, %120 ], [ %110, %124 ], [ %110, %112 ], [ %110, %171 ], [ %110, %175 ], [ %110, %163 ], [ %110, %190 ], [ %110, %194 ], [ %110, %182 ], [ %110, %209 ], [ %110, %213 ], [ %110, %201 ], [ %110, %228 ], [ %110, %232 ], [ %110, %220 ], [ %.1163.lcssa, %268 ], [ %.1163.lcssa, %272 ], [ %.1163.lcssa, %260 ], [ %.3165513, %298 ], [ %.3165513, %302 ], [ %.3165513, %290 ], [ %.3165513, %317 ], [ %.3165513, %321 ], [ %.3165513, %309 ], [ %.3165513, %336 ], [ %.3165513, %340 ], [ %.3165513, %328 ], [ %345, %355 ], [ %345, %359 ], [ %345, %347 ], [ %345, %406 ], [ %345, %410 ], [ %345, %398 ], [ %345, %425 ], [ %345, %429 ], [ %345, %417 ], [ %345, %444 ], [ %345, %448 ], [ %345, %436 ], [ %345, %463 ], [ %345, %467 ], [ %345, %455 ], [ %.2164, %489 ], [ %.2164, %493 ], [ %.2164, %481 ], [ %.2164, %508 ], [ %.2164, %512 ], [ %.2164, %500 ], [ %.2164, %527 ], [ %.2164, %531 ], [ %.2164, %519 ], [ %.2164, %546 ], [ %.2164, %550 ], [ %.2164, %538 ], [ %.2164, %565 ], [ %.2164, %569 ], [ %.2164, %557 ], [ %.2164, %584 ], [ %.2164, %588 ], [ %.2164, %576 ], [ %.2164, %603 ], [ %.2164, %607 ], [ %.2164, %595 ], [ %.2164, %625 ], [ %.2164, %629 ], [ %.2164, %617 ], [ %.2164, %643 ], [ %.2164, %647 ], [ %.2164, %635 ], [ %.2164, %667 ], [ %.2164, %671 ], [ %.2164, %659 ], [ %.2164, %687 ], [ %.2164, %691 ], [ %.2164, %679 ], [ %.2164, %709 ], [ %.2164, %713 ], [ %.2164, %701 ], [ %.2164, %727 ], [ %.2164, %731 ], [ %.2164, %719 ], [ %.2164, %749 ], [ %.2164, %753 ], [ %.2164, %741 ], [ %.2164, %767 ], [ %.2164, %771 ], [ %.2164, %759 ], [ %.2164, %757 ], [ %.2164, %739 ]
-  %.0154 = phi i64 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ -1, %489 ], [ -1, %493 ], [ -1, %481 ], [ %498, %508 ], [ %498, %512 ], [ %498, %500 ], [ %498, %527 ], [ %498, %531 ], [ %498, %519 ], [ %498, %546 ], [ %498, %550 ], [ %498, %538 ], [ %498, %565 ], [ %498, %569 ], [ %498, %557 ], [ %498, %584 ], [ %498, %588 ], [ %498, %576 ], [ %498, %603 ], [ %498, %607 ], [ %498, %595 ], [ %498, %625 ], [ %498, %629 ], [ %498, %617 ], [ %498, %643 ], [ %498, %647 ], [ %498, %635 ], [ %498, %667 ], [ %498, %671 ], [ %498, %659 ], [ %498, %687 ], [ %498, %691 ], [ %498, %679 ], [ %498, %709 ], [ %498, %713 ], [ %498, %701 ], [ %498, %727 ], [ %498, %731 ], [ %498, %719 ], [ %498, %749 ], [ %498, %753 ], [ %498, %741 ], [ %498, %767 ], [ %498, %771 ], [ %498, %759 ], [ %498, %757 ], [ %498, %739 ]
-  %.0153 = phi i64 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ -1, %489 ], [ -1, %493 ], [ -1, %481 ], [ -1, %508 ], [ -1, %512 ], [ -1, %500 ], [ -1, %527 ], [ -1, %531 ], [ -1, %519 ], [ -1, %546 ], [ -1, %550 ], [ -1, %538 ], [ %555, %565 ], [ %555, %569 ], [ %555, %557 ], [ %555, %584 ], [ %555, %588 ], [ %555, %576 ], [ %555, %603 ], [ %555, %607 ], [ %555, %595 ], [ %555, %625 ], [ %555, %629 ], [ %555, %617 ], [ %555, %643 ], [ %555, %647 ], [ %555, %635 ], [ %555, %667 ], [ %555, %671 ], [ %555, %659 ], [ %555, %687 ], [ %555, %691 ], [ %555, %679 ], [ %555, %709 ], [ %555, %713 ], [ %555, %701 ], [ %555, %727 ], [ %555, %731 ], [ %555, %719 ], [ %555, %749 ], [ %555, %753 ], [ %555, %741 ], [ %555, %767 ], [ %555, %771 ], [ %555, %759 ], [ %555, %757 ], [ %555, %739 ]
-  %.0152 = phi i32 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ -1, %489 ], [ -1, %493 ], [ -1, %481 ], [ -1, %508 ], [ -1, %512 ], [ -1, %500 ], [ -1, %527 ], [ -1, %531 ], [ -1, %519 ], [ -1, %546 ], [ -1, %550 ], [ -1, %538 ], [ -1, %565 ], [ -1, %569 ], [ -1, %557 ], [ -1, %584 ], [ -1, %588 ], [ -1, %576 ], [ -1, %603 ], [ -1, %607 ], [ -1, %595 ], [ -1, %625 ], [ -1, %629 ], [ -1, %617 ], [ -1, %643 ], [ -1, %647 ], [ -1, %635 ], [ -1, %667 ], [ -1, %671 ], [ -1, %659 ], [ -1, %687 ], [ -1, %691 ], [ -1, %679 ], [ -1, %709 ], [ -1, %713 ], [ -1, %701 ], [ -1, %727 ], [ -1, %731 ], [ -1, %719 ], [ -1, %749 ], [ -1, %753 ], [ -1, %741 ], [ -1, %767 ], [ -1, %771 ], [ -1, %759 ], [ %.3160, %757 ], [ %.3160, %739 ]
-  %.0151 = phi i64 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.lcssa841, %62 ], [ %.lcssa841, %66 ], [ %.lcssa841, %.lr.ph._crit_edge ], [ %70, %82 ], [ %70, %86 ], [ %70, %74 ], [ %70, %101 ], [ %70, %105 ], [ %70, %93 ], [ %70, %120 ], [ %70, %124 ], [ %70, %112 ], [ %70, %171 ], [ %70, %175 ], [ %70, %163 ], [ %70, %190 ], [ %70, %194 ], [ %70, %182 ], [ %70, %209 ], [ %70, %213 ], [ %70, %201 ], [ %70, %228 ], [ %70, %232 ], [ %70, %220 ], [ %.1.lcssa, %268 ], [ %.1.lcssa, %272 ], [ %.1.lcssa, %260 ], [ %288, %298 ], [ %288, %302 ], [ %288, %290 ], [ %288, %317 ], [ %288, %321 ], [ %288, %309 ], [ %288, %336 ], [ %288, %340 ], [ %288, %328 ], [ %288, %355 ], [ %288, %359 ], [ %288, %347 ], [ %288, %406 ], [ %288, %410 ], [ %288, %398 ], [ %288, %425 ], [ %288, %429 ], [ %288, %417 ], [ %288, %444 ], [ %288, %448 ], [ %288, %436 ], [ %288, %463 ], [ %288, %467 ], [ %288, %455 ], [ %.2, %489 ], [ %.2, %493 ], [ %.2, %481 ], [ %.2, %508 ], [ %.2, %512 ], [ %.2, %500 ], [ %.2, %527 ], [ %.2, %531 ], [ %.2, %519 ], [ %.2, %546 ], [ %.2, %550 ], [ %.2, %538 ], [ %.2, %565 ], [ %.2, %569 ], [ %.2, %557 ], [ %.2, %584 ], [ %.2, %588 ], [ %.2, %576 ], [ %.2, %603 ], [ %.2, %607 ], [ %.2, %595 ], [ %.2, %625 ], [ %.2, %629 ], [ %.2, %617 ], [ %.2, %643 ], [ %.2, %647 ], [ %.2, %635 ], [ %.2, %667 ], [ %.2, %671 ], [ %.2, %659 ], [ %.2, %687 ], [ %.2, %691 ], [ %.2, %679 ], [ %.2, %709 ], [ %.2, %713 ], [ %.2, %701 ], [ %.2, %727 ], [ %.2, %731 ], [ %.2, %719 ], [ %.2, %749 ], [ %.2, %753 ], [ %.2, %741 ], [ %.2, %767 ], [ %.2, %771 ], [ %.2, %759 ], [ %.2, %757 ], [ %.2, %739 ]
-  %.0 = phi i64 [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ %479, %489 ], [ %479, %493 ], [ %479, %481 ], [ %479, %508 ], [ %479, %512 ], [ %479, %500 ], [ %479, %527 ], [ %479, %531 ], [ %479, %519 ], [ %479, %546 ], [ %479, %550 ], [ %479, %538 ], [ %479, %565 ], [ %479, %569 ], [ %479, %557 ], [ %479, %584 ], [ %479, %588 ], [ %479, %576 ], [ %479, %603 ], [ %479, %607 ], [ %479, %595 ], [ %479, %625 ], [ %479, %629 ], [ %479, %617 ], [ %479, %643 ], [ %479, %647 ], [ %479, %635 ], [ %479, %667 ], [ %479, %671 ], [ %479, %659 ], [ %479, %687 ], [ %479, %691 ], [ %479, %679 ], [ %479, %709 ], [ %479, %713 ], [ %479, %701 ], [ %479, %727 ], [ %479, %731 ], [ %479, %719 ], [ %479, %749 ], [ %479, %753 ], [ %479, %741 ], [ %479, %767 ], [ %479, %771 ], [ %479, %759 ], [ %479, %757 ], [ %479, %739 ]
-  %776 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %16) #6
-  %777 = load i32, ptr %16, align 4
-  %.not316 = icmp eq i32 %777, 0
-  br i1 %.not316, label %781, label %778
+775:                                              ; preds = %757, %739
+  br label %776
 
-778:                                              ; preds = %775
-  %779 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %17, ptr noundef nonnull %18) #6
-  %780 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #6
-  br label %784
+776:                                              ; preds = %759, %771, %767, %741, %753, %749, %719, %731, %727, %701, %713, %709, %679, %691, %687, %659, %671, %667, %635, %647, %643, %617, %629, %625, %595, %607, %603, %576, %588, %584, %557, %569, %565, %538, %550, %546, %519, %531, %527, %500, %512, %508, %481, %493, %489, %455, %467, %463, %436, %448, %444, %417, %429, %425, %398, %410, %406, %347, %359, %355, %328, %340, %336, %309, %321, %317, %290, %302, %298, %260, %272, %268, %220, %232, %228, %201, %213, %209, %182, %194, %190, %163, %175, %171, %112, %124, %120, %93, %105, %101, %74, %86, %82, %.lr.ph._crit_edge, %66, %62, %28, %40, %36, %775
+  %.0172 = phi i64 [ %.2174, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.1173502.lcssa, %62 ], [ %.1173502.lcssa, %66 ], [ %.1173502.lcssa, %.lr.ph._crit_edge ], [ %.1173502911, %82 ], [ %.1173502911, %86 ], [ %.1173502911, %74 ], [ %91, %101 ], [ %91, %105 ], [ %91, %93 ], [ %91, %120 ], [ %91, %124 ], [ %91, %112 ], [ %91, %171 ], [ %91, %175 ], [ %91, %163 ], [ %91, %190 ], [ %91, %194 ], [ %91, %182 ], [ %91, %209 ], [ %91, %213 ], [ %91, %201 ], [ %91, %228 ], [ %91, %232 ], [ %91, %220 ], [ %.1173.lcssa, %268 ], [ %.1173.lcssa, %272 ], [ %.1173.lcssa, %260 ], [ %.3175511, %298 ], [ %.3175511, %302 ], [ %.3175511, %290 ], [ %.3175511, %317 ], [ %.3175511, %321 ], [ %.3175511, %309 ], [ %326, %336 ], [ %326, %340 ], [ %326, %328 ], [ %326, %355 ], [ %326, %359 ], [ %326, %347 ], [ %326, %406 ], [ %326, %410 ], [ %326, %398 ], [ %326, %425 ], [ %326, %429 ], [ %326, %417 ], [ %326, %444 ], [ %326, %448 ], [ %326, %436 ], [ %326, %463 ], [ %326, %467 ], [ %326, %455 ], [ %.2174, %489 ], [ %.2174, %493 ], [ %.2174, %481 ], [ %.2174, %508 ], [ %.2174, %512 ], [ %.2174, %500 ], [ %.2174, %527 ], [ %.2174, %531 ], [ %.2174, %519 ], [ %.2174, %546 ], [ %.2174, %550 ], [ %.2174, %538 ], [ %.2174, %565 ], [ %.2174, %569 ], [ %.2174, %557 ], [ %.2174, %584 ], [ %.2174, %588 ], [ %.2174, %576 ], [ %.2174, %603 ], [ %.2174, %607 ], [ %.2174, %595 ], [ %.2174, %625 ], [ %.2174, %629 ], [ %.2174, %617 ], [ %.2174, %643 ], [ %.2174, %647 ], [ %.2174, %635 ], [ %.2174, %667 ], [ %.2174, %671 ], [ %.2174, %659 ], [ %.2174, %687 ], [ %.2174, %691 ], [ %.2174, %679 ], [ %.2174, %709 ], [ %.2174, %713 ], [ %.2174, %701 ], [ %.2174, %727 ], [ %.2174, %731 ], [ %.2174, %719 ], [ %.2174, %749 ], [ %.2174, %753 ], [ %.2174, %741 ], [ %.2174, %767 ], [ %.2174, %771 ], [ %.2174, %759 ]
+  %.0167 = phi i64 [ %.2169, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.1168503.lcssa, %62 ], [ %.1168503.lcssa, %66 ], [ %.1168503.lcssa, %.lr.ph._crit_edge ], [ %72, %82 ], [ %72, %86 ], [ %72, %74 ], [ %72, %101 ], [ %72, %105 ], [ %72, %93 ], [ %72, %120 ], [ %72, %124 ], [ %72, %112 ], [ %72, %171 ], [ %72, %175 ], [ %72, %163 ], [ %72, %190 ], [ %72, %194 ], [ %72, %182 ], [ %72, %209 ], [ %72, %213 ], [ %72, %201 ], [ %72, %228 ], [ %72, %232 ], [ %72, %220 ], [ %.1168.lcssa, %268 ], [ %.1168.lcssa, %272 ], [ %.1168.lcssa, %260 ], [ %.3170512, %298 ], [ %.3170512, %302 ], [ %.3170512, %290 ], [ %307, %317 ], [ %307, %321 ], [ %307, %309 ], [ %307, %336 ], [ %307, %340 ], [ %307, %328 ], [ %307, %355 ], [ %307, %359 ], [ %307, %347 ], [ %307, %406 ], [ %307, %410 ], [ %307, %398 ], [ %307, %425 ], [ %307, %429 ], [ %307, %417 ], [ %307, %444 ], [ %307, %448 ], [ %307, %436 ], [ %307, %463 ], [ %307, %467 ], [ %307, %455 ], [ %.2169, %489 ], [ %.2169, %493 ], [ %.2169, %481 ], [ %.2169, %508 ], [ %.2169, %512 ], [ %.2169, %500 ], [ %.2169, %527 ], [ %.2169, %531 ], [ %.2169, %519 ], [ %.2169, %546 ], [ %.2169, %550 ], [ %.2169, %538 ], [ %.2169, %565 ], [ %.2169, %569 ], [ %.2169, %557 ], [ %.2169, %584 ], [ %.2169, %588 ], [ %.2169, %576 ], [ %.2169, %603 ], [ %.2169, %607 ], [ %.2169, %595 ], [ %.2169, %625 ], [ %.2169, %629 ], [ %.2169, %617 ], [ %.2169, %643 ], [ %.2169, %647 ], [ %.2169, %635 ], [ %.2169, %667 ], [ %.2169, %671 ], [ %.2169, %659 ], [ %.2169, %687 ], [ %.2169, %691 ], [ %.2169, %679 ], [ %.2169, %709 ], [ %.2169, %713 ], [ %.2169, %701 ], [ %.2169, %727 ], [ %.2169, %731 ], [ %.2169, %719 ], [ %.2169, %749 ], [ %.2169, %753 ], [ %.2169, %741 ], [ %.2169, %767 ], [ %.2169, %771 ], [ %.2169, %759 ]
+  %.0162 = phi i64 [ %.2164, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.1163504.lcssa, %62 ], [ %.1163504.lcssa, %66 ], [ %.1163504.lcssa, %.lr.ph._crit_edge ], [ %.1163504910, %82 ], [ %.1163504910, %86 ], [ %.1163504910, %74 ], [ %.1163504910, %101 ], [ %.1163504910, %105 ], [ %.1163504910, %93 ], [ %110, %120 ], [ %110, %124 ], [ %110, %112 ], [ %110, %171 ], [ %110, %175 ], [ %110, %163 ], [ %110, %190 ], [ %110, %194 ], [ %110, %182 ], [ %110, %209 ], [ %110, %213 ], [ %110, %201 ], [ %110, %228 ], [ %110, %232 ], [ %110, %220 ], [ %.1163.lcssa, %268 ], [ %.1163.lcssa, %272 ], [ %.1163.lcssa, %260 ], [ %.3165513, %298 ], [ %.3165513, %302 ], [ %.3165513, %290 ], [ %.3165513, %317 ], [ %.3165513, %321 ], [ %.3165513, %309 ], [ %.3165513, %336 ], [ %.3165513, %340 ], [ %.3165513, %328 ], [ %345, %355 ], [ %345, %359 ], [ %345, %347 ], [ %345, %406 ], [ %345, %410 ], [ %345, %398 ], [ %345, %425 ], [ %345, %429 ], [ %345, %417 ], [ %345, %444 ], [ %345, %448 ], [ %345, %436 ], [ %345, %463 ], [ %345, %467 ], [ %345, %455 ], [ %.2164, %489 ], [ %.2164, %493 ], [ %.2164, %481 ], [ %.2164, %508 ], [ %.2164, %512 ], [ %.2164, %500 ], [ %.2164, %527 ], [ %.2164, %531 ], [ %.2164, %519 ], [ %.2164, %546 ], [ %.2164, %550 ], [ %.2164, %538 ], [ %.2164, %565 ], [ %.2164, %569 ], [ %.2164, %557 ], [ %.2164, %584 ], [ %.2164, %588 ], [ %.2164, %576 ], [ %.2164, %603 ], [ %.2164, %607 ], [ %.2164, %595 ], [ %.2164, %625 ], [ %.2164, %629 ], [ %.2164, %617 ], [ %.2164, %643 ], [ %.2164, %647 ], [ %.2164, %635 ], [ %.2164, %667 ], [ %.2164, %671 ], [ %.2164, %659 ], [ %.2164, %687 ], [ %.2164, %691 ], [ %.2164, %679 ], [ %.2164, %709 ], [ %.2164, %713 ], [ %.2164, %701 ], [ %.2164, %727 ], [ %.2164, %731 ], [ %.2164, %719 ], [ %.2164, %749 ], [ %.2164, %753 ], [ %.2164, %741 ], [ %.2164, %767 ], [ %.2164, %771 ], [ %.2164, %759 ]
+  %.0154 = phi i64 [ %498, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ -1, %489 ], [ -1, %493 ], [ -1, %481 ], [ %498, %508 ], [ %498, %512 ], [ %498, %500 ], [ %498, %527 ], [ %498, %531 ], [ %498, %519 ], [ %498, %546 ], [ %498, %550 ], [ %498, %538 ], [ %498, %565 ], [ %498, %569 ], [ %498, %557 ], [ %498, %584 ], [ %498, %588 ], [ %498, %576 ], [ %498, %603 ], [ %498, %607 ], [ %498, %595 ], [ %498, %625 ], [ %498, %629 ], [ %498, %617 ], [ %498, %643 ], [ %498, %647 ], [ %498, %635 ], [ %498, %667 ], [ %498, %671 ], [ %498, %659 ], [ %498, %687 ], [ %498, %691 ], [ %498, %679 ], [ %498, %709 ], [ %498, %713 ], [ %498, %701 ], [ %498, %727 ], [ %498, %731 ], [ %498, %719 ], [ %498, %749 ], [ %498, %753 ], [ %498, %741 ], [ %498, %767 ], [ %498, %771 ], [ %498, %759 ]
+  %.0153 = phi i64 [ %555, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ -1, %489 ], [ -1, %493 ], [ -1, %481 ], [ -1, %508 ], [ -1, %512 ], [ -1, %500 ], [ -1, %527 ], [ -1, %531 ], [ -1, %519 ], [ -1, %546 ], [ -1, %550 ], [ -1, %538 ], [ %555, %565 ], [ %555, %569 ], [ %555, %557 ], [ %555, %584 ], [ %555, %588 ], [ %555, %576 ], [ %555, %603 ], [ %555, %607 ], [ %555, %595 ], [ %555, %625 ], [ %555, %629 ], [ %555, %617 ], [ %555, %643 ], [ %555, %647 ], [ %555, %635 ], [ %555, %667 ], [ %555, %671 ], [ %555, %659 ], [ %555, %687 ], [ %555, %691 ], [ %555, %679 ], [ %555, %709 ], [ %555, %713 ], [ %555, %701 ], [ %555, %727 ], [ %555, %731 ], [ %555, %719 ], [ %555, %749 ], [ %555, %753 ], [ %555, %741 ], [ %555, %767 ], [ %555, %771 ], [ %555, %759 ]
+  %.0152 = phi i32 [ %.3160, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ -1, %489 ], [ -1, %493 ], [ -1, %481 ], [ -1, %508 ], [ -1, %512 ], [ -1, %500 ], [ -1, %527 ], [ -1, %531 ], [ -1, %519 ], [ -1, %546 ], [ -1, %550 ], [ -1, %538 ], [ -1, %565 ], [ -1, %569 ], [ -1, %557 ], [ -1, %584 ], [ -1, %588 ], [ -1, %576 ], [ -1, %603 ], [ -1, %607 ], [ -1, %595 ], [ -1, %625 ], [ -1, %629 ], [ -1, %617 ], [ -1, %643 ], [ -1, %647 ], [ -1, %635 ], [ -1, %667 ], [ -1, %671 ], [ -1, %659 ], [ -1, %687 ], [ -1, %691 ], [ -1, %679 ], [ -1, %709 ], [ -1, %713 ], [ -1, %701 ], [ -1, %727 ], [ -1, %731 ], [ -1, %719 ], [ -1, %749 ], [ -1, %753 ], [ -1, %741 ], [ -1, %767 ], [ -1, %771 ], [ -1, %759 ]
+  %.0151 = phi i64 [ %.2, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ %.lcssa841, %62 ], [ %.lcssa841, %66 ], [ %.lcssa841, %.lr.ph._crit_edge ], [ %70, %82 ], [ %70, %86 ], [ %70, %74 ], [ %70, %101 ], [ %70, %105 ], [ %70, %93 ], [ %70, %120 ], [ %70, %124 ], [ %70, %112 ], [ %70, %171 ], [ %70, %175 ], [ %70, %163 ], [ %70, %190 ], [ %70, %194 ], [ %70, %182 ], [ %70, %209 ], [ %70, %213 ], [ %70, %201 ], [ %70, %228 ], [ %70, %232 ], [ %70, %220 ], [ %.1.lcssa, %268 ], [ %.1.lcssa, %272 ], [ %.1.lcssa, %260 ], [ %288, %298 ], [ %288, %302 ], [ %288, %290 ], [ %288, %317 ], [ %288, %321 ], [ %288, %309 ], [ %288, %336 ], [ %288, %340 ], [ %288, %328 ], [ %288, %355 ], [ %288, %359 ], [ %288, %347 ], [ %288, %406 ], [ %288, %410 ], [ %288, %398 ], [ %288, %425 ], [ %288, %429 ], [ %288, %417 ], [ %288, %444 ], [ %288, %448 ], [ %288, %436 ], [ %288, %463 ], [ %288, %467 ], [ %288, %455 ], [ %.2, %489 ], [ %.2, %493 ], [ %.2, %481 ], [ %.2, %508 ], [ %.2, %512 ], [ %.2, %500 ], [ %.2, %527 ], [ %.2, %531 ], [ %.2, %519 ], [ %.2, %546 ], [ %.2, %550 ], [ %.2, %538 ], [ %.2, %565 ], [ %.2, %569 ], [ %.2, %557 ], [ %.2, %584 ], [ %.2, %588 ], [ %.2, %576 ], [ %.2, %603 ], [ %.2, %607 ], [ %.2, %595 ], [ %.2, %625 ], [ %.2, %629 ], [ %.2, %617 ], [ %.2, %643 ], [ %.2, %647 ], [ %.2, %635 ], [ %.2, %667 ], [ %.2, %671 ], [ %.2, %659 ], [ %.2, %687 ], [ %.2, %691 ], [ %.2, %679 ], [ %.2, %709 ], [ %.2, %713 ], [ %.2, %701 ], [ %.2, %727 ], [ %.2, %731 ], [ %.2, %719 ], [ %.2, %749 ], [ %.2, %753 ], [ %.2, %741 ], [ %.2, %767 ], [ %.2, %771 ], [ %.2, %759 ]
+  %.0 = phi i64 [ %479, %775 ], [ -1, %36 ], [ -1, %40 ], [ -1, %28 ], [ -1, %62 ], [ -1, %66 ], [ -1, %.lr.ph._crit_edge ], [ -1, %82 ], [ -1, %86 ], [ -1, %74 ], [ -1, %101 ], [ -1, %105 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %112 ], [ -1, %171 ], [ -1, %175 ], [ -1, %163 ], [ -1, %190 ], [ -1, %194 ], [ -1, %182 ], [ -1, %209 ], [ -1, %213 ], [ -1, %201 ], [ -1, %228 ], [ -1, %232 ], [ -1, %220 ], [ -1, %268 ], [ -1, %272 ], [ -1, %260 ], [ -1, %298 ], [ -1, %302 ], [ -1, %290 ], [ -1, %317 ], [ -1, %321 ], [ -1, %309 ], [ -1, %336 ], [ -1, %340 ], [ -1, %328 ], [ -1, %355 ], [ -1, %359 ], [ -1, %347 ], [ -1, %406 ], [ -1, %410 ], [ -1, %398 ], [ -1, %425 ], [ -1, %429 ], [ -1, %417 ], [ -1, %444 ], [ -1, %448 ], [ -1, %436 ], [ -1, %463 ], [ -1, %467 ], [ -1, %455 ], [ %479, %489 ], [ %479, %493 ], [ %479, %481 ], [ %479, %508 ], [ %479, %512 ], [ %479, %500 ], [ %479, %527 ], [ %479, %531 ], [ %479, %519 ], [ %479, %546 ], [ %479, %550 ], [ %479, %538 ], [ %479, %565 ], [ %479, %569 ], [ %479, %557 ], [ %479, %584 ], [ %479, %588 ], [ %479, %576 ], [ %479, %603 ], [ %479, %607 ], [ %479, %595 ], [ %479, %625 ], [ %479, %629 ], [ %479, %617 ], [ %479, %643 ], [ %479, %647 ], [ %479, %635 ], [ %479, %667 ], [ %479, %671 ], [ %479, %659 ], [ %479, %687 ], [ %479, %691 ], [ %479, %679 ], [ %479, %709 ], [ %479, %713 ], [ %479, %701 ], [ %479, %727 ], [ %479, %731 ], [ %479, %719 ], [ %479, %749 ], [ %479, %753 ], [ %479, %741 ], [ %479, %767 ], [ %479, %771 ], [ %479, %759 ]
+  %777 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %16) #6
+  %778 = load i32, ptr %16, align 4
+  %.not316 = icmp eq i32 %778, 0
+  br i1 %.not316, label %782, label %779
 
-781:                                              ; preds = %775
-  %782 = call i32 @H5Eget_auto1(ptr noundef nonnull %17, ptr noundef nonnull %18) #6
-  %783 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #6
-  br label %784
+779:                                              ; preds = %776
+  %780 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %17, ptr noundef nonnull %18) #6
+  %781 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #6
+  br label %785
 
-784:                                              ; preds = %781, %778
-  %785 = call i32 @H5Pclose(i64 noundef %.0154) #6
-  %786 = call i32 @H5Pclose(i64 noundef %.0153) #6
-  %787 = call i32 @H5Pclose(i64 noundef %.0172) #6
-  %788 = call i32 @H5Sclose(i64 noundef %.0167) #6
-  %789 = call i32 @H5Dclose(i64 noundef %.0151) #6
-  %790 = call i32 @H5Tclose(i64 noundef %.0162) #6
-  %791 = call i32 @H5Fclose(i64 noundef %.0) #6
-  %792 = call i32 @H5Fclose(i64 noundef %19) #6
-  %793 = load ptr, ptr %6, align 8
-  %.not317 = icmp eq ptr %793, null
-  br i1 %.not317, label %795, label %794
+782:                                              ; preds = %776
+  %783 = call i32 @H5Eget_auto1(ptr noundef nonnull %17, ptr noundef nonnull %18) #6
+  %784 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #6
+  br label %785
 
-794:                                              ; preds = %784
-  call void @trav_table_free(ptr noundef nonnull %793) #6
-  br label %795
+785:                                              ; preds = %782, %779
+  %786 = call i32 @H5Pclose(i64 noundef %.0154) #6
+  %787 = call i32 @H5Pclose(i64 noundef %.0153) #6
+  %788 = call i32 @H5Pclose(i64 noundef %.0172) #6
+  %789 = call i32 @H5Sclose(i64 noundef %.0167) #6
+  %790 = call i32 @H5Dclose(i64 noundef %.0151) #6
+  %791 = call i32 @H5Tclose(i64 noundef %.0162) #6
+  %792 = call i32 @H5Fclose(i64 noundef %.0) #6
+  %793 = call i32 @H5Fclose(i64 noundef %19) #6
+  %794 = load ptr, ptr %6, align 8
+  %.not317 = icmp eq ptr %794, null
+  br i1 %.not317, label %796, label %795
 
-795:                                              ; preds = %794, %784
-  %796 = load i32, ptr %16, align 4
-  %.not318 = icmp eq i32 %796, 0
-  %797 = load ptr, ptr %17, align 8
-  %798 = load ptr, ptr %18, align 8
-  br i1 %.not318, label %801, label %799
+795:                                              ; preds = %785
+  call void @trav_table_free(ptr noundef nonnull %794) #6
+  br label %796
 
-799:                                              ; preds = %795
-  %800 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %797, ptr noundef %798) #6
-  br label %803
+796:                                              ; preds = %795, %785
+  %797 = load i32, ptr %16, align 4
+  %.not318 = icmp eq i32 %797, 0
+  %798 = load ptr, ptr %17, align 8
+  %799 = load ptr, ptr %18, align 8
+  br i1 %.not318, label %802, label %800
 
-801:                                              ; preds = %795
-  %802 = call i32 @H5Eset_auto1(ptr noundef %797, ptr noundef %798) #6
-  br label %803
+800:                                              ; preds = %796
+  %801 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %798, ptr noundef %799) #6
+  br label %804
 
-803:                                              ; preds = %801, %799
+802:                                              ; preds = %796
+  %803 = call i32 @H5Eset_auto1(ptr noundef %798, ptr noundef %799) #6
+  br label %804
+
+804:                                              ; preds = %802, %800
   ret i32 %.0152
 }
 

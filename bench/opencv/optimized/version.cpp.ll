@@ -13616,7 +13616,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5432 = load ptr, ptr %11, align 8
   %.not.i1995 = icmp eq ptr %5432, null
-  br i1 %.not.i1995, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5433
+  br i1 %.not.i1995, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1996, label %5433
 
 5433:                                             ; preds = %5430
   %5434 = getelementptr inbounds i8, ptr %5432, i64 8
@@ -13624,7 +13624,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5436 = add i32 %5435, -1
   store i32 %5436, ptr %5434, align 8
   %5437 = icmp eq i32 %5436, 0
-  br i1 %5437, label %5438, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5437, label %5438, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1996
 
 5438:                                             ; preds = %5433
   store i32 -559026175, ptr %5434, align 8
@@ -13632,6 +13632,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5440 = getelementptr inbounds i8, ptr %5439, i64 8
   %5441 = load ptr, ptr %5440, align 8
   call void %5441(ptr noundef nonnull align 8 dereferenceable(12) %5432) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1996
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1996:  ; preds = %5430, %5433, %5438
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5442:                                             ; preds = %1327, %1308, %1289, %1270, %1254, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit742
@@ -13689,7 +13692,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5455 = load ptr, ptr %12, align 8
   %.not.i1997 = icmp eq ptr %5455, null
-  br i1 %.not.i1997, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5456
+  br i1 %.not.i1997, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1998, label %5456
 
 5456:                                             ; preds = %5453
   %5457 = getelementptr inbounds i8, ptr %5455, i64 8
@@ -13697,7 +13700,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5459 = add i32 %5458, -1
   store i32 %5459, ptr %5457, align 8
   %5460 = icmp eq i32 %5459, 0
-  br i1 %5460, label %5461, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5460, label %5461, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1998
 
 5461:                                             ; preds = %5456
   store i32 -559026175, ptr %5457, align 8
@@ -13705,6 +13708,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5463 = getelementptr inbounds i8, ptr %5462, i64 8
   %5464 = load ptr, ptr %5463, align 8
   call void %5464(ptr noundef nonnull align 8 dereferenceable(12) %5455) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1998
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1998:  ; preds = %5453, %5456, %5461
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5465:                                             ; preds = %1456, %1437, %1418, %1399, %1391, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit785
@@ -13758,7 +13764,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5478 = load ptr, ptr %13, align 8
   %.not.i1999 = icmp eq ptr %5478, null
-  br i1 %.not.i1999, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5479
+  br i1 %.not.i1999, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2000, label %5479
 
 5479:                                             ; preds = %5476
   %5480 = getelementptr inbounds i8, ptr %5478, i64 8
@@ -13766,7 +13772,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5482 = add i32 %5481, -1
   store i32 %5482, ptr %5480, align 8
   %5483 = icmp eq i32 %5482, 0
-  br i1 %5483, label %5484, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5483, label %5484, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2000
 
 5484:                                             ; preds = %5479
   store i32 -559026175, ptr %5480, align 8
@@ -13774,6 +13780,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5486 = getelementptr inbounds i8, ptr %5485, i64 8
   %5487 = load ptr, ptr %5486, align 8
   call void %5487(ptr noundef nonnull align 8 dereferenceable(12) %5478) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2000
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2000:  ; preds = %5476, %5479, %5484
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5488:                                             ; preds = %1593, %1574, %1555, %1536, %1520, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit825
@@ -13831,7 +13840,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5501 = load ptr, ptr %14, align 8
   %.not.i2001 = icmp eq ptr %5501, null
-  br i1 %.not.i2001, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5502
+  br i1 %.not.i2001, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2002, label %5502
 
 5502:                                             ; preds = %5499
   %5503 = getelementptr inbounds i8, ptr %5501, i64 8
@@ -13839,7 +13848,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5505 = add i32 %5504, -1
   store i32 %5505, ptr %5503, align 8
   %5506 = icmp eq i32 %5505, 0
-  br i1 %5506, label %5507, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5506, label %5507, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2002
 
 5507:                                             ; preds = %5502
   store i32 -559026175, ptr %5503, align 8
@@ -13847,6 +13856,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5509 = getelementptr inbounds i8, ptr %5508, i64 8
   %5510 = load ptr, ptr %5509, align 8
   call void %5510(ptr noundef nonnull align 8 dereferenceable(12) %5501) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2002
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2002:  ; preds = %5499, %5502, %5507
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5511:                                             ; preds = %1730, %1711, %1692, %1673, %1657, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit868
@@ -13904,7 +13916,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5524 = load ptr, ptr %15, align 8
   %.not.i2003 = icmp eq ptr %5524, null
-  br i1 %.not.i2003, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5525
+  br i1 %.not.i2003, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2004, label %5525
 
 5525:                                             ; preds = %5522
   %5526 = getelementptr inbounds i8, ptr %5524, i64 8
@@ -13912,7 +13924,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5528 = add i32 %5527, -1
   store i32 %5528, ptr %5526, align 8
   %5529 = icmp eq i32 %5528, 0
-  br i1 %5529, label %5530, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5529, label %5530, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2004
 
 5530:                                             ; preds = %5525
   store i32 -559026175, ptr %5526, align 8
@@ -13920,6 +13932,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5532 = getelementptr inbounds i8, ptr %5531, i64 8
   %5533 = load ptr, ptr %5532, align 8
   call void %5533(ptr noundef nonnull align 8 dereferenceable(12) %5524) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2004
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2004:  ; preds = %5522, %5525, %5530
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5534:                                             ; preds = %1867, %1848, %1829, %1810, %1794, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit911
@@ -13977,7 +13992,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5547 = load ptr, ptr %16, align 8
   %.not.i2005 = icmp eq ptr %5547, null
-  br i1 %.not.i2005, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5548
+  br i1 %.not.i2005, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2006, label %5548
 
 5548:                                             ; preds = %5545
   %5549 = getelementptr inbounds i8, ptr %5547, i64 8
@@ -13985,7 +14000,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5551 = add i32 %5550, -1
   store i32 %5551, ptr %5549, align 8
   %5552 = icmp eq i32 %5551, 0
-  br i1 %5552, label %5553, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5552, label %5553, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2006
 
 5553:                                             ; preds = %5548
   store i32 -559026175, ptr %5549, align 8
@@ -13993,6 +14008,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5555 = getelementptr inbounds i8, ptr %5554, i64 8
   %5556 = load ptr, ptr %5555, align 8
   call void %5556(ptr noundef nonnull align 8 dereferenceable(12) %5547) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2006
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2006:  ; preds = %5545, %5548, %5553
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5557:                                             ; preds = %2004, %1985, %1966, %1947, %1931, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit954
@@ -14050,7 +14068,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5570 = load ptr, ptr %17, align 8
   %.not.i2007 = icmp eq ptr %5570, null
-  br i1 %.not.i2007, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5571
+  br i1 %.not.i2007, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2008, label %5571
 
 5571:                                             ; preds = %5568
   %5572 = getelementptr inbounds i8, ptr %5570, i64 8
@@ -14058,7 +14076,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5574 = add i32 %5573, -1
   store i32 %5574, ptr %5572, align 8
   %5575 = icmp eq i32 %5574, 0
-  br i1 %5575, label %5576, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5575, label %5576, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2008
 
 5576:                                             ; preds = %5571
   store i32 -559026175, ptr %5572, align 8
@@ -14066,6 +14084,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5578 = getelementptr inbounds i8, ptr %5577, i64 8
   %5579 = load ptr, ptr %5578, align 8
   call void %5579(ptr noundef nonnull align 8 dereferenceable(12) %5570) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2008
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2008:  ; preds = %5568, %5571, %5576
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5580:                                             ; preds = %2141, %2122, %2103, %2084, %2068, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit997
@@ -14123,7 +14144,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5593 = load ptr, ptr %18, align 8
   %.not.i2009 = icmp eq ptr %5593, null
-  br i1 %.not.i2009, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5594
+  br i1 %.not.i2009, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2010, label %5594
 
 5594:                                             ; preds = %5591
   %5595 = getelementptr inbounds i8, ptr %5593, i64 8
@@ -14131,7 +14152,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5597 = add i32 %5596, -1
   store i32 %5597, ptr %5595, align 8
   %5598 = icmp eq i32 %5597, 0
-  br i1 %5598, label %5599, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5598, label %5599, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2010
 
 5599:                                             ; preds = %5594
   store i32 -559026175, ptr %5595, align 8
@@ -14139,6 +14160,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5601 = getelementptr inbounds i8, ptr %5600, i64 8
   %5602 = load ptr, ptr %5601, align 8
   call void %5602(ptr noundef nonnull align 8 dereferenceable(12) %5593) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2010
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2010:  ; preds = %5591, %5594, %5599
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5603:                                             ; preds = %2278, %2259, %2240, %2221, %2205, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1040
@@ -14196,7 +14220,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5616 = load ptr, ptr %19, align 8
   %.not.i2011 = icmp eq ptr %5616, null
-  br i1 %.not.i2011, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5617
+  br i1 %.not.i2011, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2012, label %5617
 
 5617:                                             ; preds = %5614
   %5618 = getelementptr inbounds i8, ptr %5616, i64 8
@@ -14204,7 +14228,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5620 = add i32 %5619, -1
   store i32 %5620, ptr %5618, align 8
   %5621 = icmp eq i32 %5620, 0
-  br i1 %5621, label %5622, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5621, label %5622, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2012
 
 5622:                                             ; preds = %5617
   store i32 -559026175, ptr %5618, align 8
@@ -14212,6 +14236,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5624 = getelementptr inbounds i8, ptr %5623, i64 8
   %5625 = load ptr, ptr %5624, align 8
   call void %5625(ptr noundef nonnull align 8 dereferenceable(12) %5616) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2012
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2012:  ; preds = %5614, %5617, %5622
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5626:                                             ; preds = %2415, %2396, %2377, %2358, %2342, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1083
@@ -14269,7 +14296,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5639 = load ptr, ptr %20, align 8
   %.not.i2013 = icmp eq ptr %5639, null
-  br i1 %.not.i2013, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5640
+  br i1 %.not.i2013, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2014, label %5640
 
 5640:                                             ; preds = %5637
   %5641 = getelementptr inbounds i8, ptr %5639, i64 8
@@ -14277,7 +14304,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5643 = add i32 %5642, -1
   store i32 %5643, ptr %5641, align 8
   %5644 = icmp eq i32 %5643, 0
-  br i1 %5644, label %5645, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5644, label %5645, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2014
 
 5645:                                             ; preds = %5640
   store i32 -559026175, ptr %5641, align 8
@@ -14285,6 +14312,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5647 = getelementptr inbounds i8, ptr %5646, i64 8
   %5648 = load ptr, ptr %5647, align 8
   call void %5648(ptr noundef nonnull align 8 dereferenceable(12) %5639) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2014
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2014:  ; preds = %5637, %5640, %5645
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5649:                                             ; preds = %2544, %2525, %2506, %2495, %2479, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1126
@@ -14338,7 +14368,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5662 = load ptr, ptr %21, align 8
   %.not.i2015 = icmp eq ptr %5662, null
-  br i1 %.not.i2015, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5663
+  br i1 %.not.i2015, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2016, label %5663
 
 5663:                                             ; preds = %5660
   %5664 = getelementptr inbounds i8, ptr %5662, i64 8
@@ -14346,7 +14376,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5666 = add i32 %5665, -1
   store i32 %5666, ptr %5664, align 8
   %5667 = icmp eq i32 %5666, 0
-  br i1 %5667, label %5668, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5667, label %5668, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2016
 
 5668:                                             ; preds = %5663
   store i32 -559026175, ptr %5664, align 8
@@ -14354,6 +14384,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5670 = getelementptr inbounds i8, ptr %5669, i64 8
   %5671 = load ptr, ptr %5670, align 8
   call void %5671(ptr noundef nonnull align 8 dereferenceable(12) %5662) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2016
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2016:  ; preds = %5660, %5663, %5668
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5672:                                             ; preds = %2665, %2654, %2635, %2624, %2608, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1166
@@ -14403,7 +14436,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5685 = load ptr, ptr %22, align 8
   %.not.i2017 = icmp eq ptr %5685, null
-  br i1 %.not.i2017, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5686
+  br i1 %.not.i2017, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2018, label %5686
 
 5686:                                             ; preds = %5683
   %5687 = getelementptr inbounds i8, ptr %5685, i64 8
@@ -14411,7 +14444,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5689 = add i32 %5688, -1
   store i32 %5689, ptr %5687, align 8
   %5690 = icmp eq i32 %5689, 0
-  br i1 %5690, label %5691, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5690, label %5691, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2018
 
 5691:                                             ; preds = %5686
   store i32 -559026175, ptr %5687, align 8
@@ -14419,6 +14452,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5693 = getelementptr inbounds i8, ptr %5692, i64 8
   %5694 = load ptr, ptr %5693, align 8
   call void %5694(ptr noundef nonnull align 8 dereferenceable(12) %5685) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2018
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2018:  ; preds = %5683, %5686, %5691
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5695:                                             ; preds = %2802, %2783, %2764, %2745, %2729, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1203
@@ -14476,7 +14512,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5708 = load ptr, ptr %23, align 8
   %.not.i2019 = icmp eq ptr %5708, null
-  br i1 %.not.i2019, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5709
+  br i1 %.not.i2019, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2020, label %5709
 
 5709:                                             ; preds = %5706
   %5710 = getelementptr inbounds i8, ptr %5708, i64 8
@@ -14484,7 +14520,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5712 = add i32 %5711, -1
   store i32 %5712, ptr %5710, align 8
   %5713 = icmp eq i32 %5712, 0
-  br i1 %5713, label %5714, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5713, label %5714, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2020
 
 5714:                                             ; preds = %5709
   store i32 -559026175, ptr %5710, align 8
@@ -14492,6 +14528,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5716 = getelementptr inbounds i8, ptr %5715, i64 8
   %5717 = load ptr, ptr %5716, align 8
   call void %5717(ptr noundef nonnull align 8 dereferenceable(12) %5708) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2020
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2020:  ; preds = %5706, %5709, %5714
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5718:                                             ; preds = %2939, %2920, %2901, %2882, %2866, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1246
@@ -14549,7 +14588,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5731 = load ptr, ptr %24, align 8
   %.not.i2021 = icmp eq ptr %5731, null
-  br i1 %.not.i2021, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5732
+  br i1 %.not.i2021, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2022, label %5732
 
 5732:                                             ; preds = %5729
   %5733 = getelementptr inbounds i8, ptr %5731, i64 8
@@ -14557,7 +14596,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5735 = add i32 %5734, -1
   store i32 %5735, ptr %5733, align 8
   %5736 = icmp eq i32 %5735, 0
-  br i1 %5736, label %5737, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5736, label %5737, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2022
 
 5737:                                             ; preds = %5732
   store i32 -559026175, ptr %5733, align 8
@@ -14565,6 +14604,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5739 = getelementptr inbounds i8, ptr %5738, i64 8
   %5740 = load ptr, ptr %5739, align 8
   call void %5740(ptr noundef nonnull align 8 dereferenceable(12) %5731) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2022
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2022:  ; preds = %5729, %5732, %5737
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5741:                                             ; preds = %3076, %3057, %3038, %3019, %3003, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1289
@@ -14622,7 +14664,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5754 = load ptr, ptr %25, align 8
   %.not.i2023 = icmp eq ptr %5754, null
-  br i1 %.not.i2023, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5755
+  br i1 %.not.i2023, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2024, label %5755
 
 5755:                                             ; preds = %5752
   %5756 = getelementptr inbounds i8, ptr %5754, i64 8
@@ -14630,7 +14672,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5758 = add i32 %5757, -1
   store i32 %5758, ptr %5756, align 8
   %5759 = icmp eq i32 %5758, 0
-  br i1 %5759, label %5760, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5759, label %5760, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2024
 
 5760:                                             ; preds = %5755
   store i32 -559026175, ptr %5756, align 8
@@ -14638,6 +14680,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5762 = getelementptr inbounds i8, ptr %5761, i64 8
   %5763 = load ptr, ptr %5762, align 8
   call void %5763(ptr noundef nonnull align 8 dereferenceable(12) %5754) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2024
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2024:  ; preds = %5752, %5755, %5760
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5764:                                             ; preds = %3213, %3194, %3175, %3156, %3140, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1332
@@ -14695,7 +14740,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5777 = load ptr, ptr %26, align 8
   %.not.i2025 = icmp eq ptr %5777, null
-  br i1 %.not.i2025, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5778
+  br i1 %.not.i2025, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2026, label %5778
 
 5778:                                             ; preds = %5775
   %5779 = getelementptr inbounds i8, ptr %5777, i64 8
@@ -14703,7 +14748,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5781 = add i32 %5780, -1
   store i32 %5781, ptr %5779, align 8
   %5782 = icmp eq i32 %5781, 0
-  br i1 %5782, label %5783, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5782, label %5783, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2026
 
 5783:                                             ; preds = %5778
   store i32 -559026175, ptr %5779, align 8
@@ -14711,6 +14756,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5785 = getelementptr inbounds i8, ptr %5784, i64 8
   %5786 = load ptr, ptr %5785, align 8
   call void %5786(ptr noundef nonnull align 8 dereferenceable(12) %5777) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2026
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2026:  ; preds = %5775, %5778, %5783
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5787:                                             ; preds = %3350, %3331, %3312, %3293, %3277, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1375
@@ -14768,7 +14816,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5800 = load ptr, ptr %27, align 8
   %.not.i2027 = icmp eq ptr %5800, null
-  br i1 %.not.i2027, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5801
+  br i1 %.not.i2027, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2028, label %5801
 
 5801:                                             ; preds = %5798
   %5802 = getelementptr inbounds i8, ptr %5800, i64 8
@@ -14776,7 +14824,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5804 = add i32 %5803, -1
   store i32 %5804, ptr %5802, align 8
   %5805 = icmp eq i32 %5804, 0
-  br i1 %5805, label %5806, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5805, label %5806, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2028
 
 5806:                                             ; preds = %5801
   store i32 -559026175, ptr %5802, align 8
@@ -14784,6 +14832,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5808 = getelementptr inbounds i8, ptr %5807, i64 8
   %5809 = load ptr, ptr %5808, align 8
   call void %5809(ptr noundef nonnull align 8 dereferenceable(12) %5800) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2028
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2028:  ; preds = %5798, %5801, %5806
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5810:                                             ; preds = %3487, %3468, %3449, %3430, %3414, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1418
@@ -14841,7 +14892,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5823 = load ptr, ptr %28, align 8
   %.not.i2029 = icmp eq ptr %5823, null
-  br i1 %.not.i2029, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5824
+  br i1 %.not.i2029, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2030, label %5824
 
 5824:                                             ; preds = %5821
   %5825 = getelementptr inbounds i8, ptr %5823, i64 8
@@ -14849,7 +14900,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5827 = add i32 %5826, -1
   store i32 %5827, ptr %5825, align 8
   %5828 = icmp eq i32 %5827, 0
-  br i1 %5828, label %5829, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5828, label %5829, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2030
 
 5829:                                             ; preds = %5824
   store i32 -559026175, ptr %5825, align 8
@@ -14857,6 +14908,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5831 = getelementptr inbounds i8, ptr %5830, i64 8
   %5832 = load ptr, ptr %5831, align 8
   call void %5832(ptr noundef nonnull align 8 dereferenceable(12) %5823) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2030
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2030:  ; preds = %5821, %5824, %5829
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5833:                                             ; preds = %3624, %3605, %3586, %3567, %3551, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1461
@@ -14914,7 +14968,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5846 = load ptr, ptr %29, align 8
   %.not.i2031 = icmp eq ptr %5846, null
-  br i1 %.not.i2031, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5847
+  br i1 %.not.i2031, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2032, label %5847
 
 5847:                                             ; preds = %5844
   %5848 = getelementptr inbounds i8, ptr %5846, i64 8
@@ -14922,7 +14976,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5850 = add i32 %5849, -1
   store i32 %5850, ptr %5848, align 8
   %5851 = icmp eq i32 %5850, 0
-  br i1 %5851, label %5852, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5851, label %5852, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2032
 
 5852:                                             ; preds = %5847
   store i32 -559026175, ptr %5848, align 8
@@ -14930,6 +14984,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5854 = getelementptr inbounds i8, ptr %5853, i64 8
   %5855 = load ptr, ptr %5854, align 8
   call void %5855(ptr noundef nonnull align 8 dereferenceable(12) %5846) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2032
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2032:  ; preds = %5844, %5847, %5852
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5856:                                             ; preds = %3761, %3742, %3723, %3704, %3688, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1504
@@ -14987,7 +15044,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5869 = load ptr, ptr %30, align 8
   %.not.i2033 = icmp eq ptr %5869, null
-  br i1 %.not.i2033, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5870
+  br i1 %.not.i2033, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2034, label %5870
 
 5870:                                             ; preds = %5867
   %5871 = getelementptr inbounds i8, ptr %5869, i64 8
@@ -14995,7 +15052,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5873 = add i32 %5872, -1
   store i32 %5873, ptr %5871, align 8
   %5874 = icmp eq i32 %5873, 0
-  br i1 %5874, label %5875, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5874, label %5875, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2034
 
 5875:                                             ; preds = %5870
   store i32 -559026175, ptr %5871, align 8
@@ -15003,6 +15060,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5877 = getelementptr inbounds i8, ptr %5876, i64 8
   %5878 = load ptr, ptr %5877, align 8
   call void %5878(ptr noundef nonnull align 8 dereferenceable(12) %5869) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2034
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2034:  ; preds = %5867, %5870, %5875
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5879:                                             ; preds = %3898, %3879, %3860, %3841, %3825, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1547
@@ -15060,7 +15120,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5892 = load ptr, ptr %31, align 8
   %.not.i2035 = icmp eq ptr %5892, null
-  br i1 %.not.i2035, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5893
+  br i1 %.not.i2035, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2036, label %5893
 
 5893:                                             ; preds = %5890
   %5894 = getelementptr inbounds i8, ptr %5892, i64 8
@@ -15068,7 +15128,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5896 = add i32 %5895, -1
   store i32 %5896, ptr %5894, align 8
   %5897 = icmp eq i32 %5896, 0
-  br i1 %5897, label %5898, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5897, label %5898, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2036
 
 5898:                                             ; preds = %5893
   store i32 -559026175, ptr %5894, align 8
@@ -15076,6 +15136,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5900 = getelementptr inbounds i8, ptr %5899, i64 8
   %5901 = load ptr, ptr %5900, align 8
   call void %5901(ptr noundef nonnull align 8 dereferenceable(12) %5892) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2036
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2036:  ; preds = %5890, %5893, %5898
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5902:                                             ; preds = %4027, %4008, %3989, %3970, %3962, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1590
@@ -15129,7 +15192,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5915 = load ptr, ptr %32, align 8
   %.not.i2037 = icmp eq ptr %5915, null
-  br i1 %.not.i2037, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5916
+  br i1 %.not.i2037, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2038, label %5916
 
 5916:                                             ; preds = %5913
   %5917 = getelementptr inbounds i8, ptr %5915, i64 8
@@ -15137,7 +15200,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5919 = add i32 %5918, -1
   store i32 %5919, ptr %5917, align 8
   %5920 = icmp eq i32 %5919, 0
-  br i1 %5920, label %5921, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5920, label %5921, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2038
 
 5921:                                             ; preds = %5916
   store i32 -559026175, ptr %5917, align 8
@@ -15145,6 +15208,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5923 = getelementptr inbounds i8, ptr %5922, i64 8
   %5924 = load ptr, ptr %5923, align 8
   call void %5924(ptr noundef nonnull align 8 dereferenceable(12) %5915) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2038
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2038:  ; preds = %5913, %5916, %5921
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5925:                                             ; preds = %4164, %4145, %4126, %4107, %4091, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1630
@@ -15202,7 +15268,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5938 = load ptr, ptr %33, align 8
   %.not.i2039 = icmp eq ptr %5938, null
-  br i1 %.not.i2039, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5939
+  br i1 %.not.i2039, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2040, label %5939
 
 5939:                                             ; preds = %5936
   %5940 = getelementptr inbounds i8, ptr %5938, i64 8
@@ -15210,7 +15276,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5942 = add i32 %5941, -1
   store i32 %5942, ptr %5940, align 8
   %5943 = icmp eq i32 %5942, 0
-  br i1 %5943, label %5944, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5943, label %5944, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2040
 
 5944:                                             ; preds = %5939
   store i32 -559026175, ptr %5940, align 8
@@ -15218,6 +15284,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5946 = getelementptr inbounds i8, ptr %5945, i64 8
   %5947 = load ptr, ptr %5946, align 8
   call void %5947(ptr noundef nonnull align 8 dereferenceable(12) %5938) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2040
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2040:  ; preds = %5936, %5939, %5944
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5948:                                             ; preds = %4301, %4282, %4263, %4244, %4228, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1673
@@ -15275,7 +15344,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5961 = load ptr, ptr %34, align 8
   %.not.i2041 = icmp eq ptr %5961, null
-  br i1 %.not.i2041, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5962
+  br i1 %.not.i2041, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2042, label %5962
 
 5962:                                             ; preds = %5959
   %5963 = getelementptr inbounds i8, ptr %5961, i64 8
@@ -15283,7 +15352,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5965 = add i32 %5964, -1
   store i32 %5965, ptr %5963, align 8
   %5966 = icmp eq i32 %5965, 0
-  br i1 %5966, label %5967, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5966, label %5967, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2042
 
 5967:                                             ; preds = %5962
   store i32 -559026175, ptr %5963, align 8
@@ -15291,6 +15360,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5969 = getelementptr inbounds i8, ptr %5968, i64 8
   %5970 = load ptr, ptr %5969, align 8
   call void %5970(ptr noundef nonnull align 8 dereferenceable(12) %5961) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2042
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2042:  ; preds = %5959, %5962, %5967
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5971:                                             ; preds = %4438, %4419, %4400, %4381, %4365, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1716
@@ -15348,7 +15420,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %5984 = load ptr, ptr %35, align 8
   %.not.i2043 = icmp eq ptr %5984, null
-  br i1 %.not.i2043, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %5985
+  br i1 %.not.i2043, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2044, label %5985
 
 5985:                                             ; preds = %5982
   %5986 = getelementptr inbounds i8, ptr %5984, i64 8
@@ -15356,7 +15428,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5988 = add i32 %5987, -1
   store i32 %5988, ptr %5986, align 8
   %5989 = icmp eq i32 %5988, 0
-  br i1 %5989, label %5990, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %5989, label %5990, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2044
 
 5990:                                             ; preds = %5985
   store i32 -559026175, ptr %5986, align 8
@@ -15364,6 +15436,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %5992 = getelementptr inbounds i8, ptr %5991, i64 8
   %5993 = load ptr, ptr %5992, align 8
   call void %5993(ptr noundef nonnull align 8 dereferenceable(12) %5984) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2044
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2044:  ; preds = %5982, %5985, %5990
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 5994:                                             ; preds = %4575, %4556, %4537, %4518, %4502, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1759
@@ -15421,7 +15496,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %6007 = load ptr, ptr %36, align 8
   %.not.i2045 = icmp eq ptr %6007, null
-  br i1 %.not.i2045, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %6008
+  br i1 %.not.i2045, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2046, label %6008
 
 6008:                                             ; preds = %6005
   %6009 = getelementptr inbounds i8, ptr %6007, i64 8
@@ -15429,7 +15504,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6011 = add i32 %6010, -1
   store i32 %6011, ptr %6009, align 8
   %6012 = icmp eq i32 %6011, 0
-  br i1 %6012, label %6013, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %6012, label %6013, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2046
 
 6013:                                             ; preds = %6008
   store i32 -559026175, ptr %6009, align 8
@@ -15437,6 +15512,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6015 = getelementptr inbounds i8, ptr %6014, i64 8
   %6016 = load ptr, ptr %6015, align 8
   call void %6016(ptr noundef nonnull align 8 dereferenceable(12) %6007) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2046
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2046:  ; preds = %6005, %6008, %6013
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 6017:                                             ; preds = %4712, %4693, %4674, %4655, %4639, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1802
@@ -15494,7 +15572,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %6030 = load ptr, ptr %37, align 8
   %.not.i2047 = icmp eq ptr %6030, null
-  br i1 %.not.i2047, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %6031
+  br i1 %.not.i2047, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2048, label %6031
 
 6031:                                             ; preds = %6028
   %6032 = getelementptr inbounds i8, ptr %6030, i64 8
@@ -15502,7 +15580,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6034 = add i32 %6033, -1
   store i32 %6034, ptr %6032, align 8
   %6035 = icmp eq i32 %6034, 0
-  br i1 %6035, label %6036, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %6035, label %6036, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2048
 
 6036:                                             ; preds = %6031
   store i32 -559026175, ptr %6032, align 8
@@ -15510,6 +15588,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6038 = getelementptr inbounds i8, ptr %6037, i64 8
   %6039 = load ptr, ptr %6038, align 8
   call void %6039(ptr noundef nonnull align 8 dereferenceable(12) %6030) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2048
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2048:  ; preds = %6028, %6031, %6036
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 6040:                                             ; preds = %4849, %4830, %4811, %4792, %4776, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1845
@@ -15567,7 +15648,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %6053 = load ptr, ptr %38, align 8
   %.not.i2049 = icmp eq ptr %6053, null
-  br i1 %.not.i2049, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %6054
+  br i1 %.not.i2049, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2050, label %6054
 
 6054:                                             ; preds = %6051
   %6055 = getelementptr inbounds i8, ptr %6053, i64 8
@@ -15575,7 +15656,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6057 = add i32 %6056, -1
   store i32 %6057, ptr %6055, align 8
   %6058 = icmp eq i32 %6057, 0
-  br i1 %6058, label %6059, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %6058, label %6059, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2050
 
 6059:                                             ; preds = %6054
   store i32 -559026175, ptr %6055, align 8
@@ -15583,6 +15664,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6061 = getelementptr inbounds i8, ptr %6060, i64 8
   %6062 = load ptr, ptr %6061, align 8
   call void %6062(ptr noundef nonnull align 8 dereferenceable(12) %6053) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2050
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2050:  ; preds = %6051, %6054, %6059
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 6063:                                             ; preds = %4986, %4967, %4948, %4929, %4913, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1888
@@ -15640,7 +15724,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %6076 = load ptr, ptr %39, align 8
   %.not.i2051 = icmp eq ptr %6076, null
-  br i1 %.not.i2051, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %6077
+  br i1 %.not.i2051, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2052, label %6077
 
 6077:                                             ; preds = %6074
   %6078 = getelementptr inbounds i8, ptr %6076, i64 8
@@ -15648,7 +15732,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6080 = add i32 %6079, -1
   store i32 %6080, ptr %6078, align 8
   %6081 = icmp eq i32 %6080, 0
-  br i1 %6081, label %6082, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %6081, label %6082, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2052
 
 6082:                                             ; preds = %6077
   store i32 -559026175, ptr %6078, align 8
@@ -15656,6 +15740,9 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6084 = getelementptr inbounds i8, ptr %6083, i64 8
   %6085 = load ptr, ptr %6084, align 8
   call void %6085(ptr noundef nonnull align 8 dereferenceable(12) %6076) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2052
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2052:  ; preds = %6074, %6077, %6082
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
 6086:                                             ; preds = %5123, %5104, %5085, %5066, %5050, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1931
@@ -15713,7 +15800,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
           cleanup
   %6099 = load ptr, ptr %40, align 8
   %.not.i2053 = icmp eq ptr %6099, null
-  br i1 %.not.i2053, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976, label %6100
+  br i1 %.not.i2053, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2054, label %6100
 
 6100:                                             ; preds = %6097
   %6101 = getelementptr inbounds i8, ptr %6099, i64 8
@@ -15721,7 +15808,7 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6103 = add i32 %6102, -1
   store i32 %6103, ptr %6101, align 8
   %6104 = icmp eq i32 %6103, 0
-  br i1 %6104, label %6105, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
+  br i1 %6104, label %6105, label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2054
 
 6105:                                             ; preds = %6100
   store i32 -559026175, ptr %6101, align 8
@@ -15729,10 +15816,13 @@ _ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1974:  ; preds = %_ZNSt6vectorIN5zxin
   %6107 = getelementptr inbounds i8, ptr %6106, i64 8
   %6108 = load ptr, ptr %6107, align 8
   call void %6108(ptr noundef nonnull align 8 dereferenceable(12) %6099) #18
+  br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2054
+
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2054:  ; preds = %6097, %6100, %6105
   br label %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976
 
-_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976:  ; preds = %6105, %6100, %6097, %6082, %6077, %6074, %6059, %6054, %6051, %6036, %6031, %6028, %6013, %6008, %6005, %5990, %5985, %5982, %5967, %5962, %5959, %5944, %5939, %5936, %5921, %5916, %5913, %5898, %5893, %5890, %5875, %5870, %5867, %5852, %5847, %5844, %5829, %5824, %5821, %5806, %5801, %5798, %5783, %5778, %5775, %5760, %5755, %5752, %5737, %5732, %5729, %5714, %5709, %5706, %5691, %5686, %5683, %5668, %5663, %5660, %5645, %5640, %5637, %5622, %5617, %5614, %5599, %5594, %5591, %5576, %5571, %5568, %5553, %5548, %5545, %5530, %5525, %5522, %5507, %5502, %5499, %5484, %5479, %5476, %5461, %5456, %5453, %5438, %5433, %5430, %5415, %5410, %5407, %5392, %5387, %5384, %5369, %5364, %5361, %5346, %5341, %5338, %5323, %5318, %5315, %5300, %5295, %5292, %5277, %5272, %5269, %5254, %5249, %5246, %5231, %5226, %5223, %5208, %5203, %5200, %6096, %6073, %6050, %6027, %6004, %5981, %5958, %5935, %5912, %5889, %5866, %5843, %5820, %5797, %5774, %5751, %5728, %5705, %5682, %5659, %5636, %5613, %5590, %5567, %5544, %5521, %5498, %5475, %5452, %5429, %5406, %5383, %5360, %5337, %5314, %5291, %5268, %5245, %5222, %5199
-  %.pn379 = phi { ptr, i32 } [ %.pn377, %6096 ], [ %.pn375, %6073 ], [ %.pn373, %6050 ], [ %.pn371, %6027 ], [ %.pn369, %6004 ], [ %.pn367, %5981 ], [ %.pn365, %5958 ], [ %.pn363, %5935 ], [ %.pn361, %5912 ], [ %.pn359, %5889 ], [ %.pn357, %5866 ], [ %.pn355, %5843 ], [ %.pn353, %5820 ], [ %.pn351, %5797 ], [ %.pn349, %5774 ], [ %.pn347, %5751 ], [ %.pn345, %5728 ], [ %.pn343, %5705 ], [ %.pn341, %5682 ], [ %.pn339, %5659 ], [ %.pn337, %5636 ], [ %.pn335, %5613 ], [ %.pn333, %5590 ], [ %.pn331, %5567 ], [ %.pn329, %5544 ], [ %.pn327, %5521 ], [ %.pn325, %5498 ], [ %.pn323, %5475 ], [ %.pn321, %5452 ], [ %.pn319, %5429 ], [ %.pn317, %5406 ], [ %.pn315, %5383 ], [ %.pn313, %5360 ], [ %.pn311, %5337 ], [ %.pn309, %5314 ], [ %.pn307, %5291 ], [ %.pn305, %5268 ], [ %.pn303, %5245 ], [ %.pn301, %5222 ], [ %.pn, %5199 ], [ %5201, %5200 ], [ %5201, %5203 ], [ %5201, %5208 ], [ %5224, %5223 ], [ %5224, %5226 ], [ %5224, %5231 ], [ %5247, %5246 ], [ %5247, %5249 ], [ %5247, %5254 ], [ %5270, %5269 ], [ %5270, %5272 ], [ %5270, %5277 ], [ %5293, %5292 ], [ %5293, %5295 ], [ %5293, %5300 ], [ %5316, %5315 ], [ %5316, %5318 ], [ %5316, %5323 ], [ %5339, %5338 ], [ %5339, %5341 ], [ %5339, %5346 ], [ %5362, %5361 ], [ %5362, %5364 ], [ %5362, %5369 ], [ %5385, %5384 ], [ %5385, %5387 ], [ %5385, %5392 ], [ %5408, %5407 ], [ %5408, %5410 ], [ %5408, %5415 ], [ %5431, %5430 ], [ %5431, %5433 ], [ %5431, %5438 ], [ %5454, %5453 ], [ %5454, %5456 ], [ %5454, %5461 ], [ %5477, %5476 ], [ %5477, %5479 ], [ %5477, %5484 ], [ %5500, %5499 ], [ %5500, %5502 ], [ %5500, %5507 ], [ %5523, %5522 ], [ %5523, %5525 ], [ %5523, %5530 ], [ %5546, %5545 ], [ %5546, %5548 ], [ %5546, %5553 ], [ %5569, %5568 ], [ %5569, %5571 ], [ %5569, %5576 ], [ %5592, %5591 ], [ %5592, %5594 ], [ %5592, %5599 ], [ %5615, %5614 ], [ %5615, %5617 ], [ %5615, %5622 ], [ %5638, %5637 ], [ %5638, %5640 ], [ %5638, %5645 ], [ %5661, %5660 ], [ %5661, %5663 ], [ %5661, %5668 ], [ %5684, %5683 ], [ %5684, %5686 ], [ %5684, %5691 ], [ %5707, %5706 ], [ %5707, %5709 ], [ %5707, %5714 ], [ %5730, %5729 ], [ %5730, %5732 ], [ %5730, %5737 ], [ %5753, %5752 ], [ %5753, %5755 ], [ %5753, %5760 ], [ %5776, %5775 ], [ %5776, %5778 ], [ %5776, %5783 ], [ %5799, %5798 ], [ %5799, %5801 ], [ %5799, %5806 ], [ %5822, %5821 ], [ %5822, %5824 ], [ %5822, %5829 ], [ %5845, %5844 ], [ %5845, %5847 ], [ %5845, %5852 ], [ %5868, %5867 ], [ %5868, %5870 ], [ %5868, %5875 ], [ %5891, %5890 ], [ %5891, %5893 ], [ %5891, %5898 ], [ %5914, %5913 ], [ %5914, %5916 ], [ %5914, %5921 ], [ %5937, %5936 ], [ %5937, %5939 ], [ %5937, %5944 ], [ %5960, %5959 ], [ %5960, %5962 ], [ %5960, %5967 ], [ %5983, %5982 ], [ %5983, %5985 ], [ %5983, %5990 ], [ %6006, %6005 ], [ %6006, %6008 ], [ %6006, %6013 ], [ %6029, %6028 ], [ %6029, %6031 ], [ %6029, %6036 ], [ %6052, %6051 ], [ %6052, %6054 ], [ %6052, %6059 ], [ %6075, %6074 ], [ %6075, %6077 ], [ %6075, %6082 ], [ %6098, %6097 ], [ %6098, %6100 ], [ %6098, %6105 ]
+_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1976:  ; preds = %5415, %5410, %5407, %5392, %5387, %5384, %5369, %5364, %5361, %5346, %5341, %5338, %5323, %5318, %5315, %5300, %5295, %5292, %5277, %5272, %5269, %5254, %5249, %5246, %5231, %5226, %5223, %5208, %5203, %5200, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2054, %6096, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2052, %6073, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2050, %6050, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2048, %6027, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2046, %6004, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2044, %5981, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2042, %5958, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2040, %5935, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2038, %5912, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2036, %5889, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2034, %5866, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2032, %5843, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2030, %5820, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2028, %5797, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2026, %5774, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2024, %5751, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2022, %5728, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2020, %5705, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2018, %5682, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2016, %5659, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2014, %5636, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2012, %5613, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2010, %5590, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2008, %5567, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2006, %5544, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2004, %5521, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2002, %5498, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2000, %5475, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1998, %5452, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1996, %5429, %5406, %5383, %5360, %5337, %5314, %5291, %5268, %5245, %5222, %5199
+  %.pn379 = phi { ptr, i32 } [ %6098, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2054 ], [ %.pn377, %6096 ], [ %6075, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2052 ], [ %.pn375, %6073 ], [ %6052, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2050 ], [ %.pn373, %6050 ], [ %6029, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2048 ], [ %.pn371, %6027 ], [ %6006, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2046 ], [ %.pn369, %6004 ], [ %5983, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2044 ], [ %.pn367, %5981 ], [ %5960, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2042 ], [ %.pn365, %5958 ], [ %5937, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2040 ], [ %.pn363, %5935 ], [ %5914, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2038 ], [ %.pn361, %5912 ], [ %5891, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2036 ], [ %.pn359, %5889 ], [ %5868, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2034 ], [ %.pn357, %5866 ], [ %5845, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2032 ], [ %.pn355, %5843 ], [ %5822, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2030 ], [ %.pn353, %5820 ], [ %5799, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2028 ], [ %.pn351, %5797 ], [ %5776, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2026 ], [ %.pn349, %5774 ], [ %5753, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2024 ], [ %.pn347, %5751 ], [ %5730, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2022 ], [ %.pn345, %5728 ], [ %5707, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2020 ], [ %.pn343, %5705 ], [ %5684, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2018 ], [ %.pn341, %5682 ], [ %5661, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2016 ], [ %.pn339, %5659 ], [ %5638, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2014 ], [ %.pn337, %5636 ], [ %5615, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2012 ], [ %.pn335, %5613 ], [ %5592, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2010 ], [ %.pn333, %5590 ], [ %5569, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2008 ], [ %.pn331, %5567 ], [ %5546, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2006 ], [ %.pn329, %5544 ], [ %5523, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2004 ], [ %.pn327, %5521 ], [ %5500, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2002 ], [ %.pn325, %5498 ], [ %5477, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit2000 ], [ %.pn323, %5475 ], [ %5454, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1998 ], [ %.pn321, %5452 ], [ %5431, %_ZN5zxing3RefINS_6qrcode7VersionEED2Ev.exit1996 ], [ %.pn319, %5429 ], [ %.pn317, %5406 ], [ %.pn315, %5383 ], [ %.pn313, %5360 ], [ %.pn311, %5337 ], [ %.pn309, %5314 ], [ %.pn307, %5291 ], [ %.pn305, %5268 ], [ %.pn303, %5245 ], [ %.pn301, %5222 ], [ %.pn, %5199 ], [ %5201, %5200 ], [ %5201, %5203 ], [ %5201, %5208 ], [ %5224, %5223 ], [ %5224, %5226 ], [ %5224, %5231 ], [ %5247, %5246 ], [ %5247, %5249 ], [ %5247, %5254 ], [ %5270, %5269 ], [ %5270, %5272 ], [ %5270, %5277 ], [ %5293, %5292 ], [ %5293, %5295 ], [ %5293, %5300 ], [ %5316, %5315 ], [ %5316, %5318 ], [ %5316, %5323 ], [ %5339, %5338 ], [ %5339, %5341 ], [ %5339, %5346 ], [ %5362, %5361 ], [ %5362, %5364 ], [ %5362, %5369 ], [ %5385, %5384 ], [ %5385, %5387 ], [ %5385, %5392 ], [ %5408, %5407 ], [ %5408, %5410 ], [ %5408, %5415 ]
   resume { ptr, i32 } %.pn379
 }
 

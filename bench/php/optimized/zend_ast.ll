@@ -2016,7 +2016,7 @@ define i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr nocapture noundef readon
 zend_ast_evaluate_ex.exit:                        ; preds = %.thread, %16
   %phi.call.i1133 = phi i32 [ %15, %.thread ], [ %26, %16 ]
   %.not962 = icmp eq i32 %phi.call.i1133, 0
-  br i1 %.not962, label %27, label %.loopexit1230
+  br i1 %.not962, label %27, label %1254
 
 27:                                               ; preds = %zend_ast_evaluate_ex.exit
   %28 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2029,7 +2029,7 @@ zend_ast_evaluate_ex.exit:                        ; preds = %.thread, %16
   %32 = getelementptr inbounds i8, ptr %6, i64 9
   %33 = load i8, ptr %32, align 1
   %.not968 = icmp eq i8 %33, 0
-  br i1 %.not968, label %.loopexit1230, label %34
+  br i1 %.not968, label %1254, label %34
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %6, align 8
@@ -2039,12 +2039,12 @@ zend_ast_evaluate_ex.exit:                        ; preds = %.thread, %16
   %38 = add i32 %36, -1
   store i32 %38, ptr %35, align 4
   %.not969 = icmp eq i32 %38, 0
-  br i1 %.not969, label %39, label %.loopexit1230
+  br i1 %.not969, label %39, label %1254
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %40) #14
-  br label %.loopexit1230
+  br label %1254
 
 41:                                               ; preds = %27
   %42 = getelementptr inbounds i8, ptr %1, i64 2
@@ -2076,7 +2076,7 @@ zend_ast_evaluate_ex.exit:                        ; preds = %.thread, %16
   %57 = getelementptr inbounds i8, ptr %7, i64 9
   %58 = load i8, ptr %57, align 1
   %.not966 = icmp eq i8 %58, 0
-  br i1 %.not966, label %.loopexit1230, label %59
+  br i1 %.not966, label %1254, label %59
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %7, align 8
@@ -2086,12 +2086,12 @@ zend_ast_evaluate_ex.exit:                        ; preds = %.thread, %16
   %63 = add i32 %61, -1
   store i32 %63, ptr %60, align 4
   %.not967 = icmp eq i32 %63, 0
-  br i1 %.not967, label %64, label %.loopexit1230
+  br i1 %.not967, label %64, label %1254
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %65) #14
-  br label %.loopexit1230
+  br label %1254
 
 66:                                               ; preds = %5, %5
   %67 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2117,12 +2117,12 @@ zend_ast_evaluate_ex.exit981.thread:              ; preds = %66
   store ptr %69, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
   store i64 %70, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %.not9541140 = icmp eq i32 %78, 0
-  br i1 %.not9541140, label %83, label %.loopexit1230
+  br i1 %.not9541140, label %83, label %1254
 
 zend_ast_evaluate_ex.exit981:                     ; preds = %66
   %79 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef %68, ptr noundef null, ptr noundef nonnull %8, ptr noundef %4)
   %.not954 = icmp eq i32 %79, 0
-  br i1 %.not954, label %.thread1142, label %.loopexit1230
+  br i1 %.not954, label %.thread1142, label %1254
 
 .thread1142:                                      ; preds = %zend_ast_evaluate_ex.exit981
   %80 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2157,7 +2157,7 @@ zend_ast_evaluate_ex.exit990:                     ; preds = %.thread1142, %83
   %94 = getelementptr inbounds i8, ptr %6, i64 9
   %95 = load i8, ptr %94, align 1
   %.not960 = icmp eq i8 %95, 0
-  br i1 %.not960, label %.loopexit1230, label %96
+  br i1 %.not960, label %1254, label %96
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %6, align 8
@@ -2167,12 +2167,12 @@ zend_ast_evaluate_ex.exit990:                     ; preds = %.thread1142, %83
   %100 = add i32 %98, -1
   store i32 %100, ptr %97, align 4
   %.not961 = icmp eq i32 %100, 0
-  br i1 %.not961, label %101, label %.loopexit1230
+  br i1 %.not961, label %101, label %1254
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %102) #14
-  br label %.loopexit1230
+  br label %1254
 
 103:                                              ; preds = %zend_ast_evaluate_ex.exit990
   %104 = load i16, ptr %1, align 8
@@ -2203,7 +2203,7 @@ zend_ast_evaluate_ex.exit990:                     ; preds = %.thread1142, %83
   %118 = getelementptr inbounds i8, ptr %7, i64 9
   %119 = load i8, ptr %118, align 1
   %.not958 = icmp eq i8 %119, 0
-  br i1 %.not958, label %.loopexit1230, label %120
+  br i1 %.not958, label %1254, label %120
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr %7, align 8
@@ -2213,12 +2213,12 @@ zend_ast_evaluate_ex.exit990:                     ; preds = %.thread1142, %83
   %124 = add i32 %122, -1
   store i32 %124, ptr %121, align 4
   %.not959 = icmp eq i32 %124, 0
-  br i1 %.not959, label %125, label %.loopexit1230
+  br i1 %.not959, label %125, label %1254
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %126) #14
-  br label %.loopexit1230
+  br label %1254
 
 127:                                              ; preds = %5
   %128 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2252,7 +2252,7 @@ zend_ast_evaluate_ex.exit990:                     ; preds = %.thread1142, %83
 zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   %phi.call.i9951151 = phi i32 [ %130, %.thread1147 ], [ %141, %131 ]
   %.not951 = icmp eq i32 %phi.call.i9951151, 0
-  br i1 %.not951, label %142, label %.loopexit1230
+  br i1 %.not951, label %142, label %1254
 
 142:                                              ; preds = %zend_ast_evaluate_ex.exit999
   %143 = getelementptr inbounds i8, ptr %1, i64 2
@@ -2263,7 +2263,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   %148 = getelementptr inbounds i8, ptr %6, i64 9
   %149 = load i8, ptr %148, align 1
   %.not952 = icmp eq i8 %149, 0
-  br i1 %.not952, label %.loopexit1230, label %150
+  br i1 %.not952, label %1254, label %150
 
 150:                                              ; preds = %142
   %151 = load ptr, ptr %6, align 8
@@ -2273,12 +2273,12 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   %154 = add i32 %152, -1
   store i32 %154, ptr %151, align 4
   %.not953 = icmp eq i32 %154, 0
-  br i1 %.not953, label %155, label %.loopexit1230
+  br i1 %.not953, label %155, label %1254
 
 155:                                              ; preds = %150
   %156 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %156) #14
-  br label %.loopexit1230
+  br label %1254
 
 157:                                              ; preds = %5
   %158 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2290,13 +2290,13 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   store i32 %161, ptr %162, align 8
   %163 = and i32 %161, 65280
   %.not950 = icmp eq i32 %163, 0
-  br i1 %.not950, label %.loopexit1230, label %164
+  br i1 %.not950, label %1254, label %164
 
 164:                                              ; preds = %157
   %165 = load i32, ptr %159, align 4
   %166 = add i32 %165, 1
   store i32 %166, ptr %159, align 4
-  br label %.loopexit1230
+  br label %1254
 
 167:                                              ; preds = %5
   %168 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2311,7 +2311,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
 175:                                              ; preds = %167
   %176 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %176, align 8
-  br label %.loopexit1230
+  br label %1254
 
 177:                                              ; preds = %167
   %178 = load ptr, ptr %173, align 8
@@ -2322,7 +2322,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   store i32 %180, ptr %181, align 8
   %182 = and i32 %180, 65280
   %.not948 = icmp eq i32 %182, 0
-  br i1 %.not948, label %.loopexit1230, label %183
+  br i1 %.not948, label %1254, label %183
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds i8, ptr %178, i64 4
@@ -2338,11 +2338,11 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   %191 = load i32, ptr %178, align 4
   %192 = add i32 %191, 1
   store i32 %192, ptr %178, align 4
-  br label %.loopexit1230
+  br label %1254
 
 193:                                              ; preds = %183
   tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #14
-  br label %.loopexit1230
+  br label %1254
 
 194:                                              ; preds = %5
   %.not946 = icmp eq ptr %2, null
@@ -2361,7 +2361,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
 201:                                              ; preds = %195
   %202 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 6, ptr %202, align 8
-  br label %.loopexit1230
+  br label %1254
 
 203:                                              ; preds = %195
   %204 = load i32, ptr %197, align 4
@@ -2369,14 +2369,14 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   store i32 %205, ptr %197, align 4
   %206 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 262, ptr %206, align 8
-  br label %.loopexit1230
+  br label %1254
 
 207:                                              ; preds = %194
   %208 = load ptr, ptr @zend_empty_string, align 8
   store ptr %208, ptr %0, align 8
   %209 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 6, ptr %209, align 8
-  br label %.loopexit1230
+  br label %1254
 
 210:                                              ; preds = %5
   %.not942 = icmp eq ptr %2, null
@@ -2384,7 +2384,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
 
 211:                                              ; preds = %210
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #14
-  br label %.loopexit1230
+  br label %1254
 
 212:                                              ; preds = %210
   %213 = getelementptr inbounds i8, ptr %1, i64 2
@@ -2405,7 +2405,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
 222:                                              ; preds = %216
   %223 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 6, ptr %223, align 8
-  br label %.loopexit1230
+  br label %1254
 
 224:                                              ; preds = %216
   %225 = load i32, ptr %218, align 4
@@ -2413,7 +2413,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   store i32 %226, ptr %218, align 4
   %227 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 262, ptr %227, align 8
-  br label %.loopexit1230
+  br label %1254
 
 228:                                              ; preds = %212
   %229 = icmp eq i16 %214, 2
@@ -2425,7 +2425,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
 
 232:                                              ; preds = %228
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1) #14
-  br label %.loopexit1230
+  br label %1254
 
 233:                                              ; preds = %228
   %234 = getelementptr inbounds i8, ptr %231, i64 8
@@ -2440,7 +2440,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
 239:                                              ; preds = %233
   %240 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 6, ptr %240, align 8
-  br label %.loopexit1230
+  br label %1254
 
 241:                                              ; preds = %233
   %242 = load i32, ptr %235, align 4
@@ -2448,7 +2448,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   store i32 %243, ptr %235, align 4
   %244 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 262, ptr %244, align 8
-  br label %.loopexit1230
+  br label %1254
 
 245:                                              ; preds = %5
   %246 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2482,7 +2482,7 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
 zend_ast_evaluate_ex.exit1008:                    ; preds = %.thread1152, %249
   %phi.call.i10041156 = phi i32 [ %248, %.thread1152 ], [ %259, %249 ]
   %.not932 = icmp eq i32 %phi.call.i10041156, 0
-  br i1 %.not932, label %260, label %.loopexit1230
+  br i1 %.not932, label %260, label %1254
 
 260:                                              ; preds = %zend_ast_evaluate_ex.exit1008
   %261 = call i32 @zend_is_true(ptr noundef nonnull %6) #14
@@ -2500,7 +2500,7 @@ zend_ast_evaluate_ex.exit1008:                    ; preds = %.thread1152, %249
   %267 = getelementptr inbounds i8, ptr %6, i64 9
   %268 = load i8, ptr %267, align 1
   %.not940 = icmp eq i8 %268, 0
-  br i1 %.not940, label %.loopexit1230, label %269
+  br i1 %.not940, label %1254, label %269
 
 269:                                              ; preds = %266
   %270 = load ptr, ptr %6, align 8
@@ -2510,12 +2510,12 @@ zend_ast_evaluate_ex.exit1008:                    ; preds = %.thread1152, %249
   %273 = add i32 %271, -1
   store i32 %273, ptr %270, align 4
   %.not941 = icmp eq i32 %273, 0
-  br i1 %.not941, label %274, label %.loopexit1230
+  br i1 %.not941, label %274, label %1254
 
 274:                                              ; preds = %269
   %275 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %275) #14
-  br label %.loopexit1230
+  br label %1254
 
 276:                                              ; preds = %262
   %277 = call i32 @zend_is_true(ptr noundef nonnull %7) #14
@@ -2552,7 +2552,7 @@ zend_ast_evaluate_ex.exit1008:                    ; preds = %.thread1152, %249
   %292 = getelementptr inbounds i8, ptr %6, i64 9
   %293 = load i8, ptr %292, align 1
   %.not938 = icmp eq i8 %293, 0
-  br i1 %.not938, label %.loopexit1230, label %294
+  br i1 %.not938, label %1254, label %294
 
 294:                                              ; preds = %291
   %295 = load ptr, ptr %6, align 8
@@ -2562,12 +2562,12 @@ zend_ast_evaluate_ex.exit1008:                    ; preds = %.thread1152, %249
   %298 = add i32 %296, -1
   store i32 %298, ptr %295, align 4
   %.not939 = icmp eq i32 %298, 0
-  br i1 %.not939, label %299, label %.loopexit1230
+  br i1 %.not939, label %299, label %1254
 
 299:                                              ; preds = %294
   %300 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %300) #14
-  br label %.loopexit1230
+  br label %1254
 
 301:                                              ; preds = %5
   %302 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2601,7 +2601,7 @@ zend_ast_evaluate_ex.exit1008:                    ; preds = %.thread1152, %249
 zend_ast_evaluate_ex.exit1017:                    ; preds = %.thread1157, %305
   %phi.call.i10131161 = phi i32 [ %304, %.thread1157 ], [ %315, %305 ]
   %.not922 = icmp eq i32 %phi.call.i10131161, 0
-  br i1 %.not922, label %316, label %.loopexit1230
+  br i1 %.not922, label %316, label %1254
 
 316:                                              ; preds = %zend_ast_evaluate_ex.exit1017
   %317 = call i32 @zend_is_true(ptr noundef nonnull %6) #14
@@ -2624,7 +2624,7 @@ zend_ast_evaluate_ex.exit1017:                    ; preds = %.thread1157, %305
   %325 = getelementptr inbounds i8, ptr %6, i64 9
   %326 = load i8, ptr %325, align 1
   %.not928 = icmp eq i8 %326, 0
-  br i1 %.not928, label %.loopexit1230, label %327
+  br i1 %.not928, label %1254, label %327
 
 327:                                              ; preds = %324
   %328 = load ptr, ptr %6, align 8
@@ -2634,12 +2634,12 @@ zend_ast_evaluate_ex.exit1017:                    ; preds = %.thread1157, %305
   %331 = add i32 %329, -1
   store i32 %331, ptr %328, align 4
   %.not929 = icmp eq i32 %331, 0
-  br i1 %.not929, label %332, label %.loopexit1230
+  br i1 %.not929, label %332, label %1254
 
 332:                                              ; preds = %327
   %333 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %333) #14
-  br label %.loopexit1230
+  br label %1254
 
 334:                                              ; preds = %320
   %335 = call i32 @zend_is_true(ptr noundef nonnull %7) #14
@@ -2671,7 +2671,7 @@ zend_ast_evaluate_ex.exit1017:                    ; preds = %.thread1157, %305
   %348 = getelementptr inbounds i8, ptr %6, i64 9
   %349 = load i8, ptr %348, align 1
   %.not930 = icmp eq i8 %349, 0
-  br i1 %.not930, label %.loopexit1230, label %350
+  br i1 %.not930, label %1254, label %350
 
 350:                                              ; preds = %347
   %351 = load ptr, ptr %6, align 8
@@ -2681,12 +2681,12 @@ zend_ast_evaluate_ex.exit1017:                    ; preds = %.thread1157, %305
   %354 = add i32 %352, -1
   store i32 %354, ptr %351, align 4
   %.not931 = icmp eq i32 %354, 0
-  br i1 %.not931, label %355, label %.loopexit1230
+  br i1 %.not931, label %355, label %1254
 
 355:                                              ; preds = %350
   %356 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %356) #14
-  br label %.loopexit1230
+  br label %1254
 
 357:                                              ; preds = %5
   %358 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2720,7 +2720,7 @@ zend_ast_evaluate_ex.exit1017:                    ; preds = %.thread1157, %305
 zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   %phi.call.i10221166 = phi i32 [ %360, %.thread1162 ], [ %371, %361 ]
   %.not909 = icmp eq i32 %phi.call.i10221166, 0
-  br i1 %.not909, label %372, label %.loopexit1230
+  br i1 %.not909, label %372, label %1254
 
 372:                                              ; preds = %zend_ast_evaluate_ex.exit1026
   %373 = call i32 @zend_is_true(ptr noundef nonnull %6) #14
@@ -2735,7 +2735,7 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
 
 377:                                              ; preds = %374
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  br label %.loopexit1230
+  br label %1254
 
 378:                                              ; preds = %374
   %379 = call i32 @zend_ast_evaluate_ex(ptr noundef %0, ptr noundef nonnull %376, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %4)
@@ -2746,7 +2746,7 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   br i1 %.not917, label %390, label %382
 
 382:                                              ; preds = %378
-  br i1 %.not918, label %.loopexit1230, label %383
+  br i1 %.not918, label %1254, label %383
 
 383:                                              ; preds = %382
   %384 = load ptr, ptr %6, align 8
@@ -2756,15 +2756,15 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   %387 = add i32 %385, -1
   store i32 %387, ptr %384, align 4
   %.not921 = icmp eq i32 %387, 0
-  br i1 %.not921, label %388, label %.loopexit1230
+  br i1 %.not921, label %388, label %1254
 
 388:                                              ; preds = %383
   %389 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %389) #14
-  br label %.loopexit1230
+  br label %1254
 
 390:                                              ; preds = %378
-  br i1 %.not918, label %.loopexit1230, label %391
+  br i1 %.not918, label %1254, label %391
 
 391:                                              ; preds = %390
   %392 = load ptr, ptr %6, align 8
@@ -2774,12 +2774,12 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   %395 = add i32 %393, -1
   store i32 %395, ptr %392, align 4
   %.not919 = icmp eq i32 %395, 0
-  br i1 %.not919, label %396, label %.loopexit1230
+  br i1 %.not919, label %396, label %1254
 
 396:                                              ; preds = %391
   %397 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %397) #14
-  br label %.loopexit1230
+  br label %1254
 
 398:                                              ; preds = %372
   %399 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2792,7 +2792,7 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   br i1 %.not911, label %412, label %404
 
 404:                                              ; preds = %398
-  br i1 %.not912, label %.loopexit1230, label %405
+  br i1 %.not912, label %1254, label %405
 
 405:                                              ; preds = %404
   %406 = load ptr, ptr %6, align 8
@@ -2802,15 +2802,15 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   %409 = add i32 %407, -1
   store i32 %409, ptr %406, align 4
   %.not915 = icmp eq i32 %409, 0
-  br i1 %.not915, label %410, label %.loopexit1230
+  br i1 %.not915, label %410, label %1254
 
 410:                                              ; preds = %405
   %411 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %411) #14
-  br label %.loopexit1230
+  br label %1254
 
 412:                                              ; preds = %398
-  br i1 %.not912, label %.loopexit1230, label %413
+  br i1 %.not912, label %1254, label %413
 
 413:                                              ; preds = %412
   %414 = load ptr, ptr %6, align 8
@@ -2820,12 +2820,12 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   %417 = add i32 %415, -1
   store i32 %417, ptr %414, align 4
   %.not913 = icmp eq i32 %417, 0
-  br i1 %.not913, label %418, label %.loopexit1230
+  br i1 %.not913, label %418, label %1254
 
 418:                                              ; preds = %413
   %419 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %419) #14
-  br label %.loopexit1230
+  br label %1254
 
 420:                                              ; preds = %5
   %421 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2859,7 +2859,7 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
 zend_ast_evaluate_ex.exit1035:                    ; preds = %.thread1167, %424
   %phi.call.i10311171 = phi i32 [ %423, %.thread1167 ], [ %434, %424 ]
   %.not903 = icmp eq i32 %phi.call.i10311171, 0
-  br i1 %.not903, label %435, label %.loopexit1230
+  br i1 %.not903, label %435, label %1254
 
 435:                                              ; preds = %zend_ast_evaluate_ex.exit1035
   %436 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2869,7 +2869,7 @@ zend_ast_evaluate_ex.exit1035:                    ; preds = %.thread1167, %424
 
 439:                                              ; preds = %435
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  br label %.loopexit1230
+  br label %1254
 
 440:                                              ; preds = %435
   %441 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2882,7 +2882,7 @@ zend_ast_evaluate_ex.exit1035:                    ; preds = %.thread1167, %424
   br i1 %.not904, label %454, label %446
 
 446:                                              ; preds = %440
-  br i1 %.not905, label %.loopexit1230, label %447
+  br i1 %.not905, label %1254, label %447
 
 447:                                              ; preds = %446
   %448 = load ptr, ptr %6, align 8
@@ -2892,15 +2892,15 @@ zend_ast_evaluate_ex.exit1035:                    ; preds = %.thread1167, %424
   %451 = add i32 %449, -1
   store i32 %451, ptr %448, align 4
   %.not908 = icmp eq i32 %451, 0
-  br i1 %.not908, label %452, label %.loopexit1230
+  br i1 %.not908, label %452, label %1254
 
 452:                                              ; preds = %447
   %453 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %453) #14
-  br label %.loopexit1230
+  br label %1254
 
 454:                                              ; preds = %440
-  br i1 %.not905, label %.loopexit1230, label %455
+  br i1 %.not905, label %1254, label %455
 
 455:                                              ; preds = %454
   %456 = load ptr, ptr %6, align 8
@@ -2910,12 +2910,12 @@ zend_ast_evaluate_ex.exit1035:                    ; preds = %.thread1167, %424
   %459 = add i32 %457, -1
   store i32 %459, ptr %456, align 4
   %.not906 = icmp eq i32 %459, 0
-  br i1 %.not906, label %460, label %.loopexit1230
+  br i1 %.not906, label %460, label %1254
 
 460:                                              ; preds = %455
   %461 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %461) #14
-  br label %.loopexit1230
+  br label %1254
 
 462:                                              ; preds = %5
   %463 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2949,7 +2949,7 @@ zend_ast_evaluate_ex.exit1035:                    ; preds = %.thread1167, %424
 zend_ast_evaluate_ex.exit1044:                    ; preds = %.thread1172, %466
   %phi.call.i10401176 = phi i32 [ %465, %.thread1172 ], [ %476, %466 ]
   %.not900 = icmp eq i32 %phi.call.i10401176, 0
-  br i1 %.not900, label %477, label %.loopexit1230
+  br i1 %.not900, label %477, label %1254
 
 477:                                              ; preds = %zend_ast_evaluate_ex.exit1044
   store i64 0, ptr %6, align 8
@@ -2959,7 +2959,7 @@ zend_ast_evaluate_ex.exit1044:                    ; preds = %.thread1172, %466
   %480 = getelementptr inbounds i8, ptr %7, i64 9
   %481 = load i8, ptr %480, align 1
   %.not901 = icmp eq i8 %481, 0
-  br i1 %.not901, label %.loopexit1230, label %482
+  br i1 %.not901, label %1254, label %482
 
 482:                                              ; preds = %477
   %483 = load ptr, ptr %7, align 8
@@ -2969,12 +2969,12 @@ zend_ast_evaluate_ex.exit1044:                    ; preds = %.thread1172, %466
   %486 = add i32 %484, -1
   store i32 %486, ptr %483, align 4
   %.not902 = icmp eq i32 %486, 0
-  br i1 %.not902, label %487, label %.loopexit1230
+  br i1 %.not902, label %487, label %1254
 
 487:                                              ; preds = %482
   %488 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %488) #14
-  br label %.loopexit1230
+  br label %1254
 
 489:                                              ; preds = %5
   %490 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3008,7 +3008,7 @@ zend_ast_evaluate_ex.exit1044:                    ; preds = %.thread1172, %466
 zend_ast_evaluate_ex.exit1053:                    ; preds = %.thread1177, %493
   %phi.call.i10491181 = phi i32 [ %492, %.thread1177 ], [ %503, %493 ]
   %.not897 = icmp eq i32 %phi.call.i10491181, 0
-  br i1 %.not897, label %504, label %.loopexit1230
+  br i1 %.not897, label %504, label %1254
 
 504:                                              ; preds = %zend_ast_evaluate_ex.exit1053
   store i64 -1, ptr %6, align 8
@@ -3018,7 +3018,7 @@ zend_ast_evaluate_ex.exit1053:                    ; preds = %.thread1177, %493
   %507 = getelementptr inbounds i8, ptr %7, i64 9
   %508 = load i8, ptr %507, align 1
   %.not898 = icmp eq i8 %508, 0
-  br i1 %.not898, label %.loopexit1230, label %509
+  br i1 %.not898, label %1254, label %509
 
 509:                                              ; preds = %504
   %510 = load ptr, ptr %7, align 8
@@ -3028,12 +3028,12 @@ zend_ast_evaluate_ex.exit1053:                    ; preds = %.thread1177, %493
   %513 = add i32 %511, -1
   store i32 %513, ptr %510, align 4
   %.not899 = icmp eq i32 %513, 0
-  br i1 %.not899, label %514, label %.loopexit1230
+  br i1 %.not899, label %514, label %1254
 
 514:                                              ; preds = %509
   %515 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %515) #14
-  br label %.loopexit1230
+  br label %1254
 
 516:                                              ; preds = %5
   %517 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3045,7 +3045,7 @@ zend_ast_evaluate_ex.exit1053:                    ; preds = %.thread1177, %493
   store ptr @zend_empty_array, ptr %0, align 8
   %520 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 7, ptr %520, align 8
-  br label %.loopexit1230
+  br label %1254
 
 521:                                              ; preds = %516
   %522 = tail call ptr @_zend_new_array_0() #14
@@ -3109,7 +3109,7 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
   %550 = getelementptr inbounds i8, ptr %0, i64 9
   %551 = load i8, ptr %550, align 1
   %.not895 = icmp eq i8 %551, 0
-  br i1 %.not895, label %.loopexit1230, label %552
+  br i1 %.not895, label %1254, label %552
 
 552:                                              ; preds = %549
   %553 = load ptr, ptr %0, align 8
@@ -3119,12 +3119,12 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
   %556 = add i32 %554, -1
   store i32 %556, ptr %553, align 4
   %.not896 = icmp eq i32 %556, 0
-  br i1 %.not896, label %557, label %.loopexit1230
+  br i1 %.not896, label %557, label %1254
 
 557:                                              ; preds = %552
   %558 = load ptr, ptr %0, align 8
   call void @rc_dtor_func(ptr noundef %558) #14
-  br label %.loopexit1230
+  br label %1254
 
 559:                                              ; preds = %zend_ast_evaluate_ex.exit1062
   %.val = load ptr, ptr %6, align 8
@@ -3229,7 +3229,7 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
   %603 = getelementptr inbounds i8, ptr %0, i64 9
   %604 = load i8, ptr %603, align 1
   %.not893 = icmp eq i8 %604, 0
-  br i1 %.not893, label %.loopexit1230, label %605
+  br i1 %.not893, label %1254, label %605
 
 605:                                              ; preds = %602
   %606 = load ptr, ptr %0, align 8
@@ -3239,12 +3239,12 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
   %609 = add i32 %607, -1
   store i32 %609, ptr %606, align 4
   %.not894 = icmp eq i32 %609, 0
-  br i1 %.not894, label %610, label %.loopexit1230
+  br i1 %.not894, label %610, label %1254
 
 610:                                              ; preds = %605
   %611 = load ptr, ptr %0, align 8
   call void @rc_dtor_func(ptr noundef %611) #14
-  br label %.loopexit1230
+  br label %1254
 
 .loopexit1229:                                    ; preds = %592, %561
   %612 = load i8, ptr %528, align 1
@@ -3301,7 +3301,7 @@ zend_ast_evaluate_ex.exit1073:                    ; preds = %.thread1189, %623
   %634 = getelementptr inbounds i8, ptr %0, i64 9
   %635 = load i8, ptr %634, align 1
   %.not885 = icmp eq i8 %635, 0
-  br i1 %.not885, label %.loopexit1230, label %636
+  br i1 %.not885, label %1254, label %636
 
 636:                                              ; preds = %633
   %637 = load ptr, ptr %0, align 8
@@ -3311,12 +3311,12 @@ zend_ast_evaluate_ex.exit1073:                    ; preds = %.thread1189, %623
   %640 = add i32 %638, -1
   store i32 %640, ptr %637, align 4
   %.not886 = icmp eq i32 %640, 0
-  br i1 %.not886, label %641, label %.loopexit1230
+  br i1 %.not886, label %641, label %1254
 
 641:                                              ; preds = %636
   %642 = load ptr, ptr %0, align 8
   call void @rc_dtor_func(ptr noundef %642) #14
-  br label %.loopexit1230
+  br label %1254
 
 643:                                              ; preds = %618
   store i32 0, ptr %527, align 8
@@ -3377,7 +3377,7 @@ zend_ast_evaluate_ex.exit1082:                    ; preds = %.thread1194, %647
   %667 = getelementptr inbounds i8, ptr %0, i64 9
   %668 = load i8, ptr %667, align 1
   %.not883 = icmp eq i8 %668, 0
-  br i1 %.not883, label %.loopexit1230, label %669
+  br i1 %.not883, label %1254, label %669
 
 669:                                              ; preds = %666
   %670 = load ptr, ptr %0, align 8
@@ -3387,12 +3387,12 @@ zend_ast_evaluate_ex.exit1082:                    ; preds = %.thread1194, %647
   %673 = add i32 %671, -1
   store i32 %673, ptr %670, align 4
   %.not884 = icmp eq i32 %673, 0
-  br i1 %.not884, label %674, label %.loopexit1230
+  br i1 %.not884, label %674, label %1254
 
 674:                                              ; preds = %669
   %675 = load ptr, ptr %0, align 8
   call void @rc_dtor_func(ptr noundef %675) #14
-  br label %.loopexit1230
+  br label %1254
 
 676:                                              ; preds = %zend_ast_evaluate_ex.exit1082
   %677 = load i8, ptr %527, align 8
@@ -3493,7 +3493,7 @@ zend_ast_add_array_element.exit:                  ; preds = %683, %682
   %720 = getelementptr inbounds i8, ptr %0, i64 9
   %721 = load i8, ptr %720, align 1
   %.not879 = icmp eq i8 %721, 0
-  br i1 %.not879, label %.loopexit1230, label %722
+  br i1 %.not879, label %1254, label %722
 
 722:                                              ; preds = %719
   %723 = load ptr, ptr %0, align 8
@@ -3503,12 +3503,12 @@ zend_ast_add_array_element.exit:                  ; preds = %683, %682
   %726 = add i32 %724, -1
   store i32 %726, ptr %723, align 4
   %.not880 = icmp eq i32 %726, 0
-  br i1 %.not880, label %727, label %.loopexit1230
+  br i1 %.not880, label %727, label %1254
 
 727:                                              ; preds = %722
   %728 = load ptr, ptr %0, align 8
   call void @rc_dtor_func(ptr noundef %728) #14
-  br label %.loopexit1230
+  br label %1254
 
 zend_ast_add_array_element.exit.thread.sink.split: ; preds = %697, %613
   %.sink1297.in = phi ptr [ %6, %613 ], [ %7, %697 ]
@@ -3565,7 +3565,7 @@ zend_ast_add_array_element.exit.thread:           ; preds = %zend_ast_add_array_
 zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   %phi.call.i10891205 = phi i32 [ %740, %.thread1201 ], [ %751, %741 ]
   %.not858 = icmp eq i32 %phi.call.i10891205, 0
-  br i1 %.not858, label %752, label %.loopexit1230
+  br i1 %.not858, label %752, label %1254
 
 752:                                              ; preds = %zend_ast_evaluate_ex.exit1093
   %753 = load i8, ptr %8, align 1
@@ -3576,7 +3576,7 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   store i8 1, ptr %3, align 1
   %756 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %756, align 8
-  br label %.loopexit1230
+  br label %1254
 
 757:                                              ; preds = %752
   %758 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3607,7 +3607,7 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
 
 771:                                              ; preds = %769, %764, %761
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.3) #14
-  br label %.loopexit1230
+  br label %1254
 
 772:                                              ; preds = %757
   %773 = load ptr, ptr %733, align 8
@@ -3619,7 +3619,7 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   %776 = getelementptr inbounds i8, ptr %6, i64 9
   %777 = load i8, ptr %776, align 1
   %.not866 = icmp eq i8 %777, 0
-  br i1 %.not866, label %.loopexit1230, label %778
+  br i1 %.not866, label %1254, label %778
 
 778:                                              ; preds = %775
   %779 = load ptr, ptr %6, align 8
@@ -3629,12 +3629,12 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   %782 = add i32 %780, -1
   store i32 %782, ptr %779, align 4
   %.not867 = icmp eq i32 %782, 0
-  br i1 %.not867, label %783, label %.loopexit1230
+  br i1 %.not867, label %783, label %1254
 
 783:                                              ; preds = %778
   %784 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %784) #14
-  br label %.loopexit1230
+  br label %1254
 
 785:                                              ; preds = %772
   %786 = getelementptr inbounds i8, ptr %1, i64 2
@@ -3688,12 +3688,12 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   %810 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not865 = icmp ne ptr %810, null
   %spec.select = sext i1 %.not865 to i32
-  br label %.loopexit1230
+  br label %1254
 
 811:                                              ; preds = %5
   %812 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
   %813 = trunc i8 %812 to i1
-  br i1 %813, label %.loopexit1230, label %814
+  br i1 %813, label %1254, label %814
 
 814:                                              ; preds = %811
   %815 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3720,7 +3720,7 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
 830:                                              ; preds = %814
   %831 = call i32 @zend_ast_evaluate_ex(ptr noundef nonnull %9, ptr noundef nonnull %828, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %4)
   %.not855 = icmp eq i32 %831, 0
-  br i1 %.not855, label %832, label %.loopexit1230
+  br i1 %.not855, label %832, label %1254
 
 832:                                              ; preds = %830, %814
   %. = phi ptr [ %9, %830 ], [ null, %814 ]
@@ -3729,7 +3729,7 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   %835 = getelementptr inbounds i8, ptr %9, i64 9
   %836 = load i8, ptr %835, align 1
   %.not856 = icmp eq i8 %836, 0
-  br i1 %.not856, label %.loopexit1230, label %837
+  br i1 %.not856, label %1254, label %837
 
 837:                                              ; preds = %832
   %838 = load ptr, ptr %9, align 8
@@ -3739,12 +3739,12 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   %841 = add i32 %839, -1
   store i32 %841, ptr %838, align 4
   %.not857 = icmp eq i32 %841, 0
-  br i1 %.not857, label %842, label %.loopexit1230
+  br i1 %.not857, label %842, label %1254
 
 842:                                              ; preds = %837
   %843 = load ptr, ptr %9, align 8
   call void @rc_dtor_func(ptr noundef %843) #14
-  br label %.loopexit1230
+  br label %1254
 
 844:                                              ; preds = %5
   %845 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3785,7 +3785,7 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
 zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %phi.call.i10981210 = phi i32 [ %853, %.thread1206 ], [ %864, %854 ]
   %.not843 = icmp eq i32 %phi.call.i10981210, 0
-  br i1 %.not843, label %865, label %.loopexit1230
+  br i1 %.not843, label %865, label %1254
 
 865:                                              ; preds = %zend_ast_evaluate_ex.exit1102
   %866 = getelementptr inbounds i8, ptr %7, i64 8
@@ -3798,7 +3798,7 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %869 = getelementptr inbounds i8, ptr %7, i64 9
   %870 = load i8, ptr %869, align 1
   %.not852 = icmp eq i8 %870, 0
-  br i1 %.not852, label %.loopexit1230, label %871
+  br i1 %.not852, label %1254, label %871
 
 871:                                              ; preds = %868
   %872 = load ptr, ptr %7, align 8
@@ -3808,12 +3808,12 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %875 = add i32 %873, -1
   store i32 %875, ptr %872, align 4
   %.not853 = icmp eq i32 %875, 0
-  br i1 %.not853, label %876, label %.loopexit1230
+  br i1 %.not853, label %876, label %1254
 
 876:                                              ; preds = %871
   %877 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %877) #14
-  br label %.loopexit1230
+  br label %1254
 
 878:                                              ; preds = %865
   %879 = load ptr, ptr %7, align 8
@@ -3859,7 +3859,7 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %903 = getelementptr inbounds i8, ptr %7, i64 9
   %904 = load i8, ptr %903, align 1
   %.not850 = icmp eq i8 %904, 0
-  br i1 %.not850, label %.loopexit1230, label %905
+  br i1 %.not850, label %1254, label %905
 
 905:                                              ; preds = %901
   %906 = load ptr, ptr %7, align 8
@@ -3869,12 +3869,12 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %909 = add i32 %907, -1
   store i32 %909, ptr %906, align 4
   %.not851 = icmp eq i32 %909, 0
-  br i1 %.not851, label %910, label %.loopexit1230
+  br i1 %.not851, label %910, label %1254
 
 910:                                              ; preds = %905
   %911 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %911) #14
-  br label %.loopexit1230
+  br label %1254
 
 912:                                              ; preds = %898
   %913 = load ptr, ptr %899, align 8
@@ -3911,7 +3911,7 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %930 = getelementptr inbounds i8, ptr %7, i64 9
   %931 = load i8, ptr %930, align 1
   %.not848 = icmp eq i8 %931, 0
-  br i1 %.not848, label %.loopexit1230, label %932
+  br i1 %.not848, label %1254, label %932
 
 932:                                              ; preds = %929
   %933 = load ptr, ptr %7, align 8
@@ -3921,12 +3921,12 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %936 = add i32 %934, -1
   store i32 %936, ptr %933, align 4
   %.not849 = icmp eq i32 %936, 0
-  br i1 %.not849, label %937, label %.loopexit1230
+  br i1 %.not849, label %937, label %1254
 
 937:                                              ; preds = %932
   %938 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %938) #14
-  br label %.loopexit1230
+  br label %1254
 
 939:                                              ; preds = %5
   %940 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3943,12 +3943,12 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %950 = zext nneg i16 %949 to i32
   %951 = tail call ptr @zend_fetch_class_with_scope(ptr noundef %945, i32 noundef %950, ptr noundef %2) #14
   %.not835 = icmp eq ptr %951, null
-  br i1 %.not835, label %.loopexit1230, label %952
+  br i1 %.not835, label %1254, label %952
 
 952:                                              ; preds = %939
   %953 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef nonnull %951) #14
   %.not836 = icmp eq i32 %953, 0
-  br i1 %.not836, label %954, label %.loopexit1230
+  br i1 %.not836, label %954, label %1254
 
 954:                                              ; preds = %952
   store i8 1, ptr %4, align 1
@@ -4028,7 +4028,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
 993:                                              ; preds = %zend_ast_evaluate_ex.exit1111
   call void @zend_array_destroy(ptr noundef %962) #14
   call void @zval_ptr_dtor(ptr noundef %0) #14
-  br label %.loopexit1230
+  br label %1254
 
 994:                                              ; preds = %zend_ast_evaluate_ex.exit1111
   %.not841 = icmp eq ptr %.0788, null
@@ -4044,7 +4044,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %998) #14
   call void @zend_array_destroy(ptr noundef %962) #14
   call void @zval_ptr_dtor(ptr noundef %0) #14
-  br label %.loopexit1230
+  br label %1254
 
 999:                                              ; preds = %994
   %1000 = call ptr @zend_hash_next_index_insert(ptr noundef %962, ptr noundef nonnull %10) #14
@@ -4168,7 +4168,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
 
 1051:                                             ; preds = %._crit_edge1245, %1050
   call void @zval_ptr_dtor(ptr noundef %0) #14
-  br label %.loopexit1230
+  br label %1254
 
 1052:                                             ; preds = %.lr.ph1237.split
   %indvars.iv.next1263 = add nuw nsw i64 %indvars.iv1262, 1
@@ -4220,7 +4220,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
 1074:                                             ; preds = %1073, %._crit_edge1242, %1015
   %1075 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not840 = icmp eq ptr %1075, null
-  br i1 %.not840, label %.loopexit1230, label %1076
+  br i1 %.not840, label %1254, label %1076
 
 1076:                                             ; preds = %1074
   %1077 = load ptr, ptr %0, align 8
@@ -4229,7 +4229,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
   %1080 = or i32 %1079, 256
   store i32 %1080, ptr %1078, align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
-  br label %.loopexit1230
+  br label %1254
 
 1081:                                             ; preds = %5, %5
   %1082 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4263,7 +4263,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
 zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %phi.call.i11251228 = phi i32 [ %1084, %.thread1224 ], [ %1095, %1085 ]
   %.not = icmp eq i32 %phi.call.i11251228, 0
-  br i1 %.not, label %1096, label %.loopexit1230
+  br i1 %.not, label %1096, label %1254
 
 1096:                                             ; preds = %zend_ast_evaluate_ex.exit1129
   %1097 = load i8, ptr %8, align 1
@@ -4274,7 +4274,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   store i8 1, ptr %3, align 1
   %1100 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %1100, align 8
-  br label %.loopexit1230
+  br label %1254
 
 1101:                                             ; preds = %1096
   %1102 = load i16, ptr %1, align 8
@@ -4289,7 +4289,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   store i8 1, ptr %3, align 1
   %1108 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %1108, align 8
-  br label %.loopexit1230
+  br label %1254
 
 1109:                                             ; preds = %1101
   %1110 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4302,7 +4302,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1114 = getelementptr inbounds i8, ptr %6, i64 9
   %1115 = load i8, ptr %1114, align 1
   %.not833 = icmp eq i8 %1115, 0
-  br i1 %.not833, label %.loopexit1230, label %1116
+  br i1 %.not833, label %1254, label %1116
 
 1116:                                             ; preds = %1113
   %1117 = load ptr, ptr %6, align 8
@@ -4312,12 +4312,12 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1120 = add i32 %1118, -1
   store i32 %1120, ptr %1117, align 4
   %.not834 = icmp eq i32 %1120, 0
-  br i1 %.not834, label %1121, label %.loopexit1230
+  br i1 %.not834, label %1121, label %1254
 
 1121:                                             ; preds = %1116
   %1122 = load ptr, ptr %6, align 8
   call void @rc_dtor_func(ptr noundef %1122) #14
-  br label %.loopexit1230
+  br label %1254
 
 1123:                                             ; preds = %1109
   %1124 = getelementptr inbounds i8, ptr %7, i64 8
@@ -4354,7 +4354,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1140 = getelementptr inbounds i8, ptr %7, i64 9
   %1141 = load i8, ptr %1140, align 1
   %.not810 = icmp eq i8 %1141, 0
-  br i1 %.not810, label %.loopexit1230, label %1142
+  br i1 %.not810, label %1254, label %1142
 
 1142:                                             ; preds = %1139
   %1143 = load ptr, ptr %7, align 8
@@ -4364,12 +4364,12 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1146 = add i32 %1144, -1
   store i32 %1146, ptr %1143, align 4
   %.not811 = icmp eq i32 %1146, 0
-  br i1 %.not811, label %1147, label %.loopexit1230
+  br i1 %.not811, label %1147, label %1254
 
 1147:                                             ; preds = %1142
   %1148 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %1148) #14
-  br label %.loopexit1230
+  br label %1254
 
 .critedge:                                        ; preds = %1123, %1127
   %1149 = load i8, ptr %1104, align 8
@@ -4422,7 +4422,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
 1170:                                             ; preds = %1160, %1163, %1168
   %1171 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %1171, align 8
-  br label %.loopexit1230
+  br label %1254
 
 1172:                                             ; preds = %.critedge
   %1173 = load ptr, ptr %6, align 8
@@ -4460,7 +4460,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1190 = getelementptr inbounds i8, ptr %7, i64 9
   %1191 = load i8, ptr %1190, align 1
   %.not816 = icmp eq i8 %1191, 0
-  br i1 %.not816, label %.loopexit1230, label %1192
+  br i1 %.not816, label %1254, label %1192
 
 1192:                                             ; preds = %1189
   %1193 = load ptr, ptr %7, align 8
@@ -4470,12 +4470,12 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1196 = add i32 %1194, -1
   store i32 %1196, ptr %1193, align 4
   %.not817 = icmp eq i32 %1196, 0
-  br i1 %.not817, label %1197, label %.loopexit1230
+  br i1 %.not817, label %1197, label %1254
 
 1197:                                             ; preds = %1192
   %1198 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %1198) #14
-  br label %.loopexit1230
+  br label %1254
 
 1199:                                             ; preds = %1172
   %1200 = load ptr, ptr %7, align 8
@@ -4509,7 +4509,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1214 = getelementptr inbounds i8, ptr %7, i64 9
   %1215 = load i8, ptr %1214, align 1
   %.not827 = icmp eq i8 %1215, 0
-  br i1 %.not827, label %.loopexit1230, label %1216
+  br i1 %.not827, label %1254, label %1216
 
 1216:                                             ; preds = %1213
   %1217 = load ptr, ptr %7, align 8
@@ -4519,12 +4519,12 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1220 = add i32 %1218, -1
   store i32 %1220, ptr %1217, align 4
   %.not828 = icmp eq i32 %1220, 0
-  br i1 %.not828, label %1221, label %.loopexit1230
+  br i1 %.not828, label %1221, label %1254
 
 1221:                                             ; preds = %1216
   %1222 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %1222) #14
-  br label %.loopexit1230
+  br label %1254
 
 1223:                                             ; preds = %1199
   %.not819 = icmp eq ptr %1201, %0
@@ -4572,7 +4572,7 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1244 = getelementptr inbounds i8, ptr %7, i64 9
   %1245 = load i8, ptr %1244, align 1
   %.not823 = icmp eq i8 %1245, 0
-  br i1 %.not823, label %.loopexit1230, label %1246
+  br i1 %.not823, label %1254, label %1246
 
 1246:                                             ; preds = %1243
   %1247 = load ptr, ptr %7, align 8
@@ -4582,19 +4582,22 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   %1250 = add i32 %1248, -1
   store i32 %1250, ptr %1247, align 4
   %.not824 = icmp eq i32 %1250, 0
-  br i1 %.not824, label %1251, label %.loopexit1230
+  br i1 %.not824, label %1251, label %1254
 
 1251:                                             ; preds = %1246
   %1252 = load ptr, ptr %7, align 8
   call void @rc_dtor_func(ptr noundef %1252) #14
-  br label %.loopexit1230
+  br label %1254
 
 1253:                                             ; preds = %5
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #14
-  br label %.loopexit1230
+  br label %1254
 
-.loopexit1230:                                    ; preds = %zend_ast_add_array_element.exit.thread, %521, %zend_ast_evaluate_ex.exit981.thread, %809, %519, %771, %1253, %64, %59, %56, %125, %120, %117, %142, %150, %155, %157, %164, %177, %193, %190, %203, %201, %207, %239, %241, %224, %222, %299, %294, %291, %355, %350, %347, %412, %413, %418, %377, %396, %391, %390, %454, %455, %460, %439, %477, %482, %487, %504, %509, %514, %842, %837, %832, %937, %932, %929, %zend_ast_evaluate_ex.exit, %39, %34, %31, %zend_ast_evaluate_ex.exit981, %101, %96, %93, %zend_ast_evaluate_ex.exit999, %zend_ast_evaluate_ex.exit1008, %274, %269, %266, %zend_ast_evaluate_ex.exit1017, %332, %327, %324, %zend_ast_evaluate_ex.exit1026, %388, %383, %382, %410, %405, %404, %zend_ast_evaluate_ex.exit1035, %452, %447, %446, %zend_ast_evaluate_ex.exit1044, %zend_ast_evaluate_ex.exit1053, %zend_ast_evaluate_ex.exit1093, %783, %778, %775, %1243, %1246, %1251, %1213, %1216, %1221, %1189, %1192, %1197, %1139, %1142, %1147, %1113, %1116, %1121, %zend_ast_evaluate_ex.exit1129, %1074, %952, %939, %901, %905, %910, %868, %871, %876, %zend_ast_evaluate_ex.exit1102, %830, %811, %719, %722, %727, %666, %669, %674, %633, %636, %641, %602, %605, %610, %549, %552, %557, %1170, %1107, %1099, %1076, %1051, %997, %993, %755, %232, %211, %175
-  %.0778 = phi i32 [ 0, %1099 ], [ 0, %1107 ], [ 0, %1170 ], [ -1, %993 ], [ -1, %997 ], [ -1, %1076 ], [ -1, %1051 ], [ 0, %755 ], [ -1, %232 ], [ -1, %211 ], [ -1, %175 ], [ -1, %557 ], [ -1, %552 ], [ -1, %549 ], [ -1, %610 ], [ -1, %605 ], [ -1, %602 ], [ -1, %641 ], [ -1, %636 ], [ -1, %633 ], [ -1, %674 ], [ -1, %669 ], [ -1, %666 ], [ -1, %727 ], [ -1, %722 ], [ -1, %719 ], [ -1, %811 ], [ -1, %830 ], [ -1, %zend_ast_evaluate_ex.exit1102 ], [ -1, %876 ], [ -1, %871 ], [ -1, %868 ], [ -1, %910 ], [ -1, %905 ], [ -1, %901 ], [ -1, %939 ], [ -1, %952 ], [ 0, %1074 ], [ -1, %zend_ast_evaluate_ex.exit1129 ], [ -1, %1121 ], [ -1, %1116 ], [ -1, %1113 ], [ -1, %1147 ], [ -1, %1142 ], [ -1, %1139 ], [ -1, %1197 ], [ -1, %1192 ], [ -1, %1189 ], [ -1, %1221 ], [ -1, %1216 ], [ -1, %1213 ], [ 0, %1251 ], [ 0, %1246 ], [ 0, %1243 ], [ -1, %1253 ], [ 0, %932 ], [ 0, %937 ], [ 0, %929 ], [ 0, %837 ], [ 0, %842 ], [ 0, %832 ], [ -1, %771 ], [ 0, %519 ], [ %506, %509 ], [ %506, %514 ], [ %506, %504 ], [ %479, %482 ], [ %479, %487 ], [ %479, %477 ], [ 0, %439 ], [ 0, %455 ], [ 0, %460 ], [ 0, %454 ], [ 0, %391 ], [ 0, %396 ], [ 0, %390 ], [ 0, %377 ], [ 0, %413 ], [ 0, %418 ], [ 0, %412 ], [ 0, %350 ], [ 0, %355 ], [ 0, %347 ], [ 0, %294 ], [ 0, %299 ], [ 0, %291 ], [ 0, %222 ], [ 0, %224 ], [ 0, %239 ], [ 0, %241 ], [ 0, %201 ], [ 0, %203 ], [ 0, %207 ], [ 0, %190 ], [ 0, %193 ], [ 0, %177 ], [ 0, %164 ], [ 0, %157 ], [ %147, %150 ], [ %147, %155 ], [ %147, %142 ], [ %107, %120 ], [ %107, %125 ], [ %107, %117 ], [ %46, %59 ], [ %46, %64 ], [ %46, %56 ], [ -1, %zend_ast_evaluate_ex.exit ], [ -1, %39 ], [ -1, %34 ], [ -1, %31 ], [ -1, %zend_ast_evaluate_ex.exit981 ], [ -1, %101 ], [ -1, %96 ], [ -1, %93 ], [ -1, %zend_ast_evaluate_ex.exit999 ], [ -1, %zend_ast_evaluate_ex.exit1008 ], [ -1, %274 ], [ -1, %269 ], [ -1, %266 ], [ -1, %zend_ast_evaluate_ex.exit1017 ], [ -1, %332 ], [ -1, %327 ], [ -1, %324 ], [ -1, %zend_ast_evaluate_ex.exit1026 ], [ -1, %388 ], [ -1, %383 ], [ -1, %382 ], [ -1, %410 ], [ -1, %405 ], [ -1, %404 ], [ -1, %zend_ast_evaluate_ex.exit1035 ], [ -1, %452 ], [ -1, %447 ], [ -1, %446 ], [ -1, %zend_ast_evaluate_ex.exit1044 ], [ -1, %zend_ast_evaluate_ex.exit1053 ], [ -1, %zend_ast_evaluate_ex.exit1093 ], [ -1, %783 ], [ -1, %778 ], [ -1, %775 ], [ %spec.select, %809 ], [ -1, %zend_ast_evaluate_ex.exit981.thread ], [ 0, %521 ], [ 0, %zend_ast_add_array_element.exit.thread ]
+.loopexit1230:                                    ; preds = %zend_ast_add_array_element.exit.thread, %521
+  br label %1254
+
+1254:                                             ; preds = %.loopexit1230, %zend_ast_evaluate_ex.exit981.thread, %809, %519, %771, %1253, %64, %59, %56, %125, %120, %117, %142, %150, %155, %157, %164, %177, %193, %190, %203, %201, %207, %239, %241, %224, %222, %299, %294, %291, %355, %350, %347, %412, %413, %418, %377, %396, %391, %390, %454, %455, %460, %439, %477, %482, %487, %504, %509, %514, %842, %837, %832, %937, %932, %929, %zend_ast_evaluate_ex.exit, %39, %34, %31, %zend_ast_evaluate_ex.exit981, %101, %96, %93, %zend_ast_evaluate_ex.exit999, %zend_ast_evaluate_ex.exit1008, %274, %269, %266, %zend_ast_evaluate_ex.exit1017, %332, %327, %324, %zend_ast_evaluate_ex.exit1026, %388, %383, %382, %410, %405, %404, %zend_ast_evaluate_ex.exit1035, %452, %447, %446, %zend_ast_evaluate_ex.exit1044, %zend_ast_evaluate_ex.exit1053, %zend_ast_evaluate_ex.exit1093, %783, %778, %775, %1243, %1246, %1251, %1213, %1216, %1221, %1189, %1192, %1197, %1139, %1142, %1147, %1113, %1116, %1121, %zend_ast_evaluate_ex.exit1129, %1074, %952, %939, %901, %905, %910, %868, %871, %876, %zend_ast_evaluate_ex.exit1102, %830, %811, %719, %722, %727, %666, %669, %674, %633, %636, %641, %602, %605, %610, %549, %552, %557, %1170, %1107, %1099, %1076, %1051, %997, %993, %755, %232, %211, %175
+  %.0778 = phi i32 [ 0, %1099 ], [ 0, %1107 ], [ 0, %1170 ], [ -1, %993 ], [ -1, %997 ], [ -1, %1076 ], [ -1, %1051 ], [ 0, %755 ], [ -1, %232 ], [ -1, %211 ], [ -1, %175 ], [ -1, %557 ], [ -1, %552 ], [ -1, %549 ], [ -1, %610 ], [ -1, %605 ], [ -1, %602 ], [ -1, %641 ], [ -1, %636 ], [ -1, %633 ], [ -1, %674 ], [ -1, %669 ], [ -1, %666 ], [ -1, %727 ], [ -1, %722 ], [ -1, %719 ], [ -1, %811 ], [ -1, %830 ], [ -1, %zend_ast_evaluate_ex.exit1102 ], [ -1, %876 ], [ -1, %871 ], [ -1, %868 ], [ -1, %910 ], [ -1, %905 ], [ -1, %901 ], [ -1, %939 ], [ -1, %952 ], [ 0, %1074 ], [ -1, %zend_ast_evaluate_ex.exit1129 ], [ -1, %1121 ], [ -1, %1116 ], [ -1, %1113 ], [ -1, %1147 ], [ -1, %1142 ], [ -1, %1139 ], [ -1, %1197 ], [ -1, %1192 ], [ -1, %1189 ], [ -1, %1221 ], [ -1, %1216 ], [ -1, %1213 ], [ 0, %1251 ], [ 0, %1246 ], [ 0, %1243 ], [ -1, %1253 ], [ 0, %932 ], [ 0, %937 ], [ 0, %929 ], [ 0, %837 ], [ 0, %842 ], [ 0, %832 ], [ -1, %771 ], [ 0, %519 ], [ %506, %509 ], [ %506, %514 ], [ %506, %504 ], [ %479, %482 ], [ %479, %487 ], [ %479, %477 ], [ 0, %439 ], [ 0, %455 ], [ 0, %460 ], [ 0, %454 ], [ 0, %391 ], [ 0, %396 ], [ 0, %390 ], [ 0, %377 ], [ 0, %413 ], [ 0, %418 ], [ 0, %412 ], [ 0, %350 ], [ 0, %355 ], [ 0, %347 ], [ 0, %294 ], [ 0, %299 ], [ 0, %291 ], [ 0, %222 ], [ 0, %224 ], [ 0, %239 ], [ 0, %241 ], [ 0, %201 ], [ 0, %203 ], [ 0, %207 ], [ 0, %190 ], [ 0, %193 ], [ 0, %177 ], [ 0, %164 ], [ 0, %157 ], [ %147, %150 ], [ %147, %155 ], [ %147, %142 ], [ %107, %120 ], [ %107, %125 ], [ %107, %117 ], [ %46, %59 ], [ %46, %64 ], [ %46, %56 ], [ -1, %zend_ast_evaluate_ex.exit ], [ -1, %39 ], [ -1, %34 ], [ -1, %31 ], [ -1, %zend_ast_evaluate_ex.exit981 ], [ -1, %101 ], [ -1, %96 ], [ -1, %93 ], [ -1, %zend_ast_evaluate_ex.exit999 ], [ -1, %zend_ast_evaluate_ex.exit1008 ], [ -1, %274 ], [ -1, %269 ], [ -1, %266 ], [ -1, %zend_ast_evaluate_ex.exit1017 ], [ -1, %332 ], [ -1, %327 ], [ -1, %324 ], [ -1, %zend_ast_evaluate_ex.exit1026 ], [ -1, %388 ], [ -1, %383 ], [ -1, %382 ], [ -1, %410 ], [ -1, %405 ], [ -1, %404 ], [ -1, %zend_ast_evaluate_ex.exit1035 ], [ -1, %452 ], [ -1, %447 ], [ -1, %446 ], [ -1, %zend_ast_evaluate_ex.exit1044 ], [ -1, %zend_ast_evaluate_ex.exit1053 ], [ -1, %zend_ast_evaluate_ex.exit1093 ], [ -1, %783 ], [ -1, %778 ], [ -1, %775 ], [ %spec.select, %809 ], [ -1, %zend_ast_evaluate_ex.exit981.thread ], [ 0, %.loopexit1230 ]
   ret i32 %.0778
 }
 

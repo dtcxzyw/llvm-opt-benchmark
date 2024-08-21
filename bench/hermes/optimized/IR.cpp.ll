@@ -1030,10 +1030,13 @@ delete.notnull434:                                ; preds = %if.end
   %1 = load ptr, ptr %Users.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i = icmp eq ptr %1, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %sw.epilog.sink.split, label %if.then.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN6hermes7LiteralD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull434
   tail call void @free(ptr noundef %1) #26
+  br label %_ZN6hermes7LiteralD2Ev.exit
+
+_ZN6hermes7LiteralD2Ev.exit:                      ; preds = %delete.notnull434, %if.then.i.i.i.i
   br label %sw.epilog.sink.split
 
 delete.notnull439:                                ; preds = %if.end
@@ -1041,10 +1044,13 @@ delete.notnull439:                                ; preds = %if.end
   %2 = load ptr, ptr %Users.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN6hermes12LiteralEmptyD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull439
   tail call void @free(ptr noundef %2) #26
+  br label %_ZN6hermes12LiteralEmptyD2Ev.exit
+
+_ZN6hermes12LiteralEmptyD2Ev.exit:                ; preds = %delete.notnull439, %if.then.i.i.i.i.i
   br label %sw.epilog.sink.split
 
 delete.notnull444:                                ; preds = %if.end
@@ -1052,10 +1058,13 @@ delete.notnull444:                                ; preds = %if.end
   %3 = load ptr, ptr %Users.i.i.i196, align 8
   %add.ptr.i.i.i.i.i.i.i197 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i198 = icmp eq ptr %3, %add.ptr.i.i.i.i.i.i.i197
-  br i1 %cmp.i.i.i.i.i.i198, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i199
+  br i1 %cmp.i.i.i.i.i.i198, label %_ZN6hermes16LiteralUndefinedD2Ev.exit, label %if.then.i.i.i.i.i199
 
 if.then.i.i.i.i.i199:                             ; preds = %delete.notnull444
   tail call void @free(ptr noundef %3) #26
+  br label %_ZN6hermes16LiteralUndefinedD2Ev.exit
+
+_ZN6hermes16LiteralUndefinedD2Ev.exit:            ; preds = %delete.notnull444, %if.then.i.i.i.i.i199
   br label %sw.epilog.sink.split
 
 delete.notnull449:                                ; preds = %if.end
@@ -1063,10 +1072,13 @@ delete.notnull449:                                ; preds = %if.end
   %4 = load ptr, ptr %Users.i.i.i200, align 8
   %add.ptr.i.i.i.i.i.i.i201 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i202 = icmp eq ptr %4, %add.ptr.i.i.i.i.i.i.i201
-  br i1 %cmp.i.i.i.i.i.i202, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i203
+  br i1 %cmp.i.i.i.i.i.i202, label %_ZN6hermes11LiteralNullD2Ev.exit, label %if.then.i.i.i.i.i203
 
 if.then.i.i.i.i.i203:                             ; preds = %delete.notnull449
   tail call void @free(ptr noundef %4) #26
+  br label %_ZN6hermes11LiteralNullD2Ev.exit
+
+_ZN6hermes11LiteralNullD2Ev.exit:                 ; preds = %delete.notnull449, %if.then.i.i.i.i.i203
   br label %sw.epilog.sink.split
 
 delete.notnull454:                                ; preds = %if.end
@@ -1074,10 +1086,13 @@ delete.notnull454:                                ; preds = %if.end
   %5 = load ptr, ptr %Users.i.i.i204, align 8
   %add.ptr.i.i.i.i.i.i.i205 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i206 = icmp eq ptr %5, %add.ptr.i.i.i.i.i.i.i205
-  br i1 %cmp.i.i.i.i.i.i206, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i207
+  br i1 %cmp.i.i.i.i.i.i206, label %_ZN6hermes13LiteralNumberD2Ev.exit, label %if.then.i.i.i.i.i207
 
 if.then.i.i.i.i.i207:                             ; preds = %delete.notnull454
   tail call void @free(ptr noundef %5) #26
+  br label %_ZN6hermes13LiteralNumberD2Ev.exit
+
+_ZN6hermes13LiteralNumberD2Ev.exit:               ; preds = %delete.notnull454, %if.then.i.i.i.i.i207
   br label %sw.epilog.sink.split
 
 delete.notnull459:                                ; preds = %if.end
@@ -1085,10 +1100,13 @@ delete.notnull459:                                ; preds = %if.end
   %6 = load ptr, ptr %Users.i.i.i208, align 8
   %add.ptr.i.i.i.i.i.i.i209 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i210 = icmp eq ptr %6, %add.ptr.i.i.i.i.i.i.i209
-  br i1 %cmp.i.i.i.i.i.i210, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i211
+  br i1 %cmp.i.i.i.i.i.i210, label %_ZN6hermes13LiteralBigIntD2Ev.exit, label %if.then.i.i.i.i.i211
 
 if.then.i.i.i.i.i211:                             ; preds = %delete.notnull459
   tail call void @free(ptr noundef %6) #26
+  br label %_ZN6hermes13LiteralBigIntD2Ev.exit
+
+_ZN6hermes13LiteralBigIntD2Ev.exit:               ; preds = %delete.notnull459, %if.then.i.i.i.i.i211
   br label %sw.epilog.sink.split
 
 delete.notnull464:                                ; preds = %if.end
@@ -1096,10 +1114,13 @@ delete.notnull464:                                ; preds = %if.end
   %7 = load ptr, ptr %Users.i.i.i212, align 8
   %add.ptr.i.i.i.i.i.i.i213 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i214 = icmp eq ptr %7, %add.ptr.i.i.i.i.i.i.i213
-  br i1 %cmp.i.i.i.i.i.i214, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i215
+  br i1 %cmp.i.i.i.i.i.i214, label %_ZN6hermes13LiteralStringD2Ev.exit, label %if.then.i.i.i.i.i215
 
 if.then.i.i.i.i.i215:                             ; preds = %delete.notnull464
   tail call void @free(ptr noundef %7) #26
+  br label %_ZN6hermes13LiteralStringD2Ev.exit
+
+_ZN6hermes13LiteralStringD2Ev.exit:               ; preds = %delete.notnull464, %if.then.i.i.i.i.i215
   br label %sw.epilog.sink.split
 
 delete.notnull469:                                ; preds = %if.end
@@ -1107,10 +1128,13 @@ delete.notnull469:                                ; preds = %if.end
   %8 = load ptr, ptr %Users.i.i.i216, align 8
   %add.ptr.i.i.i.i.i.i.i217 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i218 = icmp eq ptr %8, %add.ptr.i.i.i.i.i.i.i217
-  br i1 %cmp.i.i.i.i.i.i218, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i219
+  br i1 %cmp.i.i.i.i.i.i218, label %_ZN6hermes11LiteralBoolD2Ev.exit, label %if.then.i.i.i.i.i219
 
 if.then.i.i.i.i.i219:                             ; preds = %delete.notnull469
   tail call void @free(ptr noundef %8) #26
+  br label %_ZN6hermes11LiteralBoolD2Ev.exit
+
+_ZN6hermes11LiteralBoolD2Ev.exit:                 ; preds = %delete.notnull469, %if.then.i.i.i.i.i219
   br label %sw.epilog.sink.split
 
 delete.notnull474:                                ; preds = %if.end
@@ -1118,10 +1142,13 @@ delete.notnull474:                                ; preds = %if.end
   %9 = load ptr, ptr %Users.i.i.i220, align 8
   %add.ptr.i.i.i.i.i.i.i221 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i.i222 = icmp eq ptr %9, %add.ptr.i.i.i.i.i.i.i221
-  br i1 %cmp.i.i.i.i.i.i222, label %sw.epilog.sink.split, label %if.then.i.i.i.i.i223
+  br i1 %cmp.i.i.i.i.i.i222, label %_ZN6hermes12GlobalObjectD2Ev.exit, label %if.then.i.i.i.i.i223
 
 if.then.i.i.i.i.i223:                             ; preds = %delete.notnull474
   tail call void @free(ptr noundef %9) #26
+  br label %_ZN6hermes12GlobalObjectD2Ev.exit
+
+_ZN6hermes12GlobalObjectD2Ev.exit:                ; preds = %delete.notnull474, %if.then.i.i.i.i.i223
   br label %sw.epilog.sink.split
 
 delete.notnull479:                                ; preds = %if.end
@@ -1133,10 +1160,13 @@ delete.notnull484:                                ; preds = %if.end
   %10 = load ptr, ptr %Users.i.i224, align 8
   %add.ptr.i.i.i.i.i.i225 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i226 = icmp eq ptr %10, %add.ptr.i.i.i.i.i.i225
-  br i1 %cmp.i.i.i.i.i226, label %sw.epilog.sink.split, label %if.then.i.i.i.i227
+  br i1 %cmp.i.i.i.i.i226, label %_ZN6hermes13EmptySentinelD2Ev.exit, label %if.then.i.i.i.i227
 
 if.then.i.i.i.i227:                               ; preds = %delete.notnull484
   tail call void @free(ptr noundef %10) #26
+  br label %_ZN6hermes13EmptySentinelD2Ev.exit
+
+_ZN6hermes13EmptySentinelD2Ev.exit:               ; preds = %delete.notnull484, %if.then.i.i.i.i227
   br label %sw.epilog.sink.split
 
 delete.notnull489:                                ; preds = %if.end
@@ -1144,10 +1174,13 @@ delete.notnull489:                                ; preds = %if.end
   %11 = load ptr, ptr %Users.i.i228, align 8
   %add.ptr.i.i.i.i.i.i229 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i230 = icmp eq ptr %11, %add.ptr.i.i.i.i.i.i229
-  br i1 %cmp.i.i.i.i.i230, label %sw.epilog.sink.split, label %if.then.i.i.i.i231
+  br i1 %cmp.i.i.i.i.i230, label %_ZN6hermes5LabelD2Ev.exit, label %if.then.i.i.i.i231
 
 if.then.i.i.i.i231:                               ; preds = %delete.notnull489
   tail call void @free(ptr noundef %11) #26
+  br label %_ZN6hermes5LabelD2Ev.exit
+
+_ZN6hermes5LabelD2Ev.exit:                        ; preds = %delete.notnull489, %if.then.i.i.i.i231
   br label %sw.epilog.sink.split
 
 delete.notnull494:                                ; preds = %if.end
@@ -1155,10 +1188,13 @@ delete.notnull494:                                ; preds = %if.end
   %12 = load ptr, ptr %Users.i.i232, align 8
   %add.ptr.i.i.i.i.i.i233 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i234 = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i233
-  br i1 %cmp.i.i.i.i.i234, label %sw.epilog.sink.split, label %if.then.i.i.i.i235
+  br i1 %cmp.i.i.i.i.i234, label %_ZN6hermes20GlobalObjectPropertyD2Ev.exit, label %if.then.i.i.i.i235
 
 if.then.i.i.i.i235:                               ; preds = %delete.notnull494
   tail call void @free(ptr noundef %12) #26
+  br label %_ZN6hermes20GlobalObjectPropertyD2Ev.exit
+
+_ZN6hermes20GlobalObjectPropertyD2Ev.exit:        ; preds = %delete.notnull494, %if.then.i.i.i.i235
   br label %sw.epilog.sink.split
 
 delete.notnull499:                                ; preds = %if.end
@@ -1166,10 +1202,13 @@ delete.notnull499:                                ; preds = %if.end
   %13 = load ptr, ptr %Users.i.i236, align 8
   %add.ptr.i.i.i.i.i.i237 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i238 = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i237
-  br i1 %cmp.i.i.i.i.i238, label %sw.epilog.sink.split, label %if.then.i.i.i.i239
+  br i1 %cmp.i.i.i.i.i238, label %_ZN6hermes8VariableD2Ev.exit, label %if.then.i.i.i.i239
 
 if.then.i.i.i.i239:                               ; preds = %delete.notnull499
   tail call void @free(ptr noundef %13) #26
+  br label %_ZN6hermes8VariableD2Ev.exit
+
+_ZN6hermes8VariableD2Ev.exit:                     ; preds = %delete.notnull499, %if.then.i.i.i.i239
   br label %sw.epilog.sink.split
 
 delete.notnull504:                                ; preds = %if.end
@@ -1177,10 +1216,13 @@ delete.notnull504:                                ; preds = %if.end
   %14 = load ptr, ptr %Users.i.i240, align 8
   %add.ptr.i.i.i.i.i.i241 = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i.i242 = icmp eq ptr %14, %add.ptr.i.i.i.i.i.i241
-  br i1 %cmp.i.i.i.i.i242, label %sw.epilog.sink.split, label %if.then.i.i.i.i243
+  br i1 %cmp.i.i.i.i.i242, label %_ZN6hermes9ParameterD2Ev.exit, label %if.then.i.i.i.i243
 
 if.then.i.i.i.i243:                               ; preds = %delete.notnull504
   tail call void @free(ptr noundef %14) #26
+  br label %_ZN6hermes9ParameterD2Ev.exit
+
+_ZN6hermes9ParameterD2Ev.exit:                    ; preds = %delete.notnull504, %if.then.i.i.i.i243
   br label %sw.epilog.sink.split
 
 delete.notnull509:                                ; preds = %if.end
@@ -1191,10 +1233,13 @@ delete.notnull509:                                ; preds = %if.end
   %15 = load ptr, ptr %Users.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %V, i64 24
   %cmp.i.i.i.i = icmp eq ptr %15, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %sw.epilog.sink.split, label %if.then.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes5ValueD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %delete.notnull509
   tail call void @free(ptr noundef %15) #26
+  br label %_ZN6hermes5ValueD2Ev.exit
+
+_ZN6hermes5ValueD2Ev.exit:                        ; preds = %delete.notnull509, %if.then.i.i.i
   br label %sw.epilog.sink.split
 
 delete.notnull514:                                ; preds = %if.end
@@ -1221,8 +1266,8 @@ delete.notnull534:                                ; preds = %if.end
   tail call void @_ZN6hermes6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(1033) %V) #26
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %if.then.i.i.i, %delete.notnull509, %if.then.i.i.i.i243, %delete.notnull504, %if.then.i.i.i.i239, %delete.notnull499, %if.then.i.i.i.i235, %delete.notnull494, %if.then.i.i.i.i231, %delete.notnull489, %if.then.i.i.i.i227, %delete.notnull484, %if.then.i.i.i.i.i223, %delete.notnull474, %if.then.i.i.i.i.i219, %delete.notnull469, %if.then.i.i.i.i.i215, %delete.notnull464, %if.then.i.i.i.i.i211, %delete.notnull459, %if.then.i.i.i.i.i207, %delete.notnull454, %if.then.i.i.i.i.i203, %delete.notnull449, %if.then.i.i.i.i.i199, %delete.notnull444, %if.then.i.i.i.i.i, %delete.notnull439, %if.then.i.i.i.i, %delete.notnull434, %delete.notnull, %delete.notnull4, %delete.notnull9, %delete.notnull14, %delete.notnull19, %delete.notnull24, %delete.notnull29, %delete.notnull34, %delete.notnull39, %delete.notnull44, %delete.notnull49, %delete.notnull54, %delete.notnull59, %delete.notnull64, %delete.notnull69, %delete.notnull74, %delete.notnull79, %delete.notnull84, %delete.notnull89, %delete.notnull94, %delete.notnull99, %delete.notnull104, %delete.notnull109, %delete.notnull114, %delete.notnull119, %delete.notnull124, %delete.notnull129, %delete.notnull134, %delete.notnull139, %delete.notnull144, %delete.notnull149, %delete.notnull154, %delete.notnull159, %delete.notnull164, %delete.notnull169, %delete.notnull174, %delete.notnull179, %delete.notnull184, %delete.notnull189, %delete.notnull194, %delete.notnull199, %delete.notnull204, %delete.notnull209, %delete.notnull214, %delete.notnull219, %delete.notnull224, %delete.notnull229, %delete.notnull234, %delete.notnull239, %delete.notnull244, %delete.notnull249, %delete.notnull254, %delete.notnull259, %delete.notnull264, %delete.notnull269, %delete.notnull274, %delete.notnull279, %delete.notnull284, %delete.notnull289, %delete.notnull294, %delete.notnull299, %delete.notnull304, %delete.notnull309, %delete.notnull314, %delete.notnull319, %delete.notnull324, %delete.notnull329, %delete.notnull334, %delete.notnull339, %delete.notnull344, %delete.notnull349, %delete.notnull354, %delete.notnull359, %delete.notnull364, %delete.notnull369, %delete.notnull374, %delete.notnull379, %delete.notnull384, %delete.notnull389, %delete.notnull394, %delete.notnull399, %delete.notnull404, %delete.notnull409, %delete.notnull414, %delete.notnull419, %delete.notnull424, %delete.notnull429, %delete.notnull479, %delete.notnull514, %delete.notnull519, %delete.notnull524, %delete.notnull529, %delete.notnull534
-  %V.sink = phi ptr [ %V, %delete.notnull534 ], [ %sub.ptr.i.i248, %delete.notnull529 ], [ %sub.ptr.i.i247, %delete.notnull524 ], [ %sub.ptr.i.i246, %delete.notnull519 ], [ %sub.ptr.i.i245, %delete.notnull514 ], [ %V, %delete.notnull479 ], [ %sub.ptr.i.i195, %delete.notnull429 ], [ %sub.ptr.i.i194, %delete.notnull424 ], [ %sub.ptr.i.i193, %delete.notnull419 ], [ %sub.ptr.i.i192, %delete.notnull414 ], [ %sub.ptr.i.i191, %delete.notnull409 ], [ %sub.ptr.i.i190, %delete.notnull404 ], [ %sub.ptr.i.i189, %delete.notnull399 ], [ %sub.ptr.i.i188, %delete.notnull394 ], [ %sub.ptr.i.i187, %delete.notnull389 ], [ %sub.ptr.i.i186, %delete.notnull384 ], [ %sub.ptr.i.i185, %delete.notnull379 ], [ %sub.ptr.i.i184, %delete.notnull374 ], [ %sub.ptr.i.i183, %delete.notnull369 ], [ %sub.ptr.i.i182, %delete.notnull364 ], [ %sub.ptr.i.i181, %delete.notnull359 ], [ %sub.ptr.i.i180, %delete.notnull354 ], [ %sub.ptr.i.i179, %delete.notnull349 ], [ %sub.ptr.i.i178, %delete.notnull344 ], [ %sub.ptr.i.i177, %delete.notnull339 ], [ %sub.ptr.i.i176, %delete.notnull334 ], [ %sub.ptr.i.i175, %delete.notnull329 ], [ %sub.ptr.i.i174, %delete.notnull324 ], [ %sub.ptr.i.i173, %delete.notnull319 ], [ %sub.ptr.i.i172, %delete.notnull314 ], [ %sub.ptr.i.i171, %delete.notnull309 ], [ %sub.ptr.i.i170, %delete.notnull304 ], [ %sub.ptr.i.i169, %delete.notnull299 ], [ %sub.ptr.i.i168, %delete.notnull294 ], [ %sub.ptr.i.i167, %delete.notnull289 ], [ %sub.ptr.i.i166, %delete.notnull284 ], [ %sub.ptr.i.i165, %delete.notnull279 ], [ %sub.ptr.i.i164, %delete.notnull274 ], [ %sub.ptr.i.i163, %delete.notnull269 ], [ %sub.ptr.i.i162, %delete.notnull264 ], [ %sub.ptr.i.i161, %delete.notnull259 ], [ %sub.ptr.i.i160, %delete.notnull254 ], [ %sub.ptr.i.i159, %delete.notnull249 ], [ %sub.ptr.i.i158, %delete.notnull244 ], [ %sub.ptr.i.i157, %delete.notnull239 ], [ %sub.ptr.i.i156, %delete.notnull234 ], [ %sub.ptr.i.i155, %delete.notnull229 ], [ %sub.ptr.i.i154, %delete.notnull224 ], [ %sub.ptr.i.i153, %delete.notnull219 ], [ %sub.ptr.i.i152, %delete.notnull214 ], [ %sub.ptr.i.i151, %delete.notnull209 ], [ %sub.ptr.i.i150, %delete.notnull204 ], [ %sub.ptr.i.i149, %delete.notnull199 ], [ %sub.ptr.i.i148, %delete.notnull194 ], [ %sub.ptr.i.i147, %delete.notnull189 ], [ %sub.ptr.i.i146, %delete.notnull184 ], [ %sub.ptr.i.i145, %delete.notnull179 ], [ %sub.ptr.i.i144, %delete.notnull174 ], [ %sub.ptr.i.i143, %delete.notnull169 ], [ %sub.ptr.i.i142, %delete.notnull164 ], [ %sub.ptr.i.i141, %delete.notnull159 ], [ %sub.ptr.i.i140, %delete.notnull154 ], [ %sub.ptr.i.i139, %delete.notnull149 ], [ %sub.ptr.i.i138, %delete.notnull144 ], [ %sub.ptr.i.i137, %delete.notnull139 ], [ %sub.ptr.i.i136, %delete.notnull134 ], [ %sub.ptr.i.i135, %delete.notnull129 ], [ %sub.ptr.i.i134, %delete.notnull124 ], [ %sub.ptr.i.i133, %delete.notnull119 ], [ %sub.ptr.i.i132, %delete.notnull114 ], [ %sub.ptr.i.i131, %delete.notnull109 ], [ %sub.ptr.i.i130, %delete.notnull104 ], [ %sub.ptr.i.i129, %delete.notnull99 ], [ %sub.ptr.i.i128, %delete.notnull94 ], [ %sub.ptr.i.i127, %delete.notnull89 ], [ %sub.ptr.i.i126, %delete.notnull84 ], [ %sub.ptr.i.i125, %delete.notnull79 ], [ %sub.ptr.i.i124, %delete.notnull74 ], [ %sub.ptr.i.i123, %delete.notnull69 ], [ %sub.ptr.i.i122, %delete.notnull64 ], [ %sub.ptr.i.i121, %delete.notnull59 ], [ %sub.ptr.i.i120, %delete.notnull54 ], [ %sub.ptr.i.i119, %delete.notnull49 ], [ %sub.ptr.i.i118, %delete.notnull44 ], [ %sub.ptr.i.i117, %delete.notnull39 ], [ %sub.ptr.i.i116, %delete.notnull34 ], [ %sub.ptr.i.i115, %delete.notnull29 ], [ %sub.ptr.i.i114, %delete.notnull24 ], [ %sub.ptr.i.i113, %delete.notnull19 ], [ %sub.ptr.i.i112, %delete.notnull14 ], [ %sub.ptr.i.i111, %delete.notnull9 ], [ %sub.ptr.i.i110, %delete.notnull4 ], [ %sub.ptr.i.i, %delete.notnull ], [ %V, %delete.notnull434 ], [ %V, %if.then.i.i.i.i ], [ %V, %delete.notnull439 ], [ %V, %if.then.i.i.i.i.i ], [ %V, %delete.notnull444 ], [ %V, %if.then.i.i.i.i.i199 ], [ %V, %delete.notnull449 ], [ %V, %if.then.i.i.i.i.i203 ], [ %V, %delete.notnull454 ], [ %V, %if.then.i.i.i.i.i207 ], [ %V, %delete.notnull459 ], [ %V, %if.then.i.i.i.i.i211 ], [ %V, %delete.notnull464 ], [ %V, %if.then.i.i.i.i.i215 ], [ %V, %delete.notnull469 ], [ %V, %if.then.i.i.i.i.i219 ], [ %V, %delete.notnull474 ], [ %V, %if.then.i.i.i.i.i223 ], [ %V, %delete.notnull484 ], [ %V, %if.then.i.i.i.i227 ], [ %V, %delete.notnull489 ], [ %V, %if.then.i.i.i.i231 ], [ %V, %delete.notnull494 ], [ %V, %if.then.i.i.i.i235 ], [ %V, %delete.notnull499 ], [ %V, %if.then.i.i.i.i239 ], [ %V, %delete.notnull504 ], [ %V, %if.then.i.i.i.i243 ], [ %sub.ptr.i.i244, %delete.notnull509 ], [ %sub.ptr.i.i244, %if.then.i.i.i ]
+sw.epilog.sink.split:                             ; preds = %delete.notnull, %delete.notnull4, %delete.notnull9, %delete.notnull14, %delete.notnull19, %delete.notnull24, %delete.notnull29, %delete.notnull34, %delete.notnull39, %delete.notnull44, %delete.notnull49, %delete.notnull54, %delete.notnull59, %delete.notnull64, %delete.notnull69, %delete.notnull74, %delete.notnull79, %delete.notnull84, %delete.notnull89, %delete.notnull94, %delete.notnull99, %delete.notnull104, %delete.notnull109, %delete.notnull114, %delete.notnull119, %delete.notnull124, %delete.notnull129, %delete.notnull134, %delete.notnull139, %delete.notnull144, %delete.notnull149, %delete.notnull154, %delete.notnull159, %delete.notnull164, %delete.notnull169, %delete.notnull174, %delete.notnull179, %delete.notnull184, %delete.notnull189, %delete.notnull194, %delete.notnull199, %delete.notnull204, %delete.notnull209, %delete.notnull214, %delete.notnull219, %delete.notnull224, %delete.notnull229, %delete.notnull234, %delete.notnull239, %delete.notnull244, %delete.notnull249, %delete.notnull254, %delete.notnull259, %delete.notnull264, %delete.notnull269, %delete.notnull274, %delete.notnull279, %delete.notnull284, %delete.notnull289, %delete.notnull294, %delete.notnull299, %delete.notnull304, %delete.notnull309, %delete.notnull314, %delete.notnull319, %delete.notnull324, %delete.notnull329, %delete.notnull334, %delete.notnull339, %delete.notnull344, %delete.notnull349, %delete.notnull354, %delete.notnull359, %delete.notnull364, %delete.notnull369, %delete.notnull374, %delete.notnull379, %delete.notnull384, %delete.notnull389, %delete.notnull394, %delete.notnull399, %delete.notnull404, %delete.notnull409, %delete.notnull414, %delete.notnull419, %delete.notnull424, %delete.notnull429, %_ZN6hermes7LiteralD2Ev.exit, %_ZN6hermes12LiteralEmptyD2Ev.exit, %_ZN6hermes16LiteralUndefinedD2Ev.exit, %_ZN6hermes11LiteralNullD2Ev.exit, %_ZN6hermes13LiteralNumberD2Ev.exit, %_ZN6hermes13LiteralBigIntD2Ev.exit, %_ZN6hermes13LiteralStringD2Ev.exit, %_ZN6hermes11LiteralBoolD2Ev.exit, %_ZN6hermes12GlobalObjectD2Ev.exit, %delete.notnull479, %_ZN6hermes13EmptySentinelD2Ev.exit, %_ZN6hermes5LabelD2Ev.exit, %_ZN6hermes20GlobalObjectPropertyD2Ev.exit, %_ZN6hermes8VariableD2Ev.exit, %_ZN6hermes9ParameterD2Ev.exit, %_ZN6hermes5ValueD2Ev.exit, %delete.notnull514, %delete.notnull519, %delete.notnull524, %delete.notnull529, %delete.notnull534
+  %V.sink = phi ptr [ %V, %delete.notnull534 ], [ %sub.ptr.i.i248, %delete.notnull529 ], [ %sub.ptr.i.i247, %delete.notnull524 ], [ %sub.ptr.i.i246, %delete.notnull519 ], [ %sub.ptr.i.i245, %delete.notnull514 ], [ %sub.ptr.i.i244, %_ZN6hermes5ValueD2Ev.exit ], [ %V, %_ZN6hermes9ParameterD2Ev.exit ], [ %V, %_ZN6hermes8VariableD2Ev.exit ], [ %V, %_ZN6hermes20GlobalObjectPropertyD2Ev.exit ], [ %V, %_ZN6hermes5LabelD2Ev.exit ], [ %V, %_ZN6hermes13EmptySentinelD2Ev.exit ], [ %V, %delete.notnull479 ], [ %V, %_ZN6hermes12GlobalObjectD2Ev.exit ], [ %V, %_ZN6hermes11LiteralBoolD2Ev.exit ], [ %V, %_ZN6hermes13LiteralStringD2Ev.exit ], [ %V, %_ZN6hermes13LiteralBigIntD2Ev.exit ], [ %V, %_ZN6hermes13LiteralNumberD2Ev.exit ], [ %V, %_ZN6hermes11LiteralNullD2Ev.exit ], [ %V, %_ZN6hermes16LiteralUndefinedD2Ev.exit ], [ %V, %_ZN6hermes12LiteralEmptyD2Ev.exit ], [ %V, %_ZN6hermes7LiteralD2Ev.exit ], [ %sub.ptr.i.i195, %delete.notnull429 ], [ %sub.ptr.i.i194, %delete.notnull424 ], [ %sub.ptr.i.i193, %delete.notnull419 ], [ %sub.ptr.i.i192, %delete.notnull414 ], [ %sub.ptr.i.i191, %delete.notnull409 ], [ %sub.ptr.i.i190, %delete.notnull404 ], [ %sub.ptr.i.i189, %delete.notnull399 ], [ %sub.ptr.i.i188, %delete.notnull394 ], [ %sub.ptr.i.i187, %delete.notnull389 ], [ %sub.ptr.i.i186, %delete.notnull384 ], [ %sub.ptr.i.i185, %delete.notnull379 ], [ %sub.ptr.i.i184, %delete.notnull374 ], [ %sub.ptr.i.i183, %delete.notnull369 ], [ %sub.ptr.i.i182, %delete.notnull364 ], [ %sub.ptr.i.i181, %delete.notnull359 ], [ %sub.ptr.i.i180, %delete.notnull354 ], [ %sub.ptr.i.i179, %delete.notnull349 ], [ %sub.ptr.i.i178, %delete.notnull344 ], [ %sub.ptr.i.i177, %delete.notnull339 ], [ %sub.ptr.i.i176, %delete.notnull334 ], [ %sub.ptr.i.i175, %delete.notnull329 ], [ %sub.ptr.i.i174, %delete.notnull324 ], [ %sub.ptr.i.i173, %delete.notnull319 ], [ %sub.ptr.i.i172, %delete.notnull314 ], [ %sub.ptr.i.i171, %delete.notnull309 ], [ %sub.ptr.i.i170, %delete.notnull304 ], [ %sub.ptr.i.i169, %delete.notnull299 ], [ %sub.ptr.i.i168, %delete.notnull294 ], [ %sub.ptr.i.i167, %delete.notnull289 ], [ %sub.ptr.i.i166, %delete.notnull284 ], [ %sub.ptr.i.i165, %delete.notnull279 ], [ %sub.ptr.i.i164, %delete.notnull274 ], [ %sub.ptr.i.i163, %delete.notnull269 ], [ %sub.ptr.i.i162, %delete.notnull264 ], [ %sub.ptr.i.i161, %delete.notnull259 ], [ %sub.ptr.i.i160, %delete.notnull254 ], [ %sub.ptr.i.i159, %delete.notnull249 ], [ %sub.ptr.i.i158, %delete.notnull244 ], [ %sub.ptr.i.i157, %delete.notnull239 ], [ %sub.ptr.i.i156, %delete.notnull234 ], [ %sub.ptr.i.i155, %delete.notnull229 ], [ %sub.ptr.i.i154, %delete.notnull224 ], [ %sub.ptr.i.i153, %delete.notnull219 ], [ %sub.ptr.i.i152, %delete.notnull214 ], [ %sub.ptr.i.i151, %delete.notnull209 ], [ %sub.ptr.i.i150, %delete.notnull204 ], [ %sub.ptr.i.i149, %delete.notnull199 ], [ %sub.ptr.i.i148, %delete.notnull194 ], [ %sub.ptr.i.i147, %delete.notnull189 ], [ %sub.ptr.i.i146, %delete.notnull184 ], [ %sub.ptr.i.i145, %delete.notnull179 ], [ %sub.ptr.i.i144, %delete.notnull174 ], [ %sub.ptr.i.i143, %delete.notnull169 ], [ %sub.ptr.i.i142, %delete.notnull164 ], [ %sub.ptr.i.i141, %delete.notnull159 ], [ %sub.ptr.i.i140, %delete.notnull154 ], [ %sub.ptr.i.i139, %delete.notnull149 ], [ %sub.ptr.i.i138, %delete.notnull144 ], [ %sub.ptr.i.i137, %delete.notnull139 ], [ %sub.ptr.i.i136, %delete.notnull134 ], [ %sub.ptr.i.i135, %delete.notnull129 ], [ %sub.ptr.i.i134, %delete.notnull124 ], [ %sub.ptr.i.i133, %delete.notnull119 ], [ %sub.ptr.i.i132, %delete.notnull114 ], [ %sub.ptr.i.i131, %delete.notnull109 ], [ %sub.ptr.i.i130, %delete.notnull104 ], [ %sub.ptr.i.i129, %delete.notnull99 ], [ %sub.ptr.i.i128, %delete.notnull94 ], [ %sub.ptr.i.i127, %delete.notnull89 ], [ %sub.ptr.i.i126, %delete.notnull84 ], [ %sub.ptr.i.i125, %delete.notnull79 ], [ %sub.ptr.i.i124, %delete.notnull74 ], [ %sub.ptr.i.i123, %delete.notnull69 ], [ %sub.ptr.i.i122, %delete.notnull64 ], [ %sub.ptr.i.i121, %delete.notnull59 ], [ %sub.ptr.i.i120, %delete.notnull54 ], [ %sub.ptr.i.i119, %delete.notnull49 ], [ %sub.ptr.i.i118, %delete.notnull44 ], [ %sub.ptr.i.i117, %delete.notnull39 ], [ %sub.ptr.i.i116, %delete.notnull34 ], [ %sub.ptr.i.i115, %delete.notnull29 ], [ %sub.ptr.i.i114, %delete.notnull24 ], [ %sub.ptr.i.i113, %delete.notnull19 ], [ %sub.ptr.i.i112, %delete.notnull14 ], [ %sub.ptr.i.i111, %delete.notnull9 ], [ %sub.ptr.i.i110, %delete.notnull4 ], [ %sub.ptr.i.i, %delete.notnull ]
   tail call void @_ZdlPv(ptr noundef nonnull %V.sink) #26
   br label %sw.epilog
 

@@ -855,7 +855,7 @@ entry:
     i32 29, label %s_n_llhttp__internal__n_invoke_llhttp__on_message_complete_2
     i32 30, label %s_n_llhttp__internal__n_consume_content_length_1
     i32 31, label %s_n_llhttp__internal__n_span_start_llhttp__on_body_1
-    i32 32, label %return
+    i32 32, label %s_n_llhttp__internal__n_eof.preheader
     i32 33, label %s_n_llhttp__internal__n_span_start_llhttp__on_body_2
     i32 34, label %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete
     i32 35, label %s_n_llhttp__internal__n_error_5
@@ -1055,47 +1055,50 @@ entry:
 s_n_llhttp__internal__n_start.preheader:          ; preds = %s_n_llhttp__internal__n_invoke_update_initial_message_completed, %entry
   %p.addr.249.ph = phi ptr [ %p.addr.1, %s_n_llhttp__internal__n_invoke_update_initial_message_completed ], [ %p, %entry ]
   %cmp26735251 = icmp eq ptr %p.addr.249.ph, %endp
-  br i1 %cmp26735251, label %return, label %if.end2676
+  br i1 %cmp26735251, label %return.loopexit5067, label %if.end2676
 
 s_n_llhttp__internal__n_res_status.preheader:     ; preds = %if.end2366, %entry
   %p.addr.215.ph = phi ptr [ %p, %entry ], [ %p.addr.216, %if.end2366 ]
   %cmp23535253 = icmp eq ptr %p.addr.215.ph, %endp
-  br i1 %cmp23535253, label %return, label %if.end2356
+  br i1 %cmp23535253, label %return.loopexit5066, label %if.end2356
 
 s_n_llhttp__internal__n_req_spaces_before_url.preheader: ; preds = %sw.bb1368, %entry
   %p.addr.137.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1369, %sw.bb1368 ]
   %cmp13545255 = icmp eq ptr %p.addr.137.ph, %endp
-  br i1 %cmp13545255, label %return, label %if.end1357
+  br i1 %cmp13545255, label %return.loopexit5065, label %if.end1357
 
 s_n_llhttp__internal__n_url_server.preheader:     ; preds = %sw.bb1227, %sw.bb1262, %if.end1339, %entry
   %p.addr.126.ph = phi ptr [ %p, %entry ], [ %p.addr.135, %if.end1339 ], [ %incdec.ptr1228, %sw.bb1227 ], [ %incdec.ptr1263, %sw.bb1262 ]
   %cmp12365259 = icmp eq ptr %p.addr.126.ph, %endp
-  br i1 %cmp12365259, label %return, label %if.end1239
+  br i1 %cmp12365259, label %return.loopexit5063, label %if.end1239
 
 s_n_llhttp__internal__n_url_path.preheader:       ; preds = %if.end1200, %if.end1206, %if.end1212, %entry
   %p.addr.121.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1201, %if.end1200 ], [ %incdec.ptr1207, %if.end1206 ], [ %incdec.ptr1213, %if.end1212 ]
   %cmp11845261 = icmp eq ptr %p.addr.121.ph, %endp
-  br i1 %cmp11845261, label %return, label %if.end1187
+  br i1 %cmp11845261, label %return.loopexit5062, label %if.end1187
 
 s_n_llhttp__internal__n_url_query.preheader:      ; preds = %sw.bb1180, %sw.bb1230, %sw.bb1251, %entry
   %p.addr.119.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1252, %sw.bb1251 ], [ %incdec.ptr1181, %sw.bb1180 ], [ %incdec.ptr1231, %sw.bb1230 ]
   %cmp11495263 = icmp eq ptr %p.addr.119.ph, %endp
-  br i1 %cmp11495263, label %return, label %if.end1152
+  br i1 %cmp11495263, label %return.loopexit5061, label %if.end1152
 
 s_n_llhttp__internal__n_url_fragment.preheader:   ; preds = %if.end1146, %sw.bb1178, %entry
   %p.addr.117.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1179, %sw.bb1178 ], [ %incdec.ptr1147, %if.end1146 ]
   %cmp11275265 = icmp eq ptr %p.addr.117.ph, %endp
-  br i1 %cmp11275265, label %return, label %if.end1130
+  br i1 %cmp11275265, label %return.loopexit5060, label %if.end1130
+
+s_n_llhttp__internal__n_eof.preheader:            ; preds = %if.end320, %entry
+  br label %return
 
 s_n_llhttp__internal__n_chunk_extension_name.preheader: ; preds = %if.end149, %entry
   %p.addr.24.ph = phi ptr [ %p, %entry ], [ %p.addr.25, %if.end149 ]
   %cmp1325269 = icmp eq ptr %p.addr.24.ph, %endp
-  br i1 %cmp1325269, label %return, label %if.end135
+  br i1 %cmp1325269, label %return.loopexit5057, label %if.end135
 
 s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader: ; preds = %sw.bb115, %entry
   %p.addr.17.ph = phi ptr [ %p, %entry ], [ %incdec.ptr116, %sw.bb115 ]
   %cmp845273 = icmp eq ptr %p.addr.17.ph, %endp
-  br i1 %cmp845273, label %return, label %if.end87
+  br i1 %cmp845273, label %return.loopexit5055, label %if.end87
 
 s_n_llhttp__internal__n_header_field_general.preheader.sink.split: ; preds = %if.end731, %if.end815, %s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split, %if.end692
   %p.addr.76.ph.ph = phi ptr [ %p.addr.41, %if.end692 ], [ %p.addr.86, %if.end815 ], [ %p.addr.81, %if.end731 ], [ %p.addr.79.ph, %s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split ]
@@ -1106,17 +1109,17 @@ s_n_llhttp__internal__n_header_field_general.preheader.sink.split: ; preds = %if
 s_n_llhttp__internal__n_header_field_general.preheader: ; preds = %s_n_llhttp__internal__n_header_field_general.preheader.sink.split, %entry
   %p.addr.76.ph = phi ptr [ %p, %entry ], [ %p.addr.76.ph.ph, %s_n_llhttp__internal__n_header_field_general.preheader.sink.split ]
   %cmp6785277 = icmp eq ptr %p.addr.76.ph, %endp
-  br i1 %cmp6785277, label %return, label %if.end681
+  br i1 %cmp6785277, label %return.loopexit5053, label %if.end681
 
 s_n_llhttp__internal__n_header_value_te_chunked_last.preheader: ; preds = %sw.bb637, %entry
   %p.addr.71.ph = phi ptr [ %p, %entry ], [ %incdec.ptr638, %sw.bb637 ]
   %cmp6165281 = icmp eq ptr %p.addr.71.ph, %endp
-  br i1 %cmp6165281, label %return, label %if.end619
+  br i1 %cmp6165281, label %return.loopexit5051, label %if.end619
 
 s_n_llhttp__internal__n_header_value_te_token_ows.preheader: ; preds = %sw.bb612, %entry
   %p.addr.66.ph = phi ptr [ %p, %entry ], [ %incdec.ptr613, %sw.bb612 ]
   %cmp5815285 = icmp eq ptr %p.addr.66.ph, %endp
-  br i1 %cmp5815285, label %return, label %if.end584
+  br i1 %cmp5815285, label %return.loopexit5049, label %if.end584
 
 s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split: ; preds = %if.then.i2808, %if.then.i2781, %if.then.i2756
   %scevgep25.i.sink = phi ptr [ %scevgep25.i, %if.then.i2756 ], [ %scevgep25.i2767, %if.then.i2781 ], [ %scevgep25.i2794, %if.then.i2808 ]
@@ -1130,12 +1133,12 @@ s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split: ; preds
 s_n_llhttp__internal__n_header_value_connection_ws.preheader: ; preds = %s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split, %entry
   %p.addr.55.ph = phi ptr [ %p, %entry ], [ %incdec.ptr464, %s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split ]
   %cmp4415293 = icmp eq ptr %p.addr.55.ph, %endp
-  br i1 %cmp4415293, label %return, label %if.end444
+  br i1 %cmp4415293, label %return.loopexit5044, label %if.end444
 
 s_n_llhttp__internal__n_closed.preheader:         ; preds = %entry, %s_n_llhttp__internal__n_invoke_update_finish_1
   %p.addr.0.ph = phi ptr [ %p, %entry ], [ %p.addr.1, %s_n_llhttp__internal__n_invoke_update_finish_1 ]
   %cmp5301 = icmp eq ptr %p.addr.0.ph, %endp
-  br i1 %cmp5301, label %return, label %if.end.lr.ph
+  br i1 %cmp5301, label %return.loopexit, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %s_n_llhttp__internal__n_closed.preheader
   %lenient_flags.i = getelementptr inbounds i8, ptr %state, i64 77
@@ -1152,7 +1155,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %s_n_
 
 s_n_llhttp__internal__n_closed.backedge:          ; preds = %if.end, %if.end, %sw.default
   %cmp = icmp eq ptr %incdec.ptr6, %endp
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return.loopexit, label %if.end
 
 sw.default:                                       ; preds = %if.end
   %3 = load i8, ptr %lenient_flags.i, align 1
@@ -1362,7 +1365,7 @@ if.end87:                                         ; preds = %s_n_llhttp__interna
 sw.bb89:                                          ; preds = %if.end87
   %incdec.ptr90 = getelementptr inbounds i8, ptr %p.addr.175274, i64 1
   %cmp84 = icmp eq ptr %incdec.ptr90, %endp
-  br i1 %cmp84, label %return, label %if.end87
+  br i1 %cmp84, label %return.loopexit5055, label %if.end87
 
 sw.bb91:                                          ; preds = %if.end87
   %incdec.ptr92 = getelementptr inbounds i8, ptr %p.addr.175274, i64 1
@@ -1408,7 +1411,7 @@ if.end108:                                        ; preds = %s_n_llhttp__interna
 sw.bb113:                                         ; preds = %if.end108
   %incdec.ptr114 = getelementptr inbounds i8, ptr %p.addr.215272, i64 1
   %cmp105 = icmp eq ptr %incdec.ptr114, %endp
-  br i1 %cmp105, label %return, label %if.end108
+  br i1 %cmp105, label %return.loopexit5056, label %if.end108
 
 sw.bb115:                                         ; preds = %if.end108
   %incdec.ptr116 = getelementptr inbounds i8, ptr %p.addr.215272, i64 1
@@ -1433,7 +1436,7 @@ if.end123:                                        ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_chunk_extension_value.preheader: ; preds = %entry, %if.end123
   %p.addr.21.ph = phi ptr [ %p, %entry ], [ %p.addr.22, %if.end123 ]
   %cmp1055271 = icmp eq ptr %p.addr.21.ph, %endp
-  br i1 %cmp1055271, label %return, label %if.end108
+  br i1 %cmp1055271, label %return.loopexit5056, label %if.end108
 
 s_n_llhttp__internal__n_error_24:                 ; preds = %entry, %if.end2958
   %p.addr.23 = phi ptr [ %incdec.ptr2959, %if.end2958 ], [ %p, %entry ]
@@ -1462,7 +1465,7 @@ if.end135:                                        ; preds = %s_n_llhttp__interna
 sw.bb140:                                         ; preds = %if.end135
   %incdec.ptr141 = getelementptr inbounds i8, ptr %p.addr.245270, i64 1
   %cmp132 = icmp eq ptr %incdec.ptr141, %endp
-  br i1 %cmp132, label %return, label %if.end135
+  br i1 %cmp132, label %return.loopexit5057, label %if.end135
 
 s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name: ; preds = %if.end156, %entry
   %p.addr.25 = phi ptr [ %p.addr.12, %if.end156 ], [ %p, %entry ]
@@ -1788,7 +1791,7 @@ if.end320:                                        ; preds = %s_n_llhttp__interna
   store ptr %p.addr.35, ptr %_span_pos0321, align 8
   %_span_cb0322 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr @llhttp__on_body, ptr %_span_cb0322, align 8
-  br label %return
+  br label %s_n_llhttp__internal__n_eof.preheader
 
 s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete.sink.split: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete, %sw.bb3045
   %33 = load i16, ptr %flags.i4133, align 8
@@ -1841,7 +1844,7 @@ if.end349:                                        ; preds = %s_n_llhttp__interna
 sw.bb351:                                         ; preds = %if.end349
   %incdec.ptr352 = getelementptr inbounds i8, ptr %p.addr.405276, i64 1
   %cmp346 = icmp eq ptr %incdec.ptr352, %endp
-  br i1 %cmp346, label %return, label %if.end349
+  br i1 %cmp346, label %return.loopexit5054, label %if.end349
 
 s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete: ; preds = %s_n_llhttp__internal__n_invoke_load_header_state_4, %if.end363, %entry, %sw.bb3166, %s_n_llhttp__internal__n_invoke_update_header_state_2
   %p.addr.42 = phi ptr [ %p.addr.48, %s_n_llhttp__internal__n_invoke_load_header_state_4 ], [ %p.addr.48, %sw.bb3166 ], [ %p.addr.48, %s_n_llhttp__internal__n_invoke_update_header_state_2 ], [ %p.addr.44, %if.end363 ], [ %p, %entry ]
@@ -1928,7 +1931,7 @@ if.end408:                                        ; preds = %s_n_llhttp__interna
 sw.default412:                                    ; preds = %if.end408
   %incdec.ptr413 = getelementptr inbounds i8, ptr %p.addr.505300, i64 1
   %cmp405 = icmp eq ptr %incdec.ptr413, %endp
-  br i1 %cmp405, label %return, label %if.end408
+  br i1 %cmp405, label %return.loopexit5040, label %if.end408
 
 s_n_llhttp__internal__n_error_41:                 ; preds = %sw.default3226, %entry
   %p.addr.51 = phi ptr [ %p.addr.52, %sw.default3226 ], [ %p, %entry ]
@@ -1965,7 +1968,7 @@ if.end431:                                        ; preds = %s_n_llhttp__interna
 sw.bb435:                                         ; preds = %if.end431
   %incdec.ptr436 = getelementptr inbounds i8, ptr %p.addr.535296, i64 1
   %cmp428 = icmp eq ptr %incdec.ptr436, %endp
-  br i1 %cmp428, label %return, label %if.end431
+  br i1 %cmp428, label %return.loopexit5042, label %if.end431
 
 sw.bb437:                                         ; preds = %if.end431
   %incdec.ptr438 = getelementptr inbounds i8, ptr %p.addr.535296, i64 1
@@ -1984,7 +1987,7 @@ if.end444:                                        ; preds = %s_n_llhttp__interna
 sw.bb448:                                         ; preds = %if.end444
   %incdec.ptr449 = getelementptr inbounds i8, ptr %p.addr.555294, i64 1
   %cmp441 = icmp eq ptr %incdec.ptr449, %endp
-  br i1 %cmp441, label %return, label %if.end444
+  br i1 %cmp441, label %return.loopexit5044, label %if.end444
 
 sw.bb450:                                         ; preds = %if.end444
   %incdec.ptr451 = getelementptr inbounds i8, ptr %p.addr.555294, i64 1
@@ -2150,7 +2153,7 @@ llparse__match_sequence_to_lower.exit2814:        ; preds = %for.body.i2795
 s_n_llhttp__internal__n_header_value_connection_token.preheader: ; preds = %if.end502, %s_n_llhttp__internal__n_invoke_update_header_state_5, %entry, %llparse__match_sequence_to_lower.exit, %llparse__match_sequence_to_lower.exit2787, %llparse__match_sequence_to_lower.exit2814
   %p.addr.53.ph = phi ptr [ %p, %entry ], [ %p.addr.013.i, %llparse__match_sequence_to_lower.exit ], [ %p.addr.013.i2770, %llparse__match_sequence_to_lower.exit2787 ], [ %p.addr.555294, %s_n_llhttp__internal__n_invoke_update_header_state_5 ], [ %p.addr.013.i2797, %llparse__match_sequence_to_lower.exit2814 ], [ %p.addr.545292, %if.end502 ]
   %cmp4285295 = icmp eq ptr %p.addr.53.ph, %endp
-  br i1 %cmp4285295, label %return, label %if.end431
+  br i1 %cmp4285295, label %return.loopexit5042, label %if.end431
 
 if.end502:                                        ; preds = %s_n_llhttp__internal__n_header_value_connection.preheader, %s_n_llhttp__internal__n_header_value_connection.backedge
   %p.addr.545292 = phi ptr [ %p.addr.54.be, %s_n_llhttp__internal__n_header_value_connection.backedge ], [ %p.addr.54.ph, %s_n_llhttp__internal__n_header_value_connection.preheader ]
@@ -2170,7 +2173,7 @@ if.end502:                                        ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_header_value_connection.backedge: ; preds = %if.end502, %if.end502
   %p.addr.54.be = getelementptr inbounds i8, ptr %p.addr.545292, i64 1
   %cmp499 = icmp eq ptr %p.addr.54.be, %endp
-  br i1 %cmp499, label %return, label %if.end502
+  br i1 %cmp499, label %return.loopexit5046, label %if.end502
 
 sw.bb515:                                         ; preds = %if.end502
   %incdec.ptr516 = getelementptr inbounds i8, ptr %p.addr.545292, i64 1
@@ -2218,7 +2221,7 @@ if.end536:                                        ; preds = %s_n_llhttp__interna
 sw.bb540:                                         ; preds = %if.end536
   %incdec.ptr541 = getelementptr inbounds i8, ptr %p.addr.615290, i64 1
   %cmp533 = icmp eq ptr %incdec.ptr541, %endp
-  br i1 %cmp533, label %return, label %if.end536
+  br i1 %cmp533, label %return.loopexit5047, label %if.end536
 
 if.end547:                                        ; preds = %if.end547.lr.ph, %llhttp__internal__c_mul_add_content_length_1.exit
   %p.addr.625288 = phi ptr [ %p.addr.62.ph, %if.end547.lr.ph ], [ %p.addr.63, %llhttp__internal__c_mul_add_content_length_1.exit ]
@@ -2230,7 +2233,7 @@ if.end547:                                        ; preds = %if.end547.lr.ph, %l
 s_n_llhttp__internal__n_header_value_content_length_ws.preheader: ; preds = %if.end547, %entry
   %p.addr.61.ph = phi ptr [ %p, %entry ], [ %p.addr.625288, %if.end547 ]
   %cmp5335289 = icmp eq ptr %p.addr.61.ph, %endp
-  br i1 %cmp5335289, label %return, label %if.end536
+  br i1 %cmp5335289, label %return.loopexit5047, label %if.end536
 
 s_n_llhttp__internal__n_error_46:                 ; preds = %entry, %if.end3299
   %p.addr.64 = phi ptr [ %incdec.ptr3300, %if.end3299 ], [ %p, %entry ]
@@ -2265,7 +2268,7 @@ if.end584:                                        ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_header_value_te_token_ows.backedge: ; preds = %if.end584, %if.end584
   %p.addr.66.be = getelementptr inbounds i8, ptr %p.addr.665286, i64 1
   %cmp581 = icmp eq ptr %p.addr.66.be, %endp
-  br i1 %cmp581, label %return, label %if.end584
+  br i1 %cmp581, label %return.loopexit5049, label %if.end584
 
 if.end595:                                        ; preds = %s_n_llhttp__internal__n_header_value.preheader, %sw.bb599
   %p.addr.685298 = phi ptr [ %incdec.ptr600, %sw.bb599 ], [ %p.addr.68.ph, %s_n_llhttp__internal__n_header_value.preheader ]
@@ -2279,7 +2282,7 @@ if.end595:                                        ; preds = %s_n_llhttp__interna
 sw.bb599:                                         ; preds = %if.end595
   %incdec.ptr600 = getelementptr inbounds i8, ptr %p.addr.685298, i64 1
   %cmp592 = icmp eq ptr %incdec.ptr600, %endp
-  br i1 %cmp592, label %return, label %if.end595
+  br i1 %cmp592, label %return.loopexit5041, label %if.end595
 
 if.end606:                                        ; preds = %s_n_llhttp__internal__n_header_value_te_token.preheader, %sw.bb610
   %p.addr.695284 = phi ptr [ %incdec.ptr611, %sw.bb610 ], [ %p.addr.69.ph, %s_n_llhttp__internal__n_header_value_te_token.preheader ]
@@ -2295,7 +2298,7 @@ if.end606:                                        ; preds = %s_n_llhttp__interna
 sw.bb610:                                         ; preds = %if.end606
   %incdec.ptr611 = getelementptr inbounds i8, ptr %p.addr.695284, i64 1
   %cmp603 = icmp eq ptr %incdec.ptr611, %endp
-  br i1 %cmp603, label %return, label %if.end606
+  br i1 %cmp603, label %return.loopexit5050, label %if.end606
 
 sw.bb612:                                         ; preds = %if.end606
   %incdec.ptr613 = getelementptr inbounds i8, ptr %p.addr.695284, i64 1
@@ -2314,7 +2317,7 @@ if.end619:                                        ; preds = %s_n_llhttp__interna
 sw.bb623:                                         ; preds = %if.end619
   %incdec.ptr624 = getelementptr inbounds i8, ptr %p.addr.715282, i64 1
   %cmp616 = icmp eq ptr %incdec.ptr624, %endp
-  br i1 %cmp616, label %return, label %if.end619
+  br i1 %cmp616, label %return.loopexit5051, label %if.end619
 
 s_n_llhttp__internal__n_header_value_te_chunked:  ; preds = %if.end584, %s_n_llhttp__internal__n_invoke_load_type_1, %sw.bb3321, %entry, %s_n_llhttp__internal__n_invoke_and_flags
   %p.addr.67 = phi ptr [ %p.addr.72, %s_n_llhttp__internal__n_invoke_and_flags ], [ %p.addr.715282, %sw.bb3321 ], [ %p.addr.715282, %s_n_llhttp__internal__n_invoke_load_type_1 ], [ %p, %entry ], [ %p.addr.665286, %if.end584 ]
@@ -2366,7 +2369,7 @@ llparse__match_sequence_to_lower_unsafe.exit:     ; preds = %for.body.i2818
 s_n_llhttp__internal__n_header_value_te_token.preheader: ; preds = %if.end619, %entry, %llparse__match_sequence_to_lower_unsafe.exit
   %p.addr.69.ph = phi ptr [ %p, %entry ], [ %p.addr.02.i, %llparse__match_sequence_to_lower_unsafe.exit ], [ %p.addr.715282, %if.end619 ]
   %cmp6035283 = icmp eq ptr %p.addr.69.ph, %endp
-  br i1 %cmp6035283, label %return, label %if.end606
+  br i1 %cmp6035283, label %return.loopexit5050, label %if.end606
 
 sw.bb637:                                         ; preds = %if.then.i2827
   store i32 0, ptr %state, align 8
@@ -2395,12 +2398,12 @@ if.end646:                                        ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_header_value_connection.preheader: ; preds = %sw.bb437, %s_n_llhttp__internal__n_invoke_update_header_state_4, %sw.bb3241, %entry, %sw.bb450, %if.end646
   %p.addr.54.ph = phi ptr [ %p, %entry ], [ %incdec.ptr451, %s_n_llhttp__internal__n_invoke_update_header_state_4 ], [ %incdec.ptr451, %sw.bb3241 ], [ %incdec.ptr451, %sw.bb450 ], [ %incdec.ptr438, %sw.bb437 ], [ %p.addr.72, %if.end646 ]
   %cmp4995291 = icmp eq ptr %p.addr.54.ph, %endp
-  br i1 %cmp4995291, label %return, label %if.end502
+  br i1 %cmp4995291, label %return.loopexit5046, label %if.end502
 
 s_n_llhttp__internal__n_header_value.preheader:   ; preds = %s_n_llhttp__internal__n_invoke_update_header_state_9, %entry, %if.end646
   %p.addr.68.ph = phi ptr [ %p, %entry ], [ %p.addr.70, %s_n_llhttp__internal__n_invoke_update_header_state_9 ], [ %p.addr.72, %if.end646 ]
   %cmp5925297 = icmp eq ptr %p.addr.68.ph, %endp
-  br i1 %cmp5925297, label %return, label %if.end595
+  br i1 %cmp5925297, label %return.loopexit5041, label %if.end595
 
 if.end653:                                        ; preds = %s_n_llhttp__internal__n_header_value_discard_ws.preheader, %s_n_llhttp__internal__n_header_value_discard_ws.backedge
   %p.addr.735280 = phi ptr [ %p.addr.73.be, %s_n_llhttp__internal__n_header_value_discard_ws.backedge ], [ %p.addr.73.ph, %s_n_llhttp__internal__n_header_value_discard_ws.preheader ]
@@ -2415,7 +2418,7 @@ if.end653:                                        ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_header_value_discard_ws.backedge: ; preds = %if.end653, %if.end653
   %p.addr.73.be = getelementptr inbounds i8, ptr %p.addr.735280, i64 1
   %cmp650 = icmp eq ptr %p.addr.73.be, %endp
-  br i1 %cmp650, label %return, label %if.end653
+  br i1 %cmp650, label %return.loopexit5052, label %if.end653
 
 sw.bb657:                                         ; preds = %if.end653
   %incdec.ptr658 = getelementptr inbounds i8, ptr %p.addr.735280, i64 1
@@ -2459,7 +2462,7 @@ if.end681:                                        ; preds = %s_n_llhttp__interna
 sw.bb685:                                         ; preds = %if.end681
   %incdec.ptr686 = getelementptr inbounds i8, ptr %p.addr.765278, i64 1
   %cmp678 = icmp eq ptr %incdec.ptr686, %endp
-  br i1 %cmp678, label %return, label %if.end681
+  br i1 %cmp678, label %return.loopexit5053, label %if.end681
 
 s_n_llhttp__internal__n_header_field_colon:       ; preds = %if.end349, %entry, %s_n_llhttp__internal__n_invoke_store_header_state
   %p.addr.41 = phi ptr [ %incdec.ptr807, %s_n_llhttp__internal__n_invoke_store_header_state ], [ %p, %entry ], [ %p.addr.405276, %if.end349 ]
@@ -3119,8 +3122,8 @@ s_n_llhttp__internal__n_req_http_major:           ; preds = %entry, %if.end1040
 
 if.end1013:                                       ; preds = %s_n_llhttp__internal__n_req_http_major
   %199 = load i8, ptr %p.addr.107, align 1
-  %switch.tableidx6006 = add i8 %199, -48
-  %200 = icmp ult i8 %switch.tableidx6006, 10
+  %switch.tableidx5931 = add i8 %199, -48
+  %200 = icmp ult i8 %switch.tableidx5931, 10
   br i1 %200, label %s_n_llhttp__internal__n_invoke_store_http_major, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_4
 
 s_n_llhttp__internal__n_span_start_llhttp__on_version: ; preds = %sw.bb1053, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1068, %entry
@@ -3312,7 +3315,7 @@ if.end1092:                                       ; preds = %s_n_llhttp__interna
 sw.bb1094:                                        ; preds = %if.end1092
   %incdec.ptr1095 = getelementptr inbounds i8, ptr %p.addr.1145268, i64 1
   %cmp1089 = icmp eq ptr %incdec.ptr1095, %endp
-  br i1 %cmp1089, label %return, label %if.end1092
+  br i1 %cmp1089, label %return.loopexit5059, label %if.end1092
 
 sw.bb1096:                                        ; preds = %if.end1092
   %incdec.ptr1097 = getelementptr inbounds i8, ptr %p.addr.1145268, i64 1
@@ -3380,7 +3383,7 @@ sw.bb1134:                                        ; preds = %if.end1130
 sw.bb1139:                                        ; preds = %if.end1130
   %incdec.ptr1140 = getelementptr inbounds i8, ptr %p.addr.1175266, i64 1
   %cmp1127 = icmp eq ptr %incdec.ptr1140, %endp
-  br i1 %cmp1127, label %return, label %if.end1130
+  br i1 %cmp1127, label %return.loopexit5060, label %if.end1130
 
 s_n_llhttp__internal__n_span_end_stub_query_3:    ; preds = %if.end1152, %entry
   %p.addr.118 = phi ptr [ %p, %entry ], [ %p.addr.1195264, %if.end1152 ]
@@ -3413,7 +3416,7 @@ sw.bb1156:                                        ; preds = %if.end1152
 sw.bb1161:                                        ; preds = %if.end1152
   %incdec.ptr1162 = getelementptr inbounds i8, ptr %p.addr.1195264, i64 1
   %cmp1149 = icmp eq ptr %incdec.ptr1162, %endp
-  br i1 %cmp1149, label %return, label %if.end1152
+  br i1 %cmp1149, label %return.loopexit5061, label %if.end1152
 
 s_n_llhttp__internal__n_url_query_or_fragment:    ; preds = %if.end1187, %entry
   %p.addr.120 = phi ptr [ %p, %entry ], [ %p.addr.1215262, %if.end1187 ]
@@ -3466,7 +3469,7 @@ sw.bb1191:                                        ; preds = %if.end1187
 sw.bb1193:                                        ; preds = %if.end1187
   %incdec.ptr1194 = getelementptr inbounds i8, ptr %p.addr.1215262, i64 1
   %cmp1184 = icmp eq ptr %incdec.ptr1194, %endp
-  br i1 %cmp1184, label %return, label %if.end1187
+  br i1 %cmp1184, label %return.loopexit5062, label %if.end1187
 
 s_n_llhttp__internal__n_span_start_stub_path_2:   ; preds = %if.end1308, %entry
   %p.addr.122 = phi ptr [ %p.addr.132, %if.end1308 ], [ %p, %entry ]
@@ -3563,7 +3566,7 @@ sw.bb1243:                                        ; preds = %if.end1239
 sw.bb1248:                                        ; preds = %if.end1239
   %incdec.ptr1249 = getelementptr inbounds i8, ptr %p.addr.1265260, i64 1
   %cmp1236 = icmp eq ptr %incdec.ptr1249, %endp
-  br i1 %cmp1236, label %return, label %if.end1239
+  br i1 %cmp1236, label %return.loopexit5063, label %if.end1239
 
 sw.bb1251:                                        ; preds = %if.end1239
   %incdec.ptr1252 = getelementptr inbounds i8, ptr %p.addr.1265260, i64 1
@@ -3655,7 +3658,7 @@ sw.bb1298:                                        ; preds = %if.end1294
 sw.bb1301:                                        ; preds = %if.end1294
   %incdec.ptr1302 = getelementptr inbounds i8, ptr %p.addr.1315258, i64 1
   %cmp1291 = icmp eq ptr %incdec.ptr1302, %endp
-  br i1 %cmp1291, label %return, label %if.end1294
+  br i1 %cmp1291, label %return.loopexit5064, label %if.end1294
 
 s_n_llhttp__internal__n_url_start:                ; preds = %entry, %if.end1321
   %p.addr.132 = phi ptr [ %p.addr.133, %if.end1321 ], [ %p, %entry ]
@@ -3676,7 +3679,7 @@ if.end1308:                                       ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_url_schema.preheader:     ; preds = %entry, %if.end1308
   %p.addr.131.ph = phi ptr [ %p, %entry ], [ %p.addr.132, %if.end1308 ]
   %cmp12915257 = icmp eq ptr %p.addr.131.ph, %endp
-  br i1 %cmp12915257, label %return, label %if.end1294
+  br i1 %cmp12915257, label %return.loopexit5064, label %if.end1294
 
 sw.bb1312:                                        ; preds = %if.end1308
   %incdec.ptr1313 = getelementptr inbounds i8, ptr %p.addr.132, i64 1
@@ -3755,7 +3758,7 @@ if.end1357:                                       ; preds = %s_n_llhttp__interna
 sw.bb1359:                                        ; preds = %if.end1357
   %incdec.ptr1360 = getelementptr inbounds i8, ptr %p.addr.1375256, i64 1
   %cmp1354 = icmp eq ptr %incdec.ptr1360, %endp
-  br i1 %cmp1354, label %return, label %if.end1357
+  br i1 %cmp1354, label %return.loopexit5065, label %if.end1357
 
 s_n_llhttp__internal__n_req_first_space_before_url: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete, %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete_1, %entry
   %p.addr.138 = phi ptr [ %p.addr.238, %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete ], [ %p.addr.139, %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete_1 ], [ %p, %entry ]
@@ -6363,7 +6366,7 @@ if.end2356:                                       ; preds = %s_n_llhttp__interna
 sw.default2360:                                   ; preds = %if.end2356
   %incdec.ptr2361 = getelementptr inbounds i8, ptr %p.addr.2155254, i64 1
   %cmp2353 = icmp eq ptr %incdec.ptr2361, %endp
-  br i1 %cmp2353, label %return, label %if.end2356
+  br i1 %cmp2353, label %return.loopexit5066, label %if.end2356
 
 s_n_llhttp__internal__n_span_start_llhttp__on_status: ; preds = %if.end2373, %entry
   %p.addr.216 = phi ptr [ %p.addr.217, %if.end2373 ], [ %p, %entry ]
@@ -6421,9 +6424,9 @@ s_n_llhttp__internal__n_res_status_code_digit_3:  ; preds = %llhttp__internal__c
 
 if.end2395:                                       ; preds = %s_n_llhttp__internal__n_res_status_code_digit_3
   %649 = load i8, ptr %p.addr.219, align 1
-  %switch.tableidx6008 = add i8 %649, -48
-  %650 = icmp ult i8 %switch.tableidx6008, 10
-  br i1 %650, label %switch.lookup6007, label %s_n_llhttp__internal__n_error_79
+  %switch.tableidx5933 = add i8 %649, -48
+  %650 = icmp ult i8 %switch.tableidx5933, 10
+  br i1 %650, label %switch.lookup5932, label %s_n_llhttp__internal__n_error_79
 
 s_n_llhttp__internal__n_res_status_code_digit_2:  ; preds = %llhttp__internal__c_mul_add_status_code.exit4269, %entry
   %p.addr.221 = phi ptr [ %p.addr.224, %llhttp__internal__c_mul_add_status_code.exit4269 ], [ %p, %entry ]
@@ -6432,9 +6435,9 @@ s_n_llhttp__internal__n_res_status_code_digit_2:  ; preds = %llhttp__internal__c
 
 if.end2422:                                       ; preds = %s_n_llhttp__internal__n_res_status_code_digit_2
   %651 = load i8, ptr %p.addr.221, align 1
-  %switch.tableidx6011 = add i8 %651, -48
-  %652 = icmp ult i8 %switch.tableidx6011, 10
-  br i1 %652, label %switch.lookup6010, label %s_n_llhttp__internal__n_error_81
+  %switch.tableidx5936 = add i8 %651, -48
+  %652 = icmp ult i8 %switch.tableidx5936, 10
+  br i1 %652, label %switch.lookup5935, label %s_n_llhttp__internal__n_error_81
 
 s_n_llhttp__internal__n_res_status_code_digit_1:  ; preds = %entry, %sw.bb2478
   %p.addr.223 = phi ptr [ %incdec.ptr2479, %sw.bb2478 ], [ %p, %entry ]
@@ -6443,9 +6446,9 @@ s_n_llhttp__internal__n_res_status_code_digit_1:  ; preds = %entry, %sw.bb2478
 
 if.end2449:                                       ; preds = %s_n_llhttp__internal__n_res_status_code_digit_1
   %653 = load i8, ptr %p.addr.223, align 1
-  %switch.tableidx6014 = add i8 %653, -48
-  %654 = icmp ult i8 %switch.tableidx6014, 10
-  br i1 %654, label %switch.lookup6013, label %s_n_llhttp__internal__n_error_83
+  %switch.tableidx5939 = add i8 %653, -48
+  %654 = icmp ult i8 %switch.tableidx5939, 10
+  br i1 %654, label %switch.lookup5938, label %s_n_llhttp__internal__n_error_83
 
 s_n_llhttp__internal__n_res_after_version:        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1, %entry
   %p.addr.225 = phi ptr [ %p.addr.226, %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1 ], [ %p, %entry ]
@@ -6583,8 +6586,8 @@ s_n_llhttp__internal__n_res_http_major:           ; preds = %entry, %if.end2573
 
 if.end2546:                                       ; preds = %s_n_llhttp__internal__n_res_http_major
   %658 = load i8, ptr %p.addr.234, align 1
-  %switch.tableidx6017 = add i8 %658, -48
-  %659 = icmp ult i8 %switch.tableidx6017, 10
+  %switch.tableidx5942 = add i8 %658, -48
+  %659 = icmp ult i8 %switch.tableidx5942, 10
   br i1 %659, label %s_n_llhttp__internal__n_invoke_store_http_major_1, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_9
 
 s_n_llhttp__internal__n_span_start_llhttp__on_version_1: ; preds = %entry, %s_n_llhttp__internal__n_invoke_update_type_1, %sw.bb2586
@@ -6854,7 +6857,7 @@ if.end2676:                                       ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_start.backedge:           ; preds = %if.end2676, %if.end2676
   %p.addr.249.be = getelementptr inbounds i8, ptr %p.addr.2495252, i64 1
   %cmp2673 = icmp eq ptr %p.addr.249.be, %endp
-  br i1 %cmp2673, label %return, label %if.end2676
+  br i1 %cmp2673, label %return.loopexit5067, label %if.end2676
 
 sw.default2683:                                   ; preds = %entry
   tail call void @abort() #9
@@ -7587,7 +7590,7 @@ s_n_llhttp__internal__n_invoke_test_lenient_flags_8: ; preds = %if.end692
 s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_test_lenient_flags_8
   %p.addr.40.ph = phi ptr [ %p, %entry ], [ %p.addr.41, %s_n_llhttp__internal__n_invoke_test_lenient_flags_8 ]
   %cmp3465275 = icmp eq ptr %p.addr.40.ph, %endp
-  br i1 %cmp3465275, label %return, label %if.end349
+  br i1 %cmp3465275, label %return.loopexit5054, label %if.end349
 
 sw.default3082:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_8
   %_span_pos03068 = getelementptr inbounds i8, ptr %state, i64 8
@@ -7608,7 +7611,7 @@ s_n_llhttp__internal__n_invoke_test_lenient_flags_10: ; preds = %if.end370, %if.
 s_n_llhttp__internal__n_header_value_discard_ws.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete, %s_n_llhttp__internal__n_invoke_test_lenient_flags_10
   %p.addr.73.ph = phi ptr [ %p, %entry ], [ %p.addr.46, %s_n_llhttp__internal__n_invoke_test_lenient_flags_10 ], [ %p.addr.74, %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete ]
   %cmp6505279 = icmp eq ptr %p.addr.73.ph, %endp
-  br i1 %cmp6505279, label %return, label %if.end653
+  br i1 %cmp6505279, label %return.loopexit5052, label %if.end653
 
 sw.default3089:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_10
   %error3083 = getelementptr inbounds i8, ptr %state, i64 24
@@ -7649,10 +7652,10 @@ if.then3109:                                      ; preds = %if.end363
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_header_state: ; preds = %s_n_llhttp__internal__n_invoke_load_header_state, %sw.bb3127, %sw.bb3126
-  %.sink5730 = phi i16 [ 4, %sw.bb3127 ], [ 2, %sw.bb3126 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state ]
+  %.sink5680 = phi i16 [ 4, %sw.bb3127 ], [ 2, %sw.bb3126 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state ]
   %flags.i4149 = getelementptr inbounds i8, ptr %state, i64 80
   %722 = load i16, ptr %flags.i4149, align 8
-  %723 = or i16 %722, %.sink5730
+  %723 = or i16 %722, %.sink5680
   store i16 %723, ptr %flags.i4149, align 8
   store i8 1, ptr %header_state.i4151, align 4
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value
@@ -7729,10 +7732,10 @@ sw.bb3150:                                        ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1
 
 s_n_llhttp__internal__n_invoke_update_header_state_2: ; preds = %s_n_llhttp__internal__n_invoke_load_header_state_4, %sw.bb3165, %sw.bb3164
-  %.sink5734 = phi i16 [ 4, %sw.bb3165 ], [ 2, %sw.bb3164 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state_4 ]
+  %.sink5684 = phi i16 [ 4, %sw.bb3165 ], [ 2, %sw.bb3164 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state_4 ]
   %flags.i4165 = getelementptr inbounds i8, ptr %state, i64 80
   %730 = load i16, ptr %flags.i4165, align 8
-  %731 = or i16 %730, %.sink5734
+  %731 = or i16 %730, %.sink5684
   store i16 %731, ptr %flags.i4165, align 8
   store i8 1, ptr %header_state.i4161, align 4
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete
@@ -7846,7 +7849,7 @@ s_n_llhttp__internal__n_invoke_test_lenient_flags_12: ; preds = %if.end423
 s_n_llhttp__internal__n_header_value_lenient.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_test_lenient_flags_12
   %p.addr.50.ph = phi ptr [ %p, %entry ], [ %p.addr.52, %s_n_llhttp__internal__n_invoke_test_lenient_flags_12 ]
   %cmp4055299 = icmp eq ptr %p.addr.50.ph, %endp
-  br i1 %cmp4055299, label %return, label %if.end408
+  br i1 %cmp4055299, label %return.loopexit5040, label %if.end408
 
 sw.default3226:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_12
   %_span_pos03214 = getelementptr inbounds i8, ptr %state, i64 8
@@ -7857,10 +7860,10 @@ sw.default3226:                                   ; preds = %s_n_llhttp__interna
   br i1 %cmp3217.not, label %s_n_llhttp__internal__n_error_41, label %if.then3219
 
 s_n_llhttp__internal__n_invoke_update_header_state_4: ; preds = %sw.bb450, %sw.bb3240, %sw.bb3239
-  %.sink5738 = phi i16 [ 4, %sw.bb3240 ], [ 2, %sw.bb3239 ], [ 1, %sw.bb450 ]
+  %.sink5688 = phi i16 [ 4, %sw.bb3240 ], [ 2, %sw.bb3239 ], [ 1, %sw.bb450 ]
   %flags.i4172 = getelementptr inbounds i8, ptr %state, i64 80
   %741 = load i16, ptr %flags.i4172, align 8
-  %742 = or i16 %741, %.sink5738
+  %742 = or i16 %741, %.sink5688
   store i16 %742, ptr %flags.i4172, align 8
   store i8 1, ptr %header_state.i, align 4
   br label %s_n_llhttp__internal__n_header_value_connection.preheader
@@ -7910,7 +7913,7 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %if.end.i4177
   %add.i4180 = add i64 %mul.i4178, %.pre.i4185
   store i64 %add.i4180, ptr %content_length.i4175, align 8
   %cmp544 = icmp eq ptr %p.addr.63, %endp
-  br i1 %cmp544, label %return, label %if.end547
+  br i1 %cmp544, label %return.loopexit5048, label %if.end547
 
 sw.bb3264:                                        ; preds = %switch.lookup, %if.end.i4177
   %_span_pos03253 = getelementptr inbounds i8, ptr %state, i64 8
@@ -8046,7 +8049,7 @@ sw.bb3344:                                        ; preds = %if.end646
 s_n_llhttp__internal__n_header_value_content_length.preheader: ; preds = %entry, %sw.bb3344
   %p.addr.62.ph = phi ptr [ %p, %entry ], [ %p.addr.72, %sw.bb3344 ]
   %cmp5445287 = icmp eq ptr %p.addr.62.ph, %endp
-  br i1 %cmp5445287, label %return, label %if.end547.lr.ph
+  br i1 %cmp5445287, label %return.loopexit5048, label %if.end547.lr.ph
 
 if.end547.lr.ph:                                  ; preds = %s_n_llhttp__internal__n_header_value_content_length.preheader
   %content_length.i4175 = getelementptr inbounds i8, ptr %state, i64 64
@@ -8392,7 +8395,7 @@ if.then3535:                                      ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_invoke_store_http_major:  ; preds = %if.end1013
   %p.addr.108 = getelementptr inbounds i8, ptr %p.addr.107, i64 1
   %http_major.i4230 = getelementptr inbounds i8, ptr %state, i64 74
-  store i8 %switch.tableidx6006, ptr %http_major.i4230, align 2
+  store i8 %switch.tableidx5931, ptr %http_major.i4230, align 2
   br label %s_n_llhttp__internal__n_req_http_dot
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_4: ; preds = %if.end1013
@@ -8467,7 +8470,7 @@ s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1: ; preds = %if.end1107
 s_n_llhttp__internal__n_req_http_start.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1
   %p.addr.114.ph = phi ptr [ %p, %entry ], [ %p.addr.115, %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1 ]
   %cmp10895267 = icmp eq ptr %p.addr.114.ph, %endp
-  br i1 %cmp10895267, label %return, label %if.end1092
+  br i1 %cmp10895267, label %return.loopexit5059, label %if.end1092
 
 sw.bb3636:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1
   %error3626 = getelementptr inbounds i8, ptr %state, i64 24
@@ -8947,29 +8950,29 @@ s_n_llhttp__internal__n_error_77:                 ; preds = %if.end2384
   store ptr null, ptr %_current, align 8
   br label %return
 
-switch.lookup6007:                                ; preds = %if.end2395
+switch.lookup5932:                                ; preds = %if.end2395
   %p.addr.220 = getelementptr inbounds i8, ptr %p.addr.219, i64 1
   %status_code.i4239 = getelementptr inbounds i8, ptr %state, i64 82
   %798 = load i16, ptr %status_code.i4239, align 2
   %cmp.i4240 = icmp ugt i16 %798, 6553
   br i1 %cmp.i4240, label %sw.bb3927, label %if.end.i4241
 
-if.end.i4241:                                     ; preds = %switch.lookup6007
-  %switch.idx.cast6009 = zext nneg i8 %switch.tableidx6008 to i32
+if.end.i4241:                                     ; preds = %switch.lookup5932
+  %switch.idx.cast5934 = zext nneg i8 %switch.tableidx5933 to i32
   %mul.i4242 = mul nuw i16 %798, 10
   store i16 %mul.i4242, ptr %status_code.i4239, align 2
   %conv9.i = zext i16 %mul.i4242 to i32
-  %sub.i4245 = xor i32 %switch.idx.cast6009, 65535
+  %sub.i4245 = xor i32 %switch.idx.cast5934, 65535
   %cmp10.i = icmp ult i32 %sub.i4245, %conv9.i
   br i1 %cmp10.i, label %sw.bb3927, label %llhttp__internal__c_mul_add_status_code.exit
 
 llhttp__internal__c_mul_add_status_code.exit:     ; preds = %if.end.i4241
-  %799 = zext nneg i8 %switch.tableidx6008 to i16
+  %799 = zext nneg i8 %switch.tableidx5933 to i16
   %conv24.i = add i16 %mul.i4242, %799
   store i16 %conv24.i, ptr %status_code.i4239, align 2
   br label %s_n_llhttp__internal__n_res_status_code_otherwise
 
-sw.bb3927:                                        ; preds = %switch.lookup6007, %if.end.i4241
+sw.bb3927:                                        ; preds = %switch.lookup5932, %if.end.i4241
   %error3871 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3871, align 8
   %reason3872 = getelementptr inbounds i8, ptr %state, i64 32
@@ -8989,29 +8992,29 @@ s_n_llhttp__internal__n_error_79:                 ; preds = %if.end2395
   store ptr null, ptr %_current, align 8
   br label %return
 
-switch.lookup6010:                                ; preds = %if.end2422
+switch.lookup5935:                                ; preds = %if.end2422
   %p.addr.222 = getelementptr inbounds i8, ptr %p.addr.221, i64 1
   %status_code.i4246 = getelementptr inbounds i8, ptr %state, i64 82
   %800 = load i16, ptr %status_code.i4246, align 2
   %cmp.i4247 = icmp ugt i16 %800, 6553
   br i1 %cmp.i4247, label %sw.bb3934, label %if.end.i4248
 
-if.end.i4248:                                     ; preds = %switch.lookup6010
-  %switch.idx.cast6012 = zext nneg i8 %switch.tableidx6011 to i32
+if.end.i4248:                                     ; preds = %switch.lookup5935
+  %switch.idx.cast5937 = zext nneg i8 %switch.tableidx5936 to i32
   %mul.i4249 = mul nuw i16 %800, 10
   store i16 %mul.i4249, ptr %status_code.i4246, align 2
   %conv9.i4251 = zext i16 %mul.i4249 to i32
-  %sub.i4255 = xor i32 %switch.idx.cast6012, 65535
+  %sub.i4255 = xor i32 %switch.idx.cast5937, 65535
   %cmp10.i4256 = icmp ult i32 %sub.i4255, %conv9.i4251
   br i1 %cmp10.i4256, label %sw.bb3934, label %llhttp__internal__c_mul_add_status_code.exit4257
 
 llhttp__internal__c_mul_add_status_code.exit4257: ; preds = %if.end.i4248
-  %801 = zext nneg i8 %switch.tableidx6011 to i16
+  %801 = zext nneg i8 %switch.tableidx5936 to i16
   %conv24.i4253 = add i16 %mul.i4249, %801
   store i16 %conv24.i4253, ptr %status_code.i4246, align 2
   br label %s_n_llhttp__internal__n_res_status_code_digit_3
 
-sw.bb3934:                                        ; preds = %switch.lookup6010, %if.end.i4248
+sw.bb3934:                                        ; preds = %switch.lookup5935, %if.end.i4248
   %error3867 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3867, align 8
   %reason3868 = getelementptr inbounds i8, ptr %state, i64 32
@@ -9031,29 +9034,29 @@ s_n_llhttp__internal__n_error_81:                 ; preds = %if.end2422
   store ptr null, ptr %_current, align 8
   br label %return
 
-switch.lookup6013:                                ; preds = %if.end2449
+switch.lookup5938:                                ; preds = %if.end2449
   %p.addr.224 = getelementptr inbounds i8, ptr %p.addr.223, i64 1
   %status_code.i4258 = getelementptr inbounds i8, ptr %state, i64 82
   %802 = load i16, ptr %status_code.i4258, align 2
   %cmp.i4259 = icmp ugt i16 %802, 6553
   br i1 %cmp.i4259, label %sw.bb3941, label %if.end.i4260
 
-if.end.i4260:                                     ; preds = %switch.lookup6013
-  %switch.idx.cast6015 = zext nneg i8 %switch.tableidx6014 to i32
+if.end.i4260:                                     ; preds = %switch.lookup5938
+  %switch.idx.cast5940 = zext nneg i8 %switch.tableidx5939 to i32
   %mul.i4261 = mul nuw i16 %802, 10
   store i16 %mul.i4261, ptr %status_code.i4258, align 2
   %conv9.i4263 = zext i16 %mul.i4261 to i32
-  %sub.i4267 = xor i32 %switch.idx.cast6015, 65535
+  %sub.i4267 = xor i32 %switch.idx.cast5940, 65535
   %cmp10.i4268 = icmp ult i32 %sub.i4267, %conv9.i4263
   br i1 %cmp10.i4268, label %sw.bb3941, label %llhttp__internal__c_mul_add_status_code.exit4269
 
 llhttp__internal__c_mul_add_status_code.exit4269: ; preds = %if.end.i4260
-  %803 = zext nneg i8 %switch.tableidx6014 to i16
+  %803 = zext nneg i8 %switch.tableidx5939 to i16
   %conv24.i4265 = add i16 %mul.i4261, %803
   store i16 %conv24.i4265, ptr %status_code.i4258, align 2
   br label %s_n_llhttp__internal__n_res_status_code_digit_2
 
-sw.bb3941:                                        ; preds = %switch.lookup6013, %if.end.i4260
+sw.bb3941:                                        ; preds = %switch.lookup5938, %if.end.i4260
   %error3863 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3863, align 8
   %reason3864 = getelementptr inbounds i8, ptr %state, i64 32
@@ -9202,7 +9205,7 @@ if.then4024:                                      ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_invoke_store_http_major_1: ; preds = %if.end2546
   %p.addr.235 = getelementptr inbounds i8, ptr %p.addr.234, i64 1
   %http_major.i4284 = getelementptr inbounds i8, ptr %state, i64 74
-  store i8 %switch.tableidx6017, ptr %http_major.i4284, align 2
+  store i8 %switch.tableidx5942, ptr %http_major.i4284, align 2
   br label %s_n_llhttp__internal__n_res_http_dot
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_9: ; preds = %if.end2546
@@ -9342,8 +9345,86 @@ sw.bb4114:                                        ; preds = %s_n_llhttp__interna
     i32 21, label %sw.bb4111
   ]
 
-return:                                           ; preds = %s_n_llhttp__internal__n_start.backedge, %sw.default2360, %sw.bb1359, %sw.bb1301, %sw.bb1248, %sw.bb1193, %sw.bb1161, %sw.bb1139, %sw.bb1094, %sw.bb140, %sw.bb113, %sw.bb89, %sw.bb351, %sw.bb685, %s_n_llhttp__internal__n_header_value_discard_ws.backedge, %sw.bb623, %sw.bb610, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge, %llhttp__internal__c_mul_add_content_length_1.exit, %sw.bb540, %s_n_llhttp__internal__n_header_value_connection.backedge, %sw.bb448, %sw.bb435, %sw.bb599, %sw.default412, %s_n_llhttp__internal__n_closed.backedge, %entry, %if.end320, %s_n_llhttp__internal__n_start.preheader, %s_n_llhttp__internal__n_res_status.preheader, %s_n_llhttp__internal__n_req_spaces_before_url.preheader, %s_n_llhttp__internal__n_url_schema.preheader, %s_n_llhttp__internal__n_url_server.preheader, %s_n_llhttp__internal__n_url_path.preheader, %s_n_llhttp__internal__n_url_query.preheader, %s_n_llhttp__internal__n_url_fragment.preheader, %s_n_llhttp__internal__n_req_http_start.preheader, %s_n_llhttp__internal__n_chunk_extension_name.preheader, %s_n_llhttp__internal__n_chunk_extension_value.preheader, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader, %s_n_llhttp__internal__n_header_field_general.preheader, %s_n_llhttp__internal__n_header_value_discard_ws.preheader, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader, %s_n_llhttp__internal__n_header_value_te_token.preheader, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader, %s_n_llhttp__internal__n_header_value_content_length.preheader, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader, %s_n_llhttp__internal__n_header_value_connection.preheader, %s_n_llhttp__internal__n_header_value_connection_ws.preheader, %s_n_llhttp__internal__n_header_value_connection_token.preheader, %s_n_llhttp__internal__n_header_value.preheader, %s_n_llhttp__internal__n_header_value_lenient.preheader, %s_n_llhttp__internal__n_closed.preheader, %llparse__match_sequence_id.exit4108.thread4966, %llparse__match_sequence_id.exit4082.thread4954, %llparse__match_sequence_id.exit4058.thread4942, %llparse__match_sequence_id.exit4034.thread4930, %llparse__match_sequence_id.exit4010.thread4918, %llparse__match_sequence_id.exit3986.thread4906, %llparse__match_sequence_id.exit3962.thread4894, %llparse__match_sequence_id.exit3938.thread4882, %llparse__match_sequence_id.exit3914.thread4870, %llparse__match_sequence_id.exit3890.thread4858, %llparse__match_sequence_id.exit3866.thread4846, %llparse__match_sequence_id.exit3842.thread4834, %llparse__match_sequence_id.exit3818.thread4822, %llparse__match_sequence_id.exit3794.thread4810, %llparse__match_sequence_id.exit3770.thread4798, %llparse__match_sequence_id.exit3746.thread4786, %llparse__match_sequence_id.exit3722.thread4774, %llparse__match_sequence_id.exit3698.thread4762, %llparse__match_sequence_id.exit3674.thread4750, %llparse__match_sequence_id.exit3650.thread4738, %llparse__match_sequence_id.exit3626.thread4726, %llparse__match_sequence_id.exit3602.thread4714, %llparse__match_sequence_id.exit3578.thread4702, %llparse__match_sequence_id.exit3554.thread4690, %llparse__match_sequence_id.exit3530.thread4678, %llparse__match_sequence_id.exit3506.thread4666, %llparse__match_sequence_id.exit3482.thread4654, %llparse__match_sequence_id.exit3458.thread4642, %llparse__match_sequence_id.exit3434.thread4630, %llparse__match_sequence_id.exit3410.thread4618, %llparse__match_sequence_id.exit3386.thread4606, %llparse__match_sequence_id.exit3362.thread4594, %llparse__match_sequence_id.exit3338.thread4582, %llparse__match_sequence_id.exit3314.thread4570, %llparse__match_sequence_id.exit3290.thread4558, %llparse__match_sequence_id.exit3266.thread4546, %llparse__match_sequence_id.exit3242.thread4534, %llparse__match_sequence_id.exit3218.thread4522, %llparse__match_sequence_id.exit3194.thread4510, %llparse__match_sequence_id.exit3170.thread4498, %llparse__match_sequence_id.exit3146.thread4486, %llparse__match_sequence_id.exit3122.thread4474, %llparse__match_sequence_id.exit3098.thread4462, %llparse__match_sequence_id.exit3072.thread4450, %llparse__match_sequence_id.exit3046.thread4438, %llparse__match_sequence_id.exit3020.thread4426, %llparse__match_sequence_to_lower.exit2991.thread4414, %llparse__match_sequence_to_lower.exit2965.thread4402, %llparse__match_sequence_to_lower.exit2939.thread4390, %llparse__match_sequence_to_lower.exit2913.thread4378, %llparse__match_sequence_to_lower.exit2887.thread4366, %llparse__match_sequence_to_lower.exit2861.thread4354, %llparse__match_sequence_to_lower_unsafe.exit.thread4342, %llparse__match_sequence_to_lower.exit2814.thread4330, %llparse__match_sequence_to_lower.exit2787.thread4318, %llparse__match_sequence_to_lower.exit.thread4306, %llparse__match_sequence_id.exit.thread4294, %s_n_llhttp__internal__n_start_req_or_res, %s_n_llhttp__internal__n_span_start_llhttp__on_method, %s_n_llhttp__internal__n_req_or_res_method, %s_n_llhttp__internal__n_req_or_res_method_1, %s_n_llhttp__internal__n_req_or_res_method_3, %s_n_llhttp__internal__n_req_or_res_method_2, %s_n_llhttp__internal__n_start_res, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1, %s_n_llhttp__internal__n_res_http_major, %s_n_llhttp__internal__n_res_http_dot, %s_n_llhttp__internal__n_res_http_minor, %s_n_llhttp__internal__n_res_after_version, %s_n_llhttp__internal__n_res_status_code_digit_1, %s_n_llhttp__internal__n_res_status_code_digit_2, %s_n_llhttp__internal__n_res_status_code_digit_3, %s_n_llhttp__internal__n_res_status_code_otherwise, %s_n_llhttp__internal__n_res_status_start, %s_n_llhttp__internal__n_span_start_llhttp__on_status, %s_n_llhttp__internal__n_res_line_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1, %s_n_llhttp__internal__n_after_start_req, %s_n_llhttp__internal__n_after_start_req_63, %s_n_llhttp__internal__n_after_start_req_64, %s_n_llhttp__internal__n_after_start_req_69, %s_n_llhttp__internal__n_after_start_req_66, %s_n_llhttp__internal__n_after_start_req_68, %s_n_llhttp__internal__n_after_start_req_67, %s_n_llhttp__internal__n_after_start_req_65, %s_n_llhttp__internal__n_after_start_req_60, %s_n_llhttp__internal__n_after_start_req_62, %s_n_llhttp__internal__n_after_start_req_61, %s_n_llhttp__internal__n_after_start_req_52, %s_n_llhttp__internal__n_after_start_req_59, %s_n_llhttp__internal__n_after_start_req_58, %s_n_llhttp__internal__n_after_start_req_53, %s_n_llhttp__internal__n_after_start_req_55, %s_n_llhttp__internal__n_after_start_req_57, %s_n_llhttp__internal__n_after_start_req_56, %s_n_llhttp__internal__n_after_start_req_54, %s_n_llhttp__internal__n_after_start_req_46, %s_n_llhttp__internal__n_after_start_req_47, %s_n_llhttp__internal__n_after_start_req_51, %s_n_llhttp__internal__n_after_start_req_50, %s_n_llhttp__internal__n_after_start_req_49, %s_n_llhttp__internal__n_after_start_req_48, %s_n_llhttp__internal__n_after_start_req_33, %s_n_llhttp__internal__n_after_start_req_44, %s_n_llhttp__internal__n_after_start_req_45, %s_n_llhttp__internal__n_after_start_req_39, %s_n_llhttp__internal__n_after_start_req_40, %s_n_llhttp__internal__n_after_start_req_41, %s_n_llhttp__internal__n_after_start_req_43, %s_n_llhttp__internal__n_after_start_req_42, %s_n_llhttp__internal__n_after_start_req_38, %s_n_llhttp__internal__n_after_start_req_37, %s_n_llhttp__internal__n_after_start_req_34, %s_n_llhttp__internal__n_after_start_req_36, %s_n_llhttp__internal__n_after_start_req_35, %s_n_llhttp__internal__n_after_start_req_32, %s_n_llhttp__internal__n_after_start_req_31, %s_n_llhttp__internal__n_after_start_req_22, %s_n_llhttp__internal__n_after_start_req_30, %s_n_llhttp__internal__n_after_start_req_25, %s_n_llhttp__internal__n_after_start_req_27, %s_n_llhttp__internal__n_after_start_req_29, %s_n_llhttp__internal__n_after_start_req_28, %s_n_llhttp__internal__n_after_start_req_26, %s_n_llhttp__internal__n_after_start_req_24, %s_n_llhttp__internal__n_after_start_req_23, %s_n_llhttp__internal__n_after_start_req_19, %s_n_llhttp__internal__n_after_start_req_21, %s_n_llhttp__internal__n_after_start_req_20, %s_n_llhttp__internal__n_after_start_req_18, %s_n_llhttp__internal__n_after_start_req_15, %s_n_llhttp__internal__n_after_start_req_16, %s_n_llhttp__internal__n_after_start_req_17, %s_n_llhttp__internal__n_after_start_req_14, %s_n_llhttp__internal__n_after_start_req_10, %s_n_llhttp__internal__n_after_start_req_11, %s_n_llhttp__internal__n_after_start_req_13, %s_n_llhttp__internal__n_after_start_req_12, %s_n_llhttp__internal__n_after_start_req_5, %s_n_llhttp__internal__n_after_start_req_7, %s_n_llhttp__internal__n_after_start_req_9, %s_n_llhttp__internal__n_after_start_req_8, %s_n_llhttp__internal__n_after_start_req_6, %s_n_llhttp__internal__n_after_start_req_4, %s_n_llhttp__internal__n_after_start_req_1, %s_n_llhttp__internal__n_after_start_req_3, %s_n_llhttp__internal__n_after_start_req_2, %s_n_llhttp__internal__n_req_first_space_before_url, %s_n_llhttp__internal__n_url_entry_connect, %s_n_llhttp__internal__n_span_start_llhttp__on_url, %s_n_llhttp__internal__n_url_entry_normal, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1, %s_n_llhttp__internal__n_url_start, %s_n_llhttp__internal__n_span_end_stub_schema, %s_n_llhttp__internal__n_url_schema_delim, %s_n_llhttp__internal__n_url_schema_delim_1, %s_n_llhttp__internal__n_url_server_with_at, %s_n_llhttp__internal__n_span_start_stub_path_1, %s_n_llhttp__internal__n_span_start_stub_path, %s_n_llhttp__internal__n_span_start_stub_path_2, %s_n_llhttp__internal__n_url_query_or_fragment, %s_n_llhttp__internal__n_span_end_stub_query_3, %s_n_llhttp__internal__n_url_skip_to_http, %s_n_llhttp__internal__n_url_to_http, %s_n_llhttp__internal__n_req_http_start_3, %s_n_llhttp__internal__n_req_http_start_2, %s_n_llhttp__internal__n_req_http_start_1, %s_n_llhttp__internal__n_span_start_llhttp__on_version, %s_n_llhttp__internal__n_req_http_major, %s_n_llhttp__internal__n_req_http_dot, %s_n_llhttp__internal__n_req_http_minor, %s_n_llhttp__internal__n_req_http_complete, %s_n_llhttp__internal__n_req_http_complete_crlf, %if.end916, %s_n_llhttp__internal__n_req_pri_upgrade, %s_n_llhttp__internal__n_url_skip_lf_to_http09, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1, %s_n_llhttp__internal__n_url_skip_to_http09, %s_n_llhttp__internal__n_url_to_http_09, %s_n_llhttp__internal__n_headers_start, %s_n_llhttp__internal__n_header_field_start, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field, %s_n_llhttp__internal__n_header_field, %s_n_llhttp__internal__n_header_field_7, %s_n_llhttp__internal__n_header_field_6, %s_n_llhttp__internal__n_header_field_5, %s_n_llhttp__internal__n_header_field_1, %s_n_llhttp__internal__n_header_field_2, %s_n_llhttp__internal__n_header_field_4, %s_n_llhttp__internal__n_header_field_3, %s_n_llhttp__internal__n_header_field_colon, %s_n_llhttp__internal__n_header_field_general_otherwise, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1, %s_n_llhttp__internal__n_header_value_te_chunked, %s_n_llhttp__internal__n_header_value_connection_3, %s_n_llhttp__internal__n_header_value_connection_2, %s_n_llhttp__internal__n_header_value_connection_1, %s_n_llhttp__internal__n_header_value_otherwise, %s_n_llhttp__internal__n_header_value_almost_done, %s_n_llhttp__internal__n_header_value_lws, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done, %s_n_llhttp__internal__n_header_value_discard_lws, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value, %s_n_llhttp__internal__n_headers_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1, %s_n_llhttp__internal__n_chunk_size_digit, %s_n_llhttp__internal__n_chunk_size, %s_n_llhttp__internal__n_chunk_size_otherwise, %s_n_llhttp__internal__n_chunk_extensions, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done, %s_n_llhttp__internal__n_chunk_size_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body, %s_n_llhttp__internal__n_chunk_data_almost_done, %sw.default4112, %sw.bb4111, %sw.default4100, %sw.bb4099, %if.then4082, %s_n_llhttp__internal__n_error_88, %if.then4062, %s_n_llhttp__internal__n_error_1, %s_n_llhttp__internal__n_pause_19, %s_n_llhttp__internal__n_error_91, %if.then4038, %if.then4024, %if.then4012, %if.then3980, %if.then3968, %s_n_llhttp__internal__n_error_74, %s_n_llhttp__internal__n_pause_21, %s_n_llhttp__internal__n_error_84, %s_n_llhttp__internal__n_error_83, %s_n_llhttp__internal__n_error_81, %s_n_llhttp__internal__n_error_79, %s_n_llhttp__internal__n_error_77, %if.then3915, %if.then3901, %sw.default3893, %sw.default3886, %sw.bb3885, %sw.bb3927, %sw.bb3934, %sw.bb3941, %s_n_llhttp__internal__n_error_90, %if.then3852, %s_n_llhttp__internal__n_error_89, %s_n_llhttp__internal__n_pause_22, %s_n_llhttp__internal__n_error_72, %s_n_llhttp__internal__n_error_71, %s_n_llhttp__internal__n_error_70, %s_n_llhttp__internal__n_error_69, %s_n_llhttp__internal__n_error_68, %s_n_llhttp__internal__n_error_67, %sw.bb1232, %if.then3801, %if.then3789, %if.then3777, %if.then3765, %if.then3753, %if.then3741, %s_n_llhttp__internal__n_error_65, %s_n_llhttp__internal__n_error_64, %if.then3721, %if.then3709, %if.then3697, %s_n_llhttp__internal__n_error_63, %if.then3681, %if.then3669, %if.then3657, %if.then3645, %sw.default3637, %sw.bb3636, %sw.default3625, %sw.default3605, %s_n_llhttp__internal__n_error_62, %sw.default3594, %if.then3549, %if.then3535, %if.then3523, %if.then3491, %if.then3479, %s_n_llhttp__internal__n_error_52, %s_n_llhttp__internal__n_pause_17, %s_n_llhttp__internal__n_error_54, %sw.default3459, %s_n_llhttp__internal__n_error_56, %sw.bb921, %if.then3440, %s_n_llhttp__internal__n_error_48, %if.then3424, %sw.default3412, %sw.bb3411, %sw.default3400, %s_n_llhttp__internal__n_error_47, %if.then3377, %if.then3363, %s_n_llhttp__internal__n_error_34, %s_n_llhttp__internal__n_pause_15, %if.then3310, %if.then3294, %sw.default3286, %if.then3275, %if.then3258, %if.then3219, %if.then3205, %if.then3193, %if.then3179, %s_n_llhttp__internal__n_error_40, %sw.default3146, %sw.default3139, %if.then3109, %s_n_llhttp__internal__n_error_37, %s_n_llhttp__internal__n_pause_14, %sw.bb3131, %sw.default3089, %if.then3073, %sw.default3065, %sw.default3047, %sw.bb3046, %sw.bb3051, %sw.default3023, %sw.bb3022, %sw.default3008, %sw.bb3007, %s_n_llhttp__internal__n_error_29, %if.then2986, %s_n_llhttp__internal__n_error_28, %s_n_llhttp__internal__n_pause_11, %s_n_llhttp__internal__n_error_27, %s_n_llhttp__internal__n_error_25, %if.then2953, %if.then2939, %sw.default2931, %sw.bb2930, %if.then2913, %if.then2899, %s_n_llhttp__internal__n_error_22, %s_n_llhttp__internal__n_pause_9, %if.then2877, %if.then2865, %s_n_llhttp__internal__n_error_19, %s_n_llhttp__internal__n_pause_8, %s_n_llhttp__internal__n_error_20, %if.then2839, %s_n_llhttp__internal__n_error_18, %s_n_llhttp__internal__n_pause_7, %if.then2817, %s_n_llhttp__internal__n_error_16, %s_n_llhttp__internal__n_pause_6, %if.then2795, %s_n_llhttp__internal__n_error_15, %s_n_llhttp__internal__n_pause_5, %sw.bb160, %sw.bb158, %sw.default2771, %sw.default2764, %sw.bb2763, %if.then2746, %sw.default2740, %sw.default2733, %sw.bb2732, %sw.bb2965, %sw.default2717, %sw.bb2716, %sw.default2700, %s_n_llhttp__internal__n_error_2, %s_n_llhttp__internal__n_error_87, %s_n_llhttp__internal__n_error_86, %s_n_llhttp__internal__n_error_85, %s_n_llhttp__internal__n_error_73, %s_n_llhttp__internal__n_error_59, %s_n_llhttp__internal__n_error_58, %s_n_llhttp__internal__n_error_57, %s_n_llhttp__internal__n_error_51, %s_n_llhttp__internal__n_error_45, %s_n_llhttp__internal__n_error_46, %s_n_llhttp__internal__n_error_44, %s_n_llhttp__internal__n_error_43, %s_n_llhttp__internal__n_error_41, %s_n_llhttp__internal__n_error_5, %if.end300, %s_n_llhttp__internal__n_error_24, %s_n_llhttp__internal__n_error_23, %s_n_llhttp__internal__n_error_21, %if.end27, %s_n_llhttp__internal__n_pause_1
-  %retval.0 = phi i32 [ 0, %sw.default4112 ], [ 0, %sw.bb4111 ], [ 0, %sw.default4100 ], [ 0, %sw.bb4099 ], [ 0, %s_n_llhttp__internal__n_error_88 ], [ 0, %if.then4082 ], [ 0, %if.then4038 ], [ 0, %s_n_llhttp__internal__n_error_87 ], [ 0, %if.then4012 ], [ 0, %s_n_llhttp__internal__n_error_85 ], [ 0, %if.then3968 ], [ 0, %s_n_llhttp__internal__n_error_74 ], [ 0, %s_n_llhttp__internal__n_pause_21 ], [ 0, %s_n_llhttp__internal__n_error_83 ], [ 0, %sw.bb3941 ], [ 0, %s_n_llhttp__internal__n_error_81 ], [ 0, %sw.bb3934 ], [ 0, %s_n_llhttp__internal__n_error_79 ], [ 0, %sw.bb3927 ], [ 0, %s_n_llhttp__internal__n_error_77 ], [ 0, %if.then3915 ], [ 0, %sw.default3886 ], [ 0, %sw.bb3885 ], [ 0, %if.then3377 ], [ 0, %s_n_llhttp__internal__n_error_34 ], [ 0, %s_n_llhttp__internal__n_pause_15 ], [ 0, %if.then3179 ], [ 0, %s_n_llhttp__internal__n_error_37 ], [ 0, %s_n_llhttp__internal__n_pause_14 ], [ 0, %s_n_llhttp__internal__n_error_40 ], [ 0, %if.then3205 ], [ 0, %if.then3193 ], [ 0, %if.then3219 ], [ 0, %s_n_llhttp__internal__n_error_41 ], [ 0, %if.then3294 ], [ 0, %s_n_llhttp__internal__n_error_46 ], [ 0, %if.then3310 ], [ 0, %s_n_llhttp__internal__n_error_45 ], [ 0, %if.then3275 ], [ 0, %s_n_llhttp__internal__n_error_44 ], [ 0, %if.then3258 ], [ 0, %s_n_llhttp__internal__n_error_43 ], [ 0, %sw.default3286 ], [ 0, %sw.bb3131 ], [ 0, %if.then3109 ], [ 0, %sw.default3089 ], [ 0, %sw.default3146 ], [ 0, %sw.default3139 ], [ 0, %s_n_llhttp__internal__n_error_47 ], [ 0, %if.then3363 ], [ 0, %if.then3073 ], [ 0, %s_n_llhttp__internal__n_error_5 ], [ 0, %sw.default3023 ], [ 0, %sw.bb3022 ], [ 0, %s_n_llhttp__internal__n_error_28 ], [ 0, %s_n_llhttp__internal__n_pause_11 ], [ 0, %sw.default2700 ], [ 0, %s_n_llhttp__internal__n_pause_1 ], [ 0, %sw.bb3051 ], [ 0, %sw.default3047 ], [ 0, %sw.bb3046 ], [ 0, %sw.default3008 ], [ 0, %sw.bb3007 ], [ 0, %s_n_llhttp__internal__n_error_29 ], [ 0, %if.then2986 ], [ 30, %if.end300 ], [ 0, %s_n_llhttp__internal__n_error_27 ], [ 0, %sw.bb2965 ], [ 0, %s_n_llhttp__internal__n_error_25 ], [ 0, %if.then2953 ], [ 0, %s_n_llhttp__internal__n_error_24 ], [ 0, %if.then2939 ], [ 0, %sw.default2931 ], [ 0, %sw.bb2930 ], [ 0, %if.then2913 ], [ 0, %s_n_llhttp__internal__n_error_23 ], [ 0, %if.then2899 ], [ 0, %s_n_llhttp__internal__n_error_22 ], [ 0, %s_n_llhttp__internal__n_pause_9 ], [ 0, %if.then2877 ], [ 0, %s_n_llhttp__internal__n_error_21 ], [ 0, %if.then2865 ], [ 0, %s_n_llhttp__internal__n_error_19 ], [ 0, %s_n_llhttp__internal__n_pause_8 ], [ 0, %s_n_llhttp__internal__n_error_20 ], [ 0, %sw.default2764 ], [ 0, %sw.bb2763 ], [ 0, %if.then2746 ], [ 0, %sw.default2733 ], [ 0, %sw.bb2732 ], [ 0, %sw.default2740 ], [ 5, %if.end27 ], [ 0, %sw.default2771 ], [ 0, %if.then2839 ], [ 0, %s_n_llhttp__internal__n_error_18 ], [ 0, %s_n_llhttp__internal__n_pause_7 ], [ 0, %if.then2817 ], [ 0, %s_n_llhttp__internal__n_error_16 ], [ 0, %s_n_llhttp__internal__n_pause_6 ], [ 0, %if.then2795 ], [ 0, %s_n_llhttp__internal__n_error_15 ], [ 0, %s_n_llhttp__internal__n_pause_5 ], [ 0, %sw.bb160 ], [ 0, %sw.bb158 ], [ 0, %sw.default2717 ], [ 0, %sw.bb2716 ], [ 0, %sw.default3065 ], [ 0, %sw.default3400 ], [ 0, %sw.default3893 ], [ 0, %if.then3901 ], [ 0, %s_n_llhttp__internal__n_error_84 ], [ 0, %if.then3980 ], [ 0, %s_n_llhttp__internal__n_error_73 ], [ 0, %if.then4024 ], [ 0, %s_n_llhttp__internal__n_error_86 ], [ 0, %if.then4062 ], [ 0, %s_n_llhttp__internal__n_error_1 ], [ 0, %s_n_llhttp__internal__n_pause_19 ], [ 0, %s_n_llhttp__internal__n_error_71 ], [ 0, %s_n_llhttp__internal__n_error_70 ], [ 0, %s_n_llhttp__internal__n_error_69 ], [ 0, %s_n_llhttp__internal__n_error_68 ], [ 0, %s_n_llhttp__internal__n_error_67 ], [ 0, %sw.bb1232 ], [ 0, %s_n_llhttp__internal__n_error_64 ], [ 0, %s_n_llhttp__internal__n_error_63 ], [ 0, %if.then3681 ], [ 0, %sw.default3637 ], [ 0, %sw.bb3636 ], [ 0, %s_n_llhttp__internal__n_error_62 ], [ 0, %sw.default3625 ], [ 0, %if.then3549 ], [ 0, %s_n_llhttp__internal__n_error_59 ], [ 0, %if.then3523 ], [ 0, %s_n_llhttp__internal__n_error_57 ], [ 0, %if.then3479 ], [ 0, %s_n_llhttp__internal__n_error_52 ], [ 0, %s_n_llhttp__internal__n_pause_17 ], [ 0, %s_n_llhttp__internal__n_error_56 ], [ 0, %sw.bb921 ], [ 0, %sw.default3459 ], [ 0, %s_n_llhttp__internal__n_error_54 ], [ 0, %if.then3491 ], [ 0, %s_n_llhttp__internal__n_error_51 ], [ 0, %if.then3535 ], [ 0, %s_n_llhttp__internal__n_error_58 ], [ 0, %sw.default3605 ], [ 0, %sw.default3594 ], [ 0, %s_n_llhttp__internal__n_error_2 ], [ 0, %if.then3669 ], [ 0, %s_n_llhttp__internal__n_error_48 ], [ 0, %sw.default3412 ], [ 0, %sw.bb3411 ], [ 0, %if.then3657 ], [ 0, %if.then3721 ], [ 0, %if.then3709 ], [ 0, %if.then3697 ], [ 0, %s_n_llhttp__internal__n_error_65 ], [ 0, %if.then3645 ], [ 0, %if.then3440 ], [ 0, %if.then3424 ], [ 0, %if.then3801 ], [ 0, %if.then3789 ], [ 0, %if.then3777 ], [ 0, %if.then3765 ], [ 0, %if.then3753 ], [ 0, %if.then3741 ], [ 0, %s_n_llhttp__internal__n_error_72 ], [ 0, %s_n_llhttp__internal__n_error_90 ], [ 0, %if.then3852 ], [ 0, %s_n_llhttp__internal__n_error_89 ], [ 0, %s_n_llhttp__internal__n_pause_22 ], [ 0, %s_n_llhttp__internal__n_error_91 ], [ 4, %s_n_llhttp__internal__n_chunk_data_almost_done ], [ 6, %s_n_llhttp__internal__n_span_start_llhttp__on_body ], [ 8, %s_n_llhttp__internal__n_chunk_size_almost_done ], [ 12, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done ], [ 19, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value ], [ 22, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name ], [ 23, %s_n_llhttp__internal__n_chunk_extensions ], [ 24, %s_n_llhttp__internal__n_chunk_size_otherwise ], [ 25, %s_n_llhttp__internal__n_chunk_size ], [ 26, %s_n_llhttp__internal__n_chunk_size_digit ], [ 31, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1 ], [ 33, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2 ], [ 36, %s_n_llhttp__internal__n_headers_almost_done ], [ 39, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value ], [ 40, %s_n_llhttp__internal__n_header_value_discard_lws ], [ 41, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done ], [ 42, %s_n_llhttp__internal__n_header_value_lws ], [ 43, %s_n_llhttp__internal__n_header_value_almost_done ], [ 46, %s_n_llhttp__internal__n_header_value_otherwise ], [ 49, %s_n_llhttp__internal__n_header_value_connection_1 ], [ 50, %s_n_llhttp__internal__n_header_value_connection_2 ], [ 51, %s_n_llhttp__internal__n_header_value_connection_3 ], [ 63, %s_n_llhttp__internal__n_header_value_te_chunked ], [ 64, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1 ], [ 67, %s_n_llhttp__internal__n_header_field_general_otherwise ], [ 69, %s_n_llhttp__internal__n_header_field_colon ], [ 70, %s_n_llhttp__internal__n_header_field_3 ], [ 71, %s_n_llhttp__internal__n_header_field_4 ], [ 72, %s_n_llhttp__internal__n_header_field_2 ], [ 73, %s_n_llhttp__internal__n_header_field_1 ], [ 74, %s_n_llhttp__internal__n_header_field_5 ], [ 75, %s_n_llhttp__internal__n_header_field_6 ], [ 76, %s_n_llhttp__internal__n_header_field_7 ], [ 77, %s_n_llhttp__internal__n_header_field ], [ 78, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field ], [ 79, %s_n_llhttp__internal__n_header_field_start ], [ 80, %s_n_llhttp__internal__n_headers_start ], [ 81, %s_n_llhttp__internal__n_url_to_http_09 ], [ 82, %s_n_llhttp__internal__n_url_skip_to_http09 ], [ 83, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1 ], [ 84, %s_n_llhttp__internal__n_url_skip_lf_to_http09 ], [ 85, %s_n_llhttp__internal__n_req_pri_upgrade ], [ 85, %if.end916 ], [ 86, %s_n_llhttp__internal__n_req_http_complete_crlf ], [ 87, %s_n_llhttp__internal__n_req_http_complete ], [ 92, %s_n_llhttp__internal__n_req_http_minor ], [ 94, %s_n_llhttp__internal__n_req_http_dot ], [ 96, %s_n_llhttp__internal__n_req_http_major ], [ 97, %s_n_llhttp__internal__n_span_start_llhttp__on_version ], [ 98, %s_n_llhttp__internal__n_req_http_start_1 ], [ 99, %s_n_llhttp__internal__n_req_http_start_2 ], [ 100, %s_n_llhttp__internal__n_req_http_start_3 ], [ 102, %s_n_llhttp__internal__n_url_to_http ], [ 103, %s_n_llhttp__internal__n_url_skip_to_http ], [ 105, %s_n_llhttp__internal__n_span_end_stub_query_3 ], [ 107, %s_n_llhttp__internal__n_url_query_or_fragment ], [ 109, %s_n_llhttp__internal__n_span_start_stub_path_2 ], [ 110, %s_n_llhttp__internal__n_span_start_stub_path ], [ 111, %s_n_llhttp__internal__n_span_start_stub_path_1 ], [ 112, %s_n_llhttp__internal__n_url_server_with_at ], [ 114, %s_n_llhttp__internal__n_url_schema_delim_1 ], [ 115, %s_n_llhttp__internal__n_url_schema_delim ], [ 116, %s_n_llhttp__internal__n_span_end_stub_schema ], [ 118, %s_n_llhttp__internal__n_url_start ], [ 119, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1 ], [ 120, %s_n_llhttp__internal__n_url_entry_normal ], [ 121, %s_n_llhttp__internal__n_span_start_llhttp__on_url ], [ 122, %s_n_llhttp__internal__n_url_entry_connect ], [ 124, %s_n_llhttp__internal__n_req_first_space_before_url ], [ 126, %s_n_llhttp__internal__n_after_start_req_2 ], [ 127, %s_n_llhttp__internal__n_after_start_req_3 ], [ 128, %s_n_llhttp__internal__n_after_start_req_1 ], [ 129, %s_n_llhttp__internal__n_after_start_req_4 ], [ 130, %s_n_llhttp__internal__n_after_start_req_6 ], [ 131, %s_n_llhttp__internal__n_after_start_req_8 ], [ 132, %s_n_llhttp__internal__n_after_start_req_9 ], [ 133, %s_n_llhttp__internal__n_after_start_req_7 ], [ 134, %s_n_llhttp__internal__n_after_start_req_5 ], [ 135, %s_n_llhttp__internal__n_after_start_req_12 ], [ 136, %s_n_llhttp__internal__n_after_start_req_13 ], [ 137, %s_n_llhttp__internal__n_after_start_req_11 ], [ 138, %s_n_llhttp__internal__n_after_start_req_10 ], [ 139, %s_n_llhttp__internal__n_after_start_req_14 ], [ 140, %s_n_llhttp__internal__n_after_start_req_17 ], [ 141, %s_n_llhttp__internal__n_after_start_req_16 ], [ 142, %s_n_llhttp__internal__n_after_start_req_15 ], [ 143, %s_n_llhttp__internal__n_after_start_req_18 ], [ 144, %s_n_llhttp__internal__n_after_start_req_20 ], [ 145, %s_n_llhttp__internal__n_after_start_req_21 ], [ 146, %s_n_llhttp__internal__n_after_start_req_19 ], [ 147, %s_n_llhttp__internal__n_after_start_req_23 ], [ 148, %s_n_llhttp__internal__n_after_start_req_24 ], [ 149, %s_n_llhttp__internal__n_after_start_req_26 ], [ 150, %s_n_llhttp__internal__n_after_start_req_28 ], [ 151, %s_n_llhttp__internal__n_after_start_req_29 ], [ 152, %s_n_llhttp__internal__n_after_start_req_27 ], [ 153, %s_n_llhttp__internal__n_after_start_req_25 ], [ 154, %s_n_llhttp__internal__n_after_start_req_30 ], [ 155, %s_n_llhttp__internal__n_after_start_req_22 ], [ 156, %s_n_llhttp__internal__n_after_start_req_31 ], [ 157, %s_n_llhttp__internal__n_after_start_req_32 ], [ 158, %s_n_llhttp__internal__n_after_start_req_35 ], [ 159, %s_n_llhttp__internal__n_after_start_req_36 ], [ 160, %s_n_llhttp__internal__n_after_start_req_34 ], [ 161, %s_n_llhttp__internal__n_after_start_req_37 ], [ 162, %s_n_llhttp__internal__n_after_start_req_38 ], [ 163, %s_n_llhttp__internal__n_after_start_req_42 ], [ 164, %s_n_llhttp__internal__n_after_start_req_43 ], [ 165, %s_n_llhttp__internal__n_after_start_req_41 ], [ 166, %s_n_llhttp__internal__n_after_start_req_40 ], [ 167, %s_n_llhttp__internal__n_after_start_req_39 ], [ 168, %s_n_llhttp__internal__n_after_start_req_45 ], [ 169, %s_n_llhttp__internal__n_after_start_req_44 ], [ 170, %s_n_llhttp__internal__n_after_start_req_33 ], [ 171, %s_n_llhttp__internal__n_after_start_req_48 ], [ 172, %s_n_llhttp__internal__n_after_start_req_49 ], [ 173, %s_n_llhttp__internal__n_after_start_req_50 ], [ 174, %s_n_llhttp__internal__n_after_start_req_51 ], [ 175, %s_n_llhttp__internal__n_after_start_req_47 ], [ 176, %s_n_llhttp__internal__n_after_start_req_46 ], [ 177, %s_n_llhttp__internal__n_after_start_req_54 ], [ 178, %s_n_llhttp__internal__n_after_start_req_56 ], [ 179, %s_n_llhttp__internal__n_after_start_req_57 ], [ 180, %s_n_llhttp__internal__n_after_start_req_55 ], [ 181, %s_n_llhttp__internal__n_after_start_req_53 ], [ 182, %s_n_llhttp__internal__n_after_start_req_58 ], [ 183, %s_n_llhttp__internal__n_after_start_req_59 ], [ 184, %s_n_llhttp__internal__n_after_start_req_52 ], [ 185, %s_n_llhttp__internal__n_after_start_req_61 ], [ 186, %s_n_llhttp__internal__n_after_start_req_62 ], [ 187, %s_n_llhttp__internal__n_after_start_req_60 ], [ 188, %s_n_llhttp__internal__n_after_start_req_65 ], [ 189, %s_n_llhttp__internal__n_after_start_req_67 ], [ 190, %s_n_llhttp__internal__n_after_start_req_68 ], [ 191, %s_n_llhttp__internal__n_after_start_req_66 ], [ 192, %s_n_llhttp__internal__n_after_start_req_69 ], [ 193, %s_n_llhttp__internal__n_after_start_req_64 ], [ 194, %s_n_llhttp__internal__n_after_start_req_63 ], [ 195, %s_n_llhttp__internal__n_after_start_req ], [ 196, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1 ], [ 197, %s_n_llhttp__internal__n_res_line_almost_done ], [ 199, %s_n_llhttp__internal__n_span_start_llhttp__on_status ], [ 200, %s_n_llhttp__internal__n_res_status_start ], [ 201, %s_n_llhttp__internal__n_res_status_code_otherwise ], [ 202, %s_n_llhttp__internal__n_res_status_code_digit_3 ], [ 203, %s_n_llhttp__internal__n_res_status_code_digit_2 ], [ 204, %s_n_llhttp__internal__n_res_status_code_digit_1 ], [ 205, %s_n_llhttp__internal__n_res_after_version ], [ 209, %s_n_llhttp__internal__n_res_http_minor ], [ 211, %s_n_llhttp__internal__n_res_http_dot ], [ 213, %s_n_llhttp__internal__n_res_http_major ], [ 214, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1 ], [ 215, %s_n_llhttp__internal__n_start_res ], [ 217, %s_n_llhttp__internal__n_req_or_res_method_2 ], [ 219, %s_n_llhttp__internal__n_req_or_res_method_3 ], [ 220, %s_n_llhttp__internal__n_req_or_res_method_1 ], [ 221, %s_n_llhttp__internal__n_req_or_res_method ], [ 222, %s_n_llhttp__internal__n_span_start_llhttp__on_method ], [ 223, %s_n_llhttp__internal__n_start_req_or_res ], [ 4, %llparse__match_sequence_id.exit.thread4294 ], [ 49, %llparse__match_sequence_to_lower.exit.thread4306 ], [ 50, %llparse__match_sequence_to_lower.exit2787.thread4318 ], [ 51, %llparse__match_sequence_to_lower.exit2814.thread4330 ], [ 63, %llparse__match_sequence_to_lower_unsafe.exit.thread4342 ], [ 70, %llparse__match_sequence_to_lower.exit2861.thread4354 ], [ 71, %llparse__match_sequence_to_lower.exit2887.thread4366 ], [ 73, %llparse__match_sequence_to_lower.exit2913.thread4378 ], [ 74, %llparse__match_sequence_to_lower.exit2939.thread4390 ], [ 75, %llparse__match_sequence_to_lower.exit2965.thread4402 ], [ 76, %llparse__match_sequence_to_lower.exit2991.thread4414 ], [ 98, %llparse__match_sequence_id.exit3020.thread4426 ], [ 99, %llparse__match_sequence_id.exit3046.thread4438 ], [ 100, %llparse__match_sequence_id.exit3072.thread4450 ], [ 127, %llparse__match_sequence_id.exit3098.thread4462 ], [ 129, %llparse__match_sequence_id.exit3122.thread4474 ], [ 130, %llparse__match_sequence_id.exit3146.thread4486 ], [ 131, %llparse__match_sequence_id.exit3170.thread4498 ], [ 135, %llparse__match_sequence_id.exit3194.thread4510 ], [ 136, %llparse__match_sequence_id.exit3218.thread4522 ], [ 139, %llparse__match_sequence_id.exit3242.thread4534 ], [ 140, %llparse__match_sequence_id.exit3266.thread4546 ], [ 142, %llparse__match_sequence_id.exit3290.thread4558 ], [ 143, %llparse__match_sequence_id.exit3314.thread4570 ], [ 144, %llparse__match_sequence_id.exit3338.thread4582 ], [ 145, %llparse__match_sequence_id.exit3362.thread4594 ], [ 147, %llparse__match_sequence_id.exit3386.thread4606 ], [ 148, %llparse__match_sequence_id.exit3410.thread4618 ], [ 149, %llparse__match_sequence_id.exit3434.thread4630 ], [ 150, %llparse__match_sequence_id.exit3458.thread4642 ], [ 154, %llparse__match_sequence_id.exit3482.thread4654 ], [ 156, %llparse__match_sequence_id.exit3506.thread4666 ], [ 157, %llparse__match_sequence_id.exit3530.thread4678 ], [ 158, %llparse__match_sequence_id.exit3554.thread4690 ], [ 159, %llparse__match_sequence_id.exit3578.thread4702 ], [ 161, %llparse__match_sequence_id.exit3602.thread4714 ], [ 162, %llparse__match_sequence_id.exit3626.thread4726 ], [ 163, %llparse__match_sequence_id.exit3650.thread4738 ], [ 164, %llparse__match_sequence_id.exit3674.thread4750 ], [ 168, %llparse__match_sequence_id.exit3698.thread4762 ], [ 171, %llparse__match_sequence_id.exit3722.thread4774 ], [ 172, %llparse__match_sequence_id.exit3746.thread4786 ], [ 173, %llparse__match_sequence_id.exit3770.thread4798 ], [ 174, %llparse__match_sequence_id.exit3794.thread4810 ], [ 177, %llparse__match_sequence_id.exit3818.thread4822 ], [ 179, %llparse__match_sequence_id.exit3842.thread4834 ], [ 182, %llparse__match_sequence_id.exit3866.thread4846 ], [ 183, %llparse__match_sequence_id.exit3890.thread4858 ], [ 185, %llparse__match_sequence_id.exit3914.thread4870 ], [ 186, %llparse__match_sequence_id.exit3938.thread4882 ], [ 188, %llparse__match_sequence_id.exit3962.thread4894 ], [ 189, %llparse__match_sequence_id.exit3986.thread4906 ], [ 190, %llparse__match_sequence_id.exit4010.thread4918 ], [ 192, %llparse__match_sequence_id.exit4034.thread4930 ], [ 215, %llparse__match_sequence_id.exit4058.thread4942 ], [ 217, %llparse__match_sequence_id.exit4082.thread4954 ], [ 219, %llparse__match_sequence_id.exit4108.thread4966 ], [ 1, %s_n_llhttp__internal__n_closed.preheader ], [ 44, %s_n_llhttp__internal__n_header_value_lenient.preheader ], [ 60, %s_n_llhttp__internal__n_header_value.preheader ], [ 47, %s_n_llhttp__internal__n_header_value_connection_token.preheader ], [ 48, %s_n_llhttp__internal__n_header_value_connection_ws.preheader ], [ 52, %s_n_llhttp__internal__n_header_value_connection.preheader ], [ 55, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader ], [ 56, %s_n_llhttp__internal__n_header_value_content_length.preheader ], [ 59, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader ], [ 61, %s_n_llhttp__internal__n_header_value_te_token.preheader ], [ 62, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader ], [ 65, %s_n_llhttp__internal__n_header_value_discard_ws.preheader ], [ 68, %s_n_llhttp__internal__n_header_field_general.preheader ], [ 37, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader ], [ 15, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader ], [ 18, %s_n_llhttp__internal__n_chunk_extension_value.preheader ], [ 21, %s_n_llhttp__internal__n_chunk_extension_name.preheader ], [ 101, %s_n_llhttp__internal__n_req_http_start.preheader ], [ 104, %s_n_llhttp__internal__n_url_fragment.preheader ], [ 106, %s_n_llhttp__internal__n_url_query.preheader ], [ 108, %s_n_llhttp__internal__n_url_path.preheader ], [ 113, %s_n_llhttp__internal__n_url_server.preheader ], [ 117, %s_n_llhttp__internal__n_url_schema.preheader ], [ 123, %s_n_llhttp__internal__n_req_spaces_before_url.preheader ], [ 198, %s_n_llhttp__internal__n_res_status.preheader ], [ 226, %s_n_llhttp__internal__n_start.preheader ], [ 32, %if.end320 ], [ %conv, %entry ], [ 1, %s_n_llhttp__internal__n_closed.backedge ], [ 44, %sw.default412 ], [ 60, %sw.bb599 ], [ 47, %sw.bb435 ], [ 48, %sw.bb448 ], [ 52, %s_n_llhttp__internal__n_header_value_connection.backedge ], [ 55, %sw.bb540 ], [ 56, %llhttp__internal__c_mul_add_content_length_1.exit ], [ 59, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge ], [ 61, %sw.bb610 ], [ 62, %sw.bb623 ], [ 65, %s_n_llhttp__internal__n_header_value_discard_ws.backedge ], [ 68, %sw.bb685 ], [ 37, %sw.bb351 ], [ 15, %sw.bb89 ], [ 18, %sw.bb113 ], [ 21, %sw.bb140 ], [ 101, %sw.bb1094 ], [ 104, %sw.bb1139 ], [ 106, %sw.bb1161 ], [ 108, %sw.bb1193 ], [ 113, %sw.bb1248 ], [ 117, %sw.bb1301 ], [ 123, %sw.bb1359 ], [ 198, %sw.default2360 ], [ 226, %s_n_llhttp__internal__n_start.backedge ]
+return.loopexit:                                  ; preds = %s_n_llhttp__internal__n_closed.backedge, %s_n_llhttp__internal__n_closed.preheader
+  br label %return
+
+return.loopexit5040:                              ; preds = %sw.default412, %s_n_llhttp__internal__n_header_value_lenient.preheader
+  br label %return
+
+return.loopexit5041:                              ; preds = %sw.bb599, %s_n_llhttp__internal__n_header_value.preheader
+  br label %return
+
+return.loopexit5042:                              ; preds = %sw.bb435, %s_n_llhttp__internal__n_header_value_connection_token.preheader
+  br label %return
+
+return.loopexit5044:                              ; preds = %sw.bb448, %s_n_llhttp__internal__n_header_value_connection_ws.preheader
+  br label %return
+
+return.loopexit5046:                              ; preds = %s_n_llhttp__internal__n_header_value_connection.backedge, %s_n_llhttp__internal__n_header_value_connection.preheader
+  br label %return
+
+return.loopexit5047:                              ; preds = %sw.bb540, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader
+  br label %return
+
+return.loopexit5048:                              ; preds = %llhttp__internal__c_mul_add_content_length_1.exit, %s_n_llhttp__internal__n_header_value_content_length.preheader
+  br label %return
+
+return.loopexit5049:                              ; preds = %s_n_llhttp__internal__n_header_value_te_token_ows.backedge, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader
+  br label %return
+
+return.loopexit5050:                              ; preds = %sw.bb610, %s_n_llhttp__internal__n_header_value_te_token.preheader
+  br label %return
+
+return.loopexit5051:                              ; preds = %sw.bb623, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader
+  br label %return
+
+return.loopexit5052:                              ; preds = %s_n_llhttp__internal__n_header_value_discard_ws.backedge, %s_n_llhttp__internal__n_header_value_discard_ws.preheader
+  br label %return
+
+return.loopexit5053:                              ; preds = %sw.bb685, %s_n_llhttp__internal__n_header_field_general.preheader
+  br label %return
+
+return.loopexit5054:                              ; preds = %sw.bb351, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader
+  br label %return
+
+return.loopexit5055:                              ; preds = %sw.bb89, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader
+  br label %return
+
+return.loopexit5056:                              ; preds = %sw.bb113, %s_n_llhttp__internal__n_chunk_extension_value.preheader
+  br label %return
+
+return.loopexit5057:                              ; preds = %sw.bb140, %s_n_llhttp__internal__n_chunk_extension_name.preheader
+  br label %return
+
+return.loopexit5059:                              ; preds = %sw.bb1094, %s_n_llhttp__internal__n_req_http_start.preheader
+  br label %return
+
+return.loopexit5060:                              ; preds = %sw.bb1139, %s_n_llhttp__internal__n_url_fragment.preheader
+  br label %return
+
+return.loopexit5061:                              ; preds = %sw.bb1161, %s_n_llhttp__internal__n_url_query.preheader
+  br label %return
+
+return.loopexit5062:                              ; preds = %sw.bb1193, %s_n_llhttp__internal__n_url_path.preheader
+  br label %return
+
+return.loopexit5063:                              ; preds = %sw.bb1248, %s_n_llhttp__internal__n_url_server.preheader
+  br label %return
+
+return.loopexit5064:                              ; preds = %sw.bb1301, %s_n_llhttp__internal__n_url_schema.preheader
+  br label %return
+
+return.loopexit5065:                              ; preds = %sw.bb1359, %s_n_llhttp__internal__n_req_spaces_before_url.preheader
+  br label %return
+
+return.loopexit5066:                              ; preds = %sw.default2360, %s_n_llhttp__internal__n_res_status.preheader
+  br label %return
+
+return.loopexit5067:                              ; preds = %s_n_llhttp__internal__n_start.backedge, %s_n_llhttp__internal__n_start.preheader
+  br label %return
+
+return:                                           ; preds = %s_n_llhttp__internal__n_eof.preheader, %return.loopexit5067, %return.loopexit5066, %return.loopexit5065, %return.loopexit5064, %return.loopexit5063, %return.loopexit5062, %return.loopexit5061, %return.loopexit5060, %return.loopexit5059, %return.loopexit5057, %return.loopexit5056, %return.loopexit5055, %return.loopexit5054, %return.loopexit5053, %return.loopexit5052, %return.loopexit5051, %return.loopexit5050, %return.loopexit5049, %return.loopexit5048, %return.loopexit5047, %return.loopexit5046, %return.loopexit5044, %return.loopexit5042, %return.loopexit5041, %return.loopexit5040, %return.loopexit, %llparse__match_sequence_id.exit4108.thread4966, %llparse__match_sequence_id.exit4082.thread4954, %llparse__match_sequence_id.exit4058.thread4942, %llparse__match_sequence_id.exit4034.thread4930, %llparse__match_sequence_id.exit4010.thread4918, %llparse__match_sequence_id.exit3986.thread4906, %llparse__match_sequence_id.exit3962.thread4894, %llparse__match_sequence_id.exit3938.thread4882, %llparse__match_sequence_id.exit3914.thread4870, %llparse__match_sequence_id.exit3890.thread4858, %llparse__match_sequence_id.exit3866.thread4846, %llparse__match_sequence_id.exit3842.thread4834, %llparse__match_sequence_id.exit3818.thread4822, %llparse__match_sequence_id.exit3794.thread4810, %llparse__match_sequence_id.exit3770.thread4798, %llparse__match_sequence_id.exit3746.thread4786, %llparse__match_sequence_id.exit3722.thread4774, %llparse__match_sequence_id.exit3698.thread4762, %llparse__match_sequence_id.exit3674.thread4750, %llparse__match_sequence_id.exit3650.thread4738, %llparse__match_sequence_id.exit3626.thread4726, %llparse__match_sequence_id.exit3602.thread4714, %llparse__match_sequence_id.exit3578.thread4702, %llparse__match_sequence_id.exit3554.thread4690, %llparse__match_sequence_id.exit3530.thread4678, %llparse__match_sequence_id.exit3506.thread4666, %llparse__match_sequence_id.exit3482.thread4654, %llparse__match_sequence_id.exit3458.thread4642, %llparse__match_sequence_id.exit3434.thread4630, %llparse__match_sequence_id.exit3410.thread4618, %llparse__match_sequence_id.exit3386.thread4606, %llparse__match_sequence_id.exit3362.thread4594, %llparse__match_sequence_id.exit3338.thread4582, %llparse__match_sequence_id.exit3314.thread4570, %llparse__match_sequence_id.exit3290.thread4558, %llparse__match_sequence_id.exit3266.thread4546, %llparse__match_sequence_id.exit3242.thread4534, %llparse__match_sequence_id.exit3218.thread4522, %llparse__match_sequence_id.exit3194.thread4510, %llparse__match_sequence_id.exit3170.thread4498, %llparse__match_sequence_id.exit3146.thread4486, %llparse__match_sequence_id.exit3122.thread4474, %llparse__match_sequence_id.exit3098.thread4462, %llparse__match_sequence_id.exit3072.thread4450, %llparse__match_sequence_id.exit3046.thread4438, %llparse__match_sequence_id.exit3020.thread4426, %llparse__match_sequence_to_lower.exit2991.thread4414, %llparse__match_sequence_to_lower.exit2965.thread4402, %llparse__match_sequence_to_lower.exit2939.thread4390, %llparse__match_sequence_to_lower.exit2913.thread4378, %llparse__match_sequence_to_lower.exit2887.thread4366, %llparse__match_sequence_to_lower.exit2861.thread4354, %llparse__match_sequence_to_lower_unsafe.exit.thread4342, %llparse__match_sequence_to_lower.exit2814.thread4330, %llparse__match_sequence_to_lower.exit2787.thread4318, %llparse__match_sequence_to_lower.exit.thread4306, %llparse__match_sequence_id.exit.thread4294, %s_n_llhttp__internal__n_start_req_or_res, %s_n_llhttp__internal__n_span_start_llhttp__on_method, %s_n_llhttp__internal__n_req_or_res_method, %s_n_llhttp__internal__n_req_or_res_method_1, %s_n_llhttp__internal__n_req_or_res_method_3, %s_n_llhttp__internal__n_req_or_res_method_2, %s_n_llhttp__internal__n_start_res, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1, %s_n_llhttp__internal__n_res_http_major, %s_n_llhttp__internal__n_res_http_dot, %s_n_llhttp__internal__n_res_http_minor, %s_n_llhttp__internal__n_res_after_version, %s_n_llhttp__internal__n_res_status_code_digit_1, %s_n_llhttp__internal__n_res_status_code_digit_2, %s_n_llhttp__internal__n_res_status_code_digit_3, %s_n_llhttp__internal__n_res_status_code_otherwise, %s_n_llhttp__internal__n_res_status_start, %s_n_llhttp__internal__n_span_start_llhttp__on_status, %s_n_llhttp__internal__n_res_line_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1, %s_n_llhttp__internal__n_after_start_req, %s_n_llhttp__internal__n_after_start_req_63, %s_n_llhttp__internal__n_after_start_req_64, %s_n_llhttp__internal__n_after_start_req_69, %s_n_llhttp__internal__n_after_start_req_66, %s_n_llhttp__internal__n_after_start_req_68, %s_n_llhttp__internal__n_after_start_req_67, %s_n_llhttp__internal__n_after_start_req_65, %s_n_llhttp__internal__n_after_start_req_60, %s_n_llhttp__internal__n_after_start_req_62, %s_n_llhttp__internal__n_after_start_req_61, %s_n_llhttp__internal__n_after_start_req_52, %s_n_llhttp__internal__n_after_start_req_59, %s_n_llhttp__internal__n_after_start_req_58, %s_n_llhttp__internal__n_after_start_req_53, %s_n_llhttp__internal__n_after_start_req_55, %s_n_llhttp__internal__n_after_start_req_57, %s_n_llhttp__internal__n_after_start_req_56, %s_n_llhttp__internal__n_after_start_req_54, %s_n_llhttp__internal__n_after_start_req_46, %s_n_llhttp__internal__n_after_start_req_47, %s_n_llhttp__internal__n_after_start_req_51, %s_n_llhttp__internal__n_after_start_req_50, %s_n_llhttp__internal__n_after_start_req_49, %s_n_llhttp__internal__n_after_start_req_48, %s_n_llhttp__internal__n_after_start_req_33, %s_n_llhttp__internal__n_after_start_req_44, %s_n_llhttp__internal__n_after_start_req_45, %s_n_llhttp__internal__n_after_start_req_39, %s_n_llhttp__internal__n_after_start_req_40, %s_n_llhttp__internal__n_after_start_req_41, %s_n_llhttp__internal__n_after_start_req_43, %s_n_llhttp__internal__n_after_start_req_42, %s_n_llhttp__internal__n_after_start_req_38, %s_n_llhttp__internal__n_after_start_req_37, %s_n_llhttp__internal__n_after_start_req_34, %s_n_llhttp__internal__n_after_start_req_36, %s_n_llhttp__internal__n_after_start_req_35, %s_n_llhttp__internal__n_after_start_req_32, %s_n_llhttp__internal__n_after_start_req_31, %s_n_llhttp__internal__n_after_start_req_22, %s_n_llhttp__internal__n_after_start_req_30, %s_n_llhttp__internal__n_after_start_req_25, %s_n_llhttp__internal__n_after_start_req_27, %s_n_llhttp__internal__n_after_start_req_29, %s_n_llhttp__internal__n_after_start_req_28, %s_n_llhttp__internal__n_after_start_req_26, %s_n_llhttp__internal__n_after_start_req_24, %s_n_llhttp__internal__n_after_start_req_23, %s_n_llhttp__internal__n_after_start_req_19, %s_n_llhttp__internal__n_after_start_req_21, %s_n_llhttp__internal__n_after_start_req_20, %s_n_llhttp__internal__n_after_start_req_18, %s_n_llhttp__internal__n_after_start_req_15, %s_n_llhttp__internal__n_after_start_req_16, %s_n_llhttp__internal__n_after_start_req_17, %s_n_llhttp__internal__n_after_start_req_14, %s_n_llhttp__internal__n_after_start_req_10, %s_n_llhttp__internal__n_after_start_req_11, %s_n_llhttp__internal__n_after_start_req_13, %s_n_llhttp__internal__n_after_start_req_12, %s_n_llhttp__internal__n_after_start_req_5, %s_n_llhttp__internal__n_after_start_req_7, %s_n_llhttp__internal__n_after_start_req_9, %s_n_llhttp__internal__n_after_start_req_8, %s_n_llhttp__internal__n_after_start_req_6, %s_n_llhttp__internal__n_after_start_req_4, %s_n_llhttp__internal__n_after_start_req_1, %s_n_llhttp__internal__n_after_start_req_3, %s_n_llhttp__internal__n_after_start_req_2, %s_n_llhttp__internal__n_req_first_space_before_url, %s_n_llhttp__internal__n_url_entry_connect, %s_n_llhttp__internal__n_span_start_llhttp__on_url, %s_n_llhttp__internal__n_url_entry_normal, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1, %s_n_llhttp__internal__n_url_start, %s_n_llhttp__internal__n_span_end_stub_schema, %s_n_llhttp__internal__n_url_schema_delim, %s_n_llhttp__internal__n_url_schema_delim_1, %s_n_llhttp__internal__n_url_server_with_at, %s_n_llhttp__internal__n_span_start_stub_path_1, %s_n_llhttp__internal__n_span_start_stub_path, %s_n_llhttp__internal__n_span_start_stub_path_2, %s_n_llhttp__internal__n_url_query_or_fragment, %s_n_llhttp__internal__n_span_end_stub_query_3, %s_n_llhttp__internal__n_url_skip_to_http, %s_n_llhttp__internal__n_url_to_http, %s_n_llhttp__internal__n_req_http_start_3, %s_n_llhttp__internal__n_req_http_start_2, %s_n_llhttp__internal__n_req_http_start_1, %s_n_llhttp__internal__n_span_start_llhttp__on_version, %s_n_llhttp__internal__n_req_http_major, %s_n_llhttp__internal__n_req_http_dot, %s_n_llhttp__internal__n_req_http_minor, %s_n_llhttp__internal__n_req_http_complete, %s_n_llhttp__internal__n_req_http_complete_crlf, %if.end916, %s_n_llhttp__internal__n_req_pri_upgrade, %s_n_llhttp__internal__n_url_skip_lf_to_http09, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1, %s_n_llhttp__internal__n_url_skip_to_http09, %s_n_llhttp__internal__n_url_to_http_09, %s_n_llhttp__internal__n_headers_start, %s_n_llhttp__internal__n_header_field_start, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field, %s_n_llhttp__internal__n_header_field, %s_n_llhttp__internal__n_header_field_7, %s_n_llhttp__internal__n_header_field_6, %s_n_llhttp__internal__n_header_field_5, %s_n_llhttp__internal__n_header_field_1, %s_n_llhttp__internal__n_header_field_2, %s_n_llhttp__internal__n_header_field_4, %s_n_llhttp__internal__n_header_field_3, %s_n_llhttp__internal__n_header_field_colon, %s_n_llhttp__internal__n_header_field_general_otherwise, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1, %s_n_llhttp__internal__n_header_value_te_chunked, %s_n_llhttp__internal__n_header_value_connection_3, %s_n_llhttp__internal__n_header_value_connection_2, %s_n_llhttp__internal__n_header_value_connection_1, %s_n_llhttp__internal__n_header_value_otherwise, %s_n_llhttp__internal__n_header_value_almost_done, %s_n_llhttp__internal__n_header_value_lws, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done, %s_n_llhttp__internal__n_header_value_discard_lws, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value, %s_n_llhttp__internal__n_headers_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1, %s_n_llhttp__internal__n_chunk_size_digit, %s_n_llhttp__internal__n_chunk_size, %s_n_llhttp__internal__n_chunk_size_otherwise, %s_n_llhttp__internal__n_chunk_extensions, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done, %s_n_llhttp__internal__n_chunk_size_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body, %s_n_llhttp__internal__n_chunk_data_almost_done, %sw.default4112, %sw.bb4111, %sw.default4100, %sw.bb4099, %if.then4082, %s_n_llhttp__internal__n_error_88, %if.then4062, %s_n_llhttp__internal__n_error_1, %s_n_llhttp__internal__n_pause_19, %s_n_llhttp__internal__n_error_91, %if.then4038, %if.then4024, %if.then4012, %if.then3980, %if.then3968, %s_n_llhttp__internal__n_error_74, %s_n_llhttp__internal__n_pause_21, %s_n_llhttp__internal__n_error_84, %s_n_llhttp__internal__n_error_83, %s_n_llhttp__internal__n_error_81, %s_n_llhttp__internal__n_error_79, %s_n_llhttp__internal__n_error_77, %if.then3915, %if.then3901, %sw.default3893, %sw.default3886, %sw.bb3885, %sw.bb3927, %sw.bb3934, %sw.bb3941, %s_n_llhttp__internal__n_error_90, %if.then3852, %s_n_llhttp__internal__n_error_89, %s_n_llhttp__internal__n_pause_22, %s_n_llhttp__internal__n_error_72, %s_n_llhttp__internal__n_error_71, %s_n_llhttp__internal__n_error_70, %s_n_llhttp__internal__n_error_69, %s_n_llhttp__internal__n_error_68, %s_n_llhttp__internal__n_error_67, %sw.bb1232, %if.then3801, %if.then3789, %if.then3777, %if.then3765, %if.then3753, %if.then3741, %s_n_llhttp__internal__n_error_65, %s_n_llhttp__internal__n_error_64, %if.then3721, %if.then3709, %if.then3697, %s_n_llhttp__internal__n_error_63, %if.then3681, %if.then3669, %if.then3657, %if.then3645, %sw.default3637, %sw.bb3636, %sw.default3625, %sw.default3605, %s_n_llhttp__internal__n_error_62, %sw.default3594, %if.then3549, %if.then3535, %if.then3523, %if.then3491, %if.then3479, %s_n_llhttp__internal__n_error_52, %s_n_llhttp__internal__n_pause_17, %s_n_llhttp__internal__n_error_54, %sw.default3459, %s_n_llhttp__internal__n_error_56, %sw.bb921, %if.then3440, %s_n_llhttp__internal__n_error_48, %if.then3424, %sw.default3412, %sw.bb3411, %sw.default3400, %s_n_llhttp__internal__n_error_47, %if.then3377, %if.then3363, %s_n_llhttp__internal__n_error_34, %s_n_llhttp__internal__n_pause_15, %if.then3310, %if.then3294, %sw.default3286, %if.then3275, %if.then3258, %if.then3219, %if.then3205, %if.then3193, %if.then3179, %s_n_llhttp__internal__n_error_40, %sw.default3146, %sw.default3139, %if.then3109, %s_n_llhttp__internal__n_error_37, %s_n_llhttp__internal__n_pause_14, %sw.bb3131, %sw.default3089, %if.then3073, %sw.default3065, %sw.default3047, %sw.bb3046, %sw.bb3051, %sw.default3023, %sw.bb3022, %sw.default3008, %sw.bb3007, %s_n_llhttp__internal__n_error_29, %if.then2986, %s_n_llhttp__internal__n_error_28, %s_n_llhttp__internal__n_pause_11, %s_n_llhttp__internal__n_error_27, %s_n_llhttp__internal__n_error_25, %if.then2953, %if.then2939, %sw.default2931, %sw.bb2930, %if.then2913, %if.then2899, %s_n_llhttp__internal__n_error_22, %s_n_llhttp__internal__n_pause_9, %if.then2877, %if.then2865, %s_n_llhttp__internal__n_error_19, %s_n_llhttp__internal__n_pause_8, %s_n_llhttp__internal__n_error_20, %if.then2839, %s_n_llhttp__internal__n_error_18, %s_n_llhttp__internal__n_pause_7, %if.then2817, %s_n_llhttp__internal__n_error_16, %s_n_llhttp__internal__n_pause_6, %if.then2795, %s_n_llhttp__internal__n_error_15, %s_n_llhttp__internal__n_pause_5, %sw.bb160, %sw.bb158, %sw.default2771, %sw.default2764, %sw.bb2763, %if.then2746, %sw.default2740, %sw.default2733, %sw.bb2732, %sw.bb2965, %sw.default2717, %sw.bb2716, %sw.default2700, %s_n_llhttp__internal__n_error_2, %s_n_llhttp__internal__n_error_87, %s_n_llhttp__internal__n_error_86, %s_n_llhttp__internal__n_error_85, %s_n_llhttp__internal__n_error_73, %s_n_llhttp__internal__n_error_59, %s_n_llhttp__internal__n_error_58, %s_n_llhttp__internal__n_error_57, %s_n_llhttp__internal__n_error_51, %s_n_llhttp__internal__n_error_45, %s_n_llhttp__internal__n_error_46, %s_n_llhttp__internal__n_error_44, %s_n_llhttp__internal__n_error_43, %s_n_llhttp__internal__n_error_41, %s_n_llhttp__internal__n_error_5, %if.end300, %s_n_llhttp__internal__n_error_24, %s_n_llhttp__internal__n_error_23, %s_n_llhttp__internal__n_error_21, %if.end27, %s_n_llhttp__internal__n_pause_1
+  %retval.0 = phi i32 [ 0, %sw.default4112 ], [ 0, %sw.bb4111 ], [ 0, %sw.default4100 ], [ 0, %sw.bb4099 ], [ 0, %s_n_llhttp__internal__n_error_88 ], [ 0, %if.then4082 ], [ 0, %if.then4038 ], [ 0, %s_n_llhttp__internal__n_error_87 ], [ 0, %if.then4012 ], [ 0, %s_n_llhttp__internal__n_error_85 ], [ 0, %if.then3968 ], [ 0, %s_n_llhttp__internal__n_error_74 ], [ 0, %s_n_llhttp__internal__n_pause_21 ], [ 0, %s_n_llhttp__internal__n_error_83 ], [ 0, %sw.bb3941 ], [ 0, %s_n_llhttp__internal__n_error_81 ], [ 0, %sw.bb3934 ], [ 0, %s_n_llhttp__internal__n_error_79 ], [ 0, %sw.bb3927 ], [ 0, %s_n_llhttp__internal__n_error_77 ], [ 0, %if.then3915 ], [ 0, %sw.default3886 ], [ 0, %sw.bb3885 ], [ 0, %if.then3377 ], [ 0, %s_n_llhttp__internal__n_error_34 ], [ 0, %s_n_llhttp__internal__n_pause_15 ], [ 0, %if.then3179 ], [ 0, %s_n_llhttp__internal__n_error_37 ], [ 0, %s_n_llhttp__internal__n_pause_14 ], [ 0, %s_n_llhttp__internal__n_error_40 ], [ 0, %if.then3205 ], [ 0, %if.then3193 ], [ 0, %if.then3219 ], [ 0, %s_n_llhttp__internal__n_error_41 ], [ 0, %if.then3294 ], [ 0, %s_n_llhttp__internal__n_error_46 ], [ 0, %if.then3310 ], [ 0, %s_n_llhttp__internal__n_error_45 ], [ 0, %if.then3275 ], [ 0, %s_n_llhttp__internal__n_error_44 ], [ 0, %if.then3258 ], [ 0, %s_n_llhttp__internal__n_error_43 ], [ 0, %sw.default3286 ], [ 0, %sw.bb3131 ], [ 0, %if.then3109 ], [ 0, %sw.default3089 ], [ 0, %sw.default3146 ], [ 0, %sw.default3139 ], [ 0, %s_n_llhttp__internal__n_error_47 ], [ 0, %if.then3363 ], [ 0, %if.then3073 ], [ 0, %s_n_llhttp__internal__n_error_5 ], [ 0, %sw.default3023 ], [ 0, %sw.bb3022 ], [ 0, %s_n_llhttp__internal__n_error_28 ], [ 0, %s_n_llhttp__internal__n_pause_11 ], [ 0, %sw.default2700 ], [ 0, %s_n_llhttp__internal__n_pause_1 ], [ 0, %sw.bb3051 ], [ 0, %sw.default3047 ], [ 0, %sw.bb3046 ], [ 0, %sw.default3008 ], [ 0, %sw.bb3007 ], [ 0, %s_n_llhttp__internal__n_error_29 ], [ 0, %if.then2986 ], [ 30, %if.end300 ], [ 0, %s_n_llhttp__internal__n_error_27 ], [ 0, %sw.bb2965 ], [ 0, %s_n_llhttp__internal__n_error_25 ], [ 0, %if.then2953 ], [ 0, %s_n_llhttp__internal__n_error_24 ], [ 0, %if.then2939 ], [ 0, %sw.default2931 ], [ 0, %sw.bb2930 ], [ 0, %if.then2913 ], [ 0, %s_n_llhttp__internal__n_error_23 ], [ 0, %if.then2899 ], [ 0, %s_n_llhttp__internal__n_error_22 ], [ 0, %s_n_llhttp__internal__n_pause_9 ], [ 0, %if.then2877 ], [ 0, %s_n_llhttp__internal__n_error_21 ], [ 0, %if.then2865 ], [ 0, %s_n_llhttp__internal__n_error_19 ], [ 0, %s_n_llhttp__internal__n_pause_8 ], [ 0, %s_n_llhttp__internal__n_error_20 ], [ 0, %sw.default2764 ], [ 0, %sw.bb2763 ], [ 0, %if.then2746 ], [ 0, %sw.default2733 ], [ 0, %sw.bb2732 ], [ 0, %sw.default2740 ], [ 5, %if.end27 ], [ 0, %sw.default2771 ], [ 0, %if.then2839 ], [ 0, %s_n_llhttp__internal__n_error_18 ], [ 0, %s_n_llhttp__internal__n_pause_7 ], [ 0, %if.then2817 ], [ 0, %s_n_llhttp__internal__n_error_16 ], [ 0, %s_n_llhttp__internal__n_pause_6 ], [ 0, %if.then2795 ], [ 0, %s_n_llhttp__internal__n_error_15 ], [ 0, %s_n_llhttp__internal__n_pause_5 ], [ 0, %sw.bb160 ], [ 0, %sw.bb158 ], [ 0, %sw.default2717 ], [ 0, %sw.bb2716 ], [ 0, %sw.default3065 ], [ 0, %sw.default3400 ], [ 0, %sw.default3893 ], [ 0, %if.then3901 ], [ 0, %s_n_llhttp__internal__n_error_84 ], [ 0, %if.then3980 ], [ 0, %s_n_llhttp__internal__n_error_73 ], [ 0, %if.then4024 ], [ 0, %s_n_llhttp__internal__n_error_86 ], [ 0, %if.then4062 ], [ 0, %s_n_llhttp__internal__n_error_1 ], [ 0, %s_n_llhttp__internal__n_pause_19 ], [ 0, %s_n_llhttp__internal__n_error_71 ], [ 0, %s_n_llhttp__internal__n_error_70 ], [ 0, %s_n_llhttp__internal__n_error_69 ], [ 0, %s_n_llhttp__internal__n_error_68 ], [ 0, %s_n_llhttp__internal__n_error_67 ], [ 0, %sw.bb1232 ], [ 0, %s_n_llhttp__internal__n_error_64 ], [ 0, %s_n_llhttp__internal__n_error_63 ], [ 0, %if.then3681 ], [ 0, %sw.default3637 ], [ 0, %sw.bb3636 ], [ 0, %s_n_llhttp__internal__n_error_62 ], [ 0, %sw.default3625 ], [ 0, %if.then3549 ], [ 0, %s_n_llhttp__internal__n_error_59 ], [ 0, %if.then3523 ], [ 0, %s_n_llhttp__internal__n_error_57 ], [ 0, %if.then3479 ], [ 0, %s_n_llhttp__internal__n_error_52 ], [ 0, %s_n_llhttp__internal__n_pause_17 ], [ 0, %s_n_llhttp__internal__n_error_56 ], [ 0, %sw.bb921 ], [ 0, %sw.default3459 ], [ 0, %s_n_llhttp__internal__n_error_54 ], [ 0, %if.then3491 ], [ 0, %s_n_llhttp__internal__n_error_51 ], [ 0, %if.then3535 ], [ 0, %s_n_llhttp__internal__n_error_58 ], [ 0, %sw.default3605 ], [ 0, %sw.default3594 ], [ 0, %s_n_llhttp__internal__n_error_2 ], [ 0, %if.then3669 ], [ 0, %s_n_llhttp__internal__n_error_48 ], [ 0, %sw.default3412 ], [ 0, %sw.bb3411 ], [ 0, %if.then3657 ], [ 0, %if.then3721 ], [ 0, %if.then3709 ], [ 0, %if.then3697 ], [ 0, %s_n_llhttp__internal__n_error_65 ], [ 0, %if.then3645 ], [ 0, %if.then3440 ], [ 0, %if.then3424 ], [ 0, %if.then3801 ], [ 0, %if.then3789 ], [ 0, %if.then3777 ], [ 0, %if.then3765 ], [ 0, %if.then3753 ], [ 0, %if.then3741 ], [ 0, %s_n_llhttp__internal__n_error_72 ], [ 0, %s_n_llhttp__internal__n_error_90 ], [ 0, %if.then3852 ], [ 0, %s_n_llhttp__internal__n_error_89 ], [ 0, %s_n_llhttp__internal__n_pause_22 ], [ 0, %s_n_llhttp__internal__n_error_91 ], [ 4, %s_n_llhttp__internal__n_chunk_data_almost_done ], [ 6, %s_n_llhttp__internal__n_span_start_llhttp__on_body ], [ 8, %s_n_llhttp__internal__n_chunk_size_almost_done ], [ 12, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done ], [ 19, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value ], [ 22, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name ], [ 23, %s_n_llhttp__internal__n_chunk_extensions ], [ 24, %s_n_llhttp__internal__n_chunk_size_otherwise ], [ 25, %s_n_llhttp__internal__n_chunk_size ], [ 26, %s_n_llhttp__internal__n_chunk_size_digit ], [ 31, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1 ], [ 33, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2 ], [ 36, %s_n_llhttp__internal__n_headers_almost_done ], [ 39, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value ], [ 40, %s_n_llhttp__internal__n_header_value_discard_lws ], [ 41, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done ], [ 42, %s_n_llhttp__internal__n_header_value_lws ], [ 43, %s_n_llhttp__internal__n_header_value_almost_done ], [ 46, %s_n_llhttp__internal__n_header_value_otherwise ], [ 49, %s_n_llhttp__internal__n_header_value_connection_1 ], [ 50, %s_n_llhttp__internal__n_header_value_connection_2 ], [ 51, %s_n_llhttp__internal__n_header_value_connection_3 ], [ 63, %s_n_llhttp__internal__n_header_value_te_chunked ], [ 64, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1 ], [ 67, %s_n_llhttp__internal__n_header_field_general_otherwise ], [ 69, %s_n_llhttp__internal__n_header_field_colon ], [ 70, %s_n_llhttp__internal__n_header_field_3 ], [ 71, %s_n_llhttp__internal__n_header_field_4 ], [ 72, %s_n_llhttp__internal__n_header_field_2 ], [ 73, %s_n_llhttp__internal__n_header_field_1 ], [ 74, %s_n_llhttp__internal__n_header_field_5 ], [ 75, %s_n_llhttp__internal__n_header_field_6 ], [ 76, %s_n_llhttp__internal__n_header_field_7 ], [ 77, %s_n_llhttp__internal__n_header_field ], [ 78, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field ], [ 79, %s_n_llhttp__internal__n_header_field_start ], [ 80, %s_n_llhttp__internal__n_headers_start ], [ 81, %s_n_llhttp__internal__n_url_to_http_09 ], [ 82, %s_n_llhttp__internal__n_url_skip_to_http09 ], [ 83, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1 ], [ 84, %s_n_llhttp__internal__n_url_skip_lf_to_http09 ], [ 85, %s_n_llhttp__internal__n_req_pri_upgrade ], [ 85, %if.end916 ], [ 86, %s_n_llhttp__internal__n_req_http_complete_crlf ], [ 87, %s_n_llhttp__internal__n_req_http_complete ], [ 92, %s_n_llhttp__internal__n_req_http_minor ], [ 94, %s_n_llhttp__internal__n_req_http_dot ], [ 96, %s_n_llhttp__internal__n_req_http_major ], [ 97, %s_n_llhttp__internal__n_span_start_llhttp__on_version ], [ 98, %s_n_llhttp__internal__n_req_http_start_1 ], [ 99, %s_n_llhttp__internal__n_req_http_start_2 ], [ 100, %s_n_llhttp__internal__n_req_http_start_3 ], [ 102, %s_n_llhttp__internal__n_url_to_http ], [ 103, %s_n_llhttp__internal__n_url_skip_to_http ], [ 105, %s_n_llhttp__internal__n_span_end_stub_query_3 ], [ 107, %s_n_llhttp__internal__n_url_query_or_fragment ], [ 109, %s_n_llhttp__internal__n_span_start_stub_path_2 ], [ 110, %s_n_llhttp__internal__n_span_start_stub_path ], [ 111, %s_n_llhttp__internal__n_span_start_stub_path_1 ], [ 112, %s_n_llhttp__internal__n_url_server_with_at ], [ 114, %s_n_llhttp__internal__n_url_schema_delim_1 ], [ 115, %s_n_llhttp__internal__n_url_schema_delim ], [ 116, %s_n_llhttp__internal__n_span_end_stub_schema ], [ 118, %s_n_llhttp__internal__n_url_start ], [ 119, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1 ], [ 120, %s_n_llhttp__internal__n_url_entry_normal ], [ 121, %s_n_llhttp__internal__n_span_start_llhttp__on_url ], [ 122, %s_n_llhttp__internal__n_url_entry_connect ], [ 124, %s_n_llhttp__internal__n_req_first_space_before_url ], [ 126, %s_n_llhttp__internal__n_after_start_req_2 ], [ 127, %s_n_llhttp__internal__n_after_start_req_3 ], [ 128, %s_n_llhttp__internal__n_after_start_req_1 ], [ 129, %s_n_llhttp__internal__n_after_start_req_4 ], [ 130, %s_n_llhttp__internal__n_after_start_req_6 ], [ 131, %s_n_llhttp__internal__n_after_start_req_8 ], [ 132, %s_n_llhttp__internal__n_after_start_req_9 ], [ 133, %s_n_llhttp__internal__n_after_start_req_7 ], [ 134, %s_n_llhttp__internal__n_after_start_req_5 ], [ 135, %s_n_llhttp__internal__n_after_start_req_12 ], [ 136, %s_n_llhttp__internal__n_after_start_req_13 ], [ 137, %s_n_llhttp__internal__n_after_start_req_11 ], [ 138, %s_n_llhttp__internal__n_after_start_req_10 ], [ 139, %s_n_llhttp__internal__n_after_start_req_14 ], [ 140, %s_n_llhttp__internal__n_after_start_req_17 ], [ 141, %s_n_llhttp__internal__n_after_start_req_16 ], [ 142, %s_n_llhttp__internal__n_after_start_req_15 ], [ 143, %s_n_llhttp__internal__n_after_start_req_18 ], [ 144, %s_n_llhttp__internal__n_after_start_req_20 ], [ 145, %s_n_llhttp__internal__n_after_start_req_21 ], [ 146, %s_n_llhttp__internal__n_after_start_req_19 ], [ 147, %s_n_llhttp__internal__n_after_start_req_23 ], [ 148, %s_n_llhttp__internal__n_after_start_req_24 ], [ 149, %s_n_llhttp__internal__n_after_start_req_26 ], [ 150, %s_n_llhttp__internal__n_after_start_req_28 ], [ 151, %s_n_llhttp__internal__n_after_start_req_29 ], [ 152, %s_n_llhttp__internal__n_after_start_req_27 ], [ 153, %s_n_llhttp__internal__n_after_start_req_25 ], [ 154, %s_n_llhttp__internal__n_after_start_req_30 ], [ 155, %s_n_llhttp__internal__n_after_start_req_22 ], [ 156, %s_n_llhttp__internal__n_after_start_req_31 ], [ 157, %s_n_llhttp__internal__n_after_start_req_32 ], [ 158, %s_n_llhttp__internal__n_after_start_req_35 ], [ 159, %s_n_llhttp__internal__n_after_start_req_36 ], [ 160, %s_n_llhttp__internal__n_after_start_req_34 ], [ 161, %s_n_llhttp__internal__n_after_start_req_37 ], [ 162, %s_n_llhttp__internal__n_after_start_req_38 ], [ 163, %s_n_llhttp__internal__n_after_start_req_42 ], [ 164, %s_n_llhttp__internal__n_after_start_req_43 ], [ 165, %s_n_llhttp__internal__n_after_start_req_41 ], [ 166, %s_n_llhttp__internal__n_after_start_req_40 ], [ 167, %s_n_llhttp__internal__n_after_start_req_39 ], [ 168, %s_n_llhttp__internal__n_after_start_req_45 ], [ 169, %s_n_llhttp__internal__n_after_start_req_44 ], [ 170, %s_n_llhttp__internal__n_after_start_req_33 ], [ 171, %s_n_llhttp__internal__n_after_start_req_48 ], [ 172, %s_n_llhttp__internal__n_after_start_req_49 ], [ 173, %s_n_llhttp__internal__n_after_start_req_50 ], [ 174, %s_n_llhttp__internal__n_after_start_req_51 ], [ 175, %s_n_llhttp__internal__n_after_start_req_47 ], [ 176, %s_n_llhttp__internal__n_after_start_req_46 ], [ 177, %s_n_llhttp__internal__n_after_start_req_54 ], [ 178, %s_n_llhttp__internal__n_after_start_req_56 ], [ 179, %s_n_llhttp__internal__n_after_start_req_57 ], [ 180, %s_n_llhttp__internal__n_after_start_req_55 ], [ 181, %s_n_llhttp__internal__n_after_start_req_53 ], [ 182, %s_n_llhttp__internal__n_after_start_req_58 ], [ 183, %s_n_llhttp__internal__n_after_start_req_59 ], [ 184, %s_n_llhttp__internal__n_after_start_req_52 ], [ 185, %s_n_llhttp__internal__n_after_start_req_61 ], [ 186, %s_n_llhttp__internal__n_after_start_req_62 ], [ 187, %s_n_llhttp__internal__n_after_start_req_60 ], [ 188, %s_n_llhttp__internal__n_after_start_req_65 ], [ 189, %s_n_llhttp__internal__n_after_start_req_67 ], [ 190, %s_n_llhttp__internal__n_after_start_req_68 ], [ 191, %s_n_llhttp__internal__n_after_start_req_66 ], [ 192, %s_n_llhttp__internal__n_after_start_req_69 ], [ 193, %s_n_llhttp__internal__n_after_start_req_64 ], [ 194, %s_n_llhttp__internal__n_after_start_req_63 ], [ 195, %s_n_llhttp__internal__n_after_start_req ], [ 196, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1 ], [ 197, %s_n_llhttp__internal__n_res_line_almost_done ], [ 199, %s_n_llhttp__internal__n_span_start_llhttp__on_status ], [ 200, %s_n_llhttp__internal__n_res_status_start ], [ 201, %s_n_llhttp__internal__n_res_status_code_otherwise ], [ 202, %s_n_llhttp__internal__n_res_status_code_digit_3 ], [ 203, %s_n_llhttp__internal__n_res_status_code_digit_2 ], [ 204, %s_n_llhttp__internal__n_res_status_code_digit_1 ], [ 205, %s_n_llhttp__internal__n_res_after_version ], [ 209, %s_n_llhttp__internal__n_res_http_minor ], [ 211, %s_n_llhttp__internal__n_res_http_dot ], [ 213, %s_n_llhttp__internal__n_res_http_major ], [ 214, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1 ], [ 215, %s_n_llhttp__internal__n_start_res ], [ 217, %s_n_llhttp__internal__n_req_or_res_method_2 ], [ 219, %s_n_llhttp__internal__n_req_or_res_method_3 ], [ 220, %s_n_llhttp__internal__n_req_or_res_method_1 ], [ 221, %s_n_llhttp__internal__n_req_or_res_method ], [ 222, %s_n_llhttp__internal__n_span_start_llhttp__on_method ], [ 223, %s_n_llhttp__internal__n_start_req_or_res ], [ 4, %llparse__match_sequence_id.exit.thread4294 ], [ 49, %llparse__match_sequence_to_lower.exit.thread4306 ], [ 50, %llparse__match_sequence_to_lower.exit2787.thread4318 ], [ 51, %llparse__match_sequence_to_lower.exit2814.thread4330 ], [ 63, %llparse__match_sequence_to_lower_unsafe.exit.thread4342 ], [ 70, %llparse__match_sequence_to_lower.exit2861.thread4354 ], [ 71, %llparse__match_sequence_to_lower.exit2887.thread4366 ], [ 73, %llparse__match_sequence_to_lower.exit2913.thread4378 ], [ 74, %llparse__match_sequence_to_lower.exit2939.thread4390 ], [ 75, %llparse__match_sequence_to_lower.exit2965.thread4402 ], [ 76, %llparse__match_sequence_to_lower.exit2991.thread4414 ], [ 98, %llparse__match_sequence_id.exit3020.thread4426 ], [ 99, %llparse__match_sequence_id.exit3046.thread4438 ], [ 100, %llparse__match_sequence_id.exit3072.thread4450 ], [ 127, %llparse__match_sequence_id.exit3098.thread4462 ], [ 129, %llparse__match_sequence_id.exit3122.thread4474 ], [ 130, %llparse__match_sequence_id.exit3146.thread4486 ], [ 131, %llparse__match_sequence_id.exit3170.thread4498 ], [ 135, %llparse__match_sequence_id.exit3194.thread4510 ], [ 136, %llparse__match_sequence_id.exit3218.thread4522 ], [ 139, %llparse__match_sequence_id.exit3242.thread4534 ], [ 140, %llparse__match_sequence_id.exit3266.thread4546 ], [ 142, %llparse__match_sequence_id.exit3290.thread4558 ], [ 143, %llparse__match_sequence_id.exit3314.thread4570 ], [ 144, %llparse__match_sequence_id.exit3338.thread4582 ], [ 145, %llparse__match_sequence_id.exit3362.thread4594 ], [ 147, %llparse__match_sequence_id.exit3386.thread4606 ], [ 148, %llparse__match_sequence_id.exit3410.thread4618 ], [ 149, %llparse__match_sequence_id.exit3434.thread4630 ], [ 150, %llparse__match_sequence_id.exit3458.thread4642 ], [ 154, %llparse__match_sequence_id.exit3482.thread4654 ], [ 156, %llparse__match_sequence_id.exit3506.thread4666 ], [ 157, %llparse__match_sequence_id.exit3530.thread4678 ], [ 158, %llparse__match_sequence_id.exit3554.thread4690 ], [ 159, %llparse__match_sequence_id.exit3578.thread4702 ], [ 161, %llparse__match_sequence_id.exit3602.thread4714 ], [ 162, %llparse__match_sequence_id.exit3626.thread4726 ], [ 163, %llparse__match_sequence_id.exit3650.thread4738 ], [ 164, %llparse__match_sequence_id.exit3674.thread4750 ], [ 168, %llparse__match_sequence_id.exit3698.thread4762 ], [ 171, %llparse__match_sequence_id.exit3722.thread4774 ], [ 172, %llparse__match_sequence_id.exit3746.thread4786 ], [ 173, %llparse__match_sequence_id.exit3770.thread4798 ], [ 174, %llparse__match_sequence_id.exit3794.thread4810 ], [ 177, %llparse__match_sequence_id.exit3818.thread4822 ], [ 179, %llparse__match_sequence_id.exit3842.thread4834 ], [ 182, %llparse__match_sequence_id.exit3866.thread4846 ], [ 183, %llparse__match_sequence_id.exit3890.thread4858 ], [ 185, %llparse__match_sequence_id.exit3914.thread4870 ], [ 186, %llparse__match_sequence_id.exit3938.thread4882 ], [ 188, %llparse__match_sequence_id.exit3962.thread4894 ], [ 189, %llparse__match_sequence_id.exit3986.thread4906 ], [ 190, %llparse__match_sequence_id.exit4010.thread4918 ], [ 192, %llparse__match_sequence_id.exit4034.thread4930 ], [ 215, %llparse__match_sequence_id.exit4058.thread4942 ], [ 217, %llparse__match_sequence_id.exit4082.thread4954 ], [ 219, %llparse__match_sequence_id.exit4108.thread4966 ], [ 1, %return.loopexit ], [ 44, %return.loopexit5040 ], [ 60, %return.loopexit5041 ], [ 47, %return.loopexit5042 ], [ 48, %return.loopexit5044 ], [ 52, %return.loopexit5046 ], [ 55, %return.loopexit5047 ], [ 56, %return.loopexit5048 ], [ 59, %return.loopexit5049 ], [ 61, %return.loopexit5050 ], [ 62, %return.loopexit5051 ], [ 65, %return.loopexit5052 ], [ 68, %return.loopexit5053 ], [ 37, %return.loopexit5054 ], [ 15, %return.loopexit5055 ], [ 18, %return.loopexit5056 ], [ 21, %return.loopexit5057 ], [ 101, %return.loopexit5059 ], [ 104, %return.loopexit5060 ], [ 106, %return.loopexit5061 ], [ 108, %return.loopexit5062 ], [ 113, %return.loopexit5063 ], [ 117, %return.loopexit5064 ], [ 123, %return.loopexit5065 ], [ 198, %return.loopexit5066 ], [ 226, %return.loopexit5067 ], [ 32, %s_n_llhttp__internal__n_eof.preheader ]
   ret i32 %retval.0
 }
 

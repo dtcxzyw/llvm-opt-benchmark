@@ -871,14 +871,17 @@ var_push.exit:                                    ; preds = %15, %20
   %81 = getelementptr inbounds [256 x i8], ptr @php_var_unserialize_internal.yybm, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %.not1145 = icmp sgt i8 %82, -1
-  br i1 %.not1145, label %.critedge1189, label %.preheader
+  br i1 %.not1145, label %.loopexit, label %.preheader
+
+.loopexit:                                        ; preds = %.preheader1282, %.preheader1280, %.preheader1278, %219, %219, %339, %.preheader1272, %.preheader1270, %.preheader1267, %.preheader1265, %.preheader1264, %222, %118, %1068, %1066, %1056, %414, %369, %365, %363, %359, %347, %346, %343, %325, %321, %266, %262, %260, %252, %244, %234, %230, %225, %223, %218, %207, %205, %202, %196, %188, %184, %182, %174, %166, %158, %150, %140, %136, %134, %130, %124, %123, %116, %108, %102, %98, %94, %90, %83, %77
+  br label %.critedge1189
 
 83:                                               ; preds = %36
   %84 = getelementptr inbounds i8, ptr %.ph, i64 2
   %85 = load i8, ptr %84, align 1
   %86 = add i8 %85, -48
   %or.cond8 = icmp ult i8 %86, 10
-  br i1 %or.cond8, label %.preheader1264, label %.critedge1189
+  br i1 %or.cond8, label %.preheader1264, label %.loopexit
 
 87:                                               ; preds = %40
   %88 = getelementptr inbounds i8, ptr %.ph, i64 2
@@ -893,27 +896,27 @@ var_push.exit:                                    ; preds = %15, %20
   %92 = load i8, ptr %91, align 1
   %93 = add i8 %92, -48
   %or.cond11 = icmp ult i8 %93, 10
-  br i1 %or.cond11, label %.preheader1265, label %.critedge1189
+  br i1 %or.cond11, label %.preheader1265, label %.loopexit
 
 94:                                               ; preds = %48
   %95 = getelementptr inbounds i8, ptr %.ph, i64 2
   %96 = load i8, ptr %95, align 1
   %97 = add i8 %96, -48
   %or.cond14 = icmp ult i8 %97, 10
-  br i1 %or.cond14, label %.preheader1267, label %.critedge1189
+  br i1 %or.cond14, label %.preheader1267, label %.loopexit
 
 98:                                               ; preds = %52
   %99 = getelementptr inbounds i8, ptr %.ph, i64 2
   %100 = load i8, ptr %99, align 1
   %101 = add i8 %100, -48
   %or.cond17 = icmp ult i8 %101, 10
-  br i1 %or.cond17, label %.preheader1270, label %.critedge1189
+  br i1 %or.cond17, label %.preheader1270, label %.loopexit
 
 102:                                              ; preds = %56
   %103 = getelementptr inbounds i8, ptr %.ph, i64 2
   %104 = load i8, ptr %103, align 1
   %105 = icmp ult i8 %104, 48
-  br i1 %105, label %.critedge1189, label %106
+  br i1 %105, label %.loopexit, label %106
 
 106:                                              ; preds = %102
   %107 = icmp eq i8 %104, 48
@@ -921,7 +924,7 @@ var_push.exit:                                    ; preds = %15, %20
 
 108:                                              ; preds = %106
   %109 = icmp ult i8 %104, 50
-  br i1 %109, label %188, label %.critedge1189
+  br i1 %109, label %188, label %.loopexit
 
 110:                                              ; preds = %60
   %111 = getelementptr inbounds i8, ptr %.ph, i64 2
@@ -935,12 +938,12 @@ var_push.exit:                                    ; preds = %15, %20
 
 116:                                              ; preds = %114
   %117 = icmp eq i8 %112, 43
-  br i1 %117, label %192, label %.critedge1189
+  br i1 %117, label %192, label %.loopexit
 
 118:                                              ; preds = %114
   switch i8 %112, label %207 [
     i8 45, label %198
-    i8 47, label %.critedge1189
+    i8 47, label %.loopexit
   ]
 
 119:                                              ; preds = %110
@@ -953,11 +956,11 @@ var_push.exit:                                    ; preds = %15, %20
 
 123:                                              ; preds = %121
   %.not1097 = icmp eq i8 %112, 73
-  br i1 %.not1097, label %225, label %.critedge1189
+  br i1 %.not1097, label %225, label %.loopexit
 
 124:                                              ; preds = %119
   %125 = icmp eq i8 %112, 78
-  br i1 %125, label %230, label %.critedge1189
+  br i1 %125, label %230, label %.loopexit
 
 126:                                              ; preds = %64
   %127 = getelementptr inbounds i8, ptr %.ph, i64 2
@@ -968,7 +971,7 @@ var_push.exit:                                    ; preds = %15, %20
 
 130:                                              ; preds = %126
   %131 = icmp eq i8 %128, 43
-  br i1 %131, label %234, label %.critedge1189
+  br i1 %131, label %234, label %.loopexit
 
 132:                                              ; preds = %126
   %133 = icmp eq i8 %128, 45
@@ -977,7 +980,7 @@ var_push.exit:                                    ; preds = %15, %20
 134:                                              ; preds = %132
   %135 = add i8 %128, -48
   %or.cond20 = icmp ult i8 %135, 10
-  br i1 %or.cond20, label %.preheader1278.preheader, label %.critedge1189
+  br i1 %or.cond20, label %.preheader1278.preheader, label %.loopexit
 
 136:                                              ; preds = %68
   %137 = getelementptr inbounds i8, ptr %.ph, i64 2
@@ -985,7 +988,7 @@ var_push.exit:                                    ; preds = %15, %20
   %138 = load i8, ptr %137, align 1
   %139 = add i8 %138, -48
   %or.cond23 = icmp ult i8 %139, 10
-  br i1 %or.cond23, label %.preheader1280, label %.critedge1189
+  br i1 %or.cond23, label %.preheader1280, label %.loopexit
 
 140:                                              ; preds = %72
   %141 = getelementptr inbounds i8, ptr %.ph, i64 2
@@ -993,7 +996,7 @@ var_push.exit:                                    ; preds = %15, %20
   %142 = load i8, ptr %141, align 1
   %143 = add i8 %142, -48
   %or.cond26 = icmp ult i8 %143, 10
-  br i1 %or.cond26, label %.preheader1282, label %.critedge1189
+  br i1 %or.cond26, label %.preheader1282, label %.loopexit
 
 .preheader:                                       ; preds = %77, %.preheader
   %144 = phi ptr [ %145, %.preheader ], [ %78, %77 ]
@@ -1009,7 +1012,7 @@ var_push.exit:                                    ; preds = %15, %20
 150:                                              ; preds = %.preheader
   %151 = add i8 %146, -48
   %or.cond29 = icmp ult i8 %151, 11
-  br i1 %or.cond29, label %262, label %.critedge1189
+  br i1 %or.cond29, label %262, label %.loopexit
 
 .preheader1264:                                   ; preds = %83, %156
   %152 = phi ptr [ %153, %156 ], [ %84, %83 ]
@@ -1017,7 +1020,7 @@ var_push.exit:                                    ; preds = %15, %20
   store ptr %153, ptr %7, align 8
   %154 = load i8, ptr %153, align 1
   %155 = icmp ult i8 %154, 48
-  br i1 %155, label %.critedge1189, label %156
+  br i1 %155, label %.loopexit, label %156
 
 156:                                              ; preds = %.preheader1264
   %157 = icmp ult i8 %154, 58
@@ -1025,7 +1028,7 @@ var_push.exit:                                    ; preds = %15, %20
 
 158:                                              ; preds = %156
   %159 = icmp eq i8 %154, 58
-  br i1 %159, label %266, label %.critedge1189
+  br i1 %159, label %266, label %.loopexit
 
 .preheader1265:                                   ; preds = %90, %164
   %160 = phi ptr [ %161, %164 ], [ %91, %90 ]
@@ -1033,7 +1036,7 @@ var_push.exit:                                    ; preds = %15, %20
   store ptr %161, ptr %7, align 8
   %162 = load i8, ptr %161, align 1
   %163 = icmp ult i8 %162, 48
-  br i1 %163, label %.critedge1189, label %164
+  br i1 %163, label %.loopexit, label %164
 
 164:                                              ; preds = %.preheader1265
   %165 = icmp ult i8 %162, 58
@@ -1041,7 +1044,7 @@ var_push.exit:                                    ; preds = %15, %20
 
 166:                                              ; preds = %164
   %167 = icmp eq i8 %162, 59
-  br i1 %167, label %270, label %.critedge1189
+  br i1 %167, label %270, label %.loopexit
 
 .preheader1267:                                   ; preds = %94, %172
   %168 = phi ptr [ %169, %172 ], [ %95, %94 ]
@@ -1049,7 +1052,7 @@ var_push.exit:                                    ; preds = %15, %20
   store ptr %169, ptr %7, align 8
   %170 = load i8, ptr %169, align 1
   %171 = icmp ult i8 %170, 48
-  br i1 %171, label %.critedge1189, label %172
+  br i1 %171, label %.loopexit, label %172
 
 172:                                              ; preds = %.preheader1267
   %173 = icmp ult i8 %170, 58
@@ -1057,7 +1060,7 @@ var_push.exit:                                    ; preds = %15, %20
 
 174:                                              ; preds = %172
   %175 = icmp eq i8 %170, 58
-  br i1 %175, label %321, label %.critedge1189
+  br i1 %175, label %321, label %.loopexit
 
 .preheader1270:                                   ; preds = %98, %180
   %176 = phi ptr [ %177, %180 ], [ %99, %98 ]
@@ -1065,7 +1068,7 @@ var_push.exit:                                    ; preds = %15, %20
   store ptr %177, ptr %7, align 8
   %178 = load i8, ptr %177, align 1
   %179 = icmp ult i8 %178, 48
-  br i1 %179, label %.critedge1189, label %180
+  br i1 %179, label %.loopexit, label %180
 
 180:                                              ; preds = %.preheader1270
   %181 = icmp ult i8 %178, 58
@@ -1073,19 +1076,19 @@ var_push.exit:                                    ; preds = %15, %20
 
 182:                                              ; preds = %180
   %183 = icmp eq i8 %178, 58
-  br i1 %183, label %325, label %.critedge1189
+  br i1 %183, label %325, label %.loopexit
 
 184:                                              ; preds = %106
   %185 = getelementptr inbounds i8, ptr %.ph, i64 3
   %186 = load i8, ptr %185, align 1
   %187 = icmp eq i8 %186, 59
-  br i1 %187, label %329, label %.critedge1189
+  br i1 %187, label %329, label %.loopexit
 
 188:                                              ; preds = %108
   %189 = getelementptr inbounds i8, ptr %.ph, i64 3
   %190 = load i8, ptr %189, align 1
   %191 = icmp eq i8 %190, 59
-  br i1 %191, label %332, label %.critedge1189
+  br i1 %191, label %332, label %.loopexit
 
 192:                                              ; preds = %116
   %193 = getelementptr inbounds i8, ptr %.ph, i64 3
@@ -1096,7 +1099,7 @@ var_push.exit:                                    ; preds = %15, %20
 196:                                              ; preds = %192
   %197 = add i8 %194, -48
   %or.cond32 = icmp ult i8 %197, 10
-  br i1 %or.cond32, label %.preheader1276.preheader, label %.critedge1189
+  br i1 %or.cond32, label %.preheader1276.preheader, label %.loopexit
 
 .preheader1276.preheader:                         ; preds = %121, %203, %196
   %.ph1590 = phi ptr [ %193, %196 ], [ %199, %203 ], [ %111, %121 ]
@@ -1110,7 +1113,7 @@ var_push.exit:                                    ; preds = %15, %20
 
 202:                                              ; preds = %198
   %.not1102 = icmp eq i8 %200, 46
-  br i1 %.not1102, label %207, label %.critedge1189
+  br i1 %.not1102, label %207, label %.loopexit
 
 203:                                              ; preds = %198
   %204 = icmp ult i8 %200, 58
@@ -1118,7 +1121,7 @@ var_push.exit:                                    ; preds = %15, %20
 
 205:                                              ; preds = %203
   %206 = icmp eq i8 %200, 73
-  br i1 %206, label %225, label %.critedge1189
+  br i1 %206, label %225, label %.loopexit
 
 207:                                              ; preds = %118, %202, %192
   %208 = phi ptr [ %111, %118 ], [ %199, %202 ], [ %193, %192 ]
@@ -1127,7 +1130,7 @@ var_push.exit:                                    ; preds = %15, %20
   %210 = load i8, ptr %209, align 1
   %211 = add i8 %210, -48
   %or.cond35 = icmp ult i8 %211, 10
-  br i1 %or.cond35, label %.preheader1274.preheader, label %.critedge1189
+  br i1 %or.cond35, label %.preheader1274.preheader, label %.loopexit
 
 .preheader1274.preheader:                         ; preds = %218, %207
   %.ph1582 = phi ptr [ %209, %207 ], [ %213, %218 ]
@@ -1147,12 +1150,12 @@ var_push.exit:                                    ; preds = %15, %20
 
 218:                                              ; preds = %216
   %.not1104 = icmp eq i8 %214, 46
-  br i1 %.not1104, label %.preheader1274.preheader, label %.critedge1189
+  br i1 %.not1104, label %.preheader1274.preheader, label %.loopexit
 
 219:                                              ; preds = %216
   switch i8 %214, label %.preheader1276 [
-    i8 58, label %.critedge1189
-    i8 47, label %.critedge1189
+    i8 58, label %.loopexit
+    i8 47, label %.loopexit
   ]
 
 220:                                              ; preds = %.preheader1276
@@ -1160,14 +1163,14 @@ var_push.exit:                                    ; preds = %15, %20
   br i1 %221, label %222, label %223
 
 222:                                              ; preds = %220
-  switch i8 %214, label %.critedge1189 [
+  switch i8 %214, label %.loopexit [
     i8 59, label %349
     i8 69, label %354
   ]
 
 223:                                              ; preds = %220
   %224 = icmp eq i8 %214, 101
-  br i1 %224, label %354, label %.critedge1189
+  br i1 %224, label %354, label %.loopexit
 
 225:                                              ; preds = %205, %123
   %226 = phi ptr [ %199, %205 ], [ %111, %123 ]
@@ -1175,13 +1178,13 @@ var_push.exit:                                    ; preds = %15, %20
   store ptr %227, ptr %7, align 8
   %228 = load i8, ptr %227, align 1
   %229 = icmp eq i8 %228, 78
-  br i1 %229, label %365, label %.critedge1189
+  br i1 %229, label %365, label %.loopexit
 
 230:                                              ; preds = %124
   %231 = getelementptr inbounds i8, ptr %.ph, i64 3
   %232 = load i8, ptr %231, align 1
   %233 = icmp eq i8 %232, 65
-  br i1 %233, label %369, label %.critedge1189
+  br i1 %233, label %369, label %.loopexit
 
 234:                                              ; preds = %132, %130
   %235 = getelementptr inbounds i8, ptr %.ph, i64 3
@@ -1189,7 +1192,7 @@ var_push.exit:                                    ; preds = %15, %20
   %236 = load i8, ptr %235, align 1
   %237 = add i8 %236, -58
   %or.cond41 = icmp ult i8 %237, -10
-  br i1 %or.cond41, label %.critedge1189, label %.preheader1278.preheader
+  br i1 %or.cond41, label %.loopexit, label %.preheader1278.preheader
 
 .preheader1278.preheader:                         ; preds = %134, %234
   %.ph1598 = phi ptr [ %235, %234 ], [ %127, %134 ]
@@ -1200,7 +1203,7 @@ var_push.exit:                                    ; preds = %15, %20
   %239 = getelementptr inbounds i8, ptr %238, i64 1
   %240 = load i8, ptr %239, align 1
   %241 = icmp ult i8 %240, 48
-  br i1 %241, label %.critedge1189, label %242
+  br i1 %241, label %.loopexit, label %242
 
 242:                                              ; preds = %.preheader1278
   %243 = icmp ult i8 %240, 58
@@ -1208,14 +1211,14 @@ var_push.exit:                                    ; preds = %15, %20
 
 244:                                              ; preds = %242
   %245 = icmp eq i8 %240, 59
-  br i1 %245, label %373, label %.critedge1189
+  br i1 %245, label %373, label %.loopexit
 
 .preheader1280:                                   ; preds = %136, %250
   %246 = phi ptr [ %247, %250 ], [ %137, %136 ]
   %247 = getelementptr inbounds i8, ptr %246, i64 1
   %248 = load i8, ptr %247, align 1
   %249 = icmp ult i8 %248, 48
-  br i1 %249, label %.critedge1189, label %250
+  br i1 %249, label %.loopexit, label %250
 
 250:                                              ; preds = %.preheader1280
   %251 = icmp ult i8 %248, 58
@@ -1223,14 +1226,14 @@ var_push.exit:                                    ; preds = %15, %20
 
 252:                                              ; preds = %250
   %253 = icmp eq i8 %248, 59
-  br i1 %253, label %377, label %.critedge1189
+  br i1 %253, label %377, label %.loopexit
 
 .preheader1282:                                   ; preds = %140, %258
   %254 = phi ptr [ %255, %258 ], [ %141, %140 ]
   %255 = getelementptr inbounds i8, ptr %254, i64 1
   %256 = load i8, ptr %255, align 1
   %257 = icmp ult i8 %256, 48
-  br i1 %257, label %.critedge1189, label %258
+  br i1 %257, label %.loopexit, label %258
 
 258:                                              ; preds = %.preheader1282
   %259 = icmp ult i8 %256, 58
@@ -1238,21 +1241,21 @@ var_push.exit:                                    ; preds = %15, %20
 
 260:                                              ; preds = %258
   %261 = icmp eq i8 %256, 58
-  br i1 %261, label %414, label %.critedge1189
+  br i1 %261, label %414, label %.loopexit
 
 262:                                              ; preds = %150
   %263 = getelementptr inbounds i8, ptr %144, i64 2
   store ptr %263, ptr %7, align 8
   %264 = load i8, ptr %263, align 1
   %265 = icmp eq i8 %264, 34
-  br i1 %265, label %418, label %.critedge1189
+  br i1 %265, label %418, label %.loopexit
 
 266:                                              ; preds = %158
   %267 = getelementptr inbounds i8, ptr %152, i64 2
   store ptr %267, ptr %7, align 8
   %268 = load i8, ptr %267, align 1
   %269 = icmp eq i8 %268, 34
-  br i1 %269, label %769, label %.critedge1189
+  br i1 %269, label %769, label %.loopexit
 
 270:                                              ; preds = %166
   %271 = getelementptr inbounds i8, ptr %160, i64 2
@@ -1366,14 +1369,14 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
   store ptr %322, ptr %7, align 8
   %323 = load i8, ptr %322, align 1
   %324 = icmp eq i8 %323, 34
-  br i1 %324, label %912, label %.critedge1189
+  br i1 %324, label %912, label %.loopexit
 
 325:                                              ; preds = %182
   %326 = getelementptr inbounds i8, ptr %176, i64 2
   store ptr %326, ptr %7, align 8
   %327 = load i8, ptr %326, align 1
   %328 = icmp eq i8 %327, 123
-  br i1 %328, label %949, label %.critedge1189
+  br i1 %328, label %949, label %.loopexit
 
 329:                                              ; preds = %184
   %330 = getelementptr inbounds i8, ptr %.ph, i64 4
@@ -1399,7 +1402,7 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
 
 339:                                              ; preds = %.preheader1274
   %340 = icmp ult i8 %337, 48
-  br i1 %340, label %.critedge1189, label %341
+  br i1 %340, label %.loopexit, label %341
 
 341:                                              ; preds = %339
   %342 = icmp ult i8 %337, 58
@@ -1407,7 +1410,7 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
 
 343:                                              ; preds = %341
   %.not1106 = icmp eq i8 %337, 59
-  br i1 %.not1106, label %349, label %.critedge1189
+  br i1 %.not1106, label %349, label %.loopexit
 
 344:                                              ; preds = %.preheader1274
   %345 = icmp ult i8 %337, 70
@@ -1415,11 +1418,11 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
 
 346:                                              ; preds = %344
   %.not1105 = icmp eq i8 %337, 69
-  br i1 %.not1105, label %354, label %.critedge1189
+  br i1 %.not1105, label %354, label %.loopexit
 
 347:                                              ; preds = %344
   %348 = icmp eq i8 %337, 101
-  br i1 %348, label %354, label %.critedge1189
+  br i1 %348, label %354, label %.loopexit
 
 349:                                              ; preds = %222, %1066, %343
   %350 = phi ptr [ %213, %222 ], [ %1061, %1066 ], [ %336, %343 ]
@@ -1441,7 +1444,7 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
 
 359:                                              ; preds = %354
   %360 = icmp eq i8 %357, 43
-  br i1 %360, label %1056, label %.critedge1189
+  br i1 %360, label %1056, label %.loopexit
 
 361:                                              ; preds = %354
   %362 = icmp eq i8 %357, 45
@@ -1450,20 +1453,20 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
 363:                                              ; preds = %361
   %364 = add i8 %357, -48
   %or.cond44 = icmp ult i8 %364, 10
-  br i1 %or.cond44, label %.preheader1272.preheader, label %.critedge1189
+  br i1 %or.cond44, label %.preheader1272.preheader, label %.loopexit
 
 365:                                              ; preds = %225
   %366 = getelementptr inbounds i8, ptr %226, i64 2
   store ptr %366, ptr %7, align 8
   %367 = load i8, ptr %366, align 1
   %368 = icmp eq i8 %367, 70
-  br i1 %368, label %1068, label %.critedge1189
+  br i1 %368, label %1068, label %.loopexit
 
 369:                                              ; preds = %230
   %370 = getelementptr inbounds i8, ptr %.ph, i64 4
   %371 = load i8, ptr %370, align 1
   %372 = icmp eq i8 %371, 78
-  br i1 %372, label %1068, label %.critedge1189
+  br i1 %372, label %1068, label %.loopexit
 
 373:                                              ; preds = %244
   %374 = getelementptr inbounds i8, ptr %238, i64 2
@@ -1554,7 +1557,7 @@ parse_uiv.exit1201:                               ; preds = %.lr.ph.i1197
   store ptr %415, ptr %7, align 8
   %416 = load i8, ptr %415, align 1
   %417 = icmp eq i8 %416, 34
-  br i1 %417, label %.lr.ph.i1232.preheader, label %.critedge1189
+  br i1 %417, label %.lr.ph.i1232.preheader, label %.loopexit
 
 418:                                              ; preds = %262
   %419 = getelementptr inbounds i8, ptr %144, i64 3
@@ -2882,7 +2885,7 @@ parse_uiv.exit1223:                               ; preds = %.lr.ph.i1219
   %1058 = load i8, ptr %1057, align 1
   %1059 = add i8 %1058, -58
   %or.cond47 = icmp ult i8 %1059, -10
-  br i1 %or.cond47, label %.critedge1189, label %.preheader1272.preheader
+  br i1 %or.cond47, label %.loopexit, label %.preheader1272.preheader
 
 .preheader1272.preheader:                         ; preds = %363, %1056
   %.ph1576 = phi ptr [ %1057, %1056 ], [ %356, %363 ]
@@ -2894,7 +2897,7 @@ parse_uiv.exit1223:                               ; preds = %.lr.ph.i1219
   store ptr %1061, ptr %7, align 8
   %1062 = load i8, ptr %1061, align 1
   %1063 = icmp ult i8 %1062, 48
-  br i1 %1063, label %.critedge1189, label %1064
+  br i1 %1063, label %.loopexit, label %1064
 
 1064:                                             ; preds = %.preheader1272
   %1065 = icmp ult i8 %1062, 58
@@ -2902,7 +2905,7 @@ parse_uiv.exit1223:                               ; preds = %.lr.ph.i1219
 
 1066:                                             ; preds = %1064
   %1067 = icmp eq i8 %1062, 59
-  br i1 %1067, label %349, label %.critedge1189
+  br i1 %1067, label %349, label %.loopexit
 
 1068:                                             ; preds = %369, %365
   %1069 = phi ptr [ %370, %369 ], [ %366, %365 ]
@@ -2910,7 +2913,7 @@ parse_uiv.exit1223:                               ; preds = %.lr.ph.i1219
   store ptr %1070, ptr %7, align 8
   %1071 = load i8, ptr %1070, align 1
   %1072 = icmp eq i8 %1071, 59
-  br i1 %1072, label %sub_0, label %.critedge1189
+  br i1 %1072, label %sub_0, label %.loopexit
 
 .lr.ph.i1232.preheader:                           ; preds = %414
   %1073 = getelementptr inbounds i8, ptr %254, i64 3
@@ -3090,8 +3093,8 @@ sub_11261:                                        ; preds = %sub_0
   store i32 1, ptr %1149, align 8
   br label %.critedge1189
 
-.critedge1189:                                    ; preds = %.preheader1282, %.preheader1280, %.preheader1278, %219, %219, %339, %.preheader1272, %.preheader1270, %.preheader1267, %.preheader1265, %.preheader1264, %77, %83, %90, %94, %98, %102, %108, %116, %123, %124, %130, %134, %136, %140, %150, %158, %166, %174, %182, %184, %188, %196, %202, %205, %207, %218, %223, %225, %230, %234, %244, %252, %260, %262, %266, %321, %325, %343, %346, %347, %359, %363, %365, %369, %414, %1056, %1066, %1068, %118, %222, %30, %379, %272, %1050, %1048, %._crit_edge, %974, %972, %969, %976, %.loopexit1269, %1136, %1146, %1148, %1143, %1095, %1123, %952, %949, %930, %903, %911, %906, %891, %886, %881, %769, %745, %754, %749, %729, %741, %736, %711, %701, %710, %705, %681, %690, %685, %669, %678, %673, %649, %662, %657, %583, %591, %586, %557, %565, %560, %487, %496, %491, %445, %445, %418, %411, %405, %403, %parse_uiv.exit1201, %391, %377, %318, %.thread, %293, %parse_uiv.exit, %284, %270, %32, %36, %40, %.thread1418, %48, %52, %56, %60, %64, %68, %72, %4, %1092, %1088, %1085, %942, %941, %937, %929, %797, %793, %789, %785, %767, %717, %631, %444, %440, %436, %373, %349, %332, %329, %87, %76
-  %.01016 = phi i32 [ 0, %76 ], [ 0, %1085 ], [ 0, %1088 ], [ 0, %1092 ], [ 1, %373 ], [ 1, %349 ], [ 1, %329 ], [ 1, %332 ], [ 0, %929 ], [ 0, %937 ], [ 0, %941 ], [ 1, %942 ], [ 1, %87 ], [ 0, %785 ], [ 0, %789 ], [ 0, %793 ], [ 0, %797 ], [ 0, %436 ], [ 0, %440 ], [ 0, %444 ], [ 0, %717 ], [ %768, %767 ], [ 0, %631 ], [ 0, %4 ], [ 0, %72 ], [ 0, %68 ], [ 0, %64 ], [ 0, %60 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %.thread1418 ], [ 0, %40 ], [ 0, %36 ], [ 0, %32 ], [ 0, %270 ], [ 0, %284 ], [ 0, %parse_uiv.exit ], [ 0, %293 ], [ 1, %.thread ], [ 1, %318 ], [ 0, %377 ], [ 0, %391 ], [ 0, %parse_uiv.exit1201 ], [ 0, %403 ], [ 1, %405 ], [ 1, %411 ], [ 0, %418 ], [ 0, %445 ], [ 0, %445 ], [ 0, %491 ], [ 0, %496 ], [ 0, %487 ], [ 0, %560 ], [ 0, %565 ], [ 0, %557 ], [ 0, %586 ], [ 0, %591 ], [ 0, %583 ], [ 0, %657 ], [ 0, %662 ], [ 0, %649 ], [ %665, %673 ], [ %665, %678 ], [ %665, %669 ], [ 0, %685 ], [ 0, %690 ], [ 0, %681 ], [ 0, %705 ], [ 0, %710 ], [ 0, %701 ], [ 0, %711 ], [ 0, %736 ], [ 0, %741 ], [ 0, %729 ], [ 0, %749 ], [ 0, %754 ], [ 0, %745 ], [ 0, %769 ], [ 0, %881 ], [ 1, %886 ], [ 1, %891 ], [ 0, %906 ], [ 0, %911 ], [ 0, %903 ], [ 0, %930 ], [ 0, %949 ], [ 0, %952 ], [ 1, %1123 ], [ 1, %1095 ], [ 1, %1143 ], [ 1, %1148 ], [ 1, %1146 ], [ 1, %1136 ], [ 0, %.loopexit1269 ], [ 0, %976 ], [ 1, %974 ], [ 0, %972 ], [ 0, %969 ], [ 1, %1050 ], [ 0, %1048 ], [ 0, %._crit_edge ], [ 0, %272 ], [ 0, %379 ], [ 0, %30 ], [ 0, %222 ], [ 0, %118 ], [ 0, %1068 ], [ 0, %1066 ], [ 0, %1056 ], [ 0, %414 ], [ 0, %369 ], [ 0, %365 ], [ 0, %363 ], [ 0, %359 ], [ 0, %347 ], [ 0, %346 ], [ 0, %343 ], [ 0, %325 ], [ 0, %321 ], [ 0, %266 ], [ 0, %262 ], [ 0, %260 ], [ 0, %252 ], [ 0, %244 ], [ 0, %234 ], [ 0, %230 ], [ 0, %225 ], [ 0, %223 ], [ 0, %218 ], [ 0, %207 ], [ 0, %205 ], [ 0, %202 ], [ 0, %196 ], [ 0, %188 ], [ 0, %184 ], [ 0, %182 ], [ 0, %174 ], [ 0, %166 ], [ 0, %158 ], [ 0, %150 ], [ 0, %140 ], [ 0, %136 ], [ 0, %134 ], [ 0, %130 ], [ 0, %124 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ], [ 0, %102 ], [ 0, %98 ], [ 0, %94 ], [ 0, %90 ], [ 0, %83 ], [ 0, %77 ], [ 0, %.preheader1264 ], [ 0, %.preheader1265 ], [ 0, %.preheader1267 ], [ 0, %.preheader1270 ], [ 0, %.preheader1272 ], [ 0, %339 ], [ 0, %219 ], [ 0, %219 ], [ 0, %.preheader1278 ], [ 0, %.preheader1280 ], [ 0, %.preheader1282 ]
+.critedge1189:                                    ; preds = %30, %379, %272, %1050, %1048, %._crit_edge, %974, %972, %969, %1136, %1146, %1148, %1143, %976, %.loopexit1269, %1095, %1123, %952, %949, %930, %903, %911, %906, %891, %886, %881, %769, %745, %754, %749, %729, %741, %736, %711, %701, %710, %705, %681, %690, %685, %669, %678, %673, %649, %662, %657, %583, %591, %586, %557, %565, %560, %487, %496, %491, %445, %445, %418, %411, %405, %403, %parse_uiv.exit1201, %391, %377, %318, %.thread, %293, %parse_uiv.exit, %284, %270, %.loopexit, %32, %36, %40, %.thread1418, %48, %52, %56, %60, %64, %68, %72, %4, %1092, %1088, %1085, %942, %941, %937, %929, %797, %793, %789, %785, %767, %717, %631, %444, %440, %436, %373, %349, %332, %329, %87, %76
+  %.01016 = phi i32 [ 0, %76 ], [ 0, %1085 ], [ 0, %1088 ], [ 0, %1092 ], [ 1, %373 ], [ 1, %349 ], [ 1, %329 ], [ 1, %332 ], [ 0, %929 ], [ 0, %937 ], [ 0, %941 ], [ 1, %942 ], [ 1, %87 ], [ 0, %785 ], [ 0, %789 ], [ 0, %793 ], [ 0, %797 ], [ 0, %436 ], [ 0, %440 ], [ 0, %444 ], [ 0, %717 ], [ %768, %767 ], [ 0, %631 ], [ 0, %4 ], [ 0, %72 ], [ 0, %68 ], [ 0, %64 ], [ 0, %60 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %.thread1418 ], [ 0, %40 ], [ 0, %36 ], [ 0, %32 ], [ 0, %.loopexit ], [ 0, %270 ], [ 0, %284 ], [ 0, %parse_uiv.exit ], [ 0, %293 ], [ 1, %.thread ], [ 1, %318 ], [ 0, %377 ], [ 0, %391 ], [ 0, %parse_uiv.exit1201 ], [ 0, %403 ], [ 1, %405 ], [ 1, %411 ], [ 0, %418 ], [ 0, %445 ], [ 0, %445 ], [ 0, %491 ], [ 0, %496 ], [ 0, %487 ], [ 0, %560 ], [ 0, %565 ], [ 0, %557 ], [ 0, %586 ], [ 0, %591 ], [ 0, %583 ], [ 0, %657 ], [ 0, %662 ], [ 0, %649 ], [ %665, %673 ], [ %665, %678 ], [ %665, %669 ], [ 0, %685 ], [ 0, %690 ], [ 0, %681 ], [ 0, %705 ], [ 0, %710 ], [ 0, %701 ], [ 0, %711 ], [ 0, %736 ], [ 0, %741 ], [ 0, %729 ], [ 0, %749 ], [ 0, %754 ], [ 0, %745 ], [ 0, %769 ], [ 0, %881 ], [ 1, %886 ], [ 1, %891 ], [ 0, %906 ], [ 0, %911 ], [ 0, %903 ], [ 0, %930 ], [ 0, %949 ], [ 0, %952 ], [ 1, %1123 ], [ 1, %1095 ], [ 0, %.loopexit1269 ], [ 0, %976 ], [ 1, %1143 ], [ 1, %1148 ], [ 1, %1146 ], [ 1, %1136 ], [ 1, %974 ], [ 0, %972 ], [ 0, %969 ], [ 1, %1050 ], [ 0, %1048 ], [ 0, %._crit_edge ], [ 0, %272 ], [ 0, %379 ], [ 0, %30 ]
   ret i32 %.01016
 }
 

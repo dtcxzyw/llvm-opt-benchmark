@@ -38733,9 +38733,9 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h50e92d27624a573aE.llvm.12542172245242916373"(ptr noalias noundef nonnull align 8 dereferenceable(16) %106)
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648": ; preds = %1750, %1744, %1743, %1737, %1736, %1730, %1729, %1723, %1722, %1716, %1715, %1709, %1708, %1702, %1701, %1695, %1694, %1688, %1687, %1681, %1680, %1674, %1673, %1667, %1666, %1660, %1659, %1653, %1652, %1646, %1645, %1639, %1638, %1632, %1631, %1625, %1624, %1618, %1617, %1611, %1610, %1604, %1603, %1597, %1596, %1590, %1589, %1583, %1582, %1576, %1575, %1569, %1568, %1562, %1561, %1555, %1554, %1548, %1547, %1541, %1540, %1534, %1533, %1527, %1526, %1520, %1519, %1513, %1512, %1506, %1505, %1504, %1501, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295
-  %.sroa.4.1 = phi i32 [ undef, %1504 ], [ undef, %1505 ], [ %.1373, %1501 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ undef, %1506 ], [ undef, %1512 ], [ undef, %1513 ], [ undef, %1519 ], [ undef, %1520 ], [ undef, %1526 ], [ undef, %1527 ], [ undef, %1533 ], [ undef, %1534 ], [ undef, %1540 ], [ undef, %1541 ], [ undef, %1547 ], [ undef, %1548 ], [ undef, %1554 ], [ undef, %1555 ], [ undef, %1561 ], [ undef, %1562 ], [ undef, %1568 ], [ undef, %1569 ], [ undef, %1575 ], [ undef, %1576 ], [ undef, %1582 ], [ undef, %1583 ], [ undef, %1589 ], [ undef, %1590 ], [ undef, %1596 ], [ undef, %1597 ], [ undef, %1603 ], [ undef, %1604 ], [ undef, %1610 ], [ undef, %1611 ], [ undef, %1617 ], [ undef, %1618 ], [ undef, %1624 ], [ undef, %1625 ], [ undef, %1631 ], [ undef, %1632 ], [ undef, %1638 ], [ undef, %1639 ], [ undef, %1645 ], [ undef, %1646 ], [ undef, %1652 ], [ undef, %1653 ], [ undef, %1659 ], [ undef, %1660 ], [ undef, %1666 ], [ undef, %1667 ], [ undef, %1673 ], [ undef, %1674 ], [ undef, %1680 ], [ undef, %1681 ], [ undef, %1687 ], [ undef, %1688 ], [ undef, %1694 ], [ undef, %1695 ], [ undef, %1701 ], [ undef, %1702 ], [ undef, %1708 ], [ undef, %1709 ], [ undef, %1715 ], [ undef, %1716 ], [ undef, %1722 ], [ undef, %1723 ], [ undef, %1729 ], [ undef, %1730 ], [ undef, %1736 ], [ undef, %1737 ], [ undef, %1743 ], [ undef, %1744 ], [ undef, %1750 ]
-  %.sroa.0.1 = phi i32 [ 0, %1504 ], [ 0, %1505 ], [ 1, %1501 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 0, %1506 ], [ 0, %1512 ], [ 0, %1513 ], [ 0, %1519 ], [ 0, %1520 ], [ 0, %1526 ], [ 0, %1527 ], [ 0, %1533 ], [ 0, %1534 ], [ 0, %1540 ], [ 0, %1541 ], [ 0, %1547 ], [ 0, %1548 ], [ 0, %1554 ], [ 0, %1555 ], [ 0, %1561 ], [ 0, %1562 ], [ 0, %1568 ], [ 0, %1569 ], [ 0, %1575 ], [ 0, %1576 ], [ 0, %1582 ], [ 0, %1583 ], [ 0, %1589 ], [ 0, %1590 ], [ 0, %1596 ], [ 0, %1597 ], [ 0, %1603 ], [ 0, %1604 ], [ 0, %1610 ], [ 0, %1611 ], [ 0, %1617 ], [ 0, %1618 ], [ 0, %1624 ], [ 0, %1625 ], [ 0, %1631 ], [ 0, %1632 ], [ 0, %1638 ], [ 0, %1639 ], [ 0, %1645 ], [ 0, %1646 ], [ 0, %1652 ], [ 0, %1653 ], [ 0, %1659 ], [ 0, %1660 ], [ 0, %1666 ], [ 0, %1667 ], [ 0, %1673 ], [ 0, %1674 ], [ 0, %1680 ], [ 0, %1681 ], [ 0, %1687 ], [ 0, %1688 ], [ 0, %1694 ], [ 0, %1695 ], [ 0, %1701 ], [ 0, %1702 ], [ 0, %1708 ], [ 0, %1709 ], [ 0, %1715 ], [ 0, %1716 ], [ 0, %1722 ], [ 0, %1723 ], [ 0, %1729 ], [ 0, %1730 ], [ 0, %1736 ], [ 0, %1737 ], [ 0, %1743 ], [ 0, %1744 ], [ 0, %1750 ]
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648": ; preds = %1694, %1688, %1687, %1681, %1680, %1674, %1673, %1667, %1666, %1660, %1659, %1653, %1652, %1646, %1645, %1639, %1638, %1632, %1631, %1625, %1624, %1618, %1617, %1611, %1610, %1604, %1603, %1597, %1596, %1590, %1589, %1583, %1582, %1576, %1575, %1569, %1568, %1562, %1561, %1555, %1554, %1548, %1547, %1541, %1540, %1534, %1533, %1527, %1526, %1520, %1519, %1513, %1512, %1506, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h82b74947a4f17585E.exit678", %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..YeetExpr$GT$17hd17b87a16986d20dE.exit677", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..WhileExpr$GT$17he686a86e7b7058aaE.exit", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleExpr$GT$17he1e1132223636a03E.exit676", %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TryExpr$GT$17h572922ba0022c26dE.exit", %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ReturnExpr$GT$17h82384e219df89f3aE.exit675", %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RefExpr$GT$17h8fafb703ae00a1c7E.exit674", %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..RecordExpr$GT$17hb46375d20e7ea5feE.exit673", %1505, %1504, %1501, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295, %295
+  %.sroa.4.1 = phi i32 [ undef, %1504 ], [ undef, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h82b74947a4f17585E.exit678" ], [ undef, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..YeetExpr$GT$17hd17b87a16986d20dE.exit677" ], [ undef, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..WhileExpr$GT$17he686a86e7b7058aaE.exit" ], [ undef, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleExpr$GT$17he1e1132223636a03E.exit676" ], [ undef, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TryExpr$GT$17h572922ba0022c26dE.exit" ], [ undef, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ReturnExpr$GT$17h82384e219df89f3aE.exit675" ], [ undef, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RefExpr$GT$17h8fafb703ae00a1c7E.exit674" ], [ undef, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..RecordExpr$GT$17hb46375d20e7ea5feE.exit673" ], [ undef, %1505 ], [ %.1373, %1501 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ %.1373, %295 ], [ undef, %1506 ], [ undef, %1512 ], [ undef, %1513 ], [ undef, %1519 ], [ undef, %1520 ], [ undef, %1526 ], [ undef, %1527 ], [ undef, %1533 ], [ undef, %1534 ], [ undef, %1540 ], [ undef, %1541 ], [ undef, %1547 ], [ undef, %1548 ], [ undef, %1554 ], [ undef, %1555 ], [ undef, %1561 ], [ undef, %1562 ], [ undef, %1568 ], [ undef, %1569 ], [ undef, %1575 ], [ undef, %1576 ], [ undef, %1582 ], [ undef, %1583 ], [ undef, %1589 ], [ undef, %1590 ], [ undef, %1596 ], [ undef, %1597 ], [ undef, %1603 ], [ undef, %1604 ], [ undef, %1610 ], [ undef, %1611 ], [ undef, %1617 ], [ undef, %1618 ], [ undef, %1624 ], [ undef, %1625 ], [ undef, %1631 ], [ undef, %1632 ], [ undef, %1638 ], [ undef, %1639 ], [ undef, %1645 ], [ undef, %1646 ], [ undef, %1652 ], [ undef, %1653 ], [ undef, %1659 ], [ undef, %1660 ], [ undef, %1666 ], [ undef, %1667 ], [ undef, %1673 ], [ undef, %1674 ], [ undef, %1680 ], [ undef, %1681 ], [ undef, %1687 ], [ undef, %1688 ], [ undef, %1694 ]
+  %.sroa.0.1 = phi i32 [ 0, %1504 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h82b74947a4f17585E.exit678" ], [ 0, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..YeetExpr$GT$17hd17b87a16986d20dE.exit677" ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..WhileExpr$GT$17he686a86e7b7058aaE.exit" ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleExpr$GT$17he1e1132223636a03E.exit676" ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TryExpr$GT$17h572922ba0022c26dE.exit" ], [ 0, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ReturnExpr$GT$17h82384e219df89f3aE.exit675" ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RefExpr$GT$17h8fafb703ae00a1c7E.exit674" ], [ 0, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..RecordExpr$GT$17hb46375d20e7ea5feE.exit673" ], [ 0, %1505 ], [ 1, %1501 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 1, %295 ], [ 0, %1506 ], [ 0, %1512 ], [ 0, %1513 ], [ 0, %1519 ], [ 0, %1520 ], [ 0, %1526 ], [ 0, %1527 ], [ 0, %1533 ], [ 0, %1534 ], [ 0, %1540 ], [ 0, %1541 ], [ 0, %1547 ], [ 0, %1548 ], [ 0, %1554 ], [ 0, %1555 ], [ 0, %1561 ], [ 0, %1562 ], [ 0, %1568 ], [ 0, %1569 ], [ 0, %1575 ], [ 0, %1576 ], [ 0, %1582 ], [ 0, %1583 ], [ 0, %1589 ], [ 0, %1590 ], [ 0, %1596 ], [ 0, %1597 ], [ 0, %1603 ], [ 0, %1604 ], [ 0, %1610 ], [ 0, %1611 ], [ 0, %1617 ], [ 0, %1618 ], [ 0, %1624 ], [ 0, %1625 ], [ 0, %1631 ], [ 0, %1632 ], [ 0, %1638 ], [ 0, %1639 ], [ 0, %1645 ], [ 0, %1646 ], [ 0, %1652 ], [ 0, %1653 ], [ 0, %1659 ], [ 0, %1660 ], [ 0, %1666 ], [ 0, %1667 ], [ 0, %1673 ], [ 0, %1674 ], [ 0, %1680 ], [ 0, %1681 ], [ 0, %1687 ], [ 0, %1688 ], [ 0, %1694 ]
   %1502 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
   %1503 = insertvalue { i32, i32 } %1502, i32 %.sroa.4.1, 1
   ret { i32, i32 } %1503
@@ -39217,10 +39217,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1699 = add i32 %1698, -1
   store i32 %1699, ptr %1697, align 4, !noalias !12473
   %1700 = icmp eq i32 %1699, 0
-  br i1 %1700, label %1701, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1700, label %1701, label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..RecordExpr$GT$17hb46375d20e7ea5feE.exit673"
 
 1701:                                             ; preds = %1695
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1696), !noalias !12473
+  br label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..RecordExpr$GT$17hb46375d20e7ea5feE.exit673"
+
+"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..RecordExpr$GT$17hb46375d20e7ea5feE.exit673": ; preds = %1695, %1701
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1702:                                             ; preds = %931
@@ -39234,10 +39237,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1706 = add i32 %1705, -1
   store i32 %1706, ptr %1704, align 4, !noalias !12486
   %1707 = icmp eq i32 %1706, 0
-  br i1 %1707, label %1708, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1707, label %1708, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RefExpr$GT$17h8fafb703ae00a1c7E.exit674"
 
 1708:                                             ; preds = %1702
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1703), !noalias !12486
+  br label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RefExpr$GT$17h8fafb703ae00a1c7E.exit674"
+
+"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RefExpr$GT$17h8fafb703ae00a1c7E.exit674": ; preds = %1702, %1708
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1709:                                             ; preds = %931
@@ -39251,10 +39257,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1713 = add i32 %1712, -1
   store i32 %1713, ptr %1711, align 4, !noalias !12499
   %1714 = icmp eq i32 %1713, 0
-  br i1 %1714, label %1715, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1714, label %1715, label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ReturnExpr$GT$17h82384e219df89f3aE.exit675"
 
 1715:                                             ; preds = %1709
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1710), !noalias !12499
+  br label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ReturnExpr$GT$17h82384e219df89f3aE.exit675"
+
+"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ReturnExpr$GT$17h82384e219df89f3aE.exit675": ; preds = %1709, %1715
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1716:                                             ; preds = %931
@@ -39268,10 +39277,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1720 = add i32 %1719, -1
   store i32 %1720, ptr %1718, align 4, !noalias !12512
   %1721 = icmp eq i32 %1720, 0
-  br i1 %1721, label %1722, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1721, label %1722, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TryExpr$GT$17h572922ba0022c26dE.exit"
 
 1722:                                             ; preds = %1716
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1717), !noalias !12512
+  br label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TryExpr$GT$17h572922ba0022c26dE.exit"
+
+"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TryExpr$GT$17h572922ba0022c26dE.exit": ; preds = %1716, %1722
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1723:                                             ; preds = %931
@@ -39285,10 +39297,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1727 = add i32 %1726, -1
   store i32 %1727, ptr %1725, align 4, !noalias !12525
   %1728 = icmp eq i32 %1727, 0
-  br i1 %1728, label %1729, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1728, label %1729, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleExpr$GT$17he1e1132223636a03E.exit676"
 
 1729:                                             ; preds = %1723
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1724), !noalias !12525
+  br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleExpr$GT$17he1e1132223636a03E.exit676"
+
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TupleExpr$GT$17he1e1132223636a03E.exit676": ; preds = %1723, %1729
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1730:                                             ; preds = %931
@@ -39302,10 +39317,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1734 = add i32 %1733, -1
   store i32 %1734, ptr %1732, align 4, !noalias !12538
   %1735 = icmp eq i32 %1734, 0
-  br i1 %1735, label %1736, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1735, label %1736, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..WhileExpr$GT$17he686a86e7b7058aaE.exit"
 
 1736:                                             ; preds = %1730
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1731), !noalias !12538
+  br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..WhileExpr$GT$17he686a86e7b7058aaE.exit"
+
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..WhileExpr$GT$17he686a86e7b7058aaE.exit": ; preds = %1730, %1736
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1737:                                             ; preds = %931
@@ -39319,10 +39337,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1741 = add i32 %1740, -1
   store i32 %1741, ptr %1739, align 4, !noalias !12551
   %1742 = icmp eq i32 %1741, 0
-  br i1 %1742, label %1743, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1742, label %1743, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..YeetExpr$GT$17hd17b87a16986d20dE.exit677"
 
 1743:                                             ; preds = %1737
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1738), !noalias !12551
+  br label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..YeetExpr$GT$17hd17b87a16986d20dE.exit677"
+
+"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..YeetExpr$GT$17hd17b87a16986d20dE.exit677": ; preds = %1737, %1743
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1744:                                             ; preds = %931
@@ -39336,10 +39357,13 @@ _ZN7hir_def3hir8type_ref7TypeRef12from_ast_opt17h9fe62f6678da82d3E.exit593: ; pr
   %1748 = add i32 %1747, -1
   store i32 %1748, ptr %1746, align 4, !noalias !12564
   %1749 = icmp eq i32 %1748, 0
-  br i1 %1749, label %1750, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
+  br i1 %1749, label %1750, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h82b74947a4f17585E.exit678"
 
 1750:                                             ; preds = %1744
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1745), !noalias !12564
+  br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h82b74947a4f17585E.exit678"
+
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h82b74947a4f17585E.exit678": ; preds = %1744, %1750
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit648"
 
 1751:                                             ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ArrayExpr$GT$17he55d3ab7a98793eaE.exit"

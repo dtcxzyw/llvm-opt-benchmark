@@ -1599,7 +1599,7 @@ define range(i32 -1, 23) i32 @pack_msg(ptr noundef readonly %0, ptr noundef %1) 
   %9 = load i16, ptr %8, align 4
   %10 = tail call ptr @rpc_num2string(i16 noundef zeroext %9) #8
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.pack_msg, i32 noundef %7, ptr noundef %10) #8
-  br label %355
+  br label %356
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 204
@@ -2536,16 +2536,19 @@ _pack_container_delete_msg.exit:                  ; preds = %12
 349:                                              ; preds = %12
   %350 = tail call i32 @get_log_level() #8
   %351 = icmp sgt i32 %350, 4
-  br i1 %351, label %352, label %355
+  br i1 %351, label %352, label %356
 
 352:                                              ; preds = %349
   %353 = load i16, ptr %13, align 4
   %354 = zext i16 %353 to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.5, i32 noundef %354) #8
-  br label %355
+  br label %356
 
-355:                                              ; preds = %15, %19, %21, %23, %26, %29, %32, %35, %39, %42, %45, %48, %51, %54, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %91, %92, %95, %98, %101, %103, %106, %109, %112, %115, %118, %121, %124, %127, %130, %_pack_container_id_response_msg.exit, %136, %139, %141, %143, %146, %149, %152, %155, %158, %161, %164, %167, %170, %173, %176, %179, %182, %183, %186, %187, %190, %193, %196, %199, %_pack_config_request_msg.exit, %205, %208, %210, %213, %216, %219, %222, %225, %228, %231, %234, %237, %240, %243, %246, %247, %248, %251, %254, %257, %260, %263, %266, %269, %272, %275, %278, %281, %284, %285, %288, %_pack_stats_request_msg.exit, %294, %297, %300, %303, %306, %309, %310, %311, %_pack_set_fs_dampening_factor_msg.exit, %317, %320, %324, %_pack_crontab_request_msg.exit, %330, %332, %333, %335, %_pack_container_signal_msg.exit, %_pack_container_delete_msg.exit, %343, %344, %346, %348, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %349, %352, %6
-  %.0 = phi i32 [ -1, %6 ], [ 22, %352 ], [ 22, %349 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %348 ], [ 0, %346 ], [ 0, %344 ], [ 0, %343 ], [ 0, %_pack_container_delete_msg.exit ], [ 0, %_pack_container_signal_msg.exit ], [ 0, %335 ], [ 0, %333 ], [ 0, %332 ], [ 0, %330 ], [ 0, %_pack_crontab_request_msg.exit ], [ 0, %324 ], [ 0, %320 ], [ 0, %317 ], [ 0, %_pack_set_fs_dampening_factor_msg.exit ], [ 0, %311 ], [ 0, %310 ], [ 0, %309 ], [ 0, %306 ], [ 0, %303 ], [ 0, %300 ], [ 0, %297 ], [ 0, %294 ], [ 0, %_pack_stats_request_msg.exit ], [ 0, %288 ], [ 0, %285 ], [ 0, %284 ], [ 0, %281 ], [ 0, %278 ], [ 0, %275 ], [ 0, %272 ], [ 0, %269 ], [ 0, %266 ], [ 0, %263 ], [ 0, %260 ], [ 0, %257 ], [ 0, %254 ], [ 0, %251 ], [ 0, %248 ], [ 0, %247 ], [ 0, %246 ], [ 0, %243 ], [ 0, %240 ], [ 0, %237 ], [ 0, %234 ], [ 0, %231 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ], [ 0, %219 ], [ 0, %216 ], [ 0, %213 ], [ 0, %210 ], [ 0, %208 ], [ 0, %205 ], [ 0, %_pack_config_request_msg.exit ], [ 0, %199 ], [ 0, %196 ], [ 0, %193 ], [ 0, %190 ], [ 0, %187 ], [ 0, %186 ], [ 0, %183 ], [ 0, %182 ], [ 0, %179 ], [ 0, %176 ], [ 0, %173 ], [ 0, %170 ], [ 0, %167 ], [ 0, %164 ], [ 0, %161 ], [ 0, %158 ], [ 0, %155 ], [ 0, %152 ], [ 0, %149 ], [ 0, %146 ], [ 0, %143 ], [ 0, %141 ], [ 0, %139 ], [ 0, %136 ], [ 0, %_pack_container_id_response_msg.exit ], [ 0, %130 ], [ 0, %127 ], [ 0, %124 ], [ 0, %121 ], [ 0, %118 ], [ 0, %115 ], [ 0, %112 ], [ 0, %109 ], [ 0, %106 ], [ 0, %103 ], [ 0, %101 ], [ 0, %98 ], [ 0, %95 ], [ 0, %92 ], [ 0, %91 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %69 ], [ 0, %66 ], [ 0, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %42 ], [ 0, %39 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %15 ]
+355:                                              ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %348, %346, %344, %343, %_pack_container_delete_msg.exit, %_pack_container_signal_msg.exit, %335, %333, %332, %330, %_pack_crontab_request_msg.exit, %324, %320, %317, %_pack_set_fs_dampening_factor_msg.exit, %311, %310, %309, %306, %303, %300, %297, %294, %_pack_stats_request_msg.exit, %288, %285, %284, %281, %278, %275, %272, %269, %266, %263, %260, %257, %254, %251, %248, %247, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %216, %213, %210, %208, %205, %_pack_config_request_msg.exit, %199, %196, %193, %190, %187, %186, %183, %182, %179, %176, %173, %170, %167, %164, %161, %158, %155, %152, %149, %146, %143, %141, %139, %136, %_pack_container_id_response_msg.exit, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %101, %98, %95, %92, %91, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %35, %32, %29, %26, %23, %21, %19, %15
+  br label %356
+
+356:                                              ; preds = %349, %352, %355, %6
+  %.0 = phi i32 [ -1, %6 ], [ 0, %355 ], [ 22, %352 ], [ 22, %349 ]
   ret i32 %.0
 }
 
@@ -21309,293 +21312,293 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr nocapture
   %233 = getelementptr inbounds i8, ptr %232, i64 192
   %234 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %233, ptr noundef nonnull %26, ptr noundef %1) #8
   %.not344.i.us = icmp eq i32 %234, 0
-  br i1 %.not344.i.us, label %235, label %_unpack_node_info_members.exit
+  br i1 %.not344.i.us, label %235, label %_unpack_node_info_members.exit.loopexit74
 
 235:                                              ; preds = %.lr.ph.split.split.us
   %236 = getelementptr inbounds i8, ptr %232, i64 216
   %237 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %236, ptr noundef nonnull %27, ptr noundef %1) #8
   %.not345.i.us = icmp eq i32 %237, 0
-  br i1 %.not345.i.us, label %238, label %_unpack_node_info_members.exit
+  br i1 %.not345.i.us, label %238, label %_unpack_node_info_members.exit.loopexit74
 
 238:                                              ; preds = %235
   %239 = getelementptr inbounds i8, ptr %232, i64 208
   %240 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %239, ptr noundef nonnull %28, ptr noundef %1) #8
   %.not346.i.us = icmp eq i32 %240, 0
-  br i1 %.not346.i.us, label %241, label %_unpack_node_info_members.exit
+  br i1 %.not346.i.us, label %241, label %_unpack_node_info_members.exit.loopexit74
 
 241:                                              ; preds = %238
   %242 = getelementptr inbounds i8, ptr %232, i64 8
   %243 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %242, ptr noundef nonnull %29, ptr noundef %1) #8
   %.not347.i.us = icmp eq i32 %243, 0
-  br i1 %.not347.i.us, label %244, label %_unpack_node_info_members.exit
+  br i1 %.not347.i.us, label %244, label %_unpack_node_info_members.exit.loopexit74
 
 244:                                              ; preds = %241
   %245 = getelementptr inbounds i8, ptr %232, i64 256
   %246 = call i32 @unpack16(ptr noundef nonnull %245, ptr noundef %1) #8
   %.not348.i.us = icmp eq i32 %246, 0
-  br i1 %.not348.i.us, label %247, label %_unpack_node_info_members.exit
+  br i1 %.not348.i.us, label %247, label %_unpack_node_info_members.exit.loopexit74
 
 247:                                              ; preds = %244
   %248 = getelementptr inbounds i8, ptr %232, i64 200
   %249 = call i32 @unpack32(ptr noundef nonnull %248, ptr noundef %1) #8
   %.not349.i.us = icmp eq i32 %249, 0
-  br i1 %.not349.i.us, label %250, label %_unpack_node_info_members.exit
+  br i1 %.not349.i.us, label %250, label %_unpack_node_info_members.exit.loopexit74
 
 250:                                              ; preds = %247
   %251 = getelementptr inbounds i8, ptr %232, i64 224
   %252 = call i32 @unpack32(ptr noundef nonnull %251, ptr noundef %1) #8
   %.not350.i.us = icmp eq i32 %252, 0
-  br i1 %.not350.i.us, label %253, label %_unpack_node_info_members.exit
+  br i1 %.not350.i.us, label %253, label %_unpack_node_info_members.exit.loopexit74
 
 253:                                              ; preds = %250
   %254 = getelementptr inbounds i8, ptr %232, i64 360
   %255 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %254, ptr noundef nonnull %30, ptr noundef %1) #8
   %.not351.i.us = icmp eq i32 %255, 0
-  br i1 %.not351.i.us, label %256, label %_unpack_node_info_members.exit
+  br i1 %.not351.i.us, label %256, label %_unpack_node_info_members.exit.loopexit74
 
 256:                                              ; preds = %253
   %257 = getelementptr inbounds i8, ptr %232, i64 64
   %258 = call i32 @unpack16(ptr noundef nonnull %257, ptr noundef %1) #8
   %.not352.i.us = icmp eq i32 %258, 0
-  br i1 %.not352.i.us, label %259, label %_unpack_node_info_members.exit
+  br i1 %.not352.i.us, label %259, label %_unpack_node_info_members.exit.loopexit74
 
 259:                                              ; preds = %256
   %260 = getelementptr inbounds i8, ptr %232, i64 16
   %261 = call i32 @unpack16(ptr noundef nonnull %260, ptr noundef %1) #8
   %.not353.i.us = icmp eq i32 %261, 0
-  br i1 %.not353.i.us, label %262, label %_unpack_node_info_members.exit
+  br i1 %.not353.i.us, label %262, label %_unpack_node_info_members.exit.loopexit74
 
 262:                                              ; preds = %259
   %263 = getelementptr inbounds i8, ptr %232, i64 336
   %264 = call i32 @unpack16(ptr noundef nonnull %263, ptr noundef %1) #8
   %.not354.i.us = icmp eq i32 %264, 0
-  br i1 %.not354.i.us, label %265, label %_unpack_node_info_members.exit
+  br i1 %.not354.i.us, label %265, label %_unpack_node_info_members.exit.loopexit74
 
 265:                                              ; preds = %262
   %266 = getelementptr inbounds i8, ptr %232, i64 40
   %267 = call i32 @unpack16(ptr noundef nonnull %266, ptr noundef %1) #8
   %.not355.i.us = icmp eq i32 %267, 0
-  br i1 %.not355.i.us, label %268, label %_unpack_node_info_members.exit
+  br i1 %.not355.i.us, label %268, label %_unpack_node_info_members.exit.loopexit74
 
 268:                                              ; preds = %265
   %269 = getelementptr inbounds i8, ptr %232, i64 338
   %270 = call i32 @unpack16(ptr noundef nonnull %269, ptr noundef %1) #8
   %.not356.i.us = icmp eq i32 %270, 0
-  br i1 %.not356.i.us, label %271, label %_unpack_node_info_members.exit
+  br i1 %.not356.i.us, label %271, label %_unpack_node_info_members.exit.loopexit74
 
 271:                                              ; preds = %268
   %272 = getelementptr inbounds i8, ptr %232, i64 264
   %273 = call i32 @unpack64(ptr noundef nonnull %272, ptr noundef %1) #8
   %.not357.i.us = icmp eq i32 %273, 0
-  br i1 %.not357.i.us, label %274, label %_unpack_node_info_members.exit
+  br i1 %.not357.i.us, label %274, label %_unpack_node_info_members.exit.loopexit74
 
 274:                                              ; preds = %271
   %275 = getelementptr inbounds i8, ptr %232, i64 340
   %276 = call i32 @unpack32(ptr noundef nonnull %275, ptr noundef %1) #8
   %.not358.i.us = icmp eq i32 %276, 0
-  br i1 %.not358.i.us, label %277, label %_unpack_node_info_members.exit
+  br i1 %.not358.i.us, label %277, label %_unpack_node_info_members.exit.loopexit74
 
 277:                                              ; preds = %274
   %278 = getelementptr inbounds i8, ptr %232, i64 176
   %279 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %278, ptr noundef nonnull %31, ptr noundef %1) #8
   %.not359.i.us = icmp eq i32 %279, 0
-  br i1 %.not359.i.us, label %280, label %_unpack_node_info_members.exit
+  br i1 %.not359.i.us, label %280, label %_unpack_node_info_members.exit.loopexit74
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds i8, ptr %232, i64 240
   %282 = call i32 @unpack32(ptr noundef nonnull %281, ptr noundef %1) #8
   %.not360.i.us = icmp eq i32 %282, 0
-  br i1 %.not360.i.us, label %283, label %_unpack_node_info_members.exit
+  br i1 %.not360.i.us, label %283, label %_unpack_node_info_members.exit.loopexit74
 
 283:                                              ; preds = %280
   %284 = getelementptr inbounds i8, ptr %232, i64 42
   %285 = call i32 @unpack16(ptr noundef nonnull %284, ptr noundef %1) #8
   %.not361.i.us = icmp eq i32 %285, 0
-  br i1 %.not361.i.us, label %286, label %_unpack_node_info_members.exit
+  br i1 %.not361.i.us, label %286, label %_unpack_node_info_members.exit.loopexit74
 
 286:                                              ; preds = %283
   %287 = getelementptr inbounds i8, ptr %232, i64 44
   %288 = call i32 @unpack32(ptr noundef nonnull %287, ptr noundef %1) #8
   %.not362.i.us = icmp eq i32 %288, 0
-  br i1 %.not362.i.us, label %289, label %_unpack_node_info_members.exit
+  br i1 %.not362.i.us, label %289, label %_unpack_node_info_members.exit.loopexit74
 
 289:                                              ; preds = %286
   %290 = getelementptr inbounds i8, ptr %232, i64 184
   %291 = call i32 @unpack64(ptr noundef nonnull %290, ptr noundef %1) #8
   %.not363.i.us = icmp eq i32 %291, 0
-  br i1 %.not363.i.us, label %292, label %_unpack_node_info_members.exit
+  br i1 %.not363.i.us, label %292, label %_unpack_node_info_members.exit.loopexit74
 
 292:                                              ; preds = %289
   %293 = getelementptr inbounds i8, ptr %232, i64 72
   %294 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %293, ptr noundef nonnull %32, ptr noundef %1) #8
   %.not364.i.us = icmp eq i32 %294, 0
-  br i1 %.not364.i.us, label %295, label %_unpack_node_info_members.exit
+  br i1 %.not364.i.us, label %295, label %_unpack_node_info_members.exit.loopexit74
 
 295:                                              ; preds = %292
   %296 = getelementptr inbounds i8, ptr %232, i64 66
   %297 = call i32 @unpack16(ptr noundef nonnull %296, ptr noundef %1) #8
   %.not365.i.us = icmp eq i32 %297, 0
-  br i1 %.not365.i.us, label %298, label %_unpack_node_info_members.exit
+  br i1 %.not365.i.us, label %298, label %_unpack_node_info_members.exit.loopexit74
 
 298:                                              ; preds = %295
   %299 = getelementptr inbounds i8, ptr %232, i64 48
   %300 = call i32 @unpack32(ptr noundef nonnull %299, ptr noundef %1) #8
   %.not366.i.us = icmp eq i32 %300, 0
-  br i1 %.not366.i.us, label %301, label %_unpack_node_info_members.exit
+  br i1 %.not366.i.us, label %301, label %_unpack_node_info_members.exit.loopexit74
 
 301:                                              ; preds = %298
   %302 = getelementptr inbounds i8, ptr %232, i64 56
   %303 = call i32 @unpack64(ptr noundef nonnull %302, ptr noundef %1) #8
   %.not367.i.us = icmp eq i32 %303, 0
-  br i1 %.not367.i.us, label %304, label %_unpack_node_info_members.exit
+  br i1 %.not367.i.us, label %304, label %_unpack_node_info_members.exit.loopexit74
 
 304:                                              ; preds = %301
   %305 = getelementptr inbounds i8, ptr %232, i64 344
   %306 = call i32 @unpack32(ptr noundef nonnull %305, ptr noundef %1) #8
   %.not368.i.us = icmp eq i32 %306, 0
-  br i1 %.not368.i.us, label %307, label %_unpack_node_info_members.exit
+  br i1 %.not368.i.us, label %307, label %_unpack_node_info_members.exit.loopexit74
 
 307:                                              ; preds = %304
   %308 = getelementptr inbounds i8, ptr %232, i64 296
   %309 = call i32 @unpack32(ptr noundef nonnull %308, ptr noundef %1) #8
   %.not369.i.us = icmp eq i32 %309, 0
-  br i1 %.not369.i.us, label %310, label %_unpack_node_info_members.exit
+  br i1 %.not369.i.us, label %310, label %_unpack_node_info_members.exit.loopexit74
 
 310:                                              ; preds = %307
   %311 = getelementptr inbounds i8, ptr %232, i64 24
   %312 = call i32 @unpack_time(ptr noundef nonnull %311, ptr noundef %1) #8
   %.not370.i.us = icmp eq i32 %312, 0
-  br i1 %.not370.i.us, label %313, label %_unpack_node_info_members.exit
+  br i1 %.not370.i.us, label %313, label %_unpack_node_info_members.exit.loopexit74
 
 313:                                              ; preds = %310
   %314 = getelementptr inbounds i8, ptr %232, i64 168
   %315 = call i32 @unpack_time(ptr noundef nonnull %314, ptr noundef %1) #8
   %.not371.i.us = icmp eq i32 %315, 0
-  br i1 %.not371.i.us, label %316, label %_unpack_node_info_members.exit
+  br i1 %.not371.i.us, label %316, label %_unpack_node_info_members.exit.loopexit74
 
 316:                                              ; preds = %313
   %317 = getelementptr inbounds i8, ptr %232, i64 288
   %318 = call i32 @unpack_time(ptr noundef nonnull %317, ptr noundef %1) #8
   %.not372.i.us = icmp eq i32 %318, 0
-  br i1 %.not372.i.us, label %319, label %_unpack_node_info_members.exit
+  br i1 %.not372.i.us, label %319, label %_unpack_node_info_members.exit.loopexit74
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds i8, ptr %232, i64 304
   %321 = call i32 @unpack_time(ptr noundef nonnull %320, ptr noundef %1) #8
   %.not373.i.us = icmp eq i32 %321, 0
-  br i1 %.not373.i.us, label %322, label %_unpack_node_info_members.exit
+  br i1 %.not373.i.us, label %322, label %_unpack_node_info_members.exit.loopexit74
 
 322:                                              ; preds = %319
   %323 = getelementptr inbounds i8, ptr %232, i64 328
   %324 = call i32 @unpack_time(ptr noundef nonnull %323, ptr noundef %1) #8
   %.not374.i.us = icmp eq i32 %324, 0
-  br i1 %.not374.i.us, label %325, label %_unpack_node_info_members.exit
+  br i1 %.not374.i.us, label %325, label %_unpack_node_info_members.exit.loopexit74
 
 325:                                              ; preds = %322
   %326 = getelementptr inbounds i8, ptr %232, i64 320
   %327 = call i32 @select_g_select_nodeinfo_unpack(ptr noundef nonnull %326, ptr noundef %1, i16 noundef zeroext %2) #8
   %.not375.i.us = icmp eq i32 %327, 0
-  br i1 %.not375.i.us, label %328, label %_unpack_node_info_members.exit
+  br i1 %.not375.i.us, label %328, label %_unpack_node_info_members.exit.loopexit74
 
 328:                                              ; preds = %325
   %329 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %232, ptr noundef nonnull %33, ptr noundef %1) #8
   %.not376.i.us = icmp eq i32 %329, 0
-  br i1 %.not376.i.us, label %330, label %_unpack_node_info_members.exit
+  br i1 %.not376.i.us, label %330, label %_unpack_node_info_members.exit.loopexit74
 
 330:                                              ; preds = %328
   %331 = getelementptr inbounds i8, ptr %232, i64 112
   %332 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %331, ptr noundef nonnull %34, ptr noundef %1) #8
   %.not377.i.us = icmp eq i32 %332, 0
-  br i1 %.not377.i.us, label %333, label %_unpack_node_info_members.exit
+  br i1 %.not377.i.us, label %333, label %_unpack_node_info_members.exit.loopexit74
 
 333:                                              ; preds = %330
   %334 = getelementptr inbounds i8, ptr %232, i64 120
   %335 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %334, ptr noundef nonnull %35, ptr noundef %1) #8
   %.not378.i.us = icmp eq i32 %335, 0
-  br i1 %.not378.i.us, label %336, label %_unpack_node_info_members.exit
+  br i1 %.not378.i.us, label %336, label %_unpack_node_info_members.exit.loopexit74
 
 336:                                              ; preds = %333
   %337 = getelementptr inbounds i8, ptr %232, i64 128
   %338 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %337, ptr noundef nonnull %36, ptr noundef %1) #8
   %.not379.i.us = icmp eq i32 %338, 0
-  br i1 %.not379.i.us, label %339, label %_unpack_node_info_members.exit
+  br i1 %.not379.i.us, label %339, label %_unpack_node_info_members.exit.loopexit74
 
 339:                                              ; preds = %336
   %340 = getelementptr inbounds i8, ptr %232, i64 136
   %341 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %340, ptr noundef nonnull %37, ptr noundef %1) #8
   %.not380.i.us = icmp eq i32 %341, 0
-  br i1 %.not380.i.us, label %342, label %_unpack_node_info_members.exit
+  br i1 %.not380.i.us, label %342, label %_unpack_node_info_members.exit.loopexit74
 
 342:                                              ; preds = %339
   %343 = getelementptr inbounds i8, ptr %232, i64 144
   %344 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %343, ptr noundef nonnull %38, ptr noundef %1) #8
   %.not381.i.us = icmp eq i32 %344, 0
-  br i1 %.not381.i.us, label %345, label %_unpack_node_info_members.exit
+  br i1 %.not381.i.us, label %345, label %_unpack_node_info_members.exit.loopexit74
 
 345:                                              ; preds = %342
   %346 = getelementptr inbounds i8, ptr %232, i64 232
   %347 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %346, ptr noundef nonnull %39, ptr noundef %1) #8
   %.not382.i.us = icmp eq i32 %347, 0
-  br i1 %.not382.i.us, label %348, label %_unpack_node_info_members.exit
+  br i1 %.not382.i.us, label %348, label %_unpack_node_info_members.exit.loopexit74
 
 348:                                              ; preds = %345
   %349 = getelementptr inbounds i8, ptr %232, i64 272
   %350 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %349, ptr noundef nonnull %40, ptr noundef %1) #8
   %.not383.i.us = icmp eq i32 %350, 0
-  br i1 %.not383.i.us, label %351, label %_unpack_node_info_members.exit
+  br i1 %.not383.i.us, label %351, label %_unpack_node_info_members.exit.loopexit74
 
 351:                                              ; preds = %348
   %352 = getelementptr inbounds i8, ptr %232, i64 96
   %353 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %352, ptr noundef nonnull %41, ptr noundef %1) #8
   %.not384.i.us = icmp eq i32 %353, 0
-  br i1 %.not384.i.us, label %354, label %_unpack_node_info_members.exit
+  br i1 %.not384.i.us, label %354, label %_unpack_node_info_members.exit.loopexit74
 
 354:                                              ; preds = %351
   %355 = getelementptr inbounds i8, ptr %232, i64 152
   %356 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %355, ptr noundef nonnull %42, ptr noundef %1) #8
   %.not385.i.us = icmp eq i32 %356, 0
-  br i1 %.not385.i.us, label %357, label %_unpack_node_info_members.exit
+  br i1 %.not385.i.us, label %357, label %_unpack_node_info_members.exit.loopexit74
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds i8, ptr %232, i64 160
   %359 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %358, ptr noundef nonnull %43, ptr noundef %1) #8
   %.not386.i.us = icmp eq i32 %359, 0
-  br i1 %.not386.i.us, label %360, label %_unpack_node_info_members.exit
+  br i1 %.not386.i.us, label %360, label %_unpack_node_info_members.exit.loopexit74
 
 360:                                              ; preds = %357
   %361 = getelementptr inbounds i8, ptr %232, i64 280
   %362 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %361, ptr noundef nonnull %44, ptr noundef %1) #8
   %.not387.i.us = icmp eq i32 %362, 0
-  br i1 %.not387.i.us, label %363, label %_unpack_node_info_members.exit
+  br i1 %.not387.i.us, label %363, label %_unpack_node_info_members.exit.loopexit74
 
 363:                                              ; preds = %360
   %364 = getelementptr inbounds i8, ptr %232, i64 80
   %365 = call i32 @acct_gather_energy_unpack(ptr noundef nonnull %364, ptr noundef %1, i16 noundef zeroext %2, i1 noundef zeroext true) #8
   %.not388.i.us = icmp eq i32 %365, 0
-  br i1 %.not388.i.us, label %366, label %_unpack_node_info_members.exit
+  br i1 %.not388.i.us, label %366, label %_unpack_node_info_members.exit.loopexit74
 
 366:                                              ; preds = %363
   %367 = getelementptr inbounds i8, ptr %232, i64 88
   %368 = call i32 @ext_sensors_data_unpack(ptr noundef nonnull %367, ptr noundef %1, i16 noundef zeroext %2) #8
   %.not389.i.us = icmp eq i32 %368, 0
-  br i1 %.not389.i.us, label %369, label %_unpack_node_info_members.exit
+  br i1 %.not389.i.us, label %369, label %_unpack_node_info_members.exit.loopexit74
 
 369:                                              ; preds = %366
   %370 = call i32 @unpack32(ptr noundef nonnull %25, ptr noundef %1) #8
   %.not390.i.us = icmp eq i32 %370, 0
-  br i1 %.not390.i.us, label %371, label %_unpack_node_info_members.exit
+  br i1 %.not390.i.us, label %371, label %_unpack_node_info_members.exit.loopexit74
 
 371:                                              ; preds = %369
   %372 = getelementptr inbounds i8, ptr %232, i64 352
   %373 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %372, ptr noundef nonnull %45, ptr noundef %1) #8
   %.not391.i.us = icmp eq i32 %373, 0
-  br i1 %.not391.i.us, label %374, label %_unpack_node_info_members.exit
+  br i1 %.not391.i.us, label %374, label %_unpack_node_info_members.exit.loopexit74
 
 374:                                              ; preds = %371
   %375 = getelementptr inbounds i8, ptr %232, i64 312
   %376 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %375, ptr noundef nonnull %46, ptr noundef %1) #8
   %.not392.i.us = icmp eq i32 %376, 0
-  br i1 %.not392.i.us, label %377, label %_unpack_node_info_members.exit
+  br i1 %.not392.i.us, label %377, label %_unpack_node_info_members.exit.loopexit74
 
 377:                                              ; preds = %374
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -22014,8 +22017,11 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr nocapture
   %.not343.i = icmp eq i32 %520, 0
   br i1 %.not343.i, label %521, label %_unpack_node_info_members.exit
 
-_unpack_node_info_members.exit:                   ; preds = %.lr.ph.split.split, %385, %388, %391, %394, %397, %400, %403, %406, %409, %412, %415, %418, %421, %424, %427, %430, %433, %436, %439, %442, %445, %448, %451, %454, %457, %460, %463, %466, %469, %472, %475, %478, %480, %483, %486, %489, %492, %495, %498, %501, %504, %507, %510, %513, %515, %518, %374, %371, %369, %366, %363, %360, %357, %354, %351, %348, %345, %342, %339, %336, %333, %330, %328, %325, %322, %319, %316, %313, %310, %307, %304, %301, %298, %295, %292, %289, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %253, %250, %247, %244, %241, %238, %235, %.lr.ph.split.split.us, %.lr.ph.split.us, %89, %92, %95, %98, %101, %104, %107, %110, %113, %116, %119, %122, %125, %128, %131, %134, %137, %140, %143, %146, %149, %152, %155, %158, %161, %164, %167, %170, %173, %176, %179, %182, %184, %187, %190, %193, %196, %199, %202, %205, %208, %211, %214, %217, %220, %223
-  %.us-phi = phi ptr [ %86, %223 ], [ %86, %220 ], [ %86, %217 ], [ %86, %214 ], [ %86, %211 ], [ %86, %208 ], [ %86, %205 ], [ %86, %202 ], [ %86, %199 ], [ %86, %196 ], [ %86, %193 ], [ %86, %190 ], [ %86, %187 ], [ %86, %184 ], [ %86, %182 ], [ %86, %179 ], [ %86, %176 ], [ %86, %173 ], [ %86, %170 ], [ %86, %167 ], [ %86, %164 ], [ %86, %161 ], [ %86, %158 ], [ %86, %155 ], [ %86, %152 ], [ %86, %149 ], [ %86, %146 ], [ %86, %143 ], [ %86, %140 ], [ %86, %137 ], [ %86, %134 ], [ %86, %131 ], [ %86, %128 ], [ %86, %125 ], [ %86, %122 ], [ %86, %119 ], [ %86, %116 ], [ %86, %113 ], [ %86, %110 ], [ %86, %107 ], [ %86, %104 ], [ %86, %101 ], [ %86, %98 ], [ %86, %95 ], [ %86, %92 ], [ %86, %89 ], [ %86, %.lr.ph.split.us ], [ %232, %.lr.ph.split.split.us ], [ %232, %235 ], [ %232, %238 ], [ %232, %241 ], [ %232, %244 ], [ %232, %247 ], [ %232, %250 ], [ %232, %253 ], [ %232, %256 ], [ %232, %259 ], [ %232, %262 ], [ %232, %265 ], [ %232, %268 ], [ %232, %271 ], [ %232, %274 ], [ %232, %277 ], [ %232, %280 ], [ %232, %283 ], [ %232, %286 ], [ %232, %289 ], [ %232, %292 ], [ %232, %295 ], [ %232, %298 ], [ %232, %301 ], [ %232, %304 ], [ %232, %307 ], [ %232, %310 ], [ %232, %313 ], [ %232, %316 ], [ %232, %319 ], [ %232, %322 ], [ %232, %325 ], [ %232, %328 ], [ %232, %330 ], [ %232, %333 ], [ %232, %336 ], [ %232, %339 ], [ %232, %342 ], [ %232, %345 ], [ %232, %348 ], [ %232, %351 ], [ %232, %354 ], [ %232, %357 ], [ %232, %360 ], [ %232, %363 ], [ %232, %366 ], [ %232, %369 ], [ %232, %371 ], [ %232, %374 ], [ %382, %518 ], [ %382, %515 ], [ %382, %513 ], [ %382, %510 ], [ %382, %507 ], [ %382, %504 ], [ %382, %501 ], [ %382, %498 ], [ %382, %495 ], [ %382, %492 ], [ %382, %489 ], [ %382, %486 ], [ %382, %483 ], [ %382, %480 ], [ %382, %478 ], [ %382, %475 ], [ %382, %472 ], [ %382, %469 ], [ %382, %466 ], [ %382, %463 ], [ %382, %460 ], [ %382, %457 ], [ %382, %454 ], [ %382, %451 ], [ %382, %448 ], [ %382, %445 ], [ %382, %442 ], [ %382, %439 ], [ %382, %436 ], [ %382, %433 ], [ %382, %430 ], [ %382, %427 ], [ %382, %424 ], [ %382, %421 ], [ %382, %418 ], [ %382, %415 ], [ %382, %412 ], [ %382, %409 ], [ %382, %406 ], [ %382, %403 ], [ %382, %400 ], [ %382, %397 ], [ %382, %394 ], [ %382, %391 ], [ %382, %388 ], [ %382, %385 ], [ %382, %.lr.ph.split.split ]
+_unpack_node_info_members.exit.loopexit74:        ; preds = %.lr.ph.split.split.us, %235, %238, %241, %244, %247, %250, %253, %256, %259, %262, %265, %268, %271, %274, %277, %280, %283, %286, %289, %292, %295, %298, %301, %304, %307, %310, %313, %316, %319, %322, %325, %328, %330, %333, %336, %339, %342, %345, %348, %351, %354, %357, %360, %363, %366, %369, %371, %374
+  br label %_unpack_node_info_members.exit
+
+_unpack_node_info_members.exit:                   ; preds = %.lr.ph.split.us, %89, %92, %95, %98, %101, %104, %107, %110, %113, %116, %119, %122, %125, %128, %131, %134, %137, %140, %143, %146, %149, %152, %155, %158, %161, %164, %167, %170, %173, %176, %179, %182, %184, %187, %190, %193, %196, %199, %202, %205, %208, %211, %214, %217, %220, %223, %.lr.ph.split.split, %385, %388, %391, %394, %397, %400, %403, %406, %409, %412, %415, %418, %421, %424, %427, %430, %433, %436, %439, %442, %445, %448, %451, %454, %457, %460, %463, %466, %469, %472, %475, %478, %480, %483, %486, %489, %492, %495, %498, %501, %504, %507, %510, %513, %515, %518, %_unpack_node_info_members.exit.loopexit74
+  %.us-phi = phi ptr [ %232, %_unpack_node_info_members.exit.loopexit74 ], [ %382, %518 ], [ %382, %515 ], [ %382, %513 ], [ %382, %510 ], [ %382, %507 ], [ %382, %504 ], [ %382, %501 ], [ %382, %498 ], [ %382, %495 ], [ %382, %492 ], [ %382, %489 ], [ %382, %486 ], [ %382, %483 ], [ %382, %480 ], [ %382, %478 ], [ %382, %475 ], [ %382, %472 ], [ %382, %469 ], [ %382, %466 ], [ %382, %463 ], [ %382, %460 ], [ %382, %457 ], [ %382, %454 ], [ %382, %451 ], [ %382, %448 ], [ %382, %445 ], [ %382, %442 ], [ %382, %439 ], [ %382, %436 ], [ %382, %433 ], [ %382, %430 ], [ %382, %427 ], [ %382, %424 ], [ %382, %421 ], [ %382, %418 ], [ %382, %415 ], [ %382, %412 ], [ %382, %409 ], [ %382, %406 ], [ %382, %403 ], [ %382, %400 ], [ %382, %397 ], [ %382, %394 ], [ %382, %391 ], [ %382, %388 ], [ %382, %385 ], [ %382, %.lr.ph.split.split ], [ %86, %223 ], [ %86, %220 ], [ %86, %217 ], [ %86, %214 ], [ %86, %211 ], [ %86, %208 ], [ %86, %205 ], [ %86, %202 ], [ %86, %199 ], [ %86, %196 ], [ %86, %193 ], [ %86, %190 ], [ %86, %187 ], [ %86, %184 ], [ %86, %182 ], [ %86, %179 ], [ %86, %176 ], [ %86, %173 ], [ %86, %170 ], [ %86, %167 ], [ %86, %164 ], [ %86, %161 ], [ %86, %158 ], [ %86, %155 ], [ %86, %152 ], [ %86, %149 ], [ %86, %146 ], [ %86, %143 ], [ %86, %140 ], [ %86, %137 ], [ %86, %134 ], [ %86, %131 ], [ %86, %128 ], [ %86, %125 ], [ %86, %122 ], [ %86, %119 ], [ %86, %116 ], [ %86, %113 ], [ %86, %110 ], [ %86, %107 ], [ %86, %104 ], [ %86, %101 ], [ %86, %98 ], [ %86, %95 ], [ %86, %92 ], [ %86, %89 ], [ %86, %.lr.ph.split.us ]
   call void @slurm_free_node_info_members(ptr noundef %.us-phi) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)

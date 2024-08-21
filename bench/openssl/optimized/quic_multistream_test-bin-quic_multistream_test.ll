@@ -1471,14 +1471,14 @@ if.end118:                                        ; preds = %for.inc, %for.cond9
 sw.bb119:                                         ; preds = %if.end80
   %call120 = call i32 @test_size_t_lt(ptr noundef nonnull @.str.14, i32 noundef 1156, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.67, i64 noundef %repeat_stack_len.1, i64 noundef 8) #14
   %tobool121.not = icmp eq i32 %call120, 0
-  br i1 %tobool121.not, label %out, label %if.end123
+  br i1 %tobool121.not, label %out.loopexit1050, label %if.end123
 
 if.end123:                                        ; preds = %sw.bb119
   %arg1 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %30 = load i64, ptr %arg1, align 8
   %call124 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 1159, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.32, i64 noundef %30, i64 noundef 0) #14
   %tobool125.not = icmp eq i32 %call124, 0
-  br i1 %tobool125.not, label %out, label %if.end127
+  br i1 %tobool125.not, label %out.loopexit1050, label %if.end127
 
 if.end127:                                        ; preds = %if.end123
   %add128 = add i64 %op_idx.2, 1
@@ -1505,7 +1505,7 @@ if.end138:                                        ; preds = %sw.bb134
 sw.bb141:                                         ; preds = %if.end80
   %call142 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 1176, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.32, i64 noundef %repeat_stack_len.1, i64 noundef 0) #14
   %tobool143.not = icmp eq i32 %call142, 0
-  br i1 %tobool143.not, label %out, label %if.end145
+  br i1 %tobool143.not, label %out.loopexit1050, label %if.end145
 
 if.end145:                                        ; preds = %sw.bb141
   %sub = add i64 %repeat_stack_len.1, -1
@@ -1586,7 +1586,7 @@ if.end169:                                        ; preds = %land.lhs.true162, %
   %conv171 = zext i1 %cmp170 to i32
   %call172 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1203, ptr noundef nonnull @.str.69, i32 noundef %conv171) #14
   %tobool173.not = icmp eq i32 %call172, 0
-  br i1 %tobool173.not, label %out, label %for.cond.backedge
+  br i1 %tobool173.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb176:                                         ; preds = %if.end80
   %arg0 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -1594,14 +1594,14 @@ sw.bb176:                                         ; preds = %if.end80
   %call177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #16
   %call178 = call i32 @test_size_t_le(ptr noundef nonnull @.str.14, i32 noundef 1213, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i64 noundef %call177, i64 noundef 255) #14
   %tobool179.not = icmp eq i32 %call178, 0
-  br i1 %tobool179.not, label %out, label %lor.lhs.false180
+  br i1 %tobool179.not, label %out.loopexit1050, label %lor.lhs.false180
 
 lor.lhs.false180:                                 ; preds = %sw.bb176
   %add181 = add i64 %call177, 1
   %call182 = call noalias ptr @CRYPTO_malloc(i64 noundef %add181, ptr noundef nonnull @.str.14, i32 noundef 1214) #14
   %call183 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1214, ptr noundef nonnull @.str.72, ptr noundef %call182) #14
   %tobool184.not = icmp eq i32 %call183, 0
-  br i1 %tobool184.not, label %out, label %if.end186
+  br i1 %tobool184.not, label %out.loopexit1050, label %if.end186
 
 if.end186:                                        ; preds = %lor.lhs.false180
   %add.ptr = getelementptr inbounds i8, ptr %call182, i64 1
@@ -1615,7 +1615,7 @@ if.end186:                                        ; preds = %lor.lhs.false180
   %conv194 = zext i1 %cmp193 to i32
   %call195 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1222, ptr noundef nonnull @.str.73, i32 noundef %conv194) #14
   %tobool196.not = icmp eq i32 %call195, 0
-  br i1 %tobool196.not, label %out, label %if.end198
+  br i1 %tobool196.not, label %out.loopexit1050, label %if.end198
 
 if.end198:                                        ; preds = %if.end186
   call void @CRYPTO_free(ptr noundef nonnull %call182, ptr noundef nonnull @.str.14, i32 noundef 1225) #14
@@ -1626,7 +1626,7 @@ sw.bb199:                                         ; preds = %if.end80
   %call201 = call i32 @SSL_connect(ptr noundef %45) #14
   %call202 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call201)
   %tobool203.not = icmp eq i32 %call202, 0
-  br i1 %tobool203.not, label %out, label %if.end205
+  br i1 %tobool203.not, label %out.loopexit1050, label %if.end205
 
 if.end205:                                        ; preds = %sw.bb199
   %cmp206.not = icmp eq i32 %call201, 1
@@ -1662,13 +1662,13 @@ if.end220:                                        ; preds = %land.lhs.true211, %
 land.lhs.true224:                                 ; preds = %if.end220
   %call225 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1243, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, i32 noundef %call201, i32 noundef 1) #14
   %tobool226.not = icmp eq i32 %call225, 0
-  br i1 %tobool226.not, label %out, label %for.cond.backedge
+  br i1 %tobool226.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb230:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written, align 8
   %call231 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1254, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool232.not = icmp eq i32 %call231, 0
-  br i1 %tobool232.not, label %out, label %if.end234
+  br i1 %tobool232.not, label %out.loopexit1050, label %if.end234
 
 if.end234:                                        ; preds = %sw.bb230
   %arg0235 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -1680,25 +1680,25 @@ if.end234:                                        ; preds = %sw.bb230
   %conv239 = zext i1 %cmp238 to i32
   %call240 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1258, ptr noundef nonnull @.str.78, i32 noundef %conv239) #14
   %tobool241.not = icmp eq i32 %call240, 0
-  br i1 %tobool241.not, label %out, label %lor.lhs.false242
+  br i1 %tobool241.not, label %out.loopexit1050, label %lor.lhs.false242
 
 lor.lhs.false242:                                 ; preds = %if.end234
   %call243 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call237)
   %tobool244.not = icmp eq i32 %call243, 0
-  br i1 %tobool244.not, label %out, label %lor.lhs.false245
+  br i1 %tobool244.not, label %out.loopexit1050, label %lor.lhs.false245
 
 lor.lhs.false245:                                 ; preds = %lor.lhs.false242
   %53 = load i64, ptr %bytes_written, align 8
   %54 = load i64, ptr %arg1236, align 8
   %call247 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1260, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.68, i64 noundef %53, i64 noundef %54) #14
   %tobool248.not = icmp eq i32 %call247, 0
-  br i1 %tobool248.not, label %out, label %for.cond.backedge
+  br i1 %tobool248.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb251:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written252, align 8
   %call253 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1269, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool254.not = icmp eq i32 %call253, 0
-  br i1 %tobool254.not, label %out, label %if.end256
+  br i1 %tobool254.not, label %out.loopexit1050, label %if.end256
 
 if.end256:                                        ; preds = %sw.bb251
   %hl_.val416 = load i32, ptr %thread_idx2.i, align 8
@@ -1740,14 +1740,14 @@ s_lock.exit510:                                   ; preds = %s_checked_out_p.exi
   %conv262 = zext i1 %cmp261 to i32
   %call263 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1274, ptr noundef nonnull @.str.82, i32 noundef %conv262) #14
   %tobool264.not = icmp eq i32 %call263, 0
-  br i1 %tobool264.not, label %out, label %lor.lhs.false265
+  br i1 %tobool264.not, label %out.loopexit1050, label %lor.lhs.false265
 
 lor.lhs.false265:                                 ; preds = %s_lock.exit510
   %61 = load i64, ptr %bytes_written252, align 8
   %62 = load i64, ptr %arg1259, align 8
   %call267 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1275, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.68, i64 noundef %61, i64 noundef %62) #14
   %tobool268.not = icmp eq i32 %call267, 0
-  br i1 %tobool268.not, label %out, label %for.cond.backedge
+  br i1 %tobool268.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb271:                                         ; preds = %if.end80
   %call272 = call i32 @SSL_stream_conclude(ptr noundef %c_tgt.0101510311039, i64 noundef 0) #14
@@ -1755,12 +1755,12 @@ sw.bb271:                                         ; preds = %if.end80
   %conv274 = zext i1 %cmp273 to i32
   %call275 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1282, ptr noundef nonnull @.str.83, i32 noundef %conv274) #14
   %tobool276.not = icmp eq i32 %call275, 0
-  br i1 %tobool276.not, label %out, label %for.cond.backedge
+  br i1 %tobool276.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb279:                                         ; preds = %if.end80
   %call280 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1289, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool281.not = icmp eq i32 %call280, 0
-  br i1 %tobool281.not, label %out, label %if.end283
+  br i1 %tobool281.not, label %out.loopexit1050, label %if.end283
 
 if.end283:                                        ; preds = %sw.bb279
   %hl_.val417 = load i32, ptr %thread_idx2.i, align 8
@@ -1800,7 +1800,7 @@ sw.bb286:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read, align 8
   %call287 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1301, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool288.not = icmp eq i32 %call287, 0
-  br i1 %tobool288.not, label %out, label %if.end290
+  br i1 %tobool288.not, label %out.loopexit1050, label %if.end290
 
 if.end290:                                        ; preds = %sw.bb286
   %call291 = call i32 @SSL_peek_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef nonnull %bytes_read) #14
@@ -1832,7 +1832,7 @@ land.lhs.true311:                                 ; preds = %sw.bb302
   %call313 = call noalias ptr @CRYPTO_malloc(i64 noundef %69, ptr noundef nonnull @.str.14, i32 noundef 1316) #14
   %call314 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1316, ptr noundef nonnull @.str.84, ptr noundef %call313) #14
   %tobool315.not = icmp eq i32 %call314, 0
-  br i1 %tobool315.not, label %out, label %land.lhs.true311.if.end317_crit_edge
+  br i1 %tobool315.not, label %out.loopexit1050, label %land.lhs.true311.if.end317_crit_edge
 
 land.lhs.true311.if.end317_crit_edge:             ; preds = %land.lhs.true311
   %.pre = load i64, ptr %arg1305, align 8
@@ -1846,7 +1846,7 @@ if.end317:                                        ; preds = %land.lhs.true311.if
   %call321 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef %add.ptr318, i64 noundef %sub320, ptr noundef nonnull %bytes_read303) #14
   %call322 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call321)
   %tobool323.not = icmp eq i32 %call322, 0
-  br i1 %tobool323.not, label %out, label %if.end325
+  br i1 %tobool323.not, label %out.loopexit1050, label %if.end325
 
 if.end325:                                        ; preds = %if.end317
   %tobool326.not = icmp eq i32 %call321, 0
@@ -1886,7 +1886,7 @@ land.lhs.true347:                                 ; preds = %if.end343
   %75 = load ptr, ptr %arg0349, align 8
   %call351 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 1333, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef %tmp_buf.3, i64 noundef %add333, ptr noundef %75, i64 noundef %add333) #14
   %tobool352.not = icmp eq i32 %call351, 0
-  br i1 %tobool352.not, label %out, label %if.end354
+  br i1 %tobool352.not, label %out.loopexit1050, label %if.end354
 
 if.end354:                                        ; preds = %land.lhs.true347, %if.end343
   call void @CRYPTO_free(ptr noundef %tmp_buf.3, ptr noundef nonnull @.str.14, i32 noundef 1336) #14
@@ -1896,7 +1896,7 @@ sw.bb355:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read356, align 8
   %call357 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1345, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool358.not = icmp eq i32 %call357, 0
-  br i1 %tobool358.not, label %out, label %if.end360
+  br i1 %tobool358.not, label %out.loopexit1050, label %if.end360
 
 if.end360:                                        ; preds = %sw.bb355
   %arg1361 = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -1910,7 +1910,7 @@ land.lhs.true367:                                 ; preds = %if.end360
   %call369 = call noalias ptr @CRYPTO_malloc(i64 noundef %76, ptr noundef nonnull @.str.14, i32 noundef 1349) #14
   %call370 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1349, ptr noundef nonnull @.str.84, ptr noundef %call369) #14
   %tobool371.not = icmp eq i32 %call370, 0
-  br i1 %tobool371.not, label %out, label %if.end373
+  br i1 %tobool371.not, label %out.loopexit1050, label %if.end373
 
 if.end373:                                        ; preds = %land.lhs.true367, %if.end360
   %tmp_buf.4 = phi ptr [ %call369, %land.lhs.true367 ], [ %tmp_buf.1, %if.end360 ]
@@ -1952,7 +1952,7 @@ s_lock.exit552:                                   ; preds = %s_checked_out_p.exi
   %conv380 = zext i1 %cmp379 to i32
   %call381 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1355, ptr noundef nonnull @.str.87, i32 noundef %conv380) #14
   %tobool382.not = icmp eq i32 %call381, 0
-  br i1 %tobool382.not, label %out, label %if.end384
+  br i1 %tobool382.not, label %out.loopexit1050, label %if.end384
 
 if.end384:                                        ; preds = %s_lock.exit552
   %82 = load i64, ptr %bytes_read356, align 8
@@ -2004,7 +2004,7 @@ land.lhs.true398:                                 ; preds = %if.end394
   %89 = load ptr, ptr %arg0400, align 8
   %call402 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 1364, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef %tmp_buf.4, i64 noundef %add385, ptr noundef %89, i64 noundef %add385) #14
   %tobool403.not = icmp eq i32 %call402, 0
-  br i1 %tobool403.not, label %out, label %if.end405
+  br i1 %tobool403.not, label %out.loopexit1050, label %if.end405
 
 if.end405:                                        ; preds = %land.lhs.true398, %if.end394
   call void @CRYPTO_free(ptr noundef %tmp_buf.4, ptr noundef nonnull @.str.14, i32 noundef 1367) #14
@@ -2015,20 +2015,20 @@ sw.bb406:                                         ; preds = %if.end80
   %call411 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf407, i64 noundef 1, ptr noundef nonnull %bytes_read408) #14
   %call412 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call411)
   %tobool413.not = icmp eq i32 %call412, 0
-  br i1 %tobool413.not, label %out, label %lor.lhs.false414
+  br i1 %tobool413.not, label %out.loopexit1050, label %lor.lhs.false414
 
 lor.lhs.false414:                                 ; preds = %sw.bb406
   %cmp415 = icmp ne i32 %call411, 0
   %conv416 = zext i1 %cmp415 to i32
   %call417 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1380, ptr noundef nonnull @.str.78, i32 noundef %conv416) #14
   %tobool418.not = icmp eq i32 %call417, 0
-  br i1 %tobool418.not, label %out, label %lor.lhs.false419
+  br i1 %tobool418.not, label %out.loopexit1050, label %lor.lhs.false419
 
 lor.lhs.false419:                                 ; preds = %lor.lhs.false414
   %90 = load i64, ptr %bytes_read408, align 8
   %call420 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1381, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.32, i64 noundef %90, i64 noundef 0) #14
   %tobool421.not = icmp eq i32 %call420, 0
-  br i1 %tobool421.not, label %out, label %if.end423
+  br i1 %tobool421.not, label %out.loopexit1050, label %if.end423
 
 if.end423:                                        ; preds = %lor.lhs.false419
   %call.i574 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101510311039, i32 noundef 0) #14
@@ -2049,18 +2049,18 @@ if.end431:                                        ; preds = %if.end423
   %call432 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101510311039, i32 noundef 0) #14
   %call433 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1388, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef %call432, i32 noundef 6) #14
   %tobool434.not = icmp eq i32 %call433, 0
-  br i1 %tobool434.not, label %out, label %if.end436
+  br i1 %tobool434.not, label %out.loopexit1050, label %if.end436
 
 if.end436:                                        ; preds = %if.end431
   %call437 = call i32 @SSL_want(ptr noundef %c_tgt.0101510311039) #14
   %call438 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1391, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, i32 noundef %call437, i32 noundef 1) #14
   %tobool439.not = icmp eq i32 %call438, 0
-  br i1 %tobool439.not, label %out, label %for.cond.backedge
+  br i1 %tobool439.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb442:                                         ; preds = %if.end80
   %call443 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1398, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool444.not = icmp eq i32 %call443, 0
-  br i1 %tobool444.not, label %out, label %if.end446
+  br i1 %tobool444.not, label %out.loopexit1050, label %if.end446
 
 if.end446:                                        ; preds = %sw.bb442
   %hl_.val420 = load i32, ptr %thread_idx2.i, align 8
@@ -2134,20 +2134,20 @@ s_lock.exit617:                                   ; preds = %s_checked_out_p.exi
 sw.bb455:                                         ; preds = %if.end80
   %call456 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1410, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool457.not = icmp eq i32 %call456, 0
-  br i1 %tobool457.not, label %out, label %if.end459
+  br i1 %tobool457.not, label %out.loopexit1050, label %if.end459
 
 if.end459:                                        ; preds = %sw.bb455
   %102 = load ptr, ptr %stream_name, align 8
   %call461 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1413, ptr noundef nonnull @.str.93, ptr noundef %102) #14
   %tobool462.not = icmp eq i32 %call461, 0
-  br i1 %tobool462.not, label %out, label %if.end464
+  br i1 %tobool462.not, label %out.loopexit1050, label %if.end464
 
 if.end464:                                        ; preds = %if.end459
   %103 = load ptr, ptr %c_conn, align 8
   %call466 = call ptr @ossl_quic_detach_stream(ptr noundef %103) #14
   %call467 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1416, ptr noundef nonnull @.str.94, ptr noundef %call466) #14
   %tobool468.not = icmp eq i32 %call467, 0
-  br i1 %tobool468.not, label %out, label %if.end470
+  br i1 %tobool468.not, label %out.loopexit1050, label %if.end470
 
 if.end470:                                        ; preds = %if.end464
   %104 = load ptr, ptr %stream_name, align 8
@@ -2197,18 +2197,18 @@ helper_local_set_c_stream.exit:                   ; preds = %get_stream_info.exi
   %retval.0.i630 = phi i32 [ 1, %if.end.i627 ], [ 0, %get_stream_info.exit.thread.i637 ]
   %call475 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1419, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i630) #14
   %tobool476.not = icmp eq i32 %call475, 0
-  br i1 %tobool476.not, label %out, label %for.cond.backedge
+  br i1 %tobool476.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb479:                                         ; preds = %if.end80
   %call480 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1426, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool481.not = icmp eq i32 %call480, 0
-  br i1 %tobool481.not, label %out, label %if.end483
+  br i1 %tobool481.not, label %out.loopexit1050, label %if.end483
 
 if.end483:                                        ; preds = %sw.bb479
   %105 = load ptr, ptr %stream_name, align 8
   %call485 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1429, ptr noundef nonnull @.str.93, ptr noundef %105) #14
   %tobool486.not = icmp eq i32 %call485, 0
-  br i1 %tobool486.not, label %out, label %if.end488
+  br i1 %tobool486.not, label %out.loopexit1050, label %if.end488
 
 if.end488:                                        ; preds = %if.end483
   %106 = load ptr, ptr %c_conn, align 8
@@ -2217,7 +2217,7 @@ if.end488:                                        ; preds = %if.end483
   %conv492 = zext i1 %cmp491 to i32
   %call493 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1432, ptr noundef nonnull @.str.96, i32 noundef %conv492) #14
   %tobool494.not = icmp eq i32 %call493, 0
-  br i1 %tobool494.not, label %out, label %if.end496
+  br i1 %tobool494.not, label %out.loopexit1050, label %if.end496
 
 if.end496:                                        ; preds = %if.end488
   %107 = load ptr, ptr %stream_name, align 8
@@ -2267,7 +2267,7 @@ helper_local_set_c_stream.exit659:                ; preds = %get_stream_info.exi
   %retval.0.i651 = phi i32 [ 1, %if.end.i647 ], [ 0, %get_stream_info.exit.thread.i658 ]
   %call501 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1435, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i651) #14
   %tobool502.not = icmp eq i32 %call501, 0
-  br i1 %tobool502.not, label %out, label %for.cond.backedge
+  br i1 %tobool502.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb505:                                         ; preds = %if.end80
   %arg1507 = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -2277,13 +2277,13 @@ sw.bb505:                                         ; preds = %if.end80
   %and510 = and i64 %108, -65537
   %call511 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1448, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool512.not = icmp eq i32 %call511, 0
-  br i1 %tobool512.not, label %out, label %if.end514
+  br i1 %tobool512.not, label %out.loopexit1050, label %if.end514
 
 if.end514:                                        ; preds = %sw.bb505
   %109 = load ptr, ptr %stream_name, align 8
   %call516 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1451, ptr noundef nonnull @.str.93, ptr noundef %109) #14
   %tobool517.not = icmp eq i32 %call516, 0
-  br i1 %tobool517.not, label %out, label %if.end519
+  br i1 %tobool517.not, label %out.loopexit1050, label %if.end519
 
 if.end519:                                        ; preds = %if.end514
   %110 = load ptr, ptr %c_conn, align 8
@@ -2293,7 +2293,7 @@ if.end519:                                        ; preds = %if.end514
 land.lhs.true523:                                 ; preds = %if.end519
   %call524 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1455, ptr noundef nonnull @.str.98, ptr noundef %call521) #14
   %tobool525.not = icmp eq i32 %call524, 0
-  br i1 %tobool525.not, label %out, label %if.end541
+  br i1 %tobool525.not, label %out.loopexit1050, label %if.end541
 
 if.end527:                                        ; preds = %if.end519
   %cmp530 = icmp eq ptr %call521, null
@@ -2307,7 +2307,7 @@ if.then532:                                       ; preds = %if.end527
   %retval.0.i660 = and i64 %retval.0.v.i, %call533
   %call536 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1460, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, i64 noundef %retval.0.i660, i64 noundef 411) #14
   %tobool537.not = icmp eq i32 %call536, 0
-  br i1 %tobool537.not, label %out, label %if.end539
+  br i1 %tobool537.not, label %out.loopexit1050, label %if.end539
 
 if.end539:                                        ; preds = %if.then532
   %111 = load i64, ptr %fail_count, align 8
@@ -2326,7 +2326,7 @@ land.lhs.true544:                                 ; preds = %if.end541
   %113 = load i64, ptr %arg2, align 8
   %call547 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1469, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, i64 noundef %call545, i64 noundef %113) #14
   %tobool548.not = icmp eq i32 %call547, 0
-  br i1 %tobool548.not, label %out, label %if.end550
+  br i1 %tobool548.not, label %out.loopexit1050, label %if.end550
 
 if.end550:                                        ; preds = %land.lhs.true544, %if.end541
   %114 = load ptr, ptr %stream_name, align 8
@@ -2376,19 +2376,19 @@ helper_local_set_c_stream.exit682:                ; preds = %get_stream_info.exi
   %retval.0.i674 = phi i32 [ 1, %if.end.i670 ], [ 0, %get_stream_info.exit.thread.i681 ]
   %call555 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1472, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i674) #14
   %tobool556.not = icmp eq i32 %call555, 0
-  br i1 %tobool556.not, label %out, label %for.cond.backedge
+  br i1 %tobool556.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb559:                                         ; preds = %if.end80
   store i64 -1, ptr %stream_id, align 8
   %call560 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1481, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool561.not = icmp eq i32 %call560, 0
-  br i1 %tobool561.not, label %out, label %if.end563
+  br i1 %tobool561.not, label %out.loopexit1050, label %if.end563
 
 if.end563:                                        ; preds = %sw.bb559
   %115 = load ptr, ptr %stream_name, align 8
   %call565 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1484, ptr noundef nonnull @.str.93, ptr noundef %115) #14
   %tobool566.not = icmp eq i32 %call565, 0
-  br i1 %tobool566.not, label %out, label %if.end568
+  br i1 %tobool566.not, label %out.loopexit1050, label %if.end568
 
 if.end568:                                        ; preds = %if.end563
   %hl_.val422 = load i32, ptr %thread_idx2.i, align 8
@@ -2430,7 +2430,7 @@ s_lock.exit703:                                   ; preds = %s_checked_out_p.exi
   %conv575 = zext i1 %cmp574 to i32
   %call576 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1489, ptr noundef nonnull @.str.103, i32 noundef %conv575) #14
   %tobool577.not = icmp eq i32 %call576, 0
-  br i1 %tobool577.not, label %out, label %if.end579
+  br i1 %tobool577.not, label %out.loopexit1050, label %if.end579
 
 if.end579:                                        ; preds = %s_lock.exit703
   %arg2580 = getelementptr inbounds i8, ptr %arrayidx, i64 40
@@ -2442,7 +2442,7 @@ land.lhs.true583:                                 ; preds = %if.end579
   %122 = load i64, ptr %stream_id, align 8
   %call585 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1493, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.102, i64 noundef %122, i64 noundef %121) #14
   %tobool586.not = icmp eq i32 %call585, 0
-  br i1 %tobool586.not, label %out, label %if.end588
+  br i1 %tobool586.not, label %out.loopexit1050, label %if.end588
 
 if.end588:                                        ; preds = %land.lhs.true583, %if.end579
   %123 = load ptr, ptr %stream_name, align 8
@@ -2450,18 +2450,18 @@ if.end588:                                        ; preds = %land.lhs.true583, %
   %call590 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %123, i64 noundef %124)
   %call593 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1497, ptr noundef nonnull @.str.105, i32 noundef %call590) #14
   %tobool594.not = icmp eq i32 %call593, 0
-  br i1 %tobool594.not, label %out, label %for.cond.backedge
+  br i1 %tobool594.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb597:                                         ; preds = %if.end80
   %call599 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1506, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool600.not = icmp eq i32 %call599, 0
-  br i1 %tobool600.not, label %out, label %if.end602
+  br i1 %tobool600.not, label %out.loopexit1050, label %if.end602
 
 if.end602:                                        ; preds = %sw.bb597
   %125 = load ptr, ptr %stream_name, align 8
   %call604 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1509, ptr noundef nonnull @.str.93, ptr noundef %125) #14
   %tobool605.not = icmp eq i32 %call604, 0
-  br i1 %tobool605.not, label %out, label %if.end607
+  br i1 %tobool605.not, label %out.loopexit1050, label %if.end607
 
 if.end607:                                        ; preds = %if.end602
   %126 = load ptr, ptr %c_conn, align 8
@@ -2526,18 +2526,18 @@ helper_local_set_c_stream.exit725:                ; preds = %get_stream_info.exi
   %retval.0.i717 = phi i32 [ 1, %if.end.i713 ], [ 0, %get_stream_info.exit.thread.i724 ]
   %call622 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1516, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i717) #14
   %tobool623.not = icmp eq i32 %call622, 0
-  br i1 %tobool623.not, label %out, label %for.cond.backedge
+  br i1 %tobool623.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb626:                                         ; preds = %if.end80
   %call627 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1525, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool628.not = icmp eq i32 %call627, 0
-  br i1 %tobool628.not, label %out, label %if.end630
+  br i1 %tobool628.not, label %out.loopexit1050, label %if.end630
 
 if.end630:                                        ; preds = %sw.bb626
   %129 = load ptr, ptr %stream_name, align 8
   %call632 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1528, ptr noundef nonnull @.str.93, ptr noundef %129) #14
   %tobool633.not = icmp eq i32 %call632, 0
-  br i1 %tobool633.not, label %out, label %if.end635
+  br i1 %tobool633.not, label %out.loopexit1050, label %if.end635
 
 if.end635:                                        ; preds = %if.end630
   %hl_.val423 = load i32, ptr %thread_idx2.i, align 8
@@ -2613,7 +2613,7 @@ if.end644:                                        ; preds = %s_lock.exit746
   %call646 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %139, i64 noundef %call637)
   %call649 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1535, ptr noundef nonnull @.str.106, i32 noundef %call646) #14
   %tobool650.not = icmp eq i32 %call649, 0
-  br i1 %tobool650.not, label %out, label %for.cond.backedge
+  br i1 %tobool650.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb653:                                         ; preds = %if.end80
   %140 = load ptr, ptr %c_conn, align 8
@@ -2629,7 +2629,7 @@ if.then659:                                       ; preds = %sw.bb653
 sw.bb661:                                         ; preds = %if.end80
   %call662 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1554, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool663.not = icmp eq i32 %call662, 0
-  br i1 %tobool663.not, label %out, label %lor.lhs.false664
+  br i1 %tobool663.not, label %out.loopexit1050, label %lor.lhs.false664
 
 lor.lhs.false664:                                 ; preds = %sw.bb661
   %call665 = call i32 @SSL_is_connection(ptr noundef %c_tgt.0101510311039) #14
@@ -2637,13 +2637,13 @@ lor.lhs.false664:                                 ; preds = %sw.bb661
   %lnot.ext = zext i1 %tobool666.not to i32
   %call669 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1555, ptr noundef nonnull @.str.108, i32 noundef %lnot.ext) #14
   %tobool670.not = icmp eq i32 %call669, 0
-  br i1 %tobool670.not, label %out, label %if.end672
+  br i1 %tobool670.not, label %out.loopexit1050, label %if.end672
 
 if.end672:                                        ; preds = %lor.lhs.false664
   %141 = load ptr, ptr %stream_name, align 8
   %call674 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1558, ptr noundef nonnull @.str.93, ptr noundef %141) #14
   %tobool675.not = icmp eq i32 %call674, 0
-  br i1 %tobool675.not, label %out, label %if.end677
+  br i1 %tobool675.not, label %out.loopexit1050, label %if.end677
 
 if.end677:                                        ; preds = %if.end672
   %142 = load ptr, ptr %stream_name, align 8
@@ -2693,7 +2693,7 @@ helper_local_set_c_stream.exit789:                ; preds = %get_stream_info.exi
   %retval.0.i781 = phi i32 [ 1, %if.end.i777 ], [ 0, %get_stream_info.exit.thread.i788 ]
   %call682 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1561, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i781) #14
   %tobool683.not = icmp eq i32 %call682, 0
-  br i1 %tobool683.not, label %out, label %if.end685
+  br i1 %tobool683.not, label %out.loopexit1050, label %if.end685
 
 if.end685:                                        ; preds = %helper_local_set_c_stream.exit789
   call void @SSL_free(ptr noundef %c_tgt.0101510311039) #14
@@ -2702,7 +2702,7 @@ if.end685:                                        ; preds = %helper_local_set_c_
 sw.bb686:                                         ; preds = %if.end80
   %call687 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1571, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool688.not = icmp eq i32 %call687, 0
-  br i1 %tobool688.not, label %out, label %if.end690
+  br i1 %tobool688.not, label %out.loopexit1050, label %if.end690
 
 if.end690:                                        ; preds = %sw.bb686
   %arg1691 = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -2713,12 +2713,12 @@ if.end690:                                        ; preds = %sw.bb686
   %conv695 = zext i1 %cmp694 to i32
   %call696 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1574, ptr noundef nonnull @.str.109, i32 noundef %conv695) #14
   %tobool697.not = icmp eq i32 %call696, 0
-  br i1 %tobool697.not, label %out, label %for.cond.backedge
+  br i1 %tobool697.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb700:                                         ; preds = %if.end80
   %call701 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1581, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool702.not = icmp eq i32 %call701, 0
-  br i1 %tobool702.not, label %out, label %if.end704
+  br i1 %tobool702.not, label %out.loopexit1050, label %if.end704
 
 if.end704:                                        ; preds = %sw.bb700
   %arg1705 = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -2729,7 +2729,7 @@ if.end704:                                        ; preds = %sw.bb700
   %conv709 = zext i1 %cmp708 to i32
   %call710 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1585, ptr noundef nonnull @.str.110, i32 noundef %conv709) #14
   %tobool711.not = icmp eq i32 %call710, 0
-  br i1 %tobool711.not, label %out, label %for.cond.backedge
+  br i1 %tobool711.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb714:                                         ; preds = %if.end80
   %145 = load ptr, ptr %c_conn, align 8
@@ -2738,7 +2738,7 @@ sw.bb714:                                         ; preds = %if.end80
   call void @ossl_quic_channel_set_inhibit_tick(ptr noundef %call717, i32 noundef 0) #14
   %call718 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1598, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool719.not = icmp eq i32 %call718, 0
-  br i1 %tobool719.not, label %out, label %if.end721
+  br i1 %tobool719.not, label %out.loopexit1050, label %if.end721
 
 if.end721:                                        ; preds = %sw.bb714
   %arg0722 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -2749,7 +2749,7 @@ if.end721:                                        ; preds = %sw.bb714
   %call724 = call i32 @SSL_shutdown_ex(ptr noundef %c_tgt.0101510311039, i64 noundef %147, ptr noundef nonnull %args, i64 noundef 16) #14
   %call725 = call i32 @test_int_ge(ptr noundef nonnull @.str.14, i32 noundef 1604, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.32, i32 noundef %call724, i32 noundef 0) #14
   %tobool726.not = icmp eq i32 %call725, 0
-  br i1 %tobool726.not, label %out, label %if.end728
+  br i1 %tobool726.not, label %out.loopexit1050, label %if.end728
 
 if.end728:                                        ; preds = %if.end721
   %cmp729 = icmp eq i32 %call724, 0
@@ -2812,7 +2812,7 @@ sw.bb741:                                         ; preds = %if.end80
   %157 = load i64, ptr %arg2750, align 8
   %call751 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1625, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool752.not = icmp eq i32 %call751, 0
-  br i1 %tobool752.not, label %out, label %if.end754
+  br i1 %tobool752.not, label %out.loopexit1050, label %if.end754
 
 if.end754:                                        ; preds = %sw.bb741
   %158 = load i32, ptr %blocking, align 4
@@ -2825,7 +2825,7 @@ land.lhs.true757:                                 ; preds = %if.end754
   %conv760 = zext i1 %cmp759 to i32
   %call761 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1631, ptr noundef nonnull @.str.111, i32 noundef %conv760) #14
   %tobool762.not = icmp eq i32 %call761, 0
-  br i1 %tobool762.not, label %out, label %if.end764
+  br i1 %tobool762.not, label %out.loopexit1050, label %if.end764
 
 if.end764:                                        ; preds = %land.lhs.true757, %if.end754
   %call765 = call i32 @SSL_get_conn_close_info(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %cc_info, i64 noundef 40) #14
@@ -3010,13 +3010,13 @@ s_lock.exit894:                                   ; preds = %s_checked_out_p.exi
   %call816 = call ptr @ossl_quic_tserver_get_terminate_cause(ptr noundef %retval.0.i888) #14
   %call817 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1662, ptr noundef nonnull @.str.119, ptr noundef %call816) #14
   %tobool818.not = icmp eq i32 %call817, 0
-  br i1 %tobool818.not, label %out, label %if.end820
+  br i1 %tobool818.not, label %out.loopexit1050, label %if.end820
 
 if.end820:                                        ; preds = %s_lock.exit894
   %185 = load i64, ptr %call816, align 8
   %call822 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1665, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.120, i64 noundef %167, i64 noundef %185) #14
   %tobool823.not = icmp eq i32 %call822, 0
-  br i1 %tobool823.not, label %out, label %lor.lhs.false824
+  br i1 %tobool823.not, label %out.loopexit1050, label %lor.lhs.false824
 
 lor.lhs.false824:                                 ; preds = %if.end820
   %app = getelementptr inbounds i8, ptr %call816, i64 32
@@ -3025,7 +3025,7 @@ lor.lhs.false824:                                 ; preds = %if.end820
   %bf.cast = zext nneg i8 %bf.clear to i32
   %call825 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1666, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.121, i32 noundef %conv797, i32 noundef %bf.cast) #14
   %tobool826.not = icmp eq i32 %call825, 0
-  br i1 %tobool826.not, label %out, label %lor.lhs.false827
+  br i1 %tobool826.not, label %out.loopexit1050, label %lor.lhs.false827
 
 lor.lhs.false827:                                 ; preds = %lor.lhs.false824
   %bf.load828 = load i8, ptr %app, align 8
@@ -3034,18 +3034,18 @@ lor.lhs.false827:                                 ; preds = %lor.lhs.false824
   %bf.cast830 = zext nneg i8 %bf.clear829 to i32
   %call831 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1667, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.122, i32 noundef %conv802, i32 noundef %bf.cast830) #14
   %tobool832.not = icmp eq i32 %call831, 0
-  br i1 %tobool832.not, label %out, label %for.cond.backedge
+  br i1 %tobool832.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb835:                                         ; preds = %if.end80
   %call836 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1674, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool837.not = icmp eq i32 %call836, 0
-  br i1 %tobool837.not, label %out, label %if.end839
+  br i1 %tobool837.not, label %out.loopexit1050, label %if.end839
 
 if.end839:                                        ; preds = %sw.bb835
   %186 = load ptr, ptr %stream_name, align 8
   %call841 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1677, ptr noundef nonnull @.str.93, ptr noundef %186) #14
   %tobool842.not = icmp eq i32 %call841, 0
-  br i1 %tobool842.not, label %out, label %if.end844
+  br i1 %tobool842.not, label %out.loopexit1050, label %if.end844
 
 if.end844:                                        ; preds = %if.end839
   %187 = load ptr, ptr %stream_name, align 8
@@ -3054,31 +3054,31 @@ if.end844:                                        ; preds = %if.end839
   %call847 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %187, i64 noundef %188)
   %call850 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1680, ptr noundef nonnull @.str.123, i32 noundef %call847) #14
   %tobool851.not = icmp eq i32 %call850, 0
-  br i1 %tobool851.not, label %out, label %for.cond.backedge
+  br i1 %tobool851.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb854:                                         ; preds = %if.end80
   %call855 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1687, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool856.not = icmp eq i32 %call855, 0
-  br i1 %tobool856.not, label %out, label %if.end858
+  br i1 %tobool856.not, label %out.loopexit1050, label %if.end858
 
 if.end858:                                        ; preds = %sw.bb854
   %189 = load ptr, ptr %stream_name, align 8
   %call860 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1690, ptr noundef nonnull @.str.93, ptr noundef %189) #14
   %tobool861.not = icmp eq i32 %call860, 0
-  br i1 %tobool861.not, label %out, label %if.end863
+  br i1 %tobool861.not, label %out.loopexit1050, label %if.end863
 
 if.end863:                                        ; preds = %if.end858
   %190 = load ptr, ptr %stream_name, align 8
   %call865 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %190, i64 noundef -1)
   %call868 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1693, ptr noundef nonnull @.str.124, i32 noundef %call865) #14
   %tobool869.not = icmp eq i32 %call868, 0
-  br i1 %tobool869.not, label %out, label %for.cond.backedge
+  br i1 %tobool869.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb872:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written873, align 8
   %call875 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1703, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool876.not = icmp eq i32 %call875, 0
-  br i1 %tobool876.not, label %out, label %if.end878
+  br i1 %tobool876.not, label %out.loopexit1050, label %if.end878
 
 if.end878:                                        ; preds = %sw.bb872
   %call879 = call i32 @SSL_write_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull @.str.125, i64 noundef 5, ptr noundef nonnull %bytes_written873) #14
@@ -3086,18 +3086,18 @@ if.end878:                                        ; preds = %sw.bb872
   %conv881 = zext i1 %cmp880 to i32
   %call882 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1707, ptr noundef nonnull @.str.78, i32 noundef %conv881) #14
   %tobool883.not = icmp eq i32 %call882, 0
-  br i1 %tobool883.not, label %out, label %lor.lhs.false884
+  br i1 %tobool883.not, label %out.loopexit1050, label %lor.lhs.false884
 
 lor.lhs.false884:                                 ; preds = %if.end878
   %call885 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call879)
   %tobool886.not = icmp eq i32 %call885, 0
-  br i1 %tobool886.not, label %out, label %for.cond.backedge
+  br i1 %tobool886.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb889:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written890, align 8
   %call891 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1717, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool892.not = icmp eq i32 %call891, 0
-  br i1 %tobool892.not, label %out, label %if.end894
+  br i1 %tobool892.not, label %out.loopexit1050, label %if.end894
 
 if.end894:                                        ; preds = %sw.bb889
   %hl_.val430 = load i32, ptr %thread_idx2.i, align 8
@@ -3135,13 +3135,13 @@ s_lock.exit915:                                   ; preds = %s_checked_out_p.exi
   %conv898 = zext i1 %cmp897 to i32
   %call899 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1722, ptr noundef nonnull @.str.126, i32 noundef %conv898) #14
   %tobool900.not = icmp eq i32 %call899, 0
-  br i1 %tobool900.not, label %out, label %for.cond.backedge
+  br i1 %tobool900.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb903:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read904, align 8
   %call907 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1733, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool908.not = icmp eq i32 %call907, 0
-  br i1 %tobool908.not, label %out, label %if.end910
+  br i1 %tobool908.not, label %out.loopexit1050, label %if.end910
 
 if.end910:                                        ; preds = %sw.bb903
   %call912 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf905, i64 noundef 1, ptr noundef nonnull %bytes_read904) #14
@@ -3149,18 +3149,18 @@ if.end910:                                        ; preds = %sw.bb903
   %conv914 = zext i1 %cmp913 to i32
   %call915 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1737, ptr noundef nonnull @.str.78, i32 noundef %conv914) #14
   %tobool916.not = icmp eq i32 %call915, 0
-  br i1 %tobool916.not, label %out, label %if.end918
+  br i1 %tobool916.not, label %out.loopexit1050, label %if.end918
 
 if.end918:                                        ; preds = %if.end910
   %call919 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call912)
   %tobool920.not = icmp eq i32 %call919, 0
-  br i1 %tobool920.not, label %out, label %for.cond.backedge
+  br i1 %tobool920.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb923:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read924, align 8
   %call927 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1750, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool928.not = icmp eq i32 %call927, 0
-  br i1 %tobool928.not, label %out, label %if.end930
+  br i1 %tobool928.not, label %out.loopexit1050, label %if.end930
 
 if.end930:                                        ; preds = %sw.bb923
   %call932 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf925, i64 noundef 1, ptr noundef nonnull %bytes_read924) #14
@@ -3168,12 +3168,12 @@ if.end930:                                        ; preds = %sw.bb923
   %conv934 = zext i1 %cmp933 to i32
   %call935 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1754, ptr noundef nonnull @.str.78, i32 noundef %conv934) #14
   %tobool936.not = icmp eq i32 %call935, 0
-  br i1 %tobool936.not, label %out, label %if.end938
+  br i1 %tobool936.not, label %out.loopexit1050, label %if.end938
 
 if.end938:                                        ; preds = %if.end930
   %call939 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call932)
   %tobool940.not = icmp eq i32 %call939, 0
-  br i1 %tobool940.not, label %out, label %if.end942
+  br i1 %tobool940.not, label %out.loopexit1050, label %if.end942
 
 if.end942:                                        ; preds = %if.end938
   %call.i916 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101510311039, i32 noundef 0) #14
@@ -3194,7 +3194,7 @@ sw.bb951:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read952, align 8
   %call954 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1769, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
   %tobool955.not = icmp eq i32 %call954, 0
-  br i1 %tobool955.not, label %out, label %if.end957
+  br i1 %tobool955.not, label %out.loopexit1050, label %if.end957
 
 if.end957:                                        ; preds = %sw.bb951
   %hl_.val431 = load i32, ptr %thread_idx2.i, align 8
@@ -3232,13 +3232,13 @@ s_lock.exit938:                                   ; preds = %s_checked_out_p.exi
   %conv962 = zext i1 %cmp961 to i32
   %call963 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1774, ptr noundef nonnull @.str.127, i32 noundef %conv962) #14
   %tobool964.not = icmp eq i32 %call963, 0
-  br i1 %tobool964.not, label %out, label %for.cond.backedge
+  br i1 %tobool964.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb967:                                         ; preds = %if.end80
   store i64 0, ptr %args968, align 8
   %call969 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1783, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool970.not = icmp eq i32 %call969, 0
-  br i1 %tobool970.not, label %out, label %if.end972
+  br i1 %tobool970.not, label %out.loopexit1050, label %if.end972
 
 if.end972:                                        ; preds = %sw.bb967
   %arg2973 = getelementptr inbounds i8, ptr %arrayidx, i64 40
@@ -3249,7 +3249,7 @@ if.end972:                                        ; preds = %sw.bb967
   %conv976 = zext i1 %cmp975 to i32
   %call977 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1788, ptr noundef nonnull @.str.128, i32 noundef %conv976) #14
   %tobool978.not = icmp eq i32 %call977, 0
-  br i1 %tobool978.not, label %out, label %for.cond.backedge
+  br i1 %tobool978.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb981:                                         ; preds = %if.end80
   %202 = load ptr, ptr %threads.i.i, align 8
@@ -3269,7 +3269,7 @@ if.end987:                                        ; preds = %sw.bb981
   store ptr %call989, ptr %threads.i.i, align 8
   %call992 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1812, ptr noundef nonnull @.str.129, ptr noundef %call989) #14
   %tobool993.not = icmp eq i32 %call992, 0
-  br i1 %tobool993.not, label %out, label %if.end995
+  br i1 %tobool993.not, label %out.loopexit1050, label %if.end995
 
 if.end995:                                        ; preds = %if.end987
   %204 = load i64, ptr %arg1988, align 8
@@ -3341,13 +3341,13 @@ sw.bb1046:                                        ; preds = %if.end80
   %219 = load i64, ptr %arg11049, align 8
   %call1050 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1846, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.68, i64 noundef %conv1048, i64 noundef %219) #14
   %tobool1051.not = icmp eq i32 %call1050, 0
-  br i1 %tobool1051.not, label %out, label %if.end1053
+  br i1 %tobool1051.not, label %out.loopexit1050, label %if.end1053
 
 if.end1053:                                       ; preds = %sw.bb1046
   %call1054 = call i32 @SSL_want(ptr noundef %c_tgt.0101510311039) #14
   %call1055 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1848, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, i32 noundef %call1054, i32 noundef 1) #14
   %tobool1056.not = icmp eq i32 %call1055, 0
-  br i1 %tobool1056.not, label %out, label %for.cond.backedge
+  br i1 %tobool1056.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb1059:                                        ; preds = %if.end80
   %call1060 = call i64 @ERR_get_error() #14
@@ -3359,7 +3359,7 @@ sw.bb1059:                                        ; preds = %if.end80
   %220 = load i64, ptr %arg11063, align 8
   %call1064 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1855, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.68, i64 noundef %retval.0.i942, i64 noundef %220) #14
   %tobool1065.not = icmp eq i32 %call1064, 0
-  br i1 %tobool1065.not, label %out, label %for.cond.backedge
+  br i1 %tobool1065.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb1068:                                        ; preds = %if.end80
   %call1069 = call i64 @ERR_get_error() #14
@@ -3372,7 +3372,7 @@ sw.bb1068:                                        ; preds = %if.end80
   %223 = load i64, ptr %arg11072, align 8
   %call1073 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1862, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.68, i64 noundef %conv1071, i64 noundef %223) #14
   %tobool1074.not = icmp eq i32 %call1073, 0
-  br i1 %tobool1074.not, label %out, label %for.cond.backedge
+  br i1 %tobool1074.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb1077:                                        ; preds = %if.end80
   %arg21078 = getelementptr inbounds i8, ptr %arrayidx, i64 40
@@ -3392,7 +3392,7 @@ sw.bb1079:                                        ; preds = %if.end80
   %conv1086 = zext i1 %cmp1085 to i32
   %call1087 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1879, ptr noundef nonnull @.str.136, i32 noundef %conv1086) #14
   %tobool1088.not = icmp eq i32 %call1087, 0
-  br i1 %tobool1088.not, label %out, label %for.cond.backedge
+  br i1 %tobool1088.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb1091:                                        ; preds = %if.end80
   %qtf_handshake_cb = getelementptr inbounds i8, ptr %arrayidx, i64 56
@@ -3406,7 +3406,7 @@ sw.bb1091:                                        ; preds = %if.end80
   %conv1100 = zext i1 %cmp1099 to i32
   %call1101 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1890, ptr noundef nonnull @.str.137, i32 noundef %conv1100) #14
   %tobool1102.not = icmp eq i32 %call1101, 0
-  br i1 %tobool1102.not, label %out, label %for.cond.backedge
+  br i1 %tobool1102.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb1105:                                        ; preds = %if.end80
   %qtf_datagram_cb = getelementptr inbounds i8, ptr %arrayidx, i64 64
@@ -3420,7 +3420,7 @@ sw.bb1105:                                        ; preds = %if.end80
   %conv1114 = zext i1 %cmp1113 to i32
   %call1115 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1901, ptr noundef nonnull @.str.138, i32 noundef %conv1114) #14
   %tobool1116.not = icmp eq i32 %call1115, 0
-  br i1 %tobool1116.not, label %out, label %for.cond.backedge
+  br i1 %tobool1116.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb1119:                                        ; preds = %if.end80
   %hl_.val432 = load i32, ptr %thread_idx2.i, align 8
@@ -3472,7 +3472,7 @@ sw.bb1123:                                        ; preds = %if.end80
 sw.bb1129:                                        ; preds = %if.end80
   %call1130 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1925, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
   %tobool1131.not = icmp eq i32 %call1130, 0
-  br i1 %tobool1131.not, label %out, label %if.end1133
+  br i1 %tobool1131.not, label %out.loopexit1050, label %if.end1133
 
 if.end1133:                                       ; preds = %sw.bb1129
   %arg11134 = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -3482,7 +3482,7 @@ if.end1133:                                       ; preds = %sw.bb1129
   %conv1137 = zext i1 %cmp1136 to i32
   %call1138 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1928, ptr noundef nonnull @.str.139, i32 noundef %conv1137) #14
   %tobool1139.not = icmp eq i32 %call1138, 0
-  br i1 %tobool1139.not, label %out, label %for.cond.backedge
+  br i1 %tobool1139.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.bb1142:                                        ; preds = %if.end80
   %hl_.val433 = load i32, ptr %thread_idx2.i, align 8
@@ -3520,18 +3520,22 @@ s_lock.exit987:                                   ; preds = %s_checked_out_p.exi
   %conv1146 = zext i1 %cmp1145 to i32
   %call1147 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1934, ptr noundef nonnull @.str.140, i32 noundef %conv1146) #14
   %tobool1148.not = icmp eq i32 %call1147, 0
-  br i1 %tobool1148.not, label %out, label %for.cond.backedge
+  br i1 %tobool1148.not, label %out.loopexit1050, label %for.cond.backedge
 
 sw.default1151:                                   ; preds = %if.end80
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 1939, ptr noundef nonnull @.str.141) #14
   br label %out
 
-out:                                              ; preds = %s_lock.exit987, %if.end1133, %sw.bb1129, %sw.bb1105, %sw.bb1091, %sw.bb1079, %sw.bb1068, %sw.bb1059, %if.end1053, %sw.bb1046, %if.end987, %if.end972, %sw.bb967, %s_lock.exit938, %sw.bb951, %if.end938, %if.end930, %sw.bb923, %if.end918, %if.end910, %sw.bb903, %s_lock.exit915, %sw.bb889, %if.end878, %lor.lhs.false884, %sw.bb872, %if.end863, %if.end858, %sw.bb854, %if.end844, %if.end839, %sw.bb835, %if.end820, %lor.lhs.false824, %lor.lhs.false827, %s_lock.exit894, %land.lhs.true757, %sw.bb741, %if.end721, %sw.bb714, %if.end704, %sw.bb700, %if.end690, %sw.bb686, %helper_local_set_c_stream.exit789, %if.end672, %sw.bb661, %lor.lhs.false664, %if.end644, %if.end630, %sw.bb626, %helper_local_set_c_stream.exit725, %if.end602, %sw.bb597, %if.end588, %land.lhs.true583, %s_lock.exit703, %if.end563, %sw.bb559, %helper_local_set_c_stream.exit682, %land.lhs.true544, %if.then532, %land.lhs.true523, %if.end514, %sw.bb505, %helper_local_set_c_stream.exit659, %if.end488, %if.end483, %sw.bb479, %helper_local_set_c_stream.exit, %if.end464, %if.end459, %sw.bb455, %sw.bb442, %if.end436, %if.end431, %sw.bb406, %lor.lhs.false414, %lor.lhs.false419, %land.lhs.true398, %s_lock.exit552, %land.lhs.true367, %sw.bb355, %land.lhs.true347, %if.end317, %land.lhs.true311, %sw.bb286, %sw.bb279, %sw.bb271, %s_lock.exit510, %lor.lhs.false265, %sw.bb251, %if.end234, %lor.lhs.false242, %lor.lhs.false245, %sw.bb230, %land.lhs.true224, %sw.bb199, %if.end186, %sw.bb176, %lor.lhs.false180, %if.end169, %sw.bb141, %if.end123, %sw.bb119, %if.end1027, %for.body1002, %sw.bb82, %helper_local_init.exit, %sw.default1151, %if.then986, %if.then948, %if.then790, %if.then770, %if.then734, %if.then659, %if.then615, %if.then429, %if.then341, %if.then330, %if.then299, %if.then218, %if.end118, %sw.default, %if.then28
-  %repeat_stack_len.0 = phi i64 [ %repeat_stack_len.1, %sw.default ], [ %repeat_stack_len.1, %sw.default1151 ], [ %repeat_stack_len.1, %if.then986 ], [ %repeat_stack_len.1, %if.then948 ], [ %repeat_stack_len.1, %if.then790 ], [ %repeat_stack_len.1, %if.then770 ], [ %repeat_stack_len.1, %if.then734 ], [ %repeat_stack_len.1, %if.then659 ], [ %repeat_stack_len.1, %if.then615 ], [ %repeat_stack_len.1, %if.then429 ], [ %repeat_stack_len.1, %if.then341 ], [ %repeat_stack_len.1, %if.then330 ], [ %repeat_stack_len.1, %if.then299 ], [ %repeat_stack_len.1, %if.then218 ], [ %repeat_stack_len.1, %if.end118 ], [ %repeat_stack_len.1, %sw.bb82 ], [ %repeat_stack_len.1, %if.then28 ], [ 0, %helper_local_init.exit ], [ %repeat_stack_len.1, %for.body1002 ], [ %repeat_stack_len.1, %if.end1027 ], [ %repeat_stack_len.1, %sw.bb119 ], [ %repeat_stack_len.1, %if.end123 ], [ %repeat_stack_len.1, %sw.bb141 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %lor.lhs.false180 ], [ %repeat_stack_len.1, %sw.bb176 ], [ %repeat_stack_len.1, %if.end186 ], [ %repeat_stack_len.1, %sw.bb199 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %sw.bb230 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %lor.lhs.false242 ], [ %repeat_stack_len.1, %if.end234 ], [ %repeat_stack_len.1, %sw.bb251 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %s_lock.exit510 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %sw.bb279 ], [ %repeat_stack_len.1, %sw.bb286 ], [ %repeat_stack_len.1, %land.lhs.true311 ], [ %repeat_stack_len.1, %if.end317 ], [ %repeat_stack_len.1, %land.lhs.true347 ], [ %repeat_stack_len.1, %sw.bb355 ], [ %repeat_stack_len.1, %land.lhs.true367 ], [ %repeat_stack_len.1, %s_lock.exit552 ], [ %repeat_stack_len.1, %land.lhs.true398 ], [ %repeat_stack_len.1, %lor.lhs.false419 ], [ %repeat_stack_len.1, %lor.lhs.false414 ], [ %repeat_stack_len.1, %sw.bb406 ], [ %repeat_stack_len.1, %if.end431 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %sw.bb442 ], [ %repeat_stack_len.1, %sw.bb455 ], [ %repeat_stack_len.1, %if.end459 ], [ %repeat_stack_len.1, %if.end464 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit ], [ %repeat_stack_len.1, %sw.bb479 ], [ %repeat_stack_len.1, %if.end483 ], [ %repeat_stack_len.1, %if.end488 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit659 ], [ %repeat_stack_len.1, %sw.bb505 ], [ %repeat_stack_len.1, %if.end514 ], [ %repeat_stack_len.1, %land.lhs.true523 ], [ %repeat_stack_len.1, %if.then532 ], [ %repeat_stack_len.1, %land.lhs.true544 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit682 ], [ %repeat_stack_len.1, %sw.bb559 ], [ %repeat_stack_len.1, %if.end563 ], [ %repeat_stack_len.1, %s_lock.exit703 ], [ %repeat_stack_len.1, %land.lhs.true583 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %sw.bb597 ], [ %repeat_stack_len.1, %if.end602 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit725 ], [ %repeat_stack_len.1, %sw.bb626 ], [ %repeat_stack_len.1, %if.end630 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %lor.lhs.false664 ], [ %repeat_stack_len.1, %sw.bb661 ], [ %repeat_stack_len.1, %if.end672 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit789 ], [ %repeat_stack_len.1, %sw.bb686 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %sw.bb700 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %sw.bb714 ], [ %repeat_stack_len.1, %if.end721 ], [ %repeat_stack_len.1, %sw.bb741 ], [ %repeat_stack_len.1, %land.lhs.true757 ], [ %repeat_stack_len.1, %s_lock.exit894 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false824 ], [ %repeat_stack_len.1, %if.end820 ], [ %repeat_stack_len.1, %sw.bb835 ], [ %repeat_stack_len.1, %if.end839 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %sw.bb854 ], [ %repeat_stack_len.1, %if.end858 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %sw.bb872 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end878 ], [ %repeat_stack_len.1, %sw.bb889 ], [ %repeat_stack_len.1, %s_lock.exit915 ], [ %repeat_stack_len.1, %sw.bb903 ], [ %repeat_stack_len.1, %if.end910 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %sw.bb923 ], [ %repeat_stack_len.1, %if.end930 ], [ %repeat_stack_len.1, %if.end938 ], [ %repeat_stack_len.1, %sw.bb951 ], [ %repeat_stack_len.1, %s_lock.exit938 ], [ %repeat_stack_len.1, %sw.bb967 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %if.end987 ], [ %repeat_stack_len.1, %sw.bb1046 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1129 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %s_lock.exit987 ]
-  %op_idx.0 = phi i64 [ %op_idx.2, %sw.default ], [ %op_idx.2, %sw.default1151 ], [ %op_idx.2, %if.then986 ], [ %op_idx.2, %if.then948 ], [ %op_idx.2, %if.then790 ], [ %op_idx.2, %if.then770 ], [ %op_idx.2, %if.then734 ], [ %op_idx.2, %if.then659 ], [ %op_idx.2, %if.then615 ], [ %op_idx.2, %if.then429 ], [ %op_idx.2, %if.then341 ], [ %op_idx.2, %if.then330 ], [ %op_idx.2, %if.then299 ], [ %op_idx.2, %if.then218 ], [ %op_idx.2, %if.end118 ], [ %op_idx.2, %sw.bb82 ], [ %op_idx.2, %if.then28 ], [ 0, %helper_local_init.exit ], [ %op_idx.2, %for.body1002 ], [ %op_idx.2, %if.end1027 ], [ %op_idx.2, %sw.bb119 ], [ %op_idx.2, %if.end123 ], [ %op_idx.2, %sw.bb141 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %lor.lhs.false180 ], [ %op_idx.2, %sw.bb176 ], [ %op_idx.2, %if.end186 ], [ %op_idx.2, %sw.bb199 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %sw.bb230 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %lor.lhs.false242 ], [ %op_idx.2, %if.end234 ], [ %op_idx.2, %sw.bb251 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %s_lock.exit510 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %sw.bb279 ], [ %op_idx.2, %sw.bb286 ], [ %op_idx.2, %land.lhs.true311 ], [ %op_idx.2, %if.end317 ], [ %op_idx.2, %land.lhs.true347 ], [ %op_idx.2, %sw.bb355 ], [ %op_idx.2, %land.lhs.true367 ], [ %op_idx.2, %s_lock.exit552 ], [ %op_idx.2, %land.lhs.true398 ], [ %op_idx.2, %lor.lhs.false419 ], [ %op_idx.2, %lor.lhs.false414 ], [ %op_idx.2, %sw.bb406 ], [ %op_idx.2, %if.end431 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %sw.bb442 ], [ %op_idx.2, %sw.bb455 ], [ %op_idx.2, %if.end459 ], [ %op_idx.2, %if.end464 ], [ %op_idx.2, %helper_local_set_c_stream.exit ], [ %op_idx.2, %sw.bb479 ], [ %op_idx.2, %if.end483 ], [ %op_idx.2, %if.end488 ], [ %op_idx.2, %helper_local_set_c_stream.exit659 ], [ %op_idx.2, %sw.bb505 ], [ %op_idx.2, %if.end514 ], [ %op_idx.2, %land.lhs.true523 ], [ %op_idx.2, %if.then532 ], [ %op_idx.2, %land.lhs.true544 ], [ %op_idx.2, %helper_local_set_c_stream.exit682 ], [ %op_idx.2, %sw.bb559 ], [ %op_idx.2, %if.end563 ], [ %op_idx.2, %s_lock.exit703 ], [ %op_idx.2, %land.lhs.true583 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %sw.bb597 ], [ %op_idx.2, %if.end602 ], [ %op_idx.2, %helper_local_set_c_stream.exit725 ], [ %op_idx.2, %sw.bb626 ], [ %op_idx.2, %if.end630 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %lor.lhs.false664 ], [ %op_idx.2, %sw.bb661 ], [ %op_idx.2, %if.end672 ], [ %op_idx.2, %helper_local_set_c_stream.exit789 ], [ %op_idx.2, %sw.bb686 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %sw.bb700 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %sw.bb714 ], [ %op_idx.2, %if.end721 ], [ %op_idx.2, %sw.bb741 ], [ %op_idx.2, %land.lhs.true757 ], [ %op_idx.2, %s_lock.exit894 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false824 ], [ %op_idx.2, %if.end820 ], [ %op_idx.2, %sw.bb835 ], [ %op_idx.2, %if.end839 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %sw.bb854 ], [ %op_idx.2, %if.end858 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %sw.bb872 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end878 ], [ %op_idx.2, %sw.bb889 ], [ %op_idx.2, %s_lock.exit915 ], [ %op_idx.2, %sw.bb903 ], [ %op_idx.2, %if.end910 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %sw.bb923 ], [ %op_idx.2, %if.end930 ], [ %op_idx.2, %if.end938 ], [ %op_idx.2, %sw.bb951 ], [ %op_idx.2, %s_lock.exit938 ], [ %op_idx.2, %sw.bb967 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %if.end987 ], [ %op_idx.2, %sw.bb1046 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1129 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %s_lock.exit987 ]
-  %tmp_buf.0 = phi ptr [ %tmp_buf.1, %sw.default ], [ %tmp_buf.1, %sw.default1151 ], [ %tmp_buf.1, %if.then986 ], [ %tmp_buf.1, %if.then948 ], [ %tmp_buf.1, %if.then790 ], [ %tmp_buf.1, %if.then770 ], [ %tmp_buf.1, %if.then734 ], [ %tmp_buf.1, %if.then659 ], [ %tmp_buf.1, %if.then615 ], [ %tmp_buf.1, %if.then429 ], [ %tmp_buf.3, %if.then341 ], [ %tmp_buf.3, %if.then330 ], [ %tmp_buf.1, %if.then299 ], [ %tmp_buf.1, %if.then218 ], [ %tmp_buf.1, %if.end118 ], [ %tmp_buf.1, %sw.bb82 ], [ %tmp_buf.1, %if.then28 ], [ null, %helper_local_init.exit ], [ %tmp_buf.1, %for.body1002 ], [ %tmp_buf.1, %if.end1027 ], [ %tmp_buf.1, %s_lock.exit987 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1129 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1046 ], [ %tmp_buf.1, %if.end987 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %sw.bb967 ], [ %tmp_buf.1, %s_lock.exit938 ], [ %tmp_buf.1, %sw.bb951 ], [ %tmp_buf.1, %if.end938 ], [ %tmp_buf.1, %if.end930 ], [ %tmp_buf.1, %sw.bb923 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %if.end910 ], [ %tmp_buf.1, %sw.bb903 ], [ %tmp_buf.1, %s_lock.exit915 ], [ %tmp_buf.1, %sw.bb889 ], [ %tmp_buf.1, %if.end878 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %sw.bb872 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end858 ], [ %tmp_buf.1, %sw.bb854 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %if.end839 ], [ %tmp_buf.1, %sw.bb835 ], [ %tmp_buf.1, %if.end820 ], [ %tmp_buf.1, %lor.lhs.false824 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %s_lock.exit894 ], [ %tmp_buf.1, %land.lhs.true757 ], [ %tmp_buf.1, %sw.bb741 ], [ %tmp_buf.1, %if.end721 ], [ %tmp_buf.1, %sw.bb714 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %sw.bb700 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %sw.bb686 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit789 ], [ %tmp_buf.1, %if.end672 ], [ %tmp_buf.1, %sw.bb661 ], [ %tmp_buf.1, %lor.lhs.false664 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %if.end630 ], [ %tmp_buf.1, %sw.bb626 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit725 ], [ %tmp_buf.1, %if.end602 ], [ %tmp_buf.1, %sw.bb597 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %land.lhs.true583 ], [ %tmp_buf.1, %s_lock.exit703 ], [ %tmp_buf.1, %if.end563 ], [ %tmp_buf.1, %sw.bb559 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit682 ], [ %tmp_buf.1, %land.lhs.true544 ], [ %tmp_buf.1, %if.then532 ], [ %tmp_buf.1, %land.lhs.true523 ], [ %tmp_buf.1, %if.end514 ], [ %tmp_buf.1, %sw.bb505 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit659 ], [ %tmp_buf.1, %if.end488 ], [ %tmp_buf.1, %if.end483 ], [ %tmp_buf.1, %sw.bb479 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %if.end464 ], [ %tmp_buf.1, %if.end459 ], [ %tmp_buf.1, %sw.bb455 ], [ %tmp_buf.1, %sw.bb442 ], [ %tmp_buf.1, %if.end436 ], [ %tmp_buf.1, %if.end431 ], [ %tmp_buf.1, %sw.bb406 ], [ %tmp_buf.1, %lor.lhs.false414 ], [ %tmp_buf.1, %lor.lhs.false419 ], [ %tmp_buf.4, %land.lhs.true398 ], [ %tmp_buf.4, %s_lock.exit552 ], [ %call369, %land.lhs.true367 ], [ %tmp_buf.1, %sw.bb355 ], [ %tmp_buf.3, %land.lhs.true347 ], [ %tmp_buf.3, %if.end317 ], [ %call313, %land.lhs.true311 ], [ %tmp_buf.1, %sw.bb286 ], [ %tmp_buf.1, %sw.bb279 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %s_lock.exit510 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %sw.bb251 ], [ %tmp_buf.1, %if.end234 ], [ %tmp_buf.1, %lor.lhs.false242 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %sw.bb230 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %sw.bb199 ], [ %call182, %if.end186 ], [ %tmp_buf.1, %sw.bb176 ], [ %call182, %lor.lhs.false180 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb141 ], [ %tmp_buf.1, %if.end123 ], [ %tmp_buf.1, %sw.bb119 ]
-  %tobool1153.not = phi i1 [ true, %sw.default ], [ true, %sw.default1151 ], [ true, %if.then986 ], [ true, %if.then948 ], [ true, %if.then790 ], [ true, %if.then770 ], [ true, %if.then734 ], [ true, %if.then659 ], [ true, %if.then615 ], [ true, %if.then429 ], [ true, %if.then341 ], [ true, %if.then330 ], [ true, %if.then299 ], [ true, %if.then218 ], [ false, %if.end118 ], [ true, %sw.bb82 ], [ true, %if.then28 ], [ true, %helper_local_init.exit ], [ true, %for.body1002 ], [ true, %if.end1027 ], [ true, %sw.bb119 ], [ true, %if.end123 ], [ true, %sw.bb141 ], [ true, %if.end169 ], [ true, %lor.lhs.false180 ], [ true, %sw.bb176 ], [ true, %if.end186 ], [ true, %sw.bb199 ], [ true, %land.lhs.true224 ], [ true, %sw.bb230 ], [ true, %lor.lhs.false245 ], [ true, %lor.lhs.false242 ], [ true, %if.end234 ], [ true, %sw.bb251 ], [ true, %lor.lhs.false265 ], [ true, %s_lock.exit510 ], [ true, %sw.bb271 ], [ true, %sw.bb279 ], [ true, %sw.bb286 ], [ true, %land.lhs.true311 ], [ true, %if.end317 ], [ true, %land.lhs.true347 ], [ true, %sw.bb355 ], [ true, %land.lhs.true367 ], [ true, %s_lock.exit552 ], [ true, %land.lhs.true398 ], [ true, %lor.lhs.false419 ], [ true, %lor.lhs.false414 ], [ true, %sw.bb406 ], [ true, %if.end431 ], [ true, %if.end436 ], [ true, %sw.bb442 ], [ true, %sw.bb455 ], [ true, %if.end459 ], [ true, %if.end464 ], [ true, %helper_local_set_c_stream.exit ], [ true, %sw.bb479 ], [ true, %if.end483 ], [ true, %if.end488 ], [ true, %helper_local_set_c_stream.exit659 ], [ true, %sw.bb505 ], [ true, %if.end514 ], [ true, %land.lhs.true523 ], [ true, %if.then532 ], [ true, %land.lhs.true544 ], [ true, %helper_local_set_c_stream.exit682 ], [ true, %sw.bb559 ], [ true, %if.end563 ], [ true, %s_lock.exit703 ], [ true, %land.lhs.true583 ], [ true, %if.end588 ], [ true, %sw.bb597 ], [ true, %if.end602 ], [ true, %helper_local_set_c_stream.exit725 ], [ true, %sw.bb626 ], [ true, %if.end630 ], [ true, %if.end644 ], [ true, %lor.lhs.false664 ], [ true, %sw.bb661 ], [ true, %if.end672 ], [ true, %helper_local_set_c_stream.exit789 ], [ true, %sw.bb686 ], [ true, %if.end690 ], [ true, %sw.bb700 ], [ true, %if.end704 ], [ true, %sw.bb714 ], [ true, %if.end721 ], [ true, %sw.bb741 ], [ true, %land.lhs.true757 ], [ true, %s_lock.exit894 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false824 ], [ true, %if.end820 ], [ true, %sw.bb835 ], [ true, %if.end839 ], [ true, %if.end844 ], [ true, %sw.bb854 ], [ true, %if.end858 ], [ true, %if.end863 ], [ true, %sw.bb872 ], [ true, %lor.lhs.false884 ], [ true, %if.end878 ], [ true, %sw.bb889 ], [ true, %s_lock.exit915 ], [ true, %sw.bb903 ], [ true, %if.end910 ], [ true, %if.end918 ], [ true, %sw.bb923 ], [ true, %if.end930 ], [ true, %if.end938 ], [ true, %sw.bb951 ], [ true, %s_lock.exit938 ], [ true, %sw.bb967 ], [ true, %if.end972 ], [ true, %if.end987 ], [ true, %sw.bb1046 ], [ true, %if.end1053 ], [ true, %sw.bb1059 ], [ true, %sw.bb1068 ], [ true, %sw.bb1079 ], [ true, %sw.bb1091 ], [ true, %sw.bb1105 ], [ true, %sw.bb1129 ], [ true, %if.end1133 ], [ true, %s_lock.exit987 ]
-  %testresult.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default1151 ], [ 0, %if.then986 ], [ 0, %if.then948 ], [ 0, %if.then790 ], [ 0, %if.then770 ], [ 0, %if.then734 ], [ 0, %if.then659 ], [ 0, %if.then615 ], [ 0, %if.then429 ], [ 0, %if.then341 ], [ 0, %if.then330 ], [ 0, %if.then299 ], [ 0, %if.then218 ], [ 1, %if.end118 ], [ 0, %sw.bb82 ], [ 0, %if.then28 ], [ 0, %helper_local_init.exit ], [ 0, %for.body1002 ], [ 0, %if.end1027 ], [ 0, %sw.bb119 ], [ 0, %if.end123 ], [ 0, %sw.bb141 ], [ 0, %if.end169 ], [ 0, %lor.lhs.false180 ], [ 0, %sw.bb176 ], [ 0, %if.end186 ], [ 0, %sw.bb199 ], [ 0, %land.lhs.true224 ], [ 0, %sw.bb230 ], [ 0, %lor.lhs.false245 ], [ 0, %lor.lhs.false242 ], [ 0, %if.end234 ], [ 0, %sw.bb251 ], [ 0, %lor.lhs.false265 ], [ 0, %s_lock.exit510 ], [ 0, %sw.bb271 ], [ 0, %sw.bb279 ], [ 0, %sw.bb286 ], [ 0, %land.lhs.true311 ], [ 0, %if.end317 ], [ 0, %land.lhs.true347 ], [ 0, %sw.bb355 ], [ 0, %land.lhs.true367 ], [ 0, %s_lock.exit552 ], [ 0, %land.lhs.true398 ], [ 0, %lor.lhs.false419 ], [ 0, %lor.lhs.false414 ], [ 0, %sw.bb406 ], [ 0, %if.end431 ], [ 0, %if.end436 ], [ 0, %sw.bb442 ], [ 0, %sw.bb455 ], [ 0, %if.end459 ], [ 0, %if.end464 ], [ 0, %helper_local_set_c_stream.exit ], [ 0, %sw.bb479 ], [ 0, %if.end483 ], [ 0, %if.end488 ], [ 0, %helper_local_set_c_stream.exit659 ], [ 0, %sw.bb505 ], [ 0, %if.end514 ], [ 0, %land.lhs.true523 ], [ 0, %if.then532 ], [ 0, %land.lhs.true544 ], [ 0, %helper_local_set_c_stream.exit682 ], [ 0, %sw.bb559 ], [ 0, %if.end563 ], [ 0, %s_lock.exit703 ], [ 0, %land.lhs.true583 ], [ 0, %if.end588 ], [ 0, %sw.bb597 ], [ 0, %if.end602 ], [ 0, %helper_local_set_c_stream.exit725 ], [ 0, %sw.bb626 ], [ 0, %if.end630 ], [ 0, %if.end644 ], [ 0, %lor.lhs.false664 ], [ 0, %sw.bb661 ], [ 0, %if.end672 ], [ 0, %helper_local_set_c_stream.exit789 ], [ 0, %sw.bb686 ], [ 0, %if.end690 ], [ 0, %sw.bb700 ], [ 0, %if.end704 ], [ 0, %sw.bb714 ], [ 0, %if.end721 ], [ 0, %sw.bb741 ], [ 0, %land.lhs.true757 ], [ 0, %s_lock.exit894 ], [ 0, %lor.lhs.false827 ], [ 0, %lor.lhs.false824 ], [ 0, %if.end820 ], [ 0, %sw.bb835 ], [ 0, %if.end839 ], [ 0, %if.end844 ], [ 0, %sw.bb854 ], [ 0, %if.end858 ], [ 0, %if.end863 ], [ 0, %sw.bb872 ], [ 0, %lor.lhs.false884 ], [ 0, %if.end878 ], [ 0, %sw.bb889 ], [ 0, %s_lock.exit915 ], [ 0, %sw.bb903 ], [ 0, %if.end910 ], [ 0, %if.end918 ], [ 0, %sw.bb923 ], [ 0, %if.end930 ], [ 0, %if.end938 ], [ 0, %sw.bb951 ], [ 0, %s_lock.exit938 ], [ 0, %sw.bb967 ], [ 0, %if.end972 ], [ 0, %if.end987 ], [ 0, %sw.bb1046 ], [ 0, %if.end1053 ], [ 0, %sw.bb1059 ], [ 0, %sw.bb1068 ], [ 0, %sw.bb1079 ], [ 0, %sw.bb1091 ], [ 0, %sw.bb1105 ], [ 0, %sw.bb1129 ], [ 0, %if.end1133 ], [ 0, %s_lock.exit987 ]
+out.loopexit1050:                                 ; preds = %sw.bb119, %if.end123, %sw.bb141, %if.end169, %lor.lhs.false180, %sw.bb176, %if.end186, %sw.bb199, %land.lhs.true224, %sw.bb230, %lor.lhs.false245, %lor.lhs.false242, %if.end234, %sw.bb251, %lor.lhs.false265, %s_lock.exit510, %sw.bb271, %sw.bb279, %sw.bb286, %land.lhs.true311, %if.end317, %land.lhs.true347, %sw.bb355, %land.lhs.true367, %s_lock.exit552, %land.lhs.true398, %lor.lhs.false419, %lor.lhs.false414, %sw.bb406, %if.end431, %if.end436, %sw.bb442, %sw.bb455, %if.end459, %if.end464, %helper_local_set_c_stream.exit, %sw.bb479, %if.end483, %if.end488, %helper_local_set_c_stream.exit659, %sw.bb505, %if.end514, %land.lhs.true523, %if.then532, %land.lhs.true544, %helper_local_set_c_stream.exit682, %sw.bb559, %if.end563, %s_lock.exit703, %land.lhs.true583, %if.end588, %sw.bb597, %if.end602, %helper_local_set_c_stream.exit725, %sw.bb626, %if.end630, %if.end644, %lor.lhs.false664, %sw.bb661, %if.end672, %helper_local_set_c_stream.exit789, %sw.bb686, %if.end690, %sw.bb700, %if.end704, %sw.bb714, %if.end721, %sw.bb741, %land.lhs.true757, %s_lock.exit894, %lor.lhs.false827, %lor.lhs.false824, %if.end820, %sw.bb835, %if.end839, %if.end844, %sw.bb854, %if.end858, %if.end863, %sw.bb872, %lor.lhs.false884, %if.end878, %sw.bb889, %s_lock.exit915, %sw.bb903, %if.end910, %if.end918, %sw.bb923, %if.end930, %if.end938, %sw.bb951, %s_lock.exit938, %sw.bb967, %if.end972, %if.end987, %sw.bb1046, %if.end1053, %sw.bb1059, %sw.bb1068, %sw.bb1079, %sw.bb1091, %sw.bb1105, %sw.bb1129, %if.end1133, %s_lock.exit987
+  %tmp_buf.0.ph = phi ptr [ %tmp_buf.1, %sw.bb119 ], [ %tmp_buf.1, %if.end123 ], [ %tmp_buf.1, %sw.bb141 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb176 ], [ %call182, %lor.lhs.false180 ], [ %call182, %if.end186 ], [ %tmp_buf.1, %sw.bb199 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %sw.bb230 ], [ %tmp_buf.1, %if.end234 ], [ %tmp_buf.1, %lor.lhs.false242 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %sw.bb251 ], [ %tmp_buf.1, %s_lock.exit510 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %sw.bb279 ], [ %tmp_buf.1, %sw.bb286 ], [ %call313, %land.lhs.true311 ], [ %tmp_buf.3, %if.end317 ], [ %tmp_buf.3, %land.lhs.true347 ], [ %tmp_buf.1, %sw.bb355 ], [ %call369, %land.lhs.true367 ], [ %tmp_buf.4, %s_lock.exit552 ], [ %tmp_buf.4, %land.lhs.true398 ], [ %tmp_buf.1, %sw.bb406 ], [ %tmp_buf.1, %lor.lhs.false414 ], [ %tmp_buf.1, %lor.lhs.false419 ], [ %tmp_buf.1, %if.end431 ], [ %tmp_buf.1, %if.end436 ], [ %tmp_buf.1, %sw.bb442 ], [ %tmp_buf.1, %sw.bb455 ], [ %tmp_buf.1, %if.end459 ], [ %tmp_buf.1, %if.end464 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %sw.bb479 ], [ %tmp_buf.1, %if.end483 ], [ %tmp_buf.1, %if.end488 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit659 ], [ %tmp_buf.1, %sw.bb505 ], [ %tmp_buf.1, %if.end514 ], [ %tmp_buf.1, %land.lhs.true523 ], [ %tmp_buf.1, %land.lhs.true544 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit682 ], [ %tmp_buf.1, %if.then532 ], [ %tmp_buf.1, %sw.bb559 ], [ %tmp_buf.1, %if.end563 ], [ %tmp_buf.1, %s_lock.exit703 ], [ %tmp_buf.1, %land.lhs.true583 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %sw.bb597 ], [ %tmp_buf.1, %if.end602 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit725 ], [ %tmp_buf.1, %sw.bb626 ], [ %tmp_buf.1, %if.end630 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %sw.bb661 ], [ %tmp_buf.1, %lor.lhs.false664 ], [ %tmp_buf.1, %if.end672 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit789 ], [ %tmp_buf.1, %sw.bb686 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %sw.bb700 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %sw.bb714 ], [ %tmp_buf.1, %if.end721 ], [ %tmp_buf.1, %sw.bb741 ], [ %tmp_buf.1, %land.lhs.true757 ], [ %tmp_buf.1, %s_lock.exit894 ], [ %tmp_buf.1, %if.end820 ], [ %tmp_buf.1, %lor.lhs.false824 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %sw.bb835 ], [ %tmp_buf.1, %if.end839 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %sw.bb854 ], [ %tmp_buf.1, %if.end858 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %sw.bb872 ], [ %tmp_buf.1, %if.end878 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %sw.bb889 ], [ %tmp_buf.1, %s_lock.exit915 ], [ %tmp_buf.1, %sw.bb903 ], [ %tmp_buf.1, %if.end910 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %sw.bb923 ], [ %tmp_buf.1, %if.end930 ], [ %tmp_buf.1, %if.end938 ], [ %tmp_buf.1, %sw.bb951 ], [ %tmp_buf.1, %s_lock.exit938 ], [ %tmp_buf.1, %sw.bb967 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %if.end987 ], [ %tmp_buf.1, %sw.bb1046 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1129 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %s_lock.exit987 ]
+  br label %out
+
+out:                                              ; preds = %if.end1027, %for.body1002, %out.loopexit1050, %sw.bb82, %helper_local_init.exit, %sw.default1151, %if.then986, %if.then948, %if.then790, %if.then770, %if.then734, %if.then659, %if.then615, %if.then429, %if.then341, %if.then330, %if.then299, %if.then218, %if.end118, %sw.default, %if.then28
+  %repeat_stack_len.0 = phi i64 [ %repeat_stack_len.1, %sw.default ], [ %repeat_stack_len.1, %sw.default1151 ], [ %repeat_stack_len.1, %if.then986 ], [ %repeat_stack_len.1, %if.then948 ], [ %repeat_stack_len.1, %if.then790 ], [ %repeat_stack_len.1, %if.then770 ], [ %repeat_stack_len.1, %if.then734 ], [ %repeat_stack_len.1, %if.then659 ], [ %repeat_stack_len.1, %if.then615 ], [ %repeat_stack_len.1, %if.then429 ], [ %repeat_stack_len.1, %if.then341 ], [ %repeat_stack_len.1, %if.then330 ], [ %repeat_stack_len.1, %if.then299 ], [ %repeat_stack_len.1, %if.then218 ], [ %repeat_stack_len.1, %if.end118 ], [ %repeat_stack_len.1, %sw.bb82 ], [ %repeat_stack_len.1, %if.then28 ], [ 0, %helper_local_init.exit ], [ %repeat_stack_len.1, %out.loopexit1050 ], [ %repeat_stack_len.1, %for.body1002 ], [ %repeat_stack_len.1, %if.end1027 ]
+  %op_idx.0 = phi i64 [ %op_idx.2, %sw.default ], [ %op_idx.2, %sw.default1151 ], [ %op_idx.2, %if.then986 ], [ %op_idx.2, %if.then948 ], [ %op_idx.2, %if.then790 ], [ %op_idx.2, %if.then770 ], [ %op_idx.2, %if.then734 ], [ %op_idx.2, %if.then659 ], [ %op_idx.2, %if.then615 ], [ %op_idx.2, %if.then429 ], [ %op_idx.2, %if.then341 ], [ %op_idx.2, %if.then330 ], [ %op_idx.2, %if.then299 ], [ %op_idx.2, %if.then218 ], [ %op_idx.2, %if.end118 ], [ %op_idx.2, %sw.bb82 ], [ %op_idx.2, %if.then28 ], [ 0, %helper_local_init.exit ], [ %op_idx.2, %out.loopexit1050 ], [ %op_idx.2, %for.body1002 ], [ %op_idx.2, %if.end1027 ]
+  %tmp_buf.0 = phi ptr [ %tmp_buf.1, %sw.default ], [ %tmp_buf.1, %sw.default1151 ], [ %tmp_buf.1, %if.then986 ], [ %tmp_buf.1, %if.then948 ], [ %tmp_buf.1, %if.then790 ], [ %tmp_buf.1, %if.then770 ], [ %tmp_buf.1, %if.then734 ], [ %tmp_buf.1, %if.then659 ], [ %tmp_buf.1, %if.then615 ], [ %tmp_buf.1, %if.then429 ], [ %tmp_buf.3, %if.then341 ], [ %tmp_buf.3, %if.then330 ], [ %tmp_buf.1, %if.then299 ], [ %tmp_buf.1, %if.then218 ], [ %tmp_buf.1, %if.end118 ], [ %tmp_buf.1, %sw.bb82 ], [ %tmp_buf.1, %if.then28 ], [ null, %helper_local_init.exit ], [ %tmp_buf.0.ph, %out.loopexit1050 ], [ %tmp_buf.1, %for.body1002 ], [ %tmp_buf.1, %if.end1027 ]
+  %tobool1153.not = phi i1 [ true, %sw.default ], [ true, %sw.default1151 ], [ true, %if.then986 ], [ true, %if.then948 ], [ true, %if.then790 ], [ true, %if.then770 ], [ true, %if.then734 ], [ true, %if.then659 ], [ true, %if.then615 ], [ true, %if.then429 ], [ true, %if.then341 ], [ true, %if.then330 ], [ true, %if.then299 ], [ true, %if.then218 ], [ false, %if.end118 ], [ true, %sw.bb82 ], [ true, %if.then28 ], [ true, %helper_local_init.exit ], [ true, %out.loopexit1050 ], [ true, %for.body1002 ], [ true, %if.end1027 ]
+  %testresult.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default1151 ], [ 0, %if.then986 ], [ 0, %if.then948 ], [ 0, %if.then790 ], [ 0, %if.then770 ], [ 0, %if.then734 ], [ 0, %if.then659 ], [ 0, %if.then615 ], [ 0, %if.then429 ], [ 0, %if.then341 ], [ 0, %if.then330 ], [ 0, %if.then299 ], [ 0, %if.then218 ], [ 1, %if.end118 ], [ 0, %sw.bb82 ], [ 0, %if.then28 ], [ 0, %helper_local_init.exit ], [ 0, %out.loopexit1050 ], [ 0, %for.body1002 ], [ 0, %if.end1027 ]
   %hl_.val411 = load i32, ptr %thread_idx2.i, align 8
   %cmp.i.i988 = icmp slt i32 %hl_.val411, 0
   br i1 %cmp.i.i988, label %cond.true.i.i1001, label %cond.false.i.i989
