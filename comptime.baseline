@@ -8216,7 +8216,7 @@ gromacs/cmdlinemodulemanager.cpp.ll 953129153
 gromacs/cmdlineoptionsmodule.cpp.ll 364820087
 gromacs/cmdlineparser.cpp.ll 364198710
 gromacs/cmdlineprogramcontext.cpp.ll 511258606
-gromacs/cmdlinerunner.cpp.ll 397824897
+gromacs/cmdlinerunner.cpp.ll 398222794
 gromacs/coder.c.ll 430133339
 gromacs/collect.cpp.ll 568781788
 gromacs/collective.cpp.ll 100066156
